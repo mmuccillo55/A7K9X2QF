@@ -13,69 +13,63 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;min-height:100vh;}
-
-/* HEADER */
-header{display:flex;align-items:center;gap:16px;padding:14px 24px;border-bottom:1px solid var(--border);background:var(--panel);position:sticky;top:0;z-index:100;}
+header{display:flex;align-items:center;gap:14px;padding:14px 24px;border-bottom:1px solid var(--border);background:var(--panel);position:sticky;top:0;z-index:100;}
 header h1{font-family:'Share Tech Mono',monospace;font-size:.95rem;color:var(--accent);letter-spacing:2px;flex:1;}
-#backBtn{display:none;align-items:center;gap:8px;background:none;border:1px solid var(--border);color:var(--text-dim);font-family:'Share Tech Mono',monospace;font-size:.72rem;padding:6px 14px;border-radius:4px;cursor:pointer;transition:all .2s;}
+#backBtn{display:none;align-items:center;gap:8px;background:none;border:1px solid var(--border);color:var(--text-dim);font-family:'Share Tech Mono',monospace;font-size:.72rem;padding:6px 14px;border-radius:4px;cursor:pointer;transition:all .2s;white-space:nowrap;}
 #backBtn:hover{border-color:var(--accent);color:var(--accent);}
 #backBtn.visible{display:flex;}
-#breadcrumb{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--text-dim);}
+#breadcrumb{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 #breadcrumb span{color:var(--accent);}
-
-/* LOADING / ERROR */
 .loading{display:flex;align-items:center;justify-content:center;height:300px;font-family:'Share Tech Mono',monospace;color:var(--text-dim);font-size:.8rem;letter-spacing:2px;}
 .error-msg{display:flex;align-items:center;justify-content:center;height:200px;font-family:'Share Tech Mono',monospace;color:#ff4444;font-size:.8rem;text-align:center;padding:20px;flex-direction:column;gap:8px;}
 
-/* ── VISTA RACKS ── */
+/* ── RACKS VIEW ── */
 #racksView{padding:24px;}
-.racks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;}
-.rack-card{background:var(--panel);border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:all .2s;}
-.rack-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,212,255,0.1);}
-.rack-card-header{background:rgba(0,212,255,0.07);border-bottom:1px solid var(--border);padding:8px 12px;display:flex;align-items:center;gap:8px;}
+.racks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;}
+.rack-card{background:var(--panel);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.rack-card-header{background:rgba(0,212,255,0.07);border-bottom:1px solid var(--border);padding:8px 12px;}
 .rack-id{font-family:'Share Tech Mono',monospace;font-size:.8rem;color:var(--accent4);font-weight:bold;}
-.rack-card-body{padding:10px 12px;display:flex;flex-direction:column;gap:6px;}
-.eq-chip{font-size:.72rem;color:var(--text);background:var(--panel2);border:1px solid var(--border);border-radius:4px;padding:4px 8px;cursor:pointer;transition:all .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rack-card-body{padding:8px 10px;display:flex;flex-direction:column;gap:5px;}
+.eq-chip{font-size:.73rem;color:var(--text);background:var(--panel2);border:1px solid var(--border);border-radius:4px;padding:5px 9px;cursor:pointer;transition:all .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .eq-chip:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,212,255,0.06);}
 
-/* ── VISTA EQUIPO ── */
+/* ── EQUIP VIEW ── */
 #equipView{padding:24px;display:none;}
-.equip-title{font-family:'Share Tech Mono',monospace;font-size:1.1rem;color:var(--accent3);margin-bottom:4px;}
-.equip-rack{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--accent4);margin-bottom:20px;}
-
-.conn-section-title{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:3px;color:var(--text-dim);text-transform:uppercase;margin:20px 0 10px;display:flex;align-items:center;gap:10px;}
+.equip-title{font-family:'Share Tech Mono',monospace;font-size:1.05rem;color:var(--accent3);margin-bottom:3px;}
+.equip-rack-label{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--accent4);margin-bottom:22px;}
+.conn-section-title{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:3px;color:var(--text-dim);text-transform:uppercase;margin:18px 0 8px;display:flex;align-items:center;gap:10px;}
 .conn-section-title::after{content:'';flex:1;height:1px;background:var(--border);}
-
-.conn-list{display:flex;flex-direction:column;gap:6px;}
-.conn-row{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:10px 14px;display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;cursor:pointer;transition:all .15s;}
-.conn-row:hover{border-color:var(--accent);background:rgba(0,212,255,0.04);}
-.conn-row.expanded{border-color:var(--accent);background:rgba(0,212,255,0.06);}
-.port-badge{font-family:'Share Tech Mono',monospace;font-size:.67rem;padding:2px 7px;border-radius:3px;font-weight:bold;flex-shrink:0;}
+.conn-list{display:flex;flex-direction:column;gap:5px;}
+.conn-row{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:9px 13px;cursor:pointer;transition:border-color .15s;}
+.conn-row:hover{border-color:rgba(0,212,255,0.4);}
+.conn-row.expanded{border-color:var(--accent);}
+.conn-main{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.port-badge{font-family:'Share Tech Mono',monospace;font-size:.65rem;padding:2px 7px;border-radius:3px;font-weight:bold;flex-shrink:0;}
 .port-in{background:rgba(0,212,255,0.12);color:var(--accent);border:1px solid rgba(0,212,255,0.3);}
 .port-out{background:rgba(255,107,53,0.12);color:var(--accent2);border:1px solid rgba(255,107,53,0.3);}
 .port-aux{background:rgba(168,255,62,0.12);color:var(--accent3);border:1px solid rgba(168,255,62,0.3);}
-.rack-tag{font-family:'Share Tech Mono',monospace;font-size:.65rem;padding:2px 5px;border-radius:3px;background:rgba(255,204,0,0.1);color:var(--accent4);border:1px solid rgba(255,204,0,0.2);}
-.conn-arrow{color:var(--muted);font-size:.9rem;flex-shrink:0;align-self:center;}
-.conn-eq{font-size:.8rem;font-weight:600;color:var(--text);}
-.conn-label{font-size:.68rem;color:var(--accent3);font-family:'Share Tech Mono',monospace;}
-.conn-notes{font-size:.65rem;color:var(--text-dim);font-style:italic;}
+.rack-tag{font-family:'Share Tech Mono',monospace;font-size:.63rem;padding:2px 5px;border-radius:3px;background:rgba(255,204,0,0.1);color:var(--accent4);border:1px solid rgba(255,204,0,0.2);flex-shrink:0;}
+.conn-arrow{color:var(--muted);flex-shrink:0;}
+.conn-eq{font-size:.78rem;font-weight:600;color:var(--text);}
+.conn-label{font-size:.65rem;color:var(--accent3);font-family:'Share Tech Mono',monospace;margin-left:auto;}
+.conn-notes{font-size:.63rem;color:var(--text-dim);font-style:italic;width:100%;margin-top:2px;padding-left:2px;}
 
-/* SIGNAL PATH */
-.signal-path{margin-top:10px;padding:10px 12px;background:rgba(0,0,0,0.3);border-radius:4px;border-left:2px solid var(--accent);display:none;}
+/* signal path */
+.signal-path{margin-top:9px;padding:9px 11px;background:rgba(0,0,0,0.35);border-radius:4px;border-left:2px solid var(--accent);display:none;}
 .conn-row.expanded .signal-path{display:block;}
-.path-title{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--accent);letter-spacing:2px;margin-bottom:8px;}
+.path-title{font-family:'Share Tech Mono',monospace;font-size:.56rem;color:var(--accent);letter-spacing:2px;margin-bottom:7px;}
 .path-node{display:flex;align-items:flex-start;gap:6px;padding:2px 0;flex-wrap:wrap;}
 .path-node.pn-first .pn-eq{color:var(--accent3);}
 .path-node.pn-last .pn-eq{color:var(--accent2);}
 .path-node.pn-active{background:rgba(0,212,255,0.08);border-radius:3px;padding:2px 4px;margin:0 -4px;}
-.pn-prefix{color:var(--muted);flex-shrink:0;width:10px;font-family:'Share Tech Mono',monospace;font-size:.7rem;}
-.pn-rack{color:var(--accent4);flex-shrink:0;min-width:36px;font-family:'Share Tech Mono',monospace;font-size:.65rem;}
-.pn-eq{color:var(--text);font-size:.72rem;}
-.pn-port{color:var(--accent);font-size:.6rem;flex-shrink:0;font-family:'Share Tech Mono',monospace;}
-.pn-note{color:var(--text-dim);font-size:.58rem;font-style:italic;width:100%;padding-left:16px;}
-.path-arrow{color:var(--muted);padding-left:4px;font-size:.7rem;line-height:1.2;}
-.path-branch{color:var(--accent3);font-size:.58rem;margin:4px 0 2px;font-family:'Share Tech Mono',monospace;}
-.path-no-data{color:var(--muted);font-style:italic;font-size:.7rem;}
+.pn-pre{color:var(--muted);flex-shrink:0;width:10px;font-family:'Share Tech Mono',monospace;font-size:.68rem;}
+.pn-rack{color:var(--accent4);flex-shrink:0;min-width:38px;font-family:'Share Tech Mono',monospace;font-size:.63rem;}
+.pn-eq{color:var(--text);font-size:.7rem;}
+.pn-port{color:var(--accent);font-size:.6rem;font-family:'Share Tech Mono',monospace;}
+.pn-note{color:var(--text-dim);font-size:.57rem;font-style:italic;width:100%;padding-left:16px;}
+.path-arr{color:var(--muted);padding-left:4px;font-size:.68rem;line-height:1.3;}
+.path-branch{color:var(--accent3);font-size:.57rem;margin:3px 0 1px;font-family:'Share Tech Mono',monospace;}
+.path-nodata{color:var(--muted);font-style:italic;font-size:.68rem;}
 </style>
 </head>
 <body>
@@ -84,246 +78,256 @@ header h1{font-family:'Share Tech Mono',monospace;font-size:.95rem;color:var(--a
   <h1 id="headerTitle">◈ RACK C12 — DIAGRAMA DE SEÑAL</h1>
   <span id="breadcrumb"></span>
 </header>
-
 <div id="racksView"><div class="loading">▸ CARGANDO DATOS...</div></div>
 <div id="equipView"></div>
 
 <script>
+// ── Normalizar nombres de equipos para unificar variantes ────────────────────
+function normEq(eq) {
+  if (!eq) return '';
+  return eq
+    .replace(/^Player A$/i, 'PLAYER A')
+    .replace(/^Player B$/i, 'PLAYER B')
+    .replace(/^Player C$/i, 'PLAYER C')
+    .replace(/^Loop A$/i,   'LOOP A')
+    .replace(/^Loop B$/i,   'LOOP B')
+    .replace(/^Loop C$/i,   'LOOP C')
+    .replace(/^Aja fs4$/i,  'AJA FS4')
+    .replace(/Blackmagic 12 x 12/i, 'Blackmagic 12x12')
+    .replace(/Blackmagic Multiview 16/i, 'Blackmagic MultiView 16')
+    .replace(/Blackmagic MultiView$/i,   'Blackmagic MultiView 16')
+    .replace(/^openGear X Slot \d+.*$/,  'openGear X')
+    .replace(/^Patch Panel \(Inputs\)$/,  'Patch Panel')
+    .replace(/^Patch Panel \(Outputs\)$/, 'Patch Panel')
+    .replace(/^Vacante en Rack$/i, 'VACANTE')
+    .trim();
+}
+
+function normRack(r) {
+  if (!r) return '';
+  return r.replace(/^D\.CAM\.$/, 'D.CAM').trim();
+}
+
 let RAW = [];
 let graph = {};
 
 fetch('connections.json')
-  .then(r => { if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-  .then(data => { RAW = data; buildGraph(); showRacks(); })
+  .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status} — ${r.url}`); return r.json(); })
+  .then(data => {
+    // Normalize all entries
+    RAW = data.map(c => ({
+      src_rack: normRack(c.src_rack), src_eq: normEq(c.src_eq), src_port: c.src_port || '',
+      dst_rack: normRack(c.dst_rack), dst_eq: normEq(c.dst_eq), dst_port: c.dst_port || '',
+      label: c.label || '', notes: c.notes || ''
+    })).filter(c =>
+      c.src_rack && c.dst_rack &&
+      !['?','N/C'].includes(c.src_rack) &&
+      !['?','N/C','VACANTE'].includes(c.dst_rack) &&
+      c.src_eq !== 'VACANTE'
+    );
+    buildGraph();
+    showRacks();
+  })
   .catch(err => {
     document.getElementById('racksView').innerHTML =
       `<div class="error-msg"><div>✗ No se pudo cargar connections.json</div><small>${err.message}</small></div>`;
   });
 
 // ── Graph ────────────────────────────────────────────────────────────────────
-function nk(r,e,p){ return `${(r||'').toLowerCase().trim()}||${(e||'').toLowerCase().trim()}||${(p||'').toLowerCase().trim()}`; }
+function nk(r,e,p){ return `${(r||'').toLowerCase()}||${(e||'').toLowerCase()}||${(p||'').toLowerCase()}`; }
 function portNum(p){ const m=(p||'').match(/\d+/); return m?parseInt(m[0]):null; }
 
 function buildGraph(){
   graph = {};
-  function addEdge(sr,se,sp,dr,de,dp,notes,label){
+  function addEdge(sr,se,sp,dr,de,dp,notes){
     const k=nk(sr,se,sp);
-    if(!graph[k]) graph[k]=[];
-    graph[k].push({rack:dr,eq:de,port:dp,notes:notes||'',label:label||''});
+    if(!graph[k])graph[k]=[];
+    graph[k].push({rack:dr,eq:de,port:dp,notes:notes||''});
   }
-  RAW.forEach(c => addEdge(c.src_rack,c.src_eq,c.src_port,c.dst_rack,c.dst_eq,c.dst_port,c.notes,c.label));
+  RAW.forEach(c=>addEdge(c.src_rack,c.src_eq,c.src_port,c.dst_rack,c.dst_eq,c.dst_port,c.notes));
 
-  // Transparent bridges
-  const TRANSPARENT=['blackmagic multiview 16','blackmagic 12x12','patch panel (inputs)','patch panel (outputs)','patch panel'];
-  function isTrans(eq){ const e=(eq||'').toLowerCase(); return TRANSPARENT.some(t=>e.includes(t)); }
+  // Transparent bridges: BM 12x12, BM MultiView, Patch Panels
+  const TRANS=['blackmagic multiview 16','blackmagic 12x12','patch panel'];
+  const isTrans=eq=>TRANS.some(t=>(eq||'').toLowerCase().includes(t));
   const arrivals={}, departures={};
   RAW.forEach(c=>{
     if(isTrans(c.dst_eq)){
       const n=portNum(c.dst_port);
-      if(n!==null){ const k=nk(c.dst_rack,c.dst_eq,n); arrivals[k]={rack:c.dst_rack,eq:c.dst_eq,port:c.dst_port,fromRack:c.src_rack,fromEq:c.src_eq,fromPort:c.src_port,notes:c.notes||''}; }
+      if(n!=null) arrivals[nk(c.dst_rack,c.dst_eq,n)]={rack:c.dst_rack,eq:c.dst_eq,port:c.dst_port,from:{r:c.src_rack,e:c.src_eq,p:c.src_port},notes:c.notes};
     }
     if(isTrans(c.src_eq)){
       const n=portNum(c.src_port);
-      if(n!==null){ const k=nk(c.src_rack,c.src_eq,n); if(!departures[k])departures[k]=[]; departures[k].push({toRack:c.dst_rack,toEq:c.dst_eq,toPort:c.dst_port,notes:c.notes||''}); }
+      if(n!=null){const k=nk(c.src_rack,c.src_eq,n);if(!departures[k])departures[k]=[];departures[k].push({rack:c.dst_rack,eq:c.dst_eq,port:c.dst_port,notes:c.notes});}
     }
   });
   Object.entries(arrivals).forEach(([k,arr])=>{
-    const deps=departures[k]; if(!deps)return;
-    deps.forEach(dep=>addEdge(arr.rack,arr.eq,arr.port,dep.toRack,dep.toEq,dep.toPort,`[via ${arr.eq} p${portNum(arr.port)}] ${dep.notes}`.trim()));
+    (departures[k]||[]).forEach(dep=>addEdge(arr.rack,arr.eq,arr.port,dep.rack,dep.eq,dep.port,`[via ${arr.eq} p${portNum(arr.port)}] ${dep.notes}`.trim()));
   });
 }
 
-function traceFrom(startRack,startEq,startPort,maxDepth=10){
-  const startNode={rack:startRack,eq:startEq,port:startPort,notes:'',label:''};
+function traceFrom(rack,eq,port,maxD=10){
+  const start={rack,eq,port,notes:''};
   const paths=[];
-  function dfs(rack,eq,port,chain,visited,depth){
-    if(depth>maxDepth)return;
-    const k=nk(rack,eq,port);
-    if(visited.has(k))return;
-    visited.add(k);
-    const nexts=graph[k]||[];
-    if(nexts.length===0){ paths.push([...chain]); }
-    else{ nexts.forEach(n=>{ chain.push(n); dfs(n.rack,n.eq,n.port,chain,new Set(visited),depth+1); chain.pop(); }); }
+  function dfs(r,e,p,chain,vis,d){
+    if(d>maxD)return;
+    const k=nk(r,e,p);
+    if(vis.has(k))return;
+    vis.add(k);
+    const nx=graph[k]||[];
+    if(!nx.length)paths.push([...chain]);
+    else nx.forEach(n=>{chain.push(n);dfs(n.rack,n.eq,n.port,chain,new Set(vis),d+1);chain.pop();});
   }
-  dfs(startRack,startEq,startPort,[startNode],new Set(),0);
-  if(paths.length===0) paths.push([startNode]);
+  dfs(rack,eq,port,[start],new Set(),0);
+  if(!paths.length)paths.push([start]);
   return paths;
 }
 
 // ── Rack list ────────────────────────────────────────────────────────────────
 function getRacks(){
-  const rackMap = {};
+  const map={};
   RAW.forEach(c=>{
     [[c.src_rack,c.src_eq],[c.dst_rack,c.dst_eq]].forEach(([rack,eq])=>{
-      if(!rack||rack==='?'||rack==='N/C') return;
-      if(!eq||eq.includes('VACANTE')||eq.includes('Vacante')) return;
-      if(!rackMap[rack]) rackMap[rack]={};
-      // Normalize eq name
-      const eqNorm = eq
-        .replace(/Player A$/,'PLAYER A').replace(/Player B$/,'PLAYER B').replace(/Player C$/,'PLAYER C')
-        .replace(/Loop A$/,'LOOP A').replace(/Loop B$/,'LOOP B').replace(/Loop C$/,'LOOP C')
-        .replace(/Aja fs4/i,'AJA FS4')
-        .replace(/Blackmagic MultiView$/,'Blackmagic MultiView 16')
-        .replace(/Blackmagic Multiview 16$/,'Blackmagic MultiView 16')
-        .replace(/openGear X Slot \d+ \([^)]+\)/,'openGear X')
-        .replace(/Patch Panel \(Inputs\)/,'Patch Panel')
-        .replace(/Patch Panel \(Outputs\)/,'Patch Panel');
-      rackMap[rack][eqNorm] = true;
+      if(!rack||rack==='?'||rack==='N/C')return;
+      if(!eq||eq==='VACANTE')return;
+      if(!map[rack])map[rack]={};
+      map[rack][eq]=true;
     });
   });
-  // Sort racks A→L
-  return Object.entries(rackMap)
-    .sort(([a],[b])=>a.localeCompare(b, undefined, {numeric:true}))
-    .map(([rack, eqs])=>({ rack, eqs: Object.keys(eqs).sort() }));
+  return Object.entries(map)
+    .sort(([a],[b])=>a.localeCompare(b,undefined,{numeric:true}))
+    .map(([rack,eqs])=>({rack, eqs:Object.keys(eqs).sort()}));
 }
 
-// ── VISTA RACKS ──────────────────────────────────────────────────────────────
+// ── Vista racks ──────────────────────────────────────────────────────────────
 function showRacks(){
   document.getElementById('backBtn').classList.remove('visible');
-  document.getElementById('breadcrumb').innerHTML = '';
-  document.getElementById('headerTitle').textContent = '◈ RACK C12 — DIAGRAMA DE SEÑAL';
-  document.getElementById('equipView').style.display = 'none';
-  const view = document.getElementById('racksView');
-  view.style.display = 'block';
-
-  const racks = getRacks();
-  let html = `<div class="racks-grid">`;
-  racks.forEach(({rack, eqs})=>{
-    html += `<div class="rack-card">
+  document.getElementById('breadcrumb').innerHTML='';
+  document.getElementById('headerTitle').textContent='◈ RACK C12 — DIAGRAMA DE SEÑAL';
+  document.getElementById('equipView').style.display='none';
+  const view=document.getElementById('racksView');
+  view.style.display='block';
+  const racks=getRacks();
+  let html='<div class="racks-grid">';
+  racks.forEach(({rack,eqs})=>{
+    html+=`<div class="rack-card">
       <div class="rack-card-header"><span class="rack-id">RACK ${rack}</span></div>
       <div class="rack-card-body">`;
     eqs.forEach(eq=>{
-      html += `<div class="eq-chip" onclick="showEquip('${rack}','${eq.replace(/'/g,"\\'")}','${rack}')">${eq}</div>`;
+      const eqSafe=eq.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+      html+=`<div class="eq-chip" onclick="showEquip('${rack}','${eqSafe}')">${eq}</div>`;
     });
-    html += `</div></div>`;
+    html+='</div></div>';
   });
-  html += `</div>`;
-  view.innerHTML = html;
+  html+='</div>';
+  view.innerHTML=html;
 }
 
-// ── VISTA EQUIPO ─────────────────────────────────────────────────────────────
-function portBadge(p){
-  if(!p) return '';
-  const pl=(p||'').toLowerCase();
-  const cls = pl.startsWith('in')||pl.includes(' in ') ? 'port-in'
-             : pl.startsWith('out')||pl.includes(' out ') ? 'port-out'
-             : 'port-aux';
-  return `<span class="port-badge ${cls}">${p}</span>`;
+// ── Port badge ───────────────────────────────────────────────────────────────
+function pb(p){
+  if(!p)return'';
+  const l=p.toLowerCase();
+  const cls=l.startsWith('in')||l.includes(' in ')?'port-in':l.startsWith('out')||l.includes(' out ')?'port-out':'port-aux';
+  return`<span class="port-badge ${cls}">${p}</span>`;
 }
 
-function buildPathHTML(paths, activeRack, activeEq, activePort){
-  const ak = nk(activeRack,activeEq,activePort);
-  const seen = new Set();
-  const uniq = paths.filter(p=>{
-    const k=p.map(n=>nk(n.rack,n.eq,n.port)).join('>');
-    if(seen.has(k))return false; seen.add(k); return true;
-  });
-  if(uniq.length===1 && uniq[0].length===1) return `<div class="path-no-data">Sin ruta documentada desde este punto</div>`;
-
-  let html = '';
+// ── Signal path HTML ─────────────────────────────────────────────────────────
+function pathHTML(paths,activeRack,activeEq,activePort){
+  const ak=nk(activeRack,activeEq,activePort);
+  const seen=new Set();
+  const uniq=paths.filter(p=>{const k=p.map(n=>nk(n.rack,n.eq,n.port)).join('>');if(seen.has(k))return false;seen.add(k);return true;});
+  if(uniq.length===1&&uniq[0].length===1)return`<div class="path-nodata">Sin ruta documentada desde este punto</div>`;
+  let html='';
   uniq.forEach((chain,pi)=>{
-    if(uniq.length>1) html+=`<div class="path-branch">╠ Rama ${pi+1}</div>`;
+    if(uniq.length>1)html+=`<div class="path-branch">╠ Rama ${pi+1}</div>`;
     chain.forEach((node,i)=>{
-      const isFirst=i===0, isLast=i===chain.length-1;
-      const isActive=nk(node.rack,node.eq,node.port)===ak;
-      const prefix=isFirst?'◉':isLast?'◎':'│';
-      const connector=i>0?`<div class="path-arrow">↓</div>`:'';
-      html+=connector+`<div class="path-node ${isFirst?'pn-first':''} ${isLast?'pn-last':''} ${isActive?'pn-active':''}">
-        <span class="pn-prefix">${prefix}</span>
-        <span class="pn-rack">${node.rack||'?'}</span>
-        <span class="pn-eq">${node.eq}</span>
-        <span class="pn-port"> ${node.port}</span>
-        ${node.notes?`<div class="pn-note">${node.notes}</div>`:''}
-      </div>`;
+      const isFirst=i===0,isLast=i===chain.length-1,isActive=nk(node.rack,node.eq,node.port)===ak;
+      const pre=isFirst?'◉':isLast?'◎':'│';
+      html+=(i>0?`<div class="path-arr">↓</div>`:'')+
+        `<div class="path-node ${isFirst?'pn-first':''} ${isLast?'pn-last':''} ${isActive?'pn-active':''}">
+          <span class="pn-pre">${pre}</span>
+          <span class="pn-rack">${node.rack||'?'}</span>
+          <span class="pn-eq">${node.eq}</span>
+          <span class="pn-port"> ${node.port}</span>
+          ${node.notes?`<div class="pn-note">${node.notes}</div>`:''}
+        </div>`;
     });
   });
   return html;
 }
 
-function toggleConn(rowEl, srcRack, srcEq, srcPort){
-  const isExp = rowEl.classList.contains('expanded');
-  // Close all
+// ── Toggle connection row ─────────────────────────────────────────────────────
+function toggleRow(el,sr,se,sp){
+  const wasExp=el.classList.contains('expanded');
   document.querySelectorAll('.conn-row.expanded').forEach(r=>r.classList.remove('expanded'));
-  if(!isExp){
-    rowEl.classList.add('expanded');
-    const pathDiv = rowEl.querySelector('.signal-path');
-    if(pathDiv && !pathDiv.dataset.built){
-      const paths = traceFrom(srcRack, srcEq, srcPort);
-      pathDiv.innerHTML = `<div class="path-title">▶ RUTA DE SEÑAL</div>` + buildPathHTML(paths, srcRack, srcEq, srcPort);
-      pathDiv.dataset.built = '1';
+  if(!wasExp){
+    el.classList.add('expanded');
+    const div=el.querySelector('.signal-path');
+    if(div&&!div.dataset.built){
+      div.innerHTML=`<div class="path-title">▶ RUTA DE SEÑAL</div>`+pathHTML(traceFrom(sr,se,sp),sr,se,sp);
+      div.dataset.built='1';
     }
   }
 }
 
-function showEquip(rack, eq, fromRack){
+// ── Vista equipo ─────────────────────────────────────────────────────────────
+function showEquip(rack, eq){
   document.getElementById('backBtn').classList.add('visible');
-  document.getElementById('breadcrumb').innerHTML = `RACK <span>${rack}</span> › ${eq}`;
-  document.getElementById('headerTitle').textContent = '';
-  document.getElementById('racksView').style.display = 'none';
+  document.getElementById('breadcrumb').innerHTML=`RACK <span>${rack}</span> › ${eq}`;
+  document.getElementById('headerTitle').textContent='';
+  document.getElementById('racksView').style.display='none';
 
-  // Normalize eq for matching (handle name variants)
-  const eqVariants = [eq,
-    eq.replace('PLAYER A','Player A').replace('PLAYER B','Player B').replace('PLAYER C','Player C'),
-    eq.replace('LOOP A','Loop A').replace('LOOP B','Loop B').replace('LOOP C','Loop C'),
-    eq.replace('AJA FS4','Aja fs4'),
-    eq.replace('Blackmagic MultiView 16','Blackmagic MultiView').replace('Blackmagic MultiView 16','Blackmagic Multiview 16'),
-    eq+'  (inputs)', eq+' (outputs)',
-    'openGear X', eq.replace(/openGear X.*/,'openGear X'),
-    'Patch Panel (Inputs)','Patch Panel (Outputs)','Patch Panel'
-  ];
+  const outConns=RAW.filter(c=>c.src_rack===rack&&c.src_eq===eq);
+  const inConns =RAW.filter(c=>c.dst_rack===rack&&c.dst_eq===eq);
 
-  // Outgoing connections (this eq is source)
-  const outConns = RAW.filter(c => c.src_rack===rack && eqVariants.some(v=>c.src_eq===v||c.src_eq.startsWith(eq)));
-  // Incoming connections (this eq is destination)  
-  const inConns  = RAW.filter(c => c.dst_rack===rack && eqVariants.some(v=>c.dst_eq===v||c.dst_eq.startsWith(eq)));
+  let html=`<div class="equip-title">${eq}</div><div class="equip-rack-label">RACK ${rack}</div>`;
 
-  let html = `<div class="equip-title">${eq}</div><div class="equip-rack">RACK ${rack}</div>`;
-
-  // OUTGOING
   if(outConns.length){
-    html += `<div class="conn-section-title">◆ SALIDAS — este equipo envía señal a</div><div class="conn-list">`;
+    html+=`<div class="conn-section-title">◆ SALIDAS — envía señal a</div><div class="conn-list">`;
     outConns.forEach((c,i)=>{
-      const id=`conn-out-${i}`;
-      html+=`<div class="conn-row" id="${id}" onclick="toggleConn(this,'${c.src_rack}','${c.src_eq.replace(/'/g,"\\'")}','${c.src_port.replace(/'/g,"\\'")}')">
-        ${portBadge(c.src_port)}
-        <span class="conn-arrow">→</span>
-        <span class="rack-tag">${c.dst_rack}</span>
-        <span class="conn-eq">${c.dst_eq}</span>
-        ${portBadge(c.dst_port)}
-        ${c.label?`<span class="conn-label">${c.label}</span>`:''}
-        ${c.notes?`<span class="conn-notes">${c.notes}</span>`:''}
+      const sr=c.src_rack.replace(/'/g,"\\'"),se=c.src_eq.replace(/'/g,"\\'"),sp=c.src_port.replace(/'/g,"\\'");
+      html+=`<div class="conn-row" onclick="toggleRow(this,'${sr}','${se}','${sp}')">
+        <div class="conn-main">
+          ${pb(c.src_port)}
+          <span class="conn-arrow">→</span>
+          <span class="rack-tag">${c.dst_rack}</span>
+          <span class="conn-eq">${c.dst_eq}</span>
+          ${pb(c.dst_port)}
+          ${c.label?`<span class="conn-label">${c.label}</span>`:''}
+          ${c.notes?`<div class="conn-notes">${c.notes}</div>`:''}
+        </div>
         <div class="signal-path"></div>
       </div>`;
     });
-    html += `</div>`;
+    html+='</div>';
   }
 
-  // INCOMING
   if(inConns.length){
-    html += `<div class="conn-section-title">◆ ENTRADAS — este equipo recibe señal de</div><div class="conn-list">`;
+    html+=`<div class="conn-section-title">◆ ENTRADAS — recibe señal de</div><div class="conn-list">`;
     inConns.forEach((c,i)=>{
-      const id=`conn-in-${i}`;
-      html+=`<div class="conn-row" id="${id}" onclick="toggleConn(this,'${c.src_rack}','${c.src_eq.replace(/'/g,"\\'")}','${c.src_port.replace(/'/g,"\\'")}')">
-        <span class="rack-tag">${c.src_rack}</span>
-        <span class="conn-eq">${c.src_eq}</span>
-        ${portBadge(c.src_port)}
-        <span class="conn-arrow">→</span>
-        ${portBadge(c.dst_port)}
-        ${c.label?`<span class="conn-label">${c.label}</span>`:''}
-        ${c.notes?`<span class="conn-notes">${c.notes}</span>`:''}
+      const sr=c.src_rack.replace(/'/g,"\\'"),se=c.src_eq.replace(/'/g,"\\'"),sp=c.src_port.replace(/'/g,"\\'");
+      html+=`<div class="conn-row" onclick="toggleRow(this,'${sr}','${se}','${sp}')">
+        <div class="conn-main">
+          <span class="rack-tag">${c.src_rack}</span>
+          <span class="conn-eq">${c.src_eq}</span>
+          ${pb(c.src_port)}
+          <span class="conn-arrow">→</span>
+          ${pb(c.dst_port)}
+          ${c.label?`<span class="conn-label">${c.label}</span>`:''}
+          ${c.notes?`<div class="conn-notes">${c.notes}</div>`:''}
+        </div>
         <div class="signal-path"></div>
       </div>`;
     });
-    html += `</div>`;
+    html+='</div>';
   }
 
-  if(!outConns.length && !inConns.length){
-    html += `<div style="color:var(--text-dim);font-style:italic;margin-top:20px;">Sin conexiones documentadas para este equipo.</div>`;
+  if(!outConns.length&&!inConns.length){
+    html+=`<div style="color:var(--text-dim);font-style:italic;margin-top:20px;font-size:.85rem;">Sin conexiones documentadas para este equipo.</div>`;
   }
 
-  const view = document.getElementById('equipView');
-  view.innerHTML = html;
-  view.style.display = 'block';
+  const view=document.getElementById('equipView');
+  view.innerHTML=html;
+  view.style.display='block';
   window.scrollTo(0,0);
 }
 </script>
