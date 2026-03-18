@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagrama de Conexiones — RACK C12</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600;700&display=swap');
+:root {
+  --bg:#0a0e14; --panel:#111620; --border:#1e2a3a;
+  --accent:#00d4ff; --accent2:#ff6b35; --accent3:#a8ff3e; --accent4:#ffcc00;
+  --muted:#3a4a5a; --text:#c8d8e8; --text-dim:#6a8a9a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;min-height:100vh;}
+header{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-bottom:1px solid var(--border);background:var(--panel);position:sticky;top:0;z-index:100;}
+header h1{font-family:'Share Tech Mono',monospace;font-size:1rem;color:var(--accent);letter-spacing:2px;}
+header span{font-size:.72rem;color:var(--text-dim);font-family:'Share Tech Mono',monospace;}
+.legend{display:flex;gap:18px;padding:10px 28px;background:var(--panel);border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:.7rem;color:var(--text-dim);}
+.legend-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
+.toolbar{display:flex;gap:10px;padding:12px 28px;border-bottom:1px solid var(--border);flex-wrap:wrap;align-items:center;}
+.search-wrap{position:relative;}
+.search-wrap input{background:var(--panel);border:1px solid var(--border);color:var(--text);font-family:'Share Tech Mono',monospace;font-size:.75rem;padding:6px 10px 6px 28px;border-radius:4px;width:230px;outline:none;transition:border-color .2s;}
+.search-wrap input:focus{border-color:var(--accent);}
+.search-wrap::before{content:'⌕';position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--text-dim);font-size:.9rem;}
+.filter-btn{background:var(--panel);border:1px solid var(--border);color:var(--text-dim);font-size:.7rem;padding:6px 12px;border-radius:4px;cursor:pointer;transition:all .2s;font-family:'Barlow',sans-serif;}
+.filter-btn:hover,.filter-btn.active{border-color:var(--accent);color:var(--accent);}
+.filter-btn.active{background:rgba(0,212,255,0.08);}
+.main{padding:24px 28px;display:flex;flex-direction:column;gap:24px;}
+.section-title{font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:3px;color:var(--text-dim);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border);}
+.kumo-grid-wrap{overflow-x:auto;padding-bottom:6px;}
+.kumo-grid{display:grid;grid-template-columns:120px repeat(8,1fr);gap:2px;min-width:860px;}
+.kumo-header{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--accent);text-align:center;padding:4px 2px;background:rgba(0,212,255,0.07);border-radius:2px;}
+.kumo-label{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--text-dim);display:flex;align-items:center;padding:2px 5px;}
+.kumo-cell{padding:4px 2px;border-radius:2px;font-family:'Share Tech Mono',monospace;font-size:.52rem;text-align:center;border:1px solid var(--border);cursor:pointer;transition:all .15s;line-height:1.3;}
+.kumo-cell:hover{border-color:var(--accent);transform:scale(1.06);z-index:1;}
+.kumo-cell.used-in{background:rgba(0,212,255,0.12);color:var(--accent);border-color:rgba(0,212,255,0.4);}
+.kumo-cell.used-out{background:rgba(255,107,53,0.12);color:var(--accent2);border-color:rgba(255,107,53,0.4);}
+.kumo-cell.nc-cell{background:rgba(10,14,20,0.5);color:var(--muted);}
+.conn-table{width:100%;border-collapse:collapse;font-size:.78rem;}
+.conn-table th{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:1.5px;color:var(--text-dim);text-align:left;padding:7px 10px;border-bottom:1px solid var(--border);background:var(--panel);text-transform:uppercase;white-space:nowrap;}
+.conn-table td{padding:6px 10px;border-bottom:1px solid rgba(30,42,58,0.5);vertical-align:middle;white-space:nowrap;}
+.conn-table tr:hover td{background:rgba(0,212,255,0.04);cursor:pointer;}
+.conn-table tr.hidden{display:none;}
+.port-badge{font-family:'Share Tech Mono',monospace;font-size:.67rem;padding:2px 6px;border-radius:3px;font-weight:bold;}
+.port-in{background:rgba(0,212,255,0.12);color:var(--accent);border:1px solid rgba(0,212,255,0.3);}
+.port-out{background:rgba(255,107,53,0.12);color:var(--accent2);border:1px solid rgba(255,107,53,0.3);}
+.port-aux{background:rgba(168,255,62,0.12);color:var(--accent3);border:1px solid rgba(168,255,62,0.3);}
+.rack-tag{font-family:'Share Tech Mono',monospace;font-size:.67rem;padding:2px 5px;border-radius:3px;background:rgba(255,204,0,0.1);color:var(--accent4);border:1px solid rgba(255,204,0,0.25);margin-right:4px;}
+.equip-name{color:var(--text);font-weight:600;}
+.notes-cell{color:var(--text-dim);font-size:.68rem;font-style:italic;}
+.label-cell{color:var(--accent3);font-size:.68rem;font-family:'Share Tech Mono',monospace;}
+.arrow{color:var(--muted);font-size:.9rem;padding:0 3px;}
+.nc{color:var(--muted);font-style:italic;font-size:.68rem;}
+.loading{display:flex;align-items:center;justify-content:center;height:200px;font-family:'Share Tech Mono',monospace;color:var(--text-dim);font-size:.8rem;letter-spacing:2px;}
+.error-msg{display:flex;align-items:center;justify-content:center;height:200px;font-family:'Share Tech Mono',monospace;color:#ff4444;font-size:.8rem;text-align:center;padding:20px;}
+.tooltip{position:fixed;background:#0a1220;border:1px solid var(--accent);border-radius:6px;padding:12px 16px;font-size:.7rem;max-width:380px;min-width:230px;z-index:9999;pointer-events:none;opacity:0;transition:opacity .15s;font-family:'Share Tech Mono',monospace;line-height:1.5;box-shadow:0 8px 32px rgba(0,0,0,0.9),0 0 0 1px rgba(0,212,255,0.08);}
+.tooltip.visible{opacity:1;}
+.tooltip-title{color:var(--accent);font-size:.62rem;letter-spacing:2px;border-bottom:1px solid var(--border);padding-bottom:6px;margin-bottom:8px;}
+.path-node{display:flex;align-items:flex-start;gap:6px;padding:2px 0;flex-wrap:wrap;}
+.path-node.pn-first .path-eq{color:var(--accent3);}
+.path-node.pn-last .path-eq{color:var(--accent2);}
+.path-node.pn-active{background:rgba(0,212,255,0.07);border-radius:3px;padding:2px 4px;margin:0 -4px;}
+.path-prefix{color:var(--muted);flex-shrink:0;width:10px;}
+.path-rack{color:var(--accent4);flex-shrink:0;min-width:40px;}
+.path-eq{color:var(--text);}
+.path-port{color:var(--accent);font-size:.62rem;flex-shrink:0;}
+.path-note{color:var(--text-dim);font-size:.58rem;font-style:italic;width:100%;padding-left:16px;}
+.path-arrow{display:block;color:var(--muted);padding-left:4px;line-height:1;}
+.path-branch-label{color:var(--accent3);font-size:.58rem;margin:4px 0 2px;letter-spacing:1px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>◈ DIAGRAMA DE CONEXIONES — AJA KUMO 6464 / C12</h1>
+  <span id="connCount">cargando...</span>
+</header>
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:rgba(0,212,255,0.7)"></div>Entrada (IN)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:rgba(255,107,53,0.7)"></div>Salida (OUT)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:rgba(168,255,62,0.6)"></div>AUX / otro</div>
+  <div class="legend-item"><div class="legend-dot" style="background:rgba(255,204,0,0.6)"></div>Rack</div>
+  <div class="legend-item"><div class="legend-dot" style="background:rgba(58,74,90,0.9)"></div>N/C</div>
+  <div class="legend-item" style="margin-left:auto;color:var(--text-dim);font-size:.68rem;">Hover → ruta completa de señal</div>
+</div>
+<div class="toolbar">
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Buscar equipo, rack, puerto..." oninput="applyFilter()"></div>
+  <button class="filter-btn active" onclick="setFilter('all',this)">Todo</button>
+  <button class="filter-btn" onclick="setFilter('kumo-in',this)">KUMO INs</button>
+  <button class="filter-btn" onclick="setFilter('kumo-out',this)">KUMO OUTs</button>
+  <button class="filter-btn" onclick="setFilter('bm',this)">Blackmagic</button>
+  <button class="filter-btn" onclick="setFilter('for',this)">FOR-A</button>
+  <button class="filter-btn" onclick="setFilter('cam',this)">Cámaras</button>
+  <button class="filter-btn" onclick="setFilter('loop',this)">LOOPs</button>
+  <button class="filter-btn" onclick="setFilter('fibra',this)">Fibras</button>
+  <button class="filter-btn" onclick="setFilter('opengear',this)">openGear</button>
+</div>
+<div class="main">
+  <div>
+    <div class="section-title">◆ MAPA VISUAL — AJA KUMO 6464 (64 IN / 64 OUT)</div>
+    <div id="kumoWrap"><div class="loading">▸ CARGANDO DATOS...</div></div>
+  </div>
+  <div>
+    <div class="section-title">◆ TABLA COMPLETA DE CONEXIONES</div>
+    <table class="conn-table"><thead><tr>
+      <th>#</th><th>Rack Orig.</th><th>Equipo Origen</th><th>Puerto</th>
+      <th></th>
+      <th>Rack Dest.</th><th>Equipo Destino</th><th>Puerto</th>
+      <th>Rótulo</th><th>Notas</th>
+    </tr></thead><tbody id="connBody"><tr><td colspan="10"><div class="loading">▸ CARGANDO DATOS...</div></td></tr></tbody></table>
+  </div>
+</div>
+<div class="tooltip" id="tooltip"></div>
+<script>
+// ── Cargar datos desde connections.json ──────────────────────────────────────
+fetch('connections.json')
+  .then(r => {
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return r.json();
+  })
+  .then(data => {
+    init(data);
+  })
+  .catch(err => {
+    document.getElementById('kumoWrap').innerHTML =
+      `<div class="error-msg">✗ No se pudo cargar connections.json<br><small>${err.message}</small></div>`;
+    document.getElementById('connBody').innerHTML =
+      `<tr><td colspan="10"><div class="error-msg">✗ No se pudo cargar connections.json<br><small>${err.message}</small></div></td></tr>`;
+    document.getElementById('connCount').textContent = 'error al cargar datos';
+  });
+
+function init(RAW_CONNECTIONS) {
+
+function nk(rack,eq,port){
+  return `${String(rack||'').toLowerCase().trim()}||${String(eq||'').toLowerCase().trim()}||${String(port||'').toLowerCase().trim()}`;
+}
+
+const graph={};
+function addEdge(sr,se,sp,dr,de,dp,notes,label){
+  const k=nk(sr,se,sp);
+  if(!graph[k]) graph[k]=[];
+  graph[k].push({rack:dr,eq:de,port:dp,notes:notes||'',label:label||''});
+}
+RAW_CONNECTIONS.forEach(c=>{
+  addEdge(c.src_rack,c.src_eq,c.src_port,c.dst_rack,c.dst_eq,c.dst_port,c.notes,c.label);
+});
+
+const TRANSPARENT=['blackmagic multiview 16','blackmagic 12x12','patch panel (inputs)','patch panel (outputs)','patch panel'];
+function isTransparent(eq){const e=(eq||'').toLowerCase();return TRANSPARENT.some(t=>e.includes(t));}
+function portNum(p){const m=(p||'').match(/\d+/);return m?parseInt(m[0]):null;}
+
+const arrivals={}, departures={};
+RAW_CONNECTIONS.forEach(c=>{
+  if(isTransparent(c.dst_eq)){
+    const n=portNum(c.dst_port);
+    if(n!==null){const k=nk(c.dst_rack,c.dst_eq,n);arrivals[k]={rack:c.dst_rack,eq:c.dst_eq,port:c.dst_port,fromRack:c.src_rack,fromEq:c.src_eq,fromPort:c.src_port,notes:c.notes||''};}
+  }
+  if(isTransparent(c.src_eq)){
+    const n=portNum(c.src_port);
+    if(n!==null){const k=nk(c.src_rack,c.src_eq,n);if(!departures[k])departures[k]=[];departures[k].push({toRack:c.dst_rack,toEq:c.dst_eq,toPort:c.dst_port,notes:c.notes||''});}
+  }
+});
+Object.entries(arrivals).forEach(([k,arr])=>{
+  const deps=departures[k];if(!deps)return;
+  deps.forEach(dep=>{addEdge(arr.rack,arr.eq,arr.port,dep.toRack,dep.toEq,dep.toPort,`[via ${arr.eq} p${portNum(arr.port)}] ${dep.notes}`.trim());});
+});
+
+function traceFrom(startRack,startEq,startPort,maxDepth=10){
+  const startNode={rack:startRack,eq:startEq,port:startPort,notes:'',label:''};
+  const paths=[];
+  function dfs(rack,eq,port,chain,visited,depth){
+    if(depth>maxDepth)return;
+    const k=nk(rack,eq,port);
+    if(visited.has(k))return;
+    visited.add(k);
+    const nexts=graph[k]||[];
+    if(nexts.length===0){paths.push([...chain]);}
+    else{nexts.forEach(n=>{chain.push(n);dfs(n.rack,n.eq,n.port,chain,new Set(visited),depth+1);chain.pop();});}
+  }
+  dfs(startRack,startEq,startPort,[startNode],new Set(),0);
+  if(paths.length===0)paths.push([startNode]);
+  return paths;
+}
+
+function buildTooltipHTML(paths,activeRack,activeEq,activePort){
+  const ak=nk(activeRack,activeEq,activePort);
+  let html=`<div class="tooltip-title">▶ RUTA DE SEÑAL</div>`;
+  const seen=new Set();
+  const uniq=paths.filter(p=>{const k=p.map(n=>nk(n.rack,n.eq,n.port)).join('>');if(seen.has(k))return false;seen.add(k);return true;});
+  uniq.forEach((chain,pi)=>{
+    if(uniq.length>1)html+=`<div class="path-branch-label">╠ Rama ${pi+1}</div>`;
+    chain.forEach((node,i)=>{
+      const isFirst=i===0,isLast=i===chain.length-1;
+      const isActive=nk(node.rack,node.eq,node.port)===ak;
+      const prefix=isFirst?'◉':isLast?'◎':'│';
+      const connector=i>0?`<div class="path-arrow">↓</div>`:'';
+      html+=connector+`<div class="path-node ${isFirst?'pn-first':''} ${isLast?'pn-last':''} ${isActive?'pn-active':''}">
+        <span class="path-prefix">${prefix}</span>
+        <span class="path-rack">${node.rack||'?'}</span>
+        <span class="path-eq">${node.eq}</span>
+        <span class="path-port"> ${node.port}</span>
+        ${node.notes?`<div class="path-note">${node.notes}</div>`:''}
+      </div>`;
+    });
+  });
+  return html;
+}
+
+const kumoInMap={}, kumoOutMap={};
+RAW_CONNECTIONS.forEach(c=>{
+  if(c.dst_eq==='AJA KUMO 6464'&&c.dst_rack==='C.3'){const n=portNum(c.dst_port);if(n)kumoInMap[n]=c;}
+  if(c.src_eq==='AJA KUMO 6464'&&c.src_rack==='C.3'){const n=portNum(c.src_port);if(n)kumoOutMap[n]=c;}
+});
+
+function renderKumoGrid(){
+  const wrap=document.getElementById('kumoWrap');
+  wrap.innerHTML='<div class="kumo-grid-wrap"><div class="kumo-grid" id="kumoGrid"></div></div>';
+  const grid=document.getElementById('kumoGrid');
+  const cols=8,rows=8;
+  function addSection(label,colorVar,mapObj,portPrefix){
+    const sep=document.createElement('div');sep.style.cssText='grid-column:1/-1;height:8px;';grid.appendChild(sep);
+    const rowLabel=document.createElement('div');
+    rowLabel.style.cssText=`grid-column:1/-1;font-family:'Share Tech Mono',monospace;font-size:.6rem;color:${colorVar};letter-spacing:2px;padding:4px 0;`;
+    rowLabel.textContent=`▼ ${label}`;grid.appendChild(rowLabel);
+    const emptyH=document.createElement('div');grid.appendChild(emptyH);
+    for(let c=1;c<=cols;c++){const h=document.createElement('div');h.className='kumo-header';h.style.color=colorVar;h.textContent=`×${c}`;grid.appendChild(h);}
+    for(let r=0;r<rows;r++){
+      const rl=document.createElement('div');rl.className='kumo-label';rl.textContent=`${portPrefix}${r*8+1}–${r*8+8}`;grid.appendChild(rl);
+      for(let c=1;c<=cols;c++){
+        const port=r*8+c;
+        const cell=document.createElement('div');cell.className='kumo-cell';
+        const conn=mapObj[port];
+        if(conn){
+          cell.classList.add(portPrefix==='IN '?'used-in':'used-out');
+          const raw=portPrefix==='IN '?(conn.label||conn.src_eq||''):(conn.label||conn.dst_eq||'');
+          const short=raw.replace(/openGear X Slot \d+ \([^)]+\)/,'openGear').replace(/Blackmagic/g,'BM').replace(/Telairity /g,'').replace(/Sony /g,'').trim().substring(0,13);
+          cell.innerHTML=`<div style="font-size:.48rem;opacity:.6">${portPrefix}${port}</div><div>${short||'—'}</div>`;
+          const [tr,te,tp]=portPrefix==='IN '?[conn.src_rack,conn.src_eq,conn.src_port]:[conn.dst_rack,conn.dst_eq,conn.dst_port];
+          cell.addEventListener('mousemove',e=>showTooltip(e,tr,te,tp));
+          cell.addEventListener('mouseleave',hideTooltip);
+        } else {
+          cell.classList.add('nc-cell');
+          cell.innerHTML=`<div style="font-size:.48rem;opacity:.4">${portPrefix}${port}</div><div style="opacity:.3">—</div>`;
+        }
+        grid.appendChild(cell);
+      }
+    }
+  }
+  addSection('INPUTS (IN 1–64)','var(--accent)',kumoInMap,'IN ');
+  addSection('OUTPUTS (OUT 1–64)','var(--accent2)',kumoOutMap,'OUT ');
+}
+
+function portBadge(p){
+  if(!p||p==='—')return '<span class="nc">—</span>';
+  const pl=String(p).toLowerCase();
+  const cls=pl.startsWith('in')||pl.includes(' in ')?'port-in':pl.startsWith('out')||pl.includes(' out ')?'port-out':'port-aux';
+  return `<span class="port-badge ${cls}">${p}</span>`;
+}
+function rackTag(r){return r&&r!=='—'?`<span class="rack-tag">${r}</span>`:''}
+function eqCell(e){
+  if(!e||e==='—'||e.includes('N/C')||e.includes('VACANTE'))return `<span class="nc">${e||'—'}</span>`;
+  return `<span class="equip-name">${e}</span>`;
+}
+
+function renderTable(){
+  const tbody=document.getElementById('connBody');
+  tbody.innerHTML='';
+  RAW_CONNECTIONS.forEach((c,i)=>{
+    const tr=document.createElement('tr');
+    const search=`${c.src_rack} ${c.src_eq} ${c.src_port} ${c.dst_rack} ${c.dst_eq} ${c.dst_port} ${c.notes} ${c.label}`.toLowerCase();
+    tr.dataset.search=search;
+    tr.innerHTML=`
+      <td style="color:var(--text-dim);font-family:'Share Tech Mono',monospace;font-size:.65rem">${i+1}</td>
+      <td>${rackTag(c.src_rack)}</td>
+      <td>${eqCell(c.src_eq)}</td>
+      <td>${portBadge(c.src_port)}</td>
+      <td class="arrow">→</td>
+      <td>${rackTag(c.dst_rack)}</td>
+      <td>${eqCell(c.dst_eq)}</td>
+      <td>${portBadge(c.dst_port)}</td>
+      <td class="label-cell">${c.label||''}</td>
+      <td class="notes-cell">${c.notes||''}</td>
+    `;
+    tr.addEventListener('mousemove',e=>showTooltip(e,c.src_rack,c.src_eq,c.src_port));
+    tr.addEventListener('mouseleave',hideTooltip);
+    tbody.appendChild(tr);
+  });
+  document.getElementById('connCount').textContent=`${RAW_CONNECTIONS.length} conexiones`;
+}
+
+let activeFilter='all';
+function setFilter(f,btn){
+  activeFilter=f;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');applyFilter();
+}
+function applyFilter(){
+  const q=document.getElementById('searchInput').value.toLowerCase();
+  document.querySelectorAll('#connBody tr').forEach(tr=>{
+    const s=tr.dataset.search||'';
+    const matchQ=!q||s.includes(q);
+    let matchF=true;
+    if(activeFilter==='kumo-in')   matchF=s.includes('aja kumo 6464')&&s.includes(' in ');
+    if(activeFilter==='kumo-out')  matchF=s.includes('aja kumo 6464')&&s.includes(' out ');
+    if(activeFilter==='bm')        matchF=s.includes('blackmagic');
+    if(activeFilter==='for')       matchF=s.includes('hvs-390');
+    if(activeFilter==='cam')       matchF=s.includes('hxcu')||s.includes('cam ');
+    if(activeFilter==='loop')      matchF=s.includes('loop');
+    if(activeFilter==='fibra')     matchF=s.includes('fibra');
+    if(activeFilter==='opengear')  matchF=s.includes('opengear');
+    tr.classList.toggle('hidden',!(matchQ&&matchF));
+  });
+}
+
+let tooltipTimer=null;
+function showTooltip(e,rack,eq,port){
+  clearTimeout(tooltipTimer);
+  tooltipTimer=setTimeout(()=>{
+    const paths=traceFrom(rack,eq,port);
+    const html=buildTooltipHTML(paths,rack,eq,port);
+    const t=document.getElementById('tooltip');
+    t.innerHTML=html;t.classList.add('visible');posTooltip(e);
+  },80);
+}
+function posTooltip(e){
+  const t=document.getElementById('tooltip');
+  const tw=t.offsetWidth||300,th=t.offsetHeight||200;
+  let x=e.clientX+16,y=e.clientY-10;
+  if(x+tw>window.innerWidth-8)x=e.clientX-tw-16;
+  if(y+th>window.innerHeight-8)y=window.innerHeight-th-8;
+  t.style.left=x+'px';t.style.top=y+'px';
+}
+document.addEventListener('mousemove',e=>{const t=document.getElementById('tooltip');if(t.classList.contains('visible'))posTooltip(e);});
+function hideTooltip(){clearTimeout(tooltipTimer);document.getElementById('tooltip').classList.remove('visible');}
+
+renderKumoGrid();
+renderTable();
+
+} // end init
+</script>
+</body>
+</html>
