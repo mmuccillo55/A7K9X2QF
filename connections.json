@@ -702,7 +702,7 @@
   {
     "src_rack": "F.2",
     "src_eq": "Sony HXCU-100",
-    "src_port": "Out 2",
+    "src_port": "Out 1",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 41",
@@ -722,7 +722,7 @@
   {
     "src_rack": "F.3",
     "src_eq": "Sony HXCU-100",
-    "src_port": "Out 2",
+    "src_port": "Out 1",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 42",
@@ -742,7 +742,7 @@
   {
     "src_rack": "F.4",
     "src_eq": "Sony HXCU-100",
-    "src_port": "Out 2",
+    "src_port": "Out 1",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 43",
@@ -762,7 +762,7 @@
   {
     "src_rack": "F.5",
     "src_eq": "Sony HXCU-100",
-    "src_port": "Out 2",
+    "src_port": "Out 1",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 44",
@@ -1174,7 +1174,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "In 34",
     "dst_rack": "C.6",
-    "dst_eq": "Patch Panel Inputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 15",
     "label": "",
     "notes": "ESTUDIO 5"
@@ -1184,7 +1184,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "In 35",
     "dst_rack": "C.6",
-    "dst_eq": "Patch Panel Inputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 14",
     "label": "",
     "notes": "PC DIR"
@@ -1194,7 +1194,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "In 36",
     "dst_rack": "C.6",
-    "dst_eq": "Patch Panel Inputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 13",
     "label": "",
     "notes": "titlo elec elec"
@@ -1204,7 +1204,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "In 37",
     "dst_rack": "C.6",
-    "dst_eq": "Patch Panel Inputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 12",
     "label": "",
     "notes": "full ece"
@@ -1214,7 +1214,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "In 38",
     "dst_rack": "C.6",
-    "dst_eq": "Patch Panel Inputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 11",
     "label": "",
     "notes": "PATCH 6"
@@ -1224,7 +1224,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "In 39",
     "dst_rack": "C.6",
-    "dst_eq": "Patch Panel Inputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 10",
     "label": "",
     "notes": "PATCH 7"
@@ -1234,7 +1234,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "In 40",
     "dst_rack": "C.6",
-    "dst_eq": "Patch Panel Inputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 9",
     "label": "",
     "notes": "ALL PTCH 8"
@@ -1244,7 +1244,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 33",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 16",
     "label": "out out",
     "notes": ""
@@ -1254,7 +1254,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 34",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 15",
     "label": "MON PISO",
     "notes": ""
@@ -1264,7 +1264,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 35",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 14",
     "label": "MON ILUMINA",
     "notes": ""
@@ -1274,7 +1274,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 36",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 13",
     "label": "MON TITULOS",
     "notes": ""
@@ -1284,7 +1284,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 37",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 12",
     "label": "xxx xxx",
     "notes": ""
@@ -1294,7 +1294,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 38",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 11",
     "label": "Fibra TDA 1 S",
     "notes": ""
@@ -1304,7 +1304,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 39",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 10",
     "label": "",
     "notes": ""
@@ -1314,7 +1314,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 40",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 9",
     "label": "out out",
     "notes": ""
@@ -1324,7 +1324,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 41",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 8",
     "label": "TO MOVio",
     "notes": ""
@@ -1334,7 +1334,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 42",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 7",
     "label": "to cv hd",
     "notes": ""
@@ -1344,7 +1344,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 43",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 6",
     "label": "Radio desem",
     "notes": ""
@@ -1354,7 +1354,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 44",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 5",
     "label": "MON SONIDI",
     "notes": ""
@@ -1364,7 +1364,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 45",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 4",
     "label": "",
     "notes": ""
@@ -1374,7 +1374,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 46",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 3",
     "label": "MONI LINEA",
     "notes": ""
@@ -1384,7 +1384,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 47",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 2",
     "label": "Dest 47",
     "notes": ""
@@ -1394,7 +1394,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 48",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel Outputs",
+    "dst_eq": "Patch Panel",
     "dst_port": "Port 1",
     "label": "Dest 48",
     "notes": ""
