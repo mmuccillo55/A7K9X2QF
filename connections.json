@@ -702,7 +702,7 @@
   {
     "src_rack": "F.2",
     "src_eq": "Sony HXCU-100",
-    "src_port": "Out 1",
+    "src_port": "Out 2",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 41",
@@ -722,7 +722,7 @@
   {
     "src_rack": "F.3",
     "src_eq": "Sony HXCU-100",
-    "src_port": "Out 1",
+    "src_port": "Out 2",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 42",
@@ -742,7 +742,7 @@
   {
     "src_rack": "F.4",
     "src_eq": "Sony HXCU-100",
-    "src_port": "Out 1",
+    "src_port": "Out 2",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 43",
@@ -762,7 +762,7 @@
   {
     "src_rack": "F.5",
     "src_eq": "Sony HXCU-100",
-    "src_port": "Out 1",
+    "src_port": "Out 2",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 44",
