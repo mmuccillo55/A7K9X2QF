@@ -540,6 +540,16 @@
     "notes": ""
   },
   {
+    "src_rack": "D.CAM.",
+    "src_eq": "0",
+    "src_port": "Out P1",
+    "dst_rack": "C.3",
+    "dst_eq": "AJA KUMO 6464",
+    "dst_port": "In 22",
+    "label": "GRAB GV",
+    "notes": ""
+  },
+  {
     "src_rack": "C.3",
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 22",
@@ -688,6 +698,16 @@
     "dst_port": "In",
     "label": "CG",
     "notes": ""
+  },
+  {
+    "src_rack": "PISO",
+    "src_eq": "0",
+    "src_port": "Out",
+    "dst_rack": "C.3",
+    "dst_eq": "AJA KUMO 6464",
+    "dst_port": "In 33",
+    "label": "APPLE TV",
+    "notes": "BM HDMI to SDI ARRIBA"
   },
   {
     "src_rack": "C.3",
@@ -967,6 +987,16 @@
     "dst_eq": "openGear X",
     "dst_port": "In",
     "label": "MON PISO",
+    "notes": ""
+  },
+  {
+    "src_rack": "C.3",
+    "src_eq": "AJA KUMO 6464",
+    "src_port": "Out 51",
+    "dst_rack": "D.CAM.",
+    "dst_eq": "0",
+    "dst_port": "In 1",
+    "label": "GV DIR IN",
     "notes": ""
   },
   {
@@ -1871,6 +1901,26 @@
   },
   {
     "src_rack": "D.7",
+    "src_eq": "openGear X Slot 4 (De-embedder)",
+    "src_port": "Analog Audio L",
+    "dst_rack": "D.CAM.",
+    "dst_eq": "0",
+    "dst_port": "In 12",
+    "label": "",
+    "notes": ""
+  },
+  {
+    "src_rack": "D.7",
+    "src_eq": "openGear X Slot 4 (De-embedder)",
+    "src_port": "Analog Audio R",
+    "dst_rack": "D.CAM.",
+    "dst_eq": "0",
+    "dst_port": "In 13",
+    "label": "",
+    "notes": ""
+  },
+  {
+    "src_rack": "D.7",
     "src_eq": "openGear X Slot 5 (De-embedder)",
     "src_port": "SDI In",
     "dst_rack": "C.4",
@@ -1886,6 +1936,16 @@
     "dst_rack": "F.7",
     "dst_eq": "FOR A HVS-390HS",
     "dst_port": "In 8",
+    "label": "",
+    "notes": ""
+  },
+  {
+    "src_rack": "D.7",
+    "src_eq": "openGear X Slot 5 (De-embedder)",
+    "src_port": "Analog Audio L",
+    "dst_rack": "D.CAM.",
+    "dst_eq": "0",
+    "dst_port": "In 14",
     "label": "",
     "notes": ""
   },
@@ -1911,6 +1971,16 @@
   },
   {
     "src_rack": "D.7",
+    "src_eq": "openGear X Slot 6 (De-embedder)",
+    "src_port": "Analog Audio L",
+    "dst_rack": "D.CAM.",
+    "dst_eq": "0",
+    "dst_port": "In 15",
+    "label": "",
+    "notes": ""
+  },
+  {
+    "src_rack": "D.7",
     "src_eq": "openGear X Slot 7 (De-embedder)",
     "src_port": "SDI In",
     "dst_rack": "C.4",
@@ -1926,6 +1996,16 @@
     "dst_rack": "F.7",
     "dst_eq": "FOR A HVS-390HS",
     "dst_port": "In 10",
+    "label": "",
+    "notes": ""
+  },
+  {
+    "src_rack": "D.7",
+    "src_eq": "openGear X Slot 7 (De-embedder)",
+    "src_port": "Analog Audio L",
+    "dst_rack": "D.CAM.",
+    "dst_eq": "0",
+    "dst_port": "In 16",
     "label": "",
     "notes": ""
   },
@@ -1988,6 +2068,16 @@
     "dst_port": "In 3",
     "label": "",
     "notes": "CAM 3"
+  },
+  {
+    "src_rack": "F.7",
+    "src_eq": "FOR A HVS-390HS",
+    "src_port": "Aux 3",
+    "dst_rack": "D.CAM.",
+    "dst_eq": "0",
+    "dst_port": "In",
+    "label": "",
+    "notes": "BM SDI to HDMI > Capturadora USB"
   },
   {
     "src_rack": "F.5",
