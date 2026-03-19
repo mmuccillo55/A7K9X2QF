@@ -1,259 +1,186 @@
-import pandas as pd
-import json
-import sys
-import os
+"""
+parse.py — RACKS_C12.xlsx → connections.json
+
+Reglas:
+- Cada hoja de equipo central es la fuente de verdad de SUS conexiones.
+- add() rechaza cables duplicados (incluyendo el cable visto desde el otro extremo).
+- No hay normalización de nombres: se usan los nombres exactos del xlsx.
+- La hoja DB se ignora (es solo referencia).
+"""
+
+import pandas as pd, json, sys, os
 
 XLSX = 'RACKS_C12.xlsx'
-
 if not os.path.exists(XLSX):
-    print(f"ERROR: no se encontró {XLSX}", file=sys.stderr)
-    sys.exit(1)
+    print(f"ERROR: no se encontró {XLSX}", file=sys.stderr); sys.exit(1)
 
-# Ignorar la hoja "DB" — solo es referencia de nombres
-all_sheets = pd.read_excel(XLSX, sheet_name=None, header=None)
-all_sheets.pop('DB', None)
+sheets = pd.read_excel(XLSX, sheet_name=None, header=None)
+sheets.pop('DB', None)
 
-# ── Helpers ──────────────────────────────────────────────────────────────────
-
+# ── helpers ──────────────────────────────────────────────────────────────────
 def clean(v):
     if pd.isna(v): return None
     s = str(v).strip()
     return s if s not in ('', 'nan', 'NaN') else None
 
-def safeget(row, idx):
-    """Obtiene clean(row[idx]) sin explotar si la columna no existe."""
-    try:
-        return clean(row[idx])
-    except (KeyError, IndexError):
-        return None
+def sg(row, idx):
+    try: return clean(row[idx])
+    except (KeyError, IndexError): return None
 
 SKIP = {'?', 'N/C', 'VACANTE', 'N/A'}
+def skip(v): return not v or v in SKIP
 
-def skip(v):
-    return not v or v in SKIP
+# Variantes reales que aún existen en el xlsx con distinta capitalización
+_EQ_NORM = {
+    'blackmagic multiview 16': 'Blackmagic MultiView 16',
+}
+def norm_eq(eq):
+    if not eq: return eq
+    return _EQ_NORM.get(eq.lower(), eq)
 
+_seen = set()
 connections = []
 
 def add(src_rack, src_eq, src_port, dst_rack, dst_eq, dst_port, label='', notes=''):
+    src_eq = norm_eq(src_eq); dst_eq = norm_eq(dst_eq)
     if skip(src_rack) or skip(dst_rack): return
-    if skip(src_eq) or skip(dst_eq): return
+    if skip(src_eq)   or skip(dst_eq):  return
+    src_port = str(src_port or '').strip()
+    dst_port = str(dst_port or '').strip()
+    key = (src_rack, src_eq, src_port, dst_rack, dst_eq, dst_port)
+    rev = (dst_rack, dst_eq, dst_port, src_rack, src_eq, src_port)
+    if key in _seen or rev in _seen: return
+    _seen.add(key)
     connections.append({
-        'src_rack': src_rack,
-        'src_eq':   src_eq   or '',
-        'src_port': src_port or '',
-        'dst_rack': dst_rack,
-        'dst_eq':   dst_eq   or '',
-        'dst_port': dst_port or '',
-        'label':    label    or '',
-        'notes':    notes    or '',
+        'src_rack': src_rack, 'src_eq': src_eq, 'src_port': src_port,
+        'dst_rack': dst_rack, 'dst_eq': dst_eq, 'dst_port': dst_port,
+        'label': str(label or '').strip(),
+        'notes': str(notes or '').strip(),
     })
 
-# ── Rack A ───────────────────────────────────────────────────────────────────
-# Cols: 0=src_rack 1=src_eq 2=src_slot 3=src_port 4=dst_rack 5=dst_eq 6=dst_slot 7=dst_port 8=notas
-df = all_sheets['Rack A']
-for i in range(2, len(df)):
-    row = df.iloc[i]
-    r_o, eq_o, p_o = safeget(row,0), safeget(row,1), safeget(row,3)
-    r_d, eq_d, p_d = safeget(row,4), safeget(row,5), safeget(row,7)
-    nota            = safeget(row,8)
-    add(r_o, eq_o, p_o, r_d, eq_d, p_d, eq_o or '', nota or '')
-
-# ── Rack B ───────────────────────────────────────────────────────────────────
-# Cols: 0=dst_rack 1=dst_eq 2=dst_port 3=src_rack 4=src_eq 5=src_port 6=notas
-df = all_sheets['Rack B']
-for i in range(2, len(df)):
-    row = df.iloc[i]
-    r_d, eq_d, p_d = safeget(row,0), safeget(row,1), safeget(row,2)
-    r_o, eq_o, p_o = safeget(row,3), safeget(row,4), safeget(row,5)
-    nota            = safeget(row,6)
-    add(r_o, eq_o, p_o, r_d, eq_d, p_d, eq_d or '', nota or '')
-
 # ── Rack C.3 AJA KUMO 6464 ───────────────────────────────────────────────────
-# Cols INPUTS  (0-6):  0=in_n 1=rotulo 2=src_rack 3=src_eq 4=src_slot 5=src_port 6=notas
-# Cols OUTPUTS (9-15): 9=out_n 10=rotulo 11=dst_rack 12=dst_eq 13=dst_slot 14=dst_port 15=notas
-df = all_sheets['Rack C.3 AJA KUMO 6464']
+# Inputs:  0=in_n  1=rotulo  2=src_rack  3=src_eq  4=slot  5=src_port  6=notas
+# Outputs: 9=out_n 10=rotulo 11=dst_rack 12=dst_eq 13=slot 14=dst_port 15=notas
+df = sheets['Rack C.3 AJA KUMO 6464']
 for i in range(2, len(df)):
     row = df.iloc[i]
-    # Inputs → KUMO
-    in_n   = safeget(row, 0);  rotulo = safeget(row, 1)
-    r_o, eq_o, sl_o, p_o = safeget(row,2), safeget(row,3), safeget(row,4), safeget(row,5)
-    nota   = safeget(row, 6)
-    if in_n and not skip(r_o) and r_o != 'K':
-        port_o = p_o or (f"Slot {sl_o}" if sl_o else 'Out')
-        add(r_o, eq_o, port_o, 'C.3', 'AJA KUMO 6464', f'In {in_n}', rotulo or eq_o or '', nota or '')
-    # KUMO → Outputs
-    out_n  = safeget(row, 9);  rotulo2 = safeget(row, 10)
-    r_d, eq_d, sl_d, p_d = safeget(row,11), safeget(row,12), safeget(row,13), safeget(row,14)
-    nota2  = safeget(row, 15)
-    if out_n and not skip(r_d):
-        port_d = p_d or (f"Slot {sl_d}" if sl_d else 'In')
-        add('C.3', 'AJA KUMO 6464', f'Out {out_n}', r_d, eq_d, port_d, rotulo2 or eq_d or '', nota2 or '')
+    in_n = sg(row, 0)
+    ro, eo, po = sg(row, 2), sg(row, 3), sg(row, 5)
+    lbl, nota = sg(row, 1), sg(row, 6)
+    if in_n and not skip(ro) and ro != 'K':
+        add(ro, eo, po or 'Out', 'C.3', 'AJA KUMO 6464', f'In {in_n}', lbl or eo or '', nota or '')
+
+    out_n = sg(row, 9)
+    rd, ed, pd_ = sg(row, 11), sg(row, 12), sg(row, 14)
+    lbl2, nota2 = sg(row, 10), sg(row, 15)
+    if out_n and not skip(rd):
+        add('C.3', 'AJA KUMO 6464', f'Out {out_n}', rd, ed, pd_ or 'In', lbl2 or ed or '', nota2 or '')
 
 # ── Rack C.4 Blackmagic MultiView ────────────────────────────────────────────
-# Cols INPUTS  (0-4):  0=in_n 1=src_rack 2=src_eq 3=src_port 4=notas
-# Cols OUTPUTS (7-12): 7=out_n 8=dst_rack 9=dst_eq 10=dst_slot 11=dst_port 12=notas
-# Fila 19 especial: SDI OUT en col 7, destino en cols 8-12
-df = all_sheets['Rack C.4 Blackmagic Multiview 1']
+# Inputs:  0=in_n  1=src_rack  2=src_eq  3=src_port  4=notas
+# Outputs: 7=out_n 8=dst_rack  9=dst_eq  11=dst_port 12=notas
+df = sheets['Rack C.4 Blackmagic Multiview 1']
 for i in range(2, len(df)):
     row = df.iloc[i]
-    # Inputs → MultiView
-    in_n = safeget(row, 0)
-    r_o, eq_o, p_o = safeget(row,1), safeget(row,2), safeget(row,3)
-    nota = safeget(row, 4)
-    if in_n and not skip(r_o):
-        add(r_o, eq_o, p_o or 'Out', 'C.4', 'Blackmagic MultiView 16', f'In {in_n}', '', nota or '')
-    # MultiView → Outputs
-    out_n = safeget(row, 7)
-    r_d   = safeget(row, 8)
-    eq_d  = safeget(row, 9)
-    p_d   = safeget(row, 11)
-    nota2 = safeget(row, 12)
-    if out_n and not skip(r_d):
-        add('C.4', 'Blackmagic MultiView 16', f'Out {out_n}', r_d, eq_d, p_d or 'SDI In', '', nota2 or '')
-    # Fila 19 especial: SDI OUT
+    in_n = sg(row, 0); ro, eo, po = sg(row, 1), sg(row, 2), sg(row, 3); nota = sg(row, 4)
+    if in_n and not skip(ro):
+        add(ro, eo, po or 'Out', 'C.4', 'Blackmagic MultiView 16', f'In {in_n}', '', nota or '')
+    out_n = sg(row, 7); rd, ed, pd_ = sg(row, 8), sg(row, 9), sg(row, 11); nota2 = sg(row, 12)
+    if out_n and not skip(rd):
+        add('C.4', 'Blackmagic MultiView 16', f'Out {out_n}', rd, ed, pd_ or 'SDI In', '', nota2 or '')
     if i == 19:
-        sdi_label = safeget(row, 7)   # 'SDI OUT'
-        r_d2  = safeget(row, 8)
-        eq_d2 = safeget(row, 9)
-        p_d2  = safeget(row, 11)
-        nota3 = safeget(row, 12)
-        if sdi_label and not skip(r_d2):
-            add('C.4', 'Blackmagic MultiView 16', 'SDI OUT', r_d2, eq_d2, p_d2 or 'In', '', nota3 or '')
+        lbl = sg(row, 7); rd2, ed2, pd2 = sg(row, 8), sg(row, 9), sg(row, 11); nota3 = sg(row, 12)
+        if lbl and not skip(rd2):
+            add('C.4', 'Blackmagic MultiView 16', 'SDI OUT', rd2, ed2, pd2 or 'In', '', nota3 or '')
 
-# ── Rack C.5 Blackmagic 12x12 ────────────────────────────────────────────────
-# Cols INPUTS  (0-4):  0=in_n 1=src_rack 2=src_eq 3=src_port 4=notas
-# Cols OUTPUTS (7-11): 7=out_n 8=dst_rack 9=dst_eq 10=dst_port 11=notas
-df = all_sheets['Rack C.5 Blackmagic 12 x 12']
+# ── Rack C.5 Blackmagic 12 x 12 ──────────────────────────────────────────────
+# Inputs:  0=in_n  1=src_rack  2=src_eq  3=src_port  4=notas
+# Outputs: 7=out_n 8=dst_rack  9=dst_eq  10=dst_port 11=notas
+df = sheets['Rack C.5 Blackmagic 12 x 12']
 for i in range(2, len(df)):
     row = df.iloc[i]
-    in_n = safeget(row, 0)
-    r_o, eq_o, p_o = safeget(row,1), safeget(row,2), safeget(row,3)
-    nota = safeget(row, 4)
-    if in_n and not skip(r_o):
-        add(r_o, eq_o, p_o or 'Out', 'C.5', 'Blackmagic 12x12', f'In {in_n}', nota or '', '')
-    out_n = safeget(row, 7)
-    r_d, eq_d, p_d = safeget(row,8), safeget(row,9), safeget(row,10)
-    nota2 = safeget(row, 11)
-    if out_n and not skip(r_d):
-        add('C.5', 'Blackmagic 12x12', f'Out {out_n}', r_d, eq_d, p_d or 'In', '', nota2 or '')
+    in_n = sg(row, 0); ro, eo, po = sg(row, 1), sg(row, 2), sg(row, 3); nota = sg(row, 4)
+    if in_n and not skip(ro):
+        add(ro, eo, po or 'Out', 'C.5', 'Blackmagic 12 x 12', f'In {in_n}', nota or '', '')
+    out_n = sg(row, 7); rd, ed, pd_ = sg(row, 8), sg(row, 9), sg(row, 10); nota2 = sg(row, 11)
+    if out_n and not skip(rd):
+        add('C.5', 'Blackmagic 12 x 12', f'Out {out_n}', rd, ed, pd_ or 'In', '', nota2 or '')
 
 # ── Rack C.6 Patch Panel Inputs ──────────────────────────────────────────────
-# Cols: 0=patch_n 1=src_rack 2=src_eq 3=src_port 4=notas
-# Semántica: el patch recibe de rack externo y conecta al KUMO
-df = all_sheets['Rack C.6 Patch panel Inputs']
+# Cols: 0=patch_n  1=src_rack  2=src_eq  3=src_port  4=notas
+df = sheets['Rack C.6 Patch panel Inputs']
 for i in range(2, len(df)):
     row = df.iloc[i]
-    patch_n = safeget(row, 0)
-    r_o     = safeget(row, 1)
-    eq_o    = safeget(row, 2)
-    p_o     = safeget(row, 3)
-    nota    = safeget(row, 4)
-    if patch_n and not skip(r_o):
-        add(r_o, eq_o or 'Patch Panel (Inputs)', f'Port {patch_n}',
-            'C.3', 'AJA KUMO 6464', p_o or f'In {patch_n}', '', nota or '')
+    pn = sg(row, 0); ro = sg(row, 1); eo = sg(row, 2); po = sg(row, 3); nota = sg(row, 4)
+    if pn and not skip(ro):
+        add(ro, eo or 'Ext', po or f'Out {pn}', 'C.6', 'Patch Panel Inputs', f'Port {pn}', '', nota or '')
 
 # ── Rack C.7 Patch Panel Outputs ─────────────────────────────────────────────
-# Cols: 0=patch_n 1=src_rack 2=src_eq 3=src_port 4=notas
-# Semántica: KUMO → Patch Panel Outputs
-df = all_sheets['Rack C.7 Patch panel Outputs']
+# Cols: 0=patch_n  1=src_rack  2=src_eq  3=src_port  4=notas
+df = sheets['Rack C.7 Patch panel Outputs']
 for i in range(2, len(df)):
     row = df.iloc[i]
-    patch_n = safeget(row, 0)
-    r_o     = safeget(row, 1)
-    eq_o    = safeget(row, 2)
-    p_o     = safeget(row, 3)
-    nota    = safeget(row, 4)
-    if patch_n and not skip(r_o) and eq_o:
-        add(r_o, eq_o, p_o or f'Out {patch_n}',
-            'C.7', 'Patch Panel (Outputs)', f'Port {patch_n}', nota or '', '')
+    pn = sg(row, 0); ro = sg(row, 1); eo = sg(row, 2); po = sg(row, 3); nota = sg(row, 4)
+    if pn and not skip(ro) and eo:
+        add(ro, eo, po or f'Out {pn}', 'C.7', 'Patch Panel Outputs', f'Port {pn}', nota or '', '')
 
 # ── Rack D.Back ───────────────────────────────────────────────────────────────
-# Cols: 0=src_rack 1=src_eq 2=src_slot 3=src_port 4=dst_rack 5=dst_eq 6=dst_slot 7=dst_port 8=notas
-df = all_sheets['Rack D.Back']
+# Cols: 0=src_rack 1=src_eq 2=slot 3=src_port 4=dst_rack 5=dst_eq 6=slot 7=dst_port 8=notas
+df = sheets['Rack D.Back']
 for i in range(2, len(df)):
     row = df.iloc[i]
-    r_o, eq_o, p_o = safeget(row,0), safeget(row,1), safeget(row,3)
-    r_d, eq_d, p_d = safeget(row,4), safeget(row,5), safeget(row,7)
-    nota            = safeget(row,8)
-    add(r_o, eq_o, p_o or 'Out', r_d, eq_d, p_d or 'In', '', nota or '')
+    ro, eo, po = sg(row, 0), sg(row, 1), sg(row, 3)
+    rd, ed, pd_ = sg(row, 4), sg(row, 5), sg(row, 7)
+    nota = sg(row, 8)
+    add(ro, eo, po or 'Out', rd, ed, pd_ or 'In', '', nota or '')
 
 # ── Rack D.7 openGear X ──────────────────────────────────────────────────────
 # Cols: 0=placa 1=slot_type 2=puerto_o 3=dst_rack 4=dst_eq 5=dst_slot 6=dst_port 7=notas
-# Las filas de placa/slot_type se heredan hacia abajo mientras no aparezca nuevo valor
-df = all_sheets['Rack D.7 openGear X']
-current_placa     = None
-current_slot_type = None
+df = sheets['Rack D.7 openGear X']
+cp = None; cs = None
 for i in range(2, len(df)):
     row = df.iloc[i]
-    placa = safeget(row, 0)
-    if placa:
-        try: current_placa = int(float(placa))
-        except: current_placa = placa
-    slot_type = safeget(row, 1)
-    if slot_type: current_slot_type = slot_type
-    puerto_o = safeget(row, 2)
-    r_d, eq_d, p_d = safeget(row,3), safeget(row,4), safeget(row,6)
-    nota            = safeget(row,7)
-    if puerto_o and not skip(r_d) and r_d != 'D.Back':
-        slot_label = (f"Slot {current_placa} ({current_slot_type})"
-                      if current_slot_type else f"Slot {current_placa}")
-        add('D.7', f'openGear X {slot_label}', puerto_o,
-            r_d, eq_d, p_d or 'In', '', nota or '')
+    p = sg(row, 0)
+    if p:
+        try: cp = int(float(p))
+        except: cp = p
+    s = sg(row, 1)
+    if s: cs = s
+    po = sg(row, 2); rd, ed, pd_ = sg(row, 3), sg(row, 4), sg(row, 6); nota = sg(row, 7)
+    if po and not skip(rd) and rd != 'D.Back':
+        sl = f'Slot {cp} ({cs})' if cs else f'Slot {cp}'
+        add('D.7', f'openGear X {sl}', po, rd, ed, pd_ or 'In', '', nota or '')
 
 # ── Rack D.9 openGear X ──────────────────────────────────────────────────────
-# Misma estructura que D.7
-df = all_sheets['Rack D.9 openGear X']
-current_placa     = None
-current_slot_type = None
+df = sheets['Rack D.9 openGear X']
+cp = None; cs = None
 for i in range(2, len(df)):
     row = df.iloc[i]
-    placa = safeget(row, 0)
-    if placa:
-        try: current_placa = int(float(placa))
-        except: current_placa = placa
-    slot_type = safeget(row, 1)
-    if slot_type: current_slot_type = slot_type
-    puerto_o = safeget(row, 2)
-    r_d, eq_d, p_d = safeget(row,3), safeget(row,4), safeget(row,6)
-    nota            = safeget(row,7)
-    if puerto_o and not skip(r_d):
-        slot_label = (f"Slot {current_placa} ({current_slot_type})"
-                      if current_slot_type else f"Slot {current_placa}")
-        add('D.9', f'openGear X {slot_label}', puerto_o,
-            r_d, eq_d, p_d or 'In', '', nota or '')
+    p = sg(row, 0)
+    if p:
+        try: cp = int(float(p))
+        except: cp = p
+    s = sg(row, 1)
+    if s: cs = s
+    po = sg(row, 2); rd, ed, pd_ = sg(row, 3), sg(row, 4), sg(row, 6); nota = sg(row, 7)
+    if po and not skip(rd):
+        sl = f'Slot {cp} ({cs})' if cs else f'Slot {cp}'
+        add('D.9', f'openGear X {sl}', po, rd, ed, pd_ or 'In', '', nota or '')
 
-# ── Rack F.7 FOR-A HVS-390HS ─────────────────────────────────────────────────
-# Cols INPUTS  (0-5):  0=in_n 1=src_rack 2=src_eq 3=src_slot 4=src_port 5=notas
-# Cols OUTPUTS (7-11): 7=out_n 8=dst_rack 9=dst_eq 10=dst_port 11=notas
-df = all_sheets['Rack F.7 FOR A HVS-390HS']
+# ── Rack F.7 FOR A HVS-390HS ─────────────────────────────────────────────────
+# Inputs:  0=in_n  1=src_rack  2=src_eq  3=slot  4=src_port  5=notas
+# Outputs: 7=out_n 8=dst_rack  9=dst_eq  10=dst_port 11=notas
+df = sheets['Rack F.7 FOR A HVS-390HS']
 for i in range(2, len(df)):
     row = df.iloc[i]
-    in_n = safeget(row, 0)
-    r_o, eq_o, p_o = safeget(row,1), safeget(row,2), safeget(row,4)
-    nota = safeget(row, 5)
-    if in_n and not skip(r_o):
-        add(r_o, eq_o, p_o or 'Out', 'F.7', 'FOR A HVS-390HS', f'In {in_n}', '', nota or '')
-    out_n = safeget(row, 7)
-    r_d, eq_d, p_d = safeget(row,8), safeget(row,9), safeget(row,10)
-    nota2 = safeget(row, 11)
-    if out_n and not skip(r_d):
-        add('F.7', 'FOR A HVS-390HS', str(out_n), r_d, eq_d, p_d or 'In', '', nota2 or '')
-
-# ── Deduplicar ───────────────────────────────────────────────────────────────
-seen = set()
-unique = []
-for c in connections:
-    key = (c['src_rack'], c['src_eq'], c['src_port'], c['dst_rack'], c['dst_eq'], c['dst_port'])
-    if key not in seen:
-        seen.add(key)
-        unique.append(c)
-
-removed = len(connections) - len(unique)
-if removed:
-    print(f"INFO: {removed} duplicados eliminados", file=sys.stderr)
+    in_n = sg(row, 0); ro, eo, po = sg(row, 1), sg(row, 2), sg(row, 4); nota = sg(row, 5)
+    if in_n and not skip(ro):
+        add(ro, eo, po or 'Out', 'F.7', 'FOR A HVS-390HS', f'In {in_n}', '', nota or '')
+    out_n = sg(row, 7); rd, ed, pd_ = sg(row, 8), sg(row, 9), sg(row, 10); nota2 = sg(row, 11)
+    if out_n and not skip(rd):
+        add('F.7', 'FOR A HVS-390HS', str(out_n), rd, ed, pd_ or 'In', '', nota2 or '')
 
 # ── Output ───────────────────────────────────────────────────────────────────
 with open('connections.json', 'w', encoding='utf-8') as f:
-    json.dump(unique, f, ensure_ascii=False, indent=2)
-
-print(f"OK: {len(unique)} conexiones → connections.json")
+    json.dump(connections, f, ensure_ascii=False, indent=2)
+print(f"OK: {len(connections)} conexiones → connections.json")

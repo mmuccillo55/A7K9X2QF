@@ -23,7 +23,7 @@ header h1{font-family:'Share Tech Mono',monospace;font-size:.95rem;color:var(--a
 .loading{display:flex;align-items:center;justify-content:center;height:300px;font-family:'Share Tech Mono',monospace;color:var(--text-dim);font-size:.8rem;letter-spacing:2px;}
 .error-msg{display:flex;align-items:center;justify-content:center;height:200px;font-family:'Share Tech Mono',monospace;color:#ff4444;font-size:.8rem;text-align:center;padding:20px;flex-direction:column;gap:8px;}
 
-/* ── RACKS VIEW — columnas por letra ── */
+/* ── RACKS VIEW ── */
 #racksView{padding:24px;overflow-x:auto;}
 .racks-columns{display:flex;gap:18px;align-items:flex-start;min-width:max-content;padding-bottom:16px;}
 .rack-column{display:flex;flex-direction:column;gap:10px;width:168px;}
@@ -41,33 +41,36 @@ header h1{font-family:'Share Tech Mono',monospace;font-size:.95rem;color:var(--a
 .equip-rack-label{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--accent4);margin-bottom:22px;}
 .ports-section-title{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:3px;color:var(--text-dim);text-transform:uppercase;margin:18px 0 10px;display:flex;align-items:center;gap:10px;}
 .ports-section-title::after{content:'';flex:1;height:1px;background:var(--border);}
-.ports-grid{display:grid;grid-template-columns:repeat(8,72px);gap:6px;}
-.port-item{display:flex;align-items:center;justify-content:center;text-align:center;background:var(--panel);border:1px solid var(--border);border-radius:5px;padding:8px 4px;cursor:pointer;transition:all .15s;height:44px;}
-.port-item:hover{border-color:rgba(0,212,255,0.5);background:rgba(0,212,255,0.05);}
-.port-item.active{border-color:var(--accent);background:rgba(0,212,255,0.1);}
-.port-item.port-type-in {border-top:2px solid var(--accent);}
-.port-item.port-type-out{border-top:2px solid var(--accent2);}
-.port-item.port-type-aux{border-top:2px solid var(--accent3);}
-.pi-port{font-family:'Share Tech Mono',monospace;font-size:.65rem;font-weight:bold;color:var(--text);line-height:1.2;}
+.ports-grid{display:grid;grid-template-columns:repeat(8,68px);gap:6px;}
+.port-btn{display:flex;align-items:center;justify-content:center;text-align:center;background:var(--panel);border:1px solid var(--border);border-radius:5px;padding:8px 4px;cursor:pointer;transition:all .15s;height:42px;font-family:'Share Tech Mono',monospace;font-size:.64rem;font-weight:bold;color:var(--text);line-height:1.2;word-break:break-all;}
+.port-btn:hover{border-color:rgba(0,212,255,0.5);background:rgba(0,212,255,0.05);}
+.port-btn.active{border-color:var(--accent);background:rgba(0,212,255,0.1);color:var(--accent);}
+.port-btn.t-in {border-top:2px solid var(--accent);}
+.port-btn.t-out{border-top:2px solid var(--accent2);}
+.port-btn.t-aux{border-top:2px solid var(--accent3);}
 
 /* ── POPOVER ── */
-#popover{position:fixed;z-index:500;background:var(--panel2);border:1px solid var(--accent);border-radius:8px;padding:14px 16px;width:320px;max-height:80vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.75);display:none;}
-#popover.visible{display:block;}
-#popover-close{position:absolute;top:8px;right:10px;background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:.85rem;line-height:1;padding:2px 4px;}
-#popover-close:hover{color:var(--accent);}
-.pop-title{font-family:'Share Tech Mono',monospace;font-size:.55rem;color:var(--accent);letter-spacing:2px;margin-bottom:10px;}
-.path-node{display:flex;align-items:flex-start;gap:6px;padding:2px 0;flex-wrap:wrap;}
-.path-node.pn-first .pn-eq{color:var(--accent3);}
-.path-node.pn-last  .pn-eq{color:var(--accent2);}
-.path-node.pn-active{background:rgba(0,212,255,0.1);border-radius:3px;padding:2px 4px;margin:0 -4px;}
-.pn-pre {color:var(--muted);flex-shrink:0;width:10px;font-family:'Share Tech Mono',monospace;font-size:.68rem;}
-.pn-rack{color:var(--accent4);flex-shrink:0;min-width:38px;font-family:'Share Tech Mono',monospace;font-size:.63rem;}
-.pn-eq  {color:var(--text);font-size:.7rem;}
-.pn-port{color:var(--accent);font-size:.6rem;font-family:'Share Tech Mono',monospace;}
-.pn-note{color:var(--text-dim);font-size:.57rem;font-style:italic;width:100%;padding-left:16px;}
-.path-arr   {color:var(--muted);padding-left:4px;font-size:.68rem;line-height:1.3;}
-.path-branch{color:var(--accent3);font-size:.57rem;margin:3px 0 1px;font-family:'Share Tech Mono',monospace;}
-.path-nodata{color:var(--muted);font-style:italic;font-size:.68rem;}
+#popover{position:fixed;z-index:500;background:var(--panel2);border:1px solid var(--accent);border-radius:8px;padding:14px 16px 16px;width:310px;max-height:80vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.8);display:none;}
+#popover.on{display:block;}
+#pop-close{position:absolute;top:8px;right:10px;background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:.85rem;padding:2px 5px;}
+#pop-close:hover{color:var(--accent);}
+.pop-title{font-family:'Share Tech Mono',monospace;font-size:.55rem;color:var(--accent);letter-spacing:2px;margin-bottom:12px;padding-right:20px;}
+.pop-port{font-family:'Share Tech Mono',monospace;font-size:.8rem;font-weight:bold;color:var(--accent3);margin-bottom:10px;}
+
+/* trace nodes */
+.tr-node{display:flex;align-items:flex-start;gap:7px;padding:3px 0;}
+.tr-node.tr-first .tr-eq{color:var(--accent3);}
+.tr-node.tr-last  .tr-eq{color:var(--accent2);}
+.tr-node.tr-active{background:rgba(0,212,255,0.09);border-radius:3px;padding:3px 5px;margin:0 -5px;}
+.tr-pre {font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--muted);width:10px;flex-shrink:0;margin-top:1px;}
+.tr-body{display:flex;flex-direction:column;gap:1px;}
+.tr-rack{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--accent4);}
+.tr-eq  {font-size:.72rem;font-weight:600;color:var(--text);}
+.tr-port{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--accent);}
+.tr-note{font-size:.58rem;color:var(--text-dim);font-style:italic;}
+.tr-arrow{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);padding:1px 0 1px 17px;}
+.tr-branch{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--accent3);margin:6px 0 2px;}
+.tr-nodata{font-size:.7rem;color:var(--muted);font-style:italic;}
 </style>
 </head>
 <body>
@@ -81,271 +84,271 @@ header h1{font-family:'Share Tech Mono',monospace;font-size:.95rem;color:var(--a
 <div id="equipView"></div>
 
 <div id="popover">
-  <button id="popover-close" onclick="closePopover()">✕</button>
+  <button id="pop-close" onclick="closePop()">✕</button>
   <div class="pop-title">▶ RUTA DE SEÑAL</div>
-  <div id="popover-body"></div>
+  <div id="pop-port"></div>
+  <div id="pop-body"></div>
 </div>
 
 <script>
-// ── Normalizar ───────────────────────────────────────────────────────────────
-function normEq(eq){
-  if(!eq)return'';
-  eq=String(eq);
-  return eq
-    .replace(/^Player A$/i,'PLAYER A').replace(/^Player B$/i,'PLAYER B').replace(/^Player C$/i,'PLAYER C')
-    .replace(/^Loop A$/i,'LOOP A').replace(/^Loop B$/i,'LOOP B').replace(/^Loop C$/i,'LOOP C')
-    .replace(/^Aja fs4$/i,'AJA FS4')
-    .replace(/Blackmagic 12 x 12/i,'Blackmagic 12x12')
-    .replace(/Blackmagic Multiview 16/i,'Blackmagic MultiView 16')
-    .replace(/Blackmagic MultiView$/i,'Blackmagic MultiView 16')
-    .replace(/^openGear X Slot \d+.*$/,'openGear X')
-    .replace(/^Patch Panel \(Inputs\)$/,'Patch Panel')
-    .replace(/^Patch Panel \(Outputs\)$/,'Patch Panel')
-    .replace(/^Vacante en Rack$/i,'VACANTE')
-    .trim();
-}
-function normRack(r){
-  if(!r)return'';
-  return String(r).replace(/^D\.CAM\.$/,'D.CAM').trim();
-}
-function esc(s){
-  return String(s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-}
-function portTypeClass(p){
-  const l=String(p||'').toLowerCase();
-  if(l.startsWith('in')||l.includes(' in '))return'port-type-in';
-  if(l.startsWith('out')||l.includes(' out '))return'port-type-out';
-  return'port-type-aux';
-}
-
-let RAW=[], graph={};
+// ── Data ─────────────────────────────────────────────────────────────────────
+let RAW = [], graph = {};
 
 fetch('connections.json')
-  .then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status} — ${r.url}`);return r.json();})
-  .then(data=>{
-    RAW=data.map(c=>({
-      src_rack:normRack(c.src_rack), src_eq:normEq(c.src_eq), src_port:String(c.src_port||''),
-      dst_rack:normRack(c.dst_rack), dst_eq:normEq(c.dst_eq), dst_port:String(c.dst_port||''),
-      label:String(c.label||''), notes:String(c.notes||'')
-    })).filter(c=>
-      c.src_rack&&c.dst_rack&&
-      !['?','N/C'].includes(c.src_rack)&&
-      !['?','N/C','VACANTE'].includes(c.dst_rack)&&
-      c.src_eq!=='VACANTE'
+  .then(r => { if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+  .then(data => {
+    RAW = data.filter(c =>
+      c.src_rack && c.dst_rack && c.src_eq && c.dst_eq &&
+      !['?','N/C'].includes(c.src_rack) && !['?','N/C'].includes(c.dst_rack)
     );
     buildGraph();
     showRacks();
   })
-  .catch(err=>{
-    document.getElementById('racksView').innerHTML=
+  .catch(err => {
+    document.getElementById('racksView').innerHTML =
       `<div class="error-msg"><div>✗ No se pudo cargar connections.json</div><small>${err.message}</small></div>`;
   });
 
-// ── Graph ────────────────────────────────────────────────────────────────────
-function nk(r,e,p){return`${String(r||'').toLowerCase()}||${String(e||'').toLowerCase()}||${String(p||'').toLowerCase()}`;}
-function portNum(p){const m=String(p||'').match(/\d+/);return m?parseInt(m[0]):null;}
+// ── Graph — un arco por cable, dirección src→dst ──────────────────────────────
+function nk(r,e,p){ return `${r}||${e}||${p}`.toLowerCase(); }
 
 function buildGraph(){
-  graph={};
-  function addEdge(sr,se,sp,dr,de,dp,notes){
-    const k=nk(sr,se,sp);
-    if(!graph[k])graph[k]=[];
-    graph[k].push({rack:dr,eq:de,port:dp,notes:notes||''});
-  }
-  RAW.forEach(c=>addEdge(c.src_rack,c.src_eq,c.src_port,c.dst_rack,c.dst_eq,c.dst_port,c.notes));
-  const TRANS=['blackmagic multiview 16','blackmagic 12x12','patch panel'];
-  const isTrans=eq=>TRANS.some(t=>String(eq||'').toLowerCase().includes(t));
-  const arrivals={},departures={};
-  RAW.forEach(c=>{
-    if(isTrans(c.dst_eq)){const n=portNum(c.dst_port);if(n!=null)arrivals[nk(c.dst_rack,c.dst_eq,n)]={rack:c.dst_rack,eq:c.dst_eq,port:c.dst_port,notes:c.notes};}
-    if(isTrans(c.src_eq)){const n=portNum(c.src_port);if(n!=null){const k=nk(c.src_rack,c.src_eq,n);if(!departures[k])departures[k]=[];departures[k].push({rack:c.dst_rack,eq:c.dst_eq,port:c.dst_port,notes:c.notes});}}
-  });
-  Object.entries(arrivals).forEach(([k,arr])=>{
-    (departures[k]||[]).forEach(dep=>addEdge(arr.rack,arr.eq,arr.port,dep.rack,dep.eq,dep.port,`[via ${arr.eq} p${portNum(arr.port)}] ${dep.notes}`.trim()));
+  graph = {};
+  RAW.forEach(c => {
+    const k = nk(c.src_rack, c.src_eq, c.src_port);
+    if(!graph[k]) graph[k] = [];
+    graph[k].push({ rack:c.dst_rack, eq:c.dst_eq, port:c.dst_port, notes:c.notes, label:c.label });
   });
 }
 
-function traceFrom(rack,eq,port,maxD=10){
-  const start={rack,eq,port,notes:''};
-  const paths=[];
-  function dfs(r,e,p,chain,vis,d){
-    if(d>maxD)return;
-    const k=nk(r,e,p);
-    if(vis.has(k))return;
-    vis.add(k);
-    const nx=graph[k]||[];
-    if(!nx.length)paths.push([...chain]);
-    else nx.forEach(n=>{chain.push(n);dfs(n.rack,n.eq,n.port,chain,new Set(vis),d+1);chain.pop();});
+// ── Traceroute — DFS siguiendo cables reales, sin inventar nada ───────────────
+function traceFrom(rack, eq, port){
+  const MAX_DEPTH = 12;
+  const startKey = nk(rack, eq, port);
+  const paths = [];
+
+  function dfs(r, e, p, chain, visited, depth){
+    if(depth > MAX_DEPTH) return;
+    const k = nk(r, e, p);
+    if(visited.has(k)) return;
+    const next = graph[k] || [];
+    if(next.length === 0){
+      paths.push([...chain]);
+      return;
+    }
+    const vis2 = new Set(visited); vis2.add(k);
+    next.forEach(n => {
+      chain.push(n);
+      dfs(n.rack, n.eq, n.port, chain, vis2, depth + 1);
+      chain.pop();
+    });
   }
-  dfs(rack,eq,port,[start],new Set(),0);
-  if(!paths.length)paths.push([start]);
+
+  dfs(rack, eq, port, [], new Set(), 0);
+  if(!paths.length) paths.push([]); // sin salida conocida
   return paths;
 }
 
-// ── Signal path HTML ─────────────────────────────────────────────────────────
-function pathHTML(paths,activeRack,activeEq,activePort){
-  const ak=nk(activeRack,activeEq,activePort);
-  const seen=new Set();
-  const uniq=paths.filter(p=>{
-    const k=p.map(n=>nk(n.rack,n.eq,n.port)).join('>');
-    if(seen.has(k))return false; seen.add(k); return true;
-  });
-  if(uniq.length===1&&uniq[0].length===1)
-    return`<div class="path-nodata">Sin ruta documentada desde este punto</div>`;
+// ── Port type ─────────────────────────────────────────────────────────────────
+function portType(p){
+  const l = String(p||'').toLowerCase();
+  if(l.startsWith('in') || l.includes(' in ')) return 't-in';
+  if(l.startsWith('out') || l.includes(' out ')) return 't-out';
+  return 't-aux';
+}
 
-  let html='';
-  uniq.forEach((chain,pi)=>{
-    if(uniq.length>1) html+=`<div class="path-branch">╠ Rama ${pi+1}</div>`;
-    chain.forEach((node,i)=>{
-      const isFirst=i===0, isLast=i===chain.length-1;
-      const isActive=nk(node.rack,node.eq,node.port)===ak;
-      const pre=isFirst?'◉':isLast?'◎':'│';
-      html+=(i>0?`<div class="path-arr">↓</div>`:'')+
-        `<div class="path-node ${isFirst?'pn-first':''} ${isLast?'pn-last':''} ${isActive?'pn-active':''}">
-          <span class="pn-pre">${pre}</span>
-          <span class="pn-rack">${node.rack||'?'}</span>
-          <span class="pn-eq">${node.eq}</span>
-          <span class="pn-port">${node.port?' · '+node.port:''}</span>
-          ${node.notes?`<div class="pn-note">${node.notes}</div>`:''}
+// ── Sort ports numerically ────────────────────────────────────────────────────
+function portN(p){
+  const m = String(p||'').match(/\d+/);
+  return m ? parseInt(m[0]) : 9999;
+}
+function sortPorts(arr, key){
+  return [...arr].sort((a,b) => portN(a[key]) - portN(b[key]) || String(a[key]).localeCompare(String(b[key])));
+}
+
+// ── Rack list by letter ───────────────────────────────────────────────────────
+function getRacksByLetter(){
+  const map = {};
+  RAW.forEach(c => {
+    [[c.src_rack,c.src_eq],[c.dst_rack,c.dst_eq]].forEach(([rack,eq]) => {
+      if(!rack || ['?','N/C'].includes(rack)) return;
+      if(!eq   || ['VACANTE'].includes(eq))   return;
+      if(!map[rack]) map[rack] = new Set();
+      map[rack].add(eq);
+    });
+  });
+  const byLetter = {};
+  Object.entries(map).forEach(([rack,eqs]) => {
+    const letter = (rack.match(/^[A-Za-z]+/) || ['?'])[0].toUpperCase();
+    if(!byLetter[letter]) byLetter[letter] = [];
+    byLetter[letter].push({ rack, eqs: [...eqs].sort() });
+  });
+  Object.values(byLetter).forEach(arr =>
+    arr.sort((a,b) => a.rack.localeCompare(b.rack, undefined, {numeric:true}))
+  );
+  return Object.entries(byLetter).sort(([a],[b]) => a.localeCompare(b));
+}
+
+// ── Views ─────────────────────────────────────────────────────────────────────
+function showRacks(){
+  closePop();
+  document.getElementById('backBtn').classList.remove('visible');
+  document.getElementById('breadcrumb').innerHTML = '';
+  document.getElementById('headerTitle').textContent = '◈ RACK C12 — DIAGRAMA DE SEÑAL';
+  document.getElementById('equipView').style.display = 'none';
+  const view = document.getElementById('racksView');
+  view.style.display = 'block';
+
+  let html = '<div class="racks-columns">';
+  getRacksByLetter().forEach(([letter, racks]) => {
+    html += `<div class="rack-column"><div class="rack-column-header">${letter}</div>`;
+    racks.forEach(({rack, eqs}) => {
+      html += `<div class="rack-card">
+        <div class="rack-card-header"><span class="rack-id">RACK ${rack}</span></div>
+        <div class="rack-card-body">`;
+      eqs.forEach(eq => {
+        html += `<div class="eq-chip" onclick="showEquip(${j(rack)},${j(eq)})">${eq}</div>`;
+      });
+      html += '</div></div>';
+    });
+    html += '</div>';
+  });
+  html += '</div>';
+  view.innerHTML = html;
+}
+
+function showEquip(rack, eq){
+  closePop();
+  document.getElementById('backBtn').classList.add('visible');
+  document.getElementById('breadcrumb').innerHTML = `RACK <span>${rack}</span> › ${eq}`;
+  document.getElementById('headerTitle').textContent = '';
+  document.getElementById('racksView').style.display = 'none';
+
+  const outs = sortPorts(RAW.filter(c => c.src_rack===rack && c.src_eq===eq), 'src_port');
+  const ins  = sortPorts(RAW.filter(c => c.dst_rack===rack && c.dst_eq===eq), 'dst_port');
+
+  let html = `<div class="equip-title">${eq}</div><div class="equip-rack-label">RACK ${rack}</div>`;
+
+  if(outs.length){
+    html += `<div class="ports-section-title">◆ SALIDAS</div><div class="ports-grid">`;
+    outs.forEach(c => {
+      html += `<div class="port-btn ${portType(c.src_port)}"
+        onclick="openPop(this,${j(c.src_rack)},${j(c.src_eq)},${j(c.src_port)})"
+      >${c.src_port||'—'}</div>`;
+    });
+    html += '</div>';
+  }
+
+  if(ins.length){
+    html += `<div class="ports-section-title">◆ ENTRADAS</div><div class="ports-grid">`;
+    ins.forEach(c => {
+      // Para las entradas mostramos el puerto de entrada del equipo actual,
+      // pero el trace arranca desde el origen del cable (src)
+      html += `<div class="port-btn ${portType(c.dst_port)}"
+        onclick="openPop(this,${j(c.src_rack)},${j(c.src_eq)},${j(c.src_port)})"
+      >${c.dst_port||'—'}</div>`;
+    });
+    html += '</div>';
+  }
+
+  if(!outs.length && !ins.length)
+    html += `<div style="color:var(--text-dim);font-style:italic;margin-top:20px;font-size:.85rem;">Sin conexiones documentadas.</div>`;
+
+  const view = document.getElementById('equipView');
+  view.innerHTML = html;
+  view.style.display = 'block';
+  window.scrollTo(0,0);
+}
+
+// ── Popover ───────────────────────────────────────────────────────────────────
+let _activeBtn = null;
+
+function openPop(btn, sr, se, sp){
+  if(_activeBtn === btn){ closePop(); return; }
+  if(_activeBtn) _activeBtn.classList.remove('active');
+  _activeBtn = btn;
+  btn.classList.add('active');
+
+  const paths = traceFrom(sr, se, sp);
+  document.getElementById('pop-port').innerHTML =
+    `<div class="pop-port">${se} · ${sp}</div>`;
+  document.getElementById('pop-body').innerHTML = buildTraceHTML(paths, sr, se, sp);
+
+  const pop = document.getElementById('popover');
+  pop.classList.add('on');
+  positionPop(btn);
+}
+
+function positionPop(btn){
+  const pop = document.getElementById('popover');
+  const r = btn.getBoundingClientRect();
+  const pw = 310, ph = Math.min(pop.scrollHeight, window.innerHeight * 0.8);
+  let left = r.right + 12, top = r.top;
+  if(left + pw > window.innerWidth - 8) left = r.left - pw - 12;
+  if(left < 8) left = 8;
+  if(top + ph > window.innerHeight - 8) top = Math.max(8, window.innerHeight - ph - 8);
+  pop.style.left = left + 'px';
+  pop.style.top  = top  + 'px';
+}
+
+function closePop(){
+  document.getElementById('popover').classList.remove('on');
+  if(_activeBtn){ _activeBtn.classList.remove('active'); _activeBtn = null; }
+}
+
+document.addEventListener('click', e => {
+  if(!document.getElementById('popover').contains(e.target) && !e.target.closest('.port-btn'))
+    closePop();
+});
+
+// ── Trace HTML ────────────────────────────────────────────────────────────────
+function buildTraceHTML(paths, activeRack, activeEq, activePort){
+  // Deduplicar paths
+  const seen = new Set();
+  const uniq = paths.filter(p => {
+    const k = p.map(n => nk(n.rack,n.eq,n.port)).join('>');
+    if(seen.has(k)) return false; seen.add(k); return true;
+  });
+
+  // Nodo origen
+  const originNode = `
+    <div class="tr-node tr-first tr-active">
+      <span class="tr-pre">◉</span>
+      <div class="tr-body">
+        <span class="tr-rack">${activeRack}</span>
+        <span class="tr-eq">${activeEq}</span>
+        <span class="tr-port">${activePort}</span>
+      </div>
+    </div>`;
+
+  if(uniq.length === 1 && uniq[0].length === 0){
+    return originNode + `<div class="tr-nodata" style="margin-top:8px">Sin salida documentada desde este puerto</div>`;
+  }
+
+  let html = '';
+  uniq.forEach((chain, pi) => {
+    if(uniq.length > 1) html += `<div class="tr-branch">╠ Rama ${pi+1}</div>`;
+    html += originNode;
+    chain.forEach((node, i) => {
+      const isLast = i === chain.length - 1;
+      html += `<div class="tr-arrow">↓</div>
+        <div class="tr-node ${isLast ? 'tr-last' : ''}">
+          <span class="tr-pre">${isLast ? '◎' : '│'}</span>
+          <div class="tr-body">
+            <span class="tr-rack">${node.rack}</span>
+            <span class="tr-eq">${node.eq}</span>
+            <span class="tr-port">${node.port}</span>
+            ${node.notes ? `<span class="tr-note">${node.notes}</span>` : ''}
+          </div>
         </div>`;
     });
-    if(pi<uniq.length-1) html+=`<div style="height:8px"></div>`;
+    if(pi < uniq.length - 1) html += '<div style="height:8px"></div>';
   });
   return html;
 }
 
-// ── Popover ──────────────────────────────────────────────────────────────────
-let activePortEl=null;
-
-function showPopover(el,sr,se,sp){
-  if(activePortEl===el){closePopover();return;}
-  if(activePortEl)activePortEl.classList.remove('active');
-  activePortEl=el;
-  el.classList.add('active');
-  document.getElementById('popover-body').innerHTML=pathHTML(traceFrom(sr,se,sp),sr,se,sp);
-  const pop=document.getElementById('popover');
-  pop.classList.add('visible');
-  // Posicionar al lado del elemento
-  const rect=el.getBoundingClientRect();
-  const pw=300,ph=pop.scrollHeight||200;
-  const vw=window.innerWidth,vh=window.innerHeight;
-  let left=rect.right+12;
-  let top=rect.top;
-  if(left+pw>vw-8)left=rect.left-pw-12;
-  if(left<8)left=8;
-  if(top+ph>vh-8)top=Math.max(8,vh-ph-8);
-  pop.style.left=left+'px';
-  pop.style.top=top+'px';
-}
-
-function closePopover(){
-  document.getElementById('popover').classList.remove('visible');
-  if(activePortEl){activePortEl.classList.remove('active');activePortEl=null;}
-}
-
-document.addEventListener('click',e=>{
-  if(!document.getElementById('popover').contains(e.target)&&!e.target.closest('.port-item'))
-    closePopover();
-});
-
-// ── Racks agrupados por letra ─────────────────────────────────────────────────
-function getRacksByLetter(){
-  const map={};
-  RAW.forEach(c=>{
-    [[c.src_rack,c.src_eq],[c.dst_rack,c.dst_eq]].forEach(([rack,eq])=>{
-      if(!rack||['?','N/C'].includes(rack))return;
-      if(!eq||eq==='VACANTE')return;
-      if(!map[rack])map[rack]={};
-      map[rack][eq]=true;
-    });
-  });
-  const byLetter={};
-  Object.entries(map).forEach(([rack,eqs])=>{
-    const letter=(rack.match(/^([A-Za-z]+)/)||[,'?'])[1].toUpperCase();
-    if(!byLetter[letter])byLetter[letter]=[];
-    byLetter[letter].push({rack,eqs:Object.keys(eqs).sort()});
-  });
-  Object.values(byLetter).forEach(arr=>arr.sort((a,b)=>a.rack.localeCompare(b.rack,undefined,{numeric:true})));
-  return Object.entries(byLetter).sort(([a],[b])=>a.localeCompare(b));
-}
-
-// ── Vista racks ──────────────────────────────────────────────────────────────
-function showRacks(){
-  closePopover();
-  document.getElementById('backBtn').classList.remove('visible');
-  document.getElementById('breadcrumb').innerHTML='';
-  document.getElementById('headerTitle').textContent='◈ RACK C12 — DIAGRAMA DE SEÑAL';
-  document.getElementById('equipView').style.display='none';
-  const view=document.getElementById('racksView');
-  view.style.display='block';
-  const groups=getRacksByLetter();
-  let html='<div class="racks-columns">';
-  groups.forEach(([letter,racks])=>{
-    html+=`<div class="rack-column"><div class="rack-column-header">${letter}</div>`;
-    racks.forEach(({rack,eqs})=>{
-      html+=`<div class="rack-card"><div class="rack-card-header"><span class="rack-id">RACK ${rack}</span></div><div class="rack-card-body">`;
-      eqs.forEach(eq=>{
-        html+=`<div class="eq-chip" onclick="showEquip('${esc(rack)}','${esc(eq)}')">${eq}</div>`;
-      });
-      html+='</div></div>';
-    });
-    html+='</div>';
-  });
-  html+='</div>';
-  view.innerHTML=html;
-}
-
-// ── Ordenar puertos por número (luego alfabético) ─────────────────────────────
-function sortByPort(arr, portKey){
-  return [...arr].sort((a,b)=>{
-    const pa=String(a[portKey]||''), pb=String(b[portKey]||'');
-    const na=portNum(pa), nb=portNum(pb);
-    if(na!=null&&nb!=null) return na-nb;
-    return pa.localeCompare(pb);
-  });
-}
-
-// ── Vista equipo ─────────────────────────────────────────────────────────────
-function showEquip(rack,eq){
-  closePopover();
-  document.getElementById('backBtn').classList.add('visible');
-  document.getElementById('breadcrumb').innerHTML=`RACK <span>${rack}</span> › ${eq}`;
-  document.getElementById('headerTitle').textContent='';
-  document.getElementById('racksView').style.display='none';
-
-  const outConns = sortByPort(RAW.filter(c=>c.src_rack===rack&&c.src_eq===eq), 'src_port');
-  const inConns  = sortByPort(RAW.filter(c=>c.dst_rack===rack&&c.dst_eq===eq), 'dst_port');
-
-  let html=`<div class="equip-title">${eq}</div><div class="equip-rack-label">RACK ${rack}</div>`;
-
-  if(outConns.length){
-    html+=`<div class="ports-section-title">◆ SALIDAS</div><div class="ports-grid">`;
-    outConns.forEach(c=>{
-      html+=`<div class="port-item ${portTypeClass(c.src_port)}" onclick="showPopover(this,'${esc(c.src_rack)}','${esc(c.src_eq)}','${esc(c.src_port)}')">
-        <div class="pi-port">${c.src_port||'—'}</div>
-      </div>`;
-    });
-    html+='</div>';
-  }
-
-  if(inConns.length){
-    html+=`<div class="ports-section-title">◆ ENTRADAS</div><div class="ports-grid">`;
-    inConns.forEach(c=>{
-      html+=`<div class="port-item ${portTypeClass(c.dst_port)}" onclick="showPopover(this,'${esc(c.src_rack)}','${esc(c.src_eq)}','${esc(c.src_port)}')">
-        <div class="pi-port">${c.dst_port||'—'}</div>
-      </div>`;
-    });
-    html+='</div>';
-  }
-
-  if(!outConns.length&&!inConns.length)
-    html+=`<div style="color:var(--text-dim);font-style:italic;margin-top:20px;font-size:.85rem;">Sin conexiones documentadas para este equipo.</div>`;
-
-  const view=document.getElementById('equipView');
-  view.innerHTML=html;
-  view.style.display='block';
-  window.scrollTo(0,0);
-}
+// ── Utils ─────────────────────────────────────────────────────────────────────
+function j(s){ return JSON.stringify(String(s||'')); }
 </script>
 </body>
 </html>

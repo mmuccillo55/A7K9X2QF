@@ -6,137 +6,7 @@
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 1",
-    "label": "Player A",
-    "notes": ""
-  },
-  {
-    "src_rack": "A.2",
-    "src_eq": "Player A",
-    "src_port": "Out 2",
-    "dst_rack": "F.7",
-    "dst_eq": "FOR A HVS-390HS",
-    "dst_port": "In 5",
-    "label": "Player A",
-    "notes": ""
-  },
-  {
-    "src_rack": "A.3",
-    "src_eq": "Player B",
-    "src_port": "Out 1",
-    "dst_rack": "C.3",
-    "dst_eq": "AJA KUMO 6464",
-    "dst_port": "In 2",
-    "label": "Player B",
-    "notes": ""
-  },
-  {
-    "src_rack": "A.3",
-    "src_eq": "Player B",
-    "src_port": "Out 2",
-    "dst_rack": "F.7",
-    "dst_eq": "FOR A HVS-390HS",
-    "dst_port": "In 6",
-    "label": "Player B",
-    "notes": ""
-  },
-  {
-    "src_rack": "A.4",
-    "src_eq": "Player C",
-    "src_port": "Out 1",
-    "dst_rack": "C.3",
-    "dst_eq": "AJA KUMO 6464",
-    "dst_port": "In 3",
-    "label": "Player C",
-    "notes": ""
-  },
-  {
-    "src_rack": "A.4",
-    "src_eq": "Player C",
-    "src_port": "Out 2",
-    "dst_rack": "C.3",
-    "dst_eq": "AJA KUMO 6464",
-    "dst_port": "In 4",
-    "label": "Player C",
-    "notes": ""
-  },
-  {
-    "src_rack": "A.5",
-    "src_eq": "CGX",
-    "src_port": "Out P3",
-    "dst_rack": "C.3",
-    "dst_eq": "AJA KUMO 6464",
-    "dst_port": "In 55",
-    "label": "CGX",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 56",
-    "dst_rack": "A.5",
-    "dst_eq": "CGX",
-    "dst_port": "In P1",
-    "label": "AJA KUMO 6464",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 17",
-    "dst_rack": "B.2",
-    "dst_eq": "Loop A",
-    "dst_port": "In 1",
-    "label": "Loop A",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 18",
-    "dst_rack": "B.2",
-    "dst_eq": "Loop A",
-    "dst_port": "In 2",
-    "label": "Loop A",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 19",
-    "dst_rack": "B.3",
-    "dst_eq": "Loop B",
-    "dst_port": "In 1",
-    "label": "Loop B",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 20",
-    "dst_rack": "B.3",
-    "dst_eq": "Loop B",
-    "dst_port": "In 2",
-    "label": "Loop B",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 21",
-    "dst_rack": "B.4",
-    "dst_eq": "Loop C",
-    "dst_port": "In 1",
-    "label": "Loop C",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 22",
-    "dst_rack": "B.4",
-    "dst_eq": "Loop C",
-    "dst_port": "In 2",
-    "label": "Loop C",
+    "label": "PLAYER A.1",
     "notes": ""
   },
   {
@@ -150,6 +20,16 @@
     "notes": ""
   },
   {
+    "src_rack": "A.3",
+    "src_eq": "Player B",
+    "src_port": "Out 1",
+    "dst_rack": "C.3",
+    "dst_eq": "AJA KUMO 6464",
+    "dst_port": "In 2",
+    "label": "PLAYER B.1",
+    "notes": ""
+  },
+  {
     "src_rack": "C.3",
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 2",
@@ -160,6 +40,16 @@
     "notes": ""
   },
   {
+    "src_rack": "A.4",
+    "src_eq": "Player C",
+    "src_port": "Out 1",
+    "dst_rack": "C.3",
+    "dst_eq": "AJA KUMO 6464",
+    "dst_port": "In 3",
+    "label": "PLAYER C.1",
+    "notes": ""
+  },
+  {
     "src_rack": "C.3",
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 3",
@@ -167,6 +57,16 @@
     "dst_eq": "Blackmagic 12 x 12",
     "dst_port": "In 3",
     "label": "MATRIZ 3",
+    "notes": ""
+  },
+  {
+    "src_rack": "A.4",
+    "src_eq": "Player C",
+    "src_port": "Out 2",
+    "dst_rack": "C.3",
+    "dst_eq": "AJA KUMO 6464",
+    "dst_port": "In 4",
+    "label": "PLAYER C.2",
     "notes": ""
   },
   {
@@ -272,7 +172,7 @@
   {
     "src_rack": "L",
     "src_eq": "openGear X",
-    "src_port": "Slot 2",
+    "src_port": "Out",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 10",
@@ -292,7 +192,7 @@
   {
     "src_rack": "L",
     "src_eq": "openGear X",
-    "src_port": "Slot 5",
+    "src_port": "Out",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 11",
@@ -304,7 +204,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 11",
     "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
+    "dst_eq": "Blackmagic MultiView 16",
     "dst_port": "In 11",
     "label": "MATRIZ 11",
     "notes": ""
@@ -324,7 +224,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 12",
     "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
+    "dst_eq": "Blackmagic MultiView 16",
     "dst_port": "In 12",
     "label": "MATRIZ 12",
     "notes": ""
@@ -332,7 +232,7 @@
   {
     "src_rack": "L",
     "src_eq": "openGear X",
-    "src_port": "Slot 6",
+    "src_port": "Out",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 13",
@@ -344,7 +244,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 13",
     "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
+    "dst_eq": "Blackmagic MultiView 16",
     "dst_port": "In 13",
     "label": "MX 13 AUDIO",
     "notes": ""
@@ -352,7 +252,7 @@
   {
     "src_rack": "L",
     "src_eq": "openGear X",
-    "src_port": "Slot 4",
+    "src_port": "Out",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 14",
@@ -364,7 +264,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 14",
     "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
+    "dst_eq": "Blackmagic MultiView 16",
     "dst_port": "In 14",
     "label": "MX 14 AUDIO",
     "notes": ""
@@ -374,7 +274,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 15",
     "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
+    "dst_eq": "Blackmagic MultiView 16",
     "dst_port": "In 15",
     "label": "MX 15 AUDIO",
     "notes": ""
@@ -382,7 +282,7 @@
   {
     "src_rack": "L",
     "src_eq": "openGear X",
-    "src_port": "Slot 3",
+    "src_port": "Out",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 16",
@@ -394,7 +294,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 16",
     "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
+    "dst_eq": "Blackmagic MultiView 16",
     "dst_port": "In 16",
     "label": "MX 16 AUDIO",
     "notes": ""
@@ -410,6 +310,16 @@
     "notes": ""
   },
   {
+    "src_rack": "C.3",
+    "src_eq": "AJA KUMO 6464",
+    "src_port": "Out 17",
+    "dst_rack": "B.2",
+    "dst_eq": "Loop A",
+    "dst_port": "In 1",
+    "label": "LOOP A.1",
+    "notes": ""
+  },
+  {
     "src_rack": "D.3",
     "src_eq": "Wellav UMH160R",
     "src_port": "Out",
@@ -417,6 +327,16 @@
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 18",
     "label": "IRD TV P.",
+    "notes": ""
+  },
+  {
+    "src_rack": "C.3",
+    "src_eq": "AJA KUMO 6464",
+    "src_port": "Out 18",
+    "dst_rack": "B.2",
+    "dst_eq": "Loop A",
+    "dst_port": "In 2",
+    "label": "LOOP A.2",
     "notes": ""
   },
   {
@@ -430,6 +350,16 @@
     "notes": ""
   },
   {
+    "src_rack": "C.3",
+    "src_eq": "AJA KUMO 6464",
+    "src_port": "Out 19",
+    "dst_rack": "B.3",
+    "dst_eq": "Loop B",
+    "dst_port": "In 1",
+    "label": "LOOP B.1",
+    "notes": ""
+  },
+  {
     "src_rack": "D.8",
     "src_eq": "Cisco",
     "src_port": "Out",
@@ -437,6 +367,16 @@
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 20",
     "label": "IRD CIS.H/V",
+    "notes": ""
+  },
+  {
+    "src_rack": "C.3",
+    "src_eq": "AJA KUMO 6464",
+    "src_port": "Out 20",
+    "dst_rack": "B.3",
+    "dst_eq": "Loop B",
+    "dst_port": "In 2",
+    "label": "LOOP B.2",
     "notes": ""
   },
   {
@@ -448,6 +388,26 @@
     "dst_port": "In 21",
     "label": "Canal 13",
     "notes": "Va a conversor Aja, en el mismo rack"
+  },
+  {
+    "src_rack": "C.3",
+    "src_eq": "AJA KUMO 6464",
+    "src_port": "Out 21",
+    "dst_rack": "B.4",
+    "dst_eq": "Loop C",
+    "dst_port": "In 1",
+    "label": "LOOP C.1",
+    "notes": ""
+  },
+  {
+    "src_rack": "C.3",
+    "src_eq": "AJA KUMO 6464",
+    "src_port": "Out 22",
+    "dst_rack": "B.4",
+    "dst_eq": "Loop C",
+    "dst_port": "In 2",
+    "label": "LOOP C.2",
+    "notes": ""
   },
   {
     "src_rack": "D.16",
@@ -464,7 +424,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 23",
     "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
+    "dst_eq": "Blackmagic MultiView 16",
     "dst_port": "In 1",
     "label": "1 MV TX",
     "notes": ""
@@ -900,6 +860,26 @@
     "notes": ""
   },
   {
+    "src_rack": "A.5",
+    "src_eq": "CGX",
+    "src_port": "Out P3",
+    "dst_rack": "C.3",
+    "dst_eq": "AJA KUMO 6464",
+    "dst_port": "In 55",
+    "label": "Salida CGX",
+    "notes": ""
+  },
+  {
+    "src_rack": "C.3",
+    "src_eq": "AJA KUMO 6464",
+    "src_port": "Out 56",
+    "dst_rack": "A.5",
+    "dst_eq": "CGX",
+    "dst_port": "In P1",
+    "label": "IN CGX",
+    "notes": ""
+  },
+  {
     "src_rack": "D.11",
     "src_eq": "AJA FS4",
     "src_port": "1",
@@ -1011,7 +991,7 @@
   },
   {
     "src_rack": "C.4",
-    "src_eq": "Blackmagic Multiview 16",
+    "src_eq": "Blackmagic MultiView 16",
     "src_port": "Out",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
@@ -1028,16 +1008,6 @@
     "dst_port": "In 64",
     "label": "BM 1 PGM",
     "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 23",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic MultiView 16",
-    "dst_port": "In 1",
-    "label": "",
-    "notes": "1 MV TX"
   },
   {
     "src_rack": "C.5",
@@ -1130,52 +1100,12 @@
     "notes": ""
   },
   {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 11",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic MultiView 16",
-    "dst_port": "In 11",
-    "label": "",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 12",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic MultiView 16",
-    "dst_port": "In 12",
-    "label": "",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 13",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic MultiView 16",
-    "dst_port": "In 13",
-    "label": "",
-    "notes": ""
-  },
-  {
     "src_rack": "C.4",
     "src_eq": "Blackmagic MultiView 16",
     "src_port": "Out 13",
     "dst_rack": "D.7",
     "dst_eq": "openGear X",
     "dst_port": "SDI In",
-    "label": "",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 14",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic MultiView 16",
-    "dst_port": "In 14",
     "label": "",
     "notes": ""
   },
@@ -1190,32 +1120,12 @@
     "notes": ""
   },
   {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 15",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic MultiView 16",
-    "dst_port": "In 15",
-    "label": "",
-    "notes": ""
-  },
-  {
     "src_rack": "C.4",
     "src_eq": "Blackmagic MultiView 16",
     "src_port": "Out 15",
     "dst_rack": "D.7",
     "dst_eq": "openGear X",
     "dst_port": "SDI In",
-    "label": "",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 16",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic MultiView 16",
-    "dst_port": "In 16",
     "label": "",
     "notes": ""
   },
@@ -1250,198 +1160,8 @@
     "notes": "MV TX"
   },
   {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 1",
-    "dst_rack": "C.5",
-    "dst_eq": "Blackmagic 12x12",
-    "dst_port": "In 1",
-    "label": "MATRIZ 1",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 2",
-    "dst_rack": "C.5",
-    "dst_eq": "Blackmagic 12x12",
-    "dst_port": "In 2",
-    "label": "MATRIZ 2",
-    "notes": ""
-  },
-  {
     "src_rack": "C.5",
-    "src_eq": "Blackmagic 12x12",
-    "src_port": "Out 2",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
-    "dst_port": "In 2",
-    "label": "",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 3",
-    "dst_rack": "C.5",
-    "dst_eq": "Blackmagic 12x12",
-    "dst_port": "In 3",
-    "label": "MATRIZ 3",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.5",
-    "src_eq": "Blackmagic 12x12",
-    "src_port": "Out 3",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
-    "dst_port": "In 3",
-    "label": "",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 4",
-    "dst_rack": "C.5",
-    "dst_eq": "Blackmagic 12x12",
-    "dst_port": "In 4",
-    "label": "MATRIZ 4",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.5",
-    "src_eq": "Blackmagic 12x12",
-    "src_port": "Out 4",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
-    "dst_port": "In 4",
-    "label": "",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 5",
-    "dst_rack": "C.5",
-    "dst_eq": "Blackmagic 12x12",
-    "dst_port": "In 5",
-    "label": "MATRIZ 5",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.5",
-    "src_eq": "Blackmagic 12x12",
-    "src_port": "Out 5",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
-    "dst_port": "In 5",
-    "label": "",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 6",
-    "dst_rack": "C.5",
-    "dst_eq": "Blackmagic 12x12",
-    "dst_port": "In 6",
-    "label": "MATRIZ 6",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.5",
-    "src_eq": "Blackmagic 12x12",
-    "src_port": "Out 6",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
-    "dst_port": "In 6",
-    "label": "",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 7",
-    "dst_rack": "C.5",
-    "dst_eq": "Blackmagic 12x12",
-    "dst_port": "In 7",
-    "label": "MATRIZ 7",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.5",
-    "src_eq": "Blackmagic 12x12",
-    "src_port": "Out 7",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
-    "dst_port": "In 7",
-    "label": "",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 8",
-    "dst_rack": "C.5",
-    "dst_eq": "Blackmagic 12x12",
-    "dst_port": "In 8",
-    "label": "MATRIZ 8",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.5",
-    "src_eq": "Blackmagic 12x12",
-    "src_port": "Out 8",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
-    "dst_port": "In 8",
-    "label": "",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 9",
-    "dst_rack": "C.5",
-    "dst_eq": "Blackmagic 12x12",
-    "dst_port": "In 9",
-    "label": "MATRIZ 9",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.5",
-    "src_eq": "Blackmagic 12x12",
-    "src_port": "Out 9",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
-    "dst_port": "In 9",
-    "label": "",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.3",
-    "src_eq": "AJA KUMO 6464",
-    "src_port": "Out 10",
-    "dst_rack": "C.5",
-    "dst_eq": "Blackmagic 12x12",
-    "dst_port": "In 10",
-    "label": "MATRIZ 10",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.5",
-    "src_eq": "Blackmagic 12x12",
-    "src_port": "Out 10",
-    "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
-    "dst_port": "In 10",
-    "label": "",
-    "notes": ""
-  },
-  {
-    "src_rack": "C.5",
-    "src_eq": "Blackmagic 12x12",
+    "src_eq": "Blackmagic 12 x 12",
     "src_port": "Out 11",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
@@ -1452,70 +1172,70 @@
   {
     "src_rack": "C.3",
     "src_eq": "AJA KUMO 6464",
-    "src_port": "Port 15",
-    "dst_rack": "C.3",
-    "dst_eq": "AJA KUMO 6464",
-    "dst_port": "In 34",
+    "src_port": "In 34",
+    "dst_rack": "C.6",
+    "dst_eq": "Patch Panel Inputs",
+    "dst_port": "Port 15",
     "label": "",
     "notes": "ESTUDIO 5"
   },
   {
     "src_rack": "C.3",
     "src_eq": "AJA KUMO 6464",
-    "src_port": "Port 14",
-    "dst_rack": "C.3",
-    "dst_eq": "AJA KUMO 6464",
-    "dst_port": "In 35",
+    "src_port": "In 35",
+    "dst_rack": "C.6",
+    "dst_eq": "Patch Panel Inputs",
+    "dst_port": "Port 14",
     "label": "",
     "notes": "PC DIR"
   },
   {
     "src_rack": "C.3",
     "src_eq": "AJA KUMO 6464",
-    "src_port": "Port 13",
-    "dst_rack": "C.3",
-    "dst_eq": "AJA KUMO 6464",
-    "dst_port": "In 36",
+    "src_port": "In 36",
+    "dst_rack": "C.6",
+    "dst_eq": "Patch Panel Inputs",
+    "dst_port": "Port 13",
     "label": "",
     "notes": "titlo elec elec"
   },
   {
     "src_rack": "C.3",
     "src_eq": "AJA KUMO 6464",
-    "src_port": "Port 12",
-    "dst_rack": "C.3",
-    "dst_eq": "AJA KUMO 6464",
-    "dst_port": "In 37",
+    "src_port": "In 37",
+    "dst_rack": "C.6",
+    "dst_eq": "Patch Panel Inputs",
+    "dst_port": "Port 12",
     "label": "",
     "notes": "full ece"
   },
   {
     "src_rack": "C.3",
     "src_eq": "AJA KUMO 6464",
-    "src_port": "Port 11",
-    "dst_rack": "C.3",
-    "dst_eq": "AJA KUMO 6464",
-    "dst_port": "In 38",
+    "src_port": "In 38",
+    "dst_rack": "C.6",
+    "dst_eq": "Patch Panel Inputs",
+    "dst_port": "Port 11",
     "label": "",
     "notes": "PATCH 6"
   },
   {
     "src_rack": "C.3",
     "src_eq": "AJA KUMO 6464",
-    "src_port": "Port 10",
-    "dst_rack": "C.3",
-    "dst_eq": "AJA KUMO 6464",
-    "dst_port": "In 39",
+    "src_port": "In 39",
+    "dst_rack": "C.6",
+    "dst_eq": "Patch Panel Inputs",
+    "dst_port": "Port 10",
     "label": "",
     "notes": "PATCH 7"
   },
   {
     "src_rack": "C.3",
     "src_eq": "AJA KUMO 6464",
-    "src_port": "Port 9",
-    "dst_rack": "C.3",
-    "dst_eq": "AJA KUMO 6464",
-    "dst_port": "In 40",
+    "src_port": "In 40",
+    "dst_rack": "C.6",
+    "dst_eq": "Patch Panel Inputs",
+    "dst_port": "Port 9",
     "label": "",
     "notes": "ALL PTCH 8"
   },
@@ -1524,7 +1244,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 33",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 16",
     "label": "out out",
     "notes": ""
@@ -1534,7 +1254,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 34",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 15",
     "label": "MON PISO",
     "notes": ""
@@ -1544,7 +1264,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 35",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 14",
     "label": "MON ILUMINA",
     "notes": ""
@@ -1554,7 +1274,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 36",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 13",
     "label": "MON TITULOS",
     "notes": ""
@@ -1564,7 +1284,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 37",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 12",
     "label": "xxx xxx",
     "notes": ""
@@ -1574,7 +1294,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 38",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 11",
     "label": "Fibra TDA 1 S",
     "notes": ""
@@ -1584,7 +1304,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 39",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 10",
     "label": "",
     "notes": ""
@@ -1594,7 +1314,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 40",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 9",
     "label": "out out",
     "notes": ""
@@ -1604,7 +1324,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 41",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 8",
     "label": "TO MOVio",
     "notes": ""
@@ -1614,7 +1334,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 42",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 7",
     "label": "to cv hd",
     "notes": ""
@@ -1624,7 +1344,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 43",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 6",
     "label": "Radio desem",
     "notes": ""
@@ -1634,7 +1354,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 44",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 5",
     "label": "MON SONIDI",
     "notes": ""
@@ -1644,7 +1364,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 45",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 4",
     "label": "",
     "notes": ""
@@ -1654,7 +1374,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 46",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 3",
     "label": "MONI LINEA",
     "notes": ""
@@ -1664,7 +1384,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 47",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 2",
     "label": "Dest 47",
     "notes": ""
@@ -1674,7 +1394,7 @@
     "src_eq": "AJA KUMO 6464",
     "src_port": "Out 48",
     "dst_rack": "C.7",
-    "dst_eq": "Patch Panel (Outputs)",
+    "dst_eq": "Patch Panel Outputs",
     "dst_port": "Port 1",
     "label": "Dest 48",
     "notes": ""
@@ -1724,7 +1444,7 @@
     "src_eq": "openGear X Slot 4 (De-embedder)",
     "src_port": "SDI In",
     "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
+    "dst_eq": "Blackmagic MultiView 16",
     "dst_port": "Out 13",
     "label": "",
     "notes": "MX 13 AUDIO"
@@ -1744,7 +1464,7 @@
     "src_eq": "openGear X Slot 5 (De-embedder)",
     "src_port": "SDI In",
     "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
+    "dst_eq": "Blackmagic MultiView 16",
     "dst_port": "Out 14",
     "label": "",
     "notes": "MX 14 AUDIO"
@@ -1764,7 +1484,7 @@
     "src_eq": "openGear X Slot 6 (De-embedder)",
     "src_port": "SDI In",
     "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
+    "dst_eq": "Blackmagic MultiView 16",
     "dst_port": "Out 15",
     "label": "",
     "notes": "MX 15 AUDIO"
@@ -1784,7 +1504,7 @@
     "src_eq": "openGear X Slot 7 (De-embedder)",
     "src_port": "SDI In",
     "dst_rack": "C.4",
-    "dst_eq": "Blackmagic Multiview 16",
+    "dst_eq": "Blackmagic MultiView 16",
     "dst_port": "Out 16",
     "label": "",
     "notes": "MX 16 AUDIO"
@@ -1868,6 +1588,26 @@
     "dst_port": "In 4",
     "label": "",
     "notes": "CAM 4"
+  },
+  {
+    "src_rack": "A.2",
+    "src_eq": "Player A",
+    "src_port": "Out 2",
+    "dst_rack": "F.7",
+    "dst_eq": "FOR A HVS-390HS",
+    "dst_port": "In 5",
+    "label": "",
+    "notes": "Player A.2"
+  },
+  {
+    "src_rack": "A.3",
+    "src_eq": "Player B",
+    "src_port": "Out 2",
+    "dst_rack": "F.7",
+    "dst_eq": "FOR A HVS-390HS",
+    "dst_port": "In 6",
+    "label": "",
+    "notes": "Player B.2"
   },
   {
     "src_rack": "D.7",
