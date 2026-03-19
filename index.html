@@ -85,6 +85,7 @@ header h1{font-family:'Share Tech Mono',monospace;font-size:.95rem;color:var(--a
 // ── Normalizar nombres de equipos para unificar variantes ────────────────────
 function normEq(eq) {
   if (!eq) return '';
+  eq = String(eq);
   return eq
     .replace(/^Player A$/i, 'PLAYER A')
     .replace(/^Player B$/i, 'PLAYER B')
@@ -105,7 +106,7 @@ function normEq(eq) {
 
 function normRack(r) {
   if (!r) return '';
-  return r.replace(/^D\.CAM\.$/, 'D.CAM').trim();
+  return String(r).replace(/^D\.CAM\.$/, 'D.CAM').trim();
 }
 
 let RAW = [];
@@ -134,7 +135,7 @@ fetch('connections.json')
   });
 
 // ── Graph ────────────────────────────────────────────────────────────────────
-function nk(r,e,p){ return `${(r||'').toLowerCase()}||${(e||'').toLowerCase()}||${(p||'').toLowerCase()}`; }
+function nk(r,e,p){ return `${String(r||'').toLowerCase()}||${String(e||'').toLowerCase()}||${String(p||'').toLowerCase()}`; }
 function portNum(p){ const m=(p||'').match(/\d+/); return m?parseInt(m[0]):null; }
 
 function buildGraph(){
