@@ -702,7 +702,7 @@
   {
     "src_rack": "F.2",
     "src_eq": "Sony HXCU-100",
-    "src_port": "Out 1",
+    "src_port": "Out 2",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 41",
@@ -722,7 +722,7 @@
   {
     "src_rack": "F.3",
     "src_eq": "Sony HXCU-100",
-    "src_port": "Out 1",
+    "src_port": "Out 2",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 42",
@@ -742,7 +742,7 @@
   {
     "src_rack": "F.4",
     "src_eq": "Sony HXCU-100",
-    "src_port": "Out 1",
+    "src_port": "Out 2",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 43",
@@ -762,7 +762,7 @@
   {
     "src_rack": "F.5",
     "src_eq": "Sony HXCU-100",
-    "src_port": "Out 1",
+    "src_port": "Out 2",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 44",
@@ -992,7 +992,7 @@
   {
     "src_rack": "C.4",
     "src_eq": "Blackmagic MultiView 16",
-    "src_port": "Out",
+    "src_port": "SDI OUT",
     "dst_rack": "C.3",
     "dst_eq": "AJA KUMO 6464",
     "dst_port": "In 63",
@@ -1148,26 +1148,6 @@
     "dst_port": "In 63",
     "label": "",
     "notes": "MV TX"
-  },
-  {
-    "src_rack": "C.4",
-    "src_eq": "Blackmagic MultiView 16",
-    "src_port": "SDI OUT",
-    "dst_rack": "C.3",
-    "dst_eq": "AJA KUMO 6464",
-    "dst_port": "In 63",
-    "label": "",
-    "notes": "MV TX"
-  },
-  {
-    "src_rack": "C.5",
-    "src_eq": "Blackmagic 12 x 12",
-    "src_port": "Out 11",
-    "dst_rack": "C.3",
-    "dst_eq": "AJA KUMO 6464",
-    "dst_port": "in 64",
-    "label": "",
-    "notes": "BM 1 PGM"
   },
   {
     "src_rack": "C.3",
@@ -1647,7 +1627,7 @@
     "dst_eq": "AJA HD5DA",
     "dst_port": "SDI IN",
     "label": "",
-    "notes": "Distribuidor PGM (cam pvw test)"
+    "notes": "Distribuidor PGM (cam pvw)"
   },
   {
     "src_rack": "D.7",
