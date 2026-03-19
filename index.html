@@ -36,24 +36,22 @@ header h1{font-family:'Share Tech Mono',monospace;font-size:.95rem;color:var(--a
 .eq-chip:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,212,255,0.06);}
 
 /* ── EQUIP VIEW ── */
-#equipView{padding:24px;display:none;max-width:900px;}
+#equipView{padding:24px;display:none;}
 .equip-title{font-family:'Share Tech Mono',monospace;font-size:1.05rem;color:var(--accent3);margin-bottom:3px;}
 .equip-rack-label{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--accent4);margin-bottom:22px;}
 .ports-section-title{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:3px;color:var(--text-dim);text-transform:uppercase;margin:18px 0 10px;display:flex;align-items:center;gap:10px;}
 .ports-section-title::after{content:'';flex:1;height:1px;background:var(--border);}
-.ports-grid{display:flex;flex-wrap:wrap;gap:7px;}
-.port-item{position:relative;display:flex;flex-direction:column;gap:3px;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:8px 12px;cursor:pointer;transition:all .15s;min-width:130px;max-width:210px;}
-.port-item:hover{border-color:rgba(0,212,255,0.45);background:rgba(0,212,255,0.04);}
-.port-item.active{border-color:var(--accent);background:rgba(0,212,255,0.08);}
-.port-item.port-type-in {border-left:3px solid var(--accent);}
-.port-item.port-type-out{border-left:3px solid var(--accent2);}
-.port-item.port-type-aux{border-left:3px solid var(--accent3);}
-.pi-port{font-family:'Share Tech Mono',monospace;font-size:.72rem;font-weight:bold;color:var(--text);}
-.pi-label{font-size:.64rem;color:var(--accent3);font-family:'Share Tech Mono',monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.pi-peer{font-size:.61rem;color:var(--text-dim);margin-top:1px;}
+.ports-grid{display:grid;grid-template-columns:repeat(8,72px);gap:6px;}
+.port-item{display:flex;align-items:center;justify-content:center;text-align:center;background:var(--panel);border:1px solid var(--border);border-radius:5px;padding:8px 4px;cursor:pointer;transition:all .15s;height:44px;}
+.port-item:hover{border-color:rgba(0,212,255,0.5);background:rgba(0,212,255,0.05);}
+.port-item.active{border-color:var(--accent);background:rgba(0,212,255,0.1);}
+.port-item.port-type-in {border-top:2px solid var(--accent);}
+.port-item.port-type-out{border-top:2px solid var(--accent2);}
+.port-item.port-type-aux{border-top:2px solid var(--accent3);}
+.pi-port{font-family:'Share Tech Mono',monospace;font-size:.65rem;font-weight:bold;color:var(--text);line-height:1.2;}
 
 /* ── POPOVER ── */
-#popover{position:fixed;z-index:500;background:var(--panel2);border:1px solid var(--accent);border-radius:8px;padding:14px 16px;width:300px;box-shadow:0 8px 32px rgba(0,0,0,.75);display:none;}
+#popover{position:fixed;z-index:500;background:var(--panel2);border:1px solid var(--accent);border-radius:8px;padding:14px 16px;width:320px;max-height:80vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.75);display:none;}
 #popover.visible{display:block;}
 #popover-close{position:absolute;top:8px;right:10px;background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:.85rem;line-height:1;padding:2px 4px;}
 #popover-close:hover{color:var(--accent);}
@@ -188,23 +186,30 @@ function traceFrom(rack,eq,port,maxD=10){
 function pathHTML(paths,activeRack,activeEq,activePort){
   const ak=nk(activeRack,activeEq,activePort);
   const seen=new Set();
-  const uniq=paths.filter(p=>{const k=p.map(n=>nk(n.rack,n.eq,n.port)).join('>');if(seen.has(k))return false;seen.add(k);return true;});
-  if(uniq.length===1&&uniq[0].length===1)return`<div class="path-nodata">Sin ruta documentada desde este punto</div>`;
+  const uniq=paths.filter(p=>{
+    const k=p.map(n=>nk(n.rack,n.eq,n.port)).join('>');
+    if(seen.has(k))return false; seen.add(k); return true;
+  });
+  if(uniq.length===1&&uniq[0].length===1)
+    return`<div class="path-nodata">Sin ruta documentada desde este punto</div>`;
+
   let html='';
   uniq.forEach((chain,pi)=>{
-    if(uniq.length>1)html+=`<div class="path-branch">╠ Rama ${pi+1}</div>`;
+    if(uniq.length>1) html+=`<div class="path-branch">╠ Rama ${pi+1}</div>`;
     chain.forEach((node,i)=>{
-      const isFirst=i===0,isLast=i===chain.length-1,isActive=nk(node.rack,node.eq,node.port)===ak;
+      const isFirst=i===0, isLast=i===chain.length-1;
+      const isActive=nk(node.rack,node.eq,node.port)===ak;
       const pre=isFirst?'◉':isLast?'◎':'│';
       html+=(i>0?`<div class="path-arr">↓</div>`:'')+
         `<div class="path-node ${isFirst?'pn-first':''} ${isLast?'pn-last':''} ${isActive?'pn-active':''}">
           <span class="pn-pre">${pre}</span>
           <span class="pn-rack">${node.rack||'?'}</span>
           <span class="pn-eq">${node.eq}</span>
-          <span class="pn-port"> ${node.port}</span>
+          <span class="pn-port">${node.port?' · '+node.port:''}</span>
           ${node.notes?`<div class="pn-note">${node.notes}</div>`:''}
         </div>`;
     });
+    if(pi<uniq.length-1) html+=`<div style="height:8px"></div>`;
   });
   return html;
 }
@@ -290,6 +295,16 @@ function showRacks(){
   view.innerHTML=html;
 }
 
+// ── Ordenar puertos por número (luego alfabético) ─────────────────────────────
+function sortByPort(arr, portKey){
+  return [...arr].sort((a,b)=>{
+    const pa=String(a[portKey]||''), pb=String(b[portKey]||'');
+    const na=portNum(pa), nb=portNum(pb);
+    if(na!=null&&nb!=null) return na-nb;
+    return pa.localeCompare(pb);
+  });
+}
+
 // ── Vista equipo ─────────────────────────────────────────────────────────────
 function showEquip(rack,eq){
   closePopover();
@@ -298,19 +313,16 @@ function showEquip(rack,eq){
   document.getElementById('headerTitle').textContent='';
   document.getElementById('racksView').style.display='none';
 
-  const outConns=RAW.filter(c=>c.src_rack===rack&&c.src_eq===eq);
-  const inConns =RAW.filter(c=>c.dst_rack===rack&&c.dst_eq===eq);
+  const outConns = sortByPort(RAW.filter(c=>c.src_rack===rack&&c.src_eq===eq), 'src_port');
+  const inConns  = sortByPort(RAW.filter(c=>c.dst_rack===rack&&c.dst_eq===eq), 'dst_port');
 
   let html=`<div class="equip-title">${eq}</div><div class="equip-rack-label">RACK ${rack}</div>`;
 
   if(outConns.length){
     html+=`<div class="ports-section-title">◆ SALIDAS</div><div class="ports-grid">`;
     outConns.forEach(c=>{
-      const peer=c.dst_eq?`→ ${c.dst_rack} · ${c.dst_eq}`:'';
       html+=`<div class="port-item ${portTypeClass(c.src_port)}" onclick="showPopover(this,'${esc(c.src_rack)}','${esc(c.src_eq)}','${esc(c.src_port)}')">
         <div class="pi-port">${c.src_port||'—'}</div>
-        ${c.label?`<div class="pi-label">${c.label}</div>`:''}
-        ${peer?`<div class="pi-peer">${peer}</div>`:''}
       </div>`;
     });
     html+='</div>';
@@ -319,11 +331,8 @@ function showEquip(rack,eq){
   if(inConns.length){
     html+=`<div class="ports-section-title">◆ ENTRADAS</div><div class="ports-grid">`;
     inConns.forEach(c=>{
-      const peer=c.src_eq?`← ${c.src_rack} · ${c.src_eq}`:'';
       html+=`<div class="port-item ${portTypeClass(c.dst_port)}" onclick="showPopover(this,'${esc(c.src_rack)}','${esc(c.src_eq)}','${esc(c.src_port)}')">
         <div class="pi-port">${c.dst_port||'—'}</div>
-        ${c.label?`<div class="pi-label">${c.label}</div>`:''}
-        ${peer?`<div class="pi-peer">${peer}</div>`:''}
       </div>`;
     });
     html+='</div>';

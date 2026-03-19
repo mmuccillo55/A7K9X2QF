@@ -239,8 +239,21 @@ for i in range(2, len(df)):
     if out_n and not skip(r_d):
         add('F.7', 'FOR A HVS-390HS', str(out_n), r_d, eq_d, p_d or 'In', '', nota2 or '')
 
+# ── Deduplicar ───────────────────────────────────────────────────────────────
+seen = set()
+unique = []
+for c in connections:
+    key = (c['src_rack'], c['src_eq'], c['src_port'], c['dst_rack'], c['dst_eq'], c['dst_port'])
+    if key not in seen:
+        seen.add(key)
+        unique.append(c)
+
+removed = len(connections) - len(unique)
+if removed:
+    print(f"INFO: {removed} duplicados eliminados", file=sys.stderr)
+
 # ── Output ───────────────────────────────────────────────────────────────────
 with open('connections.json', 'w', encoding='utf-8') as f:
-    json.dump(connections, f, ensure_ascii=False, indent=2)
+    json.dump(unique, f, ensure_ascii=False, indent=2)
 
-print(f"OK: {len(connections)} conexiones → connections.json")
+print(f"OK: {len(unique)} conexiones → connections.json")
