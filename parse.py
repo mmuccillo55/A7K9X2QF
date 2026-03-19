@@ -21,7 +21,7 @@ sheets.pop('DB', None)
 def clean(v):
     if pd.isna(v): return None
     s = str(v).strip()
-    return s if s not in ('', 'nan', 'NaN') else None
+    return s if s not in ('', 'nan', 'NaN', '0', '0.0') else None
 
 def sg(row, idx):
     try: return clean(row[idx])
@@ -113,7 +113,7 @@ for i in range(2, len(df)):
     row = df.iloc[i]
     pn = sg(row, 0); ro = sg(row, 1); eo = sg(row, 2); po = sg(row, 3); nota = sg(row, 4)
     if pn and not skip(ro):
-        add(ro, eo or 'Ext', po or f'Out {pn}', 'C.6', 'Patch Panel Inputs', f'Port {pn}', '', nota or '')
+        add(ro, eo or 'Ext', po or f'Out {pn}', 'C.6', 'Patch Panel', f'Port {pn}', '', nota or '')
 
 # ── Rack C.7 Patch Panel Outputs ─────────────────────────────────────────────
 # Cols: 0=patch_n  1=src_rack  2=src_eq  3=src_port  4=notas
@@ -122,7 +122,7 @@ for i in range(2, len(df)):
     row = df.iloc[i]
     pn = sg(row, 0); ro = sg(row, 1); eo = sg(row, 2); po = sg(row, 3); nota = sg(row, 4)
     if pn and not skip(ro) and eo:
-        add(ro, eo, po or f'Out {pn}', 'C.7', 'Patch Panel Outputs', f'Port {pn}', nota or '', '')
+        add(ro, eo, po or f'Out {pn}', 'C.7', 'Patch Panel', f'Port {pn}', nota or '', '')
 
 # ── Rack D.Back ───────────────────────────────────────────────────────────────
 # Cols: 0=src_rack 1=src_eq 2=slot 3=src_port 4=dst_rack 5=dst_eq 6=slot 7=dst_port 8=notas
