@@ -2151,9 +2151,30 @@
         "placa": "",
         "puerto": "In 20"
       },
+      "thru": true,
+      "thru_entrada": "SDI In 1",
+      "rotulo": "IRD CIS.H/V",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 1"
+      },
+      "dst": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
       "thru": false,
       "thru_entrada": "",
-      "rotulo": "IRD CIS.H/V",
+      "rotulo": "THRU",
       "notas": "",
       "disp_ext": ""
     },
@@ -5330,48 +5351,6 @@
     },
     {
       "src": {
-        "rack": "D.13",
-        "equipo": "AJA FS2",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "K",
-        "equipo": "ESTO ES UNA PRUEBA",
-        "slot": "23.0",
-        "placa": "",
-        "puerto": "HDMI IN 47"
-      },
-      "thru": true,
-      "thru_entrada": "SDI In 1",
-      "rotulo": "",
-      "notas": "prueba prueba prueba",
-      "disp_ext": "CONVERSOR"
-    },
-    {
-      "src": {
-        "rack": "D.13",
-        "equipo": "AJA FS2",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI In 1"
-      },
-      "dst": {
-        "rack": "D.13",
-        "equipo": "AJA FS2",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
         "rack": "D.7",
         "equipo": "openGear X",
         "slot": "4.0",
@@ -7158,9 +7137,9 @@
   ],
   "stats": {
     "nodos": 78,
-    "conexiones": 250,
+    "conexiones": 249,
     "arcos_thru": 72,
-    "con_destino": 195,
+    "con_destino": 194,
     "sin_destino": 55
   }
 }
