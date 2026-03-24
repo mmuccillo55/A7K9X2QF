@@ -3,7 +3,7 @@ name: Actualizar conexiones
 on:
   push:
     paths:
-      - 'RACKS_C12.xlsx'
+      - 'Conexiones.xlsx'
 
 jobs:
   parse:
