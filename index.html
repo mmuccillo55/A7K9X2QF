@@ -3,352 +3,749 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RACK C12 — Diagrama de Señal</title>
+<title>Rack Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600&display=swap">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600;700&display=swap');
-:root {
-  --bg:#0a0e14; --panel:#111620; --panel2:#161e2c; --border:#1e2a3a;
-  --accent:#00d4ff; --accent2:#ff6b35; --accent3:#a8ff3e; --accent4:#ffcc00;
-  --muted:#3a4a5a; --text:#c8d8e8; --text-dim:#6a8a9a;
+:root{
+  --bg:#080c11;--panel:#0e1520;--panel2:#131d2b;--border:#1c2a3c;--border2:#243548;
+  --accent:#00c8f0;--orange:#ff6b35;--green:#8fff6a;--yellow:#ffd166;
+  --muted:#2e4055;--text:#b8ccd8;--text2:#587080;
+  --mono:'Share Tech Mono',monospace;--sans:'Barlow',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;min-height:100vh;}
-header{display:flex;align-items:center;gap:14px;padding:14px 24px;border-bottom:1px solid var(--border);background:var(--panel);position:sticky;top:0;z-index:200;}
-header h1{font-family:'Share Tech Mono',monospace;font-size:.95rem;color:var(--accent);letter-spacing:2px;flex:1;}
-#backBtn{display:none;align-items:center;gap:8px;background:none;border:1px solid var(--border);color:var(--text-dim);font-family:'Share Tech Mono',monospace;font-size:.72rem;padding:6px 14px;border-radius:4px;cursor:pointer;transition:all .2s;white-space:nowrap;}
-#backBtn:hover{border-color:var(--accent);color:var(--accent);}
-#backBtn.visible{display:flex;}
-#breadcrumb{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-#breadcrumb span{color:var(--accent);}
-.loading{display:flex;align-items:center;justify-content:center;height:300px;font-family:'Share Tech Mono',monospace;color:var(--text-dim);font-size:.8rem;letter-spacing:2px;}
-.error-msg{display:flex;align-items:center;justify-content:center;height:200px;font-family:'Share Tech Mono',monospace;color:#ff4444;font-size:.8rem;text-align:center;padding:20px;flex-direction:column;gap:8px;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;overflow-x:hidden;}
 
-/* ── RACKS VIEW ── */
-#racksView{padding:24px;overflow-x:auto;}
-.racks-columns{display:flex;gap:18px;align-items:flex-start;min-width:max-content;padding-bottom:16px;}
-.rack-column{display:flex;flex-direction:column;gap:10px;width:168px;}
-.rack-column-header{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:4px;color:var(--accent);text-transform:uppercase;padding:5px 4px;border-bottom:1px solid var(--accent);margin-bottom:2px;opacity:.7;}
-.rack-card{background:var(--panel);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
-.rack-card-header{background:rgba(0,212,255,0.07);border-bottom:1px solid var(--border);padding:7px 11px;}
-.rack-id{font-family:'Share Tech Mono',monospace;font-size:.78rem;color:var(--accent4);font-weight:bold;}
-.rack-card-body{padding:7px 9px;display:flex;flex-direction:column;gap:4px;}
-.eq-chip{font-size:.72rem;color:var(--text);background:var(--panel2);border:1px solid var(--border);border-radius:4px;padding:5px 9px;cursor:pointer;transition:all .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.eq-chip:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,212,255,0.06);}
+#hdr{display:flex;align-items:center;gap:12px;padding:10px 20px;border-bottom:1px solid var(--border);background:var(--panel);position:sticky;top:0;z-index:100;}
+#hdr-title{font-family:var(--mono);font-size:.85rem;color:var(--accent);letter-spacing:3px;flex:1;}
+#hdr-bc{font-family:var(--mono);font-size:.68rem;color:var(--text2);}
+#hdr-bc .hi{color:var(--accent);}
+#btn-back{display:none;align-items:center;gap:6px;background:none;border:1px solid var(--border2);color:var(--text2);font-family:var(--mono);font-size:.68rem;padding:5px 12px;border-radius:3px;cursor:pointer;}
+#btn-back:hover{border-color:var(--accent);color:var(--accent);}
+#btn-back.show{display:flex;}
 
-/* ── EQUIP VIEW ── */
-#equipView{padding:24px;display:none;}
-.equip-title{font-family:'Share Tech Mono',monospace;font-size:1.05rem;color:var(--accent3);margin-bottom:3px;}
-.equip-rack-label{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--accent4);margin-bottom:22px;}
-.ports-section-title{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:3px;color:var(--text-dim);text-transform:uppercase;margin:18px 0 10px;display:flex;align-items:center;gap:10px;}
-.ports-section-title::after{content:'';flex:1;height:1px;background:var(--border);}
-.ports-grid{display:grid;grid-template-columns:repeat(8,68px);gap:6px;}
-.port-btn{display:flex;align-items:center;justify-content:center;text-align:center;background:var(--panel);border:1px solid var(--border);border-radius:5px;padding:8px 4px;cursor:pointer;transition:all .15s;height:42px;font-family:'Share Tech Mono',monospace;font-size:.64rem;font-weight:bold;color:var(--text);line-height:1.2;word-break:break-all;}
-.port-btn:hover{border-color:rgba(0,212,255,0.5);background:rgba(0,212,255,0.05);}
-.port-btn.active{border-color:var(--accent);background:rgba(0,212,255,0.1);color:var(--accent);}
-.port-btn.t-in {border-top:2px solid var(--accent);}
-.port-btn.t-out{border-top:2px solid var(--accent2);}
-.port-btn.t-aux{border-top:2px solid var(--accent3);}
+.view{display:none;padding:20px;}
+.view.active{display:block;}
 
-/* ── POPOVER ── */
-#popover{position:fixed;z-index:500;background:var(--panel2);border:1px solid var(--accent);border-radius:8px;padding:14px 16px 16px;width:310px;max-height:80vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.8);display:none;}
-#popover.on{display:block;}
-#pop-close{position:absolute;top:8px;right:10px;background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:.85rem;padding:2px 5px;}
-#pop-close:hover{color:var(--accent);}
-.pop-title{font-family:'Share Tech Mono',monospace;font-size:.55rem;color:var(--accent);letter-spacing:2px;margin-bottom:12px;padding-right:20px;}
-.pop-port{font-family:'Share Tech Mono',monospace;font-size:.8rem;font-weight:bold;color:var(--accent3);margin-bottom:10px;}
+/* Racks */
+#racks-wrap{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;padding-bottom:12px;}
+.rack-col{display:flex;flex-direction:column;gap:8px;min-width:160px;}
+.rack-col-lbl{font-family:var(--mono);font-size:.55rem;letter-spacing:4px;color:var(--accent);padding:4px 2px;border-bottom:1px solid var(--accent);opacity:.6;text-transform:uppercase;}
+.rack-card{background:var(--panel);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+.rack-card-hdr{padding:6px 10px;background:rgba(0,200,240,.05);border-bottom:1px solid var(--border);}
+.rack-id{font-family:var(--mono);font-size:.72rem;color:var(--yellow);}
+.rack-card-body{padding:6px 8px;display:flex;flex-direction:column;gap:3px;}
+.eq-btn{font-size:.7rem;background:var(--panel2);border:1px solid var(--border);border-radius:3px;padding:5px 8px;cursor:pointer;text-align:left;color:var(--text);transition:border-color .12s,color .12s;}
+.eq-btn:hover{border-color:var(--accent);color:var(--accent);}
+.eq-ip{font-size:.55rem;font-family:var(--mono);margin-top:2px;}
+.eq-ip.ok{color:var(--accent);}.eq-ip.none{color:var(--muted);}.eq-ip.pend{color:var(--yellow);}
 
-/* trace nodes */
-.tr-node{display:flex;align-items:flex-start;gap:7px;padding:3px 0;}
-.tr-node.tr-first .tr-eq{color:var(--accent3);}
-.tr-node.tr-last  .tr-eq{color:var(--accent2);}
-.tr-node.tr-active{background:rgba(0,212,255,0.09);border-radius:3px;padding:3px 5px;margin:0 -5px;}
-.tr-pre {font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--muted);width:10px;flex-shrink:0;margin-top:1px;}
-.tr-body{display:flex;flex-direction:column;gap:1px;}
-.tr-rack{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--accent4);}
-.tr-eq  {font-size:.72rem;font-weight:600;color:var(--text);}
-.tr-port{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--accent);}
-.tr-note{font-size:.58rem;color:var(--text-dim);font-style:italic;}
-.tr-arrow{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);padding:1px 0 1px 17px;}
-.tr-branch{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--accent3);margin:6px 0 2px;}
-.tr-nodata{font-size:.7rem;color:var(--muted);font-style:italic;}
+/* Slots */
+.slots-list{display:flex;flex-direction:column;gap:6px;max-width:480px;}
+.slot-btn{background:var(--panel);border:1px solid var(--border);border-radius:5px;padding:10px 14px;cursor:pointer;text-align:left;transition:border-color .12s;}
+.slot-btn:hover{border-color:var(--accent);}
+.slot-num{font-family:var(--mono);font-size:.68rem;color:var(--yellow);margin-bottom:2px;}
+.slot-placa{font-family:var(--mono);font-size:.6rem;color:var(--accent);margin-left:8px;}
+.slot-type{font-size:.82rem;font-weight:600;color:var(--text);}
+.slot-cnt{font-size:.6rem;color:var(--text2);margin-top:3px;}
+
+/* Equip */
+.eq-meta{margin-bottom:20px;}
+.eq-name{font-family:var(--mono);font-size:1rem;color:var(--green);margin-bottom:2px;}
+.eq-rack{font-family:var(--mono);font-size:.68rem;color:var(--yellow);}
+.eq-placa{font-family:var(--mono);font-size:.65rem;color:var(--accent);margin-top:2px;}
+.eq-iprow{font-family:var(--mono);font-size:.65rem;margin-top:4px;}
+.eq-iprow.ok{color:var(--accent);}.eq-iprow.none{color:var(--muted);}.eq-iprow.pend{color:var(--yellow);}
+
+.ports-lbl{font-family:var(--mono);font-size:.55rem;letter-spacing:3px;color:var(--text2);text-transform:uppercase;margin:16px 0 8px;display:flex;align-items:center;gap:10px;}
+.ports-lbl::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* Responsive grid */
+.ports-grid{display:grid;gap:5px;margin-bottom:4px;grid-template-columns:repeat(4,1fr);}
+@media(min-width:600px){.ports-grid{grid-template-columns:repeat(8,1fr);}}
+@media(min-width:1200px){.ports-grid{grid-template-columns:repeat(16,1fr);}}
+
+.port-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  padding:5px 3px;min-height:50px;background:var(--panel2);border:1px solid var(--border);
+  border-radius:4px;cursor:pointer;transition:border-color .12s,background .12s;overflow:hidden;}
+.port-btn:hover{border-color:var(--accent);background:rgba(0,200,240,.06);}
+.port-btn.selected{border-color:var(--accent);background:rgba(0,200,240,.12);}
+.port-btn.p-in {border-top:2px solid var(--accent);}
+.port-btn.p-out{border-top:2px solid var(--orange);}
+.port-btn.p-aux{border-top:2px solid var(--green);}
+.port-btn.p-conn{border-top:2px solid var(--yellow);}  /* passive connector */
+.port-btn.p-free{opacity:.3;}
+.p-num{font-family:var(--mono);font-size:.6rem;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding:0 2px;}
+.p-lbl{font-size:.48rem;color:var(--text2);margin-top:2px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px;}
+
+/* Popover */
+#pop{position:fixed;z-index:500;background:var(--panel2);border:1px solid var(--border2);
+  border-radius:6px;padding:12px 14px 14px;min-width:240px;max-width:320px;
+  max-height:70vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.85);display:none;}
+#pop.on{display:block;}
+#pop-hdr{display:flex;align-items:center;margin-bottom:10px;}
+#pop-lbl{font-family:var(--mono);font-size:.52rem;letter-spacing:2px;color:var(--accent);flex:1;}
+#pop-close{background:none;border:none;color:var(--text2);cursor:pointer;font-size:.9rem;padding:0 0 0 8px;line-height:1;}
+#pop-close:hover{color:var(--text);}
+#pop-body{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+
+/* Trace */
+.tr-node{margin-bottom:1px;}
+.tr-eq{color:var(--text);font-weight:600;font-family:var(--sans);font-size:.72rem;}
+.tr-rack{color:var(--yellow);font-size:.6rem;margin-right:4px;}
+.tr-slot{color:var(--accent);font-size:.6rem;}
+.tr-out{color:var(--orange);}
+.tr-in{color:var(--accent);}
+.tr-branch{padding-left:42px;color:var(--green);font-size:.64rem;display:flex;align-items:baseline;gap:4px;flex-wrap:wrap;}
+.tr-branch-dst{color:var(--text2);}
+.tr-branch-dport{color:var(--accent);}
+.tr-gap{height:7px;}
+.tr-nodata{color:var(--muted);font-style:italic;font-size:.64rem;}
+.tr-dispext{padding-left:8px;font-size:.6rem;color:var(--text2);font-style:italic;margin-bottom:2px;}
+.tr-nc{color:var(--text2);font-size:.64rem;}
+.tr-unk{color:var(--yellow);font-size:.64rem;}
+
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--muted);border-radius:2px;}
 </style>
 </head>
 <body>
-<header>
-  <button id="backBtn" onclick="showRacks()">← Volver</button>
-  <h1 id="headerTitle">◈ RACK C12 — DIAGRAMA DE SEÑAL</h1>
-  <span id="breadcrumb"></span>
-</header>
 
-<div id="racksView"><div class="loading">▸ CARGANDO DATOS...</div></div>
-<div id="equipView"></div>
+<div id="hdr">
+  <button id="btn-back" onclick="goBack()">&#8592; Volver</button>
+  <div id="hdr-title">&#9672; CARGANDO...</div>
+  <div id="hdr-bc"></div>
+</div>
 
-<div id="popover">
-  <button id="pop-close" onclick="closePop()">✕</button>
-  <div class="pop-title">▶ RUTA DE SEÑAL</div>
-  <div id="pop-port"></div>
+<div id="view-racks" class="view"><div id="racks-wrap"></div></div>
+<div id="view-slots" class="view"></div>
+<div id="view-equip" class="view"></div>
+
+<div id="pop">
+  <div id="pop-hdr">
+    <span id="pop-lbl">&#9654; RUTA DE SEÑAL</span>
+    <button id="pop-close" onclick="closePop()">&#10005;</button>
+  </div>
   <div id="pop-body"></div>
 </div>
 
 <script>
-// ── Data ─────────────────────────────────────────────────────────────────────
-let RAW = [], graph = {};
+var CONNS=[], NODOS={}, PROJ='', _nav=[], _selBtn=null;
 
-fetch('connections.json')
-  .then(r => { if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-  .then(data => {
-    RAW = data.filter(c =>
-      c.src_rack && c.dst_rack && c.src_eq && c.dst_eq &&
-      !['?','N/C'].includes(c.src_rack) && !['?','N/C'].includes(c.dst_rack)
-    );
-    buildGraph();
-    showRacks();
-  })
-  .catch(err => {
-    document.getElementById('racksView').innerHTML =
-      `<div class="error-msg"><div>✗ No se pudo cargar connections.json</div><small>${err.message}</small></div>`;
-  });
-
-// ── Graph — un arco por cable, dirección src→dst ──────────────────────────────
-function nk(r,e,p){ return `${r}||${e}||${p}`.toLowerCase(); }
-
-function buildGraph(){
-  graph = {};
-  RAW.forEach(c => {
-    const k = nk(c.src_rack, c.src_eq, c.src_port);
-    if(!graph[k]) graph[k] = [];
-    graph[k].push({ rack:c.dst_rack, eq:c.dst_eq, port:c.dst_port, notes:c.notes, label:c.label });
-  });
-}
-
-// ── Traceroute — DFS siguiendo cables reales, sin inventar nada ───────────────
-function traceFrom(rack, eq, port){
-  const MAX_DEPTH = 12;
-  const startKey = nk(rack, eq, port);
-  const paths = [];
-
-  function dfs(r, e, p, chain, visited, depth){
-    if(depth > MAX_DEPTH) return;
-    const k = nk(r, e, p);
-    if(visited.has(k)) return;
-    const next = graph[k] || [];
-    if(next.length === 0){
-      paths.push([...chain]);
-      return;
-    }
-    const vis2 = new Set(visited); vis2.add(k);
-    next.forEach(n => {
-      chain.push(n);
-      dfs(n.rack, n.eq, n.port, chain, vis2, depth + 1);
-      chain.pop();
+// ── Init ──────────────────────────────────────────────────────────────────────
+function init(data){
+  PROJ=data.proyecto||'Rack Index';
+  document.title=PROJ;
+  document.getElementById('hdr-title').textContent='\u25c6 '+PROJ;
+  (data.nodos||[]).forEach(function(n){ NODOS[n.rack+'|||'+n.equipo]=n.ip; });
+  (data.conexiones||[]).forEach(function(c){
+    CONNS.push({
+      sr:c.src.rack, se:c.src.equipo, ss:nss(c.src.slot), sl:c.src.placa, sp:c.src.puerto,
+      dr:c.dst.rack, de:c.dst.equipo, ds:nss(c.dst.slot), dl:c.dst.placa, dp:c.dst.puerto,
+      thru:c.thru, rotulo:c.rotulo, notas:c.notas, disp_ext:c.disp_ext||''
     });
-  }
-
-  dfs(rack, eq, port, [], new Set(), 0);
-  if(!paths.length) paths.push([]); // sin salida conocida
-  return paths;
+  });
+  showRacks();
 }
 
-// ── Port type ─────────────────────────────────────────────────────────────────
-function portType(p){
-  const l = String(p||'').toLowerCase();
-  if(l.startsWith('in') || l.includes(' in ')) return 't-in';
-  if(l.startsWith('out') || l.includes(' out ')) return 't-out';
-  return 't-aux';
-}
+// ── Core helpers ──────────────────────────────────────────────────────────────
+function h(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function nss(s){ return String(s||'').replace(/\.0$/,''); }  // normalize slot string
 
-// ── Sort ports numerically ────────────────────────────────────────────────────
+function portCls(p){
+  var l=String(p||'').toLowerCase();
+  if(/^(in\b|ret\b|hdmi in|sdi in|\w+ in\b)/.test(l)||l.indexOf('(in)')>=0) return 'p-in';
+  if(/^(out\b|sdi out|hdmi out|\w+ out\b)/.test(l)||l.indexOf('(out)')>=0) return 'p-out';
+  return 'p-aux';
+}
 function portN(p){
-  const m = String(p||'').match(/\d+/);
-  return m ? parseInt(m[0]) : 9999;
+  var m=String(p||'').match(/\d+/); return m?parseInt(m[0]):9998;
 }
-function sortPorts(arr, key){
-  return [...arr].sort((a,b) => portN(a[key]) - portN(b[key]) || String(a[key]).localeCompare(String(b[key])));
+function sortByPort(arr,fn){
+  return arr.slice().sort(function(a,b){
+    return portN(fn(a))-portN(fn(b))||String(fn(a)).localeCompare(String(fn(b)));
+  });
 }
 
-// ── Rack list by letter ───────────────────────────────────────────────────────
-function getRacksByLetter(){
-  const map = {};
-  RAW.forEach(c => {
-    [[c.src_rack,c.src_eq],[c.dst_rack,c.dst_eq]].forEach(([rack,eq]) => {
-      if(!rack || ['?','N/C'].includes(rack)) return;
-      if(!eq   || ['VACANTE'].includes(eq))   return;
-      if(!map[rack]) map[rack] = new Set();
-      map[rack].add(eq);
+function getIP(rack,eq){
+  var k=rack+'|||'+eq;
+  if(NODOS.hasOwnProperty(k)) return NODOS[k];
+  var ks=Object.keys(NODOS);
+  for(var i=0;i<ks.length;i++){
+    var p=ks[i].split('|||');
+    if(p[0]===rack&&p[1].toLowerCase()===eq.toLowerCase()) return NODOS[ks[i]];
+  }
+  return undefined;
+}
+function ipEl(ip,cls){
+  if(ip===undefined||ip===null||ip==='') return '<div class="'+cls+' none">Sin red</div>';
+  if(ip==='?') return '<div class="'+cls+' pend">IP pendiente</div>';
+  return '<div class="'+cls+' ok">'+h(ip)+'</div>';
+}
+function getRackPfx(r){ var m=r.match(/^([A-Za-z]+)/); return m?m[1].toUpperCase():'?'; }
+
+// ── Frame / slot detection ────────────────────────────────────────────────────
+// A frame is an equipo that has connections where ITS OWN slot is non-empty
+function isFrame(rack,eq){
+  return CONNS.some(function(c){
+    return (c.sr===rack&&c.se===eq&&c.ss) || (c.dr===rack&&c.de===eq&&c.ds);
+  });
+}
+
+// Get all unique slots for a frame, as {slot, placa} objects
+function getSlots(rack,eq){
+  var seen={};
+  CONNS.forEach(function(c){
+    if(c.sr===rack&&c.se===eq&&c.ss){
+      var k=nss(c.ss);
+      if(!seen[k]) seen[k]={slot:k,placa:''};
+      if(c.sl&&!seen[k].placa) seen[k].placa=c.sl;
+    }
+    if(c.dr===rack&&c.de===eq&&c.ds){
+      var k=nss(c.ds);
+      if(!seen[k]) seen[k]={slot:k,placa:''};
+      if(c.dl&&!seen[k].placa) seen[k].placa=c.dl;
+    }
+  });
+  return Object.values(seen).sort(function(a,b){ return parseInt(a.slot)-parseInt(b.slot); });
+}
+// An equipo is "passive" if its THRUs are strictly 1-to-1 (each src port appears exactly once)
+// and no audio ports involved. This matches patch panels but NOT dist amps (1-to-many).
+function isPassive(rack,eq,slot){
+  var thrus=CONNS.filter(function(c){
+    return c.rotulo==='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
+  });
+  if(!thrus.length) return false;
+  // Check 1-to-1: every src port appears exactly once
+  var srcCounts={};
+  thrus.forEach(function(t){ srcCounts[t.sp]=(srcCounts[t.sp]||0)+1; });
+  var isOneToOne=Object.values(srcCounts).every(function(n){return n===1;});
+  if(!isOneToOne) return false;
+  // No audio ports
+  return thrus.every(function(t){ return !isAudio(t.sp)&&!isAudio(t.dp); });
+}
+
+// For passive equipo: get connector list (one entry per THRU pair)
+function getConnectors(rack,eq,slot){
+  var thrus=CONNS.filter(function(c){
+    return c.rotulo==='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
+  });
+  // Build connectors: {num, inPort, outPort, label, ncIn, ncOut}
+  var conns2=thrus.map(function(t){
+    var num=portN(t.sp);
+    // Who feeds In port?
+    var srcConns=CONNS.filter(function(c){
+      return c.rotulo!=='THRU'&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===t.sp;
     });
+    // Where does Out port go?
+    var dstConns=CONNS.filter(function(c){
+      return c.rotulo!=='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===t.dp;
+    });
+    var ncIn  = srcConns.length>0 && (srcConns[0].sr==='N/C');
+    var ncOut = dstConns.length>0 && (dstConns[0].dr==='N/C');
+    var unkIn  = !srcConns.length || srcConns[0].sr==='?' || !srcConns[0].sr;
+    var unkOut = !dstConns.length || dstConns[0].dr==='?' || !dstConns[0].dr;
+    var isFree = unkIn && unkOut;
+    var isNc   = ncIn || ncOut;
+    // Label: prefer rotulo from src conn, then dst conn
+    var lbl = (srcConns[0]&&srcConns[0].rotulo) || (dstConns[0]&&dstConns[0].rotulo) || '';
+    return {num:num, inPort:t.sp, outPort:t.dp, label:lbl,
+            isFree:isFree, isNc:isNc,
+            srcConn:srcConns[0]||null, dstConn:dstConns[0]||null};
   });
-  const byLetter = {};
-  Object.entries(map).forEach(([rack,eqs]) => {
-    const letter = (rack.match(/^[A-Za-z]+/) || ['?'])[0].toUpperCase();
-    if(!byLetter[letter]) byLetter[letter] = [];
-    byLetter[letter].push({ rack, eqs: [...eqs].sort() });
-  });
-  Object.values(byLetter).forEach(arr =>
-    arr.sort((a,b) => a.rack.localeCompare(b.rack, undefined, {numeric:true}))
-  );
-  return Object.entries(byLetter).sort(([a],[b]) => a.localeCompare(b));
+  return conns2.sort(function(a,b){return a.num-b.num;});
 }
 
-// ── Views ─────────────────────────────────────────────────────────────────────
+// ── Navigation ────────────────────────────────────────────────────────────────
+function setView(id){
+  ['view-racks','view-slots','view-equip'].forEach(function(v){
+    document.getElementById(v).className='view'+(v===id?' active':'');
+  });
+}
+function updateHdr(bc){
+  document.getElementById('btn-back').className=_nav.length>1?'show':'';
+  document.getElementById('hdr-title').textContent=_nav.length<=1?('\u25c6 '+PROJ):'';
+  document.getElementById('hdr-bc').innerHTML=bc||'';
+}
+function goBack(){
+  closePop();
+  _nav.pop();
+  if(!_nav.length){showRacks();return;}
+  var top=_nav[_nav.length-1]; _nav.pop();
+  if(top.type==='racks')      showRacks();
+  else if(top.type==='slots') showSlots(top.rack,top.eq);
+  else if(top.type==='equip') showEquip(top.rack,top.eq,top.slot);
+}
+
+// ── Racks view ────────────────────────────────────────────────────────────────
 function showRacks(){
-  closePop();
-  document.getElementById('backBtn').classList.remove('visible');
-  document.getElementById('breadcrumb').innerHTML = '';
-  document.getElementById('headerTitle').textContent = '◈ RACK C12 — DIAGRAMA DE SEÑAL';
-  document.getElementById('equipView').style.display = 'none';
-  const view = document.getElementById('racksView');
-  view.style.display = 'block';
-
-  let html = '<div class="racks-columns">';
-  getRacksByLetter().forEach(([letter, racks]) => {
-    html += `<div class="rack-column"><div class="rack-column-header">${letter}</div>`;
-    racks.forEach(({rack, eqs}) => {
-      html += `<div class="rack-card">
-        <div class="rack-card-header"><span class="rack-id">RACK ${rack}</span></div>
-        <div class="rack-card-body">`;
-      eqs.forEach(eq => {
-        html += `<div class="eq-chip" onclick="showEquip(${j(rack)},${j(eq)})">${eq}</div>`;
-      });
-      html += '</div></div>';
+  _nav=[{type:'racks'}]; closePop(); updateHdr(''); setView('view-racks');
+  var rm={};
+  CONNS.forEach(function(c){
+    [[c.sr,c.se],[c.dr,c.de]].forEach(function(pair){
+      var r=pair[0],e=pair[1];
+      if(!r||r==='?'||!e||e==='?') return;
+      if(c.rotulo==='THRU') return;
+      if(!rm[r]) rm[r]={};
+      rm[r][e]=true;
     });
-    html += '</div>';
   });
-  html += '</div>';
-  view.innerHTML = html;
+  Object.keys(NODOS).forEach(function(k){
+    var p=k.split('|||'),r=p[0],e=p[1];
+    if(!r||!e||r==='?') return;
+    if(!rm[r]) rm[r]={};
+    rm[r][e]=true;
+  });
+  var secs={};
+  Object.keys(rm).sort(function(a,b){return a.localeCompare(b,undefined,{numeric:true});}).forEach(function(rack){
+    var pfx=getRackPfx(rack);
+    if(!secs[pfx]) secs[pfx]=[];
+    secs[pfx].push({rack:rack,eqs:Object.keys(rm[rack]).sort()});
+  });
+  var html='';
+  Object.keys(secs).sort().forEach(function(pfx){
+    html+='<div class="rack-col"><div class="rack-col-lbl">'+h(pfx)+'</div>';
+    secs[pfx].forEach(function(item){
+      html+='<div class="rack-card"><div class="rack-card-hdr"><span class="rack-id">'+h(item.rack)+'</span></div><div class="rack-card-body">';
+      item.eqs.forEach(function(eq){
+        var ip=getIP(item.rack,eq);
+        var ipc=(ip===undefined||ip===null||ip==='')?'none':(ip==='?'?'pend':'ok');
+        var ipt=(ip===undefined||ip===null||ip==='')?'Sin red':(ip==='?'?'IP pendiente':ip);
+        html+='<div class="eq-btn" onclick="onEqClick(\''+h(item.rack)+'\',\''+h(eq)+'\')">'+h(eq)
+          +'<div class="eq-ip '+ipc+'">'+h(ipt)+'</div></div>';
+      });
+      html+='</div></div>';
+    });
+    html+='</div>';
+  });
+  document.getElementById('racks-wrap').innerHTML=html;
 }
 
-function showEquip(rack, eq){
-  closePop();
-  document.getElementById('backBtn').classList.add('visible');
-  document.getElementById('breadcrumb').innerHTML = `RACK <span>${rack}</span> › ${eq}`;
-  document.getElementById('headerTitle').textContent = '';
-  document.getElementById('racksView').style.display = 'none';
+function onEqClick(rack,eq){
+  if(isFrame(rack,eq)) showSlots(rack,eq);
+  else showEquip(rack,eq,'');
+}
 
-  const outs = sortPorts(RAW.filter(c => c.src_rack===rack && c.src_eq===eq), 'src_port');
-  const ins  = sortPorts(RAW.filter(c => c.dst_rack===rack && c.dst_eq===eq), 'dst_port');
+// ── Slots view ────────────────────────────────────────────────────────────────
+function showSlots(rack,frameEq){
+  _nav.push({type:'slots',rack:rack,eq:frameEq}); closePop(); setView('view-slots');
+  updateHdr('<span class="hi">'+h(rack)+'</span> › '+h(frameEq));
+  var slots=getSlots(rack,frameEq);
+  var ip=getIP(rack,frameEq);
+  var html='<div class="eq-meta"><div class="eq-name">'+h(frameEq)+'</div>'
+    +'<div class="eq-rack">'+h(rack)+'</div>'+ipEl(ip,'eq-iprow')+'</div>';
+  html+='<div class="slots-list">';
+  slots.forEach(function(s){
+    html+='<div class="slot-btn" onclick="showEquip(\''+h(rack)+'\',\''+h(frameEq)+'\',\''+h(s.slot)+'\')">';
+    html+='<div class="slot-num">Slot '+h(s.slot);
+    if(s.placa) html+='<span class="slot-placa">'+h(s.placa)+'</span>';
+    html+='</div>';
+    html+='</div>';
+  });
+  html+='</div>';
+  document.getElementById('view-slots').innerHTML=html;
+  window.scrollTo(0,0);
+}
 
-  let html = `<div class="equip-title">${eq}</div><div class="equip-rack-label">RACK ${rack}</div>`;
+// ── Equip view ────────────────────────────────────────────────────────────────
+// rack, eq: base equipo name (e.g. 'openGear X'), slot: slot number string or ''
+function showEquip(rack,eq,slot){
+  _nav.push({type:'equip',rack:rack,eq:eq,slot:slot}); closePop(); setView('view-equip');
 
-  if(outs.length){
-    html += `<div class="ports-section-title">◆ SALIDAS</div><div class="ports-grid">`;
-    outs.forEach(c => {
-      html += `<div class="port-btn ${portType(c.src_port)}"
-        onclick="openPop(this,${j(c.src_rack)},${j(c.src_eq)},${j(c.src_port)})"
-      >${c.src_port||'—'}</div>`;
+  // Breadcrumb
+  var isSlotEq = slot!=='';
+  var bc = isSlotEq
+    ? '<span class="hi">'+h(rack)+'</span> › '+h(eq)+' › Slot '+h(slot)
+    : '<span class="hi">'+h(rack)+'</span> › '+h(eq);
+  updateHdr(bc);
+
+  // Get placa for this slot
+  var placa='';
+  if(isSlotEq){
+    var plRef=CONNS.find(function(c){
+      return ((c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sl)
+             ||(c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dl));
     });
-    html += '</div>';
+    if(plRef) placa=plRef.sl||plRef.dl||'';
   }
 
-  if(ins.length){
-    html += `<div class="ports-section-title">◆ ENTRADAS</div><div class="ports-grid">`;
-    ins.forEach(c => {
-      // Para las entradas mostramos el puerto de entrada del equipo actual,
-      // pero el trace arranca desde el origen del cable (src)
-      html += `<div class="port-btn ${portType(c.dst_port)}"
-        onclick="openPop(this,${j(c.src_rack)},${j(c.src_eq)},${j(c.src_port)})"
-      >${c.dst_port||'—'}</div>`;
+  // Display name
+  var displayName = isSlotEq ? ('Slot '+slot+(placa?' — '+placa:'')) : eq;
+
+  // IP: for slot eqs use frame IP
+  var ip = isSlotEq ? getIP(rack,eq) : getIP(rack,eq);
+
+  // Filter connections for this exact rack+eq+slot
+  var outsAll=CONNS.filter(function(c){
+    return c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.rotulo!=='THRU';
+  });
+  var insAll=CONNS.filter(function(c){
+    return c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.rotulo!=='THRU';
+  });
+
+  var html='<div class="eq-meta">';
+  html+='<div class="eq-name">'+h(displayName)+'</div>';
+  html+='<div class="eq-rack">'+h(rack)+(isSlotEq?' › '+h(eq):'')+'</div>';
+  if(placa) html+='<div class="eq-placa">'+h(placa)+'</div>';
+  html+=ipEl(ip,'eq-iprow')+'</div>';
+
+  // Check if passive (patch panel style)
+  if(isPassive(rack,eq,slot)){
+    var connectors=getConnectors(rack,eq,slot);
+    html+='<div class="ports-lbl">&#9670; CONECTORES</div><div class="ports-grid">';
+    connectors.forEach(function(con){
+      var isFree=con.isFree;
+      var isNc=con.isNc;
+      var cls='port-btn p-conn'+(isFree?' p-free':'');
+      var lbl=con.label||'';
+      // Pass both in and out ports so trace can go both directions
+      var click=' onclick="onConnectorClick(this,\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(con.inPort)+'\',\''+h(con.outPort)+'\','+isFree+','+isNc+')"';
+      html+='<div class="'+cls+'"'+click+'>';
+      html+='<div class="p-num">'+h(con.inPort.replace(/^In /,''))+'</div>';
+      html+='<div class="p-lbl">'+h(lbl)+'</div>';
+      html+='</div>';
     });
-    html += '</div>';
+    html+='</div>';
+  } else {
+    // Normal equipo: separate SALIDAS / ENTRADAS
+    var sortedOuts=sortByPort(outsAll,function(c){return c.sp;});
+    var sortedIns =sortByPort(insAll, function(c){return c.dp;});
+
+    function portBtnHTML(port,isFree,isNc,isUnk,lbl,clickArgs){
+      var cls='port-btn '+portCls(port)+(isFree?' p-free':'');
+      var click=' onclick="onPortClick(this,'+clickArgs+','+isFree+','+isNc+','+isUnk+')"';
+      return '<div class="'+cls+'"'+click+'>'
+        +'<div class="p-num">'+h(port||'?')+'</div>'
+        +'<div class="p-lbl">'+h(lbl)+'</div>'
+        +'</div>';
+    }
+
+    if(sortedOuts.length){
+      html+='<div class="ports-lbl">&#9670; SALIDAS</div><div class="ports-grid">';
+      sortedOuts.forEach(function(c){
+        var isFree=!c.dr;
+        var isNc=c.dr==='N/C';
+        var isUnk=c.dr==='?';
+        var lbl=c.rotulo||(isFree||isNc||isUnk?'':c.de)||'';
+        var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
+        html+=portBtnHTML(c.sp,isFree,isNc,isUnk,lbl,args);
+      });
+      html+='</div>';
+    }
+    if(sortedIns.length){
+      html+='<div class="ports-lbl">&#9670; ENTRADAS</div><div class="ports-grid">';
+      sortedIns.forEach(function(c){
+        var isFree=!c.sr;
+        var isNc=c.sr==='N/C';
+        var isUnk=c.sr==='?';
+        var lbl=c.rotulo||(isFree||isNc||isUnk?'':c.se)||'';
+        var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
+        html+=portBtnHTML(c.dp,isFree,isNc,isUnk,lbl,args);
+      });
+      html+='</div>';
+    }
+    if(!sortedOuts.length&&!sortedIns.length){
+      html+='<p style="color:var(--text2);font-style:italic;margin-top:16px;">Sin conexiones documentadas.</p>';
+    }
   }
 
-  if(!outs.length && !ins.length)
-    html += `<div style="color:var(--text-dim);font-style:italic;margin-top:20px;font-size:.85rem;">Sin conexiones documentadas.</div>`;
-
-  const view = document.getElementById('equipView');
-  view.innerHTML = html;
-  view.style.display = 'block';
+  document.getElementById('view-equip').innerHTML=html;
   window.scrollTo(0,0);
 }
 
 // ── Popover ───────────────────────────────────────────────────────────────────
-let _activeBtn = null;
-
-function openPop(btn, sr, se, sp){
-  if(_activeBtn === btn){ closePop(); return; }
-  if(_activeBtn) _activeBtn.classList.remove('active');
-  _activeBtn = btn;
-  btn.classList.add('active');
-
-  const paths = traceFrom(sr, se, sp);
-  document.getElementById('pop-port').innerHTML =
-    `<div class="pop-port">${se} · ${sp}</div>`;
-  document.getElementById('pop-body').innerHTML = buildTraceHTML(paths, sr, se, sp);
-
-  const pop = document.getElementById('popover');
-  pop.classList.add('on');
-  positionPop(btn);
+function closePop(){
+  document.getElementById('pop').classList.remove('on');
+  if(_selBtn){_selBtn.classList.remove('selected');_selBtn=null;}
 }
 
 function positionPop(btn){
-  const pop = document.getElementById('popover');
-  const r = btn.getBoundingClientRect();
-  const pw = 310, ph = Math.min(pop.scrollHeight, window.innerHeight * 0.8);
-  let left = r.right + 12, top = r.top;
-  if(left + pw > window.innerWidth - 8) left = r.left - pw - 12;
-  if(left < 8) left = 8;
-  if(top + ph > window.innerHeight - 8) top = Math.max(8, window.innerHeight - ph - 8);
-  pop.style.left = left + 'px';
-  pop.style.top  = top  + 'px';
+  var pop=document.getElementById('pop');
+  var r=btn.getBoundingClientRect();
+  var pw=300;
+  var left=r.left+r.width/2-pw/2;
+  left=Math.max(8,Math.min(left,window.innerWidth-pw-8));
+  var top=r.bottom+8;
+  if(top+340>window.innerHeight) top=Math.max(8,r.top-340);
+  pop.style.left=left+'px'; pop.style.top=top+'px'; pop.style.width=pw+'px';
 }
 
-function closePop(){
-  document.getElementById('popover').classList.remove('on');
-  if(_activeBtn){ _activeBtn.classList.remove('active'); _activeBtn = null; }
+function showPop(btn,html){
+  if(_selBtn===btn){closePop();return;}
+  if(_selBtn) _selBtn.classList.remove('selected');
+  _selBtn=btn; btn.classList.add('selected');
+  document.getElementById('pop-body').innerHTML=html;
+  document.getElementById('pop').classList.add('on');
+  positionPop(btn);
 }
 
-document.addEventListener('click', e => {
-  if(!document.getElementById('popover').contains(e.target) && !e.target.closest('.port-btn'))
-    closePop();
+// Called from regular port buttons
+function onPortClick(btn,sr,se,ss0,sp,isFree,isNc,isUnk){
+  var body;
+  if(isNc){
+    body='<div class="tr-nc">N/C</div>';
+  } else if(isUnk){
+    body='<div class="tr-unk">?</div>';
+  } else if(isFree){
+    body='<div class="tr-nodata">Sin conexiones documentadas.</div>';
+  } else {
+    body=buildRoute(sr,se,ss0,sp);
+  }
+  showPop(btn,body);
+}
+
+// Called from passive connector buttons
+function onConnectorClick(btn,rack,eq,slot,inPort,outPort,isFree,isNc){
+  var body;
+  if(isNc){
+    body='<div class="tr-nc">N/C</div>';
+  } else if(isFree){
+    body='<div class="tr-nodata">Sin conexiones documentadas.</div>';
+  } else {
+    // Build route from both directions through this connector
+    body=buildPassiveRoute(rack,eq,slot,inPort,outPort);
+  }
+  showPop(btn,body);
+}
+
+document.addEventListener('click',function(e){
+  var pop=document.getElementById('pop');
+  if(!pop.contains(e.target)&&!e.target.closest('.port-btn')) closePop();
 });
 
-// ── Trace HTML ────────────────────────────────────────────────────────────────
-function buildTraceHTML(paths, activeRack, activeEq, activePort){
-  // Deduplicar paths
-  const seen = new Set();
-  const uniq = paths.filter(p => {
-    const k = p.map(n => nk(n.rack,n.eq,n.port)).join('>');
-    if(seen.has(k)) return false; seen.add(k); return true;
+// ── Route builder ─────────────────────────────────────────────────────────────
+function isAudio(p){ return /audio/i.test(p||''); }
+
+function fOuts(rack,eq,slot,port){
+  return CONNS.filter(function(c){
+    return c.rotulo!=='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===port;
   });
+}
+function fThrus(rack,eq,slot,inPort){
+  return CONNS.filter(function(c){
+    return c.rotulo==='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===inPort;
+  });
+}
+function fIns(rack,eq,slot,port){
+  return CONNS.filter(function(c){
+    return c.rotulo!=='THRU'&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===port
+      &&c.sr&&c.sr!=='?'&&c.sr!=='N/C';
+  });
+}
 
-  // Nodo origen
-  const originNode = `
-    <div class="tr-node tr-first tr-active">
-      <span class="tr-pre">◉</span>
-      <div class="tr-body">
-        <span class="tr-rack">${activeRack}</span>
-        <span class="tr-eq">${activeEq}</span>
-        <span class="tr-port">${activePort}</span>
-      </div>
-    </div>`;
-
-  if(uniq.length === 1 && uniq[0].length === 0){
-    return originNode + `<div class="tr-nodata" style="margin-top:8px">Sin salida documentada desde este puerto</div>`;
+// Build eq label for trace: "RACK  EqName  [/ Slot N — Placa]"
+function eqLabel(rack,eq,slot,placa){
+  var html='<div class="tr-node">';
+  html+='<span class="tr-rack">'+h(rack)+'</span>';
+  html+='<span class="tr-eq">'+h(eq)+'</span>';
+  if(nss(slot)){
+    html+=' <span class="tr-slot">/ Slot '+h(nss(slot));
+    if(placa) html+=' — '+h(placa);
+    html+='</span>';
   }
-
-  let html = '';
-  uniq.forEach((chain, pi) => {
-    if(uniq.length > 1) html += `<div class="tr-branch">╠ Rama ${pi+1}</div>`;
-    html += originNode;
-    chain.forEach((node, i) => {
-      const isLast = i === chain.length - 1;
-      html += `<div class="tr-arrow">↓</div>
-        <div class="tr-node ${isLast ? 'tr-last' : ''}">
-          <span class="tr-pre">${isLast ? '◎' : '│'}</span>
-          <div class="tr-body">
-            <span class="tr-rack">${node.rack}</span>
-            <span class="tr-eq">${node.eq}</span>
-            <span class="tr-port">${node.port}</span>
-            ${node.notes ? `<span class="tr-note">${node.notes}</span>` : ''}
-          </div>
-        </div>`;
-    });
-    if(pi < uniq.length - 1) html += '<div style="height:8px"></div>';
-  });
+  html+='</div>';
   return html;
 }
 
-// ── Utils ─────────────────────────────────────────────────────────────────────
-function j(s){ return JSON.stringify(String(s||'')); }
+// Get placa for a rack+eq+slot combo
+function getPlaca(rack,eq,slot){
+  var r=CONNS.find(function(c){
+    return ((c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sl)
+           ||(c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dl));
+  });
+  return r?(r.sl||r.dl||''):'';
+}
+
+function renderOut(port){
+  if(!port) return '';
+  return '<div><span class="tr-out">'+h(port)+' &gt;&gt;&gt;</span></div>';
+}
+function renderIn(port){
+  if(!port) return '';
+  return '<div><span class="tr-in">&gt;&gt;&gt; '+h(port)+'</span></div>';
+}
+function renderBranch(br){
+  var html='<div class="tr-branch">';
+  html+='<span class="tr-out">'+h(br.outPort)+' &gt;&gt;&gt;</span>';
+  if(br.dstRack&&br.dstRack!=='?') html+=' <span class="tr-branch-dst">'+h(br.dstRack)+'</span>';
+  html+=' <span class="tr-branch-dst">'+h(br.dstEq)+'</span>';
+  if(nss(br.dstSlot)) html+=' <span class="tr-slot">/ Slot '+h(nss(br.dstSlot))+'</span>';
+  if(br.dstPort) html+=' <span class="tr-branch-dport">&gt; '+h(br.dstPort)+'</span>';
+  html+='</div>';
+  return html;
+}
+
+function buildSegments(sr,se,ss0,sp){
+  var segs=[], vis={};
+
+  function walk(rack,eq,slot,inPort,outPort,depth){
+    if(depth>12) return;
+    var key=rack+'|'+eq+'|'+nss(slot)+'|'+String(inPort||'')+'|'+String(outPort||'');
+    if(vis[key]) return; vis[key]=true;
+
+    var placa=getPlaca(rack,eq,slot);
+    var seg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:inPort,outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
+    segs.push(seg);
+
+    var nexts=fOuts(rack,eq,slot,outPort);
+    if(!nexts.length) return;
+
+    nexts.forEach(function(c){
+      if(!c.dr||c.dr==='N/C'){seg.nc=true;return;}
+      if(c.dr==='?'){seg.unknown=true;return;}
+      // Store disp_ext on the current segment (it belongs to this cable)
+      if(c.disp_ext) seg.disp_ext=c.disp_ext;
+      var dr=c.dr,de=c.de,ds=c.ds,dp=c.dp;
+      var thrus=fThrus(dr,de,ds,dp);
+      var audioT=thrus.filter(function(t){return isAudio(t.dp);});
+      var videoT=thrus.filter(function(t){return !isAudio(t.dp);});
+
+      var branches=[];
+      audioT.forEach(function(t){
+        var outs=fOuts(dr,de,ds,t.dp);
+        if(outs.length){
+          outs.forEach(function(ao){
+            branches.push({outPort:t.dp,dstRack:ao.dr||'?',dstEq:ao.de||'',dstSlot:ao.ds,dstPort:ao.dp||''});
+          });
+        } else {
+          branches.push({outPort:t.dp,dstRack:'?',dstEq:'',dstSlot:'',dstPort:''});
+        }
+      });
+
+      if(!thrus.length){
+        walk(dr,de,ds,dp,'',depth+1);
+      } else if(videoT.length){
+        videoT.forEach(function(vt){walk(dr,de,ds,dp,vt.dp,depth+1);});
+        if(branches.length){
+          for(var i=segs.length-1;i>=0;i--){
+            var s=segs[i];
+            if(s.rack===dr&&s.eq===de&&nss(s.slot)===nss(ds)&&s.inPort===dp){s.branches=branches;break;}
+          }
+        }
+      } else {
+        var k2=dr+'|'+de+'|'+nss(ds)+'|'+dp+'|audio';
+        if(!vis[k2]){vis[k2]=true;
+          segs.push({rack:dr,eq:de,slot:ds,placa:getPlaca(dr,de,ds),
+                     inPort:dp,outPort:'',branches:branches,unknown:false,nc:false});}
+      }
+    });
+  }
+
+  var thrusClick=fThrus(sr,se,ss0,sp);
+  var videoClick=thrusClick.filter(function(t){return !isAudio(t.dp);});
+  if(videoClick.length) videoClick.forEach(function(t){walk(sr,se,ss0,sp,t.dp,0);});
+  else walk(sr,se,ss0,'',sp,0);
+
+  return segs;
+}
+
+function buildUpstream(sr,se,ss0,sp){
+  var upstream=[], vis={};
+  function walkUp(rack,eq,slot,port,depth){
+    if(depth>8) return;
+    // Direct non-THRU connections into this port
+    var direct=fIns(rack,eq,slot,port);
+    if(direct.length){
+      direct.forEach(function(c){
+        var k=c.sr+'|'+c.se+'|'+nss(c.ss)+'|'+c.sp;
+        if(vis[k]) return; vis[k]=true;
+        upstream.unshift({rack:c.sr,eq:c.se,slot:c.ss,placa:getPlaca(c.sr,c.se,c.ss),port:c.sp});
+        walkUp(c.sr,c.se,c.ss,c.sp,depth+1);
+      });
+    } else {
+      // No direct connection — check if this port is the OUTPUT of a THRU
+      // If so, walk up through the THRU's input port
+      var thruSrc=CONNS.filter(function(c){
+        return c.rotulo==='THRU'&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===port;
+      });
+      thruSrc.forEach(function(t){
+        walkUp(rack,eq,slot,t.sp,depth+1);
+      });
+    }
+  }
+  walkUp(sr,se,ss0,sp,0);
+  return upstream;
+}
+
+function renderRoute(upstream,segs){
+  var html='';
+  upstream.forEach(function(u){
+    html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
+    html+=renderOut(u.port);
+    html+='<div class="tr-gap"></div>';
+  });
+  segs.forEach(function(seg,i){
+    // disp_ext from PREVIOUS segment's cable goes before this equipo's label
+    if(i>0 && segs[i-1].disp_ext){
+      html+='<div class="tr-dispext">&#9654; '+h(segs[i-1].disp_ext)+'</div>';
+    }
+    html+=eqLabel(seg.rack,seg.eq,seg.slot,seg.placa);
+    if(seg.inPort) html+=renderIn(seg.inPort);
+    seg.branches.forEach(function(br){html+=renderBranch(br);});
+    if(seg.outPort) html+=renderOut(seg.outPort);
+    if(seg.nc)      html+='<div class="tr-nc">N/C</div>';
+    if(seg.unknown) html+='<div class="tr-unk">&#10549; Destino desconocido</div>';
+    if(i<segs.length-1) html+='<div class="tr-gap"></div>';
+  });
+  if(!segs.length&&!upstream.length) html='<div class="tr-nodata">Sin datos.</div>';
+  return html;
+}
+
+function buildRoute(sr,se,ss0,sp){
+  var upstream=buildUpstream(sr,se,ss0,sp);
+  var segs=buildSegments(sr,se,ss0,sp);
+  return renderRoute(upstream,segs);
+}
+
+// For passive connectors: upstream into In, show the connector, downstream from Out
+// Downstream starts from the actual destination of outPort (not from outPort itself)
+// to avoid showing the connector equipo twice.
+function buildPassiveRoute(rack,eq,slot,inPort,outPort){
+  var upstream=buildUpstream(rack,eq,slot,inPort);
+  var placa=getPlaca(rack,eq,slot);
+
+  var connNode=eqLabel(rack,eq,slot,placa)
+    +renderIn(inPort)
+    +renderOut(outPort);
+
+  // Find cable leaving outPort and its disp_ext
+  var outConns=fOuts(rack,eq,slot,outPort);
+  var dispExt=outConns.length&&outConns[0].disp_ext?outConns[0].disp_ext:'';
+
+  // Downstream: start from the destination of outPort, not outPort itself
+  var downSegs=[];
+  outConns.forEach(function(c){
+    if(!c.dr||c.dr==='?'||c.dr==='N/C') return;
+    var sub=buildSegments(c.dr,c.de,nss(c.ds),c.dp);
+    sub.forEach(function(s){ downSegs.push(s); });
+  });
+
+  var html='';
+  upstream.forEach(function(u){
+    html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
+    html+=renderOut(u.port);
+    html+='<div class="tr-gap"></div>';
+  });
+  html+=connNode;
+
+  if(!outConns.length){
+    html+='<div class="tr-nc">N/C</div>';
+  } else if(outConns[0].dr==='?'){
+    html+='<div class="tr-unk">&#10549; Destino desconocido</div>';
+  } else if(outConns[0].dr==='N/C'||!outConns[0].dr){
+    html+='<div class="tr-nc">N/C</div>';
+  } else if(downSegs.length){
+    html+='<div class="tr-gap"></div>';
+    if(dispExt) html+='<div class="tr-dispext">&#9654; '+h(dispExt)+'</div>';
+    html+=renderRoute([],downSegs);
+  }
+
+  return html||'<div class="tr-nodata">Sin datos.</div>';
+}
+
+_DATA = {"proyecto": "Conexiones", "nodos": [{"rack": "A.1", "equipo": "Server Players", "ip": "192.168.20.2"}, {"rack": "A.2", "equipo": "Player A", "ip": "192.168.20.6"}, {"rack": "A.3", "equipo": "Player B", "ip": "192.168.20.8"}, {"rack": "A.4", "equipo": "Player C", "ip": "192.168.20.10"}, {"rack": "A.5", "equipo": "CGX", "ip": "?"}, {"rack": "B.1", "equipo": "Server Loops", "ip": "192.168.20.4"}, {"rack": "B.2", "equipo": "Loop A", "ip": "192.168.20.12"}, {"rack": "B.3", "equipo": "Loop B", "ip": "192.168.20.14"}, {"rack": "B.4", "equipo": "Loop C", "ip": "192.168.20.16"}, {"rack": "C.1", "equipo": "Leader Sync Generator LT4611", "ip": "?"}, {"rack": "C.2", "equipo": "Miranda Densite3", "ip": null}, {"rack": "C.3", "equipo": "AJA KUMO 6464", "ip": "192.168.30.2"}, {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "ip": null}, {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "ip": "?"}, {"rack": "C.6", "equipo": "Patch Panel", "ip": null}, {"rack": "C.7", "equipo": "Patch Panel", "ip": null}, {"rack": "D.BACK.1", "equipo": "Raspberry PI 1", "ip": "192.168.30.51"}, {"rack": "D.BACK.2", "equipo": "Raspberry PI 2", "ip": "192.168.30.52"}, {"rack": "D.BACK.3", "equipo": "", "ip": null}, {"rack": "D.1", "equipo": "Telairity BE-IRD 5501", "ip": null}, {"rack": "D.2", "equipo": "Cisco D9865", "ip": null}, {"rack": "D.3", "equipo": "Wellav UMH160R", "ip": null}, {"rack": "D.4", "equipo": "Wellav UMH160R", "ip": "?"}, {"rack": "D.5", "equipo": "CRD1000D", "ip": null}, {"rack": "D.6", "equipo": "Telairity BE-IRD 5503", "ip": null}, {"rack": "D.7", "equipo": "openGear X", "ip": null}, {"rack": "D.8", "equipo": "Cisco D9865", "ip": null}, {"rack": "D.9", "equipo": "openGear X", "ip": "192.168.30.12"}, {"rack": "D.10", "equipo": "tc electronic Finalizer", "ip": null}, {"rack": "D.11", "equipo": "AJA FS4", "ip": null}, {"rack": "D.12", "equipo": "AJA FS2", "ip": "?"}, {"rack": "D.13", "equipo": "AJA FS2", "ip": "192.168.30.16"}, {"rack": "D.14", "equipo": "Digiwave DSC-131", "ip": null}, {"rack": "D.15", "equipo": "vidicraft vst2110", "ip": null}, {"rack": "D.16", "equipo": "Videocasetera", "ip": null}, {"rack": "E.1", "equipo": "fm", "ip": null}, {"rack": "E.2", "equipo": "Thomson ViBE CP6100", "ip": null}, {"rack": "E.3", "equipo": "Leader LV 7770", "ip": null}, {"rack": "E.4", "equipo": "PC Rack", "ip": "192.168.30.205"}, {"rack": "E.5", "equipo": "Datavideo TC-200", "ip": null}, {"rack": "F.1", "equipo": "?", "ip": null}, {"rack": "F.2", "equipo": "Sony HXCU-100 Cam 1", "ip": null}, {"rack": "F.3", "equipo": "Sony HXCU-100 Cam 2", "ip": null}, {"rack": "F.4", "equipo": "Sony HXCU-100 Cam 3", "ip": null}, {"rack": "F.5", "equipo": "Sony HXCU-100 Cam 4", "ip": null}, {"rack": "F.6", "equipo": "Blackmagic Multiview 4", "ip": null}, {"rack": "F.7", "equipo": "FOR A HVS-390HS", "ip": "?"}, {"rack": "F.8", "equipo": "AJA HD5DA", "ip": null}, {"rack": "K", "equipo": "", "ip": null}, {"rack": "L.1", "equipo": "VIDEOTRON", "ip": null}, {"rack": "L.2", "equipo": "VIDEObit 3G-LINK-R", "ip": null}, {"rack": "L.3", "equipo": "VIDEObit V2A-FIBER-5T", "ip": null}, {"rack": "L.4", "equipo": "VIDEObit 3G-LINK-TD", "ip": null}, {"rack": "L.5", "equipo": "", "ip": null}, {"rack": "L.6", "equipo": "openGear X", "ip": "192.168.2.1"}, {"rack": "L.BACK.1", "equipo": "BM OF to SDI", "ip": null}, {"rack": "L.BACK.2", "equipo": "", "ip": null}, {"rack": "L.BACK.3", "equipo": "", "ip": null}, {"rack": "P.1", "equipo": "Apple TV", "ip": null}, {"rack": "P.2", "equipo": "Patch Estudio", "ip": null}, {"rack": "P.3", "equipo": "Monitor Piso", "ip": null}, {"rack": "DC.1", "equipo": "Monitor Sonidista", "ip": null}, {"rack": "DC.2", "equipo": "Yamaha QL5", "ip": null}, {"rack": "DC.3", "equipo": "Monitor Titulos", "ip": null}, {"rack": "DC.4", "equipo": "PC Videollamada", "ip": null}, {"rack": "DC.5", "equipo": "Monitor Director 1", "ip": null}, {"rack": "DC.6", "equipo": "Monitor Director 2", "ip": null}, {"rack": "DC.7", "equipo": "GrassValley T2", "ip": null}, {"rack": "DC.8", "equipo": "Monitor Iluminador", "ip": null}, {"rack": "DC.9", "equipo": "PC Pantalla", "ip": null}, {"rack": "DC.10", "equipo": "Escalador Pantalla", "ip": null}, {"rack": "DC.11", "equipo": "Deco Direccion", "ip": null}, {"rack": "VACANTE", "equipo": "", "ip": null}, {"rack": "?", "equipo": "", "ip": null}, {"rack": "N/C", "equipo": "", "ip": null}, {"rack": "TX.1", "equipo": "Monitor MV TX", "ip": null}, {"rack": "TX.2", "equipo": "Monitor Linea TX", "ip": null}, {"rack": "TX.3", "equipo": "Monitor Pvw TX", "ip": null}], "conexiones": [{"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 1"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 1"}, "thru": false, "thru_entrada": "", "rotulo": "MATRIZ 1", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 2"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 2"}, "thru": false, "thru_entrada": "", "rotulo": "MATRIZ 2", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 3"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 3"}, "thru": false, "thru_entrada": "", "rotulo": "MATRIZ 3", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 4"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 4"}, "thru": false, "thru_entrada": "", "rotulo": "MATRIZ 4", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 5"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 5"}, "thru": false, "thru_entrada": "", "rotulo": "MATRIZ 5", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 6"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 6"}, "thru": false, "thru_entrada": "", "rotulo": "MATRIZ 6", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 7"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 7"}, "thru": false, "thru_entrada": "", "rotulo": "MATRIZ 7", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 8"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 8"}, "thru": false, "thru_entrada": "", "rotulo": "MATRIZ 8", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 9"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 9"}, "thru": false, "thru_entrada": "", "rotulo": "MATRIZ 9", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 10"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 10"}, "thru": false, "thru_entrada": "", "rotulo": "MATRIZ 10", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 11"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 11"}, "thru": false, "thru_entrada": "", "rotulo": "MATRIZ 11", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 12"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 12"}, "thru": false, "thru_entrada": "", "rotulo": "MATRIZ 12", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 13"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 13"}, "thru": false, "thru_entrada": "", "rotulo": "MX 13 AUDIO", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 14"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 14"}, "thru": false, "thru_entrada": "", "rotulo": "MX 14 AUDIO", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 15"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 15"}, "thru": false, "thru_entrada": "", "rotulo": "MX 15 AUDIO", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 16"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 16"}, "thru": false, "thru_entrada": "", "rotulo": "MX 16 AUDIO", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 17"}, "dst": {"rack": "D.11", "equipo": "AJA FS4", "slot": "", "placa": "", "puerto": "SDI In 2"}, "thru": false, "thru_entrada": "", "rotulo": "LOOP A.1", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 18"}, "dst": {"rack": "B.2", "equipo": "Loop A", "slot": "2.0", "placa": "", "puerto": "In P1"}, "thru": false, "thru_entrada": "", "rotulo": "LOOP A.2", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 19"}, "dst": {"rack": "B.3", "equipo": "Loop B", "slot": "1.0", "placa": "", "puerto": "In P1"}, "thru": false, "thru_entrada": "", "rotulo": "LOOP B.1", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 20"}, "dst": {"rack": "B.3", "equipo": "Loop B", "slot": "2.0", "placa": "", "puerto": "In P1"}, "thru": false, "thru_entrada": "", "rotulo": "LOOP B.2", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 21"}, "dst": {"rack": "B.4", "equipo": "Loop C", "slot": "1.0", "placa": "", "puerto": "In P1"}, "thru": false, "thru_entrada": "", "rotulo": "LOOP C.1", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 22"}, "dst": {"rack": "B.4", "equipo": "Loop C", "slot": "2.0", "placa": "", "puerto": "In P1"}, "thru": false, "thru_entrada": "", "rotulo": "LOOP C.2", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 23"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 1"}, "thru": false, "thru_entrada": "", "rotulo": "1 MV TX", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 24"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 25"}, "dst": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "In 11"}, "thru": false, "thru_entrada": "", "rotulo": "MX 25", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 26"}, "dst": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "In 12"}, "thru": false, "thru_entrada": "", "rotulo": "MX 26", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 27"}, "dst": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "In 13"}, "thru": false, "thru_entrada": "", "rotulo": "MX 27", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 28"}, "dst": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "In 14"}, "thru": false, "thru_entrada": "", "rotulo": "MX 28", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 29"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 30"}, "dst": {"rack": "E.4", "equipo": "PC Rack", "slot": "1.0", "placa": "", "puerto": "In P3"}, "thru": false, "thru_entrada": "", "rotulo": "D.L.1 Streaming", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 31"}, "dst": {"rack": "E.5", "equipo": "Datavideo TC-200", "slot": "", "placa": "", "puerto": "SDI In"}, "thru": false, "thru_entrada": "", "rotulo": "CG", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 32"}, "dst": {"rack": "DC.10", "equipo": "Escalador Pantalla", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "Esc pantalla", "notas": "Aparentemente en bandeja arriba de iluminador", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 33"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 16"}, "thru": false, "thru_entrada": "", "rotulo": "out out", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 34"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 15"}, "thru": false, "thru_entrada": "", "rotulo": "MON PISO", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 35"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 14"}, "thru": false, "thru_entrada": "", "rotulo": "MON ILUMINA", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 36"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 13"}, "thru": false, "thru_entrada": "", "rotulo": "MON TITULOS", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 37"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 12"}, "thru": false, "thru_entrada": "", "rotulo": "xxx xxx", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 38"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 11"}, "thru": false, "thru_entrada": "", "rotulo": "Fibra TDA 1 S", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 39"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 10"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 40"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 9"}, "thru": false, "thru_entrada": "", "rotulo": "out out", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 41"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 8"}, "thru": false, "thru_entrada": "", "rotulo": "TO MOVIo", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 42"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 7"}, "thru": false, "thru_entrada": "", "rotulo": "to cv hd", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 43"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 6"}, "thru": false, "thru_entrada": "", "rotulo": "Radio desem", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 44"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 5"}, "thru": false, "thru_entrada": "", "rotulo": "MON SONIDI", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 45"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 4"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 46"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 3"}, "thru": false, "thru_entrada": "", "rotulo": "MONI LINEA", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 47"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 2"}, "thru": false, "thru_entrada": "", "rotulo": "Dest 47", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 48"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 1"}, "thru": false, "thru_entrada": "", "rotulo": "Dest 48", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 49"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "9.0", "placa": "", "puerto": "J2 (in)"}, "thru": false, "thru_entrada": "", "rotulo": "MON PISO", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 50"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 51"}, "dst": {"rack": "DC.7", "equipo": "GrassValley T2", "slot": "", "placa": "", "puerto": "In 1"}, "thru": false, "thru_entrada": "", "rotulo": "GV DIR IN", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 52"}, "dst": {"rack": "D.12", "equipo": "AJA FS2", "slot": "", "placa": "", "puerto": "In 2"}, "thru": false, "thru_entrada": "", "rotulo": "fs2 c4", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 53"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 54"}, "dst": {"rack": "E.2", "equipo": "Thomson ViBE CP6100", "slot": "", "placa": "", "puerto": "In"}, "thru": false, "thru_entrada": "", "rotulo": "Thom up-link", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 55"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 56"}, "dst": {"rack": "A.5", "equipo": "CGX", "slot": "1.0", "placa": "", "puerto": "In P1"}, "thru": false, "thru_entrada": "", "rotulo": "IN CGX", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 57"}, "dst": {"rack": "D.11", "equipo": "AJA FS4", "slot": "", "placa": "", "puerto": "SDI In 1"}, "thru": false, "thru_entrada": "", "rotulo": "CGX AJA FS4", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 58"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "AJA FS4 2", "notas": "Cable suelto en Rack D.11", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 59"}, "dst": {"rack": "D.11", "equipo": "AJA FS4", "slot": "", "placa": "", "puerto": "SDI In 3"}, "thru": false, "thru_entrada": "", "rotulo": "AJA FS4 SAT 3", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 60"}, "dst": {"rack": "D.11", "equipo": "AJA FS4", "slot": "", "placa": "", "puerto": "SDI In 4"}, "thru": false, "thru_entrada": "", "rotulo": "AIRE!! AJA FS4", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 61"}, "dst": {"rack": "E.3", "equipo": "Leader LV 7770", "slot": "", "placa": "", "puerto": "SDI In A"}, "thru": false, "thru_entrada": "", "rotulo": "OSC CANAL 1", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 62"}, "dst": {"rack": "E.3", "equipo": "Leader LV 7770", "slot": "", "placa": "", "puerto": "SDI In B"}, "thru": false, "thru_entrada": "", "rotulo": "OSC CANAL 2", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 63"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "RADIO TX", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "Out 64"}, "dst": {"rack": "D.9", "equipo": "openGear X", "slot": "5.0", "placa": "", "puerto": "SDI In"}, "thru": false, "thru_entrada": "", "rotulo": "AIRE", "notas": "", "disp_ext": ""}, {"src": {"rack": "A.2", "equipo": "Player A", "slot": "1.0", "placa": "DeckLink", "puerto": "Out P1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 1"}, "thru": false, "thru_entrada": "", "rotulo": "PLAYER A.1", "notas": "", "disp_ext": ""}, {"src": {"rack": "A.2", "equipo": "Player A", "slot": "2.0", "placa": "DeckLink", "puerto": "Out P1"}, "dst": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "In 5"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "A.3", "equipo": "Player B", "slot": "1.0", "placa": "DeckLink", "puerto": "Out P1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 2"}, "thru": false, "thru_entrada": "", "rotulo": "PLAYER B.1", "notas": "", "disp_ext": ""}, {"src": {"rack": "A.3", "equipo": "Player B", "slot": "2.0", "placa": "DeckLink", "puerto": "Out P1"}, "dst": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "In 6"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "A.4", "equipo": "Player C", "slot": "1.0", "placa": "DeckLink", "puerto": "Out P1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 3"}, "thru": false, "thru_entrada": "", "rotulo": "PLAYER C.1", "notas": "", "disp_ext": ""}, {"src": {"rack": "A.4", "equipo": "Player C", "slot": "2.0", "placa": "DeckLink", "puerto": "Out P1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 4"}, "thru": false, "thru_entrada": "", "rotulo": "PLAYER C.2", "notas": "", "disp_ext": ""}, {"src": {"rack": "A.5", "equipo": "CGX", "slot": "1.0", "placa": "DeckLink", "puerto": "Out P3"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 55"}, "thru": false, "thru_entrada": "", "rotulo": "Salida CGX", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 1"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "PLAYER A.1", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 2"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "DIR. CAM.", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 3"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "CANAL 13", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 4"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "TV PUBLICA", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 5"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "MOV. SATELITAL", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 6"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "FIBRA IPLYC", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 7"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "Source 7", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 8"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "Source 8", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 9"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "Source 9", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 10"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "Source 10", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 11"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "RET. CABLEVISION", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 12"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "RET. SATELITE", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 13"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "4.0", "placa": "", "puerto": "SDI In"}, "thru": true, "thru_entrada": "In 13", "rotulo": "Source 13", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 13"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 13"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 14"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "5.0", "placa": "", "puerto": "SDI In"}, "thru": true, "thru_entrada": "In 14", "rotulo": "Source 14", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 14"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 14"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 15"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "6.0", "placa": "", "puerto": "SDI In"}, "thru": true, "thru_entrada": "In 15", "rotulo": "Source 15", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 15"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 15"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 16"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "7.0", "placa": "", "puerto": "SDI In"}, "thru": true, "thru_entrada": "In 16", "rotulo": "Source 16", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 16"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "Out 16"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "SDI Out"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 63"}, "thru": false, "thru_entrada": "", "rotulo": "MV", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 1"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 1", "rotulo": "", "notas": "Cable suelto en Rack C.3", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 1"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 1"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 2"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 2"}, "thru": true, "thru_entrada": "In 2", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 2"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 2"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 3"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 3"}, "thru": true, "thru_entrada": "In 3", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 3"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 3"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 4"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 4"}, "thru": true, "thru_entrada": "In 4", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 4"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 4"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 5"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 5"}, "thru": true, "thru_entrada": "In 5", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 5"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 5"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 6"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 6"}, "thru": true, "thru_entrada": "In 6", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 6"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 6"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 7"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 7"}, "thru": true, "thru_entrada": "In 7", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 7"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 7"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 8"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 8"}, "thru": true, "thru_entrada": "In 8", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 8"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 8"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 9"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 9"}, "thru": true, "thru_entrada": "In 9", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 9"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 9"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 10"}, "dst": {"rack": "C.4", "equipo": "Blackmagic Multiview 16", "slot": "", "placa": "", "puerto": "In 10"}, "thru": true, "thru_entrada": "In 10", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 10"}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 10"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 11"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 64"}, "thru": false, "thru_entrada": "", "rotulo": "BM 1 PGM", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "Out 12"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 16"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 16", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 16"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 16"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 15"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 34"}, "thru": true, "thru_entrada": "In 15", "rotulo": "ESTUDIO 5", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 15"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 15"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 14"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 35"}, "thru": true, "thru_entrada": "In 14", "rotulo": "PC DIR", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 14"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 14"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 13"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 36"}, "thru": true, "thru_entrada": "In 13", "rotulo": "titlo elec elec", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 13"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 13"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 12"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 37"}, "thru": true, "thru_entrada": "In 12", "rotulo": "full ece", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 12"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 12"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 11"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 38"}, "thru": true, "thru_entrada": "In 11", "rotulo": "PATCH 6", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 11"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 11"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 10"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 39"}, "thru": true, "thru_entrada": "In 10", "rotulo": "PATCH 7", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 10"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 10"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 9"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 40"}, "thru": true, "thru_entrada": "In 9", "rotulo": "ALL PTCH 8", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 9"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 9"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 8"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 8", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 8"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 8"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 7"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 7", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 7"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 7"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 6"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 6", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 6"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 6"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 5"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 5", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 5"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 5"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 4"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 4", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 4"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 4"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 3"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 3", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 3"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 3"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 2"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 2", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 2"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 2"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 1"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 1", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 1"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 1"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 16"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 16", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 16"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 16"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 15"}, "dst": {"rack": "P.3", "equipo": "Monitor Piso", "slot": "", "placa": "", "puerto": "HDMI In"}, "thru": true, "thru_entrada": "In 15", "rotulo": "", "notas": "", "disp_ext": "BM SDI to HDMI"}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 15"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 15"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 14"}, "dst": {"rack": "DC.8", "equipo": "Monitor Iluminador", "slot": "", "placa": "", "puerto": "HDMI In"}, "thru": true, "thru_entrada": "In 14", "rotulo": "", "notas": "", "disp_ext": "BM SDI to HDMI"}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 14"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 14"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 13"}, "dst": {"rack": "DC.3", "equipo": "Monitor Titulos", "slot": "", "placa": "", "puerto": "HDMI In"}, "thru": true, "thru_entrada": "In 13", "rotulo": "", "notas": "", "disp_ext": "BM SDI to HDMI"}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 13"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 13"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 12"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 12", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 12"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 12"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 11"}, "dst": {"rack": "L.4", "equipo": "VIDEObit 3G-LINK-TD", "slot": "", "placa": "", "puerto": "SDI In 1"}, "thru": true, "thru_entrada": "In 11", "rotulo": "", "notas": "", "disp_ext": "Fibra TDA 1 S"}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 11"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 11"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 10"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 10", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 10"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 10"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 9"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 9", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 9"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 9"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 8"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 8", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 8"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 8"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 7"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 7", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 7"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 7"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 6"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 6", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 6"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 6"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 5"}, "dst": {"rack": "DC.1", "equipo": "Monitor Sonidista", "slot": "", "placa": "", "puerto": "HDMI In"}, "thru": true, "thru_entrada": "In 5", "rotulo": "", "notas": "", "disp_ext": "BM SDI to HDMI"}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 5"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 5"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 4"}, "dst": {"rack": "TX.1", "equipo": "Monitor MV TX", "slot": "", "placa": "", "puerto": "HDMI In"}, "thru": true, "thru_entrada": "In 4", "rotulo": "", "notas": "Monitor MV TX", "disp_ext": "BM SDI to HDMI"}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 4"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 4"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 3"}, "dst": {"rack": "TX.2", "equipo": "Monitor Linea TX", "slot": "", "placa": "", "puerto": "HDMI In"}, "thru": true, "thru_entrada": "In 3", "rotulo": "", "notas": "Monitor Linea TX", "disp_ext": "BM SDI to HDMI"}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 3"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 3"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 2"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "In 2", "rotulo": "", "notas": "", "disp_ext": "Dest 47"}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 2"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 2"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 1"}, "dst": {"rack": "TX.3", "equipo": "Monitor Pvw TX", "slot": "", "placa": "", "puerto": "HDMI In"}, "thru": true, "thru_entrada": "In 1", "rotulo": "", "notas": "Monitor Pvw TX", "disp_ext": "BM SDI to HDMI"}, {"src": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 1"}, "dst": {"rack": "C.7", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "Out 1"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.BACK.1", "equipo": "Raspberry PI 1", "slot": "", "placa": "", "puerto": "HDMI Out"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "1.0", "placa": "", "puerto": "HDMI In"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "SRT La Casa del Streaming", "disp_ext": ""}, {"src": {"rack": "D.BACK.2", "equipo": "Raspberry PI 2", "slot": "", "placa": "", "puerto": "HDMI Out"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "2.0", "placa": "", "puerto": "HDMI In"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "SRT Mochila LiveU Posadas", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "3.0", "placa": "", "puerto": "HDMI In"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "1.0", "placa": "HDMI to SDI", "puerto": "Out 1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 26"}, "thru": true, "thru_entrada": "HDMI In", "rotulo": "Casa del Streaming", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "1.0", "placa": "HDMI to SDI", "puerto": "HDMI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "1.0", "placa": "HDMI to SDI", "puerto": "Out 1"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "2.0", "placa": "HDMI to SDI", "puerto": "Out 1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 27"}, "thru": true, "thru_entrada": "HDMI In", "rotulo": "Deco m. Posadas", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "2.0", "placa": "HDMI to SDI", "puerto": "HDMI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "2.0", "placa": "HDMI to SDI", "puerto": "Out 1"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "3.0", "placa": "HDMI to SDI", "puerto": "Out 1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 28"}, "thru": true, "thru_entrada": "HDMI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "3.0", "placa": "HDMI to SDI", "puerto": "HDMI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "3.0", "placa": "HDMI to SDI", "puerto": "Out 1"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "4.0", "placa": "De-embedder", "puerto": "SDI Out"}, "dst": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "In 7"}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "4.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "4.0", "placa": "De-embedder", "puerto": "SDI Out"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "4.0", "placa": "De-embedder", "puerto": "Audio Out L"}, "dst": {"rack": "DC.2", "equipo": "Yamaha QL5", "slot": "", "placa": "", "puerto": "In 12"}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "4.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "4.0", "placa": "De-embedder", "puerto": "Audio Out L"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "4.0", "placa": "De-embedder", "puerto": "Audio Out R"}, "dst": {"rack": "DC.2", "equipo": "Yamaha QL5", "slot": "", "placa": "", "puerto": "In 13"}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "4.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "4.0", "placa": "De-embedder", "puerto": "Audio Out R"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "5.0", "placa": "De-embedder", "puerto": "SDI Out"}, "dst": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "In 8"}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "5.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "5.0", "placa": "De-embedder", "puerto": "SDI Out"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "5.0", "placa": "De-embedder", "puerto": "Audio Out L"}, "dst": {"rack": "DC.2", "equipo": "Yamaha QL5", "slot": "", "placa": "", "puerto": "In 14"}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "5.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "5.0", "placa": "De-embedder", "puerto": "Audio Out L"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "5.0", "placa": "De-embedder", "puerto": "Audio Out R"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "5.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "5.0", "placa": "De-embedder", "puerto": "Audio Out R"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "6.0", "placa": "De-embedder", "puerto": "SDI Out"}, "dst": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "In 9"}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "6.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "6.0", "placa": "De-embedder", "puerto": "SDI Out"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "6.0", "placa": "De-embedder", "puerto": "Audio Out L"}, "dst": {"rack": "DC.2", "equipo": "Yamaha QL5", "slot": "", "placa": "", "puerto": "In 15"}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "6.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "6.0", "placa": "De-embedder", "puerto": "Audio Out L"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "6.0", "placa": "De-embedder", "puerto": "Audio Out R"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "6.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "6.0", "placa": "De-embedder", "puerto": "Audio Out R"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "7.0", "placa": "De-embedder", "puerto": "SDI Out"}, "dst": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "In 10"}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "7.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "7.0", "placa": "De-embedder", "puerto": "SDI Out"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "7.0", "placa": "De-embedder", "puerto": "Audio Out L"}, "dst": {"rack": "DC.2", "equipo": "Yamaha QL5", "slot": "", "placa": "", "puerto": "In 16"}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "7.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "7.0", "placa": "De-embedder", "puerto": "Audio Out L"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "7.0", "placa": "De-embedder", "puerto": "Audio Out R"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "7.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "7.0", "placa": "De-embedder", "puerto": "Audio Out R"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "8.0", "placa": "De-embedder", "puerto": "SDI Out"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "8.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "8.0", "placa": "De-embedder", "puerto": "SDI Out"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "8.0", "placa": "De-embedder", "puerto": "Audio Out L"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "8.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "8.0", "placa": "De-embedder", "puerto": "Audio Out L"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "8.0", "placa": "De-embedder", "puerto": "Audio Out R"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "8.0", "placa": "De-embedder", "puerto": "SDI In"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "8.0", "placa": "De-embedder", "puerto": "Audio Out R"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "9.0", "placa": "Dist. Amp. 2x4", "puerto": "J4"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "J2", "rotulo": "", "notas": "Cable amarillo a Piso?", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "9.0", "placa": "Dist. Amp. 2x4", "puerto": "J2"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "9.0", "placa": "Dist. Amp. 2x4", "puerto": "J4"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "9.0", "placa": "Dist. Amp. 2x4", "puerto": "J6"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "J2", "rotulo": "", "notas": "Cable amarillo a Piso?", "disp_ext": ""}, {"src": {"rack": "D.7", "equipo": "openGear X", "slot": "9.0", "placa": "Dist. Amp. 2x4", "puerto": "J2"}, "dst": {"rack": "D.7", "equipo": "openGear X", "slot": "9.0", "placa": "Dist. Amp. 2x4", "puerto": "J6"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "1.0", "placa": "Emb / De-emb", "puerto": "SDI Out"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "1.0", "placa": "Emb / De-emb", "puerto": "A1"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "1.0", "placa": "Emb / De-emb", "puerto": "A2"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "2.0", "placa": "Emb / De-emb", "puerto": "SDI Out"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "2.0", "placa": "Emb / De-emb", "puerto": "A1"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "2.0", "placa": "Emb / De-emb", "puerto": "A2"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "3.0", "placa": "Emb / De-emb", "puerto": "A1"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "5.0", "placa": "Emb / De-emb", "puerto": "SDI Out"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "5.0", "placa": "Emb / De-emb", "puerto": "A2"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "6.0", "placa": "Dist. Amp. 1x9", "puerto": "J3"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 62"}, "thru": true, "thru_entrada": "J1", "rotulo": "LINEA 1X9", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "6.0", "placa": "Dist. Amp. 1x9", "puerto": "J1"}, "dst": {"rack": "D.9", "equipo": "openGear X", "slot": "6.0", "placa": "Dist. Amp. 1x9", "puerto": "J3"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "6.0", "placa": "Dist. Amp. 1x9", "puerto": "J5"}, "dst": {"rack": "", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "thru": true, "thru_entrada": "J1", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "6.0", "placa": "Dist. Amp. 1x9", "puerto": "J1"}, "dst": {"rack": "D.9", "equipo": "openGear X", "slot": "6.0", "placa": "Dist. Amp. 1x9", "puerto": "J5"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.2", "equipo": "Sony HXCU-100 Cam 1", "slot": "", "placa": "", "puerto": "SDI Out 1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 41"}, "thru": false, "thru_entrada": "", "rotulo": "CAM 1", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.2", "equipo": "Sony HXCU-100 Cam 1", "slot": "", "placa": "", "puerto": "SDI Out 2"}, "dst": {"rack": "F.6", "equipo": "Blackmagic Multiview 4", "slot": "", "placa": "", "puerto": "In 1"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.2", "equipo": "Sony HXCU-100 Cam 1", "slot": "", "placa": "", "puerto": "SDI Out 3"}, "dst": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "In 1"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.3", "equipo": "Sony HXCU-100 Cam 2", "slot": "", "placa": "", "puerto": "SDI Out 1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 42"}, "thru": false, "thru_entrada": "", "rotulo": "CAM 2", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.3", "equipo": "Sony HXCU-100 Cam 2", "slot": "", "placa": "", "puerto": "SDI Out 2"}, "dst": {"rack": "F.6", "equipo": "Blackmagic Multiview 4", "slot": "", "placa": "", "puerto": "In 2"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.3", "equipo": "Sony HXCU-100 Cam 2", "slot": "", "placa": "", "puerto": "SDI Out 3"}, "dst": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "In 2"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.4", "equipo": "Sony HXCU-100 Cam 3", "slot": "", "placa": "", "puerto": "SDI Out 1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 43"}, "thru": false, "thru_entrada": "", "rotulo": "CAM 3", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.4", "equipo": "Sony HXCU-100 Cam 3", "slot": "", "placa": "", "puerto": "SDI Out 2"}, "dst": {"rack": "F.6", "equipo": "Blackmagic Multiview 4", "slot": "", "placa": "", "puerto": "In 3"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.4", "equipo": "Sony HXCU-100 Cam 3", "slot": "", "placa": "", "puerto": "SDI Out 3"}, "dst": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "In 3"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.5", "equipo": "Sony HXCU-100 Cam 4", "slot": "", "placa": "", "puerto": "SDI Out 1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 44"}, "thru": false, "thru_entrada": "", "rotulo": "CAM 4", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.5", "equipo": "Sony HXCU-100 Cam 4", "slot": "", "placa": "", "puerto": "SDI Out 2"}, "dst": {"rack": "F.6", "equipo": "Blackmagic Multiview 4", "slot": "", "placa": "", "puerto": "In 4"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.5", "equipo": "Sony HXCU-100 Cam 4", "slot": "", "placa": "", "puerto": "SDI Out 3"}, "dst": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "In 4"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.6", "equipo": "Blackmagic Multiview 4", "slot": "", "placa": "", "puerto": "SDI Out"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 30"}, "thru": false, "thru_entrada": "", "rotulo": "MV CAM", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "Aux 1"}, "dst": {"rack": "DC.6", "equipo": "Monitor Director 2", "slot": "", "placa": "", "puerto": "HDMI In"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": "BM SDI to HDMI"}, {"src": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "Aux 3"}, "dst": {"rack": "DC.9", "equipo": "PC Pantalla", "slot": "", "placa": "", "puerto": "HDMI In"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": "BM SDI to HDMI > Capturadora USB"}, {"src": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "Aux 6"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 6"}, "thru": false, "thru_entrada": "", "rotulo": "FOR A AUX 6", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "Out 1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 5"}, "thru": false, "thru_entrada": "", "rotulo": "FOR A PGM", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.7", "equipo": "FOR A HVS-390HS", "slot": "", "placa": "", "puerto": "Out 2"}, "dst": {"rack": "F.8", "equipo": "AJA HD5DA", "slot": "", "placa": "", "puerto": "SDI In"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": "Distribuidor PGM"}, {"src": {"rack": "F.8", "equipo": "AJA HD5DA", "slot": "", "placa": "", "puerto": "SDI Out 1"}, "dst": {"rack": "F.2", "equipo": "Sony HXCU-100 Cam 1", "slot": "", "placa": "", "puerto": "Ret In 1"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.8", "equipo": "AJA HD5DA", "slot": "", "placa": "", "puerto": "SDI Out 2"}, "dst": {"rack": "F.3", "equipo": "Sony HXCU-100 Cam 2", "slot": "", "placa": "", "puerto": "Ret In 1"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.8", "equipo": "AJA HD5DA", "slot": "", "placa": "", "puerto": "SDI Out 3"}, "dst": {"rack": "F.4", "equipo": "Sony HXCU-100 Cam 3", "slot": "", "placa": "", "puerto": "Ret In 1"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "F.8", "equipo": "AJA HD5DA", "slot": "", "placa": "", "puerto": "SDI Out 4"}, "dst": {"rack": "F.5", "equipo": "Sony HXCU-100 Cam 4", "slot": "", "placa": "", "puerto": "Ret In 1"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.12", "equipo": "AJA FS2", "slot": "", "placa": "", "puerto": "Out 1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 7"}, "thru": false, "thru_entrada": "", "rotulo": "AJA FS2 NTSC", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.6", "equipo": "Telairity BE-IRD 5503", "slot": "", "placa": "", "puerto": "SDI Out 2"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 8"}, "thru": false, "thru_entrada": "", "rotulo": "IRD TELA", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 9"}, "thru": false, "thru_entrada": "", "rotulo": "N/C", "notas": "", "disp_ext": ""}, {"src": {"rack": "L.6", "equipo": "openGear X", "slot": "2.0", "placa": "Optic to SDI", "puerto": "SDI Out"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 10"}, "thru": false, "thru_entrada": "", "rotulo": "FIBRA MOVIL", "notas": "", "disp_ext": ""}, {"src": {"rack": "L.6", "equipo": "openGear X", "slot": "5.0", "placa": "Optic to SDI", "puerto": "SDI Out"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 11"}, "thru": false, "thru_entrada": "", "rotulo": "FIBRA CAMARA", "notas": "", "disp_ext": ""}, {"src": {"rack": "L.BACK.1", "equipo": "BM OF to SDI", "slot": "", "placa": "", "puerto": "SDI Out"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 12"}, "thru": false, "thru_entrada": "", "rotulo": "FIBRA canal 4", "notas": "", "disp_ext": ""}, {"src": {"rack": "L.6", "equipo": "openGear X", "slot": "6.0", "placa": "Optic to SDI", "puerto": "SDI Out"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 13"}, "thru": false, "thru_entrada": "", "rotulo": "FIBRA RADIO", "notas": "", "disp_ext": ""}, {"src": {"rack": "L.6", "equipo": "openGear X", "slot": "4.0", "placa": "Optic to SDI", "puerto": "SDI Out"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 14"}, "thru": false, "thru_entrada": "", "rotulo": "FIBRA MOL", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 15"}, "thru": false, "thru_entrada": "", "rotulo": "N/C", "notas": "", "disp_ext": ""}, {"src": {"rack": "L.6", "equipo": "openGear X", "slot": "3.0", "placa": "Optic to SDI", "puerto": "SDI Out"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 16"}, "thru": false, "thru_entrada": "", "rotulo": "FIBRA IPLYC", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.1", "equipo": "Telairity BE-IRD 5501", "slot": "", "placa": "", "puerto": "SDI Out 1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 17"}, "thru": false, "thru_entrada": "", "rotulo": "IRD C12", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.3", "equipo": "Wellav UMH160R", "slot": "", "placa": "", "puerto": "SDI Out 1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 18"}, "thru": false, "thru_entrada": "", "rotulo": "IRD TV P.", "notas": "TV PUBLICA", "disp_ext": ""}, {"src": {"rack": "D.4", "equipo": "Wellav UMH160R", "slot": "", "placa": "", "puerto": "SDI Out 1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 19"}, "thru": false, "thru_entrada": "", "rotulo": "IRD WELL. H", "notas": "MOV. SATELITAL", "disp_ext": ""}, {"src": {"rack": "D.5", "equipo": "CRD1000D", "slot": "", "placa": "", "puerto": "Component"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 21"}, "thru": false, "thru_entrada": "", "rotulo": "Canal 13", "notas": "", "disp_ext": "AJA Component to SDI"}, {"src": {"rack": "DC.7", "equipo": "GrassValley T2", "slot": "", "placa": "", "puerto": "Out P1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 22"}, "thru": false, "thru_entrada": "", "rotulo": "GRAB GV", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.16", "equipo": "Videocasetera", "slot": "", "placa": "", "puerto": "Analog Out"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 23"}, "thru": false, "thru_entrada": "", "rotulo": "CABLE VISION", "notas": "", "disp_ext": "BM Analog to SDI"}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 24"}, "thru": false, "thru_entrada": "", "rotulo": "N/C", "notas": "", "disp_ext": ""}, {"src": {"rack": "?", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 25"}, "thru": false, "thru_entrada": "", "rotulo": "?", "notas": "", "disp_ext": ""}, {"src": {"rack": "E.4", "equipo": "PC Rack", "slot": "1.0", "placa": "DeckLink", "puerto": "Out P4"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 29"}, "thru": false, "thru_entrada": "", "rotulo": "PC RACK 4", "notas": "", "disp_ext": ""}, {"src": {"rack": "E.5", "equipo": "Datavideo TC-200", "slot": "", "placa": "", "puerto": "SDI Out"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 31"}, "thru": false, "thru_entrada": "", "rotulo": "CG OUT", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 32"}, "thru": false, "thru_entrada": "", "rotulo": "N/C", "notas": "", "disp_ext": ""}, {"src": {"rack": "P.1", "equipo": "Apple TV", "slot": "", "placa": "", "puerto": "HDMI Out"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 33"}, "thru": false, "thru_entrada": "", "rotulo": "APPLE TV", "notas": "", "disp_ext": "BM HDMI to SDI"}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 45"}, "thru": false, "thru_entrada": "", "rotulo": "N/C", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 46"}, "thru": false, "thru_entrada": "", "rotulo": "N/C", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 47"}, "thru": false, "thru_entrada": "", "rotulo": "N/C", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 48"}, "thru": false, "thru_entrada": "", "rotulo": "N/C", "notas": "", "disp_ext": ""}, {"src": {"rack": "?", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 49"}, "thru": false, "thru_entrada": "", "rotulo": "SONY AUX 1", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 50"}, "thru": false, "thru_entrada": "", "rotulo": "N/C", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 51"}, "thru": false, "thru_entrada": "", "rotulo": "N/C", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 52"}, "thru": false, "thru_entrada": "", "rotulo": "N/C", "notas": "", "disp_ext": ""}, {"src": {"rack": "E.4", "equipo": "PC Rack", "slot": "1.0", "placa": "DeckLink", "puerto": "Out P1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 53"}, "thru": false, "thru_entrada": "", "rotulo": "mochila interior", "notas": "", "disp_ext": ""}, {"src": {"rack": "?", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 54"}, "thru": false, "thru_entrada": "", "rotulo": "BM 12 Stre", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 56"}, "thru": false, "thru_entrada": "", "rotulo": "N/C", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.11", "equipo": "AJA FS4", "slot": "", "placa": "", "puerto": "SDI Out 1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 57"}, "thru": false, "thru_entrada": "", "rotulo": "CGX AJA FS4", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.11", "equipo": "AJA FS4", "slot": "", "placa": "", "puerto": "SDI Out 2"}, "dst": {"rack": "B.2", "equipo": "Loop A", "slot": "1.0", "placa": "", "puerto": "In P1"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.11", "equipo": "AJA FS4", "slot": "", "placa": "", "puerto": "SDI Out 3"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 59"}, "thru": false, "thru_entrada": "", "rotulo": "AJA FS4 3", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.11", "equipo": "AJA FS4", "slot": "", "placa": "", "puerto": "SDI Out 4"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 60"}, "thru": false, "thru_entrada": "", "rotulo": "AJA FS4 4", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 61"}, "thru": false, "thru_entrada": "", "rotulo": "N/C", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 16"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "P.2", "equipo": "Patch Estudio", "slot": "", "placa": "", "puerto": "SDI"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 15"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "DC.4", "equipo": "PC Videollamada", "slot": "1.0", "placa": "DeckLink", "puerto": "Out P?"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 14"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 13"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 12"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 11"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 10"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "DC.11", "equipo": "Deco Direccion", "slot": "", "placa": "", "puerto": "HDMI Out"}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 9"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": "BM HDMI to SDI"}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 8"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 7"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 6"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 5"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 4"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 3"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 2"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.6", "equipo": "Patch Panel", "slot": "", "placa": "", "puerto": "In 1"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 11"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "N/C", "equipo": "", "slot": "", "placa": "", "puerto": ""}, "dst": {"rack": "C.5", "equipo": "Blackmagic 12 x 12", "slot": "", "placa": "", "puerto": "In 12"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "5.0", "placa": "De-embbeder", "puerto": "SDI Out"}, "dst": {"rack": "D.13", "equipo": "AJA FS2", "slot": "", "placa": "", "puerto": "SDI In 1"}, "thru": true, "thru_entrada": "SDI In", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.9", "equipo": "openGear X", "slot": "5.0", "placa": "De-embbeder", "puerto": "SDI In"}, "dst": {"rack": "D.9", "equipo": "openGear X", "slot": "5.0", "placa": "De-embbeder", "puerto": "SDI Out"}, "thru": false, "thru_entrada": "", "rotulo": "THRU", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.13", "equipo": "AJA FS2", "slot": "", "placa": "", "puerto": "SDI Out 1"}, "dst": {"rack": "C.3", "equipo": "AJA KUMO 6464", "slot": "", "placa": "", "puerto": "In 20"}, "thru": false, "thru_entrada": "", "rotulo": "IRD CIS.H/V", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.13", "equipo": "AJA FS2", "slot": "", "placa": "", "puerto": "SDI Out 2"}, "dst": {"rack": "D.9", "equipo": "openGear X", "slot": "6.0", "placa": "", "puerto": "SDI In"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}, {"src": {"rack": "D.8", "equipo": "Cisco D9865", "slot": "", "placa": "", "puerto": "Component Out"}, "dst": {"rack": "D.13", "equipo": "AJA FS2", "slot": "", "placa": "", "puerto": "Component In"}, "thru": false, "thru_entrada": "", "rotulo": "", "notas": "", "disp_ext": ""}], "stats": {"nodos": 78, "conexiones": 248, "arcos_thru": 69, "con_destino": 192, "sin_destino": 56}};
+init(_DATA);
 </script>
 </body>
 </html>
