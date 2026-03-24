@@ -747,7 +747,7 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "LOOP A.1",
-      "notas": "",
+      "notas": "Convierte norma para Loop A1",
       "disp_ext": ""
     },
     {
@@ -1760,27 +1760,6 @@
     },
     {
       "src": {
-        "rack": "A.2",
-        "equipo": "Player A",
-        "slot": "2.0",
-        "placa": "DeckLink",
-        "puerto": "Out P1"
-      },
-      "dst": {
-        "rack": "F.7",
-        "equipo": "FOR A HVS-390HS",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 5"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
         "rack": "A.3",
         "equipo": "Player B",
         "slot": "1.0",
@@ -1797,27 +1776,6 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "PLAYER B.1",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "A.3",
-        "equipo": "Player B",
-        "slot": "2.0",
-        "placa": "DeckLink",
-        "puerto": "Out P1"
-      },
-      "dst": {
-        "rack": "F.7",
-        "equipo": "FOR A HVS-390HS",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 6"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1865,6 +1823,1266 @@
     },
     {
       "src": {
+        "rack": "F.7",
+        "equipo": "FOR A HVS-390HS",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 5"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "FOR A PGM",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.7",
+        "equipo": "FOR A HVS-390HS",
+        "slot": "",
+        "placa": "",
+        "puerto": "Aux 6"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 6"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "FOR A AUX 6",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.12",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 7"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "AJA FS2 NTSC",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.6",
+        "equipo": "Telairity BE-IRD 5503",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 2"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 8"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "IRD TELA",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 9"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "2.0",
+        "placa": "Optic to SDI",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 10"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "FIBRA MOVIL",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "5.0",
+        "placa": "Optic to SDI",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 11"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "FIBRA CAMARA",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.BACK.1",
+        "equipo": "BM OF to SDI",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 12"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "FIBRA canal 4",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "6.0",
+        "placa": "Optic to SDI",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 13"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "FIBRA RADIO",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "4.0",
+        "placa": "Optic to SDI",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 14"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "FIBRA MOL",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 15"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "3.0",
+        "placa": "Optic to SDI",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 16"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "FIBRA IPLYC",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.1",
+        "equipo": "Telairity BE-IRD 5501",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 17"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "IRD C12",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.3",
+        "equipo": "Wellav UMH160R",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 18"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "IRD TV P.",
+      "notas": "TV PUBLICA",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.4",
+        "equipo": "Wellav UMH160R",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 19"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "IRD WELL. H",
+      "notas": "MOV. SATELITAL",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 20"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "IRD CIS.H/V",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.5",
+        "equipo": "CRD1000D",
+        "slot": "",
+        "placa": "",
+        "puerto": "Component"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 21"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "Canal 13",
+      "notas": "",
+      "disp_ext": "AJA Component to SDI"
+    },
+    {
+      "src": {
+        "rack": "DC.7",
+        "equipo": "GrassValley T2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out P1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 22"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "GRAB GV",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.16",
+        "equipo": "Videocasetera",
+        "slot": "",
+        "placa": "",
+        "puerto": "Analog Out"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 23"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "CABLE VISION",
+      "notas": "",
+      "disp_ext": "BM Analog to SDI"
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 24"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "?",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 25"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "?",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "HDMI to SDI",
+        "puerto": "Out 1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 26"
+      },
+      "thru": true,
+      "thru_entrada": "HDMI In",
+      "rotulo": "Casa del Streaming",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "HDMI to SDI",
+        "puerto": "HDMI In"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "HDMI to SDI",
+        "puerto": "Out 1"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "2.0",
+        "placa": "HDMI to SDI",
+        "puerto": "Out 1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 27"
+      },
+      "thru": true,
+      "thru_entrada": "HDMI In",
+      "rotulo": "Deco m. Posadas",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "2.0",
+        "placa": "HDMI to SDI",
+        "puerto": "HDMI In"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "2.0",
+        "placa": "HDMI to SDI",
+        "puerto": "Out 1"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "3.0",
+        "placa": "HDMI to SDI",
+        "puerto": "Out 1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 28"
+      },
+      "thru": true,
+      "thru_entrada": "HDMI In",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "3.0",
+        "placa": "HDMI to SDI",
+        "puerto": "HDMI In"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "3.0",
+        "placa": "HDMI to SDI",
+        "puerto": "Out 1"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "E.4",
+        "equipo": "PC Rack",
+        "slot": "1.0",
+        "placa": "DeckLink",
+        "puerto": "Out P4"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 29"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "PC RACK 4",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.6",
+        "equipo": "Blackmagic Multiview 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 30"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "MV CAM",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "E.5",
+        "equipo": "Datavideo TC-200",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 31"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "CG OUT",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 32"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "P.1",
+        "equipo": "Apple TV",
+        "slot": "",
+        "placa": "",
+        "puerto": "HDMI Out"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 33"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "APPLE TV",
+      "notas": "",
+      "disp_ext": "BM HDMI to SDI"
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 15"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 34"
+      },
+      "thru": true,
+      "thru_entrada": "In 15",
+      "rotulo": "ESTUDIO 5",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 15"
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 15"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 14"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 35"
+      },
+      "thru": true,
+      "thru_entrada": "In 14",
+      "rotulo": "PC DIR",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 14"
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 14"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 13"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 36"
+      },
+      "thru": true,
+      "thru_entrada": "In 13",
+      "rotulo": "titlo elec elec",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 13"
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 13"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 12"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 37"
+      },
+      "thru": true,
+      "thru_entrada": "In 12",
+      "rotulo": "full ece",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 12"
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 12"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 11"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 38"
+      },
+      "thru": true,
+      "thru_entrada": "In 11",
+      "rotulo": "PATCH 6",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 11"
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 11"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 10"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 39"
+      },
+      "thru": true,
+      "thru_entrada": "In 10",
+      "rotulo": "PATCH 7",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 10"
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 10"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 9"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 40"
+      },
+      "thru": true,
+      "thru_entrada": "In 9",
+      "rotulo": "ALL PTCH 8",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 9"
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 9"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.2",
+        "equipo": "Sony HXCU-100 Cam 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 41"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "CAM 1",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.3",
+        "equipo": "Sony HXCU-100 Cam 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 42"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "CAM 2",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.4",
+        "equipo": "Sony HXCU-100 Cam 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 43"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "CAM 3",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.5",
+        "equipo": "Sony HXCU-100 Cam 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 44"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "CAM 4",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 45"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 46"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 47"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 48"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "?",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 49"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "SONY AUX 1",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 50"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 51"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 52"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "E.4",
+        "equipo": "PC Rack",
+        "slot": "1.0",
+        "placa": "DeckLink",
+        "puerto": "Out P1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 53"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "mochila interior",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "?",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 54"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "BM 12 Stre",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
         "rack": "A.5",
         "equipo": "CGX",
         "slot": "1.0",
@@ -1886,6 +3104,258 @@
     },
     {
       "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 56"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 57"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "CGX AJA FS4",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "?",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 58"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "AJA FS4 2",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 3"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 59"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "AJA FS4 3",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 4"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 60"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "AJA FS4 4",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 61"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J3"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 62"
+      },
+      "thru": true,
+      "thru_entrada": "J1",
+      "rotulo": "LINEA 1X9",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J3"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 63"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "MV",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Blackmagic 12 x 12",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 11"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 64"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "BM 1 PGM",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.2",
+        "equipo": "Player A",
+        "slot": "2.0",
+        "placa": "DeckLink",
+        "puerto": "Out P1"
+      },
+      "dst": {
+        "rack": "F.7",
+        "equipo": "FOR A HVS-390HS",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 5"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.3",
+        "equipo": "Player B",
+        "slot": "2.0",
+        "placa": "DeckLink",
+        "puerto": "Out P1"
+      },
+      "dst": {
+        "rack": "F.7",
+        "equipo": "FOR A HVS-390HS",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 6"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
         "rack": "C.4",
         "equipo": "Blackmagic Multiview 16",
         "slot": "",
@@ -1902,174 +3372,6 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "PLAYER A.1",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.4",
-        "equipo": "Blackmagic Multiview 16",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 2"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "DIR. CAM.",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.4",
-        "equipo": "Blackmagic Multiview 16",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 3"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "CANAL 13",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.4",
-        "equipo": "Blackmagic Multiview 16",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 4"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "TV PUBLICA",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.4",
-        "equipo": "Blackmagic Multiview 16",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 5"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "MOV. SATELITAL",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.4",
-        "equipo": "Blackmagic Multiview 16",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 6"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "FIBRA IPLYC",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.4",
-        "equipo": "Blackmagic Multiview 16",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 7"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "Source 7",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.4",
-        "equipo": "Blackmagic Multiview 16",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 8"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "Source 8",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.4",
-        "equipo": "Blackmagic Multiview 16",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 9"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "Source 9",
       "notas": "",
       "disp_ext": ""
     },
@@ -2310,18 +3612,165 @@
         "equipo": "Blackmagic Multiview 16",
         "slot": "",
         "placa": "",
-        "puerto": "SDI Out"
+        "puerto": "Out 2"
       },
       "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
+        "rack": "",
+        "equipo": "",
         "slot": "",
         "placa": "",
-        "puerto": "In 63"
+        "puerto": ""
       },
       "thru": false,
       "thru_entrada": "",
-      "rotulo": "MV",
+      "rotulo": "DIR. CAM.",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 3"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "CANAL 13",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 4"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "TV PUBLICA",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 5"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "MOV. SATELITAL",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 6"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "FIBRA IPLYC",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 7"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "Source 7",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 8"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "Source 8",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 9"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "Source 9",
       "notas": "",
       "disp_ext": ""
     },
@@ -2751,27 +4200,6 @@
         "equipo": "Blackmagic 12 x 12",
         "slot": "",
         "placa": "",
-        "puerto": "Out 11"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 64"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "BM 1 PGM",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Blackmagic 12 x 12",
-        "slot": "",
-        "placa": "",
         "puerto": "Out 12"
       },
       "dst": {
@@ -2793,7 +4221,7 @@
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 16"
+        "puerto": "Out 1"
       },
       "dst": {
         "rack": "",
@@ -2803,7 +4231,7 @@
         "puerto": ""
       },
       "thru": true,
-      "thru_entrada": "In 16",
+      "thru_entrada": "In 1",
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
@@ -2814,560 +4242,14 @@
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 16"
+        "puerto": "In 1"
       },
       "dst": {
         "rack": "C.6",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 16"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 15"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 34"
-      },
-      "thru": true,
-      "thru_entrada": "In 15",
-      "rotulo": "ESTUDIO 5",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 15"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 15"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 14"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 35"
-      },
-      "thru": true,
-      "thru_entrada": "In 14",
-      "rotulo": "PC DIR",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 14"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 14"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 13"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 36"
-      },
-      "thru": true,
-      "thru_entrada": "In 13",
-      "rotulo": "titlo elec elec",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 13"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 13"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 12"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 37"
-      },
-      "thru": true,
-      "thru_entrada": "In 12",
-      "rotulo": "full ece",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 12"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 12"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 11"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 38"
-      },
-      "thru": true,
-      "thru_entrada": "In 11",
-      "rotulo": "PATCH 6",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 11"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 11"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 10"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 39"
-      },
-      "thru": true,
-      "thru_entrada": "In 10",
-      "rotulo": "PATCH 7",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 10"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 10"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 9"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 40"
-      },
-      "thru": true,
-      "thru_entrada": "In 9",
-      "rotulo": "ALL PTCH 8",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 9"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 9"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 8"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": true,
-      "thru_entrada": "In 8",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 8"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 8"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 7"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": true,
-      "thru_entrada": "In 7",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 7"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 7"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 6"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": true,
-      "thru_entrada": "In 6",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 6"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 6"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 5"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": true,
-      "thru_entrada": "In 5",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 5"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 5"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 4"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": true,
-      "thru_entrada": "In 4",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 4"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 4"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 3"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": true,
-      "thru_entrada": "In 3",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 3"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 3"
+        "puerto": "Out 1"
       },
       "thru": false,
       "thru_entrada": "",
@@ -3423,7 +4305,7 @@
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 1"
+        "puerto": "Out 3"
       },
       "dst": {
         "rack": "",
@@ -3433,7 +4315,7 @@
         "puerto": ""
       },
       "thru": true,
-      "thru_entrada": "In 1",
+      "thru_entrada": "In 3",
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
@@ -3444,14 +4326,14 @@
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 1"
+        "puerto": "In 3"
       },
       "dst": {
         "rack": "C.6",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 1"
+        "puerto": "Out 3"
       },
       "thru": false,
       "thru_entrada": "",
@@ -3461,11 +4343,11 @@
     },
     {
       "src": {
-        "rack": "C.7",
+        "rack": "C.6",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 16"
+        "puerto": "Out 4"
       },
       "dst": {
         "rack": "",
@@ -3475,25 +4357,25 @@
         "puerto": ""
       },
       "thru": true,
-      "thru_entrada": "In 16",
+      "thru_entrada": "In 4",
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
     {
       "src": {
-        "rack": "C.7",
+        "rack": "C.6",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 16"
+        "puerto": "In 4"
       },
       "dst": {
-        "rack": "C.7",
+        "rack": "C.6",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 16"
+        "puerto": "Out 4"
       },
       "thru": false,
       "thru_entrada": "",
@@ -3503,137 +4385,11 @@
     },
     {
       "src": {
-        "rack": "C.7",
+        "rack": "C.6",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 15"
-      },
-      "dst": {
-        "rack": "P.3",
-        "equipo": "Monitor Piso",
-        "slot": "",
-        "placa": "",
-        "puerto": "HDMI In"
-      },
-      "thru": true,
-      "thru_entrada": "In 15",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "BM SDI to HDMI"
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 15"
-      },
-      "dst": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 15"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 14"
-      },
-      "dst": {
-        "rack": "DC.8",
-        "equipo": "Monitor Iluminador",
-        "slot": "",
-        "placa": "",
-        "puerto": "HDMI In"
-      },
-      "thru": true,
-      "thru_entrada": "In 14",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "BM SDI to HDMI"
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 14"
-      },
-      "dst": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 14"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 13"
-      },
-      "dst": {
-        "rack": "DC.3",
-        "equipo": "Monitor Titulos",
-        "slot": "",
-        "placa": "",
-        "puerto": "HDMI In"
-      },
-      "thru": true,
-      "thru_entrada": "In 13",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "BM SDI to HDMI"
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 13"
-      },
-      "dst": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 13"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 12"
+        "puerto": "Out 5"
       },
       "dst": {
         "rack": "",
@@ -3643,25 +4399,25 @@
         "puerto": ""
       },
       "thru": true,
-      "thru_entrada": "In 12",
+      "thru_entrada": "In 5",
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
     {
       "src": {
-        "rack": "C.7",
+        "rack": "C.6",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 12"
+        "puerto": "In 5"
       },
       "dst": {
-        "rack": "C.7",
+        "rack": "C.6",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 12"
+        "puerto": "Out 5"
       },
       "thru": false,
       "thru_entrada": "",
@@ -3671,217 +4427,7 @@
     },
     {
       "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 11"
-      },
-      "dst": {
-        "rack": "L.4",
-        "equipo": "VIDEObit 3G-LINK-TD",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI In 1"
-      },
-      "thru": true,
-      "thru_entrada": "In 11",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "Fibra TDA 1 S"
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 11"
-      },
-      "dst": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 11"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 10"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": true,
-      "thru_entrada": "In 10",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 10"
-      },
-      "dst": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 10"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 9"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": true,
-      "thru_entrada": "In 9",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 9"
-      },
-      "dst": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 9"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 8"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": true,
-      "thru_entrada": "In 8",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 8"
-      },
-      "dst": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 8"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 7"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": true,
-      "thru_entrada": "In 7",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 7"
-      },
-      "dst": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 7"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.7",
+        "rack": "C.6",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
@@ -3902,14 +4448,14 @@
     },
     {
       "src": {
-        "rack": "C.7",
+        "rack": "C.6",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
         "puerto": "In 6"
       },
       "dst": {
-        "rack": "C.7",
+        "rack": "C.6",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
@@ -3923,39 +4469,123 @@
     },
     {
       "src": {
-        "rack": "C.7",
+        "rack": "C.6",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 5"
+        "puerto": "Out 7"
       },
       "dst": {
-        "rack": "DC.1",
-        "equipo": "Monitor Sonidista",
+        "rack": "",
+        "equipo": "",
         "slot": "",
         "placa": "",
-        "puerto": "HDMI In"
+        "puerto": ""
       },
       "thru": true,
-      "thru_entrada": "In 5",
+      "thru_entrada": "In 7",
       "rotulo": "",
       "notas": "",
-      "disp_ext": "BM SDI to HDMI"
+      "disp_ext": ""
     },
     {
       "src": {
-        "rack": "C.7",
+        "rack": "C.6",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 5"
+        "puerto": "In 7"
       },
       "dst": {
-        "rack": "C.7",
+        "rack": "C.6",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 5"
+        "puerto": "Out 7"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 8"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "In 8",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 8"
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 8"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 16"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "In 16",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 16"
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 16"
       },
       "thru": false,
       "thru_entrada": "",
@@ -3969,19 +4599,19 @@
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 4"
+        "puerto": "Out 1"
       },
       "dst": {
-        "rack": "TX.1",
-        "equipo": "Monitor MV TX",
+        "rack": "TX.3",
+        "equipo": "Monitor Pvw TX",
         "slot": "",
         "placa": "",
         "puerto": "HDMI In"
       },
       "thru": true,
-      "thru_entrada": "In 4",
+      "thru_entrada": "In 1",
       "rotulo": "",
-      "notas": "Monitor MV TX",
+      "notas": "Monitor Pvw TX",
       "disp_ext": "BM SDI to HDMI"
     },
     {
@@ -3990,56 +4620,14 @@
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 4"
+        "puerto": "In 1"
       },
       "dst": {
         "rack": "C.7",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 4"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 3"
-      },
-      "dst": {
-        "rack": "TX.2",
-        "equipo": "Monitor Linea TX",
-        "slot": "",
-        "placa": "",
-        "puerto": "HDMI In"
-      },
-      "thru": true,
-      "thru_entrada": "In 3",
-      "rotulo": "",
-      "notas": "Monitor Linea TX",
-      "disp_ext": "BM SDI to HDMI"
-    },
-    {
-      "src": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 3"
-      },
-      "dst": {
-        "rack": "C.7",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 3"
+        "puerto": "Out 1"
       },
       "thru": false,
       "thru_entrada": "",
@@ -4095,19 +4683,19 @@
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 1"
+        "puerto": "Out 3"
       },
       "dst": {
-        "rack": "TX.3",
-        "equipo": "Monitor Pvw TX",
+        "rack": "TX.2",
+        "equipo": "Monitor Linea TX",
         "slot": "",
         "placa": "",
         "puerto": "HDMI In"
       },
       "thru": true,
-      "thru_entrada": "In 1",
+      "thru_entrada": "In 3",
       "rotulo": "",
-      "notas": "Monitor Pvw TX",
+      "notas": "Monitor Linea TX",
       "disp_ext": "BM SDI to HDMI"
     },
     {
@@ -4116,14 +4704,14 @@
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 1"
+        "puerto": "In 3"
       },
       "dst": {
         "rack": "C.7",
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 1"
+        "puerto": "Out 3"
       },
       "thru": false,
       "thru_entrada": "",
@@ -4133,102 +4721,123 @@
     },
     {
       "src": {
-        "rack": "D.BACK.1",
-        "equipo": "Raspberry PI 1",
+        "rack": "C.7",
+        "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "HDMI Out"
+        "puerto": "Out 4"
       },
       "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "1.0",
+        "rack": "TX.1",
+        "equipo": "Monitor MV TX",
+        "slot": "",
         "placa": "",
         "puerto": "HDMI In"
       },
+      "thru": true,
+      "thru_entrada": "In 4",
+      "rotulo": "",
+      "notas": "Monitor MV TX",
+      "disp_ext": "BM SDI to HDMI"
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 4"
+      },
+      "dst": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 4"
+      },
       "thru": false,
       "thru_entrada": "",
-      "rotulo": "",
-      "notas": "SRT La Casa del Streaming",
+      "rotulo": "THRU",
+      "notas": "",
       "disp_ext": ""
     },
     {
       "src": {
-        "rack": "D.BACK.2",
-        "equipo": "Raspberry PI 2",
+        "rack": "C.7",
+        "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "HDMI Out"
+        "puerto": "Out 5"
       },
       "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "2.0",
+        "rack": "DC.1",
+        "equipo": "Monitor Sonidista",
+        "slot": "",
         "placa": "",
         "puerto": "HDMI In"
       },
+      "thru": true,
+      "thru_entrada": "In 5",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "BM SDI to HDMI"
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 5"
+      },
+      "dst": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 5"
+      },
       "thru": false,
       "thru_entrada": "",
-      "rotulo": "",
-      "notas": "SRT Mochila LiveU Posadas",
+      "rotulo": "THRU",
+      "notas": "",
       "disp_ext": ""
     },
     {
       "src": {
-        "rack": "N/C",
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 6"
+      },
+      "dst": {
+        "rack": "",
         "equipo": "",
         "slot": "",
         "placa": "",
         "puerto": ""
       },
-      "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "3.0",
-        "placa": "",
-        "puerto": "HDMI In"
-      },
-      "thru": false,
-      "thru_entrada": "",
+      "thru": true,
+      "thru_entrada": "In 6",
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
     {
       "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "1.0",
-        "placa": "HDMI to SDI",
-        "puerto": "Out 1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
+        "rack": "C.7",
+        "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 26"
-      },
-      "thru": true,
-      "thru_entrada": "HDMI In",
-      "rotulo": "Casa del Streaming",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "1.0",
-        "placa": "HDMI to SDI",
-        "puerto": "HDMI In"
+        "puerto": "In 6"
       },
       "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "1.0",
-        "placa": "HDMI to SDI",
-        "puerto": "Out 1"
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 6"
       },
       "thru": false,
       "thru_entrada": "",
@@ -4238,127 +4847,484 @@
     },
     {
       "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "2.0",
-        "placa": "HDMI to SDI",
-        "puerto": "Out 1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
+        "rack": "C.7",
+        "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 27"
-      },
-      "thru": true,
-      "thru_entrada": "HDMI In",
-      "rotulo": "Deco m. Posadas",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "2.0",
-        "placa": "HDMI to SDI",
-        "puerto": "HDMI In"
+        "puerto": "Out 7"
       },
       "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "2.0",
-        "placa": "HDMI to SDI",
-        "puerto": "Out 1"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "3.0",
-        "placa": "HDMI to SDI",
-        "puerto": "Out 1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
+        "rack": "",
+        "equipo": "",
         "slot": "",
         "placa": "",
-        "puerto": "In 28"
+        "puerto": ""
       },
       "thru": true,
-      "thru_entrada": "HDMI In",
+      "thru_entrada": "In 7",
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
     {
       "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "3.0",
-        "placa": "HDMI to SDI",
-        "puerto": "HDMI In"
-      },
-      "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "3.0",
-        "placa": "HDMI to SDI",
-        "puerto": "Out 1"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "4.0",
-        "placa": "De-embedder",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "F.7",
-        "equipo": "FOR A HVS-390HS",
+        "rack": "C.7",
+        "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
         "puerto": "In 7"
       },
+      "dst": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 7"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 8"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
       "thru": true,
-      "thru_entrada": "SDI In",
+      "thru_entrada": "In 8",
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
     {
       "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "4.0",
-        "placa": "De-embedder",
-        "puerto": "SDI In"
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 8"
       },
       "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "4.0",
-        "placa": "De-embedder",
-        "puerto": "SDI Out"
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 8"
       },
       "thru": false,
       "thru_entrada": "",
       "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 9"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "In 9",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 9"
+      },
+      "dst": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 9"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 10"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "In 10",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 10"
+      },
+      "dst": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 10"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 11"
+      },
+      "dst": {
+        "rack": "L.4",
+        "equipo": "VIDEObit 3G-LINK-TD",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 1"
+      },
+      "thru": true,
+      "thru_entrada": "In 11",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "Fibra TDA 1 S"
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 11"
+      },
+      "dst": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 11"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 12"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "In 12",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 12"
+      },
+      "dst": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 12"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 13"
+      },
+      "dst": {
+        "rack": "DC.3",
+        "equipo": "Monitor Titulos",
+        "slot": "",
+        "placa": "",
+        "puerto": "HDMI In"
+      },
+      "thru": true,
+      "thru_entrada": "In 13",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "BM SDI to HDMI"
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 13"
+      },
+      "dst": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 13"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 14"
+      },
+      "dst": {
+        "rack": "DC.8",
+        "equipo": "Monitor Iluminador",
+        "slot": "",
+        "placa": "",
+        "puerto": "HDMI In"
+      },
+      "thru": true,
+      "thru_entrada": "In 14",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "BM SDI to HDMI"
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 14"
+      },
+      "dst": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 14"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 15"
+      },
+      "dst": {
+        "rack": "P.3",
+        "equipo": "Monitor Piso",
+        "slot": "",
+        "placa": "",
+        "puerto": "HDMI In"
+      },
+      "thru": true,
+      "thru_entrada": "In 15",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "BM SDI to HDMI"
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 15"
+      },
+      "dst": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 15"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 16"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "In 16",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 16"
+      },
+      "dst": {
+        "rack": "C.7",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 16"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 2"
+      },
+      "dst": {
+        "rack": "B.2",
+        "equipo": "Loop A",
+        "slot": "1.0",
+        "placa": "",
+        "puerto": "In P1"
+      },
+      "thru": true,
+      "thru_entrada": "SDI In 2",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 2"
+      },
+      "dst": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 2"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 2"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6.0",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -4395,6 +5361,174 @@
         "rack": "D.7",
         "equipo": "openGear X",
         "slot": "4.0",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "5.0",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "dst": {
+        "rack": "DC.2",
+        "equipo": "Yamaha QL5",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 14"
+      },
+      "thru": true,
+      "thru_entrada": "SDI In",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "5.0",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "5.0",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "6.0",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "dst": {
+        "rack": "DC.2",
+        "equipo": "Yamaha QL5",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 15"
+      },
+      "thru": true,
+      "thru_entrada": "SDI In",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "6.0",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "6.0",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "7.0",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "dst": {
+        "rack": "DC.2",
+        "equipo": "Yamaha QL5",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 16"
+      },
+      "thru": true,
+      "thru_entrada": "SDI In",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "7.0",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "7.0",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "8.0",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "SDI In",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "8.0",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "8.0",
         "placa": "De-embedder",
         "puerto": "Audio Out L"
       },
@@ -4452,90 +5586,6 @@
         "equipo": "openGear X",
         "slot": "5.0",
         "placa": "De-embedder",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "F.7",
-        "equipo": "FOR A HVS-390HS",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 8"
-      },
-      "thru": true,
-      "thru_entrada": "SDI In",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "5.0",
-        "placa": "De-embedder",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "5.0",
-        "placa": "De-embedder",
-        "puerto": "SDI Out"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "5.0",
-        "placa": "De-embedder",
-        "puerto": "Audio Out L"
-      },
-      "dst": {
-        "rack": "DC.2",
-        "equipo": "Yamaha QL5",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 14"
-      },
-      "thru": true,
-      "thru_entrada": "SDI In",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "5.0",
-        "placa": "De-embedder",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "5.0",
-        "placa": "De-embedder",
-        "puerto": "Audio Out L"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "5.0",
-        "placa": "De-embedder",
         "puerto": "Audio Out R"
       },
       "dst": {
@@ -4578,90 +5628,6 @@
         "equipo": "openGear X",
         "slot": "6.0",
         "placa": "De-embedder",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "F.7",
-        "equipo": "FOR A HVS-390HS",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 9"
-      },
-      "thru": true,
-      "thru_entrada": "SDI In",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "6.0",
-        "placa": "De-embedder",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "6.0",
-        "placa": "De-embedder",
-        "puerto": "SDI Out"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "6.0",
-        "placa": "De-embedder",
-        "puerto": "Audio Out L"
-      },
-      "dst": {
-        "rack": "DC.2",
-        "equipo": "Yamaha QL5",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 15"
-      },
-      "thru": true,
-      "thru_entrada": "SDI In",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "6.0",
-        "placa": "De-embedder",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "6.0",
-        "placa": "De-embedder",
-        "puerto": "Audio Out L"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "6.0",
-        "placa": "De-embedder",
         "puerto": "Audio Out R"
       },
       "dst": {
@@ -4691,6 +5657,174 @@
         "slot": "6.0",
         "placa": "De-embedder",
         "puerto": "Audio Out R"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "7.0",
+        "placa": "De-embedder",
+        "puerto": "Audio Out R"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "SDI In",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "7.0",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "7.0",
+        "placa": "De-embedder",
+        "puerto": "Audio Out R"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "8.0",
+        "placa": "De-embedder",
+        "puerto": "Audio Out R"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "SDI In",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "8.0",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "8.0",
+        "placa": "De-embedder",
+        "puerto": "Audio Out R"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "9.0",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "J4"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "J2",
+      "rotulo": "",
+      "notas": "Cable amarillo a Piso?",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "9.0",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "J2"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "9.0",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "J4"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "9.0",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "J6"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "J2",
+      "rotulo": "",
+      "notas": "Cable amarillo a Piso?",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "9.0",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "J2"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "9.0",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "J6"
       },
       "thru": false,
       "thru_entrada": "",
@@ -4744,16 +5878,16 @@
       "src": {
         "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "7.0",
+        "slot": "4.0",
         "placa": "De-embedder",
-        "puerto": "Audio Out L"
+        "puerto": "SDI Out"
       },
       "dst": {
-        "rack": "DC.2",
-        "equipo": "Yamaha QL5",
+        "rack": "F.7",
+        "equipo": "FOR A HVS-390HS",
         "slot": "",
         "placa": "",
-        "puerto": "In 16"
+        "puerto": "In 7"
       },
       "thru": true,
       "thru_entrada": "SDI In",
@@ -4765,16 +5899,16 @@
       "src": {
         "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "7.0",
+        "slot": "4.0",
         "placa": "De-embedder",
         "puerto": "SDI In"
       },
       "dst": {
         "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "7.0",
+        "slot": "4.0",
         "placa": "De-embedder",
-        "puerto": "Audio Out L"
+        "puerto": "SDI Out"
       },
       "thru": false,
       "thru_entrada": "",
@@ -4786,16 +5920,16 @@
       "src": {
         "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "7.0",
+        "slot": "5.0",
         "placa": "De-embedder",
-        "puerto": "Audio Out R"
+        "puerto": "SDI Out"
       },
       "dst": {
-        "rack": "",
-        "equipo": "",
+        "rack": "F.7",
+        "equipo": "FOR A HVS-390HS",
         "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "In 8"
       },
       "thru": true,
       "thru_entrada": "SDI In",
@@ -4807,16 +5941,58 @@
       "src": {
         "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "7.0",
+        "slot": "5.0",
         "placa": "De-embedder",
         "puerto": "SDI In"
       },
       "dst": {
         "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "7.0",
+        "slot": "5.0",
         "placa": "De-embedder",
-        "puerto": "Audio Out R"
+        "puerto": "SDI Out"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "6.0",
+        "placa": "De-embedder",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "F.7",
+        "equipo": "FOR A HVS-390HS",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 9"
+      },
+      "thru": true,
+      "thru_entrada": "SDI In",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "6.0",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "6.0",
+        "placa": "De-embedder",
+        "puerto": "SDI Out"
       },
       "thru": false,
       "thru_entrada": "",
@@ -4871,175 +6047,7 @@
         "rack": "D.7",
         "equipo": "openGear X",
         "slot": "8.0",
-        "placa": "De-embedder",
-        "puerto": "Audio Out L"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": true,
-      "thru_entrada": "SDI In",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "8.0",
-        "placa": "De-embedder",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "8.0",
-        "placa": "De-embedder",
-        "puerto": "Audio Out L"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "8.0",
-        "placa": "De-embedder",
-        "puerto": "Audio Out R"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": true,
-      "thru_entrada": "SDI In",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "8.0",
-        "placa": "De-embedder",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "8.0",
-        "placa": "De-embedder",
-        "puerto": "Audio Out R"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "9.0",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "J4"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": true,
-      "thru_entrada": "J2",
-      "rotulo": "",
-      "notas": "Cable amarillo a Piso?",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "9.0",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "J2"
-      },
-      "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "9.0",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "J4"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "9.0",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "J6"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": true,
-      "thru_entrada": "J2",
-      "rotulo": "",
-      "notas": "Cable amarillo a Piso?",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "9.0",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "J2"
-      },
-      "dst": {
-        "rack": "D.7",
-        "equipo": "openGear X",
-        "slot": "9.0",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "J6"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "1.0",
-        "placa": "Emb / De-emb",
+        "placa": "De-embbeder",
         "puerto": "SDI Out"
       },
       "dst": {
@@ -5048,6 +6056,48 @@
         "slot": "",
         "placa": "",
         "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "SDI In",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "8.0",
+        "placa": "De-embbeder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "8.0",
+        "placa": "De-embbeder",
+        "puerto": "SDI Out"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.8",
+        "equipo": "Cisco D9865",
+        "slot": "",
+        "placa": "",
+        "puerto": "Component Out"
+      },
+      "dst": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Component In"
       },
       "thru": false,
       "thru_entrada": "",
@@ -5080,72 +6130,9 @@
       "src": {
         "rack": "D.9",
         "equipo": "openGear X",
-        "slot": "1.0",
-        "placa": "Emb / De-emb",
-        "puerto": "A2"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "2.0",
-        "placa": "Emb / De-emb",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
         "slot": "2.0",
         "placa": "Emb / De-emb",
         "puerto": "A1"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "2.0",
-        "placa": "Emb / De-emb",
-        "puerto": "A2"
       },
       "dst": {
         "rack": "",
@@ -5185,9 +6172,30 @@
       "src": {
         "rack": "D.9",
         "equipo": "openGear X",
-        "slot": "5.0",
+        "slot": "1.0",
         "placa": "Emb / De-emb",
-        "puerto": "SDI Out"
+        "puerto": "A2"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "2.0",
+        "placa": "Emb / De-emb",
+        "puerto": "A2"
       },
       "dst": {
         "rack": "",
@@ -5229,18 +6237,18 @@
         "equipo": "openGear X",
         "slot": "6.0",
         "placa": "Dist. Amp. 1x9",
-        "puerto": "J3"
+        "puerto": "J5"
       },
       "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
+        "rack": "L.1",
+        "equipo": "VIDEOTRON",
         "slot": "",
         "placa": "",
-        "puerto": "In 62"
+        "puerto": "SDI In 1"
       },
       "thru": true,
       "thru_entrada": "J1",
-      "rotulo": "LINEA 1X9",
+      "rotulo": "?",
       "notas": "",
       "disp_ext": ""
     },
@@ -5257,7 +6265,7 @@
         "equipo": "openGear X",
         "slot": "6.0",
         "placa": "Dist. Amp. 1x9",
-        "puerto": "J3"
+        "puerto": "J5"
       },
       "thru": false,
       "thru_entrada": "",
@@ -5269,9 +6277,9 @@
       "src": {
         "rack": "D.9",
         "equipo": "openGear X",
-        "slot": "6.0",
-        "placa": "Dist. Amp. 1x9",
-        "puerto": "J5"
+        "slot": "1.0",
+        "placa": "Emb / De-emb",
+        "puerto": "SDI Out"
       },
       "dst": {
         "rack": "",
@@ -5280,8 +6288,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": true,
-      "thru_entrada": "J1",
+      "thru": false,
+      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
@@ -5290,16 +6298,58 @@
       "src": {
         "rack": "D.9",
         "equipo": "openGear X",
-        "slot": "6.0",
-        "placa": "Dist. Amp. 1x9",
-        "puerto": "J1"
+        "slot": "2.0",
+        "placa": "Emb / De-emb",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "5.0",
+        "placa": "De-embbeder",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 1"
+      },
+      "thru": true,
+      "thru_entrada": "SDI In",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "5.0",
+        "placa": "De-embbeder",
+        "puerto": "SDI In"
       },
       "dst": {
         "rack": "D.9",
         "equipo": "openGear X",
-        "slot": "6.0",
-        "placa": "Dist. Amp. 1x9",
-        "puerto": "J5"
+        "slot": "5.0",
+        "placa": "De-embbeder",
+        "puerto": "SDI Out"
       },
       "thru": false,
       "thru_entrada": "",
@@ -5309,22 +6359,85 @@
     },
     {
       "src": {
-        "rack": "F.2",
-        "equipo": "Sony HXCU-100 Cam 1",
+        "rack": "D.BACK.1",
+        "equipo": "Raspberry PI 1",
         "slot": "",
         "placa": "",
-        "puerto": "SDI Out 1"
+        "puerto": "HDMI Out"
       },
       "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "1.0",
         "placa": "",
-        "puerto": "In 41"
+        "puerto": "HDMI In"
       },
       "thru": false,
       "thru_entrada": "",
-      "rotulo": "CAM 1",
+      "rotulo": "",
+      "notas": "SRT La Casa del Streaming",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.BACK.2",
+        "equipo": "Raspberry PI 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "HDMI Out"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "2.0",
+        "placa": "",
+        "puerto": "HDMI In"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "SRT Mochila LiveU Posadas",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "DC.11",
+        "equipo": "Deco Direccion",
+        "slot": "",
+        "placa": "",
+        "puerto": "HDMI Out"
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 9"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "BM HDMI to SDI"
+    },
+    {
+      "src": {
+        "rack": "DC.4",
+        "equipo": "PC Videollamada",
+        "slot": "1.0",
+        "placa": "DeckLink",
+        "puerto": "Out P?"
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 14"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -5376,27 +6489,6 @@
         "equipo": "Sony HXCU-100 Cam 2",
         "slot": "",
         "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 42"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "CAM 2",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "F.3",
-        "equipo": "Sony HXCU-100 Cam 2",
-        "slot": "",
-        "placa": "",
         "puerto": "SDI Out 2"
       },
       "dst": {
@@ -5430,27 +6522,6 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "F.4",
-        "equipo": "Sony HXCU-100 Cam 3",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 43"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "CAM 3",
       "notas": "",
       "disp_ext": ""
     },
@@ -5502,27 +6573,6 @@
         "equipo": "Sony HXCU-100 Cam 4",
         "slot": "",
         "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 44"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "CAM 4",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "F.5",
-        "equipo": "Sony HXCU-100 Cam 4",
-        "slot": "",
-        "placa": "",
         "puerto": "SDI Out 2"
       },
       "dst": {
@@ -5556,27 +6606,6 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "F.6",
-        "equipo": "Blackmagic Multiview 4",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 30"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "MV CAM",
       "notas": "",
       "disp_ext": ""
     },
@@ -5621,48 +6650,6 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": "BM SDI to HDMI > Capturadora USB"
-    },
-    {
-      "src": {
-        "rack": "F.7",
-        "equipo": "FOR A HVS-390HS",
-        "slot": "",
-        "placa": "",
-        "puerto": "Aux 6"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 6"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "FOR A AUX 6",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "F.7",
-        "equipo": "FOR A HVS-390HS",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 5"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "FOR A PGM",
-      "notas": "",
-      "disp_ext": ""
     },
     {
       "src": {
@@ -5771,804 +6758,6 @@
     },
     {
       "src": {
-        "rack": "D.12",
-        "equipo": "AJA FS2",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 7"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "AJA FS2 NTSC",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.6",
-        "equipo": "Telairity BE-IRD 5503",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 2"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 8"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "IRD TELA",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 9"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "L.6",
-        "equipo": "openGear X",
-        "slot": "2.0",
-        "placa": "Optic to SDI",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 10"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "FIBRA MOVIL",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "L.6",
-        "equipo": "openGear X",
-        "slot": "5.0",
-        "placa": "Optic to SDI",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 11"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "FIBRA CAMARA",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "L.BACK.1",
-        "equipo": "BM OF to SDI",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 12"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "FIBRA canal 4",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "L.6",
-        "equipo": "openGear X",
-        "slot": "6.0",
-        "placa": "Optic to SDI",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 13"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "FIBRA RADIO",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "L.6",
-        "equipo": "openGear X",
-        "slot": "4.0",
-        "placa": "Optic to SDI",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 14"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "FIBRA MOL",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 15"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "L.6",
-        "equipo": "openGear X",
-        "slot": "3.0",
-        "placa": "Optic to SDI",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 16"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "FIBRA IPLYC",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.1",
-        "equipo": "Telairity BE-IRD 5501",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 17"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "IRD C12",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.3",
-        "equipo": "Wellav UMH160R",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 18"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "IRD TV P.",
-      "notas": "TV PUBLICA",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.4",
-        "equipo": "Wellav UMH160R",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 19"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "IRD WELL. H",
-      "notas": "MOV. SATELITAL",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.5",
-        "equipo": "CRD1000D",
-        "slot": "",
-        "placa": "",
-        "puerto": "Component"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 21"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "Canal 13",
-      "notas": "",
-      "disp_ext": "AJA Component to SDI"
-    },
-    {
-      "src": {
-        "rack": "DC.7",
-        "equipo": "GrassValley T2",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out P1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 22"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "GRAB GV",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.16",
-        "equipo": "Videocasetera",
-        "slot": "",
-        "placa": "",
-        "puerto": "Analog Out"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 23"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "CABLE VISION",
-      "notas": "",
-      "disp_ext": "BM Analog to SDI"
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 24"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "?",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 25"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "?",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "E.4",
-        "equipo": "PC Rack",
-        "slot": "1.0",
-        "placa": "DeckLink",
-        "puerto": "Out P4"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 29"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "PC RACK 4",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "E.5",
-        "equipo": "Datavideo TC-200",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 31"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "CG OUT",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 32"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "P.1",
-        "equipo": "Apple TV",
-        "slot": "",
-        "placa": "",
-        "puerto": "HDMI Out"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 33"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "APPLE TV",
-      "notas": "",
-      "disp_ext": "BM HDMI to SDI"
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 45"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 46"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 47"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 48"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "?",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 49"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "SONY AUX 1",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 50"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 51"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 52"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "E.4",
-        "equipo": "PC Rack",
-        "slot": "1.0",
-        "placa": "DeckLink",
-        "puerto": "Out P1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 53"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "mochila interior",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "?",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 54"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "BM 12 Stre",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 56"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.11",
-        "equipo": "AJA FS4",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 57"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "CGX AJA FS4",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.11",
-        "equipo": "AJA FS4",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 2"
-      },
-      "dst": {
-        "rack": "B.2",
-        "equipo": "Loop A",
-        "slot": "1.0",
-        "placa": "",
-        "puerto": "In P1"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.11",
-        "equipo": "AJA FS4",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 3"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 59"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "AJA FS4 3",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.11",
-        "equipo": "AJA FS4",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 4"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 60"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "AJA FS4 4",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 61"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
         "rack": "N/C",
         "equipo": "",
         "slot": "",
@@ -6580,280 +6769,7 @@
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 16"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "P.2",
-        "equipo": "Patch Estudio",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 15"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "DC.4",
-        "equipo": "PC Videollamada",
-        "slot": "1.0",
-        "placa": "DeckLink",
-        "puerto": "Out P?"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 14"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 13"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 12"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 11"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 10"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "DC.11",
-        "equipo": "Deco Direccion",
-        "slot": "",
-        "placa": "",
-        "puerto": "HDMI Out"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 9"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "BM HDMI to SDI"
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 8"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 7"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 6"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 5"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 4"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Patch Panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 3"
+        "puerto": "In 1"
       },
       "thru": false,
       "thru_entrada": "",
@@ -6895,7 +6811,238 @@
         "equipo": "Patch Panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 1"
+        "puerto": "In 3"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 4"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 5"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 6"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 7"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 8"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 10"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 11"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 12"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 13"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "P.2",
+        "equipo": "Patch Estudio",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI"
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 15"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Patch Panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 16"
       },
       "thru": false,
       "thru_entrada": "",
@@ -6947,102 +7094,18 @@
     },
     {
       "src": {
-        "rack": "D.9",
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "5.0",
-        "placa": "De-embbeder",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "D.13",
-        "equipo": "AJA FS2",
-        "slot": "",
+        "slot": "3.0",
         "placa": "",
-        "puerto": "SDI In 1"
-      },
-      "thru": true,
-      "thru_entrada": "SDI In",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "5.0",
-        "placa": "De-embbeder",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "5.0",
-        "placa": "De-embbeder",
-        "puerto": "SDI Out"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "THRU",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.13",
-        "equipo": "AJA FS2",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "C.3",
-        "equipo": "AJA KUMO 6464",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 20"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "IRD CIS.H/V",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.13",
-        "equipo": "AJA FS2",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 2"
-      },
-      "dst": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "6.0",
-        "placa": "",
-        "puerto": "SDI In"
-      },
-      "thru": false,
-      "thru_entrada": "",
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.8",
-        "equipo": "Cisco D9865",
-        "slot": "",
-        "placa": "",
-        "puerto": "Component Out"
-      },
-      "dst": {
-        "rack": "D.13",
-        "equipo": "AJA FS2",
-        "slot": "",
-        "placa": "",
-        "puerto": "Component In"
+        "puerto": "HDMI In"
       },
       "thru": false,
       "thru_entrada": "",
@@ -7053,9 +7116,9 @@
   ],
   "stats": {
     "nodos": 78,
-    "conexiones": 248,
-    "arcos_thru": 69,
-    "con_destino": 192,
-    "sin_destino": 56
+    "conexiones": 249,
+    "arcos_thru": 71,
+    "con_destino": 194,
+    "sin_destino": 55
   }
 }
