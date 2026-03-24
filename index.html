@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rack Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600&display=swap">
+<style>
+:root{
+  --bg:#080c11;--panel:#0e1520;--panel2:#131d2b;--border:#1c2a3c;--border2:#243548;
+  --accent:#00c8f0;--orange:#ff6b35;--green:#8fff6a;--yellow:#ffd166;
+  --muted:#2e4055;--text:#b8ccd8;--text2:#587080;
+  --mono:'Share Tech Mono',monospace;--sans:'Barlow',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;overflow-x:hidden;}
+
+#hdr{display:flex;align-items:center;gap:12px;padding:10px 20px;border-bottom:1px solid var(--border);background:var(--panel);position:sticky;top:0;z-index:100;}
+#hdr-title{font-family:var(--mono);font-size:.85rem;color:var(--accent);letter-spacing:3px;flex:1;}
+#hdr-bc{font-family:var(--mono);font-size:.68rem;color:var(--text2);}
+#hdr-bc .hi{color:var(--accent);}
+#btn-back{display:none;align-items:center;gap:6px;background:none;border:1px solid var(--border2);color:var(--text2);font-family:var(--mono);font-size:.68rem;padding:5px 12px;border-radius:3px;cursor:pointer;}
+#btn-back:hover{border-color:var(--accent);color:var(--accent);}
+#btn-back.show{display:flex;}
+
+.view{display:none;padding:20px;}
+.view.active{display:block;}
+
+/* Racks */
+#racks-wrap{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;padding-bottom:12px;}
+.rack-col{display:flex;flex-direction:column;gap:8px;min-width:160px;}
+.rack-col-lbl{font-family:var(--mono);font-size:.55rem;letter-spacing:4px;color:var(--accent);padding:4px 2px;border-bottom:1px solid var(--accent);opacity:.6;text-transform:uppercase;}
+.rack-card{background:var(--panel);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+.rack-card-hdr{padding:6px 10px;background:rgba(0,200,240,.05);border-bottom:1px solid var(--border);}
+.rack-id{font-family:var(--mono);font-size:.72rem;color:var(--yellow);}
+.rack-card-body{padding:6px 8px;display:flex;flex-direction:column;gap:3px;}
+.eq-btn{font-size:.7rem;background:var(--panel2);border:1px solid var(--border);border-radius:3px;padding:5px 8px;cursor:pointer;text-align:left;color:var(--text);transition:border-color .12s,color .12s;}
+.eq-btn:hover{border-color:var(--accent);color:var(--accent);}
+.eq-ip{font-size:.55rem;font-family:var(--mono);margin-top:2px;}
+.eq-ip.ok{color:var(--accent);}.eq-ip.none{color:var(--muted);}.eq-ip.pend{color:var(--yellow);}
+
+/* Slots */
+.slots-list{display:flex;flex-direction:column;gap:6px;max-width:480px;}
+.slot-btn{background:var(--panel);border:1px solid var(--border);border-radius:5px;padding:10px 14px;cursor:pointer;text-align:left;transition:border-color .12s;}
+.slot-btn:hover{border-color:var(--accent);}
+.slot-num{font-family:var(--mono);font-size:.68rem;color:var(--yellow);margin-bottom:2px;}
+.slot-placa{font-family:var(--mono);font-size:.6rem;color:var(--accent);margin-left:8px;}
+.slot-type{font-size:.82rem;font-weight:600;color:var(--text);}
+.slot-cnt{font-size:.6rem;color:var(--text2);margin-top:3px;}
+
+/* Equip */
+.eq-meta{margin-bottom:20px;}
+.eq-name{font-family:var(--mono);font-size:1rem;color:var(--green);margin-bottom:2px;}
+.eq-rack{font-family:var(--mono);font-size:.68rem;color:var(--yellow);}
+.eq-placa{font-family:var(--mono);font-size:.65rem;color:var(--accent);margin-top:2px;}
+.eq-iprow{font-family:var(--mono);font-size:.65rem;margin-top:4px;}
+.eq-iprow.ok{color:var(--accent);}.eq-iprow.none{color:var(--muted);}.eq-iprow.pend{color:var(--yellow);}
+
+.ports-lbl{font-family:var(--mono);font-size:.55rem;letter-spacing:3px;color:var(--text2);text-transform:uppercase;margin:16px 0 8px;display:flex;align-items:center;gap:10px;}
+.ports-lbl::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* Responsive grid */
+.ports-grid{display:grid;gap:5px;margin-bottom:4px;grid-template-columns:repeat(4,1fr);}
+@media(min-width:600px){.ports-grid{grid-template-columns:repeat(8,1fr);}}
+@media(min-width:1200px){.ports-grid{grid-template-columns:repeat(16,1fr);}}
+
+.port-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  padding:5px 3px;min-height:50px;background:var(--panel2);border:1px solid var(--border);
+  border-radius:4px;cursor:pointer;transition:border-color .12s,background .12s;overflow:hidden;}
+.port-btn:hover{border-color:var(--accent);background:rgba(0,200,240,.06);}
+.port-btn.selected{border-color:var(--accent);background:rgba(0,200,240,.12);}
+.port-btn.p-in {border-top:2px solid var(--accent);}
+.port-btn.p-out{border-top:2px solid var(--orange);}
+.port-btn.p-aux{border-top:2px solid var(--green);}
+.port-btn.p-conn{border-top:2px solid var(--yellow);}  /* passive connector */
+.port-btn.p-free{opacity:.3;}
+.p-num{font-family:var(--mono);font-size:.6rem;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding:0 2px;}
+.p-lbl{font-size:.48rem;color:var(--text2);margin-top:2px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px;}
+
+/* Popover */
+#pop{position:fixed;z-index:500;background:var(--panel2);border:1px solid var(--border2);
+  border-radius:6px;padding:12px 14px 14px;min-width:240px;max-width:320px;
+  max-height:70vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.85);display:none;}
+#pop.on{display:block;}
+#pop-hdr{display:flex;align-items:center;margin-bottom:10px;}
+#pop-lbl{font-family:var(--mono);font-size:.52rem;letter-spacing:2px;color:var(--accent);flex:1;}
+#pop-close{background:none;border:none;color:var(--text2);cursor:pointer;font-size:.9rem;padding:0 0 0 8px;line-height:1;}
+#pop-close:hover{color:var(--text);}
+#pop-body{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+
+/* Trace */
+.tr-node{margin-bottom:1px;}
+.tr-eq{color:var(--text);font-weight:600;font-family:var(--sans);font-size:.72rem;}
+.tr-rack{color:var(--yellow);font-size:.6rem;margin-right:4px;}
+.tr-slot{color:var(--accent);font-size:.6rem;}
+.tr-out{color:var(--orange);}
+.tr-in{color:var(--accent);}
+.tr-branch{padding-left:42px;color:var(--green);font-size:.64rem;display:flex;align-items:baseline;gap:4px;flex-wrap:wrap;}
+.tr-branch-dst{color:var(--text2);}
+.tr-branch-dport{color:var(--accent);}
+.tr-gap{height:7px;}
+.tr-nodata{color:var(--muted);font-style:italic;font-size:.64rem;}
+.tr-dispext{padding-left:8px;font-size:.6rem;color:var(--text2);font-style:italic;margin-bottom:2px;}
+.tr-nc{color:var(--text2);font-size:.64rem;}
+.tr-unk{color:var(--yellow);font-size:.64rem;}
+
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--muted);border-radius:2px;}
+</style>
+</head>
+<body>
+
+<div id="hdr">
+  <button id="btn-back" onclick="goBack()">&#8592; Volver</button>
+  <div id="hdr-title">&#9672; CARGANDO...</div>
+  <div id="hdr-bc"></div>
+</div>
+
+<div id="view-racks" class="view"><div id="racks-wrap"></div></div>
+<div id="view-slots" class="view"></div>
+<div id="view-equip" class="view"></div>
+
+<div id="pop">
+  <div id="pop-hdr">
+    <span id="pop-lbl">&#9654; RUTA DE SEÑAL</span>
+    <button id="pop-close" onclick="closePop()">&#10005;</button>
+  </div>
+  <div id="pop-body"></div>
+</div>
+
+<script>
+var CONNS=[], NODOS={}, PROJ='', _nav=[], _selBtn=null;
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+// Load JSON from connections.json (same directory)
+fetch('connections.json')
+  .then(function(r){
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return r.json();
+  })
+  .then(function(data){ init(data); })
+  .catch(function(e){
+    document.getElementById('hdr-title').textContent = 'Error cargando connections.json: '+e.message;
+  });
+
+function init(data){
+  PROJ=data.proyecto||'Rack Index';
+  document.title=PROJ;
+  document.getElementById('hdr-title').textContent='\u25c6 '+PROJ;
+  (data.nodos||[]).forEach(function(n){ NODOS[n.rack+'|||'+n.equipo]=n.ip; });
+  (data.conexiones||[]).forEach(function(c){
+    CONNS.push({
+      sr:c.src.rack, se:c.src.equipo, ss:nss(c.src.slot), sl:c.src.placa, sp:c.src.puerto,
+      dr:c.dst.rack, de:c.dst.equipo, ds:nss(c.dst.slot), dl:c.dst.placa, dp:c.dst.puerto,
+      thru:c.thru, rotulo:c.rotulo, notas:c.notas, disp_ext:c.disp_ext||''
+    });
+  });
+  showRacks();
+}
+
+// ── Core helpers ──────────────────────────────────────────────────────────────
+function h(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function nss(s){ return String(s||'').replace(/\.0$/,''); }  // normalize slot string
+
+function portCls(p){
+  var l=String(p||'').toLowerCase();
+  if(/^(in\b|ret\b|hdmi in|sdi in|\w+ in\b)/.test(l)||l.indexOf('(in)')>=0) return 'p-in';
+  if(/^(out\b|sdi out|hdmi out|\w+ out\b)/.test(l)||l.indexOf('(out)')>=0) return 'p-out';
+  return 'p-aux';
+}
+function portN(p){
+  var m=String(p||'').match(/\d+/); return m?parseInt(m[0]):9998;
+}
+function sortByPort(arr,fn){
+  return arr.slice().sort(function(a,b){
+    return portN(fn(a))-portN(fn(b))||String(fn(a)).localeCompare(String(fn(b)));
+  });
+}
+
+function getIP(rack,eq){
+  var k=rack+'|||'+eq;
+  if(NODOS.hasOwnProperty(k)) return NODOS[k];
+  var ks=Object.keys(NODOS);
+  for(var i=0;i<ks.length;i++){
+    var p=ks[i].split('|||');
+    if(p[0]===rack&&p[1].toLowerCase()===eq.toLowerCase()) return NODOS[ks[i]];
+  }
+  return undefined;
+}
+function ipEl(ip,cls){
+  if(ip===undefined||ip===null||ip==='') return '<div class="'+cls+' none">Sin red</div>';
+  if(ip==='?') return '<div class="'+cls+' pend">IP pendiente</div>';
+  return '<div class="'+cls+' ok">'+h(ip)+'</div>';
+}
+function getRackPfx(r){ var m=r.match(/^([A-Za-z]+)/); return m?m[1].toUpperCase():'?'; }
+
+// ── Frame / slot detection ────────────────────────────────────────────────────
+// A frame is an equipo that has connections where ITS OWN slot is non-empty
+function isFrame(rack,eq){
+  return CONNS.some(function(c){
+    return (c.sr===rack&&c.se===eq&&c.ss) || (c.dr===rack&&c.de===eq&&c.ds);
+  });
+}
+
+// Get all unique slots for a frame, as {slot, placa} objects
+function getSlots(rack,eq){
+  var seen={};
+  CONNS.forEach(function(c){
+    if(c.sr===rack&&c.se===eq&&c.ss){
+      var k=nss(c.ss);
+      if(!seen[k]) seen[k]={slot:k,placa:''};
+      if(c.sl&&!seen[k].placa) seen[k].placa=c.sl;
+    }
+    if(c.dr===rack&&c.de===eq&&c.ds){
+      var k=nss(c.ds);
+      if(!seen[k]) seen[k]={slot:k,placa:''};
+      if(c.dl&&!seen[k].placa) seen[k].placa=c.dl;
+    }
+  });
+  return Object.values(seen).sort(function(a,b){ return parseInt(a.slot)-parseInt(b.slot); });
+}
+// An equipo is "passive" if its THRUs are strictly 1-to-1 (each src port appears exactly once)
+// and no audio ports involved. This matches patch panels but NOT dist amps (1-to-many).
+function isPassive(rack,eq,slot){
+  var thrus=CONNS.filter(function(c){
+    return c.rotulo==='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
+  });
+  if(!thrus.length) return false;
+  // Check 1-to-1: every src port appears exactly once
+  var srcCounts={};
+  thrus.forEach(function(t){ srcCounts[t.sp]=(srcCounts[t.sp]||0)+1; });
+  var isOneToOne=Object.values(srcCounts).every(function(n){return n===1;});
+  if(!isOneToOne) return false;
+  // No audio ports
+  return thrus.every(function(t){ return !isAudio(t.sp)&&!isAudio(t.dp); });
+}
+
+// For passive equipo: get connector list (one entry per THRU pair)
+function getConnectors(rack,eq,slot){
+  var thrus=CONNS.filter(function(c){
+    return c.rotulo==='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
+  });
+  // Build connectors: {num, inPort, outPort, label, ncIn, ncOut}
+  var conns2=thrus.map(function(t){
+    var num=portN(t.sp);
+    // Who feeds In port?
+    var srcConns=CONNS.filter(function(c){
+      return c.rotulo!=='THRU'&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===t.sp;
+    });
+    // Where does Out port go?
+    var dstConns=CONNS.filter(function(c){
+      return c.rotulo!=='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===t.dp;
+    });
+    var ncIn  = srcConns.length>0 && (srcConns[0].sr==='N/C');
+    var ncOut = dstConns.length>0 && (dstConns[0].dr==='N/C');
+    var unkIn  = !srcConns.length || srcConns[0].sr==='?' || !srcConns[0].sr;
+    var unkOut = !dstConns.length || dstConns[0].dr==='?' || !dstConns[0].dr;
+    var isFree = unkIn && unkOut;
+    var isNc   = ncIn || ncOut;
+    // Label: prefer rotulo from src conn, then dst conn
+    var lbl = (srcConns[0]&&srcConns[0].rotulo) || (dstConns[0]&&dstConns[0].rotulo) || '';
+    return {num:num, inPort:t.sp, outPort:t.dp, label:lbl,
+            isFree:isFree, isNc:isNc,
+            srcConn:srcConns[0]||null, dstConn:dstConns[0]||null};
+  });
+  return conns2.sort(function(a,b){return a.num-b.num;});
+}
+
+// ── Navigation ────────────────────────────────────────────────────────────────
+function setView(id){
+  ['view-racks','view-slots','view-equip'].forEach(function(v){
+    document.getElementById(v).className='view'+(v===id?' active':'');
+  });
+}
+function updateHdr(bc){
+  document.getElementById('btn-back').className=_nav.length>1?'show':'';
+  document.getElementById('hdr-title').textContent=_nav.length<=1?('\u25c6 '+PROJ):'';
+  document.getElementById('hdr-bc').innerHTML=bc||'';
+}
+function goBack(){
+  closePop();
+  _nav.pop();
+  if(!_nav.length){showRacks();return;}
+  var top=_nav[_nav.length-1]; _nav.pop();
+  if(top.type==='racks')      showRacks();
+  else if(top.type==='slots') showSlots(top.rack,top.eq);
+  else if(top.type==='equip') showEquip(top.rack,top.eq,top.slot);
+}
+
+// ── Racks view ────────────────────────────────────────────────────────────────
+function showRacks(){
+  _nav=[{type:'racks'}]; closePop(); updateHdr(''); setView('view-racks');
+  var rm={};
+  CONNS.forEach(function(c){
+    [[c.sr,c.se],[c.dr,c.de]].forEach(function(pair){
+      var r=pair[0],e=pair[1];
+      if(!r||r==='?'||!e||e==='?') return;
+      if(c.rotulo==='THRU') return;
+      if(!rm[r]) rm[r]={};
+      rm[r][e]=true;
+    });
+  });
+  Object.keys(NODOS).forEach(function(k){
+    var p=k.split('|||'),r=p[0],e=p[1];
+    if(!r||!e||r==='?') return;
+    if(!rm[r]) rm[r]={};
+    rm[r][e]=true;
+  });
+  var secs={};
+  Object.keys(rm).sort(function(a,b){return a.localeCompare(b,undefined,{numeric:true});}).forEach(function(rack){
+    var pfx=getRackPfx(rack);
+    if(!secs[pfx]) secs[pfx]=[];
+    secs[pfx].push({rack:rack,eqs:Object.keys(rm[rack]).sort()});
+  });
+  var html='';
+  Object.keys(secs).sort().forEach(function(pfx){
+    html+='<div class="rack-col"><div class="rack-col-lbl">'+h(pfx)+'</div>';
+    secs[pfx].forEach(function(item){
+      html+='<div class="rack-card"><div class="rack-card-hdr"><span class="rack-id">'+h(item.rack)+'</span></div><div class="rack-card-body">';
+      item.eqs.forEach(function(eq){
+        var ip=getIP(item.rack,eq);
+        var ipc=(ip===undefined||ip===null||ip==='')?'none':(ip==='?'?'pend':'ok');
+        var ipt=(ip===undefined||ip===null||ip==='')?'Sin red':(ip==='?'?'IP pendiente':ip);
+        html+='<div class="eq-btn" onclick="onEqClick(\''+h(item.rack)+'\',\''+h(eq)+'\')">'+h(eq)
+          +'<div class="eq-ip '+ipc+'">'+h(ipt)+'</div></div>';
+      });
+      html+='</div></div>';
+    });
+    html+='</div>';
+  });
+  document.getElementById('racks-wrap').innerHTML=html;
+}
+
+function onEqClick(rack,eq){
+  if(isFrame(rack,eq)) showSlots(rack,eq);
+  else showEquip(rack,eq,'');
+}
+
+// ── Slots view ────────────────────────────────────────────────────────────────
+function showSlots(rack,frameEq){
+  _nav.push({type:'slots',rack:rack,eq:frameEq}); closePop(); setView('view-slots');
+  updateHdr('<span class="hi">'+h(rack)+'</span> › '+h(frameEq));
+  var slots=getSlots(rack,frameEq);
+  var ip=getIP(rack,frameEq);
+  var html='<div class="eq-meta"><div class="eq-name">'+h(frameEq)+'</div>'
+    +'<div class="eq-rack">'+h(rack)+'</div>'+ipEl(ip,'eq-iprow')+'</div>';
+  html+='<div class="slots-list">';
+  slots.forEach(function(s){
+    html+='<div class="slot-btn" onclick="showEquip(\''+h(rack)+'\',\''+h(frameEq)+'\',\''+h(s.slot)+'\')">';
+    html+='<div class="slot-num">Slot '+h(s.slot);
+    if(s.placa) html+='<span class="slot-placa">'+h(s.placa)+'</span>';
+    html+='</div>';
+    html+='</div>';
+  });
+  html+='</div>';
+  document.getElementById('view-slots').innerHTML=html;
+  window.scrollTo(0,0);
+}
+
+// ── Equip view ────────────────────────────────────────────────────────────────
+// rack, eq: base equipo name (e.g. 'openGear X'), slot: slot number string or ''
+function showEquip(rack,eq,slot){
+  _nav.push({type:'equip',rack:rack,eq:eq,slot:slot}); closePop(); setView('view-equip');
+
+  // Breadcrumb
+  var isSlotEq = slot!=='';
+  var bc = isSlotEq
+    ? '<span class="hi">'+h(rack)+'</span> › '+h(eq)+' › Slot '+h(slot)
+    : '<span class="hi">'+h(rack)+'</span> › '+h(eq);
+  updateHdr(bc);
+
+  // Get placa for this slot
+  var placa='';
+  if(isSlotEq){
+    var plRef=CONNS.find(function(c){
+      return ((c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sl)
+             ||(c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dl));
+    });
+    if(plRef) placa=plRef.sl||plRef.dl||'';
+  }
+
+  // Display name
+  var displayName = isSlotEq ? ('Slot '+slot+(placa?' — '+placa:'')) : eq;
+
+  // IP: for slot eqs use frame IP
+  var ip = isSlotEq ? getIP(rack,eq) : getIP(rack,eq);
+
+  // Filter connections for this exact rack+eq+slot
+  var outsAll=CONNS.filter(function(c){
+    return c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.rotulo!=='THRU';
+  });
+  var insAll=CONNS.filter(function(c){
+    return c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.rotulo!=='THRU';
+  });
+
+  var html='<div class="eq-meta">';
+  html+='<div class="eq-name">'+h(displayName)+'</div>';
+  html+='<div class="eq-rack">'+h(rack)+(isSlotEq?' › '+h(eq):'')+'</div>';
+  if(placa) html+='<div class="eq-placa">'+h(placa)+'</div>';
+  html+=ipEl(ip,'eq-iprow')+'</div>';
+
+  // Check if passive (patch panel style)
+  if(isPassive(rack,eq,slot)){
+    var connectors=getConnectors(rack,eq,slot);
+    html+='<div class="ports-lbl">&#9670; CONECTORES</div><div class="ports-grid">';
+    connectors.forEach(function(con){
+      var isFree=con.isFree;
+      var isNc=con.isNc;
+      var cls='port-btn p-conn'+(isFree?' p-free':'');
+      var lbl=con.label||'';
+      // Pass both in and out ports so trace can go both directions
+      var click=' onclick="onConnectorClick(this,\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(con.inPort)+'\',\''+h(con.outPort)+'\','+isFree+','+isNc+')"';
+      html+='<div class="'+cls+'"'+click+'>';
+      html+='<div class="p-num">'+h(con.inPort.replace(/^In /,''))+'</div>';
+      html+='<div class="p-lbl">'+h(lbl)+'</div>';
+      html+='</div>';
+    });
+    html+='</div>';
+  } else {
+    // Normal equipo: separate SALIDAS / ENTRADAS
+    var sortedOuts=sortByPort(outsAll,function(c){return c.sp;});
+    var sortedIns =sortByPort(insAll, function(c){return c.dp;});
+
+    function portBtnHTML(port,isFree,isNc,isUnk,lbl,clickArgs){
+      var cls='port-btn '+portCls(port)+(isFree?' p-free':'');
+      var click=' onclick="onPortClick(this,'+clickArgs+','+isFree+','+isNc+','+isUnk+')"';
+      return '<div class="'+cls+'"'+click+'>'
+        +'<div class="p-num">'+h(port||'?')+'</div>'
+        +'<div class="p-lbl">'+h(lbl)+'</div>'
+        +'</div>';
+    }
+
+    if(sortedOuts.length){
+      html+='<div class="ports-lbl">&#9670; SALIDAS</div><div class="ports-grid">';
+      sortedOuts.forEach(function(c){
+        var isFree=!c.dr;
+        var isNc=c.dr==='N/C';
+        var isUnk=c.dr==='?';
+        var lbl=c.rotulo||(isFree||isNc||isUnk?'':c.de)||'';
+        var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
+        html+=portBtnHTML(c.sp,isFree,isNc,isUnk,lbl,args);
+      });
+      html+='</div>';
+    }
+    if(sortedIns.length){
+      html+='<div class="ports-lbl">&#9670; ENTRADAS</div><div class="ports-grid">';
+      sortedIns.forEach(function(c){
+        var isFree=!c.sr;
+        var isNc=c.sr==='N/C';
+        var isUnk=c.sr==='?';
+        var lbl=c.rotulo||(isFree||isNc||isUnk?'':c.se)||'';
+        var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
+        html+=portBtnHTML(c.dp,isFree,isNc,isUnk,lbl,args);
+      });
+      html+='</div>';
+    }
+    if(!sortedOuts.length&&!sortedIns.length){
+      html+='<p style="color:var(--text2);font-style:italic;margin-top:16px;">Sin conexiones documentadas.</p>';
+    }
+  }
+
+  document.getElementById('view-equip').innerHTML=html;
+  window.scrollTo(0,0);
+}
+
+// ── Popover ───────────────────────────────────────────────────────────────────
+function closePop(){
+  document.getElementById('pop').classList.remove('on');
+  if(_selBtn){_selBtn.classList.remove('selected');_selBtn=null;}
+}
+
+function positionPop(btn){
+  var pop=document.getElementById('pop');
+  var r=btn.getBoundingClientRect();
+  var pw=300;
+  var left=r.left+r.width/2-pw/2;
+  left=Math.max(8,Math.min(left,window.innerWidth-pw-8));
+  var top=r.bottom+8;
+  if(top+340>window.innerHeight) top=Math.max(8,r.top-340);
+  pop.style.left=left+'px'; pop.style.top=top+'px'; pop.style.width=pw+'px';
+}
+
+function showPop(btn,html){
+  if(_selBtn===btn){closePop();return;}
+  if(_selBtn) _selBtn.classList.remove('selected');
+  _selBtn=btn; btn.classList.add('selected');
+  document.getElementById('pop-body').innerHTML=html;
+  document.getElementById('pop').classList.add('on');
+  positionPop(btn);
+}
+
+// Called from regular port buttons
+function onPortClick(btn,sr,se,ss0,sp,isFree,isNc,isUnk){
+  var body;
+  if(isNc){
+    body='<div class="tr-nc">N/C</div>';
+  } else if(isUnk){
+    body='<div class="tr-unk">?</div>';
+  } else if(isFree){
+    body='<div class="tr-nodata">Sin conexiones documentadas.</div>';
+  } else {
+    body=buildRoute(sr,se,ss0,sp);
+  }
+  showPop(btn,body);
+}
+
+// Called from passive connector buttons
+function onConnectorClick(btn,rack,eq,slot,inPort,outPort,isFree,isNc){
+  var body;
+  if(isNc){
+    body='<div class="tr-nc">N/C</div>';
+  } else if(isFree){
+    body='<div class="tr-nodata">Sin conexiones documentadas.</div>';
+  } else {
+    // Build route from both directions through this connector
+    body=buildPassiveRoute(rack,eq,slot,inPort,outPort);
+  }
+  showPop(btn,body);
+}
+
+document.addEventListener('click',function(e){
+  var pop=document.getElementById('pop');
+  if(!pop.contains(e.target)&&!e.target.closest('.port-btn')) closePop();
+});
+
+// ── Route builder ─────────────────────────────────────────────────────────────
+function isAudio(p){ return /audio/i.test(p||''); }
+
+function fOuts(rack,eq,slot,port){
+  return CONNS.filter(function(c){
+    return c.rotulo!=='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===port;
+  });
+}
+function fThrus(rack,eq,slot,inPort){
+  return CONNS.filter(function(c){
+    return c.rotulo==='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===inPort;
+  });
+}
+function fIns(rack,eq,slot,port){
+  return CONNS.filter(function(c){
+    return c.rotulo!=='THRU'&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===port
+      &&c.sr&&c.sr!=='?'&&c.sr!=='N/C';
+  });
+}
+
+// Build eq label for trace: "RACK  EqName  [/ Slot N — Placa]"
+function eqLabel(rack,eq,slot,placa){
+  var html='<div class="tr-node">';
+  html+='<span class="tr-rack">'+h(rack)+'</span>';
+  html+='<span class="tr-eq">'+h(eq)+'</span>';
+  if(nss(slot)){
+    html+=' <span class="tr-slot">/ Slot '+h(nss(slot));
+    if(placa) html+=' — '+h(placa);
+    html+='</span>';
+  }
+  html+='</div>';
+  return html;
+}
+
+// Get placa for a rack+eq+slot combo
+function getPlaca(rack,eq,slot){
+  var r=CONNS.find(function(c){
+    return ((c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sl)
+           ||(c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dl));
+  });
+  return r?(r.sl||r.dl||''):'';
+}
+
+function renderOut(port){
+  if(!port) return '';
+  return '<div><span class="tr-out">'+h(port)+' &gt;&gt;&gt;</span></div>';
+}
+function renderIn(port){
+  if(!port) return '';
+  return '<div><span class="tr-in">&gt;&gt;&gt; '+h(port)+'</span></div>';
+}
+function renderBranch(br){
+  var html='<div class="tr-branch">';
+  html+='<span class="tr-out">'+h(br.outPort)+' &gt;&gt;&gt;</span>';
+  if(br.dstRack&&br.dstRack!=='?') html+=' <span class="tr-branch-dst">'+h(br.dstRack)+'</span>';
+  html+=' <span class="tr-branch-dst">'+h(br.dstEq)+'</span>';
+  if(nss(br.dstSlot)) html+=' <span class="tr-slot">/ Slot '+h(nss(br.dstSlot))+'</span>';
+  if(br.dstPort) html+=' <span class="tr-branch-dport">&gt; '+h(br.dstPort)+'</span>';
+  html+='</div>';
+  return html;
+}
+
+function buildSegments(sr,se,ss0,sp){
+  var segs=[], vis={};
+
+  function walk(rack,eq,slot,inPort,outPort,depth){
+    if(depth>12) return;
+    var key=rack+'|'+eq+'|'+nss(slot)+'|'+String(inPort||'')+'|'+String(outPort||'');
+    if(vis[key]) return; vis[key]=true;
+
+    var placa=getPlaca(rack,eq,slot);
+    var seg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:inPort,outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
+    segs.push(seg);
+
+    var nexts=fOuts(rack,eq,slot,outPort);
+    if(!nexts.length) return;
+
+    nexts.forEach(function(c){
+      if(!c.dr||c.dr==='N/C'){seg.nc=true;return;}
+      if(c.dr==='?'){seg.unknown=true;return;}
+      // Store disp_ext on the current segment (it belongs to this cable)
+      if(c.disp_ext) seg.disp_ext=c.disp_ext;
+      var dr=c.dr,de=c.de,ds=c.ds,dp=c.dp;
+      var thrus=fThrus(dr,de,ds,dp);
+      var audioT=thrus.filter(function(t){return isAudio(t.dp);});
+      var videoT=thrus.filter(function(t){return !isAudio(t.dp);});
+
+      var branches=[];
+      audioT.forEach(function(t){
+        var outs=fOuts(dr,de,ds,t.dp);
+        if(outs.length){
+          outs.forEach(function(ao){
+            branches.push({outPort:t.dp,dstRack:ao.dr||'?',dstEq:ao.de||'',dstSlot:ao.ds,dstPort:ao.dp||''});
+          });
+        } else {
+          branches.push({outPort:t.dp,dstRack:'?',dstEq:'',dstSlot:'',dstPort:''});
+        }
+      });
+
+      if(!thrus.length){
+        walk(dr,de,ds,dp,'',depth+1);
+      } else if(videoT.length){
+        videoT.forEach(function(vt){walk(dr,de,ds,dp,vt.dp,depth+1);});
+        if(branches.length){
+          for(var i=segs.length-1;i>=0;i--){
+            var s=segs[i];
+            if(s.rack===dr&&s.eq===de&&nss(s.slot)===nss(ds)&&s.inPort===dp){s.branches=branches;break;}
+          }
+        }
+      } else {
+        var k2=dr+'|'+de+'|'+nss(ds)+'|'+dp+'|audio';
+        if(!vis[k2]){vis[k2]=true;
+          segs.push({rack:dr,eq:de,slot:ds,placa:getPlaca(dr,de,ds),
+                     inPort:dp,outPort:'',branches:branches,unknown:false,nc:false});}
+      }
+    });
+  }
+
+  var thrusClick=fThrus(sr,se,ss0,sp);
+  var videoClick=thrusClick.filter(function(t){return !isAudio(t.dp);});
+  if(videoClick.length) videoClick.forEach(function(t){walk(sr,se,ss0,sp,t.dp,0);});
+  else walk(sr,se,ss0,'',sp,0);
+
+  return segs;
+}
+
+function buildUpstream(sr,se,ss0,sp){
+  var upstream=[], vis={};
+  function walkUp(rack,eq,slot,port,depth){
+    if(depth>8) return;
+    // Direct non-THRU connections into this port
+    var direct=fIns(rack,eq,slot,port);
+    if(direct.length){
+      direct.forEach(function(c){
+        var k=c.sr+'|'+c.se+'|'+nss(c.ss)+'|'+c.sp;
+        if(vis[k]) return; vis[k]=true;
+        upstream.unshift({rack:c.sr,eq:c.se,slot:c.ss,placa:getPlaca(c.sr,c.se,c.ss),port:c.sp});
+        walkUp(c.sr,c.se,c.ss,c.sp,depth+1);
+      });
+    } else {
+      // No direct connection — check if this port is the OUTPUT of a THRU
+      // If so, walk up through the THRU's input port
+      var thruSrc=CONNS.filter(function(c){
+        return c.rotulo==='THRU'&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===port;
+      });
+      thruSrc.forEach(function(t){
+        walkUp(rack,eq,slot,t.sp,depth+1);
+      });
+    }
+  }
+  walkUp(sr,se,ss0,sp,0);
+  return upstream;
+}
+
+function renderRoute(upstream,segs){
+  var html='';
+  upstream.forEach(function(u){
+    html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
+    html+=renderOut(u.port);
+    html+='<div class="tr-gap"></div>';
+  });
+  segs.forEach(function(seg,i){
+    // disp_ext from PREVIOUS segment's cable goes before this equipo's label
+    if(i>0 && segs[i-1].disp_ext){
+      html+='<div class="tr-dispext">&#9654; '+h(segs[i-1].disp_ext)+'</div>';
+    }
+    html+=eqLabel(seg.rack,seg.eq,seg.slot,seg.placa);
+    if(seg.inPort) html+=renderIn(seg.inPort);
+    seg.branches.forEach(function(br){html+=renderBranch(br);});
+    if(seg.outPort) html+=renderOut(seg.outPort);
+    if(seg.nc)      html+='<div class="tr-nc">N/C</div>';
+    if(seg.unknown) html+='<div class="tr-unk">&#10549; Destino desconocido</div>';
+    if(i<segs.length-1) html+='<div class="tr-gap"></div>';
+  });
+  if(!segs.length&&!upstream.length) html='<div class="tr-nodata">Sin datos.</div>';
+  return html;
+}
+
+function buildRoute(sr,se,ss0,sp){
+  var upstream=buildUpstream(sr,se,ss0,sp);
+  var segs=buildSegments(sr,se,ss0,sp);
+  return renderRoute(upstream,segs);
+}
+
+// For passive connectors: upstream into In, show the connector, downstream from Out
+// Downstream starts from the actual destination of outPort (not from outPort itself)
+// to avoid showing the connector equipo twice.
+function buildPassiveRoute(rack,eq,slot,inPort,outPort){
+  var upstream=buildUpstream(rack,eq,slot,inPort);
+  var placa=getPlaca(rack,eq,slot);
+
+  var connNode=eqLabel(rack,eq,slot,placa)
+    +renderIn(inPort)
+    +renderOut(outPort);
+
+  // Find cable leaving outPort and its disp_ext
+  var outConns=fOuts(rack,eq,slot,outPort);
+  var dispExt=outConns.length&&outConns[0].disp_ext?outConns[0].disp_ext:'';
+
+  // Downstream: start from the destination of outPort, not outPort itself
+  var downSegs=[];
+  outConns.forEach(function(c){
+    if(!c.dr||c.dr==='?'||c.dr==='N/C') return;
+    var sub=buildSegments(c.dr,c.de,nss(c.ds),c.dp);
+    sub.forEach(function(s){ downSegs.push(s); });
+  });
+
+  var html='';
+  upstream.forEach(function(u){
+    html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
+    html+=renderOut(u.port);
+    html+='<div class="tr-gap"></div>';
+  });
+  html+=connNode;
+
+  if(!outConns.length){
+    html+='<div class="tr-nc">N/C</div>';
+  } else if(outConns[0].dr==='?'){
+    html+='<div class="tr-unk">&#10549; Destino desconocido</div>';
+  } else if(outConns[0].dr==='N/C'||!outConns[0].dr){
+    html+='<div class="tr-nc">N/C</div>';
+  } else if(downSegs.length){
+    html+='<div class="tr-gap"></div>';
+    if(dispExt) html+='<div class="tr-dispext">&#9654; '+h(dispExt)+'</div>';
+    html+=renderRoute([],downSegs);
+  }
+
+  return html||'<div class="tr-nodata">Sin datos.</div>';
+}
+</script>
+</body>
+</html>
