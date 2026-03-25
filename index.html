@@ -670,91 +670,57 @@ function buildSegments(sr,se,ss0,sp){
 function buildUpstream(sr,se,ss0,sp){
   var segs=[], vis={};
   
-  function walkUp(rack,eq,slot,outPort,depth){
+  function walkUp(dstRack,dstEq,dstSlot,dstPort,depth){
     if(depth>12) return;
     
-    // Key de visita
-    var key=rack+'|'+eq+'|'+nss(slot)+'|'+String(outPort||'');
-    if(vis[key]) return; 
+    var key=dstRack+'|'+dstEq+'|'+nss(dstSlot)+'|'+dstPort;
+    if(vis[key]) return;
     vis[key]=true;
     
-    var placa=getPlaca(rack,eq,slot);
-    
-    // PASO 1: Buscar cables que SALEN de outPort
-    // (para entender qué alimenta a este equipo, necesito saber de dónde viene)
-    var outConns=fOuts(rack,eq,slot,outPort);
-    
-    if(!outConns.length){
-      // Sin salida documentada: fin del trace
-      var seg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:'',outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
-      segs.unshift(seg);
-      return;
-    }
-    
-    // PASO 2: Para cada cable que sale, buscar qué entra al origen
-    outConns.forEach(function(outConn){
-      // outConn: equipo actual (rack,eq,slot) sale por outPort hacia destino
-      
-      // Buscar cables que ENTRAN a outPort en este mismo equipo
-      var inConns=fIns(rack,eq,slot,outPort);
-      
-      var inPort='';
-      var dispExt='';
-      
-      if(inConns.length){
-        // Hay cable(s) entrando a outPort
-        inConns.forEach(function(inConn){
-          inPort=inConn.dp;  // puerto donde entra
-          if(inConn.disp_ext) dispExt=inConn.disp_ext;
-          
-          // Crear segmento de este equipo
-          var seg={
-            rack:rack, eq:eq, slot:slot, placa:placa,
-            inPort:inPort, outPort:outPort, branches:[],
-            unknown:false, nc:false, disp_ext:dispExt
-          };
-          segs.unshift(seg);
-          
-          // Recursión: ¿qué alimenta al inPort?
-          walkUp(inConn.sr,inConn.se,inConn.ss,inConn.sp,depth+1);
-        });
-      } else {
-        // Sin cable entrando: ¿outPort es salida de un THRU?
-        var thruOut=CONNS.filter(function(c){
-          return c.es_thru===true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===outPort;
-        });
-        
-        if(thruOut.length){
-          // outPort es salida de THRU: el inPort es entrada del THRU
-          thruOut.forEach(function(t){
-            inPort=t.sp;
-            var seg={
-              rack:rack, eq:eq, slot:slot, placa:placa,
-              inPort:inPort, outPort:outPort, branches:[],
-              unknown:false, nc:false, disp_ext:''
-            };
-            segs.unshift(seg);
-            
-            // Recursión: ¿qué alimenta al inPort del THRU?
-            walkUp(rack,eq,slot,inPort,depth+1);
-          });
-        } else {
-          // Sin entrada ni thru: crear segmento con salida pero sin entrada
-          var seg={
-            rack:rack, eq:eq, slot:slot, placa:placa,
-            inPort:'', outPort:outPort, branches:[],
-            unknown:false, nc:false, disp_ext:''
-          };
-          segs.unshift(seg);
-        }
-      }
+    // Buscar cable que ENTRA a este puerto
+    var inConns=CONNS.filter(function(c){
+      return c.es_thru!==true && c.dr===dstRack && c.de===dstEq && 
+             nss(c.ds)===nss(dstSlot) && c.dp===dstPort;
     });
+    
+    if(inConns.length){
+      // Hay cable(s) entrando
+      inConns.forEach(function(conn){
+        var srcRack=conn.sr, srcEq=conn.se, srcSlot=conn.ss, srcPort=conn.sp;
+        var srcPlaca=getPlaca(srcRack,srcEq,srcSlot);
+        
+        // Crear segmento del SOURCE
+        var seg={
+          rack:srcRack, eq:srcEq, slot:srcSlot, placa:srcPlaca,
+          inPort:'', outPort:srcPort, branches:[], unknown:false, nc:false, disp_ext:conn.disp_ext||''
+        };
+        segs.unshift(seg);
+        
+        // Recursión: ¿qué entra al srcPort del source?
+        walkUp(srcRack,srcEq,srcSlot,srcPort,depth+1);
+      });
+    } else {
+      // Sin cable directo: ¿el destPort es OUTPUT de un THRU?
+      var thruConns=CONNS.filter(function(c){
+        return c.es_thru===true && c.dr===dstRack && c.de===dstEq && 
+               nss(c.ds)===nss(dstSlot) && c.dp===dstPort;
+      });
+      
+      if(thruConns.length){
+        // dstPort es salida de THRU: el THRU lo conecta con otro puerto
+        // Seguir por la ENTRADA del THRU
+        thruConns.forEach(function(thru){
+          var thruIn=thru.sp;  // puerto de entrada del THRU
+          walkUp(dstRack,dstEq,dstSlot,thruIn,depth+1);
+        });
+      }
+    }
   }
   
-  // INICIO: empezar a caminar desde el puerto clickeado hacia atrás
+  // INICIO: caminar hacia atrás desde el puerto clickeado
   walkUp(sr,se,ss0,sp,0);
   
-  // Agregar el segmento final (el equipo donde clickeaste)
+  // Agregar el equipo final (donde clickeaste)
   var placa=getPlaca(sr,se,ss0);
   var finalSeg={rack:sr,eq:se,slot:ss0,placa:placa,inPort:sp,outPort:'',branches:[],unknown:false,nc:false,disp_ext:''};
   segs.push(finalSeg);
