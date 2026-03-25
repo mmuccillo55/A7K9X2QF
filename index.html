@@ -762,7 +762,12 @@ function renderRoute(upstream,segs){
 	  }
 
 	  html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
+
+	  // 👇 NUEVO: mostrar entrada también
+	  if(u.port) html+=renderIn(u.port);
+
 	  html+=renderOut(u.port);
+
 	  html+='<div class="tr-gap"></div>';
 	});
   segs.forEach(function(seg,i){
