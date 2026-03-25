@@ -158,7 +158,7 @@ function init(data){
     CONNS.push({
       sr:c.src.rack, se:c.src.equipo, ss:nss(c.src.slot), sl:c.src.placa, sp:c.src.puerto,
       dr:c.dst.rack, de:c.dst.equipo, ds:nss(c.dst.slot), dl:c.dst.placa, dp:c.dst.puerto,
-      thru:c.thru, rotulo:c.rotulo, notas:c.notas, disp_ext:c.disp_ext||''
+      thru:c.thru, rotulo:c.rotulo, notas:c.notas, es_thru:c.es_thru||false, disp_ext:c.disp_ext||''
     });
   });
   showRacks();
@@ -229,7 +229,7 @@ function getSlots(rack,eq){
 // and no audio ports involved. This matches patch panels but NOT dist amps (1-to-many).
 function isPassive(rack,eq,slot){
   var thrus=CONNS.filter(function(c){
-    return c.rotulo==='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
+    return c.es_thru===true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
   });
   if(!thrus.length) return false;
   // Check 1-to-1: every src port appears exactly once
@@ -244,18 +244,18 @@ function isPassive(rack,eq,slot){
 // For passive equipo: get connector list (one entry per THRU pair)
 function getConnectors(rack,eq,slot){
   var thrus=CONNS.filter(function(c){
-    return c.rotulo==='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
+    return c.es_thru===true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
   });
   // Build connectors: {num, inPort, outPort, label, ncIn, ncOut}
   var conns2=thrus.map(function(t){
     var num=portN(t.sp);
     // Who feeds In port?
     var srcConns=CONNS.filter(function(c){
-      return c.rotulo!=='THRU'&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===t.sp;
+      return c.es_thru!==true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===t.sp;
     });
     // Where does Out port go?
     var dstConns=CONNS.filter(function(c){
-      return c.rotulo!=='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===t.dp;
+      return c.es_thru!==true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===t.dp;
     });
     var ncIn  = srcConns.length>0 && (srcConns[0].sr==='N/C');
     var ncOut = dstConns.length>0 && (dstConns[0].dr==='N/C');
@@ -301,7 +301,7 @@ function showRacks(){
     [[c.sr,c.se],[c.dr,c.de]].forEach(function(pair){
       var r=pair[0],e=pair[1];
       if(!r||r==='?'||!e||e==='?') return;
-      if(c.rotulo==='THRU') return;
+      if(c.es_thru===true) return;
       if(!rm[r]) rm[r]={};
       rm[r][e]=true;
     });
@@ -393,10 +393,10 @@ function showEquip(rack,eq,slot){
 
   // Filter connections for this exact rack+eq+slot
   var outsAll=CONNS.filter(function(c){
-    return c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.rotulo!=='THRU';
+    return c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.es_thru!==true;
   });
   var insAll=CONNS.filter(function(c){
-    return c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.rotulo!=='THRU';
+    return c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.es_thru!==true;
   });
 
   var html='<div class="eq-meta">';
@@ -546,17 +546,17 @@ function isAudio(p){ return /audio/i.test(p||''); }
 
 function fOuts(rack,eq,slot,port){
   return CONNS.filter(function(c){
-    return c.rotulo!=='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===port;
+    return c.es_thru!==true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===port;
   });
 }
 function fThrus(rack,eq,slot,inPort){
   return CONNS.filter(function(c){
-    return c.rotulo==='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===inPort;
+    return c.es_thru===true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===inPort;
   });
 }
 function fIns(rack,eq,slot,port){
   return CONNS.filter(function(c){
-    return c.rotulo!=='THRU'&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===port
+    return c.es_thru!==true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===port
       &&c.sr&&c.sr!=='?'&&c.sr!=='N/C';
   });
 }
@@ -668,40 +668,67 @@ function buildSegments(sr,se,ss0,sp){
 }
 
 function buildUpstream(sr,se,ss0,sp){
-  var upstream=[], vis={};
-  function walkUp(rack,eq,slot,port,depth){
-    if(depth>8) return;
-    // Direct non-THRU connections into this port
-    var direct=fIns(rack,eq,slot,port);
-    if(direct.length){
-      direct.forEach(function(c){
-        var k=c.sr+'|'+c.se+'|'+nss(c.ss)+'|'+c.sp;
-        if(vis[k]) return; vis[k]=true;
-        upstream.unshift({rack:c.sr,eq:c.se,slot:c.ss,placa:getPlaca(c.sr,c.se,c.ss),port:c.sp});
-        walkUp(c.sr,c.se,c.ss,c.sp,depth+1);
-      });
-    } else {
-      // No direct connection — check if this port is the OUTPUT of a THRU
-      // If so, walk up through the THRU's input port
+  var segs=[], vis={};
+  
+  function walkUp(rack,eq,slot,inPort,outPort,depth){
+    if(depth>12) return;
+    var key=rack+'|'+eq+'|'+nss(slot)+'|'+String(inPort||'')+'|'+String(outPort||'');
+    if(vis[key]) return; vis[key]=true;
+    
+    var placa=getPlaca(rack,eq,slot);
+    var seg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:inPort,outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
+    segs.push(seg);
+    
+    // Buscar cables EXTERNOS que ENTRAN a inPort
+    var direct=fIns(rack,eq,slot,inPort);
+    if(!direct.length){
+      // Sin cable directo: ¿inPort es salida de un THRU?
       var thruSrc=CONNS.filter(function(c){
-        return c.rotulo==='THRU'&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===port;
+        return c.es_thru===true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===inPort;
       });
       thruSrc.forEach(function(t){
-        walkUp(rack,eq,slot,t.sp,depth+1);
+        // t.sp es el puerto de ENTRADA del THRU
+        walkUp(rack,eq,slot,t.sp,inPort,depth+1);
       });
+      return;
     }
+    
+    direct.forEach(function(c){
+      if(!c.sr||c.sr==='N/C'){seg.nc=true;return;}
+      if(c.sr==='?'){seg.unknown=true;return;}
+      if(c.disp_ext) seg.disp_ext=c.disp_ext;
+      
+      var sr=c.sr,se=c.se,ss=c.ss,sp=c.sp;
+      
+      // ¿El origen tiene THRUs en el puerto de salida?
+      var thrus=fThrus(sr,se,ss,sp);
+      
+      if(!thrus.length){
+        // Sin thrus: seguir directo con puerto de salida
+        walkUp(sr,se,ss,'',sp,depth+1);
+      } else {
+        // Con thrus: el origen tiene bypass
+        // Mostrar el equipo origen con su salida
+        walkUp(sr,se,ss,sp,'',depth+1);
+      }
+    });
   }
-  walkUp(sr,se,ss0,sp,0);
-  return upstream;
+  
+  // INICIO: ¿el puerto clickeado es entrada de THRU?
+  var thrusClick=fThrus(sr,se,ss0,sp);
+  if(thrusClick.length){
+    // El puerto es entrada de thrus: mostrar como entrada de ese equipo
+    walkUp(sr,se,ss0,sp,'',0);
+  } else {
+    // Puerto es una salida normal: mostrar como salida
+    walkUp(sr,se,ss0,'',sp,0);
+  }
+  
+  return segs;
 }
 
-function renderRoute(upstream,segs){
+function renderRoute(segs){
   var html='';
-  upstream.forEach(function(u){
-    html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
-    html+=renderOut(u.port);
-    html+='<div class="tr-gap"></div>';
-  });
   segs.forEach(function(seg,i){
     // disp_ext from PREVIOUS segment's cable goes before this equipo's label
     if(i>0 && segs[i-1].disp_ext){
@@ -715,60 +742,47 @@ function renderRoute(upstream,segs){
     if(seg.unknown) html+='<div class="tr-unk">&#10549; Destino desconocido</div>';
     if(i<segs.length-1) html+='<div class="tr-gap"></div>';
   });
-  if(!segs.length&&!upstream.length) html='<div class="tr-nodata">Sin datos.</div>';
+  if(!segs.length) html='<div class="tr-nodata">Sin datos.</div>';
   return html;
 }
 
 function buildRoute(sr,se,ss0,sp){
-  var upstream=buildUpstream(sr,se,ss0,sp);
-  var segs=buildSegments(sr,se,ss0,sp);
-  return renderRoute(upstream,segs);
+  var segs=buildUpstream(sr,se,ss0,sp);
+  segs.reverse(); // Invertir porque buildUpstream construye hacia atrás (de destino a origen)
+  var downSegs=buildSegments(sr,se,ss0,sp);
+  // Combinar: upstream (invertido) + punto de click (omitido para evitar duplicado) + downstream
+  var allSegs=segs.slice(0,-1).concat(downSegs);
+  return renderRoute(allSegs);
 }
 
-// For passive connectors: upstream into In, show the connector, downstream from Out
-// Downstream starts from the actual destination of outPort (not from outPort itself)
-// to avoid showing the connector equipo twice.
 function buildPassiveRoute(rack,eq,slot,inPort,outPort){
-  var upstream=buildUpstream(rack,eq,slot,inPort);
+  var upSegs=buildUpstream(rack,eq,slot,inPort);
   var placa=getPlaca(rack,eq,slot);
-
-  var connNode=eqLabel(rack,eq,slot,placa)
-    +renderIn(inPort)
-    +renderOut(outPort);
-
-  // Find cable leaving outPort and its disp_ext
+  
+  // El conector mismo (punto en el medio)
+  var connSeg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:inPort,outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
+  
+  // Downstream desde outPort
   var outConns=fOuts(rack,eq,slot,outPort);
-  var dispExt=outConns.length&&outConns[0].disp_ext?outConns[0].disp_ext:'';
-
-  // Downstream: start from the destination of outPort, not outPort itself
   var downSegs=[];
   outConns.forEach(function(c){
     if(!c.dr||c.dr==='?'||c.dr==='N/C') return;
     var sub=buildSegments(c.dr,c.de,nss(c.ds),c.dp);
     sub.forEach(function(s){ downSegs.push(s); });
   });
-
-  var html='';
-  upstream.forEach(function(u){
-    html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
-    html+=renderOut(u.port);
-    html+='<div class="tr-gap"></div>';
-  });
-  html+=connNode;
-
+  
+  // Assembly: upstream (invertido) + conector + downstream
+  upSegs.reverse();
+  var allSegs=upSegs.slice(0,-1).concat([connSeg]).concat(downSegs);
+  
+  // Manejo especial si no hay salida
   if(!outConns.length){
-    html+='<div class="tr-nc">N/C</div>';
+    connSeg.nc=true;
   } else if(outConns[0].dr==='?'){
-    html+='<div class="tr-unk">&#10549; Destino desconocido</div>';
-  } else if(outConns[0].dr==='N/C'||!outConns[0].dr){
-    html+='<div class="tr-nc">N/C</div>';
-  } else if(downSegs.length){
-    html+='<div class="tr-gap"></div>';
-    if(dispExt) html+='<div class="tr-dispext">&#9654; '+h(dispExt)+'</div>';
-    html+=renderRoute([],downSegs);
+    connSeg.unknown=true;
   }
-
-  return html||'<div class="tr-nodata">Sin datos.</div>';
+  
+  return renderRoute(allSegs);
 }
 </script>
 </body>
