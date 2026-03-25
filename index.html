@@ -620,6 +620,7 @@ function buildSegments(sr,se,ss0,sp){
 
     nexts.forEach(function(c){
       if(!c.dr||c.dr==='N/C'){seg.nc=true;return;}
+      if(c.dr==='N/D'){seg.unknown=true;return;}
       if(c.dr==='?'){seg.unknown=true;return;}
       // Store disp_ext on the current segment (it belongs to this cable)
       if(c.disp_ext) seg.disp_ext=c.disp_ext;
@@ -687,7 +688,20 @@ function buildUpstream(sr,se,ss0,sp){
       // Hay cable(s) entrando
       inConns.forEach(function(conn){
         var srcRack=conn.sr, srcEq=conn.se, srcSlot=conn.ss, srcPort=conn.sp;
+
         var srcPlaca=getPlaca(srcRack,srcEq,srcSlot);
+
+        // Si el source es N/C, N/D o desconocido: mostrar el segmento pero no recursar
+        if(!srcRack || srcRack==='N/C' || srcRack==='?' ){
+          segs.unshift({rack:srcRack,eq:srcEq,slot:srcSlot,placa:srcPlaca,
+            inPort:'',outPort:srcPort,branches:[],unknown:false,nc:true,disp_ext:''});
+          return;
+        }
+        if(srcRack==='N/D'){
+          segs.unshift({rack:srcRack,eq:srcEq,slot:srcSlot,placa:srcPlaca,
+            inPort:'',outPort:srcPort,branches:[],unknown:true,nc:false,disp_ext:''});
+          return;
+        }
 
         // ¿El srcPort es salida de un THRU interno?
         // Si es así, NO crear segmento aquí — la recursión entrará al branch THRU
