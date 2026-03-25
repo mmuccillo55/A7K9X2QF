@@ -673,23 +673,67 @@ function buildUpstream(sr,se,ss0,sp){
     if(depth>8) return;
     // Direct non-THRU connections into this port
     var direct=fIns(rack,eq,slot,port);
-    if(direct.length){
-      direct.forEach(function(c){
-        var k=c.sr+'|'+c.se+'|'+nss(c.ss)+'|'+c.sp;
-        if(vis[k]) return; vis[k]=true;
-        upstream.unshift({rack:c.sr,eq:c.se,slot:c.ss,placa:getPlaca(c.sr,c.se,c.ss),port:c.sp});
-        walkUp(c.sr,c.se,c.ss,c.sp,depth+1);
-      });
-    } else {
-      // No direct connection — check if this port is the OUTPUT of a THRU
-      // If so, walk up through the THRU's input port
-      var thruSrc=CONNS.filter(function(c){
-        return c.rotulo==='THRU'&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===port;
-      });
-      thruSrc.forEach(function(t){
-        walkUp(rack,eq,slot,t.sp,depth+1);
-      });
-    }
+	if(direct.length){
+	  direct.forEach(function(c){
+		var k=c.sr+'|'+c.se+'|'+nss(c.ss)+'|'+c.sp;
+		if(vis[k]) return; 
+		vis[k]=true;
+
+		upstream.unshift({
+		  rack:c.sr,
+		  eq:c.se,
+		  slot:c.ss,
+		  placa:getPlaca(c.sr,c.se,c.ss),
+		  port:c.sp
+		});
+
+		walkUp(c.sr,c.se,c.ss,c.sp,depth+1);
+	  });
+
+	} else {
+	  // 👇 NUEVO: detectar conexiones aunque no cumplan filtro perfecto
+	  var raw=CONNS.filter(function(c){
+		return c.rotulo!=='THRU' &&
+			   c.dr===rack &&
+			   c.de===eq &&
+			   nss(c.ds)===nss(slot) &&
+			   c.dp===port;
+	  });
+
+	  if(raw.length){
+		raw.forEach(function(c){
+		  if(!c.sr || c.sr==='?' || c.sr==='N/C') return;
+
+		  var k=c.sr+'|'+c.se+'|'+nss(c.ss)+'|'+c.sp;
+		  if(vis[k]) return;
+		  vis[k]=true;
+
+		  upstream.unshift({
+			rack:c.sr,
+			eq:c.se,
+			slot:c.ss,
+			placa:getPlaca(c.sr,c.se,c.ss),
+			port:c.sp
+		  });
+
+		  walkUp(c.sr,c.se,c.ss,c.sp,depth+1);
+		});
+
+	  } else {
+		// THRU fallback (esto ya lo tenías)
+		var thruSrc=CONNS.filter(function(c){
+		  return c.rotulo==='THRU' &&
+				 c.dr===rack &&
+				 c.de===eq &&
+				 nss(c.ds)===nss(slot) &&
+				 c.dp===port;
+		});
+
+		thruSrc.forEach(function(t){
+		  walkUp(rack,eq,slot,t.sp,depth+1);
+		});
+	  }
+	}
   }
   walkUp(sr,se,ss0,sp,0);
   return upstream;
