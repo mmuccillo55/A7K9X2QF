@@ -816,7 +816,7 @@ function buildPassiveRoute(rack,eq,slot,inPort,outPort){
     sub.forEach(function(s){ downSegs.push(s); });
   });
 
-  var html='';
+	var html='';
 	upstream.forEach(function(u){
 
 	  if(u.rack==='N/C'){
@@ -827,10 +827,7 @@ function buildPassiveRoute(rack,eq,slot,inPort,outPort){
 
 	  html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
 
-	  // 👇 NUEVO: mostrar entrada también
-	  if(u.port) html+=renderIn(u.port);
-
-	  html+=renderOut(u.port);
+	  html+=renderOut(u.port);   // ✔ solo esto
 
 	  html+='<div class="tr-gap"></div>';
 	});
