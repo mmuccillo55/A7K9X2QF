@@ -440,7 +440,7 @@ function showEquip(rack,eq,slot){
       sortedOuts.forEach(function(c){
         var state;
         if(c.dr==='N/C') state='NC';      // No Conectado
-        else if(!c.dr) state='ND';        // No Documentado (vacío)
+        else if(c.dr==='N/D' || !c.dr) state='ND';  // No Documentado
         else state='doc';                 // Documentado
         var lbl=c.rotulo||(state!=='doc'?'':c.de)||'';
         var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
@@ -453,7 +453,7 @@ function showEquip(rack,eq,slot){
       sortedIns.forEach(function(c){
         var state;
         if(c.sr==='N/C') state='NC';      // No Conectado
-        else if(!c.sr) state='ND';        // No Documentado (vacío)
+        else if(c.sr==='N/D' || !c.sr) state='ND';  // No Documentado
         else state='doc';                 // Documentado
         var lbl=c.rotulo||(state!=='doc'?'':c.se)||'';
         var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';

@@ -885,7 +885,7 @@
         "puerto": "Out 24"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -990,7 +990,7 @@
         "puerto": "Out 29"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -1431,7 +1431,7 @@
         "puerto": "Out 50"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -1494,7 +1494,7 @@
         "puerto": "Out 53"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -1536,7 +1536,7 @@
         "puerto": "Out 55"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -1599,7 +1599,7 @@
         "puerto": "Out 58"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -1704,7 +1704,7 @@
         "puerto": "Out 63"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/D",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -3363,7 +3363,7 @@
         "puerto": "Out 1"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -3384,7 +3384,7 @@
         "puerto": "Out 10"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -3405,7 +3405,7 @@
         "puerto": "Out 11"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -3426,7 +3426,7 @@
         "puerto": "Out 12"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -3615,7 +3615,7 @@
         "puerto": "Out 2"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -3636,7 +3636,7 @@
         "puerto": "Out 3"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -3657,7 +3657,7 @@
         "puerto": "Out 4"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -3678,7 +3678,7 @@
         "puerto": "Out 5"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -3699,7 +3699,7 @@
         "puerto": "Out 6"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -3720,7 +3720,7 @@
         "puerto": "Out 7"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -3741,7 +3741,7 @@
         "puerto": "Out 8"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -3762,7 +3762,7 @@
         "puerto": "Out 9"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -3783,7 +3783,7 @@
         "puerto": "Out 1"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4203,7 +4203,7 @@
         "puerto": "Out 12"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4224,7 +4224,7 @@
         "puerto": "Out 1"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4266,7 +4266,7 @@
         "puerto": "Out 2"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4308,7 +4308,7 @@
         "puerto": "Out 3"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4350,7 +4350,7 @@
         "puerto": "Out 4"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4392,7 +4392,7 @@
         "puerto": "Out 5"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4434,7 +4434,7 @@
         "puerto": "Out 6"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4476,7 +4476,7 @@
         "puerto": "Out 7"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4518,7 +4518,7 @@
         "puerto": "Out 8"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4560,7 +4560,7 @@
         "puerto": "Out 16"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4644,7 +4644,7 @@
         "puerto": "Out 2"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/D",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4812,7 +4812,7 @@
         "puerto": "Out 6"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4854,7 +4854,7 @@
         "puerto": "Out 7"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4896,7 +4896,7 @@
         "puerto": "Out 8"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4938,7 +4938,7 @@
         "puerto": "Out 9"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -4980,7 +4980,7 @@
         "puerto": "Out 10"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -5064,7 +5064,7 @@
         "puerto": "Out 12"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -5232,7 +5232,7 @@
         "puerto": "Out 16"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -5547,7 +5547,7 @@
         "puerto": "Audio Out R"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -5673,7 +5673,7 @@
         "puerto": "Audio Out R"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -5799,7 +5799,7 @@
         "puerto": "Audio Out R"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -5841,7 +5841,7 @@
         "puerto": "SDI Out"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -5883,7 +5883,7 @@
         "puerto": "Audio Out L"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -5925,7 +5925,7 @@
         "puerto": "Audio Out R"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -5967,7 +5967,7 @@
         "puerto": "J4"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/D",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -6009,7 +6009,7 @@
         "puerto": "J6"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/D",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -6072,7 +6072,7 @@
         "puerto": "SDI Out"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/D",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -6093,7 +6093,7 @@
         "puerto": "A1"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/D",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -6114,7 +6114,7 @@
         "puerto": "A2"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/D",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -6135,7 +6135,7 @@
         "puerto": "SDI Out"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/D",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -6156,7 +6156,7 @@
         "puerto": "A1"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/D",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -6177,7 +6177,7 @@
         "puerto": "A2"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/D",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -6198,7 +6198,7 @@
         "puerto": "A1"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/D",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -6261,7 +6261,7 @@
         "puerto": "A2"
       },
       "dst": {
-        "rack": "",
+        "rack": "N/D",
         "equipo": "",
         "slot": "",
         "placa": "",
@@ -7160,7 +7160,7 @@
     "nodos": 78,
     "conexiones": 248,
     "arcos_thru": 74,
-    "con_destino": 194,
-    "sin_destino": 54
+    "con_destino": 248,
+    "sin_destino": 0
   }
 }

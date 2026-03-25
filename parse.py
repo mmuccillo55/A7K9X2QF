@@ -204,8 +204,14 @@ for idx, row in df_con.iterrows():
         if (dst_rack, dst_equipo) not in db_index:
             warnings.append(f"fila {fila}: destino '{dst_rack} / {dst_equipo}' no está en DB")
 
-    # Si sin destino, limpiar campos dst
-    if sin_destino(dst_rack):
+    # Si destino es N/C o N/D, mantener en rack pero limpiar otros campos
+    # Si destino está completamente vacío, dejar todo vacío
+    if dst_rack in ('N/C', 'N/D'):
+        # Mantener el valor N/C o N/D en dst_rack
+        # Limpiar los otros campos
+        dst_equipo = dst_slot = dst_puerto = ''
+    elif sin_destino(dst_rack):
+        # Si es otro valor en SIN_DESTINO (ej: ''), limpiar todo
         dst_rack = dst_equipo = dst_slot = dst_puerto = ''
 
     # Conexión principal (el cable externo)
