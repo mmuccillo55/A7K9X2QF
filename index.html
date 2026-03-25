@@ -98,6 +98,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .tr-eq{color:var(--text);font-weight:600;font-family:var(--sans);font-size:.72rem;}
 .tr-rack{color:var(--yellow);font-size:.6rem;margin-right:4px;}
 .tr-slot{color:var(--accent);font-size:.6rem;}
+.tr-connector{color:var(--green);font-size:.55rem;margin-left:6px;font-style:italic;}
 .tr-out{color:var(--orange);}
 .tr-in{color:var(--accent);}
 .tr-branch{padding-left:42px;color:var(--green);font-size:.64rem;display:flex;align-items:baseline;gap:4px;flex-wrap:wrap;}
@@ -138,7 +139,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 var CONNS=[], NODOS={}, PROJ='', _nav=[], _selBtn=null;
 
 // ── Init ──────────────────────────────────────────────────────────────────────
-// Load JSON from connections.json (same directory)
 fetch('connections.json')
   .then(function(r){
     if(!r.ok) throw new Error('HTTP '+r.status);
@@ -166,7 +166,7 @@ function init(data){
 
 // ── Core helpers ──────────────────────────────────────────────────────────────
 function h(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function nss(s){ return String(s||'').replace(/\.0$/,''); }  // normalize slot string
+function nss(s){ return String(s||'').replace(/\.0$/,''); }
 
 function portCls(p){
   var l=String(p||'').toLowerCase();
@@ -201,14 +201,12 @@ function ipEl(ip,cls){
 function getRackPfx(r){ var m=r.match(/^([A-Za-z]+)/); return m?m[1].toUpperCase():'?'; }
 
 // ── Frame / slot detection ────────────────────────────────────────────────────
-// A frame is an equipo that has connections where ITS OWN slot is non-empty
 function isFrame(rack,eq){
   return CONNS.some(function(c){
     return (c.sr===rack&&c.se===eq&&c.ss) || (c.dr===rack&&c.de===eq&&c.ds);
   });
 }
 
-// Get all unique slots for a frame, as {slot, placa} objects
 function getSlots(rack,eq){
   var seen={};
   CONNS.forEach(function(c){
@@ -225,35 +223,28 @@ function getSlots(rack,eq){
   });
   return Object.values(seen).sort(function(a,b){ return parseInt(a.slot)-parseInt(b.slot); });
 }
-// An equipo is "passive" if its THRUs are strictly 1-to-1 (each src port appears exactly once)
-// and no audio ports involved. This matches patch panels but NOT dist amps (1-to-many).
+
 function isPassive(rack,eq,slot){
   var thrus=CONNS.filter(function(c){
     return c.rotulo==='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
   });
   if(!thrus.length) return false;
-  // Check 1-to-1: every src port appears exactly once
   var srcCounts={};
   thrus.forEach(function(t){ srcCounts[t.sp]=(srcCounts[t.sp]||0)+1; });
   var isOneToOne=Object.values(srcCounts).every(function(n){return n===1;});
   if(!isOneToOne) return false;
-  // No audio ports
   return thrus.every(function(t){ return !isAudio(t.sp)&&!isAudio(t.dp); });
 }
 
-// For passive equipo: get connector list (one entry per THRU pair)
 function getConnectors(rack,eq,slot){
   var thrus=CONNS.filter(function(c){
     return c.rotulo==='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
   });
-  // Build connectors: {num, inPort, outPort, label, ncIn, ncOut}
   var conns2=thrus.map(function(t){
     var num=portN(t.sp);
-    // Who feeds In port?
     var srcConns=CONNS.filter(function(c){
       return c.rotulo!=='THRU'&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===t.sp;
     });
-    // Where does Out port go?
     var dstConns=CONNS.filter(function(c){
       return c.rotulo!=='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===t.dp;
     });
@@ -263,7 +254,6 @@ function getConnectors(rack,eq,slot){
     var unkOut = !dstConns.length || dstConns[0].dr==='?' || !dstConns[0].dr;
     var isFree = unkIn && unkOut;
     var isNc   = ncIn || ncOut;
-    // Label: prefer rotulo from src conn, then dst conn
     var lbl = (srcConns[0]&&srcConns[0].rotulo) || (dstConns[0]&&dstConns[0].rotulo) || '';
     return {num:num, inPort:t.sp, outPort:t.dp, label:lbl,
             isFree:isFree, isNc:isNc,
@@ -364,18 +354,13 @@ function showSlots(rack,frameEq){
 }
 
 // ── Equip view ────────────────────────────────────────────────────────────────
-// rack, eq: base equipo name (e.g. 'openGear X'), slot: slot number string or ''
 function showEquip(rack,eq,slot){
   _nav.push({type:'equip',rack:rack,eq:eq,slot:slot}); closePop(); setView('view-equip');
-
-  // Breadcrumb
   var isSlotEq = slot!=='';
   var bc = isSlotEq
     ? '<span class="hi">'+h(rack)+'</span> › '+h(eq)+' › Slot '+h(slot)
     : '<span class="hi">'+h(rack)+'</span> › '+h(eq);
   updateHdr(bc);
-
-  // Get placa for this slot
   var placa='';
   if(isSlotEq){
     var plRef=CONNS.find(function(c){
@@ -384,28 +369,19 @@ function showEquip(rack,eq,slot){
     });
     if(plRef) placa=plRef.sl||plRef.dl||'';
   }
-
-  // Display name
   var displayName = isSlotEq ? ('Slot '+slot+(placa?' — '+placa:'')) : eq;
-
-  // IP: for slot eqs use frame IP
   var ip = isSlotEq ? getIP(rack,eq) : getIP(rack,eq);
-
-  // Filter connections for this exact rack+eq+slot
   var outsAll=CONNS.filter(function(c){
     return c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.rotulo!=='THRU';
   });
   var insAll=CONNS.filter(function(c){
     return c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.rotulo!=='THRU';
   });
-
   var html='<div class="eq-meta">';
   html+='<div class="eq-name">'+h(displayName)+'</div>';
   html+='<div class="eq-rack">'+h(rack)+(isSlotEq?' › '+h(eq):'')+'</div>';
   if(placa) html+='<div class="eq-placa">'+h(placa)+'</div>';
   html+=ipEl(ip,'eq-iprow')+'</div>';
-
-  // Check if passive (patch panel style)
   if(isPassive(rack,eq,slot)){
     var connectors=getConnectors(rack,eq,slot);
     html+='<div class="ports-lbl">&#9670; CONECTORES</div><div class="ports-grid">';
@@ -418,7 +394,6 @@ function showEquip(rack,eq,slot){
 	  if(state==='NC') cls+=' p-free';
 	  else if(state==='ND') cls+=' p-nd';
       var lbl=con.label||'';
-      // Pass both in and out ports so trace can go both directions
       var click=' onclick="onConnectorClick(this,\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(con.inPort)+'\',\''+h(con.outPort)+'\',\''+state+'\')"';
       html+='<div class="'+cls+'"'+click+'>';
       html+='<div class="p-num">'+h(con.inPort.replace(/^In /,''))+'</div>';
@@ -427,10 +402,8 @@ function showEquip(rack,eq,slot){
     });
     html+='</div>';
   } else {
-    // Normal equipo: separate SALIDAS / ENTRADAS
     var sortedOuts=sortByPort(outsAll,function(c){return c.sp;});
     var sortedIns =sortByPort(insAll, function(c){return c.dp;});
-
     function portBtnHTML(port,state,lbl,clickArgs){
       var cls='port-btn '+portCls(port);
 	  if(state==='NC') cls+=' p-free';
@@ -441,14 +414,13 @@ function showEquip(rack,eq,slot){
         +'<div class="p-lbl">'+h(lbl)+'</div>'
         +'</div>';
     }
-
     if(sortedOuts.length){
       html+='<div class="ports-lbl">&#9670; SALIDAS</div><div class="ports-grid">';
       sortedOuts.forEach(function(c){
         var state;
-        if(c.dr==='N/C') state='NC';      // No Conectado
-        else if(c.dr==='N/D' || !c.dr) state='ND';  // No Documentado
-        else state='doc';                 // Documentado
+        if(c.dr==='N/C') state='NC';
+        else if(c.dr==='N/D' || !c.dr) state='ND';
+        else state='doc';
         var lbl=c.rotulo||(state!=='doc'?'':c.de)||'';
         var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
         html+=portBtnHTML(c.sp,state,lbl,args);
@@ -459,9 +431,9 @@ function showEquip(rack,eq,slot){
       html+='<div class="ports-lbl">&#9670; ENTRADAS</div><div class="ports-grid">';
       sortedIns.forEach(function(c){
         var state;
-        if(c.sr==='N/C') state='NC';      // No Conectado
-        else if(c.sr==='N/D' || !c.sr) state='ND';  // No Documentado
-        else state='doc';                 // Documentado
+        if(c.sr==='N/C') state='NC';
+        else if(c.sr==='N/D' || !c.sr) state='ND';
+        else state='doc';
         var lbl=c.rotulo||(state!=='doc'?'':c.se)||'';
         var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
         html+=portBtnHTML(c.dp,state,lbl,args);
@@ -472,7 +444,6 @@ function showEquip(rack,eq,slot){
       html+='<p style="color:var(--text2);font-style:italic;margin-top:16px;">Sin conexiones documentadas.</p>';
     }
   }
-
   document.getElementById('view-equip').innerHTML=html;
   window.scrollTo(0,0);
 }
@@ -482,7 +453,6 @@ function closePop(){
   document.getElementById('pop').classList.remove('on');
   if(_selBtn){_selBtn.classList.remove('selected');_selBtn=null;}
 }
-
 function positionPop(btn){
   var pop=document.getElementById('pop');
   var r=btn.getBoundingClientRect();
@@ -493,7 +463,6 @@ function positionPop(btn){
   if(top+340>window.innerHeight) top=Math.max(8,r.top-340);
   pop.style.left=left+'px'; pop.style.top=top+'px'; pop.style.width=pw+'px';
 }
-
 function showPop(btn,html){
   if(_selBtn===btn){closePop();return;}
   if(_selBtn) _selBtn.classList.remove('selected');
@@ -502,12 +471,8 @@ function showPop(btn,html){
   document.getElementById('pop').classList.add('on');
   positionPop(btn);
 }
-
-// Called from regular port buttons
 function onPortClick(btn,sr,se,ss0,sp,state){
-  console.log('onPortClick:', {sr,se,ss0,sp,state});
   var body;
-  
   if(state==='NC'){
     body='<div class="tr-nc">N/C — No Conectado</div>';
   } else if(state==='ND'){
@@ -519,8 +484,6 @@ function onPortClick(btn,sr,se,ss0,sp,state){
   }
   showPop(btn,body);
 }
-
-// Called from passive connector buttons
 function onConnectorClick(btn,rack,eq,slot,inPort,outPort,state){
   var body;
   if(state==='NC'){
@@ -528,14 +491,12 @@ function onConnectorClick(btn,rack,eq,slot,inPort,outPort,state){
   } else if(state==='ND'){
     body='<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO</div>';
   } else if(state==='doc'){
-    // Build route from both directions through this connector
     body=buildPassiveRoute(rack,eq,slot,inPort,outPort);
   } else {
     body='<div class="tr-nodata">Estado desconocido.</div>';
   }
   showPop(btn,body);
 }
-
 document.addEventListener('click',function(e){
   var pop=document.getElementById('pop');
   if(!pop.contains(e.target)&&!e.target.closest('.port-btn')) closePop();
@@ -543,7 +504,6 @@ document.addEventListener('click',function(e){
 
 // ── Route builder ─────────────────────────────────────────────────────────────
 function isAudio(p){ return /audio/i.test(p||''); }
-
 function fOuts(rack,eq,slot,port){
   return CONNS.filter(function(c){
     return c.rotulo!=='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===port;
@@ -560,8 +520,6 @@ function fIns(rack,eq,slot,port){
       &&c.sr&&c.sr!=='?'&&c.sr!=='N/C';
   });
 }
-
-// Build eq label for trace: "RACK  EqName  [/ Slot N — Placa]"
 function eqLabel(rack,eq,slot,placa){
   var html='<div class="tr-node">';
   html+='<span class="tr-rack">'+h(rack)+'</span>';
@@ -574,8 +532,6 @@ function eqLabel(rack,eq,slot,placa){
   html+='</div>';
   return html;
 }
-
-// Get placa for a rack+eq+slot combo
 function getPlaca(rack,eq,slot){
   var r=CONNS.find(function(c){
     return ((c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sl)
@@ -583,7 +539,6 @@ function getPlaca(rack,eq,slot){
   });
   return r?(r.sl||r.dl||''):'';
 }
-
 function renderOut(port){
   if(!port) return '';
   return '<div><span class="tr-out">'+h(port)+' &gt;&gt;&gt;</span></div>';
@@ -603,31 +558,56 @@ function renderBranch(br){
   return html;
 }
 
+function buildUpstream(sr,se,ss0,sp){
+  var upstream=[], vis={};
+  function walkUp(rack,eq,slot,port,depth){
+    if(depth>12) return;
+    var direct=fIns(rack,eq,slot,port);
+    if(direct.length){
+      direct.forEach(function(c){
+        if(c.sr==='N/C'){
+          upstream.unshift({rack:'N/C',eq:'',slot:'',placa:'',port:''});
+          return;
+        }
+        var k=c.sr+'|'+c.se+'|'+nss(c.ss)+'|'+c.sp;
+        if(vis[k]) return;
+        vis[k]=true;
+        upstream.unshift({
+          rack:c.sr, eq:c.se, slot:c.ss,
+          placa:getPlaca(c.sr,c.se,c.ss), port:c.sp
+        });
+        walkUp(c.sr,c.se,c.ss,c.sp,depth+1);
+      });
+    } else {
+      var thruSrc=fThrus(rack,eq,slot,port);
+      thruSrc.forEach(function(t){
+        walkUp(rack,eq,slot,t.sp,depth+1);
+      });
+    }
+  }
+  walkUp(sr,se,ss0,sp,0);
+  return upstream;
+}
+
 function buildSegments(sr,se,ss0,sp){
   var segs=[], vis={};
-
   function walk(rack,eq,slot,inPort,outPort,depth){
     if(depth>12) return;
     var key=rack+'|'+eq+'|'+nss(slot)+'|'+String(inPort||'')+'|'+String(outPort||'');
     if(vis[key]) return; vis[key]=true;
-
     var placa=getPlaca(rack,eq,slot);
     var seg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:inPort,outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
     segs.push(seg);
-
     var nexts=fOuts(rack,eq,slot,outPort);
     if(!nexts.length) return;
-
     nexts.forEach(function(c){
       if(!c.dr||c.dr==='N/C'){seg.nc=true;return;}
       if(c.dr==='?'){seg.unknown=true;return;}
-      // Store disp_ext on the current segment (it belongs to this cable)
       if(c.disp_ext) seg.disp_ext=c.disp_ext;
       var dr=c.dr,de=c.de,ds=c.ds,dp=c.dp;
       var thrus=fThrus(dr,de,ds,dp);
       var audioT=thrus.filter(function(t){return isAudio(t.dp);});
       var videoT=thrus.filter(function(t){return !isAudio(t.dp);});
-
       var branches=[];
       audioT.forEach(function(t){
         var outs=fOuts(dr,de,ds,t.dp);
@@ -639,7 +619,6 @@ function buildSegments(sr,se,ss0,sp){
           branches.push({outPort:t.dp,dstRack:'?',dstEq:'',dstSlot:'',dstPort:''});
         }
       });
-
       if(!thrus.length){
         walk(dr,de,ds,dp,'',depth+1);
       } else if(videoT.length){
@@ -658,120 +637,26 @@ function buildSegments(sr,se,ss0,sp){
       }
     });
   }
-
   var thrusClick=fThrus(sr,se,ss0,sp);
   var videoClick=thrusClick.filter(function(t){return !isAudio(t.dp);});
   if(videoClick.length) videoClick.forEach(function(t){walk(sr,se,ss0,sp,t.dp,0);});
   else walk(sr,se,ss0,'',sp,0);
-
   return segs;
-}
-
-function buildUpstream(sr,se,ss0,sp){
-  var upstream=[], vis={};
-  function walkUp(rack,eq,slot,port,depth){
-    if(depth>8) return;
-    // Direct non-THRU connections into this port
-    var direct=fIns(rack,eq,slot,port);
-	if(direct.length){
-	  direct.forEach(function(c){
-		var k=c.sr+'|'+c.se+'|'+nss(c.ss)+'|'+c.sp;
-		if(vis[k]) return; 
-		vis[k]=true;
-
-		upstream.unshift({
-		  rack:c.sr,
-		  eq:c.se,
-		  slot:c.ss,
-		  placa:getPlaca(c.sr,c.se,c.ss),
-		  port:c.sp
-		});
-
-		walkUp(c.sr,c.se,c.ss,c.sp,depth+1);
-	  });
-
-	} else {
-	  // 👇 NUEVO: detectar conexiones aunque no cumplan filtro perfecto
-	  var raw=CONNS.filter(function(c){
-		return c.rotulo!=='THRU' &&
-			   c.dr===rack &&
-			   c.de===eq &&
-			   nss(c.ds)===nss(slot) &&
-			   c.dp===port;
-	  });
-
-	  if(raw.length){
-		raw.forEach(function(c){
-		  if(!c.sr || c.sr==='?') return;
-
-			// 👇 NUEVO: marcar NC como final de cadena
-			if(c.sr==='N/C'){
-			  upstream.unshift({
-				rack:'N/C',
-				eq:'',
-				slot:'',
-				placa:'',
-				port:''
-			  });
-			  return;
-			}
-
-		  var k=c.sr+'|'+c.se+'|'+nss(c.ss)+'|'+c.sp;
-		  if(vis[k]) return;
-		  vis[k]=true;
-
-		  upstream.unshift({
-			rack:c.sr,
-			eq:c.se,
-			slot:c.ss,
-			placa:getPlaca(c.sr,c.se,c.ss),
-			port:c.sp
-		  });
-
-		  walkUp(c.sr,c.se,c.ss,c.sp,depth+1);
-		});
-
-	  } else {
-		// THRU fallback (esto ya lo tenías)
-		var thruSrc=CONNS.filter(function(c){
-		  return c.rotulo==='THRU' &&
-				 c.dr===rack &&
-				 c.de===eq &&
-				 nss(c.ds)===nss(slot) &&
-				 c.dp===port;
-		});
-
-		thruSrc.forEach(function(t){
-		  walkUp(rack,eq,slot,t.sp,depth+1);
-		});
-	  }
-	}
-  }
-  walkUp(sr,se,ss0,sp,0);
-  return upstream;
 }
 
 function renderRoute(upstream,segs){
   var html='';
-	upstream.forEach(function(u){
-
-	  if(u.rack==='N/C'){
-		html+='<div class="tr-nc">N/C — No Conectado</div>';
-		html+='<div class="tr-gap"></div>';
-		return;
-	  }
-
-	  html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
-
-	  // 👇 NUEVO: mostrar entrada también
-	  if(u.port) html+=renderIn(u.port);
-
-	  html+=renderOut(u.port);
-
-	  html+='<div class="tr-gap"></div>';
-	});
+  upstream.forEach(function(u){
+    if(u.rack==='N/C'){
+      html+='<div class="tr-nc">N/C — No Conectado</div>';
+      html+='<div class="tr-gap"></div>';
+      return;
+    }
+    html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
+    if(u.port) html+=renderOut(u.port);
+    html+='<div class="tr-gap"></div>';
+  });
   segs.forEach(function(seg,i){
-    // disp_ext from PREVIOUS segment's cable goes before this equipo's label
     if(i>0 && segs[i-1].disp_ext){
       html+='<div class="tr-dispext">&#9654; '+h(segs[i-1].disp_ext)+'</div>';
     }
@@ -793,46 +678,33 @@ function buildRoute(sr,se,ss0,sp){
   return renderRoute(upstream,segs);
 }
 
-// For passive connectors: upstream into In, show the connector, downstream from Out
-// Downstream starts from the actual destination of outPort (not from outPort itself)
-// to avoid showing the connector equipo twice.
 function buildPassiveRoute(rack,eq,slot,inPort,outPort){
   var upstream=buildUpstream(rack,eq,slot,inPort);
   var placa=getPlaca(rack,eq,slot);
-
   var connNode=eqLabel(rack,eq,slot,placa)
+    +'<div class="tr-connector">[PATCH]</div>'
     +renderIn(inPort)
     +renderOut(outPort);
-
-  // Find cable leaving outPort and its disp_ext
   var outConns=fOuts(rack,eq,slot,outPort);
   var dispExt=outConns.length&&outConns[0].disp_ext?outConns[0].disp_ext:'';
-
-  // Downstream: start from the destination of outPort, not outPort itself
   var downSegs=[];
   outConns.forEach(function(c){
     if(!c.dr||c.dr==='?'||c.dr==='N/C') return;
     var sub=buildSegments(c.dr,c.de,nss(c.ds),c.dp);
     sub.forEach(function(s){ downSegs.push(s); });
   });
-
-	var html='';
-	upstream.forEach(function(u){
-
-	  if(u.rack==='N/C'){
-		html+='<div class="tr-nc">N/C — No Conectado</div>';
-		html+='<div class="tr-gap"></div>';
-		return;
-	  }
-
-	  html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
-
-	  html+=renderOut(u.port);   // ✔ solo esto
-
-	  html+='<div class="tr-gap"></div>';
-	});
+  var html='';
+  upstream.forEach(function(u){
+    if(u.rack==='N/C'){
+      html+='<div class="tr-nc">N/C — No Conectado</div>';
+      html+='<div class="tr-gap"></div>';
+      return;
+    }
+    html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
+    html+=renderOut(u.port);
+    html+='<div class="tr-gap"></div>';
+  });
   html+=connNode;
-
   if(!outConns.length){
     html+='<div class="tr-nc">N/C</div>';
   } else if(outConns[0].dr==='?'){
@@ -844,7 +716,6 @@ function buildPassiveRoute(rack,eq,slot,inPort,outPort){
     if(dispExt) html+='<div class="tr-dispext">&#9654; '+h(dispExt)+'</div>';
     html+=renderRoute([],downSegs);
   }
-
   return html||'<div class="tr-nodata">Sin datos.</div>';
 }
 </script>
