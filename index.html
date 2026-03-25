@@ -708,9 +708,17 @@ function buildUpstream(sr,se,ss0,sp){
       
       if(thruConns.length){
         // dstPort es salida de THRU: el THRU lo conecta con otro puerto
-        // Seguir por la ENTRADA del THRU
         thruConns.forEach(function(thru){
           var thruIn=thru.sp;  // puerto de entrada del THRU
+          
+          // AQUÍ: Crear segmento del equipo con BOTH inPort y outPort
+          var seg={
+            rack:dstRack, eq:dstEq, slot:dstSlot, placa:getPlaca(dstRack,dstEq,dstSlot),
+            inPort:thruIn, outPort:dstPort, branches:[], unknown:false, nc:false, disp_ext:''
+          };
+          segs.unshift(seg);
+          
+          // Recursión: ¿qué entra al thruIn?
           walkUp(dstRack,dstEq,dstSlot,thruIn,depth+1);
         });
       }
