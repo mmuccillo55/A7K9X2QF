@@ -100,10 +100,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .tr-branch-dst{color:var(--text2);}
 .tr-branch-dport{color:var(--accent);}
 .tr-gap{height:7px;}
-.tr-nodata{color:var(--muted);font-style:italic;font-size:.64rem;}
+.tr-nodata{color:#ff4444;font-style:normal;font-size:.64rem;font-weight:600;}
 .tr-dispext{padding-left:8px;font-size:.6rem;color:var(--text2);font-style:italic;margin-bottom:2px;}
-.tr-nc{color:var(--text2);font-size:.64rem;}
-.tr-unk{color:#ff4444;font-size:.64rem;font-weight:600;}
+.tr-nc{color:#888888;font-size:.64rem;}
+.tr-unk{color:var(--yellow);font-size:.64rem;}
 
 ::-webkit-scrollbar{width:4px;height:4px;}
 ::-webkit-scrollbar-track{background:transparent;}
@@ -423,9 +423,9 @@ function showEquip(rack,eq,slot){
     var sortedOuts=sortByPort(outsAll,function(c){return c.sp;});
     var sortedIns =sortByPort(insAll, function(c){return c.dp;});
 
-    function portBtnHTML(port,isFree,isNc,isUnk,lbl,clickArgs){
+    function portBtnHTML(port,isFree,isNc,lbl,clickArgs){
       var cls='port-btn '+portCls(port)+(isFree?' p-free':'');
-      var click=' onclick="onPortClick(this,'+clickArgs+','+isFree+','+isNc+','+isUnk+')"';
+      var click=' onclick="onPortClick(this,'+clickArgs+','+isFree+','+isNc+')"';
       return '<div class="'+cls+'"'+click+'>'
         +'<div class="p-num">'+h(port||'?')+'</div>'
         +'<div class="p-lbl">'+h(lbl)+'</div>'
@@ -437,10 +437,9 @@ function showEquip(rack,eq,slot){
       sortedOuts.forEach(function(c){
         var isFree=!c.dr;
         var isNc=c.dr==='N/C';
-        var isUnk=c.dr==='?';
-        var lbl=c.rotulo||(isFree||isNc||isUnk?'':c.de)||'';
+        var lbl=c.rotulo||(isFree||isNc?'':c.de)||'';
         var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
-        html+=portBtnHTML(c.sp,isFree,isNc,isUnk,lbl,args);
+        html+=portBtnHTML(c.sp,isFree,isNc,lbl,args);
       });
       html+='</div>';
     }
@@ -449,10 +448,9 @@ function showEquip(rack,eq,slot){
       sortedIns.forEach(function(c){
         var isFree=!c.sr;
         var isNc=c.sr==='N/C';
-        var isUnk=c.sr==='?';
-        var lbl=c.rotulo||(isFree||isNc||isUnk?'':c.se)||'';
+        var lbl=c.rotulo||(isFree||isNc?'':c.se)||'';
         var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
-        html+=portBtnHTML(c.dp,isFree,isNc,isUnk,lbl,args);
+        html+=portBtnHTML(c.dp,isFree,isNc,lbl,args);
       });
       html+='</div>';
     }
@@ -492,14 +490,12 @@ function showPop(btn,html){
 }
 
 // Called from regular port buttons
-function onPortClick(btn,sr,se,ss0,sp,isFree,isNc,isUnk){
+function onPortClick(btn,sr,se,ss0,sp,isFree,isNc){
   var body;
   if(isNc){
-    body='<div class="tr-nc">N/C</div>';
-  } else if(isUnk){
-    body='<div class="tr-unk">⚠ AÚN NO DOCUMENTADO</div>';
+    body='<div class="tr-nc">N/C — No Conectado</div>';
   } else if(isFree){
-    body='<div class="tr-nodata">Sin conexiones documentadas.</div>';
+    body='<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO</div>';
   } else {
     body=buildRoute(sr,se,ss0,sp);
   }
