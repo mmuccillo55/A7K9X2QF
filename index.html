@@ -812,11 +812,23 @@ function buildPassiveRoute(rack,eq,slot,inPort,outPort){
   });
 
   var html='';
-  upstream.forEach(function(u){
-    html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
-    html+=renderOut(u.port);
-    html+='<div class="tr-gap"></div>';
-  });
+	upstream.forEach(function(u){
+
+	  if(u.rack==='N/C'){
+		html+='<div class="tr-nc">N/C — No Conectado</div>';
+		html+='<div class="tr-gap"></div>';
+		return;
+	  }
+
+	  html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
+
+	  // 👇 NUEVO: mostrar entrada también
+	  if(u.port) html+=renderIn(u.port);
+
+	  html+=renderOut(u.port);
+
+	  html+='<div class="tr-gap"></div>';
+	});
   html+=connNode;
 
   if(!outConns.length){
