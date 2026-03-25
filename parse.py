@@ -36,7 +36,7 @@ XLSX_FILE = sys.argv[1] if len(sys.argv) > 1 else 'Conexiones.xlsx'
 JSON_FILE = sys.argv[2] if len(sys.argv) > 2 else 'connections.json'
 
 # Valores que significan "sin destino / desconocido"
-SIN_DESTINO = {'', '?', 'N/C'}
+SIN_DESTINO = {'', 'N/D', 'N/C'}
 
 # Valor en columna Thru que activa el arco interno
 THRU_VALOR = 'T'
@@ -79,7 +79,7 @@ def parse_ip(v):
     """
     Convierte el valor de IP del DB:
       - celda vacía / NaN  -> None  (sin red)
-      - '?'                -> '?'   (pendiente)
+      - 'N/D'                -> 'N/D'   (pendiente)
       - cualquier otro     -> string tal cual
     """
     s = cv(v)
@@ -195,12 +195,12 @@ for idx, row in df_con.iterrows():
         continue
 
     # Warning si src no está en DB
-    if src_rack not in ('', '?') and src_equipo not in ('', '?'):
+    if src_rack not in ('', 'N/D') and src_equipo not in ('', 'N/D'):
         if (src_rack, src_equipo) not in db_index:
             warnings.append(f"fila {fila}: origen '{src_rack} / {src_equipo}' no está en DB")
 
     # Warning si dst no está en DB (solo si tiene destino conocido)
-    if not sin_destino(dst_rack) and dst_equipo not in ('', '?'):
+    if not sin_destino(dst_rack) and dst_equipo not in ('', 'N/D'):
         if (dst_rack, dst_equipo) not in db_index:
             warnings.append(f"fila {fila}: destino '{dst_rack} / {dst_equipo}' no está en DB")
 
