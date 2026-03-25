@@ -688,36 +688,45 @@ function buildUpstream(sr,se,ss0,sp){
       inConns.forEach(function(conn){
         var srcRack=conn.sr, srcEq=conn.se, srcSlot=conn.ss, srcPort=conn.sp;
         var srcPlaca=getPlaca(srcRack,srcEq,srcSlot);
-        
-        // Crear segmento del SOURCE
-        var seg={
-          rack:srcRack, eq:srcEq, slot:srcSlot, placa:srcPlaca,
-          inPort:'', outPort:srcPort, branches:[], unknown:false, nc:false, disp_ext:conn.disp_ext||''
-        };
-        segs.unshift(seg);
-        
+
+        // ¿El srcPort es salida de un THRU interno?
+        // Si es así, NO crear segmento aquí — la recursión entrará al branch THRU
+        // y lo creará completo (con inPort+outPort). Crearlo aquí genera el doblete.
+        var esSalidaThru=CONNS.some(function(c){
+          return c.es_thru===true && c.sr===srcRack && c.se===srcEq &&
+                 nss(c.ss)===nss(srcSlot) && c.dp===srcPort;
+        });
+
+        if(!esSalidaThru){
+          var seg={
+            rack:srcRack, eq:srcEq, slot:srcSlot, placa:srcPlaca,
+            inPort:'', outPort:srcPort, branches:[], unknown:false, nc:false, disp_ext:conn.disp_ext||''
+          };
+          segs.unshift(seg);
+        }
+
         // Recursión: ¿qué entra al srcPort del source?
         walkUp(srcRack,srcEq,srcSlot,srcPort,depth+1);
       });
     } else {
       // Sin cable directo: ¿el destPort es OUTPUT de un THRU?
       var thruConns=CONNS.filter(function(c){
-        return c.es_thru===true && c.dr===dstRack && c.de===dstEq && 
+        return c.es_thru===true && c.dr===dstRack && c.de===dstEq &&
                nss(c.ds)===nss(dstSlot) && c.dp===dstPort;
       });
-      
+
       if(thruConns.length){
         // dstPort es salida de THRU: el THRU lo conecta con otro puerto
         thruConns.forEach(function(thru){
           var thruIn=thru.sp;  // puerto de entrada del THRU
-          
-          // AQUÍ: Crear segmento del equipo con BOTH inPort y outPort
+
+          // Crear segmento completo con inPort+outPort
           var seg={
             rack:dstRack, eq:dstEq, slot:dstSlot, placa:getPlaca(dstRack,dstEq,dstSlot),
             inPort:thruIn, outPort:dstPort, branches:[], unknown:false, nc:false, disp_ext:''
           };
           segs.unshift(seg);
-          
+
           // Recursión: ¿qué entra al thruIn?
           walkUp(dstRack,dstEq,dstSlot,thruIn,depth+1);
         });
