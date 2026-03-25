@@ -24,7 +24,7 @@
     {
       "rack": "A.5",
       "equipo": "CGX",
-      "ip": "?"
+      "ip": "N/D"
     },
     {
       "rack": "B.1",
@@ -49,7 +49,7 @@
     {
       "rack": "C.1",
       "equipo": "Leader Sync Generator LT4611",
-      "ip": "?"
+      "ip": "N/D"
     },
     {
       "rack": "C.2",
@@ -69,7 +69,7 @@
     {
       "rack": "C.5",
       "equipo": "Blackmagic 12 x 12",
-      "ip": "?"
+      "ip": "N/D"
     },
     {
       "rack": "C.6",
@@ -114,7 +114,7 @@
     {
       "rack": "D.4",
       "equipo": "Wellav UMH160R",
-      "ip": "?"
+      "ip": "N/D"
     },
     {
       "rack": "D.5",
@@ -154,7 +154,7 @@
     {
       "rack": "D.12",
       "equipo": "AJA FS2",
-      "ip": "?"
+      "ip": "N/D"
     },
     {
       "rack": "D.13",
@@ -234,7 +234,7 @@
     {
       "rack": "F.7",
       "equipo": "FOR A HVS-390HS",
-      "ip": "?"
+      "ip": "N/D"
     },
     {
       "rack": "F.8",
@@ -243,7 +243,7 @@
     },
     {
       "rack": "K",
-      "equipo": "ESTO ES UNA PRUEBA",
+      "equipo": "",
       "ip": null
     },
     {
@@ -367,8 +367,8 @@
       "ip": null
     },
     {
-      "rack": "?",
-      "equipo": "",
+      "rack": "N/D",
+      "equipo": "?????",
       "ip": null
     },
     {
@@ -2112,7 +2112,7 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "IRD TV P.",
-      "notas": "TV PUBLICA",
+      "notas": "",
       "disp_ext": ""
     },
     {
@@ -2133,7 +2133,7 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "IRD WELL. H",
-      "notas": "MOV. SATELITAL",
+      "notas": "",
       "disp_ext": ""
     },
     {
@@ -2151,30 +2151,9 @@
         "placa": "",
         "puerto": "In 20"
       },
-      "thru": true,
-      "thru_entrada": "SDI In 1",
-      "rotulo": "IRD CIS.H/V",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.13",
-        "equipo": "AJA FS2",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI In 1"
-      },
-      "dst": {
-        "rack": "D.13",
-        "equipo": "AJA FS2",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
       "thru": false,
       "thru_entrada": "",
-      "rotulo": "THRU",
+      "rotulo": "IRD CIS.H/V",
       "notas": "",
       "disp_ext": ""
     },
@@ -2264,8 +2243,8 @@
     },
     {
       "src": {
-        "rack": "?",
-        "equipo": "ESTO ES UNA PRUEBA",
+        "rack": "N/D",
+        "equipo": "?????",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -2279,7 +2258,7 @@
       },
       "thru": false,
       "thru_entrada": "",
-      "rotulo": "?",
+      "rotulo": "N/D",
       "notas": "",
       "disp_ext": ""
     },
@@ -2978,8 +2957,8 @@
     },
     {
       "src": {
-        "rack": "?",
-        "equipo": "ESTO ES UNA PRUEBA",
+        "rack": "N/D",
+        "equipo": "?????",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -3083,8 +3062,8 @@
     },
     {
       "src": {
-        "rack": "?",
-        "equipo": "ESTO ES UNA PRUEBA",
+        "rack": "N/D",
+        "equipo": "?????",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -3167,8 +3146,8 @@
     },
     {
       "src": {
-        "rack": "?",
-        "equipo": "ESTO ES UNA PRUEBA",
+        "rack": "N/D",
+        "equipo": "?????",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -6269,7 +6248,7 @@
       },
       "thru": true,
       "thru_entrada": "J1",
-      "rotulo": "?",
+      "rotulo": "N/D",
       "notas": "",
       "disp_ext": ""
     },
@@ -6708,9 +6687,30 @@
         "placa": "",
         "puerto": "Ret In 1"
       },
+      "thru": true,
+      "thru_entrada": "SDI In",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.8",
+        "equipo": "AJA HD5DA",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "F.8",
+        "equipo": "AJA HD5DA",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
       "thru": false,
       "thru_entrada": "",
-      "rotulo": "",
+      "rotulo": "THRU",
       "notas": "",
       "disp_ext": ""
     },
@@ -6729,9 +6729,30 @@
         "placa": "",
         "puerto": "Ret In 1"
       },
+      "thru": true,
+      "thru_entrada": "SDI In",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.8",
+        "equipo": "AJA HD5DA",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "F.8",
+        "equipo": "AJA HD5DA",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 2"
+      },
       "thru": false,
       "thru_entrada": "",
-      "rotulo": "",
+      "rotulo": "THRU",
       "notas": "",
       "disp_ext": ""
     },
@@ -6750,9 +6771,30 @@
         "placa": "",
         "puerto": "Ret In 1"
       },
+      "thru": true,
+      "thru_entrada": "SDI In",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.8",
+        "equipo": "AJA HD5DA",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "F.8",
+        "equipo": "AJA HD5DA",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 3"
+      },
       "thru": false,
       "thru_entrada": "",
-      "rotulo": "",
+      "rotulo": "THRU",
       "notas": "",
       "disp_ext": ""
     },
@@ -6771,9 +6813,30 @@
         "placa": "",
         "puerto": "Ret In 1"
       },
+      "thru": true,
+      "thru_entrada": "SDI In",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.8",
+        "equipo": "AJA HD5DA",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "F.8",
+        "equipo": "AJA HD5DA",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 4"
+      },
       "thru": false,
       "thru_entrada": "",
-      "rotulo": "",
+      "rotulo": "THRU",
       "notas": "",
       "disp_ext": ""
     },
@@ -7138,7 +7201,7 @@
   "stats": {
     "nodos": 78,
     "conexiones": 249,
-    "arcos_thru": 72,
+    "arcos_thru": 75,
     "con_destino": 194,
     "sin_destino": 55
   }
