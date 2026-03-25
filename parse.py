@@ -156,7 +156,7 @@ warnings   = []
 
 def add(src_rack, src_equipo, src_slot, src_placa, src_puerto,
         dst_rack, dst_equipo, dst_slot, dst_placa, dst_puerto,
-        thru, thru_entrada, rotulo, notas, disp_ext=''):
+        thru, thru_entrada, rotulo, notas, es_thru=False, disp_ext=''):
 
     conexiones.append({
         'src': make_endpoint(src_rack, src_equipo, src_slot, src_placa, src_puerto),
@@ -165,6 +165,7 @@ def add(src_rack, src_equipo, src_slot, src_placa, src_puerto,
         'thru_entrada': cv(thru_entrada),
         'rotulo':       cv(rotulo),
         'notas':        cv(notas),
+        'es_thru':      es_thru,
         'disp_ext':     cv(disp_ext),
     })
 
@@ -229,15 +230,15 @@ for idx, row in df_con.iterrows():
             add(
                 src_rack, src_equipo, src_slot, src_placa, thru_entrada,
                 src_rack, src_equipo, src_slot, src_placa, src_puerto,
-                False, '', 'THRU', ''
+                False, '', '', '', es_thru=True
             )
 
 # ── Estadísticas ──────────────────────────────────────────────────────────────
 
 total         = len(conexiones)
-thru_count    = sum(1 for c in conexiones if c['rotulo'] == 'THRU')
-con_destino   = sum(1 for c in conexiones if c['dst']['rack'] != '' and c['rotulo'] != 'THRU')
-sin_dst_count = sum(1 for c in conexiones if c['dst']['rack'] == '' and c['rotulo'] != 'THRU')
+thru_count    = sum(1 for c in conexiones if c['es_thru'])
+con_destino   = sum(1 for c in conexiones if c['dst']['rack'] != '' and not c['es_thru'])
+sin_dst_count = sum(1 for c in conexiones if c['dst']['rack'] == '' and not c['es_thru'])
 
 stats = {
     'nodos':          len(nodos),
