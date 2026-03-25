@@ -406,12 +406,14 @@ function showEquip(rack,eq,slot){
     var connectors=getConnectors(rack,eq,slot);
     html+='<div class="ports-lbl">&#9670; CONECTORES</div><div class="ports-grid">';
     connectors.forEach(function(con){
-      var isFree=con.isFree;
-      var isNc=con.isNc;
-      var cls='port-btn p-conn'+(isFree?' p-free':'');
+      var state;
+      if(con.isNc) state='NC';
+      else if(con.isFree) state='ND';
+      else state='doc';
+      var cls='port-btn p-conn'+(state!=='doc'?' p-free':'');
       var lbl=con.label||'';
       // Pass both in and out ports so trace can go both directions
-      var click=' onclick="onConnectorClick(this,\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(con.inPort)+'\',\''+h(con.outPort)+'\','+isFree+','+isNc+')"';
+      var click=' onclick="onConnectorClick(this,\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(con.inPort)+'\',\''+h(con.outPort)+'\',\''+state+'\')"';
       html+='<div class="'+cls+'"'+click+'>';
       html+='<div class="p-num">'+h(con.inPort.replace(/^In /,''))+'</div>';
       html+='<div class="p-lbl">'+h(lbl)+'</div>';
@@ -423,9 +425,10 @@ function showEquip(rack,eq,slot){
     var sortedOuts=sortByPort(outsAll,function(c){return c.sp;});
     var sortedIns =sortByPort(insAll, function(c){return c.dp;});
 
-    function portBtnHTML(port,isFree,isNc,lbl,clickArgs){
-      var cls='port-btn '+portCls(port)+(isFree?' p-free':'');
-      var click=' onclick="onPortClick(this,'+clickArgs+','+isFree+','+isNc+')"';
+    function portBtnHTML(port,state,lbl,clickArgs){
+      var isFreeStyle=(state==='NC' || state==='ND');
+      var cls='port-btn '+portCls(port)+(isFreeStyle?' p-free':'');
+      var click=' onclick="onPortClick(this,'+clickArgs+',\''+state+'\')"';
       return '<div class="'+cls+'"'+click+'>'
         +'<div class="p-num">'+h(port||'?')+'</div>'
         +'<div class="p-lbl">'+h(lbl)+'</div>'
@@ -435,22 +438,26 @@ function showEquip(rack,eq,slot){
     if(sortedOuts.length){
       html+='<div class="ports-lbl">&#9670; SALIDAS</div><div class="ports-grid">';
       sortedOuts.forEach(function(c){
-        var isFree=!c.dr;
-        var isNc=c.dr==='N/C';
-        var lbl=c.rotulo||(isFree||isNc?'':c.de)||'';
+        var state;
+        if(c.dr==='N/C') state='NC';      // No Conectado
+        else if(!c.dr) state='ND';        // No Documentado (vacío)
+        else state='doc';                 // Documentado
+        var lbl=c.rotulo||(state!=='doc'?'':c.de)||'';
         var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
-        html+=portBtnHTML(c.sp,isFree,isNc,lbl,args);
+        html+=portBtnHTML(c.sp,state,lbl,args);
       });
       html+='</div>';
     }
     if(sortedIns.length){
       html+='<div class="ports-lbl">&#9670; ENTRADAS</div><div class="ports-grid">';
       sortedIns.forEach(function(c){
-        var isFree=!c.sr;
-        var isNc=c.sr==='N/C';
-        var lbl=c.rotulo||(isFree||isNc?'':c.se)||'';
+        var state;
+        if(c.sr==='N/C') state='NC';      // No Conectado
+        else if(!c.sr) state='ND';        // No Documentado (vacío)
+        else state='doc';                 // Documentado
+        var lbl=c.rotulo||(state!=='doc'?'':c.se)||'';
         var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
-        html+=portBtnHTML(c.dp,isFree,isNc,lbl,args);
+        html+=portBtnHTML(c.dp,state,lbl,args);
       });
       html+='</div>';
     }
@@ -490,29 +497,34 @@ function showPop(btn,html){
 }
 
 // Called from regular port buttons
-function onPortClick(btn,sr,se,ss0,sp,isFree,isNc){
-  console.log('onPortClick:', {sr,se,ss0,sp,isFree,isNc});
+function onPortClick(btn,sr,se,ss0,sp,state){
+  console.log('onPortClick:', {sr,se,ss0,sp,state});
   var body;
-  if(isNc){
+  
+  if(state==='NC'){
     body='<div class="tr-nc">N/C — No Conectado</div>';
-  } else if(isFree){
+  } else if(state==='ND'){
     body='<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO</div>';
-  } else {
+  } else if(state==='doc'){
     body=buildRoute(sr,se,ss0,sp);
+  } else {
+    body='<div class="tr-nodata">Estado desconocido.</div>';
   }
   showPop(btn,body);
 }
 
 // Called from passive connector buttons
-function onConnectorClick(btn,rack,eq,slot,inPort,outPort,isFree,isNc){
+function onConnectorClick(btn,rack,eq,slot,inPort,outPort,state){
   var body;
-  if(isNc){
-    body='<div class="tr-nc">N/C</div>';
-  } else if(isFree){
-    body='<div class="tr-nodata">Sin conexiones documentadas.</div>';
-  } else {
+  if(state==='NC'){
+    body='<div class="tr-nc">N/C — No Conectado</div>';
+  } else if(state==='ND'){
+    body='<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO</div>';
+  } else if(state==='doc'){
     // Build route from both directions through this connector
     body=buildPassiveRoute(rack,eq,slot,inPort,outPort);
+  } else {
+    body='<div class="tr-nodata">Estado desconocido.</div>';
   }
   showPop(btn,body);
 }
