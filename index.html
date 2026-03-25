@@ -463,7 +463,7 @@ function showEquip(rack,eq,slot){
         else if(c.sr==='N/D' || !c.sr) state='ND';  // No Documentado
         else state='doc';                 // Documentado
         var lbl=c.rotulo||(state!=='doc'?'':c.se)||'';
-        var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
+        var args='\''+h(c.dr)+'\',\''+h(c.de)+'\',\''+h(c.ds)+'\',\''+h(c.dp)+'\'';
         html+=portBtnHTML(c.dp,state,lbl,args);
       });
       html+='</div>';
