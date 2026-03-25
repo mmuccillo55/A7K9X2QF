@@ -105,6 +105,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .tr-nc{color:var(--text2);font-size:.64rem;}
 .tr-unk{color:var(--yellow);font-size:.64rem;}
 
+.tr-branches-grid{display:flex;gap:16px;margin:8px 0;flex-wrap:wrap;}
+.tr-branch-col{flex:1;min-width:140px;}
+.tr-branch-eq-hdr{font-family:var(--sans);font-size:.72rem;font-weight:600;color:var(--text);margin-bottom:4px;padding-left:0;}
+.tr-branch-eq-hdr .tr-branch-dst{color:var(--text);}
+.tr-branch-port{padding-left:8px;font-size:.68rem;margin-bottom:2px;color:var(--accent);}
+.tr-branch-dport{color:var(--accent);font-family:var(--mono);}
+
 ::-webkit-scrollbar{width:4px;height:4px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--muted);border-radius:2px;}
@@ -576,13 +583,33 @@ function renderIn(port){
   if(!port) return '';
   return '<div><span class="tr-in">&gt;&gt;&gt; '+h(port)+'</span></div>';
 }
-function renderBranch(br){
-  var html='<div class="tr-branch">';
-  html+='<span class="tr-out">'+h(br.outPort)+' &gt;&gt;&gt;</span>';
-  if(br.dstRack&&br.dstRack!=='?') html+=' <span class="tr-branch-dst">'+h(br.dstRack)+'</span>';
-  html+=' <span class="tr-branch-dst">'+h(br.dstEq)+'</span>';
-  if(nss(br.dstSlot)) html+=' <span class="tr-slot">/ Slot '+h(nss(br.dstSlot))+'</span>';
-  if(br.dstPort) html+=' <span class="tr-branch-dport">&gt; '+h(br.dstPort)+'</span>';
+function groupBranchesByDest(branches){
+  var groups={};
+  branches.forEach(function(br){
+    var key=(br.dstRack||'')+'|||'+(br.dstEq||'');
+    if(!groups[key]) groups[key]={rack:br.dstRack,eq:br.dstEq,ports:[]};
+    groups[key].ports.push({outPort:br.outPort,slot:br.dstSlot,port:br.dstPort});
+  });
+  return Object.keys(groups).map(function(k){return groups[k];});
+}
+
+function renderBranchesGrouped(branches){
+  if(!branches.length) return '';
+  var grouped=groupBranchesByDest(branches);
+  var html='<div class="tr-branches-grid">';
+  grouped.forEach(function(g){
+    html+='<div class="tr-branch-col">';
+    html+='<div class="tr-branch-eq-hdr">';
+    if(g.rack&&g.rack!=='?') html+='<span class="tr-branch-dst">'+h(g.rack)+'</span> ';
+    html+='<span class="tr-branch-dst">'+h(g.eq)+'</span>';
+    html+='</div>';
+    g.ports.forEach(function(p){
+      html+='<div class="tr-branch-port">';
+      if(p.port) html+='<span class="tr-branch-dport">'+h(p.port)+' &gt;&gt;&gt;</span>';
+      html+='</div>';
+    });
+    html+='</div>';
+  });
   html+='</div>';
   return html;
 }
@@ -693,7 +720,7 @@ function renderRoute(upstream,segs){
     }
     html+=eqLabel(seg.rack,seg.eq,seg.slot,seg.placa);
     if(seg.inPort) html+=renderIn(seg.inPort);
-    seg.branches.forEach(function(br){html+=renderBranch(br);});
+    if(seg.branches.length) html+=renderBranchesGrouped(seg.branches);
     if(seg.outPort) html+=renderOut(seg.outPort);
     if(seg.nc)      html+='<div class="tr-nc">N/C</div>';
     if(seg.unknown) html+='<div class="tr-unk">&#10549; Destino desconocido</div>';
