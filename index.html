@@ -670,59 +670,57 @@ function buildSegments(sr,se,ss0,sp){
 function buildUpstream(sr,se,ss0,sp){
   var segs=[], vis={};
   
-  function walkUp(rack,eq,slot,inPort,outPort,depth){
+  function walkUp(rack,eq,slot,port,depth){
     if(depth>12) return;
-    var key=rack+'|'+eq+'|'+nss(slot)+'|'+String(inPort||'')+'|'+String(outPort||'');
-    if(vis[key]) return; vis[key]=true;
     
-    var placa=getPlaca(rack,eq,slot);
-    var seg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:inPort,outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
-    segs.push(seg);
+    // Key de visita para evitar loops
+    var key=rack+'|'+eq+'|'+nss(slot)+'|'+String(port||'');
+    if(vis[key]) return; 
+    vis[key]=true;
     
-    // Buscar cables EXTERNOS que ENTRAN a inPort
-    var direct=fIns(rack,eq,slot,inPort);
-    if(!direct.length){
-      // Sin cable directo: ¿inPort es salida de un THRU?
-      var thruSrc=CONNS.filter(function(c){
-        return c.es_thru===true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===inPort;
+    // Buscar cables EXTERNOS que ENTRAN a este puerto
+    var inConns=fIns(rack,eq,slot,port);
+    
+    if(inConns.length){
+      // Hay cable(s) entrando: procesar cada uno
+      inConns.forEach(function(c){
+        // El cable viene de c.sr, c.se, sale por c.sp
+        var srcRack=c.sr, srcEq=c.se, srcSlot=c.ss, srcPort=c.sp;
+        
+        // Crear segmento del ORIGEN
+        var srcPlaca=getPlaca(srcRack,srcEq,srcSlot);
+        var srcSeg={
+          rack:srcRack, eq:srcEq, slot:srcSlot, placa:srcPlaca,
+          inPort:'', outPort:srcPort, branches:[], unknown:false, nc:false, disp_ext:c.disp_ext||''
+        };
+        segs.unshift(srcSeg);  // unshift = agregar al inicio (orden inverso)
+        
+        // Recursión: ¿qué alimenta al puerto origen?
+        walkUp(srcRack,srcEq,srcSlot,srcPort,depth+1);
       });
-      thruSrc.forEach(function(t){
-        // t.sp es el puerto de ENTRADA del THRU
-        walkUp(rack,eq,slot,t.sp,inPort,depth+1);
+    } else {
+      // Sin cable externo: ¿es este puerto salida de un THRU?
+      var thruOut=CONNS.filter(function(c){
+        return c.es_thru===true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===port;
       });
-      return;
-    }
-    
-    direct.forEach(function(c){
-      if(!c.sr||c.sr==='N/C'){seg.nc=true;return;}
-      if(c.sr==='?'){seg.unknown=true;return;}
-      if(c.disp_ext) seg.disp_ext=c.disp_ext;
       
-      var sr=c.sr,se=c.se,ss=c.ss,sp=c.sp;
-      
-      // ¿El origen tiene THRUs en el puerto de salida?
-      var thrus=fThrus(sr,se,ss,sp);
-      
-      if(!thrus.length){
-        // Sin thrus: seguir directo con puerto de salida
-        walkUp(sr,se,ss,'',sp,depth+1);
-      } else {
-        // Con thrus: el origen tiene bypass
-        // Mostrar el equipo origen con su salida
-        walkUp(sr,se,ss,sp,'',depth+1);
+      if(thruOut.length){
+        // Este puerto es salida de THRU: seguir por entrada del THRU
+        thruOut.forEach(function(t){
+          var inPort=t.sp;  // puerto donde entra el THRU
+          walkUp(rack,eq,slot,inPort,depth+1);
+        });
       }
-    });
+    }
   }
   
-  // INICIO: ¿el puerto clickeado es entrada de THRU?
-  var thrusClick=fThrus(sr,se,ss0,sp);
-  if(thrusClick.length){
-    // El puerto es entrada de thrus: mostrar como entrada de ese equipo
-    walkUp(sr,se,ss0,sp,'',0);
-  } else {
-    // Puerto es una salida normal: mostrar como salida
-    walkUp(sr,se,ss0,'',sp,0);
-  }
+  // INICIO: empezar a caminar hacia atrás desde el puerto clickeado
+  walkUp(sr,se,ss0,sp,0);
+  
+  // Agregar el segmento final (el equipo donde clickeaste)
+  var placa=getPlaca(sr,se,ss0);
+  var finalSeg={rack:sr,eq:se,slot:ss0,placa:placa,inPort:sp,outPort:'',branches:[],unknown:false,nc:false,disp_ext:''};
+  segs.push(finalSeg);
   
   return segs;
 }
@@ -747,11 +745,10 @@ function renderRoute(segs){
 }
 
 function buildRoute(sr,se,ss0,sp){
-  var segs=buildUpstream(sr,se,ss0,sp);
-  segs.reverse(); // Invertir porque buildUpstream construye hacia atrás (de destino a origen)
+  var upSegs=buildUpstream(sr,se,ss0,sp);
   var downSegs=buildSegments(sr,se,ss0,sp);
-  // Combinar: upstream (invertido) + punto de click (omitido para evitar duplicado) + downstream
-  var allSegs=segs.slice(0,-1).concat(downSegs);
+  // Combinar: upstream + downstream (sin duplicar el inicio que está al final de upstream)
+  var allSegs=upSegs.concat(downSegs.slice(1));
   return renderRoute(allSegs);
 }
 
