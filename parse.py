@@ -216,10 +216,11 @@ for idx, row in df_con.iterrows():
         dst_rack = dst_equipo = dst_slot = dst_puerto = ''
 
     # Conexión principal (el cable externo)
+    # thru y thru_entrada son solo para generar el arco interno — no van en el cable.
     add(
         src_rack, src_equipo, src_slot, src_placa, src_puerto,
         dst_rack, dst_equipo, dst_slot, '',         dst_puerto,
-        thru, thru_entrada, rotulo, notas, disp_ext
+        False, '', rotulo, notas, disp_ext
     )
 
     # Arco interno thru: Puerto Thru -> Puerto Origen (dentro del mismo equipo)
