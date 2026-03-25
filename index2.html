@@ -134,15 +134,15 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 var CONNS=[], NODOS={}, PROJ='', _nav=[], _selBtn=null;
 
 // ── Init ──────────────────────────────────────────────────────────────────────
-// Load JSON from connections.json (same directory)
-fetch('connections.json')
+// Load JSON from connections2.json (same directory)
+fetch('connections2.json')
   .then(function(r){
     if(!r.ok) throw new Error('HTTP '+r.status);
     return r.json();
   })
   .then(function(data){ init(data); })
   .catch(function(e){
-    document.getElementById('hdr-title').textContent = 'Error cargando connections.json: '+e.message;
+    document.getElementById('hdr-title').textContent = 'Error cargando connections2.json: '+e.message;
   });
 
 function init(data){
@@ -197,7 +197,7 @@ function ipEl(ip,cls){
 function getRackPfx(r){ var m=r.match(/^([A-Za-z]+)/); return m?m[1].toUpperCase():'?'; }
 
 // ── Frame / slot detection ────────────────────────────────────────────────────
-// A frame is an equipo that has connections where ITS OWN slot is non-empty
+// A frame is an equipo that has connections2 where ITS OWN slot is non-empty
 function isFrame(rack,eq){
   return CONNS.some(function(c){
     return (c.sr===rack&&c.se===eq&&c.ss) || (c.dr===rack&&c.de===eq&&c.ds);
@@ -387,7 +387,7 @@ function showEquip(rack,eq,slot){
   // IP: for slot eqs use frame IP
   var ip = isSlotEq ? getIP(rack,eq) : getIP(rack,eq);
 
-  // Filter connections for this exact rack+eq+slot
+  // Filter connections2 for this exact rack+eq+slot
   var outsAll=CONNS.filter(function(c){
     return c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.rotulo!=='THRU';
   });
@@ -655,7 +655,7 @@ function buildUpstream(sr,se,ss0,sp){
   var upstream=[], vis={};
   function walkUp(rack,eq,slot,port,depth){
     if(depth>8) return;
-    // Direct non-THRU connections into this port
+    // Direct non-THRU connections2 into this port
     var direct=fIns(rack,eq,slot,port);
     if(direct.length){
       direct.forEach(function(c){
