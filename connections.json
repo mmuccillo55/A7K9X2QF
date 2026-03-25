@@ -27,6 +27,11 @@
       "ip": "N/D"
     },
     {
+      "rack": "A.6",
+      "equipo": "Videotron DV100-EQ",
+      "ip": null
+    },
+    {
       "rack": "B.1",
       "equipo": "Server Loops",
       "ip": "192.168.20.4"
@@ -48,7 +53,7 @@
     },
     {
       "rack": "C.1",
-      "equipo": "Leader Sync Generator LT4611",
+      "equipo": "Leader Sync Generator",
       "ip": "N/D"
     },
     {
@@ -761,7 +766,7 @@
       "dst": {
         "rack": "B.2",
         "equipo": "Loop A",
-        "slot": "2.0",
+        "slot": "2",
         "placa": "",
         "puerto": "In P1"
       },
@@ -782,7 +787,7 @@
       "dst": {
         "rack": "B.3",
         "equipo": "Loop B",
-        "slot": "1.0",
+        "slot": "1",
         "placa": "",
         "puerto": "In P1"
       },
@@ -803,7 +808,7 @@
       "dst": {
         "rack": "B.3",
         "equipo": "Loop B",
-        "slot": "2.0",
+        "slot": "2",
         "placa": "",
         "puerto": "In P1"
       },
@@ -824,7 +829,7 @@
       "dst": {
         "rack": "B.4",
         "equipo": "Loop C",
-        "slot": "1.0",
+        "slot": "1",
         "placa": "",
         "puerto": "In P1"
       },
@@ -845,7 +850,7 @@
       "dst": {
         "rack": "B.4",
         "equipo": "Loop C",
-        "slot": "2.0",
+        "slot": "2",
         "placa": "",
         "puerto": "In P1"
       },
@@ -999,7 +1004,7 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "",
-      "notas": "",
+      "notas": "Cable suelto en Rack E",
       "disp_ext": ""
     },
     {
@@ -1013,7 +1018,7 @@
       "dst": {
         "rack": "E.4",
         "equipo": "PC Rack",
-        "slot": "1.0",
+        "slot": "1",
         "placa": "",
         "puerto": "In P3"
       },
@@ -1412,7 +1417,7 @@
       "dst": {
         "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "9.0",
+        "slot": "9",
         "placa": "",
         "puerto": "J2 (in)"
       },
@@ -1477,7 +1482,7 @@
         "equipo": "AJA FS2",
         "slot": "",
         "placa": "",
-        "puerto": "In 2"
+        "puerto": "SDI In 2"
       },
       "thru": false,
       "thru_entrada": "",
@@ -1519,7 +1524,7 @@
         "equipo": "Thomson ViBE CP6100",
         "slot": "",
         "placa": "",
-        "puerto": "In"
+        "puerto": "In 1"
       },
       "thru": false,
       "thru_entrada": "",
@@ -1559,7 +1564,7 @@
       "dst": {
         "rack": "A.5",
         "equipo": "CGX",
-        "slot": "1.0",
+        "slot": "1",
         "placa": "",
         "puerto": "In P1"
       },
@@ -1704,11 +1709,11 @@
         "puerto": "Out 63"
       },
       "dst": {
-        "rack": "N/D",
-        "equipo": "",
-        "slot": "",
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "N/D",
         "placa": "",
-        "puerto": ""
+        "puerto": "SDI In"
       },
       "thru": false,
       "thru_entrada": "",
@@ -1727,7 +1732,7 @@
       "dst": {
         "rack": "D.9",
         "equipo": "openGear X",
-        "slot": "5.0",
+        "slot": "5",
         "placa": "",
         "puerto": "SDI In"
       },
@@ -1869,7 +1874,7 @@
         "equipo": "AJA FS2",
         "slot": "",
         "placa": "",
-        "puerto": "Out 1"
+        "puerto": "SDI Out 1"
       },
       "dst": {
         "rack": "C.3",
@@ -2050,7 +2055,7 @@
       "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "disp_ext": ""
+      "disp_ext": "Cable suelto en Rack L"
     },
     {
       "src": {
@@ -3449,7 +3454,7 @@
       "dst": {
         "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "4.0",
+        "slot": "4",
         "placa": "",
         "puerto": "SDI In"
       },
@@ -3491,7 +3496,7 @@
       "dst": {
         "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "5.0",
+        "slot": "5",
         "placa": "",
         "puerto": "SDI In"
       },
@@ -3533,7 +3538,7 @@
       "dst": {
         "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "6.0",
+        "slot": "6",
         "placa": "",
         "puerto": "SDI In"
       },
@@ -3575,7 +3580,7 @@
       "dst": {
         "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "7.0",
+        "slot": "7",
         "placa": "",
         "puerto": "SDI In"
       },
@@ -5276,7 +5281,7 @@
       "dst": {
         "rack": "B.2",
         "equipo": "Loop A",
-        "slot": "1.0",
+        "slot": "1",
         "placa": "",
         "puerto": "In P1"
       },
@@ -5318,7 +5323,7 @@
       "dst": {
         "rack": "D.9",
         "equipo": "openGear X",
-        "slot": "6.0",
+        "slot": "6",
         "placa": "",
         "puerto": "SDI In"
       },
@@ -6326,7 +6331,7 @@
       "dst": {
         "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "1.0",
+        "slot": "1",
         "placa": "",
         "puerto": "HDMI In"
       },
@@ -6347,7 +6352,7 @@
       "dst": {
         "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "2.0",
+        "slot": "2",
         "placa": "",
         "puerto": "HDMI In"
       },
@@ -7145,7 +7150,7 @@
       "dst": {
         "rack": "D.7",
         "equipo": "openGear X",
-        "slot": "3.0",
+        "slot": "3",
         "placa": "",
         "puerto": "HDMI In"
       },
@@ -7154,13 +7159,895 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Composite Out"
+      },
+      "dst": {
+        "rack": "D.14",
+        "equipo": "Digiwave DSC-131",
+        "slot": "",
+        "placa": "",
+        "puerto": "CVBS In 1"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.14",
+        "equipo": "Digiwave DSC-131",
+        "slot": "",
+        "placa": "",
+        "puerto": "CVBS Out 2"
+      },
+      "dst": {
+        "rack": "D.15",
+        "equipo": "vidicraft vst2110",
+        "slot": "",
+        "placa": "",
+        "puerto": "Video In"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.10",
+        "equipo": "tc electronic Finalizer",
+        "slot": "",
+        "placa": "",
+        "puerto": "AES/EBU Out"
+      },
+      "dst": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "AES/EBU"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.10",
+        "equipo": "tc electronic Finalizer",
+        "slot": "",
+        "placa": "",
+        "puerto": "Balanced Out L"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "Cable suelto en Rack D",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.10",
+        "equipo": "tc electronic Finalizer",
+        "slot": "",
+        "placa": "",
+        "puerto": "Balanced Out R"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "Cable suelto en Rack D",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
+      },
+      "dst": {
+        "rack": "A.2",
+        "equipo": "Player A",
+        "slot": "1",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "thru": true,
+      "thru_entrada": "In 1",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 2"
+      },
+      "dst": {
+        "rack": "A.2",
+        "equipo": "Player A",
+        "slot": "2",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "thru": true,
+      "thru_entrada": "In 1",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 2"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 3"
+      },
+      "dst": {
+        "rack": "A.3",
+        "equipo": "Player B",
+        "slot": "1",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "thru": true,
+      "thru_entrada": "In 1",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 3"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 4"
+      },
+      "dst": {
+        "rack": "A.3",
+        "equipo": "Player B",
+        "slot": "2",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "thru": true,
+      "thru_entrada": "In 1",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 4"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 5"
+      },
+      "dst": {
+        "rack": "A.4",
+        "equipo": "Player C",
+        "slot": "1",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "thru": true,
+      "thru_entrada": "In 1",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 5"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 6"
+      },
+      "dst": {
+        "rack": "A.4",
+        "equipo": "Player C",
+        "slot": "2",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "thru": true,
+      "thru_entrada": "In 1",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 6"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 7"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "In 1",
+      "rotulo": "",
+      "notas": "Cable suelto en Rack A",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 7"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 8"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "In 1",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 8"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/D",
+        "equipo": "?????",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "A.2",
+        "equipo": "Player A",
+        "slot": "2.0",
+        "placa": "DeckLink",
+        "puerto": "Audio Out Ch 2"
+      },
+      "dst": {
+        "rack": "DC.2",
+        "equipo": "Yamaha QL5",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 29"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/D",
+        "equipo": "?????",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1",
+        "placa": "",
+        "puerto": "J1 (in)"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J2 (out)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "N/D",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "J1 (in)",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J2 (out)"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J3 (out)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "N/D",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "J1 (in)",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J3 (out)"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J4 (out)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "N/D",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "J1 (in)",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J4 (out)"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J5 (out)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "3",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "thru": true,
+      "thru_entrada": "J1 (in)",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J5 (out)"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J6 (out)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "2",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "thru": true,
+      "thru_entrada": "J1 (in)",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J6 (out)"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J7 (out)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "5",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "thru": true,
+      "thru_entrada": "J1 (in)",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J7 (out)"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J8 (out)"
+      },
+      "dst": {
+        "rack": "N/D",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "J1 (in)",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J8 (out)"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J9 (out)"
+      },
+      "dst": {
+        "rack": "L.4",
+        "equipo": "VIDEObit 3G-LINK-TD",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 2"
+      },
+      "thru": true,
+      "thru_entrada": "J1 (in)",
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J9 (out)"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J10 (out)"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "thru": true,
+      "thru_entrada": "J1 (in)",
+      "rotulo": "",
+      "notas": "Cable suelto en Rack L",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "1.0",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J10 (out)"
+      },
+      "thru": false,
+      "thru_entrada": "",
+      "rotulo": "THRU",
+      "notas": "",
+      "disp_ext": ""
     }
   ],
   "stats": {
-    "nodos": 78,
-    "conexiones": 248,
-    "arcos_thru": 74,
-    "con_destino": 248,
+    "nodos": 79,
+    "conexiones": 273,
+    "arcos_thru": 91,
+    "con_destino": 273,
     "sin_destino": 0
   }
 }
