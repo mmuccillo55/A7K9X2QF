@@ -479,10 +479,8 @@ function onPortClick(btn,sr,se,ss0,sp,state,dir){
     body='<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO</div>';
   } else if(state==='doc'){
     if(dir === 'in') {
-      // Para entradas, mostrar upstream + downstream
       body=buildRouteForInput(sr,se,ss0,sp);
     } else {
-      // Para salidas, mostrar solo downstream
       body=buildRoute(sr,se,ss0,sp);
     }
   } else {
@@ -510,6 +508,85 @@ document.addEventListener('click',function(e){
 
 // ── Route builder ─────────────────────────────────────────────────────────────
 function isAudio(p){ return /audio/i.test(p||''); }
+
+function getUpstreamConnections(rack,eq,slot,port){
+  // Busca conexiones donde DESTINO es este equipo/puerto
+  var results = [];
+  CONNS.forEach(function(c){
+    if(c.rotulo === 'THRU') return;
+    if(c.dr === rack && c.de === eq && nss(c.ds) === nss(slot) && c.dp === port) {
+      results.push(c);
+    }
+  });
+  return results;
+}
+
+function getThruBackward(rack,eq,slot,port){
+  // Para patch panels: busca THRU donde DESTINO es este puerto
+  var results = [];
+  CONNS.forEach(function(c){
+    if(c.rotulo !== 'THRU') return;
+    if(c.dr === rack && c.de === eq && nss(c.ds) === nss(slot) && c.dp === port) {
+      results.push(c);
+    }
+  });
+  return results;
+}
+
+function buildUpstream(rack,eq,slot,port){
+  var upstream = [];
+  var visited = new Set();
+  
+  function walk(r,e,s,p, depth){
+    if(depth > 15) return;
+    var key = r+'|'+e+'|'+nss(s)+'|'+p;
+    if(visited.has(key)) return;
+    visited.add(key);
+    
+    // Buscar conexiones directas que alimentan este puerto
+    var conns = getUpstreamConnections(r,e,s,p);
+    
+    if(conns.length > 0){
+      conns.forEach(function(c){
+        // Si el origen es N/C, terminar
+        if(c.sr === 'N/C'){
+          upstream.push({
+            rack: 'N/C',
+            eq: '',
+            slot: '',
+            placa: '',
+            port: ''
+          });
+          return;
+        }
+        // Si el origen es válido
+        if(c.sr && c.sr !== '?' && c.sr !== ''){
+          var placa = getPlaca(c.sr, c.se, c.ss);
+          upstream.push({
+            rack: c.sr,
+            eq: c.se,
+            slot: c.ss,
+            placa: placa,
+            port: c.sp
+          });
+          // Continuar hacia atrás desde ese origen
+          walk(c.sr, c.se, c.ss, c.sp, depth + 1);
+        }
+      });
+    } else {
+      // Si no hay conexiones directas, buscar THRU (patch panel)
+      var thrus = getThruBackward(r,e,s,p);
+      thrus.forEach(function(t){
+        // Seguir hacia atrás desde el puerto de entrada del THRU
+        walk(r, e, s, t.sp, depth + 1);
+      });
+    }
+  }
+  
+  walk(rack, eq, slot, port, 0);
+  return upstream;
+}
+
 function fOuts(rack,eq,slot,port){
   return CONNS.filter(function(c){
     return c.rotulo!=='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===port;
@@ -518,12 +595,6 @@ function fOuts(rack,eq,slot,port){
 function fThrus(rack,eq,slot,inPort){
   return CONNS.filter(function(c){
     return c.rotulo==='THRU'&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===inPort;
-  });
-}
-function fIns(rack,eq,slot,port){
-  return CONNS.filter(function(c){
-    return c.rotulo!=='THRU'&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===port
-      &&c.sr&&c.sr!=='?'&&c.sr!=='N/C';
   });
 }
 function eqLabel(rack,eq,slot,placa){
@@ -562,37 +633,6 @@ function renderBranch(br){
   if(br.dstPort) html+=' <span class="tr-branch-dport">&gt; '+h(br.dstPort)+'</span>';
   html+='</div>';
   return html;
-}
-
-function buildUpstream(rack,eq,slot,port){
-  var upstream=[], vis={};
-  function walkUp(r,e,s,p,depth){
-    if(depth>12) return;
-    var direct=fIns(r,e,s,p);
-    if(direct.length){
-      direct.forEach(function(c){
-        if(c.sr==='N/C'){
-          upstream.unshift({rack:'N/C',eq:'',slot:'',placa:'',port:''});
-          return;
-        }
-        var k=c.sr+'|'+c.se+'|'+nss(c.ss)+'|'+c.sp;
-        if(vis[k]) return;
-        vis[k]=true;
-        upstream.unshift({
-          rack:c.sr, eq:c.se, slot:c.ss,
-          placa:getPlaca(c.sr,c.se,c.ss), port:c.sp
-        });
-        walkUp(c.sr,c.se,c.ss,c.sp,depth+1);
-      });
-    } else {
-      var thruSrc=fThrus(r,e,s,p);
-      thruSrc.forEach(function(t){
-        walkUp(r,e,s,t.sp,depth+1);
-      });
-    }
-  }
-  walkUp(rack,eq,slot,port,0);
-  return upstream;
 }
 
 function buildSegments(sr,se,ss0,sp){
