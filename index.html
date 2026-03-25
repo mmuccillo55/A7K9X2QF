@@ -74,7 +74,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .port-btn.p-out{border-top:2px solid var(--orange);}
 .port-btn.p-aux{border-top:2px solid var(--green);}
 .port-btn.p-conn{border-top:2px solid var(--yellow);}  /* passive connector */
-.port-btn.p-free{opacity:.3;}
+.port-btn.p-nd{
+  border-color:var(--yellow);
+  background:rgba(255,209,102,.08);
+}
 .p-num{font-family:var(--mono);font-size:.6rem;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding:0 2px;}
 .p-lbl{font-size:.48rem;color:var(--text2);margin-top:2px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px;}
 
@@ -410,7 +413,9 @@ function showEquip(rack,eq,slot){
       if(con.isNc) state='NC';
       else if(con.isFree) state='ND';
       else state='doc';
-      var cls='port-btn p-conn'+(state!=='doc'?' p-free':'');
+      var cls='port-btn p-conn';
+	  if(state==='NC') cls+=' p-free';
+	  else if(state==='ND') cls+=' p-nd';
       var lbl=con.label||'';
       // Pass both in and out ports so trace can go both directions
       var click=' onclick="onConnectorClick(this,\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(con.inPort)+'\',\''+h(con.outPort)+'\',\''+state+'\')"';
@@ -426,8 +431,9 @@ function showEquip(rack,eq,slot){
     var sortedIns =sortByPort(insAll, function(c){return c.dp;});
 
     function portBtnHTML(port,state,lbl,clickArgs){
-      var isFreeStyle=(state==='NC' || state==='ND');
-      var cls='port-btn '+portCls(port)+(isFreeStyle?' p-free':'');
+      var cls='port-btn '+portCls(port);
+	  if(state==='NC') cls+=' p-free';
+	  else if(state==='ND') cls+=' p-nd';
       var click=' onclick="onPortClick(this,'+clickArgs+',\''+state+'\')"';
       return '<div class="'+cls+'"'+click+'>'
         +'<div class="p-num">'+h(port||'?')+'</div>'
