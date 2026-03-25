@@ -73,7 +73,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .port-btn.p-in {border-top:2px solid var(--accent);}
 .port-btn.p-out{border-top:2px solid var(--orange);}
 .port-btn.p-aux{border-top:2px solid var(--green);}
-.port-btn.p-conn{border-top:2px solid var(--yellow);}  /* passive connector */
+.port-btn.p-conn{border-top:2px solid var(--yellow);}
 .port-btn.p-free{opacity:.3;}
 .port-btn.p-nd{
   border-color:var(--yellow);
@@ -404,11 +404,11 @@ function showEquip(rack,eq,slot){
   } else {
     var sortedOuts=sortByPort(outsAll,function(c){return c.sp;});
     var sortedIns =sortByPort(insAll, function(c){return c.dp;});
-    function portBtnHTML(port,state,lbl,clickArgs){
+    function portBtnHTML(port,state,lbl,clickArgs,isInput){
       var cls='port-btn '+portCls(port);
 	  if(state==='NC') cls+=' p-free';
 	  else if(state==='ND') cls+=' p-nd';
-      var click=' onclick="onPortClick(this,'+clickArgs+',\''+state+'\')"';
+      var click=' onclick="onPortClick(this,'+clickArgs+',\''+state+'\',\''+(isInput?'in':'out')+'\')"';
       return '<div class="'+cls+'"'+click+'>'
         +'<div class="p-num">'+h(port||'?')+'</div>'
         +'<div class="p-lbl">'+h(lbl)+'</div>'
@@ -423,7 +423,7 @@ function showEquip(rack,eq,slot){
         else state='doc';
         var lbl=c.rotulo||(state!=='doc'?'':c.de)||'';
         var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
-        html+=portBtnHTML(c.sp,state,lbl,args);
+        html+=portBtnHTML(c.sp,state,lbl,args,false);
       });
       html+='</div>';
     }
@@ -436,7 +436,7 @@ function showEquip(rack,eq,slot){
         else state='doc';
         var lbl=c.rotulo||(state!=='doc'?'':c.se)||'';
         var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
-        html+=portBtnHTML(c.dp,state,lbl,args);
+        html+=portBtnHTML(c.dp,state,lbl,args,true);
       });
       html+='</div>';
     }
@@ -471,14 +471,20 @@ function showPop(btn,html){
   document.getElementById('pop').classList.add('on');
   positionPop(btn);
 }
-function onPortClick(btn,sr,se,ss0,sp,state){
+function onPortClick(btn,sr,se,ss0,sp,state,dir){
   var body;
   if(state==='NC'){
     body='<div class="tr-nc">N/C — No Conectado</div>';
   } else if(state==='ND'){
     body='<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO</div>';
   } else if(state==='doc'){
-    body=buildRoute(sr,se,ss0,sp);
+    if(dir === 'in') {
+      // Para entradas, mostrar upstream + downstream
+      body=buildRouteForInput(sr,se,ss0,sp);
+    } else {
+      // Para salidas, mostrar solo downstream
+      body=buildRoute(sr,se,ss0,sp);
+    }
   } else {
     body='<div class="tr-nodata">Estado desconocido.</div>';
   }
@@ -558,11 +564,11 @@ function renderBranch(br){
   return html;
 }
 
-function buildUpstream(sr,se,ss0,sp){
+function buildUpstream(rack,eq,slot,port){
   var upstream=[], vis={};
-  function walkUp(rack,eq,slot,port,depth){
+  function walkUp(r,e,s,p,depth){
     if(depth>12) return;
-    var direct=fIns(rack,eq,slot,port);
+    var direct=fIns(r,e,s,p);
     if(direct.length){
       direct.forEach(function(c){
         if(c.sr==='N/C'){
@@ -579,13 +585,13 @@ function buildUpstream(sr,se,ss0,sp){
         walkUp(c.sr,c.se,c.ss,c.sp,depth+1);
       });
     } else {
-      var thruSrc=fThrus(rack,eq,slot,port);
+      var thruSrc=fThrus(r,e,s,p);
       thruSrc.forEach(function(t){
-        walkUp(rack,eq,slot,t.sp,depth+1);
+        walkUp(r,e,s,t.sp,depth+1);
       });
     }
   }
-  walkUp(sr,se,ss0,sp,0);
+  walkUp(rack,eq,slot,port,0);
   return upstream;
 }
 
@@ -653,7 +659,7 @@ function renderRoute(upstream,segs){
       return;
     }
     html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
-    if(u.port) html+=renderOut(u.port);
+    html+=renderOut(u.port);
     html+='<div class="tr-gap"></div>';
   });
   segs.forEach(function(seg,i){
@@ -673,6 +679,11 @@ function renderRoute(upstream,segs){
 }
 
 function buildRoute(sr,se,ss0,sp){
+  var segs=buildSegments(sr,se,ss0,sp);
+  return renderRoute([],segs);
+}
+
+function buildRouteForInput(sr,se,ss0,sp){
   var upstream=buildUpstream(sr,se,ss0,sp);
   var segs=buildSegments(sr,se,ss0,sp);
   return renderRoute(upstream,segs);
