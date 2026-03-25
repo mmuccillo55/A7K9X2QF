@@ -1,5 +1,5 @@
 """
-parse.py — Chancho.xlsx -> connections2.json
+parse2.py — Chancho.xlsx -> connections2.json
 
 Uso:
     python parse2.py [archivo.xlsx] [salida.json]
