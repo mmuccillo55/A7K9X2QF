@@ -103,7 +103,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .tr-nodata{color:var(--muted);font-style:italic;font-size:.64rem;}
 .tr-dispext{padding-left:8px;font-size:.6rem;color:var(--text2);font-style:italic;margin-bottom:2px;}
 .tr-nc{color:var(--text2);font-size:.64rem;}
-.tr-unk{color:var(--yellow);font-size:.64rem;}
+.tr-unk{color:#ff4444;font-size:.64rem;font-weight:600;}
 
 ::-webkit-scrollbar{width:4px;height:4px;}
 ::-webkit-scrollbar-track{background:transparent;}
@@ -497,7 +497,7 @@ function onPortClick(btn,sr,se,ss0,sp,isFree,isNc,isUnk){
   if(isNc){
     body='<div class="tr-nc">N/C</div>';
   } else if(isUnk){
-    body='<div class="tr-unk">?</div>';
+    body='<div class="tr-unk">⚠ AÚN NO DOCUMENTADO</div>';
   } else if(isFree){
     body='<div class="tr-nodata">Sin conexiones documentadas.</div>';
   } else {
