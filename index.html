@@ -491,6 +491,7 @@ function showPop(btn,html){
 
 // Called from regular port buttons
 function onPortClick(btn,sr,se,ss0,sp,isFree,isNc){
+  console.log('onPortClick:', {sr,se,ss0,sp,isFree,isNc});
   var body;
   if(isNc){
     body='<div class="tr-nc">N/C — No Conectado</div>';
