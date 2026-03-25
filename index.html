@@ -702,7 +702,19 @@ function buildUpstream(sr,se,ss0,sp){
 
 	  if(raw.length){
 		raw.forEach(function(c){
-		  if(!c.sr || c.sr==='?' || c.sr==='N/C') return;
+		  if(!c.sr || c.sr==='?') return;
+
+			// 👇 NUEVO: marcar NC como final de cadena
+			if(c.sr==='N/C'){
+			  upstream.unshift({
+				rack:'N/C',
+				eq:'',
+				slot:'',
+				placa:'',
+				port:''
+			  });
+			  return;
+			}
 
 		  var k=c.sr+'|'+c.se+'|'+nss(c.ss)+'|'+c.sp;
 		  if(vis[k]) return;
@@ -741,11 +753,18 @@ function buildUpstream(sr,se,ss0,sp){
 
 function renderRoute(upstream,segs){
   var html='';
-  upstream.forEach(function(u){
-    html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
-    html+=renderOut(u.port);
-    html+='<div class="tr-gap"></div>';
-  });
+	upstream.forEach(function(u){
+
+	  if(u.rack==='N/C'){
+		html+='<div class="tr-nc">N/C — No Conectado</div>';
+		html+='<div class="tr-gap"></div>';
+		return;
+	  }
+
+	  html+=eqLabel(u.rack,u.eq,u.slot,u.placa);
+	  html+=renderOut(u.port);
+	  html+='<div class="tr-gap"></div>';
+	});
   segs.forEach(function(seg,i){
     // disp_ext from PREVIOUS segment's cable goes before this equipo's label
     if(i>0 && segs[i-1].disp_ext){
