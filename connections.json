@@ -413,11 +413,8 @@
         "placa": "",
         "puerto": "In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MATRIZ 1",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "PRUEBA 1"
     },
     {
@@ -435,12 +432,9 @@
         "placa": "",
         "puerto": "In 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MATRIZ 2",
       "notas": "",
-      "es_thru": false,
-      "disp_ext": ""
+      "disp_ext": "PRUEBA 2"
     },
     {
       "src": {
@@ -457,12 +451,9 @@
         "placa": "",
         "puerto": "In 3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MATRIZ 3",
       "notas": "",
-      "es_thru": false,
-      "disp_ext": ""
+      "disp_ext": "PRUEBA 3"
     },
     {
       "src": {
@@ -479,11 +470,8 @@
         "placa": "",
         "puerto": "In 4"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MATRIZ 4",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -501,11 +489,8 @@
         "placa": "",
         "puerto": "In 5"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MATRIZ 5",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -523,11 +508,8 @@
         "placa": "",
         "puerto": "In 6"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MATRIZ 6",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -545,11 +527,8 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MATRIZ 7",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -567,11 +546,8 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MATRIZ 8",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -589,11 +565,8 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MATRIZ 9",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -611,11 +584,8 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MATRIZ 10",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -633,11 +603,8 @@
         "placa": "",
         "puerto": "In 11"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MATRIZ 11",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -655,11 +622,8 @@
         "placa": "",
         "puerto": "In 12"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MATRIZ 12",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -677,11 +641,8 @@
         "placa": "",
         "puerto": "In 13"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MX 13 AUDIO",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -699,11 +660,8 @@
         "placa": "",
         "puerto": "In 14"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MX 14 AUDIO",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -721,11 +679,8 @@
         "placa": "",
         "puerto": "In 15"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MX 15 AUDIO",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -743,11 +698,8 @@
         "placa": "",
         "puerto": "In 16"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MX 16 AUDIO",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -765,11 +717,8 @@
         "placa": "",
         "puerto": "SDI In 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "LOOP A.1",
       "notas": "Convierte norma para Loop A1",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -787,11 +736,8 @@
         "placa": "",
         "puerto": "In P1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "LOOP A.2",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -809,11 +755,8 @@
         "placa": "",
         "puerto": "In P1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "LOOP B.1",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -831,11 +774,8 @@
         "placa": "",
         "puerto": "In P1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "LOOP B.2",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -853,11 +793,8 @@
         "placa": "",
         "puerto": "In P1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "LOOP C.1",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -875,11 +812,8 @@
         "placa": "",
         "puerto": "In P1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "LOOP C.2",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -897,11 +831,8 @@
         "placa": "",
         "puerto": "In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "1 MV TX",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -919,11 +850,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -941,11 +869,8 @@
         "placa": "",
         "puerto": "In 11"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MX 25",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -963,11 +888,8 @@
         "placa": "",
         "puerto": "In 12"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MX 26",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -985,11 +907,8 @@
         "placa": "",
         "puerto": "In 13"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MX 27",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1007,11 +926,8 @@
         "placa": "",
         "puerto": "In 14"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MX 28",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1029,11 +945,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable suelto en Rack E",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1051,11 +964,8 @@
         "placa": "",
         "puerto": "In P3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "D.L.1 Streaming",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1073,11 +983,8 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "CG",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1095,11 +1002,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Esc pantalla",
       "notas": "Aparentemente en bandeja arriba de iluminador",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1117,11 +1021,8 @@
         "placa": "",
         "puerto": "In 16"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "out out",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1139,11 +1040,8 @@
         "placa": "",
         "puerto": "In 15"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MON PISO",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1161,11 +1059,8 @@
         "placa": "",
         "puerto": "In 14"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MON ILUMINA",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1183,11 +1078,8 @@
         "placa": "",
         "puerto": "In 13"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MON TITULOS",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1205,11 +1097,8 @@
         "placa": "",
         "puerto": "In 12"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "xxx xxx",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1227,11 +1116,8 @@
         "placa": "",
         "puerto": "In 11"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Fibra TDA 1 S",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1249,11 +1135,8 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1271,11 +1154,8 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "out out",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1293,11 +1173,8 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "TO MOVIo",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1315,11 +1192,8 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "to cv hd",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1337,11 +1211,8 @@
         "placa": "",
         "puerto": "In 6"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Radio desem",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1359,11 +1230,8 @@
         "placa": "",
         "puerto": "In 5"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MON SONIDI",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1381,11 +1249,8 @@
         "placa": "",
         "puerto": "In 4"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1403,11 +1268,8 @@
         "placa": "",
         "puerto": "In 3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MONI LINEA",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1425,11 +1287,8 @@
         "placa": "",
         "puerto": "In 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Dest 47",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1447,11 +1306,8 @@
         "placa": "",
         "puerto": "In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Dest 48",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1469,11 +1325,8 @@
         "placa": "",
         "puerto": "J2 (in)"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MON PISO",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1491,11 +1344,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1513,11 +1363,8 @@
         "placa": "",
         "puerto": "In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "GV DIR IN",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1535,11 +1382,8 @@
         "placa": "",
         "puerto": "SDI In 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "fs2 c4",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1557,11 +1401,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1579,11 +1420,8 @@
         "placa": "",
         "puerto": "In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Thom up-link",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1601,11 +1439,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1623,11 +1458,8 @@
         "placa": "",
         "puerto": "In P1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "IN CGX",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1645,11 +1477,8 @@
         "placa": "",
         "puerto": "SDI In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "CGX AJA FS4",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1667,11 +1496,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "AJA FS4 2",
       "notas": "Cable suelto en Rack D.11",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1689,11 +1515,8 @@
         "placa": "",
         "puerto": "SDI In 3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "AJA FS4 SAT 3",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1711,11 +1534,8 @@
         "placa": "",
         "puerto": "SDI In 4"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "AIRE!! AJA FS4",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1733,11 +1553,8 @@
         "placa": "",
         "puerto": "SDI In A"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "OSC CANAL 1",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1755,11 +1572,8 @@
         "placa": "",
         "puerto": "SDI In B"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "OSC CANAL 2",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1777,11 +1591,8 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "RADIO TX",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1799,11 +1610,8 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "AIRE",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1821,11 +1629,8 @@
         "placa": "",
         "puerto": "In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "PLAYER A.1",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1843,11 +1648,8 @@
         "placa": "",
         "puerto": "In 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "PLAYER B.1",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1865,11 +1667,8 @@
         "placa": "",
         "puerto": "In 3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "PLAYER C.1",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1887,11 +1686,8 @@
         "placa": "",
         "puerto": "In 4"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "PLAYER C.2",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1909,11 +1705,8 @@
         "placa": "",
         "puerto": "In 5"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "FOR A PGM",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1931,11 +1724,8 @@
         "placa": "",
         "puerto": "In 6"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "FOR A AUX 6",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1953,11 +1743,8 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "AJA FS2 NTSC",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1975,11 +1762,8 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "IRD TELA",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1997,11 +1781,8 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2019,11 +1800,8 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "FIBRA MOVIL",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2041,11 +1819,8 @@
         "placa": "",
         "puerto": "In 11"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "FIBRA CAMARA",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2063,11 +1838,8 @@
         "placa": "",
         "puerto": "In 12"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "FIBRA canal 4",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2085,11 +1857,8 @@
         "placa": "",
         "puerto": "In 13"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "FIBRA RADIO",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2107,11 +1876,8 @@
         "placa": "",
         "puerto": "In 14"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "FIBRA MOL",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2129,11 +1895,8 @@
         "placa": "",
         "puerto": "In 15"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "Cable suelto en Rack L",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2151,11 +1914,8 @@
         "placa": "",
         "puerto": "In 16"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "FIBRA IPLYC",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2173,11 +1933,8 @@
         "placa": "",
         "puerto": "In 17"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "IRD C12",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2195,11 +1952,8 @@
         "placa": "",
         "puerto": "In 18"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "IRD TV P.",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2217,11 +1971,8 @@
         "placa": "",
         "puerto": "In 19"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "IRD WELL. H",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2239,11 +1990,8 @@
         "placa": "",
         "puerto": "In 20"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "IRD CIS.H/V",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2261,11 +2009,8 @@
         "placa": "",
         "puerto": "In 21"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Canal 13",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "AJA Component to SDI"
     },
     {
@@ -2283,11 +2028,8 @@
         "placa": "",
         "puerto": "In 22"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "GRAB GV",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2305,11 +2047,8 @@
         "placa": "",
         "puerto": "In 23"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "CABLE VISION",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "BM Analog to SDI"
     },
     {
@@ -2327,11 +2066,8 @@
         "placa": "",
         "puerto": "In 24"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2349,11 +2085,8 @@
         "placa": "",
         "puerto": "In 25"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "N/D",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2371,11 +2104,8 @@
         "placa": "",
         "puerto": "In 26"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Casa del Streaming",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2393,12 +2123,10 @@
         "placa": "HDMI to SDI",
         "puerto": "Out 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -2415,11 +2143,8 @@
         "placa": "",
         "puerto": "In 27"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Deco m. Posadas",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2437,12 +2162,10 @@
         "placa": "HDMI to SDI",
         "puerto": "Out 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -2459,11 +2182,8 @@
         "placa": "",
         "puerto": "In 28"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2481,12 +2201,10 @@
         "placa": "HDMI to SDI",
         "puerto": "Out 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -2503,11 +2221,8 @@
         "placa": "",
         "puerto": "In 29"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "PC RACK 4",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2525,11 +2240,8 @@
         "placa": "",
         "puerto": "In 30"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MV CAM",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2547,11 +2259,8 @@
         "placa": "",
         "puerto": "In 31"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "CG OUT",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2569,11 +2278,8 @@
         "placa": "",
         "puerto": "In 32"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2591,11 +2297,8 @@
         "placa": "",
         "puerto": "In 33"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "APPLE TV",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "BM HDMI to SDI"
     },
     {
@@ -2613,11 +2316,8 @@
         "placa": "",
         "puerto": "In 34"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "ESTUDIO 5",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2635,12 +2335,10 @@
         "placa": "",
         "puerto": "Out 15"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -2657,11 +2355,8 @@
         "placa": "",
         "puerto": "In 35"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "PC DIR",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2679,12 +2374,10 @@
         "placa": "",
         "puerto": "Out 14"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -2701,11 +2394,8 @@
         "placa": "",
         "puerto": "In 36"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "titlo elec elec",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2723,12 +2413,10 @@
         "placa": "",
         "puerto": "Out 13"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -2745,11 +2433,8 @@
         "placa": "",
         "puerto": "In 37"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "full ece",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2767,12 +2452,10 @@
         "placa": "",
         "puerto": "Out 12"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -2789,11 +2472,8 @@
         "placa": "",
         "puerto": "In 38"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "PATCH 6",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2811,12 +2491,10 @@
         "placa": "",
         "puerto": "Out 11"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -2833,11 +2511,8 @@
         "placa": "",
         "puerto": "In 39"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "PATCH 7",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2855,12 +2530,10 @@
         "placa": "",
         "puerto": "Out 10"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -2877,11 +2550,8 @@
         "placa": "",
         "puerto": "In 40"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "ALL PTCH 8",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2899,12 +2569,10 @@
         "placa": "",
         "puerto": "Out 9"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -2921,11 +2589,8 @@
         "placa": "",
         "puerto": "In 41"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "CAM 1",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2943,11 +2608,8 @@
         "placa": "",
         "puerto": "In 42"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "CAM 2",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2965,11 +2627,8 @@
         "placa": "",
         "puerto": "In 43"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "CAM 3",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2987,11 +2646,8 @@
         "placa": "",
         "puerto": "In 44"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "CAM 4",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3009,11 +2665,8 @@
         "placa": "",
         "puerto": "In 45"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3031,11 +2684,8 @@
         "placa": "",
         "puerto": "In 46"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3053,11 +2703,8 @@
         "placa": "",
         "puerto": "In 47"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3075,11 +2722,8 @@
         "placa": "",
         "puerto": "In 48"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3097,11 +2741,8 @@
         "placa": "",
         "puerto": "In 49"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "SONY AUX 1",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3119,11 +2760,8 @@
         "placa": "",
         "puerto": "In 50"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3141,11 +2779,8 @@
         "placa": "",
         "puerto": "In 51"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3163,11 +2798,8 @@
         "placa": "",
         "puerto": "In 52"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3185,11 +2817,8 @@
         "placa": "",
         "puerto": "In 53"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "mochila interior",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3207,11 +2836,8 @@
         "placa": "",
         "puerto": "In 54"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "BM 12 Stre",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3229,11 +2855,8 @@
         "placa": "",
         "puerto": "In 55"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Salida CGX",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3251,11 +2874,8 @@
         "placa": "",
         "puerto": "In 56"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3273,11 +2893,8 @@
         "placa": "",
         "puerto": "In 57"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "CGX AJA FS4",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3295,11 +2912,8 @@
         "placa": "",
         "puerto": "In 58"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "AJA FS4 2",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3317,11 +2931,8 @@
         "placa": "",
         "puerto": "In 59"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "AJA FS4 3",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3339,11 +2950,8 @@
         "placa": "",
         "puerto": "In 60"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "AJA FS4 4",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3361,11 +2969,8 @@
         "placa": "",
         "puerto": "In 61"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3383,11 +2988,8 @@
         "placa": "",
         "puerto": "In 62"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "LINEA 1X9",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3405,12 +3007,10 @@
         "placa": "Dist. Amp. 1x9",
         "puerto": "J3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3427,11 +3027,8 @@
         "placa": "",
         "puerto": "In 63"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MV",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3449,11 +3046,8 @@
         "placa": "",
         "puerto": "In 64"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "BM 1 PGM",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3471,11 +3065,8 @@
         "placa": "",
         "puerto": "In 5"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3493,11 +3084,8 @@
         "placa": "",
         "puerto": "In 6"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3515,11 +3103,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "PLAYER A.1",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3537,11 +3122,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Source 10",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3559,11 +3141,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "RET. CABLEVISION",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3581,11 +3160,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "RET. SATELITE",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3603,11 +3179,8 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Source 13",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3625,12 +3198,10 @@
         "placa": "",
         "puerto": "Out 13"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3647,11 +3218,8 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Source 14",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3669,12 +3237,10 @@
         "placa": "",
         "puerto": "Out 14"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3691,11 +3257,8 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Source 15",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3713,12 +3276,10 @@
         "placa": "",
         "puerto": "Out 15"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3735,11 +3296,8 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Source 16",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3757,12 +3315,10 @@
         "placa": "",
         "puerto": "Out 16"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3779,11 +3335,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "DIR. CAM.",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3801,11 +3354,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "CANAL 13",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3823,11 +3373,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "TV PUBLICA",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3845,11 +3392,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "MOV. SATELITAL",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3867,11 +3411,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "FIBRA IPLYC",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3889,11 +3430,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Source 7",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3911,11 +3449,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Source 8",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3933,11 +3468,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "Source 9",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3955,11 +3487,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable suelto en Rack C.3",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3977,12 +3506,10 @@
         "placa": "",
         "puerto": "Out 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3999,11 +3526,8 @@
         "placa": "",
         "puerto": "In 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4021,12 +3545,10 @@
         "placa": "",
         "puerto": "Out 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4043,11 +3565,8 @@
         "placa": "",
         "puerto": "In 3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4065,12 +3584,10 @@
         "placa": "",
         "puerto": "Out 3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4087,11 +3604,8 @@
         "placa": "",
         "puerto": "In 4"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4109,12 +3623,10 @@
         "placa": "",
         "puerto": "Out 4"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4131,11 +3643,8 @@
         "placa": "",
         "puerto": "In 5"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4153,12 +3662,10 @@
         "placa": "",
         "puerto": "Out 5"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4175,11 +3682,8 @@
         "placa": "",
         "puerto": "In 6"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4197,12 +3701,10 @@
         "placa": "",
         "puerto": "Out 6"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4219,11 +3721,8 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4241,12 +3740,10 @@
         "placa": "",
         "puerto": "Out 7"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4263,11 +3760,8 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4285,12 +3779,10 @@
         "placa": "",
         "puerto": "Out 8"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4307,11 +3799,8 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4329,12 +3818,10 @@
         "placa": "",
         "puerto": "Out 9"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4351,11 +3838,8 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4373,12 +3857,10 @@
         "placa": "",
         "puerto": "Out 10"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4395,11 +3877,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4417,11 +3896,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4439,12 +3915,10 @@
         "placa": "",
         "puerto": "Out 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4461,11 +3935,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4483,12 +3954,10 @@
         "placa": "",
         "puerto": "Out 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4505,11 +3974,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4527,12 +3993,10 @@
         "placa": "",
         "puerto": "Out 3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4549,11 +4013,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4571,12 +4032,10 @@
         "placa": "",
         "puerto": "Out 4"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4593,11 +4052,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4615,12 +4071,10 @@
         "placa": "",
         "puerto": "Out 5"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4637,11 +4091,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4659,12 +4110,10 @@
         "placa": "",
         "puerto": "Out 6"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4681,11 +4130,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4703,12 +4149,10 @@
         "placa": "",
         "puerto": "Out 7"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4725,11 +4169,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4747,12 +4188,10 @@
         "placa": "",
         "puerto": "Out 8"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4769,11 +4208,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4791,12 +4227,10 @@
         "placa": "",
         "puerto": "Out 16"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4813,11 +4247,8 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "BM SDI to HDMI"
     },
     {
@@ -4835,12 +4266,10 @@
         "placa": "",
         "puerto": "Out 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4857,11 +4286,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "Dest 47"
     },
     {
@@ -4879,12 +4305,10 @@
         "placa": "",
         "puerto": "Out 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4901,11 +4325,8 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "BM SDI to HDMI"
     },
     {
@@ -4923,12 +4344,10 @@
         "placa": "",
         "puerto": "Out 3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4945,11 +4364,8 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "BM SDI to HDMI"
     },
     {
@@ -4967,12 +4383,10 @@
         "placa": "",
         "puerto": "Out 4"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4989,11 +4403,8 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "BM SDI to HDMI"
     },
     {
@@ -5011,12 +4422,10 @@
         "placa": "",
         "puerto": "Out 5"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5033,11 +4442,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5055,12 +4461,10 @@
         "placa": "",
         "puerto": "Out 6"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5077,11 +4481,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5099,12 +4500,10 @@
         "placa": "",
         "puerto": "Out 7"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5121,11 +4520,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5143,12 +4539,10 @@
         "placa": "",
         "puerto": "Out 8"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5165,11 +4559,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5187,12 +4578,10 @@
         "placa": "",
         "puerto": "Out 9"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5209,11 +4598,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5231,12 +4617,10 @@
         "placa": "",
         "puerto": "Out 10"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5253,11 +4637,8 @@
         "placa": "",
         "puerto": "SDI In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "Fibra TDA 1 S"
     },
     {
@@ -5275,12 +4656,10 @@
         "placa": "",
         "puerto": "Out 11"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5297,11 +4676,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5319,12 +4695,10 @@
         "placa": "",
         "puerto": "Out 12"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5341,11 +4715,8 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "BM SDI to HDMI"
     },
     {
@@ -5363,12 +4734,10 @@
         "placa": "",
         "puerto": "Out 13"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5385,11 +4754,8 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "BM SDI to HDMI"
     },
     {
@@ -5407,12 +4773,10 @@
         "placa": "",
         "puerto": "Out 14"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5429,11 +4793,8 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "BM SDI to HDMI"
     },
     {
@@ -5451,12 +4812,10 @@
         "placa": "",
         "puerto": "Out 15"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5473,11 +4832,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5495,12 +4851,10 @@
         "placa": "",
         "puerto": "Out 16"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5517,11 +4871,8 @@
         "placa": "",
         "puerto": "In P1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5539,12 +4890,10 @@
         "placa": "",
         "puerto": "SDI Out 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5561,11 +4910,8 @@
         "placa": "",
         "puerto": "J1 (in)"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5583,11 +4929,8 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5605,12 +4948,10 @@
         "placa": "De-embedder",
         "puerto": "SDI Out"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5627,11 +4968,8 @@
         "placa": "",
         "puerto": "In 12"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5649,12 +4987,10 @@
         "placa": "De-embedder",
         "puerto": "Audio Out L"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5671,11 +5007,8 @@
         "placa": "",
         "puerto": "In 13"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5693,12 +5026,10 @@
         "placa": "De-embedder",
         "puerto": "Audio Out R"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5715,11 +5046,8 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5737,12 +5065,10 @@
         "placa": "De-embedder",
         "puerto": "SDI Out"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5759,11 +5085,8 @@
         "placa": "",
         "puerto": "In 14"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5781,12 +5104,10 @@
         "placa": "De-embedder",
         "puerto": "Audio Out L"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5803,11 +5124,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5825,12 +5143,10 @@
         "placa": "De-embedder",
         "puerto": "Audio Out R"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5847,11 +5163,8 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5869,12 +5182,10 @@
         "placa": "De-embedder",
         "puerto": "SDI Out"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5891,11 +5202,8 @@
         "placa": "",
         "puerto": "In 15"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5913,12 +5221,10 @@
         "placa": "De-embedder",
         "puerto": "Audio Out L"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5935,11 +5241,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5957,12 +5260,10 @@
         "placa": "De-embedder",
         "puerto": "Audio Out R"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5979,11 +5280,8 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6001,12 +5299,10 @@
         "placa": "De-embedder",
         "puerto": "SDI Out"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -6023,11 +5319,8 @@
         "placa": "",
         "puerto": "In 16"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6045,12 +5338,10 @@
         "placa": "De-embedder",
         "puerto": "Audio Out L"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -6067,11 +5358,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6089,12 +5377,10 @@
         "placa": "De-embedder",
         "puerto": "Audio Out R"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -6111,11 +5397,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6133,12 +5416,10 @@
         "placa": "De-embbeder",
         "puerto": "SDI Out"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -6155,11 +5436,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6177,12 +5455,10 @@
         "placa": "De-embedder",
         "puerto": "Audio Out L"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -6199,11 +5475,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6221,12 +5494,10 @@
         "placa": "De-embedder",
         "puerto": "Audio Out R"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -6243,11 +5514,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable amarillo a Piso?",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6265,12 +5533,10 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "J4"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -6287,11 +5553,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable amarillo a Piso?",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6309,12 +5572,10 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "J6"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -6331,11 +5592,8 @@
         "placa": "",
         "puerto": "Component In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6353,11 +5611,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6375,11 +5630,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6397,11 +5649,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6419,11 +5668,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6441,11 +5687,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6463,11 +5706,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6485,11 +5725,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6507,11 +5744,8 @@
         "placa": "",
         "puerto": "SDI In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6529,12 +5763,10 @@
         "placa": "De-embbeder",
         "puerto": "SDI Out"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -6551,11 +5783,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6573,11 +5802,8 @@
         "placa": "",
         "puerto": "SDI In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "N/D",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6595,12 +5821,10 @@
         "placa": "Dist. Amp. 1x9",
         "puerto": "J5"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -6617,11 +5841,8 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "SRT La Casa del Streaming",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6639,11 +5860,8 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "SRT Mochila LiveU Posadas",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6661,11 +5879,8 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "BM HDMI to SDI"
     },
     {
@@ -6683,11 +5898,8 @@
         "placa": "",
         "puerto": "In 14"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6705,11 +5917,8 @@
         "placa": "",
         "puerto": "In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6727,11 +5936,8 @@
         "placa": "",
         "puerto": "In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6749,11 +5955,8 @@
         "placa": "",
         "puerto": "In 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6771,11 +5974,8 @@
         "placa": "",
         "puerto": "In 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6793,11 +5993,8 @@
         "placa": "",
         "puerto": "In 3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6815,11 +6012,8 @@
         "placa": "",
         "puerto": "In 3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6837,11 +6031,8 @@
         "placa": "",
         "puerto": "In 4"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6859,11 +6050,8 @@
         "placa": "",
         "puerto": "In 4"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6881,11 +6069,8 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "BM SDI to HDMI"
     },
     {
@@ -6903,11 +6088,8 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "BM SDI to HDMI > Capturadora USB"
     },
     {
@@ -6925,11 +6107,8 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": "Distribuidor PGM"
     },
     {
@@ -6947,11 +6126,8 @@
         "placa": "",
         "puerto": "Ret In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6969,12 +6145,10 @@
         "placa": "",
         "puerto": "SDI Out 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -6991,11 +6165,8 @@
         "placa": "",
         "puerto": "Ret In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7013,12 +6184,10 @@
         "placa": "",
         "puerto": "SDI Out 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -7035,11 +6204,8 @@
         "placa": "",
         "puerto": "Ret In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7057,12 +6223,10 @@
         "placa": "",
         "puerto": "SDI Out 3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -7079,11 +6243,8 @@
         "placa": "",
         "puerto": "Ret In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7101,12 +6262,10 @@
         "placa": "",
         "puerto": "SDI Out 4"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -7123,11 +6282,8 @@
         "placa": "",
         "puerto": "In 15"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7145,11 +6301,8 @@
         "placa": "",
         "puerto": "In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7167,11 +6320,8 @@
         "placa": "",
         "puerto": "In 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7189,11 +6339,8 @@
         "placa": "",
         "puerto": "In 3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7211,11 +6358,8 @@
         "placa": "",
         "puerto": "In 4"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7233,11 +6377,8 @@
         "placa": "",
         "puerto": "In 5"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7255,11 +6396,8 @@
         "placa": "",
         "puerto": "In 6"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7277,11 +6415,8 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7299,11 +6434,8 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7321,11 +6453,8 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7343,11 +6472,8 @@
         "placa": "",
         "puerto": "In 11"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7365,11 +6491,8 @@
         "placa": "",
         "puerto": "In 12"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7387,11 +6510,8 @@
         "placa": "",
         "puerto": "In 13"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7409,11 +6529,8 @@
         "placa": "",
         "puerto": "In 16"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7431,11 +6548,8 @@
         "placa": "",
         "puerto": "In 11"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7453,11 +6567,8 @@
         "placa": "",
         "puerto": "In 12"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7475,11 +6586,8 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7497,11 +6605,8 @@
         "placa": "",
         "puerto": "CVBS In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7519,11 +6624,8 @@
         "placa": "",
         "puerto": "Video In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7541,11 +6643,8 @@
         "placa": "",
         "puerto": "AES/EBU"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7563,11 +6662,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable suelto en Rack D",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7585,11 +6681,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable suelto en Rack D",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7607,11 +6700,8 @@
         "placa": "",
         "puerto": "REF In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7629,12 +6719,10 @@
         "placa": "",
         "puerto": "Out 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -7651,11 +6739,8 @@
         "placa": "",
         "puerto": "REF In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7673,12 +6758,10 @@
         "placa": "",
         "puerto": "Out 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -7695,11 +6778,8 @@
         "placa": "",
         "puerto": "REF In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7717,12 +6797,10 @@
         "placa": "",
         "puerto": "Out 3"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -7739,11 +6817,8 @@
         "placa": "",
         "puerto": "REF In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7761,12 +6836,10 @@
         "placa": "",
         "puerto": "Out 4"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -7783,11 +6856,8 @@
         "placa": "",
         "puerto": "REF In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7805,12 +6875,10 @@
         "placa": "",
         "puerto": "Out 5"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -7827,11 +6895,8 @@
         "placa": "",
         "puerto": "REF In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7849,12 +6914,10 @@
         "placa": "",
         "puerto": "Out 6"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -7871,11 +6934,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable suelto en Rack A",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7893,12 +6953,10 @@
         "placa": "",
         "puerto": "Out 7"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -7915,11 +6973,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7937,12 +6992,10 @@
         "placa": "",
         "puerto": "Out 8"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -7959,11 +7012,8 @@
         "placa": "",
         "puerto": "In 1"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7981,11 +7031,8 @@
         "placa": "",
         "puerto": "In 29"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8003,11 +7050,8 @@
         "placa": "",
         "puerto": "J1 (in)"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8025,11 +7069,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8047,12 +7088,10 @@
         "placa": "Dist. Amp. 1x9",
         "puerto": "J2 (out)"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -8069,11 +7108,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8091,12 +7127,10 @@
         "placa": "Dist. Amp. 1x9",
         "puerto": "J3 (out)"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -8113,11 +7147,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8135,12 +7166,10 @@
         "placa": "Dist. Amp. 1x9",
         "puerto": "J4 (out)"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -8157,11 +7186,8 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8179,12 +7205,10 @@
         "placa": "Dist. Amp. 1x9",
         "puerto": "J5 (out)"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -8201,11 +7225,8 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8223,12 +7244,10 @@
         "placa": "Dist. Amp. 1x9",
         "puerto": "J6 (out)"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -8245,11 +7264,8 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8267,12 +7283,10 @@
         "placa": "Dist. Amp. 1x9",
         "puerto": "J7 (out)"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -8289,11 +7303,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8311,12 +7322,10 @@
         "placa": "Dist. Amp. 1x9",
         "puerto": "J8 (out)"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -8333,11 +7342,8 @@
         "placa": "",
         "puerto": "SDI In 2"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8355,12 +7361,10 @@
         "placa": "Dist. Amp. 1x9",
         "puerto": "J9 (out)"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -8377,11 +7381,8 @@
         "placa": "",
         "puerto": ""
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable suelto en Rack L",
-      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8399,19 +7400,18 @@
         "placa": "Dist. Amp. 1x9",
         "puerto": "J10 (out)"
       },
-      "thru": false,
-      "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": true,
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     }
   ],
   "stats": {
     "nodos": 79,
-    "conexiones": 273,
-    "arcos_thru": 91,
-    "con_destino": 273,
-    "sin_destino": 0
+    "arcos_totales": 364,
+    "arcos_externos": 273,
+    "arcos_thru_internos": 91,
+    "arcos_con_destino": 210,
+    "arcos_sin_destino": 63
   }
 }
