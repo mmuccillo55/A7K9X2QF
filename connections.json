@@ -418,7 +418,7 @@
       "rotulo": "MATRIZ 1",
       "notas": "",
       "es_thru": false,
-      "disp_ext": "PRUEBA"
+      "disp_ext": "PRUEBA 1"
     },
     {
       "src": {
@@ -1985,7 +1985,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -2117,7 +2117,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -2557,7 +2557,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -2997,7 +2997,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -3019,7 +3019,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -3041,7 +3041,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -3063,7 +3063,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -3107,7 +3107,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -3129,7 +3129,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -3151,7 +3151,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -3239,7 +3239,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -3349,7 +3349,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7133,7 +7133,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7155,7 +7155,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7177,7 +7177,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7199,7 +7199,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7221,7 +7221,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7243,7 +7243,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7265,7 +7265,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7287,7 +7287,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7309,7 +7309,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7331,7 +7331,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7353,7 +7353,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7375,7 +7375,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7397,7 +7397,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7419,7 +7419,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7441,7 +7441,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -7463,7 +7463,7 @@
     {
       "src": {
         "rack": "N/C",
-        "equipo": "",
+        "equipo": "0",
         "slot": "",
         "placa": "",
         "puerto": ""
