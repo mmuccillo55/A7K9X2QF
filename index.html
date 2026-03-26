@@ -418,12 +418,22 @@ function showEquip(rack,eq,slot){
 	  if(state==='NC') cls+=' p-free';
 	  else if(state==='ND') cls+=' p-nd';
       var lbl=con.label||'';
-      // Pass both in and out ports so trace can go both directions
-      var click=' onclick="onConnectorClick(this,\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(con.inPort)+'\',\''+h(con.outPort)+'\',\''+state+'\')"';
-      html+='<div class="'+cls+'"'+click+'>';
-      html+='<div class="p-num">'+h(con.inPort.replace(/^In /,''))+'</div>';
+      // Botón de ENTRADA
+      var clickIn=' onclick="onConnectorClick(this,\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(con.inPort)+'\',\''+h(con.outPort)+'\',\''+state+'\')"';
+      var clsIn='port-btn p-in'+(state==='NC'?' p-free':state==='ND'?' p-nd':'');
+      html+='<div class="'+clsIn+'"'+clickIn+'>';
+      html+='<div class="p-num">'+h(con.inPort)+'</div>';
       html+='<div class="p-lbl">'+h(lbl)+'</div>';
       html+='</div>';
+      // Botón de SALIDA (si existe)
+      if(con.outPort){
+        var clickOut=' onclick="onConnectorClick(this,\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(con.inPort)+'\',\''+h(con.outPort)+'\',\''+state+'\')"';
+        var clsOut='port-btn p-out'+(state==='NC'?' p-free':state==='ND'?' p-nd':'');
+        html+='<div class="'+clsOut+'"'+clickOut+'>';
+        html+='<div class="p-num">'+h(con.outPort)+'</div>';
+        html+='<div class="p-lbl">'+h(lbl)+'</div>';
+        html+='</div>';
+      }
     });
     html+='</div>';
   } else {
@@ -463,7 +473,7 @@ function showEquip(rack,eq,slot){
         else if(c.sr==='N/D' || !c.sr) state='ND';  // No Documentado
         else state='doc';                 // Documentado
         var lbl=c.rotulo||(state!=='doc'?'':c.se)||'';
-        var args='\''+h(c.dr)+'\',\''+h(c.de)+'\',\''+h(c.ds)+'\',\''+h(c.dp)+'\'';
+        var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
         html+=portBtnHTML(c.dp,state,lbl,args);
       });
       html+='</div>';
@@ -612,15 +622,22 @@ function buildSegments(sr,se,ss0,sp){
     if(vis[key]) return; vis[key]=true;
 
     var placa=getPlaca(rack,eq,slot);
+
+    // ¿El inPort es entrada de un THRU interno? Si es así, el segmento
+    // ya fue o será creado completo (con inPort+outPort) por el THRU — no duplicar.
+    var esSalidaThruDown=inPort && CONNS.some(function(c){
+      return c.es_thru===true && c.sr===rack && c.se===eq &&
+             nss(c.ss)===nss(slot) && c.sp===inPort;
+    });
+
     var seg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:inPort,outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
-    segs.push(seg);
+    if(!esSalidaThruDown) segs.push(seg);
 
     var nexts=fOuts(rack,eq,slot,outPort);
     if(!nexts.length) return;
 
     nexts.forEach(function(c){
       if(!c.dr||c.dr==='N/C'){seg.nc=true;return;}
-      if(c.dr==='N/D'){seg.unknown=true;return;}
       if(c.dr==='?'){seg.unknown=true;return;}
       // Store disp_ext on the current segment (it belongs to this cable)
       if(c.disp_ext) seg.disp_ext=c.disp_ext;
@@ -688,20 +705,7 @@ function buildUpstream(sr,se,ss0,sp){
       // Hay cable(s) entrando
       inConns.forEach(function(conn){
         var srcRack=conn.sr, srcEq=conn.se, srcSlot=conn.ss, srcPort=conn.sp;
-
         var srcPlaca=getPlaca(srcRack,srcEq,srcSlot);
-
-        // Si el source es N/C, N/D o desconocido: mostrar el segmento pero no recursar
-        if(!srcRack || srcRack==='N/C' || srcRack==='?' ){
-          segs.unshift({rack:srcRack,eq:srcEq,slot:srcSlot,placa:srcPlaca,
-            inPort:'',outPort:srcPort,branches:[],unknown:false,nc:true,disp_ext:''});
-          return;
-        }
-        if(srcRack==='N/D'){
-          segs.unshift({rack:srcRack,eq:srcEq,slot:srcSlot,placa:srcPlaca,
-            inPort:'',outPort:srcPort,branches:[],unknown:true,nc:false,disp_ext:''});
-          return;
-        }
 
         // ¿El srcPort es salida de un THRU interno?
         // Si es así, NO crear segmento aquí — la recursión entrará al branch THRU
