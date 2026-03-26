@@ -623,14 +623,15 @@ function buildSegments(sr,se,ss0,sp){
 
     var placa=getPlaca(rack,eq,slot);
 
-    // ¿El inPort es entrada de un THRU interno? Si es así, el segmento
-    // ya fue o será creado completo (con inPort+outPort) por el THRU — no duplicar.
+    var seg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:inPort,outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
+
+    // ¿El inPort es entrada de un THRU interno?
+    // Si es así, este segmento es el "incompleto" — el THRU lo creará completo.
+    // No lo pusheamos, pero seguimos usando seg para nc/disp_ext en nexts.
     var esSalidaThruDown=inPort && CONNS.some(function(c){
       return c.es_thru===true && c.sr===rack && c.se===eq &&
              nss(c.ss)===nss(slot) && c.sp===inPort;
     });
-
-    var seg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:inPort,outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
     if(!esSalidaThruDown) segs.push(seg);
 
     var nexts=fOuts(rack,eq,slot,outPort);
@@ -661,7 +662,15 @@ function buildSegments(sr,se,ss0,sp){
       if(!thrus.length){
         walk(dr,de,ds,dp,'',depth+1);
       } else if(videoT.length){
-        videoT.forEach(function(vt){walk(dr,de,ds,dp,vt.dp,depth+1);});
+        videoT.forEach(function(vt){
+          // Crear segmento completo inPort+outPort para el equipo THRU
+          var thruPlaca=getPlaca(dr,de,ds);
+          var thruSeg={rack:dr,eq:de,slot:ds,placa:thruPlaca,
+            inPort:dp,outPort:vt.dp,branches:[],unknown:false,nc:false,disp_ext:''};
+          var thruKey=dr+'|'+de+'|'+nss(ds)+'|'+String(dp)+'|'+String(vt.dp);
+          if(!vis[thruKey]){vis[thruKey]=true; segs.push(thruSeg);}
+          walk(dr,de,ds,dp,vt.dp,depth+1);
+        });
         if(branches.length){
           for(var i=segs.length-1;i>=0;i--){
             var s=segs[i];
@@ -783,9 +792,22 @@ function renderRoute(segs){
 }
 
 function buildRoute(sr,se,ss0,sp){
+  // Detectar si el puerto clickeado es salida (aparece como sp) o entrada (como dp)
+  var isOutput=CONNS.some(function(c){
+    return c.es_thru!==true && c.sr===sr && c.se===se && nss(c.ss)===nss(ss0) && c.sp===sp;
+  });
+
   var upSegs=buildUpstream(sr,se,ss0,sp);
   var downSegs=buildSegments(sr,se,ss0,sp);
-  // Combinar: upstream + downstream (sin duplicar el inicio que está al final de upstream)
+
+  // Si es salida: corregir el finalSeg — debe tener outPort, no inPort
+  if(isOutput && upSegs.length){
+    var last=upSegs[upSegs.length-1];
+    if(last.rack===sr && last.eq===se && nss(last.slot)===nss(ss0) && last.inPort===sp){
+      last.inPort=''; last.outPort=sp;
+    }
+  }
+
   var allSegs=upSegs.concat(downSegs.slice(1));
   return renderRoute(allSegs);
 }
