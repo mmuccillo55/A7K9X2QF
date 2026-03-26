@@ -8,20 +8,28 @@ Defaults:
     archivo : Conexiones.xlsx
     salida  : connections.json
 
-El parser es completamente genérico: no hardcodea nombres de equipos,
-racks, placas ni puertos. Todo lo lee del xlsx.
+Parser completamente genérico basado en la estructura de cableado broadcast.
+
+Lógica:
+  - Cada fila en "Conexiones" = una conexión origen -> destino
+  - Si hay Thru=T, se generan DOS entradas en el JSON:
+    1. Arco interno: (thru_entrada -> src_puerto) dentro del mismo equipo
+    2. Arco externo: (src_puerto -> dst_puerto) hacia el destino
+  - Rótulo y Notas solo en arcos externos
+  - N/C = puerto no conectado
+  - N/D = pendiente de documentar
 
 Hojas requeridas:
     - Conexiones : tabla de cableado
-    - DB         : inventario de equipos con IPs
+    - DB         : inventario de equipos
 
-Columnas requeridas en Conexiones (por nombre, el orden no importa):
+Columnas requeridas en Conexiones:
     Rack (Origen), Equipo (Origen), Slot (Origen), Placa (Origen),
     Puerto (Origen), Thru, Puerto Thru,
     Rack (Destino), Equipo (Destino), Slot (Destino), Puerto (Destino),
     Rótulo, Notas
 
-Columnas requeridas en DB (por nombre):
+Columnas requeridas en DB:
     Rack, Equipo, IP
 """
 
@@ -35,28 +43,24 @@ import os
 XLSX_FILE = sys.argv[1] if len(sys.argv) > 1 else 'Conexiones.xlsx'
 JSON_FILE = sys.argv[2] if len(sys.argv) > 2 else 'connections.json'
 
-# Valores que significan "sin destino / desconocido"
 SIN_DESTINO = {'', 'N/D', 'N/C'}
+THRU_MARCA = 'T'
 
-# Valor en columna Thru que activa el arco interno
-THRU_VALOR = 'T'
-
-# Columnas esperadas
 COL = {
-    'src_rack':    'Rack (Origen)',
-    'src_equipo':  'Equipo (Origen)',
-    'src_slot':    'Slot (Origen)',
-    'src_placa':   'Placa (Origen)',
-    'src_puerto':  'Puerto (Origen)',
-    'thru':        'Thru',
-    'thru_entrada':'Puerto Thru',
-    'dst_rack':    'Rack (Destino)',
-    'dst_equipo':  'Equipo (Destino)',
-    'dst_slot':    'Slot (Destino)',
-    'dst_puerto':  'Puerto (Destino)',
-    'rotulo':      'Rótulo',
-    'notas':       'Notas',
-    'disp_ext':    'Disp. Ext.',
+    'src_rack':     'Rack (Origen)',
+    'src_equipo':   'Equipo (Origen)',
+    'src_slot':     'Slot (Origen)',
+    'src_placa':    'Placa (Origen)',
+    'src_puerto':   'Puerto (Origen)',
+    'thru':         'Thru',
+    'thru_entrada': 'Puerto Thru',
+    'dst_rack':     'Rack (Destino)',
+    'dst_equipo':   'Equipo (Destino)',
+    'dst_slot':     'Slot (Destino)',
+    'dst_puerto':   'Puerto (Destino)',
+    'rotulo':       'Rótulo',
+    'notas':        'Notas',
+    'disp_ext':     'Disp. Ext.',
 }
 
 COL_DB = {
@@ -76,12 +80,7 @@ def cv(v):
 
 
 def parse_ip(v):
-    """
-    Convierte el valor de IP del DB:
-      - celda vacía / NaN  -> None  (sin red)
-      - 'N/D'                -> 'N/D'   (pendiente)
-      - cualquier otro     -> string tal cual
-    """
+    """Convierte IP del DB: vacío -> None, N/D -> 'N/D', otro -> string."""
     s = cv(v)
     if s == '':
         return None
@@ -89,10 +88,12 @@ def parse_ip(v):
 
 
 def sin_destino(v):
+    """¿Es un valor que significa 'sin destino'?"""
     return cv(v) in SIN_DESTINO
 
 
 def make_endpoint(rack, equipo, slot, placa, puerto):
+    """Crea un endpoint estructurado."""
     return {
         'rack':   cv(rack),
         'equipo': cv(equipo),
@@ -101,13 +102,19 @@ def make_endpoint(rack, equipo, slot, placa, puerto):
         'puerto': cv(puerto),
     }
 
-# ── Validación de columnas ────────────────────────────────────────────────────
 
 def check_columns(df, required, sheet_name):
+    """Valida que existan las columnas requeridas."""
     missing = [col for col in required.values() if col not in df.columns]
     if missing:
         print(f"ERROR: en la hoja '{sheet_name}' faltan columnas: {missing}", file=sys.stderr)
         sys.exit(1)
+
+
+def endpoint_to_key(ep):
+    """Convierte un endpoint a una clave única para búsquedas."""
+    return f"{ep['rack']}.{ep['pos']}/{ep['slot']}/{ep['placa']}/{ep['puerto']}"
+
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
@@ -123,129 +130,135 @@ for sheet in ('Conexiones', 'DB'):
         sys.exit(1)
 
 df_con = sheets['Conexiones']
-df_db  = sheets['DB']
+df_db = sheets['DB']
 
 check_columns(df_con, COL, 'Conexiones')
-check_columns(df_db,  COL_DB, 'DB')
+check_columns(df_db, COL_DB, 'DB')
 
 # ── Construir nodos desde DB ──────────────────────────────────────────────────
 
 nodos = []
-db_index = {}  # (rack, equipo) -> ip
+nodos_index = {}  # rack -> nodo info
 
 for _, row in df_db.iterrows():
-    rack   = cv(row[COL_DB['rack']])
+    rack = cv(row[COL_DB['rack']])
     equipo = cv(row[COL_DB['equipo']])
-    ip     = parse_ip(row[COL_DB['ip']])
-
+    ip = parse_ip(row[COL_DB['ip']])
+    
     if not rack and not equipo:
         continue
-
+    
     nodo = {
         'rack':   rack,
         'equipo': equipo,
         'ip':     ip,
     }
     nodos.append(nodo)
-    db_index[(rack, equipo)] = ip
+    nodos_index[rack] = nodo
 
 # ── Construir conexiones desde hoja Conexiones ────────────────────────────────
 
 conexiones = []
-warnings   = []
-
-def add(src_rack, src_equipo, src_slot, src_placa, src_puerto,
-        dst_rack, dst_equipo, dst_slot, dst_placa, dst_puerto,
-        thru, thru_entrada, rotulo, notas, es_thru=False, disp_ext=''):
-
-    conexiones.append({
-        'src': make_endpoint(src_rack, src_equipo, src_slot, src_placa, src_puerto),
-        'dst': make_endpoint(dst_rack, dst_equipo, dst_slot, dst_placa, dst_puerto),
-        'thru':         thru,
-        'thru_entrada': cv(thru_entrada),
-        'rotulo':       cv(rotulo),
-        'notas':        cv(notas),
-        'es_thru':      es_thru,
-        'disp_ext':     cv(disp_ext),
-    })
-
+warnings = []
 
 for idx, row in df_con.iterrows():
     fila = idx + 2  # número de fila en Excel (1-indexed + header)
-
-    src_rack   = cv(row[COL['src_rack']])
+    
+    # Origen
+    src_rack = cv(row[COL['src_rack']])
     src_equipo = cv(row[COL['src_equipo']])
-    src_slot   = cv(row[COL['src_slot']])
-    src_placa  = cv(row[COL['src_placa']])
+    src_slot = cv(row[COL['src_slot']])
+    src_placa = cv(row[COL['src_placa']])
     src_puerto = cv(row[COL['src_puerto']])
-
-    thru        = cv(row[COL['thru']]) == THRU_VALOR
+    
+    # Thru
+    tiene_thru = cv(row[COL['thru']]) == THRU_MARCA
     thru_entrada = cv(row[COL['thru_entrada']])
-
-    dst_rack   = cv(row[COL['dst_rack']])
+    
+    # Destino
+    dst_rack = cv(row[COL['dst_rack']])
     dst_equipo = cv(row[COL['dst_equipo']])
-    dst_slot   = cv(row[COL['dst_slot']])
+    dst_slot = cv(row[COL['dst_slot']])
     dst_puerto = cv(row[COL['dst_puerto']])
-
-    rotulo   = cv(row[COL['rotulo']])
-    notas    = cv(row[COL['notas']])
+    
+    # Metadata
+    rotulo = cv(row[COL['rotulo']])
+    notas = cv(row[COL['notas']])
     disp_ext = cv(row[COL['disp_ext']]) if COL['disp_ext'] in df_con.columns else ''
-
-    # Si no hay nada útil en la fila, saltar
+    
+    # Si no hay nada útil en origen, saltar fila
     if not src_rack and not src_equipo and not src_puerto:
         continue
-
-    # Warning si src no está en DB
-    if src_rack not in ('', 'N/D') and src_equipo not in ('', 'N/D'):
-        if (src_rack, src_equipo) not in db_index:
+    
+    # Validar que origen esté en DB (si no es N/D)
+    if src_rack not in ('', 'N/D'):
+        if src_rack not in nodos_index:
             warnings.append(f"fila {fila}: origen '{src_rack} / {src_equipo}' no está en DB")
-
-    # Warning si dst no está en DB (solo si tiene destino conocido)
+    
+    # Validar que destino esté en DB (si tiene destino conocido y no es N/D)
     if not sin_destino(dst_rack) and dst_equipo not in ('', 'N/D'):
-        if (dst_rack, dst_equipo) not in db_index:
+        if dst_rack not in nodos_index:
             warnings.append(f"fila {fila}: destino '{dst_rack} / {dst_equipo}' no está en DB")
-
-    # Si destino es N/C o N/D, mantener en rack pero limpiar otros campos
-    # Si destino está completamente vacío, dejar todo vacío
+    
+    # ── Arco externo (la conexión principal: src -> dst) ───────────────────────
+    
+    # Limpiar destino si es N/C o N/D
     if dst_rack in ('N/C', 'N/D'):
-        # Mantener el valor N/C o N/D en dst_rack
-        # Limpiar los otros campos
-        dst_equipo = dst_slot = dst_puerto = ''
+        # Mantener el valor para que sea claro en el JSON
+        dst_equipo_clean = ''
+        dst_slot_clean = ''
+        dst_puerto_clean = ''
     elif sin_destino(dst_rack):
-        # Si es otro valor en SIN_DESTINO (ej: ''), limpiar todo
-        dst_rack = dst_equipo = dst_slot = dst_puerto = ''
-
-    # Conexión principal (el cable externo)
-    add(
-        src_rack, src_equipo, src_slot, src_placa, src_puerto,
-        dst_rack, dst_equipo, dst_slot, '',         dst_puerto,
-        False, '', rotulo, notas, disp_ext=disp_ext
-    )
-
-    # Arco interno thru: Puerto Thru -> Puerto Origen (dentro del mismo equipo)
-    if thru:
+        # Si es otro valor en SIN_DESTINO, limpiar todo
+        dst_rack = ''
+        dst_equipo_clean = ''
+        dst_slot_clean = ''
+        dst_puerto_clean = ''
+    else:
+        dst_equipo_clean = dst_equipo
+        dst_slot_clean = dst_slot
+        dst_puerto_clean = dst_puerto
+    
+    arco_externo = {
+        'src': make_endpoint(src_rack, src_equipo, src_slot, src_placa, src_puerto),
+        'dst': make_endpoint(dst_rack, dst_equipo_clean, dst_slot_clean, '', dst_puerto_clean),
+        'rotulo': rotulo,
+        'notas': notas,
+        'disp_ext': disp_ext,
+    }
+    conexiones.append(arco_externo)
+    
+    # ── Arco interno (Thru) ───────────────────────────────────────────────────
+    
+    if tiene_thru:
         if not thru_entrada:
             warnings.append(f"fila {fila}: Thru=T pero 'Puerto Thru' está vacío — arco interno no generado")
         else:
-            add(
-                src_rack, src_equipo, src_slot, src_placa, thru_entrada,
-                src_rack, src_equipo, src_slot, src_placa, src_puerto,
-                False, '', '', '', es_thru=True
-            )
+            # Arco interno: thru_entrada -> src_puerto (dentro del mismo equipo)
+            arco_interno = {
+                'src': make_endpoint(src_rack, src_equipo, src_slot, src_placa, thru_entrada),
+                'dst': make_endpoint(src_rack, src_equipo, src_slot, src_placa, src_puerto),
+                'rotulo': '',
+                'notas': '',
+                'disp_ext': '',
+                'es_thru_interno': True,
+            }
+            conexiones.append(arco_interno)
 
 # ── Estadísticas ──────────────────────────────────────────────────────────────
 
-total         = len(conexiones)
-thru_count    = sum(1 for c in conexiones if c['es_thru'])
-con_destino   = sum(1 for c in conexiones if c['dst']['rack'] != '' and not c['es_thru'])
-sin_dst_count = sum(1 for c in conexiones if c['dst']['rack'] == '' and not c['es_thru'])
+arcos_thru = sum(1 for c in conexiones if c.get('es_thru_interno', False))
+arcos_externos = len(conexiones) - arcos_thru
+arcos_con_destino = sum(1 for c in conexiones if c['dst']['puerto'] != '' and not c.get('es_thru_interno', False))
+arcos_sin_destino = arcos_externos - arcos_con_destino
 
 stats = {
-    'nodos':          len(nodos),
-    'conexiones':     total - thru_count,
-    'arcos_thru':     thru_count,
-    'con_destino':    con_destino,
-    'sin_destino':    sin_dst_count,
+    'nodos': len(nodos),
+    'arcos_totales': len(conexiones),
+    'arcos_externos': arcos_externos,
+    'arcos_thru_internos': arcos_thru,
+    'arcos_con_destino': arcos_con_destino,
+    'arcos_sin_destino': arcos_sin_destino,
 }
 
 # ── Output ────────────────────────────────────────────────────────────────────
@@ -253,10 +266,10 @@ stats = {
 proyecto = os.path.splitext(os.path.basename(XLSX_FILE))[0]
 
 output = {
-    'proyecto':    proyecto,
-    'nodos':       nodos,
-    'conexiones':  conexiones,
-    'stats':       stats,
+    'proyecto': proyecto,
+    'nodos': nodos,
+    'conexiones': conexiones,
+    'stats': stats,
 }
 
 with open(JSON_FILE, 'w', encoding='utf-8') as f:
@@ -265,9 +278,10 @@ with open(JSON_FILE, 'w', encoding='utf-8') as f:
 # ── Resumen en stdout ─────────────────────────────────────────────────────────
 
 print(f"OK: '{XLSX_FILE}' -> '{JSON_FILE}'")
-print(f"  nodos:          {stats['nodos']}")
-print(f"  conexiones:     {stats['conexiones']}  ({stats['con_destino']} con destino, {stats['sin_destino']} sin destino)")
-print(f"  arcos thru:     {stats['arcos_thru']}")
+print(f"  nodos:               {stats['nodos']}")
+print(f"  arcos totales:       {stats['arcos_totales']}")
+print(f"    - externos:        {stats['arcos_externos']}  ({stats['arcos_con_destino']} con destino, {stats['arcos_sin_destino']} sin destino)")
+print(f"    - thru internos:   {stats['arcos_thru_internos']}")
 
 if warnings:
     print(f"\n  WARNINGS ({len(warnings)}):")
