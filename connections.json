@@ -416,9 +416,9 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "MATRIZ 1",
-      "notas": "PRUEBA 1",
-      "es_thru": "",
-      "disp_ext": ""
+      "notas": "",
+      "es_thru": false,
+      "disp_ext": "PRUEBA"
     },
     {
       "src": {
@@ -438,8 +438,8 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "MATRIZ 2",
-      "notas": "PRUEBA 2",
-      "es_thru": "",
+      "notas": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -460,8 +460,8 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "MATRIZ 3",
-      "notas": "PRUEBA 3",
-      "es_thru": "",
+      "notas": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -482,8 +482,8 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "MATRIZ 4",
-      "notas": "PRUEBA 4",
-      "es_thru": "",
+      "notas": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -505,7 +505,7 @@
       "thru_entrada": "",
       "rotulo": "MATRIZ 5",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -527,7 +527,7 @@
       "thru_entrada": "",
       "rotulo": "MATRIZ 6",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -549,7 +549,7 @@
       "thru_entrada": "",
       "rotulo": "MATRIZ 7",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -571,7 +571,7 @@
       "thru_entrada": "",
       "rotulo": "MATRIZ 8",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -593,7 +593,7 @@
       "thru_entrada": "",
       "rotulo": "MATRIZ 9",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -615,7 +615,7 @@
       "thru_entrada": "",
       "rotulo": "MATRIZ 10",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -637,7 +637,7 @@
       "thru_entrada": "",
       "rotulo": "MATRIZ 11",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -659,7 +659,7 @@
       "thru_entrada": "",
       "rotulo": "MATRIZ 12",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -681,7 +681,7 @@
       "thru_entrada": "",
       "rotulo": "MX 13 AUDIO",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -703,7 +703,7 @@
       "thru_entrada": "",
       "rotulo": "MX 14 AUDIO",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -725,7 +725,7 @@
       "thru_entrada": "",
       "rotulo": "MX 15 AUDIO",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -747,7 +747,7 @@
       "thru_entrada": "",
       "rotulo": "MX 16 AUDIO",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -769,7 +769,7 @@
       "thru_entrada": "",
       "rotulo": "LOOP A.1",
       "notas": "Convierte norma para Loop A1",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -791,7 +791,7 @@
       "thru_entrada": "",
       "rotulo": "LOOP A.2",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -813,7 +813,7 @@
       "thru_entrada": "",
       "rotulo": "LOOP B.1",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -835,7 +835,7 @@
       "thru_entrada": "",
       "rotulo": "LOOP B.2",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -857,7 +857,7 @@
       "thru_entrada": "",
       "rotulo": "LOOP C.1",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -879,7 +879,7 @@
       "thru_entrada": "",
       "rotulo": "LOOP C.2",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -901,7 +901,7 @@
       "thru_entrada": "",
       "rotulo": "1 MV TX",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -923,7 +923,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -945,7 +945,7 @@
       "thru_entrada": "",
       "rotulo": "MX 25",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -967,7 +967,7 @@
       "thru_entrada": "",
       "rotulo": "MX 26",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -989,7 +989,7 @@
       "thru_entrada": "",
       "rotulo": "MX 27",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1011,7 +1011,7 @@
       "thru_entrada": "",
       "rotulo": "MX 28",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1033,7 +1033,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable suelto en Rack E",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1055,7 +1055,7 @@
       "thru_entrada": "",
       "rotulo": "D.L.1 Streaming",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1077,7 +1077,7 @@
       "thru_entrada": "",
       "rotulo": "CG",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1099,7 +1099,7 @@
       "thru_entrada": "",
       "rotulo": "Esc pantalla",
       "notas": "Aparentemente en bandeja arriba de iluminador",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1121,7 +1121,7 @@
       "thru_entrada": "",
       "rotulo": "out out",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1143,7 +1143,7 @@
       "thru_entrada": "",
       "rotulo": "MON PISO",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1165,7 +1165,7 @@
       "thru_entrada": "",
       "rotulo": "MON ILUMINA",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1187,7 +1187,7 @@
       "thru_entrada": "",
       "rotulo": "MON TITULOS",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1209,7 +1209,7 @@
       "thru_entrada": "",
       "rotulo": "xxx xxx",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1231,7 +1231,7 @@
       "thru_entrada": "",
       "rotulo": "Fibra TDA 1 S",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1253,7 +1253,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1275,7 +1275,7 @@
       "thru_entrada": "",
       "rotulo": "out out",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1297,7 +1297,7 @@
       "thru_entrada": "",
       "rotulo": "TO MOVIo",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1319,7 +1319,7 @@
       "thru_entrada": "",
       "rotulo": "to cv hd",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1341,7 +1341,7 @@
       "thru_entrada": "",
       "rotulo": "Radio desem",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1363,7 +1363,7 @@
       "thru_entrada": "",
       "rotulo": "MON SONIDI",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1385,7 +1385,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1407,7 +1407,7 @@
       "thru_entrada": "",
       "rotulo": "MONI LINEA",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1429,7 +1429,7 @@
       "thru_entrada": "",
       "rotulo": "Dest 47",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1451,7 +1451,7 @@
       "thru_entrada": "",
       "rotulo": "Dest 48",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1473,7 +1473,7 @@
       "thru_entrada": "",
       "rotulo": "MON PISO",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1495,7 +1495,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1517,7 +1517,7 @@
       "thru_entrada": "",
       "rotulo": "GV DIR IN",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1539,7 +1539,7 @@
       "thru_entrada": "",
       "rotulo": "fs2 c4",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1561,7 +1561,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1583,7 +1583,7 @@
       "thru_entrada": "",
       "rotulo": "Thom up-link",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1605,7 +1605,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1627,7 +1627,7 @@
       "thru_entrada": "",
       "rotulo": "IN CGX",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1649,7 +1649,7 @@
       "thru_entrada": "",
       "rotulo": "CGX AJA FS4",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1671,7 +1671,7 @@
       "thru_entrada": "",
       "rotulo": "AJA FS4 2",
       "notas": "Cable suelto en Rack D.11",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1693,7 +1693,7 @@
       "thru_entrada": "",
       "rotulo": "AJA FS4 SAT 3",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1715,7 +1715,7 @@
       "thru_entrada": "",
       "rotulo": "AIRE!! AJA FS4",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1737,7 +1737,7 @@
       "thru_entrada": "",
       "rotulo": "OSC CANAL 1",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1759,7 +1759,7 @@
       "thru_entrada": "",
       "rotulo": "OSC CANAL 2",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1781,7 +1781,7 @@
       "thru_entrada": "",
       "rotulo": "RADIO TX",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1803,7 +1803,7 @@
       "thru_entrada": "",
       "rotulo": "AIRE",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1825,7 +1825,7 @@
       "thru_entrada": "",
       "rotulo": "PLAYER A.1",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1847,7 +1847,7 @@
       "thru_entrada": "",
       "rotulo": "PLAYER B.1",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1869,7 +1869,7 @@
       "thru_entrada": "",
       "rotulo": "PLAYER C.1",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1891,7 +1891,7 @@
       "thru_entrada": "",
       "rotulo": "PLAYER C.2",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1913,7 +1913,7 @@
       "thru_entrada": "",
       "rotulo": "FOR A PGM",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1935,7 +1935,7 @@
       "thru_entrada": "",
       "rotulo": "FOR A AUX 6",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1957,7 +1957,7 @@
       "thru_entrada": "",
       "rotulo": "AJA FS2 NTSC",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -1979,7 +1979,7 @@
       "thru_entrada": "",
       "rotulo": "IRD TELA",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2001,7 +2001,7 @@
       "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2023,7 +2023,7 @@
       "thru_entrada": "",
       "rotulo": "FIBRA MOVIL",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2045,7 +2045,7 @@
       "thru_entrada": "",
       "rotulo": "FIBRA CAMARA",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2067,7 +2067,7 @@
       "thru_entrada": "",
       "rotulo": "FIBRA canal 4",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2089,7 +2089,7 @@
       "thru_entrada": "",
       "rotulo": "FIBRA RADIO",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2111,7 +2111,7 @@
       "thru_entrada": "",
       "rotulo": "FIBRA MOL",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2132,8 +2132,8 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "N/C",
-      "notas": "",
-      "es_thru": "Cable suelto en Rack L",
+      "notas": "Cable suelto en Rack L",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2155,7 +2155,7 @@
       "thru_entrada": "",
       "rotulo": "FIBRA IPLYC",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2177,7 +2177,7 @@
       "thru_entrada": "",
       "rotulo": "IRD C12",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2199,7 +2199,7 @@
       "thru_entrada": "",
       "rotulo": "IRD TV P.",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2221,7 +2221,7 @@
       "thru_entrada": "",
       "rotulo": "IRD WELL. H",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2243,7 +2243,7 @@
       "thru_entrada": "",
       "rotulo": "IRD CIS.H/V",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2252,7 +2252,7 @@
         "equipo": "CRD1000D",
         "slot": "",
         "placa": "",
-        "puerto": "Component"
+        "puerto": "Component Out"
       },
       "dst": {
         "rack": "C.3",
@@ -2265,8 +2265,8 @@
       "thru_entrada": "",
       "rotulo": "Canal 13",
       "notas": "",
-      "es_thru": "AJA Component to SDI",
-      "disp_ext": ""
+      "es_thru": false,
+      "disp_ext": "AJA Component to SDI"
     },
     {
       "src": {
@@ -2287,7 +2287,7 @@
       "thru_entrada": "",
       "rotulo": "GRAB GV",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2309,8 +2309,8 @@
       "thru_entrada": "",
       "rotulo": "CABLE VISION",
       "notas": "",
-      "es_thru": "BM Analog to SDI",
-      "disp_ext": ""
+      "es_thru": false,
+      "disp_ext": "BM Analog to SDI"
     },
     {
       "src": {
@@ -2331,7 +2331,7 @@
       "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2353,7 +2353,7 @@
       "thru_entrada": "",
       "rotulo": "N/D",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2375,7 +2375,7 @@
       "thru_entrada": "",
       "rotulo": "Casa del Streaming",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2419,7 +2419,7 @@
       "thru_entrada": "",
       "rotulo": "Deco m. Posadas",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2463,7 +2463,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2507,7 +2507,7 @@
       "thru_entrada": "",
       "rotulo": "PC RACK 4",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2529,7 +2529,7 @@
       "thru_entrada": "",
       "rotulo": "MV CAM",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2551,7 +2551,7 @@
       "thru_entrada": "",
       "rotulo": "CG OUT",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2573,7 +2573,7 @@
       "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2595,8 +2595,8 @@
       "thru_entrada": "",
       "rotulo": "APPLE TV",
       "notas": "",
-      "es_thru": "BM HDMI to SDI",
-      "disp_ext": ""
+      "es_thru": false,
+      "disp_ext": "BM HDMI to SDI"
     },
     {
       "src": {
@@ -2617,7 +2617,7 @@
       "thru_entrada": "",
       "rotulo": "ESTUDIO 5",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2661,7 +2661,7 @@
       "thru_entrada": "",
       "rotulo": "PC DIR",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2705,7 +2705,7 @@
       "thru_entrada": "",
       "rotulo": "titlo elec elec",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2749,7 +2749,7 @@
       "thru_entrada": "",
       "rotulo": "full ece",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2793,7 +2793,7 @@
       "thru_entrada": "",
       "rotulo": "PATCH 6",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2837,7 +2837,7 @@
       "thru_entrada": "",
       "rotulo": "PATCH 7",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2881,7 +2881,7 @@
       "thru_entrada": "",
       "rotulo": "ALL PTCH 8",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2925,7 +2925,7 @@
       "thru_entrada": "",
       "rotulo": "CAM 1",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2947,7 +2947,7 @@
       "thru_entrada": "",
       "rotulo": "CAM 2",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2969,7 +2969,7 @@
       "thru_entrada": "",
       "rotulo": "CAM 3",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -2991,7 +2991,7 @@
       "thru_entrada": "",
       "rotulo": "CAM 4",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3013,7 +3013,7 @@
       "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3035,7 +3035,7 @@
       "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3057,7 +3057,7 @@
       "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3079,7 +3079,7 @@
       "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3101,7 +3101,7 @@
       "thru_entrada": "",
       "rotulo": "SONY AUX 1",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3123,7 +3123,7 @@
       "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3145,7 +3145,7 @@
       "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3167,7 +3167,7 @@
       "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3189,7 +3189,7 @@
       "thru_entrada": "",
       "rotulo": "mochila interior",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3211,7 +3211,7 @@
       "thru_entrada": "",
       "rotulo": "BM 12 Stre",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3233,7 +3233,7 @@
       "thru_entrada": "",
       "rotulo": "Salida CGX",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3255,7 +3255,7 @@
       "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3277,7 +3277,7 @@
       "thru_entrada": "",
       "rotulo": "CGX AJA FS4",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3299,7 +3299,7 @@
       "thru_entrada": "",
       "rotulo": "AJA FS4 2",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3321,7 +3321,7 @@
       "thru_entrada": "",
       "rotulo": "AJA FS4 3",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3343,7 +3343,7 @@
       "thru_entrada": "",
       "rotulo": "AJA FS4 4",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3365,7 +3365,7 @@
       "thru_entrada": "",
       "rotulo": "N/C",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3387,7 +3387,7 @@
       "thru_entrada": "",
       "rotulo": "LINEA 1X9",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3396,7 +3396,7 @@
         "equipo": "openGear X",
         "slot": "6.0",
         "placa": "Dist. Amp. 1x9",
-        "puerto": "J1"
+        "puerto": "J1 (in)"
       },
       "dst": {
         "rack": "D.9",
@@ -3431,7 +3431,7 @@
       "thru_entrada": "",
       "rotulo": "MV",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3453,7 +3453,7 @@
       "thru_entrada": "",
       "rotulo": "BM 1 PGM",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3475,7 +3475,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3497,7 +3497,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3519,7 +3519,7 @@
       "thru_entrada": "",
       "rotulo": "PLAYER A.1",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3541,7 +3541,7 @@
       "thru_entrada": "",
       "rotulo": "Source 10",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3563,7 +3563,7 @@
       "thru_entrada": "",
       "rotulo": "RET. CABLEVISION",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3585,7 +3585,7 @@
       "thru_entrada": "",
       "rotulo": "RET. SATELITE",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3607,7 +3607,7 @@
       "thru_entrada": "",
       "rotulo": "Source 13",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3651,7 +3651,7 @@
       "thru_entrada": "",
       "rotulo": "Source 14",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3695,7 +3695,7 @@
       "thru_entrada": "",
       "rotulo": "Source 15",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3739,7 +3739,7 @@
       "thru_entrada": "",
       "rotulo": "Source 16",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3783,7 +3783,7 @@
       "thru_entrada": "",
       "rotulo": "DIR. CAM.",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3805,7 +3805,7 @@
       "thru_entrada": "",
       "rotulo": "CANAL 13",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3827,7 +3827,7 @@
       "thru_entrada": "",
       "rotulo": "TV PUBLICA",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3849,7 +3849,7 @@
       "thru_entrada": "",
       "rotulo": "MOV. SATELITAL",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3871,7 +3871,7 @@
       "thru_entrada": "",
       "rotulo": "FIBRA IPLYC",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3893,7 +3893,7 @@
       "thru_entrada": "",
       "rotulo": "Source 7",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3915,7 +3915,7 @@
       "thru_entrada": "",
       "rotulo": "Source 8",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3937,7 +3937,7 @@
       "thru_entrada": "",
       "rotulo": "Source 9",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -3959,7 +3959,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable suelto en Rack C.3",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4003,7 +4003,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4047,7 +4047,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4091,7 +4091,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4135,7 +4135,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4179,7 +4179,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4223,7 +4223,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4267,7 +4267,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4311,7 +4311,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4355,7 +4355,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4399,7 +4399,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4421,7 +4421,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4465,7 +4465,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4509,7 +4509,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4553,7 +4553,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4597,7 +4597,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4641,7 +4641,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4685,7 +4685,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4729,7 +4729,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4773,7 +4773,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -4816,9 +4816,9 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "",
-      "notas": "Monitor Pvw TX",
-      "es_thru": "BM SDI to HDMI",
-      "disp_ext": ""
+      "notas": "",
+      "es_thru": false,
+      "disp_ext": "BM SDI to HDMI"
     },
     {
       "src": {
@@ -4861,8 +4861,8 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "Dest 47",
-      "disp_ext": ""
+      "es_thru": false,
+      "disp_ext": "Dest 47"
     },
     {
       "src": {
@@ -4904,9 +4904,9 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "",
-      "notas": "Monitor Linea TX",
-      "es_thru": "BM SDI to HDMI",
-      "disp_ext": ""
+      "notas": "",
+      "es_thru": false,
+      "disp_ext": "BM SDI to HDMI"
     },
     {
       "src": {
@@ -4948,9 +4948,9 @@
       "thru": false,
       "thru_entrada": "",
       "rotulo": "",
-      "notas": "Monitor MV TX",
-      "es_thru": "BM SDI to HDMI",
-      "disp_ext": ""
+      "notas": "",
+      "es_thru": false,
+      "disp_ext": "BM SDI to HDMI"
     },
     {
       "src": {
@@ -4993,8 +4993,8 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "BM SDI to HDMI",
-      "disp_ext": ""
+      "es_thru": false,
+      "disp_ext": "BM SDI to HDMI"
     },
     {
       "src": {
@@ -5037,7 +5037,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5081,7 +5081,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5125,7 +5125,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5169,7 +5169,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5213,7 +5213,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5257,8 +5257,8 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "Fibra TDA 1 S",
-      "disp_ext": ""
+      "es_thru": false,
+      "disp_ext": "Fibra TDA 1 S"
     },
     {
       "src": {
@@ -5301,7 +5301,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5345,8 +5345,8 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "BM SDI to HDMI",
-      "disp_ext": ""
+      "es_thru": false,
+      "disp_ext": "BM SDI to HDMI"
     },
     {
       "src": {
@@ -5389,8 +5389,8 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "BM SDI to HDMI",
-      "disp_ext": ""
+      "es_thru": false,
+      "disp_ext": "BM SDI to HDMI"
     },
     {
       "src": {
@@ -5433,8 +5433,8 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "BM SDI to HDMI",
-      "disp_ext": ""
+      "es_thru": false,
+      "disp_ext": "BM SDI to HDMI"
     },
     {
       "src": {
@@ -5477,7 +5477,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5521,7 +5521,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5559,13 +5559,13 @@
         "equipo": "openGear X",
         "slot": "6",
         "placa": "",
-        "puerto": "SDI In"
+        "puerto": "J1 (in)"
       },
       "thru": false,
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5587,7 +5587,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5631,7 +5631,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5675,7 +5675,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5719,7 +5719,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5763,7 +5763,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5807,7 +5807,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5851,7 +5851,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5895,7 +5895,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5939,7 +5939,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -5983,7 +5983,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6027,7 +6027,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6071,7 +6071,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6115,7 +6115,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6159,7 +6159,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6203,7 +6203,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6247,7 +6247,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable amarillo a Piso?",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6291,7 +6291,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable amarillo a Piso?",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6335,7 +6335,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6357,7 +6357,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6379,7 +6379,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6401,7 +6401,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6423,7 +6423,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6445,7 +6445,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6467,7 +6467,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6489,7 +6489,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6511,7 +6511,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6555,7 +6555,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6577,7 +6577,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "N/D",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6586,7 +6586,7 @@
         "equipo": "openGear X",
         "slot": "6.0",
         "placa": "Dist. Amp. 1x9",
-        "puerto": "J1"
+        "puerto": "J1 (in)"
       },
       "dst": {
         "rack": "D.9",
@@ -6621,7 +6621,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "SRT La Casa del Streaming",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6643,7 +6643,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "SRT Mochila LiveU Posadas",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6665,8 +6665,8 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "BM HDMI to SDI",
-      "disp_ext": ""
+      "es_thru": false,
+      "disp_ext": "BM HDMI to SDI"
     },
     {
       "src": {
@@ -6687,7 +6687,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6709,7 +6709,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6731,7 +6731,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6753,7 +6753,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6775,7 +6775,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6797,7 +6797,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6819,7 +6819,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6841,7 +6841,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6863,7 +6863,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6885,8 +6885,8 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "BM SDI to HDMI",
-      "disp_ext": ""
+      "es_thru": false,
+      "disp_ext": "BM SDI to HDMI"
     },
     {
       "src": {
@@ -6907,8 +6907,8 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "BM SDI to HDMI > Capturadora USB",
-      "disp_ext": ""
+      "es_thru": false,
+      "disp_ext": "BM SDI to HDMI > Capturadora USB"
     },
     {
       "src": {
@@ -6929,8 +6929,8 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "Distribuidor PGM",
-      "disp_ext": ""
+      "es_thru": false,
+      "disp_ext": "Distribuidor PGM"
     },
     {
       "src": {
@@ -6951,7 +6951,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -6995,7 +6995,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7039,7 +7039,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7083,7 +7083,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7127,7 +7127,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7149,7 +7149,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7171,7 +7171,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7193,7 +7193,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7215,7 +7215,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7237,7 +7237,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7259,7 +7259,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7281,7 +7281,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7303,7 +7303,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7325,7 +7325,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7347,7 +7347,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7369,7 +7369,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7391,7 +7391,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7413,7 +7413,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7435,7 +7435,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7457,7 +7457,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7479,7 +7479,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7501,7 +7501,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7523,7 +7523,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7545,7 +7545,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7567,7 +7567,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable suelto en Rack D",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7589,7 +7589,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable suelto en Rack D",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7611,7 +7611,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7655,7 +7655,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7699,7 +7699,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7743,7 +7743,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7787,7 +7787,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7831,7 +7831,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7875,7 +7875,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable suelto en Rack A",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7919,7 +7919,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7963,7 +7963,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -7985,7 +7985,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8007,7 +8007,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8029,7 +8029,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8073,7 +8073,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8117,7 +8117,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8161,7 +8161,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8205,7 +8205,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8249,7 +8249,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8293,7 +8293,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8337,7 +8337,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8381,7 +8381,7 @@
       "thru_entrada": "",
       "rotulo": "",
       "notas": "Cable suelto en Rack L",
-      "es_thru": "",
+      "es_thru": false,
       "disp_ext": ""
     },
     {
@@ -8409,9 +8409,9 @@
   ],
   "stats": {
     "nodos": 79,
-    "conexiones": 256,
-    "arcos_thru": 108,
-    "con_destino": 256,
+    "conexiones": 273,
+    "arcos_thru": 91,
+    "con_destino": 273,
     "sin_destino": 0
   }
 }
