@@ -414,26 +414,16 @@ function showEquip(rack,eq,slot){
       if(con.isNc) state='NC';
       else if(con.isFree) state='ND';
       else state='doc';
-      var cls='port-btn p-conn';
-	  if(state==='NC') cls+=' p-free';
-	  else if(state==='ND') cls+=' p-nd';
       var lbl=con.label||'';
-      // Botón de ENTRADA
-      var clickIn=' onclick="onConnectorClick(this,\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(con.inPort)+'\',\''+h(con.outPort)+'\',\''+state+'\')"';
-      var clsIn='port-btn p-in'+(state==='NC'?' p-free':state==='ND'?' p-nd':'');
-      html+='<div class="'+clsIn+'"'+clickIn+'>';
-      html+='<div class="p-num">'+h(con.inPort)+'</div>';
+      // Un solo botón por puerto del patch panel
+      var cls='port-btn p-conn';
+      if(state==='NC') cls+=' p-free';
+      else if(state==='ND') cls+=' p-nd';
+      var click=' onclick="onConnectorClick(this,\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(con.inPort)+'\',\''+h(con.outPort)+'\',\''+state+'\')"';
+      html+='<div class="'+cls+'"'+click+'>';
+      html+='<div class="p-num">Port '+h(String(con.num))+'</div>';
       html+='<div class="p-lbl">'+h(lbl)+'</div>';
       html+='</div>';
-      // Botón de SALIDA (si existe)
-      if(con.outPort){
-        var clickOut=' onclick="onConnectorClick(this,\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(con.inPort)+'\',\''+h(con.outPort)+'\',\''+state+'\')"';
-        var clsOut='port-btn p-out'+(state==='NC'?' p-free':state==='ND'?' p-nd':'');
-        html+='<div class="'+clsOut+'"'+clickOut+'>';
-        html+='<div class="p-num">'+h(con.outPort)+'</div>';
-        html+='<div class="p-lbl">'+h(lbl)+'</div>';
-        html+='</div>';
-      }
     });
     html+='</div>';
   } else {
@@ -623,15 +613,14 @@ function buildSegments(sr,se,ss0,sp){
 
     var placa=getPlaca(rack,eq,slot);
 
-    var seg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:inPort,outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
-
-    // ¿El inPort es entrada de un THRU interno?
-    // Si es así, este segmento es el "incompleto" — el THRU lo creará completo.
-    // No lo pusheamos, pero seguimos usando seg para nc/disp_ext en nexts.
+    // ¿El inPort es entrada de un THRU interno? Si es así, el segmento
+    // ya fue o será creado completo (con inPort+outPort) por el THRU — no duplicar.
     var esSalidaThruDown=inPort && CONNS.some(function(c){
       return c.es_thru===true && c.sr===rack && c.se===eq &&
              nss(c.ss)===nss(slot) && c.sp===inPort;
     });
+
+    var seg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:inPort,outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
     if(!esSalidaThruDown) segs.push(seg);
 
     var nexts=fOuts(rack,eq,slot,outPort);
@@ -662,20 +651,39 @@ function buildSegments(sr,se,ss0,sp){
       if(!thrus.length){
         walk(dr,de,ds,dp,'',depth+1);
       } else if(videoT.length){
-        videoT.forEach(function(vt){
-          // Crear segmento completo inPort+outPort para el equipo THRU
-          var thruPlaca=getPlaca(dr,de,ds);
-          var thruSeg={rack:dr,eq:de,slot:ds,placa:thruPlaca,
-            inPort:dp,outPort:vt.dp,branches:[],unknown:false,nc:false,disp_ext:''};
-          var thruKey=dr+'|'+de+'|'+nss(ds)+'|'+String(dp)+'|'+String(vt.dp);
-          if(!vis[thruKey]){vis[thruKey]=true; segs.push(thruSeg);}
-          walk(dr,de,ds,dp,vt.dp,depth+1);
-        });
-        if(branches.length){
-          for(var i=segs.length-1;i>=0;i--){
-            var s=segs[i];
-            if(s.rack===dr&&s.eq===de&&nss(s.slot)===nss(ds)&&s.inPort===dp){s.branches=branches;break;}
+        // ¿Es distro? Mismo inPort (dp) distribuido a múltiples outPorts
+        var esDistroDown=videoT.length>1;
+        if(esDistroDown){
+          // Crear UN segmento con todas las salidas como branches
+          var distroBranches=[];
+          videoT.forEach(function(vt){
+            var outs=fOuts(dr,de,ds,vt.dp);
+            if(outs.length){
+              outs.forEach(function(ao){
+                distroBranches.push({outPort:vt.dp,dstRack:ao.dr||'?',dstEq:ao.de||'',dstSlot:ao.ds,dstPort:ao.dp||''});
+              });
+            } else {
+              distroBranches.push({outPort:vt.dp,dstRack:'',dstEq:'',dstSlot:'',dstPort:''});
+            }
+          });
+          var distroKey=dr+'|'+de+'|'+nss(ds)+'|'+String(dp)+'|distro';
+          if(!vis[distroKey]){
+            vis[distroKey]=true;
+            segs.push({rack:dr,eq:de,slot:ds,placa:getPlaca(dr,de,ds),
+              inPort:dp,outPort:'',branches:distroBranches.concat(branches),unknown:false,nc:false,disp_ext:''});
           }
+        } else {
+          // THRU normal: crear segmento completo + seguir downstream
+          videoT.forEach(function(vt){
+            var thruPlaca=getPlaca(dr,de,ds);
+            var thruKey=dr+'|'+de+'|'+nss(ds)+'|'+String(dp)+'|'+String(vt.dp);
+            if(!vis[thruKey]){
+              vis[thruKey]=true;
+              segs.push({rack:dr,eq:de,slot:ds,placa:thruPlaca,
+                inPort:dp,outPort:vt.dp,branches:branches,unknown:false,nc:false,disp_ext:''});
+            }
+            walk(dr,de,ds,dp,vt.dp,depth+1);
+          });
         }
       } else {
         var k2=dr+'|'+de+'|'+nss(ds)+'|'+dp+'|audio';
@@ -743,20 +751,33 @@ function buildUpstream(sr,se,ss0,sp){
       });
 
       if(thruConns.length){
-        // dstPort es salida de THRU: el THRU lo conecta con otro puerto
-        thruConns.forEach(function(thru){
-          var thruIn=thru.sp;  // puerto de entrada del THRU
+        // ¿Es distro? Mismo sp compartido por múltiples thruConns
+        var uniqueIns=[]; 
+        thruConns.forEach(function(t){ if(uniqueIns.indexOf(t.sp)<0) uniqueIns.push(t.sp); });
+        var esDistro=uniqueIns.length===1 && thruConns.length>1;
 
-          // Crear segmento completo con inPort+outPort
+        if(esDistro){
+          // Distro: crear UN segmento con branches para cada outPort
+          var thruIn=uniqueIns[0];
+          var distBranches=thruConns.map(function(t){ return {outPort:t.dp,dstRack:'',dstEq:'',dstSlot:'',dstPort:''}; });
           var seg={
             rack:dstRack, eq:dstEq, slot:dstSlot, placa:getPlaca(dstRack,dstEq,dstSlot),
-            inPort:thruIn, outPort:dstPort, branches:[], unknown:false, nc:false, disp_ext:''
+            inPort:thruIn, outPort:'', branches:distBranches, unknown:false, nc:false, disp_ext:''
           };
           segs.unshift(seg);
-
-          // Recursión: ¿qué entra al thruIn?
           walkUp(dstRack,dstEq,dstSlot,thruIn,depth+1);
-        });
+        } else {
+          // THRU normal: un segmento por cada par in/out
+          thruConns.forEach(function(thru){
+            var thruIn=thru.sp;
+            var seg={
+              rack:dstRack, eq:dstEq, slot:dstSlot, placa:getPlaca(dstRack,dstEq,dstSlot),
+              inPort:thruIn, outPort:dstPort, branches:[], unknown:false, nc:false, disp_ext:''
+            };
+            segs.unshift(seg);
+            walkUp(dstRack,dstEq,dstSlot,thruIn,depth+1);
+          });
+        }
       }
     }
   }
@@ -781,8 +802,8 @@ function renderRoute(segs){
     }
     html+=eqLabel(seg.rack,seg.eq,seg.slot,seg.placa);
     if(seg.inPort) html+=renderIn(seg.inPort);
-    seg.branches.forEach(function(br){html+=renderBranch(br);});
     if(seg.outPort) html+=renderOut(seg.outPort);
+    seg.branches.forEach(function(br){html+=renderBranch(br);});
     if(seg.nc)      html+='<div class="tr-nc">N/C</div>';
     if(seg.unknown) html+='<div class="tr-unk">&#10549; Destino desconocido</div>';
     if(i<segs.length-1) html+='<div class="tr-gap"></div>';
@@ -792,15 +813,16 @@ function renderRoute(segs){
 }
 
 function buildRoute(sr,se,ss0,sp){
-  // Detectar si el puerto clickeado es salida (aparece como sp) o entrada (como dp)
+  // Detectar si el puerto clickeado es salida o entrada
   var isOutput=CONNS.some(function(c){
     return c.es_thru!==true && c.sr===sr && c.se===se && nss(c.ss)===nss(ss0) && c.sp===sp;
   });
+  var isAudioPort=isAudio(sp);
 
   var upSegs=buildUpstream(sr,se,ss0,sp);
   var downSegs=buildSegments(sr,se,ss0,sp);
 
-  // Si es salida: corregir el finalSeg — debe tener outPort, no inPort
+  // Si es salida: el finalSeg debe tener outPort, no inPort
   if(isOutput && upSegs.length){
     var last=upSegs[upSegs.length-1];
     if(last.rack===sr && last.eq===se && nss(last.slot)===nss(ss0) && last.inPort===sp){
@@ -808,7 +830,15 @@ function buildRoute(sr,se,ss0,sp){
     }
   }
 
-  var allSegs=upSegs.concat(downSegs.slice(1));
+  // Si es audio: downstream solo muestra el tramo directo (no expandir más)
+  var allSegs;
+  if(isAudioPort){
+    // Solo el seg del equipo clickeado + su destino directo (primer seg del downstream)
+    allSegs=upSegs.concat(downSegs.slice(1,2));
+  } else {
+    allSegs=upSegs.concat(downSegs.slice(1));
+  }
+
   return renderRoute(allSegs);
 }
 
