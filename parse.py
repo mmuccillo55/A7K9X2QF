@@ -12,7 +12,6 @@ import os
 XLSX_FILE = sys.argv[1] if len(sys.argv) > 1 else 'Conexiones.xlsx'
 JSON_FILE = sys.argv[2] if len(sys.argv) > 2 else 'connections.json'
 
-SIN_DESTINO = {'', 'N/D', 'N/C'}
 THRU_MARCA = 'T'
 
 COL = {
@@ -45,6 +44,13 @@ COL_DB = {
 def cv(v):
     if pd.isna(v):
         return ''
+    
+    # Si es número
+    if isinstance(v, float):
+        if v.is_integer():
+            return str(int(v))  # 1021.0 → "1021"
+        return str(v)
+    
     s = str(v).strip()
     return '' if s in ('nan', 'NaN') else s
 
@@ -54,10 +60,6 @@ def parse_ip(v):
     if s == '':
         return None
     return s
-
-
-def sin_destino(v):
-    return cv(v) in SIN_DESTINO
 
 
 def make_endpoint(rack, equipo, slot, placa, puerto):
@@ -165,7 +167,7 @@ for idx, row in df_con.iterrows():
         if src_rack not in nodos_index:
             warnings.append(f"fila {fila}: origen '{src_rack} / {src_equipo}' no está en DB")
     
-    if not sin_destino(dst_rack) and dst_equipo not in ('', 'N/D'):
+    if dst_rack not in ('', 'N/C', 'N/D') and dst_equipo not in ('', 'N/D'):
         if dst_rack not in nodos_index:
             warnings.append(f"fila {fila}: destino '{dst_rack} / {dst_equipo}' no está en DB")
     
