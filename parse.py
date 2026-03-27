@@ -108,19 +108,21 @@ nodos_index = {}
 for _, row in df_db.iterrows():
     rack = cv(row[COL_DB['rack']])
     equipo = cv(row[COL_DB['equipo']])
+    ip = parse_ip(row[COL_DB['ip']])  # ← FALTABA ESTO
     puerto = cv(row[COL_DB['puerto']]) if COL_DB['puerto'] in df_db.columns else ''
     
     if not rack and not equipo:
         continue
     
     nodo = {
-    'rack':   rack,
-    'equipo': equipo,
-    'ip':     ip,
-    'management': {
-        'puerto': puerto
+        'rack':   rack,
+        'equipo': equipo,
+        'ip':     ip,
+        'management': {
+            'puerto': puerto
         }
     }
+    
     nodos.append(nodo)
     nodos_index[rack] = nodo
 
