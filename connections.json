@@ -5203,7 +5203,7 @@
         "equipo": "Yamaha QL5",
         "slot": "",
         "placa": "",
-        "puerto": "In 12"
+        "puerto": "In 12 (Audio)"
       },
       "rotulo": "",
       "notas": "",
@@ -5242,7 +5242,7 @@
         "equipo": "Yamaha QL5",
         "slot": "",
         "placa": "",
-        "puerto": "In 13"
+        "puerto": "In 13 (Audio)"
       },
       "rotulo": "",
       "notas": "",
@@ -5320,7 +5320,7 @@
         "equipo": "Yamaha QL5",
         "slot": "",
         "placa": "",
-        "puerto": "In 14"
+        "puerto": "In 14 (Audio)"
       },
       "rotulo": "",
       "notas": "",
@@ -5437,7 +5437,7 @@
         "equipo": "Yamaha QL5",
         "slot": "",
         "placa": "",
-        "puerto": "In 15"
+        "puerto": "In 15 (Audio)"
       },
       "rotulo": "",
       "notas": "",
@@ -5554,7 +5554,7 @@
         "equipo": "Yamaha QL5",
         "slot": "",
         "placa": "",
-        "puerto": "In 16"
+        "puerto": "In 16 (Audio)"
       },
       "rotulo": "",
       "notas": "",
@@ -6871,14 +6871,14 @@
         "equipo": "tc electronic Finalizer",
         "slot": "",
         "placa": "",
-        "puerto": "AES/EBU Out"
+        "puerto": "AES/EBU Out (Audio)"
       },
       "dst": {
         "rack": "D.13",
         "equipo": "AJA FS2",
         "slot": "",
         "placa": "",
-        "puerto": "AES/EBU"
+        "puerto": "AES/EBU In (Audio)"
       },
       "rotulo": "",
       "notas": "",
@@ -6890,7 +6890,7 @@
         "equipo": "tc electronic Finalizer",
         "slot": "",
         "placa": "",
-        "puerto": "Balanced Out L"
+        "puerto": "Balanced Out L (Audio)"
       },
       "dst": {
         "rack": "N/C",
@@ -6909,7 +6909,7 @@
         "equipo": "tc electronic Finalizer",
         "slot": "",
         "placa": "",
-        "puerto": "Balanced Out R"
+        "puerto": "Balanced Out R (Audio)"
       },
       "dst": {
         "rack": "N/C",
@@ -7266,7 +7266,7 @@
         "equipo": "Yamaha QL5",
         "slot": "",
         "placa": "",
-        "puerto": "In 29"
+        "puerto": "In 29 (Audio)"
       },
       "rotulo": "",
       "notas": "",
