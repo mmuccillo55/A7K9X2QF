@@ -357,13 +357,13 @@ function getIP(rack,eq){
 
 /* ipEl(): genera el HTML del indicador de IP.
    ip===undefined|null|'' → "Sin red" (gris)
-   ip==='?'              → "IP pendiente" (amarillo)
+   ip==='N/D'              → "IP pendiente" (amarillo)
    cualquier otro valor  → muestra la IP (cyan)
    NOTA 4: no maneja el caso ip==='N/D' que es el valor usado en el JSON
    para indicar "no disponible" — esos se mostrarán como IPs reales (cyan). */
 function ipEl(ip,cls){
   if(ip===undefined||ip===null||ip==='') return '<div class="'+cls+' none">Sin red</div>';
-  if(ip==='?') return '<div class="'+cls+' pend">IP pendiente</div>';
+  if(ip==='N/D') return '<div class="'+cls+' pend">IP pendiente</div>';
   return '<div class="'+cls+' ok">'+h(ip)+'</div>';
 }
 
@@ -443,8 +443,8 @@ function getConnectors(rack,eq,slot){
     });
     var ncIn  = srcConns.length>0 && (srcConns[0].sr==='N/C');
     var ncOut = dstConns.length>0 && (dstConns[0].dr==='N/C');
-    var unkIn  = !srcConns.length || srcConns[0].sr==='?' || !srcConns[0].sr;
-    var unkOut = !dstConns.length || dstConns[0].dr==='?' || !dstConns[0].dr;
+    var unkIn  = !srcConns.length || srcConns[0].sr==='N/D' || !srcConns[0].sr;
+    var unkOut = !dstConns.length || dstConns[0].dr==='N/D' || !dstConns[0].dr;
     var isFree = unkIn && unkOut;
     var isNc   = ncIn || ncOut;
     // Label: prefer rotulo from src conn, then dst conn
@@ -519,7 +519,7 @@ function showRacks(){
   CONNS.forEach(function(c){
     [[c.sr,c.se],[c.dr,c.de]].forEach(function(pair){
       var r=pair[0],e=pair[1];
-      if(!r||r==='?'||!e||e==='?') return;
+      if(!r||r==='N/D'||!e||e==='N/D') return;
       if(c.es_thru_interno===true) return;
       if(!rm[r]) rm[r]={};
       rm[r][e]=true;
@@ -527,7 +527,7 @@ function showRacks(){
   });
   Object.keys(NODOS).forEach(function(k){
     var p=k.split('|||'),r=p[0],e=p[1];
-    if(!r||!e||r==='?') return;
+    if(!r||!e||r==='N/D') return;
     if(!rm[r]) rm[r]={};
     rm[r][e]=true;
   });
@@ -703,7 +703,7 @@ function showEquip(rack,eq,slot){
                                             // pero indica edición inconsistente
       var click=' onclick="onPortClick(this,'+clickArgs+',\''+state+'\')"';
       return '<div class="'+cls+'"'+click+'>'
-        +'<div class="p-num">'+h(port||'?')+'</div>'
+        +'<div class="p-num">'+h(port||'N/D')+'</div>'
         +'<div class="p-lbl">'+h(lbl)+'</div>'
         +'</div>';
     }
@@ -845,7 +845,7 @@ document.addEventListener('click',function(e){
    Funciones auxiliares de filtrado (todas respetan la normalización nss()):
      fOuts()  : cables que SALEN de rack/eq/slot/puerto
      fThrus() : THRUs internos cuya ENTRADA es rack/eq/slot/inPort
-     fIns()   : cables que ENTRAN a rack/eq/slot/puerto (excluyendo N/C y ?)
+     fIns()   : cables que ENTRAN a rack/eq/slot/puerto (excluyendo N/C y N/D)
    ───────────────────────────────────────────────────────────────── */
 
 /* isAudio(): true si el nombre del puerto contiene "audio" (case insensitive). */
@@ -865,11 +865,11 @@ function fThrus(rack,eq,slot,inPort){
   });
 }
 
-/* fIns(): cables reales que llegan al puerto indicado (excluye N/C y ?). */
+/* fIns(): cables reales que llegan al puerto indicado (excluye N/C y N/D). */
 function fIns(rack,eq,slot,port){
   return CONNS.filter(function(c){
     return c.es_thru_interno!==true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===port
-      &&c.sr&&c.sr!=='?'&&c.sr!=='N/C';
+      &&c.sr&&c.sr!=='N/D'&&c.sr!=='N/C';
   });
 }
 
@@ -913,7 +913,7 @@ function renderIn(port){
 function renderBranch(br){
   var html='<div class="tr-branch">';
   html+='<span class="tr-out">'+h(br.outPort)+' &gt;&gt;&gt;</span>';
-  if(br.dstRack&&br.dstRack!=='?') html+=' <span class="tr-branch-dst">'+h(br.dstRack)+'</span>';
+  if(br.dstRack&&br.dstRack!=='N/D') html+=' <span class="tr-branch-dst">'+h(br.dstRack)+'</span>';
   html+=' <span class="tr-branch-dst">'+h(br.dstEq)+'</span>';
   if(nss(br.dstSlot)) html+=' <span class="tr-slot">/ Slot '+h(nss(br.dstSlot))+'</span>';
   if(br.dstPort) html+=' <span class="tr-branch-dport">&gt; '+h(br.dstPort)+'</span>';
@@ -959,7 +959,7 @@ function buildSegments(sr,se,ss0,sp){
 
     nexts.forEach(function(c){
       if(!c.dr||c.dr==='N/C'){seg.nc=true;return;}
-      if(c.dr==='?'){seg.unknown=true;return;}
+      if(c.dr==='N/D'){seg.unknown=true;return;}
       // NOTA 18: no maneja c.dr==='N/D' — esos equipos sin rack documentado
       // pasan como 'doc' y se intenta trazar, resultando en un seg sin destino visible
       if(c.disp_ext) seg.disp_ext=c.disp_ext;
@@ -973,10 +973,10 @@ function buildSegments(sr,se,ss0,sp){
         var outs=fOuts(dr,de,ds,t.dp);
         if(outs.length){
           outs.forEach(function(ao){
-            branches.push({outPort:t.dp,dstRack:ao.dr||'?',dstEq:ao.de||'',dstSlot:ao.ds,dstPort:ao.dp||''});
+            branches.push({outPort:t.dp,dstRack:ao.dr||'N/D',dstEq:ao.de||'',dstSlot:ao.ds,dstPort:ao.dp||''});
           });
         } else {
-          branches.push({outPort:t.dp,dstRack:'?',dstEq:'',dstSlot:'',dstPort:''});
+          branches.push({outPort:t.dp,dstRack:'N/D',dstEq:'',dstSlot:'',dstPort:''});
         }
       });
 
@@ -992,7 +992,7 @@ function buildSegments(sr,se,ss0,sp){
             var outs=fOuts(dr,de,ds,vt.dp);
             if(outs.length){
               outs.forEach(function(ao){
-                distroBranches.push({outPort:vt.dp,dstRack:ao.dr||'?',dstEq:ao.de||'',dstSlot:ao.ds,dstPort:ao.dp||''});
+                distroBranches.push({outPort:vt.dp,dstRack:ao.dr||'N/D',dstEq:ao.de||'',dstSlot:ao.ds,dstPort:ao.dp||''});
               });
             } else {
               distroBranches.push({outPort:vt.dp,dstRack:'',dstEq:'',dstSlot:'',dstPort:''});
@@ -1057,7 +1057,7 @@ function buildUpstream(sr,se,ss0,sp){
     if(depth>12) return;
     
     // Si el destino es N/C, N/D o ?, detener aquí
-    if(!dstRack || dstRack==='N/C' || dstRack==='N/D' || dstRack==='?'){
+    if(!dstRack || dstRack==='N/C' || dstRack==='N/D'){
       return;
     }
     
@@ -1076,7 +1076,7 @@ function buildUpstream(sr,se,ss0,sp){
       inConns.forEach(function(conn){
         var srcRack=conn.sr, srcEq=conn.se, srcSlot=conn.ss, srcPort=conn.sp;
 		// Si el source es N/D o N/C, detener acá
-		if(!srcRack || srcRack==='N/C' || srcRack==='N/D' || srcRack==='?'){
+		if(!srcRack || srcRack==='N/C' || srcRack==='N/D'){
 			return; // Salir de este forEach
 		}
 		
@@ -1246,7 +1246,7 @@ function buildPassiveRoute(rack,eq,slot,inPort,outPort){
   var outConns=fOuts(rack,eq,slot,outPort);
   var downSegs=[];
   outConns.forEach(function(c){
-    if(!c.dr||c.dr==='?'||c.dr==='N/C') return;
+    if(!c.dr||c.dr==='N/D'||c.dr==='N/C') return;
     var sub=buildSegments(c.dr,c.de,nss(c.ds),c.dp);
     sub.forEach(function(s){ downSegs.push(s); });
   });
@@ -1262,7 +1262,7 @@ function buildPassiveRoute(rack,eq,slot,inPort,outPort){
   // Estado del conector según si tiene salida documentada
   if(!outConns.length){
     connSeg.nc=true;
-  } else if(outConns[0].dr==='?'){
+  } else if(outConns[0].dr==='N/D'){
     connSeg.unknown=true;
   }
   
