@@ -7,64 +7,142 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600&display=swap">
 <style>
+/* ─────────────────────────────────────────────────────────────────
+   DESIGN TOKENS
+   Paleta oscura broadcast. Todos los colores del sistema están acá.
+   Cambiar cualquier color solo en este bloque.
+   ───────────────────────────────────────────────────────────────── */
 :root{
-  --bg:#080c11;--panel:#0e1520;--panel2:#131d2b;--border:#1c2a3c;--border2:#243548;
-  --accent:#00c8f0;--orange:#ff6b35;--green:#8fff6a;--yellow:#ffd166;
-  --muted:#2e4055;--text:#b8ccd8;--text2:#587080;
-  --mono:'Share Tech Mono',monospace;--sans:'Barlow',sans-serif;
+  --bg:#080c11;          /* fondo de página */
+  --panel:#0e1520;       /* fondo de cards / header */
+  --panel2:#131d2b;      /* fondo secundario (botones de puerto, popover) */
+  --border:#1c2a3c;      /* borde estándar */
+  --border2:#243548;     /* borde ligeramente más visible */
+  --accent:#00c8f0;      /* cyan — entradas, links, highlights */
+  --orange:#ff6b35;      /* naranja — salidas */
+  --green:#8fff6a;       /* verde — auxiliares / pasivos */
+  --yellow:#ffd166;      /* amarillo — rack IDs, slots, pendientes */
+  --muted:#2e4055;       /* texto deshabilitado / vacíos */
+  --text:#b8ccd8;        /* texto principal */
+  --text2:#587080;       /* texto secundario / labels */
+  --red:#ff3333;		 /* rojo N/D */
+  --mono:'Share Tech Mono',monospace;
+  --sans:'Barlow',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;overflow-x:hidden;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;overflow-x:hidden;position: relative;}
+
+/* ─────────────────────────────────────────────────────────────────
+   HEADER
+   Sticky. Contiene: botón Volver | título del proyecto | breadcrumb.
+   El breadcrumb (#hdr-bc) se actualiza en updateHdr().
+   El título (#hdr-title) solo se muestra cuando estás en la vista raíz.
+   ───────────────────────────────────────────────────────────────── */
 
 #hdr{display:flex;align-items:center;gap:12px;padding:10px 20px;border-bottom:1px solid var(--border);background:var(--panel);position:sticky;top:0;z-index:100;}
 #hdr-title{font-family:var(--mono);font-size:.85rem;color:var(--accent);letter-spacing:3px;flex:1;}
 #hdr-bc{font-family:var(--mono);font-size:.68rem;color:var(--text2);}
 #hdr-bc .hi{color:var(--accent);}
+
+/* #btn-back: por defecto oculto (display:none).
+   Se muestra agregando la clase .show (que pone display:flex).
+   Eso lo maneja updateHdr(). */
 #btn-back{display:none;align-items:center;gap:6px;background:none;border:1px solid var(--border2);color:var(--text2);font-family:var(--mono);font-size:.68rem;padding:5px 12px;border-radius:3px;cursor:pointer;}
 #btn-back:hover{border-color:var(--accent);color:var(--accent);}
 #btn-back.show{display:flex;}
 
-.view{display:none;padding:20px;}
+/* ─────────────────────────────────────────────────────────────────
+   SISTEMA DE VISTAS
+   Hay 3 vistas: view-racks / view-slots / view-equip.
+   Solo la que tiene .active se muestra (display:block).
+   Se cambia con setView(id).
+   ───────────────────────────────────────────────────────────────── */
+.view{display:none;padding:10px;}
 .view.active{display:block;}
 
-/* Racks */
+/* ─────────────────────────────────────────────────────────────────
+   VISTA: RACKS
+   Layout horizontal con scroll. Cada columna = un prefijo de rack (A, B, C...).
+   Dentro de cada columna: cards por rack, con botones por equipo.
+   ───────────────────────────────────────────────────────────────── */
 #racks-wrap{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;padding-bottom:12px;}
-.rack-col{display:flex;flex-direction:column;gap:8px;min-width:160px;}
-.rack-col-lbl{font-family:var(--mono);font-size:.55rem;letter-spacing:4px;color:var(--accent);padding:4px 2px;border-bottom:1px solid var(--accent);opacity:.6;text-transform:uppercase;}
-.rack-card{background:var(--panel);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
-.rack-card-hdr{padding:6px 10px;background:rgba(0,200,240,.05);border-bottom:1px solid var(--border);}
-.rack-id{font-family:var(--mono);font-size:.72rem;color:var(--yellow);}
-.rack-card-body{padding:6px 8px;display:flex;flex-direction:column;gap:3px;}
-.eq-btn{font-size:.7rem;background:var(--panel2);border:1px solid var(--border);border-radius:3px;padding:5px 8px;cursor:pointer;text-align:left;color:var(--text);transition:border-color .12s,color .12s;}
-.eq-btn:hover{border-color:var(--accent);color:var(--accent);}
-.eq-ip{font-size:.55rem;font-family:var(--mono);margin-top:2px;}
-.eq-ip.ok{color:var(--accent);}.eq-ip.none{color:var(--muted);}.eq-ip.pend{color:var(--yellow);}
+.rack-col{display:flex;flex-direction:column;gap:6px;min-width:160px;}
+.rack-col-lbl{font-family:var(--mono);font-size:.8rem;letter-spacing:4px;color:var(--accent);padding:4px 2px;border-bottom:1px solid var(--accent);text-transform:uppercase;}
+.rack-card{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;gap:4px;cursor:pointer;transition:border-color .12s,background-color .12s;height:50px;justify-content:center;}
+.rack-card:hover{border-color:var(--accent);background:rgba(0,200,240,.05);}
+.rack-id{font-family:var(--mono);font-size:.8rem;color:var(--yellow);white-space:nowrap;}
+#view-racks .eq-name{font-size:.8rem;color:var(--text);}
 
-/* Slots */
+/* Vista MOBILE de racks (desplegables por rack) */
+#racks-mobile{display:none;padding:10px;}
+
+@media(max-width:768px){
+  #racks-wrap{display:none;}
+  #racks-mobile{display:block;}
+}
+
+.rack-mobile-btn{width:100%;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--text);cursor:pointer;text-align:left;transition:border-color .12s;margin-bottom:8px;font-family:var(--mono);font-size:.85rem;display:flex;justify-content:space-between;align-items:center;}
+.rack-mobile-btn:hover{border-color:var(--accent);}
+.rack-mobile-btn.open{border-color:var(--accent);background:rgba(0,200,240,.05);}
+
+.eq-mobile-list{display:none;flex-direction:column;gap:4px;padding:8px 0 12px 14px;margin-bottom:8px;}
+.eq-mobile-list.show{display:flex;}
+
+.eq-mobile-item{background:var(--panel2);border:1px solid var(--border);border-radius:4px;padding:8px 10px;cursor:pointer;font-size:.8rem;color:var(--text);transition:border-color .12s;display:flex;gap:8px;align-items:center;}
+.eq-mobile-item:hover{border-color:var(--accent);color:var(--accent);}
+.eq-mobile-item .rack-id{font-family:var(--mono);font-size:.8rem;color:var(--yellow);white-space:nowrap;min-width:40px;}
+.eq-mobile-item .eq-name{flex:1;}
+
+/* ─────────────────────────────────────────────────────────────────
+   VISTA: SLOTS
+   Para equipos con múltiples slots/placas (frames como openGear, Miranda, etc).
+   Lista vertical de botones, uno por slot.
+   .slot-cnt y .slot-type existen en CSS pero no se usan todavía en el HTML generado.
+   ───────────────────────────────────────────────────────────────── */
 .slots-list{display:flex;flex-direction:column;gap:6px;max-width:480px;}
 .slot-btn{background:var(--panel);border:1px solid var(--border);border-radius:5px;padding:10px 14px;cursor:pointer;text-align:left;transition:border-color .12s;}
 .slot-btn:hover{border-color:var(--accent);}
-.slot-num{font-family:var(--mono);font-size:.68rem;color:var(--yellow);margin-bottom:2px;}
-.slot-placa{font-family:var(--mono);font-size:.6rem;color:var(--accent);margin-left:8px;}
-.slot-type{font-size:.82rem;font-weight:600;color:var(--text);}
-.slot-cnt{font-size:.6rem;color:var(--text2);margin-top:3px;}
+.slot-num{font-family:var(--mono);font-size:.8rem;color:var(--yellow);margin-bottom:2px;}
+.slot-placa{font-family:var(--mono);font-size:1rem;color:var(--accent);margin-left:8px;}
+.slot-type{font-size:.8rem;font-weight:600;color:var(--text);}   /* NO USADO en HTML generado */
+.slot-cnt{font-size:.6rem;color:var(--text2);margin-top:3px;}     /* NO USADO en HTML generado */
 
-/* Equip */
+/* ─────────────────────────────────────────────────────────────────
+   VISTA: EQUIPO
+   Muestra metadatos del equipo (nombre, rack, placa, IP)
+   y luego la grilla de puertos (salidas / entradas / conectores).
+   ───────────────────────────────────────────────────────────────── */
+
 .eq-meta{margin-bottom:20px;}
-.eq-name{font-family:var(--mono);font-size:1rem;color:var(--green);margin-bottom:2px;}
-.eq-rack{font-family:var(--mono);font-size:.68rem;color:var(--yellow);}
-.eq-placa{font-family:var(--mono);font-size:.65rem;color:var(--accent);margin-top:2px;}
-.eq-iprow{font-family:var(--mono);font-size:.65rem;margin-top:4px;}
+.eq-name{font-family:var(--mono);font-size:1.25rem;color:var(--green);margin-bottom:2px;}
+.eq-rack{font-family:var(--mono);font-size:1rem;color:var(--yellow);}
+.eq-placa{font-family:var(--mono);font-size:1rem;color:var(--accent);margin-top:2px;}
+.eq-iprow{font-family:var(--mono);font-size:1rem;margin-top:4px;}
+
+/* Mismo sistema .ok / .none / .pend que .eq-ip pero para la vista de equipo */
 .eq-iprow.ok{color:var(--accent);}.eq-iprow.none{color:var(--muted);}.eq-iprow.pend{color:var(--yellow);}
 
+/* Separador de sección "SALIDAS / ENTRADAS / CONECTORES".
+   La línea que lo sigue es el ::after pseudoelemento. */
 .ports-lbl{font-family:var(--mono);font-size:.55rem;letter-spacing:3px;color:var(--text2);text-transform:uppercase;margin:16px 0 8px;display:flex;align-items:center;gap:10px;}
 .ports-lbl::after{content:'';flex:1;height:1px;background:var(--border);}
 
-/* Responsive grid */
+/* ─────────────────────────────────────────────────────────────────
+   GRILLA DE PUERTOS
+   Responsive: 4 columnas base, 8 en tablet, 16 en desktop.
+   Cada celda es un .port-btn.
+   ───────────────────────────────────────────────────────────────── */
 .ports-grid{display:grid;gap:5px;margin-bottom:4px;grid-template-columns:repeat(4,1fr);}
 @media(min-width:600px){.ports-grid{grid-template-columns:repeat(8,1fr);}}
 @media(min-width:1200px){.ports-grid{grid-template-columns:repeat(16,1fr);}}
 
+/* Botón de puerto. La franja de color en el top indica el tipo:
+   .p-in  (cyan)   = entrada
+   .p-out (naranja) = salida
+   .p-aux (verde)   = auxiliar (default cuando no matchea in/out)
+   .p-conn (amarillo) = conector pasivo (patch panel)
+   .p-free → opacidad baja = no conectado (N/C)
+   .p-nd   → fondo amarillo tenue = no documentado */
 .port-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
   padding:5px 3px;min-height:50px;background:var(--panel2);border:1px solid var(--border);
   border-radius:4px;cursor:pointer;transition:border-color .12s,background .12s;overflow:hidden;}
@@ -73,13 +151,23 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .port-btn.p-in {border-top:2px solid var(--accent);}
 .port-btn.p-out{border-top:2px solid var(--orange);}
 .port-btn.p-aux{border-top:2px solid var(--green);}
-.port-btn.p-conn{border-top:2px solid var(--yellow);}
+.port-btn.p-conn{border-top:2px solid var(--yellow);}  /* passive connector */
 .port-btn.p-free{opacity:.3;}
-.port-btn.p-nd{border-color:var(--yellow);background:rgba(255,209,102,.08);}
+.port-btn.p-nd{
+  border-color:var(--yellow);
+  background:rgba(255,209,102,.08);
+}
+/* .p-num = nombre/número del puerto (ej. "Out 1", "SDI In 3")
+   .p-lbl = rótulo o equipo destino (ej. "MATRIZ 1", "Player A") */
 .p-num{font-family:var(--mono);font-size:.6rem;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding:0 2px;}
 .p-lbl{font-size:.48rem;color:var(--text2);margin-top:2px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px;}
 
-/* Popover */
+/* ─────────────────────────────────────────────────────────────────
+   POPOVER DE RUTA DE SEÑAL
+   Se posiciona con JS (positionPop) cerca del puerto clickeado.
+   Muestra la traza upstream + downstream del puerto.
+   Se cierra con closePop() o clickeando afuera.
+   ───────────────────────────────────────────────────────────────── */
 #pop{position:fixed;z-index:500;background:var(--panel2);border:1px solid var(--border2);
   border-radius:6px;padding:12px 14px 14px;min-width:240px;max-width:320px;
   max-height:70vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.85);display:none;}
@@ -90,7 +178,22 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 #pop-close:hover{color:var(--text);}
 #pop-body{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
 
-/* Trace */
+/* ─────────────────────────────────────────────────────────────────
+   ESTILOS DE LA TRAZA (dentro del popover)
+   Cada nodo de la ruta se renderiza con estas clases:
+   .tr-node  = fila del equipo
+   .tr-rack  = identificador de rack (amarillo)
+   .tr-eq    = nombre del equipo
+   .tr-slot  = slot / placa (cyan)
+   .tr-out   = puerto de salida (naranja) "Out 1 >>>"
+   .tr-in    = puerto de entrada (cyan) ">>> In 1"
+   .tr-branch = rama de distribución (indentada, verde)
+   .tr-gap   = separador visual entre nodos
+   .tr-nodata = error / sin datos (rojo)
+   .tr-dispext = rótulo del cable (gris itálica)
+   .tr-nc    = N/C no conectado (gris)
+   .tr-unk   = destino desconocido (amarillo)
+   ───────────────────────────────────────────────────────────────── */
 .tr-node{margin-bottom:1px;}
 .tr-eq{color:var(--text);font-weight:600;font-family:var(--sans);font-size:.72rem;}
 .tr-rack{color:var(--yellow);font-size:.6rem;margin-right:4px;}
@@ -104,8 +207,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .tr-nodata{color:#ff4444;font-style:normal;font-size:.64rem;font-weight:600;}
 .tr-dispext{padding-left:8px;font-size:.6rem;color:var(--text2);font-style:italic;margin-bottom:2px;}
 .tr-nc{color:#888888;font-size:.64rem;}
-.tr-unk{color:var(--yellow);font-size:.64rem;}
+.tr-unk{color:var(--red);font-size:.64rem;}
 
+/* Scrollbar minimalista */
 ::-webkit-scrollbar{width:4px;height:4px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--muted);border-radius:2px;}
@@ -113,16 +217,23 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 </head>
 <body>
 
+<!-- ═══════════════════════════════════════════════════════════════
+     ESTRUCTURA HTML — mínima, todo se renderiza con JS
+     ═══════════════════════════════════════════════════════════════ -->
+
+<!-- Header sticky. Contenido dinámico via JS. -->
 <div id="hdr">
   <button id="btn-back" onclick="goBack()">&#8592; Volver</button>
   <div id="hdr-title">&#9672; CARGANDO...</div>
-  <div id="hdr-bc"></div>
+  <div id="hdr-bc"></div>  <!-- breadcrumb: "RACK › Equipo › Slot N" -->
 </div>
 
-<div id="view-racks" class="view"><div id="racks-wrap"></div></div>
+<!-- Las 3 vistas. Solo una tiene .active en cada momento. -->
+<div id="view-racks" class="view"><div id="racks-wrap"></div><div id="racks-mobile"></div></div>
 <div id="view-slots" class="view"></div>
 <div id="view-equip" class="view"></div>
 
+<!-- Popover de ruta de señal. Posicionado con JS, z-index 500. -->
 <div id="pop">
   <div id="pop-hdr">
     <span id="pop-lbl">&#9654; RUTA DE SEÑAL</span>
@@ -132,9 +243,20 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 </div>
 
 <script>
+/* ─────────────────────────────────────────────────────────────────
+   ESTADO GLOBAL
+   CONNS  : array de todas las conexiones normalizadas (ver init())
+   NODOS  : dict "rack|||equipo" → ip  (para lookup rápido de IPs)
+   PROJ   : nombre del proyecto (del JSON)
+   _nav   : stack de navegación [{ type, rack, eq, slot }, ...]
+   _selBtn: botón de puerto actualmente seleccionado (para el popover)
+   ───────────────────────────────────────────────────────────────── */
 var CONNS=[], NODOS={}, PROJ='', _nav=[], _selBtn=null;
 
-// ── Init ──────────────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────────
+   INIT — carga connections.json y arranca la app
+   El archivo tiene que estar en el mismo directorio que index.html.
+   ───────────────────────────────────────────────────────────────── */
 fetch('connections.json')
   .then(function(r){
     if(!r.ok) throw new Error('HTTP '+r.status);
@@ -142,52 +264,89 @@ fetch('connections.json')
   })
   .then(function(data){ init(data); })
   .catch(function(e){
-    document.getElementById('hdr-title').textContent='Error cargando connections.json: '+e.message;
+    document.getElementById('hdr-title').textContent = 'Error cargando connections.json: '+e.message;
   });
 
 function init(data){
   PROJ=data.proyecto||'Rack Index';
   document.title=PROJ;
   document.getElementById('hdr-title').textContent='\u25c6 '+PROJ;
-  // FIX: usar rack+'|||'+equipo como clave de NODOS
-  (data.nodos||[]).forEach(function(n){
-    if(n.rack&&n.equipo) NODOS[n.rack+'|||'+n.equipo]=n.ip||null;
-  });
-  (data.conexiones||[]).forEach(function(c){
-    CONNS.push({
-      sr:c.src.rack, se:c.src.equipo, ss:nss(c.src.slot), sl:c.src.placa, sp:c.src.puerto,
-      dr:c.dst.rack, de:c.dst.equipo, ds:nss(c.dst.slot), dl:c.dst.placa, dp:c.dst.puerto,
-      rotulo:c.rotulo||'', notas:c.notas||'',
-      // FIX: leer es_thru_interno (nombre correcto en el JSON)
-      es_thru:c.es_thru_interno===true,
-      disp_ext:c.disp_ext||''
-    });
-  });
+
+  /* Construir NODOS: dict para lookup de IPs por rack+equipo.
+     Clave: "rack|||equipo"  (los ||| evitan colisiones con nombres que tengan |) */
+  (data.nodos||[]).forEach(function(n){ NODOS[n.rack+'|||'+n.equipo]=n.ip; });
+
+  /* Normalizar y aplanar todas las conexiones en CONNS.
+     Cada entrada de CONNS tiene:
+       sr/se/ss/sl/sp = src rack/equipo/slot/placa/puerto
+       dr/de/ds/dl/dp = dst rack/equipo/slot/placa/puerto
+       thru    : campo c.thru del JSON (¿existe este campo? — VER NOTA 1)
+       es_thru : flag de thru interno — VER NOTA 2
+       rotulo, notas, disp_ext : metadatos del cable */
+	(data.conexiones||[]).forEach(function(c){
+		CONNS.push({
+		  sr:c.src.rack, se:c.src.equipo, ss:nss(c.src.slot), sl:c.src.placa, sp:c.src.puerto,
+		  dr:c.dst.rack, de:c.dst.equipo, ds:nss(c.dst.slot), dl:c.dst.placa, dp:c.dst.puerto,
+		  rotulo:c.rotulo, notas:c.notas,
+		  es_thru_interno:c.es_thru_interno||false,  // ← CAMBIADO
+		  disp_ext:c.disp_ext||''
+		});
+	});
   showRacks();
+  
+  // Listener para regenerar layout cuando cambia el tamaño de la ventana
+	window.addEventListener('resize',function(){
+	if(_nav[0].type==='racks') showRacks();
+	});
+	
+	window.addEventListener('scroll', function(){
+	closePop();
+	});
 }
 
-// ── Core helpers ──────────────────────────────────────────────────────────────
-function h(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/'/g,'&#39;'); }
-function nss(s){ return String(s||'').replace(/\.0$/,''); }
+/* ─────────────────────────────────────────────────────────────────
+   HELPERS GENERALES
+   ───────────────────────────────────────────────────────────────── */
 
+/* h(): escapa HTML para inserción segura en innerHTML.
+   NOTA 3: no escapa comillas simples (') — puede romper atributos onclick inline
+   cuando el nombre de un equipo contiene apóstrofos (ej: "O'Connor"). */
+function h(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+/* nss(): normaliza slot strings — Necesario para comparar slots. */
+function nss(s){ return String(s||''); }
+
+/* portCls(): devuelve la clase CSS del borde superior según el nombre del puerto.
+   Detecta entradas (p-in), salidas (p-out), o genérico (p-aux).
+   El regex usa \w+ que matchea cualquier palabra antes de "in"/"out",
+   lo que puede dar falsos positivos (ej: "Rewind" matchearía p-out). */
 function portCls(p){
   var l=String(p||'').toLowerCase();
   if(/^(in\b|ret\b|hdmi in|sdi in|\w+ in\b)/.test(l)||l.indexOf('(in)')>=0) return 'p-in';
   if(/^(out\b|sdi out|hdmi out|\w+ out\b)/.test(l)||l.indexOf('(out)')>=0) return 'p-out';
   return 'p-aux';
 }
+
+/* portN(): extrae el primer número de un nombre de puerto, para ordenamiento.
+   Retorna 9998 si no hay número → los puertos sin número van al final. */
 function portN(p){
   var m=String(p||'').match(/\d+/); return m?parseInt(m[0]):9998;
 }
+
+/* sortByPort(): ordena un array por nombre de puerto (numérico primero, luego lexicográfico).
+   fn es la función que extrae el puerto de cada elemento del array. */
 function sortByPort(arr,fn){
   return arr.slice().sort(function(a,b){
     return portN(fn(a))-portN(fn(b))||String(fn(a)).localeCompare(String(fn(b)));
   });
 }
 
+/* getIP(): busca la IP de un rack+equipo en el dict NODOS.
+   Primero intenta match exacto, luego case-insensitive del equipo.
+   Retorna undefined si no encuentra nada. */
 function getIP(rack,eq){
   var k=rack+'|||'+eq;
-  if(Object.prototype.hasOwnProperty.call(NODOS,k)) return NODOS[k];
+  if(NODOS.hasOwnProperty(k)) return NODOS[k];
   var ks=Object.keys(NODOS);
   for(var i=0;i<ks.length;i++){
     var p=ks[i].split('|||');
@@ -195,19 +354,38 @@ function getIP(rack,eq){
   }
   return undefined;
 }
+
+/* ipEl(): genera el HTML del indicador de IP.
+   ip===undefined|null|'' → "Sin red" (gris)
+   ip==='?'              → "IP pendiente" (amarillo)
+   cualquier otro valor  → muestra la IP (cyan)
+   NOTA 4: no maneja el caso ip==='N/D' que es el valor usado en el JSON
+   para indicar "no disponible" — esos se mostrarán como IPs reales (cyan). */
 function ipEl(ip,cls){
   if(ip===undefined||ip===null||ip==='') return '<div class="'+cls+' none">Sin red</div>';
-  if(ip==='N/D'||ip==='?') return '<div class="'+cls+' pend">IP pendiente</div>';
+  if(ip==='?') return '<div class="'+cls+' pend">IP pendiente</div>';
   return '<div class="'+cls+' ok">'+h(ip)+'</div>';
 }
+
+/* getRackPfx(): extrae el prefijo de letra de un rack (ej: "A.1" → "A", "DC.2" → "DC").
+   Se usa para agrupar racks en columnas en la vista principal. */
 function getRackPfx(r){ var m=r.match(/^([A-Za-z]+)/); return m?m[1].toUpperCase():'?'; }
 
-// ── Frame / slot detection ────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────────
+   DETECCIÓN DE FRAMES Y SLOTS
+   Un "frame" es un equipo que tiene slots (ej: openGear, Miranda Densite).
+   Se detecta buscando conexiones donde el campo slot (ss o ds) no esté vacío.
+   ───────────────────────────────────────────────────────────────── */
+
+/* isFrame(): true si el equipo tiene alguna conexión con slot no vacío. */
 function isFrame(rack,eq){
   return CONNS.some(function(c){
     return (c.sr===rack&&c.se===eq&&c.ss) || (c.dr===rack&&c.de===eq&&c.ds);
   });
 }
+
+/* getSlots(): devuelve array de { slot, placa } para un frame, ordenado numéricamente.
+   Combina slots de conexiones de entrada y de salida. */
 function getSlots(rack,eq){
   var seen={};
   CONNS.forEach(function(c){
@@ -217,43 +395,59 @@ function getSlots(rack,eq){
       if(c.sl&&!seen[k].placa) seen[k].placa=c.sl;
     }
     if(c.dr===rack&&c.de===eq&&c.ds){
-      var k2=nss(c.ds);
-      if(!seen[k2]) seen[k2]={slot:k2,placa:''};
-      if(c.dl&&!seen[k2].placa) seen[k2].placa=c.dl;
+      var k=nss(c.ds);                       // NOTA 5: redeclara 'k' con var en el mismo scope — funciona
+      if(!seen[k]) seen[k]={slot:k,placa:''};// por hoisting de var pero sería más claro con un nombre distinto
+      if(c.dl&&!seen[k].placa) seen[k].placa=c.dl;
     }
   });
-  return Object.values(seen).sort(function(a,b){ return parseInt(a.slot)-parseInt(b.slot)||a.slot.localeCompare(b.slot); });
+  return Object.values(seen).sort(function(a,b){ return parseInt(a.slot)-parseInt(b.slot); });
 }
 
+/* ─────────────────────────────────────────────────────────────────
+   DETECCIÓN DE EQUIPOS PASIVOS (patch panels)
+   Un equipo "pasivo" tiene solo THRUs 1-a-1 y sin puertos de audio.
+   Esto matchea con patch panels pero NO con distros (1-a-muchos).
+   Se muestra con una grilla de "conectores" en vez de salidas/entradas.
+   ───────────────────────────────────────────────────────────────── */
+
+/* isPassive(): true si todos los THRUs del slot son 1-a-1 y sin audio. */
 function isPassive(rack,eq,slot){
   var thrus=CONNS.filter(function(c){
-    return c.es_thru===true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
+    return c.es_thru_interno===true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
   });
   if(!thrus.length) return false;
+  // Check 1-to-1: every src port appears exactly once
   var srcCounts={};
   thrus.forEach(function(t){ srcCounts[t.sp]=(srcCounts[t.sp]||0)+1; });
   var isOneToOne=Object.values(srcCounts).every(function(n){return n===1;});
   if(!isOneToOne) return false;
+  // No audio ports
   return thrus.every(function(t){ return !isAudio(t.sp)&&!isAudio(t.dp); });
 }
+
+/* getConnectors(): arma lista de conectores de un patch panel. */
 function getConnectors(rack,eq,slot){
   var thrus=CONNS.filter(function(c){
-    return c.es_thru===true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
+    return c.es_thru_interno===true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
   });
+  // Build connectors: {num, inPort, outPort, label, ncIn, ncOut}
   var conns2=thrus.map(function(t){
     var num=portN(t.sp);
+    // Who feeds In port?
     var srcConns=CONNS.filter(function(c){
-      return c.es_thru!==true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===t.sp;
+      return c.es_thru_interno!==true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===t.sp;
     });
+    // Where does Out port go?
     var dstConns=CONNS.filter(function(c){
-      return c.es_thru!==true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===t.dp;
+      return c.es_thru_interno!==true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===t.dp;
     });
-    var ncIn  = srcConns.length>0 && srcConns[0].sr==='N/C';
-    var ncOut = dstConns.length>0 && dstConns[0].dr==='N/C';
-    var unkIn  = !srcConns.length || !srcConns[0].sr || srcConns[0].sr==='N/D';
-    var unkOut = !dstConns.length || !dstConns[0].dr || dstConns[0].dr==='N/D';
+    var ncIn  = srcConns.length>0 && (srcConns[0].sr==='N/C');
+    var ncOut = dstConns.length>0 && (dstConns[0].dr==='N/C');
+    var unkIn  = !srcConns.length || srcConns[0].sr==='?' || !srcConns[0].sr;
+    var unkOut = !dstConns.length || dstConns[0].dr==='?' || !dstConns[0].dr;
     var isFree = unkIn && unkOut;
     var isNc   = ncIn || ncOut;
+    // Label: prefer rotulo from src conn, then dst conn
     var lbl = (srcConns[0]&&srcConns[0].rotulo) || (dstConns[0]&&dstConns[0].rotulo) || '';
     return {num:num, inPort:t.sp, outPort:t.dp, label:lbl,
             isFree:isFree, isNc:isNc,
@@ -262,19 +456,44 @@ function getConnectors(rack,eq,slot){
   return conns2.sort(function(a,b){return a.num-b.num;});
 }
 
-// ── Navigation ────────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────────
+   NAVEGACIÓN
+   Stack _nav: cada vista pushea su estado. goBack() popea y restaura.
+   Flujo: showRacks → onEqClick → showSlots / showEquip
+   ───────────────────────────────────────────────────────────────── */
+
+/* setView(): activa una vista y desactiva las otras. */
 function setView(id){
   ['view-racks','view-slots','view-equip'].forEach(function(v){
     document.getElementById(v).className='view'+(v===id?' active':'');
   });
 }
+
+/* updateHdr(): actualiza header según el estado de navegación.
+   Si _nav.length <= 1 → en la raíz → muestra el título del proyecto.
+   Si _nav.length > 1  → en una vista hija → muestra breadcrumb y botón Volver.
+   NOTA 8: las funciones que llaman a updateHdr() ya hicieron push a _nav
+   antes de llamarla, así que cuando entra a la primera vista hija,
+   _nav.length es 2 y el botón back se muestra correctamente.
+   Pero en showRacks() _nav se resetea a [{type:'racks'}] antes de llamar
+   updateHdr, entonces length=1 y el botón se oculta. Parece correcto. */
 function updateHdr(bc){
-  // FIX: mostrar back cuando hay más de 1 nivel de navegación
-  var back=document.getElementById('btn-back');
-  back.className=_nav.length>1?'show':'';
+  document.getElementById('btn-back').className=_nav.length>1?'show':'';
   document.getElementById('hdr-title').textContent=_nav.length<=1?('\u25c6 '+PROJ):'';
   document.getElementById('hdr-bc').innerHTML=bc||'';
 }
+
+/* goBack(): navega un nivel atrás.
+   1. Popea el nivel actual.
+   2. Si _nav queda vacío → va a racks.
+   3. Si no: popea de nuevo para "re-navegar" el nivel anterior
+      (las funciones show* siempre pushean, por eso hay que popear antes de llamarlas).
+   NOTA 9: este doble pop puede ser confuso. Si estás en:
+   _nav = [racks, slots, equip] y hacés goBack():
+   → pop → _nav = [racks, slots]
+   → top = slots
+   → pop → _nav = [racks]
+   → showSlots() → push → _nav = [racks, slots]  ✓ correcto */
 function goBack(){
   closePop();
   _nav.pop();
@@ -285,57 +504,95 @@ function goBack(){
   else if(top.type==='equip') showEquip(top.rack,top.eq,top.slot);
 }
 
-// ── Racks view ────────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────────
+   VISTA: RACKS
+   Agrupa todos los equipos por prefijo de rack (A, B, C, DC, TX...).
+   Fuente de datos: CONNS (conexiones no-thru) + NODOS (equipos del JSON).
+   ───────────────────────────────────────────────────────────────── */
 function showRacks(){
   _nav=[{type:'racks'}]; closePop(); updateHdr(''); setView('view-racks');
+
+  /* rm: dict de rack → { equipo: true }
+     Se construye desde CONNS y desde NODOS para incluir equipos
+     que existan en el JSON pero no tengan conexiones documentadas. */
   var rm={};
   CONNS.forEach(function(c){
     [[c.sr,c.se],[c.dr,c.de]].forEach(function(pair){
       var r=pair[0],e=pair[1];
-      if(!r||r==='?'||!e||e==='?'||e==='') return;
-      if(c.es_thru===true) return;
+      if(!r||r==='?'||!e||e==='?') return;
+      if(c.es_thru_interno===true) return;
       if(!rm[r]) rm[r]={};
       rm[r][e]=true;
     });
   });
-  // También incluir nodos del JSON aunque no tengan conexiones
   Object.keys(NODOS).forEach(function(k){
     var p=k.split('|||'),r=p[0],e=p[1];
-    if(!r||!e||r==='?'||e==='') return;
+    if(!r||!e||r==='?') return;
     if(!rm[r]) rm[r]={};
     rm[r][e]=true;
   });
+
+  /* Agrupar por prefijo de rack y ordenar */
   var secs={};
   Object.keys(rm).sort(function(a,b){return a.localeCompare(b,undefined,{numeric:true});}).forEach(function(rack){
     var pfx=getRackPfx(rack);
     if(!secs[pfx]) secs[pfx]=[];
     secs[pfx].push({rack:rack,eqs:Object.keys(rm[rack]).sort()});
   });
-  var html='';
-  Object.keys(secs).sort().forEach(function(pfx){
-    html+='<div class="rack-col"><div class="rack-col-lbl">'+h(pfx)+'</div>';
-    secs[pfx].forEach(function(item){
-      html+='<div class="rack-card"><div class="rack-card-hdr"><span class="rack-id">'+h(item.rack)+'</span></div><div class="rack-card-body">';
-      item.eqs.forEach(function(eq){
-        var ip=getIP(item.rack,eq);
-        var ipc=(!ip||ip===null)?'none':(ip==='N/D'||ip==='?'?'pend':'ok');
-        var ipt=(!ip||ip===null)?'Sin red':(ip==='N/D'||ip==='?'?'IP pendiente':ip);
-        html+='<div class="eq-btn" onclick="onEqClick(\''+h(item.rack)+'\',\''+h(eq)+'\')">'+h(eq)
-          +'<div class="eq-ip '+ipc+'">'+h(ipt)+'</div></div>';
-      });
-      html+='</div></div>';
-    });
-    html+='</div>';
-  });
-  document.getElementById('racks-wrap').innerHTML=html;
+
+  /* Generar HTML de columnas y cards */
+	var isMobile=window.innerWidth<=768;
+	
+	if(isMobile){
+	  // Versión MOBILE: desplegables por PREFIJO (A, B, C, etc)
+	  var htmlMobile='';
+	  Object.keys(secs).sort().forEach(function(pfx){
+	    htmlMobile+='<div class="rack-mobile-btn" onclick="toggleMobileList(this)"><span>'+h(pfx)+'</span><span>▼</span></div>';
+	    htmlMobile+='<div class="eq-mobile-list">';
+	    secs[pfx].forEach(function(item){
+	      item.eqs.forEach(function(eq){
+	        htmlMobile+='<div class="eq-mobile-item" onclick="onEqClick(\''+h(item.rack)+'\',\''+h(eq)+'\')"><span class="rack-id">'+h(item.rack)+'</span> <span class="eq-name">'+h(eq)+'</span></div>';
+	      });
+	    });
+	    htmlMobile+='</div>';
+	  });
+	  document.getElementById('racks-mobile').innerHTML=htmlMobile;
+	  document.getElementById('racks-wrap').innerHTML='';
+	} else {
+	  // Versión DESKTOP: layout horizontal con scroll
+	  var html='';
+	  Object.keys(secs).sort().forEach(function(pfx){
+	    html+='<div class="rack-col"><div class="rack-col-lbl">'+h(pfx)+'</div>';
+	    secs[pfx].forEach(function(item){
+	      item.eqs.forEach(function(eq){
+	        html+='<div class="rack-card" onclick="onEqClick(\''+h(item.rack)+'\',\''+h(eq)+'\')"><span class="rack-id">'+h(item.rack)+'</span><span class="eq-name">'+h(eq)+'</span></div>';
+	      });
+	    });
+	    html+='</div>';
+	  });
+	  document.getElementById('racks-wrap').innerHTML=html;
+	  document.getElementById('racks-mobile').innerHTML='';
+	}
 }
 
+/* onEqClick(): decide si ir a slots o directo al equipo. */
 function onEqClick(rack,eq){
   if(isFrame(rack,eq)) showSlots(rack,eq);
   else showEquip(rack,eq,'');
 }
 
-// ── Slots view ────────────────────────────────────────────────────────────────
+/* toggleMobileList(): muestra/oculta la lista de equipos en mobile */
+function toggleMobileList(btn){
+  var list=btn.nextElementSibling;
+  list.classList.toggle('show');
+  btn.classList.toggle('open');
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   VISTA: SLOTS
+   Para frames (equipos con múltiples slots).
+   Lista los slots disponibles con su placa asociada.
+   ───────────────────────────────────────────────────────────────── */
 function showSlots(rack,frameEq){
   _nav.push({type:'slots',rack:rack,eq:frameEq}); closePop(); setView('view-slots');
   updateHdr('<span class="hi">'+h(rack)+'</span> › '+h(frameEq));
@@ -345,13 +602,12 @@ function showSlots(rack,frameEq){
     +'<div class="eq-rack">'+h(rack)+'</div>'+ipEl(ip,'eq-iprow')+'</div>';
   html+='<div class="slots-list">';
   slots.forEach(function(s){
-    var cntOut=CONNS.filter(function(c){return c.sr===rack&&c.se===frameEq&&nss(c.ss)===s.slot&&!c.es_thru;}).length;
-    var cntIn =CONNS.filter(function(c){return c.dr===rack&&c.de===frameEq&&nss(c.ds)===s.slot&&!c.es_thru;}).length;
     html+='<div class="slot-btn" onclick="showEquip(\''+h(rack)+'\',\''+h(frameEq)+'\',\''+h(s.slot)+'\')">';
     html+='<div class="slot-num">Slot '+h(s.slot);
     if(s.placa) html+='<span class="slot-placa">'+h(s.placa)+'</span>';
     html+='</div>';
-    html+='<div class="slot-cnt">'+cntOut+' salidas · '+cntIn+' entradas</div>';
+    /* NOTA 12: las clases .slot-type y .slot-cnt están definidas en CSS
+       pero no se usan aquí. La vista de slots no muestra conteo de conexiones. */
     html+='</div>';
   });
   html+='</div>';
@@ -359,15 +615,23 @@ function showSlots(rack,frameEq){
   window.scrollTo(0,0);
 }
 
-// ── Equip view ────────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────────
+   VISTA: EQUIPO
+   rack, eq: identificadores del equipo base
+   slot: slot number string, o '' para equipos sin slots
+   Muestra: metadatos + grilla de puertos (salidas / entradas / conectores pasivos)
+   ───────────────────────────────────────────────────────────────── */
 function showEquip(rack,eq,slot){
   _nav.push({type:'equip',rack:rack,eq:eq,slot:slot}); closePop(); setView('view-equip');
-  var isSlotEq=slot!=='';
-  var bc=isSlotEq
-    ?'<span class="hi">'+h(rack)+'</span> › '+h(eq)+' › Slot '+h(slot)
-    :'<span class="hi">'+h(rack)+'</span> › '+h(eq);
+
+  // Armar breadcrumb según si es slot o equipo directo
+  var isSlotEq = slot!=='';
+  var bc = isSlotEq
+    ? '<span class="hi">'+h(rack)+'</span> › '+h(eq)+' › Slot '+h(slot)
+    : '<span class="hi">'+h(rack)+'</span> › '+h(eq);
   updateHdr(bc);
 
+  // Buscar la placa del slot (de la primera conexión que la tenga)
   var placa='';
   if(isSlotEq){
     var plRef=CONNS.find(function(c){
@@ -377,29 +641,44 @@ function showEquip(rack,eq,slot){
     if(plRef) placa=plRef.sl||plRef.dl||'';
   }
 
-  var displayName=isSlotEq?('Slot '+slot+(placa?' — '+placa:'')):eq;
-  var ip=getIP(rack,eq);
+  // Nombre de display: "Slot N — Placa" o el nombre del equipo
+  var displayName = isSlotEq ? ('Slot '+slot+(placa?' — '+placa:'')) : eq;
 
-  var outsAll=CONNS.filter(function(c){
-    return c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.es_thru!==true;
-  });
-  var insAll=CONNS.filter(function(c){
-    return c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.es_thru!==true;
-  });
 
+  // IP: para slots, usa la IP del frame padre (mismo equipo, diferente slot)
+  var ip = isSlotEq ? getIP(rack,eq) : getIP(rack,eq);   // NOTA 13: las dos ramas son idénticas, el comentario es el único diferenciador
+
+  // Filtrar conexiones del equipo/slot (excluir THRUs)
+	var outsAll=CONNS.filter(function(c){
+	  return c.es_thru_interno!==true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
+	});
+	var insAll=CONNS.filter(function(c){
+	  return c.es_thru_interno!==true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot);
+	});
+
+  // Metadatos del equipo
   var html='<div class="eq-meta">';
   html+='<div class="eq-name">'+h(displayName)+'</div>';
   html+='<div class="eq-rack">'+h(rack)+(isSlotEq?' › '+h(eq):'')+'</div>';
   if(placa) html+='<div class="eq-placa">'+h(placa)+'</div>';
   html+=ipEl(ip,'eq-iprow')+'</div>';
 
+  // ¿Es un equipo pasivo (patch panel)?
+  // NOTA 14: por NOTA 2 y NOTA 6, isPassive() siempre retorna false.
+  // El bloque del patch panel nunca se ejecuta.
   if(isPassive(rack,eq,slot)){
     var connectors=getConnectors(rack,eq,slot);
     html+='<div class="ports-lbl">&#9670; CONECTORES</div><div class="ports-grid">';
     connectors.forEach(function(con){
-      var state=con.isNc?'NC':(con.isFree?'ND':'doc');
+      var state;
+      if(con.isNc) state='NC';
+      else if(con.isFree) state='ND';
+      else state='doc';
       var lbl=con.label||'';
-      var cls='port-btn p-conn'+(state==='NC'?' p-free':(state==='ND'?' p-nd':''));
+      // Un solo botón por puerto del patch panel
+      var cls='port-btn p-conn';
+      if(state==='NC') cls+=' p-free';
+      else if(state==='ND') cls+=' p-nd';
       var click=' onclick="onConnectorClick(this,\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(con.inPort)+'\',\''+h(con.outPort)+'\',\''+state+'\')"';
       html+='<div class="'+cls+'"'+click+'>';
       html+='<div class="p-num">Port '+h(String(con.num))+'</div>';
@@ -408,13 +687,20 @@ function showEquip(rack,eq,slot){
     });
     html+='</div>';
   } else {
+    // Equipo normal: grillas separadas de SALIDAS y ENTRADAS
     var sortedOuts=sortByPort(outsAll,function(c){return c.sp;});
     var sortedIns =sortByPort(insAll, function(c){return c.dp;});
 
+    /* portBtnHTML(): genera el HTML de un botón de puerto.
+       port  = nombre del puerto
+       state = 'doc' | 'NC' | 'ND'
+       lbl   = rótulo o equipo destino/fuente
+       clickArgs = string con los args para onPortClick() */
     function portBtnHTML(port,state,lbl,clickArgs){
       var cls='port-btn '+portCls(port);
-      if(state==='NC') cls+=' p-free';
-      else if(state==='ND') cls+=' p-nd';
+	  if(state==='NC') cls+=' p-free';     // NOTA 15: indentación con tab en las 2 líneas siguientes
+	  else if(state==='ND') cls+=' p-nd';  // mientras el resto usa spaces — no afecta funcionamiento
+                                            // pero indica edición inconsistente
       var click=' onclick="onPortClick(this,'+clickArgs+',\''+state+'\')"';
       return '<div class="'+cls+'"'+click+'>'
         +'<div class="p-num">'+h(port||'?')+'</div>'
@@ -425,13 +711,16 @@ function showEquip(rack,eq,slot){
     if(sortedOuts.length){
       html+='<div class="ports-lbl">&#9670; SALIDAS</div><div class="ports-grid">';
       sortedOuts.forEach(function(c){
-        // FIX: distinguir N/C (no conectado) de N/D y de rack vacío
         var state;
-        if(c.dr==='N/C') state='NC';
-        else if(!c.dr||c.dr==='N/D'||c.dr==='?') state='ND';
-        else state='doc';
-        var lbl=c.rotulo||(state==='doc'?c.de:'')||'';
-        var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(nss(c.ss))+'\',\''+h(c.sp)+'\'';
+        if(c.dr==='N/C') state='NC';      // No Conectado
+        else if(c.dr==='N/D' || !c.dr) state='ND';  // No Documentado
+        else state='doc';                 // Documentado
+        /* NOTA 16: lbl usa el operador || para elegir rótulo o equipo destino.
+           c.rotulo || (state!=='doc' ? '' : c.de) — si state es 'doc' muestra c.de (destino).
+           Pero si c.rotulo es '' (string vacío, que es falsy), siempre muestra c.de.
+           Eso puede ser el comportamiento deseado. */
+        var lbl=c.rotulo||(state!=='doc'?'':c.de)||'';
+        var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
         html+=portBtnHTML(c.sp,state,lbl,args);
       });
       html+='</div>';
@@ -440,11 +729,11 @@ function showEquip(rack,eq,slot){
       html+='<div class="ports-lbl">&#9670; ENTRADAS</div><div class="ports-grid">';
       sortedIns.forEach(function(c){
         var state;
-        if(c.sr==='N/C') state='NC';
-        else if(!c.sr||c.sr==='N/D'||c.sr==='?') state='ND';
-        else state='doc';
-        var lbl=c.rotulo||(state==='doc'?c.se:'')||'';
-        var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(nss(c.ss))+'\',\''+h(c.sp)+'\'';
+        if(c.sr==='N/C') state='NC';      // No Conectado
+        else if(c.sr==='N/D' || !c.sr) state='ND';  // No Documentado
+        else state='doc';                 // Documentado
+        var lbl=c.rotulo||(state!=='doc'?'':c.se)||'';
+        var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
         html+=portBtnHTML(c.dp,state,lbl,args);
       });
       html+='</div>';
@@ -458,21 +747,39 @@ function showEquip(rack,eq,slot){
   window.scrollTo(0,0);
 }
 
-// ── Popover ───────────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────────
+   POPOVER
+   ───────────────────────────────────────────────────────────────── */
+
+/* closePop(): cierra el popover y deselecciona el botón activo. */
 function closePop(){
   document.getElementById('pop').classList.remove('on');
   if(_selBtn){_selBtn.classList.remove('selected');_selBtn=null;}
 }
+
+/* positionPop(): posiciona el popover cerca del botón clickeado.
+   Intenta aparecer abajo; si no hay espacio, aparece arriba. */
 function positionPop(btn){
   var pop=document.getElementById('pop');
   var r=btn.getBoundingClientRect();
   var pw=300;
   var left=r.left+r.width/2-pw/2;
   left=Math.max(8,Math.min(left,window.innerWidth-pw-8));
+  
   var top=r.bottom+8;
-  if(top+340>window.innerHeight) top=Math.max(8,r.top-340);
+  var popHeight=pop.offsetHeight||340; // Usar altura real del popover
+  
+  if(top+popHeight>window.innerHeight){
+    top=r.top-popHeight-8; // Ir arriba con espacio
+  }
+  
+  top=Math.max(8,top); // No salirse del top de la pantalla
+  
   pop.style.left=left+'px'; pop.style.top=top+'px'; pop.style.width=pw+'px';
 }
+
+/* showPop(): muestra el popover con contenido html.
+   Si se clickea el mismo botón dos veces, cierra el popover (toggle). */
 function showPop(btn,html){
   if(_selBtn===btn){closePop();return;}
   if(_selBtn) _selBtn.classList.remove('selected');
@@ -482,48 +789,92 @@ function showPop(btn,html){
   positionPop(btn);
 }
 
+/* onPortClick(): handler de click en puerto normal.
+   Determina el contenido del popover según el estado del puerto.
+   state='doc' → buildRoute() para trazar la ruta de señal completa. */
 function onPortClick(btn,sr,se,ss0,sp,state){
+  console.log('onPortClick:', {sr,se,ss0,sp,state});  // NOTA 17: console.log de debug no removido
   var body;
-  if(state==='NC')       body='<div class="tr-nc">N/C — No Conectado</div>';
-  else if(state==='ND')  body='<div class="tr-nodata">&#9888; AÚN NO DOCUMENTADO</div>';
-  else if(state==='doc') body=buildRoute(sr,se,ss0,sp);
-  else                   body='<div class="tr-nodata">Estado desconocido.</div>';
-  showPop(btn,body);
-}
-function onConnectorClick(btn,rack,eq,slot,inPort,outPort,state){
-  var body;
-  if(state==='NC')       body='<div class="tr-nc">N/C — No Conectado</div>';
-  else if(state==='ND')  body='<div class="tr-nodata">&#9888; AÚN NO DOCUMENTADO</div>';
-  else if(state==='doc') body=buildPassiveRoute(rack,eq,slot,inPort,outPort);
-  else                   body='<div class="tr-nodata">Estado desconocido.</div>';
+  
+  if(state==='NC'){
+    body='<div class="tr-nc">N/C — No Conectado</div>';
+  } else if(state==='ND'){
+    body='<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO</div>';
+  } else if(state==='doc'){
+    body=buildRoute(sr,se,ss0,sp);
+  } else {
+    body='<div class="tr-nodata">Estado desconocido.</div>';
+  }
   showPop(btn,body);
 }
 
+/* onConnectorClick(): handler de click en conector pasivo (patch panel).
+   Usa buildPassiveRoute() para trazar en ambas direcciones a través del conector. */
+function onConnectorClick(btn,rack,eq,slot,inPort,outPort,state){
+  var body;
+  if(state==='NC'){
+    body='<div class="tr-nc">N/C — No Conectado</div>';
+  } else if(state==='ND'){
+    body='<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO</div>';
+  } else if(state==='doc'){
+    // Build route from both directions through this connector
+    body=buildPassiveRoute(rack,eq,slot,inPort,outPort);
+  } else {
+    body='<div class="tr-nodata">Estado desconocido.</div>';
+  }
+  showPop(btn,body);
+}
+
+/* Cerrar popover al clickear fuera de él o de los botones de puerto */
 document.addEventListener('click',function(e){
   var pop=document.getElementById('pop');
   if(!pop.contains(e.target)&&!e.target.closest('.port-btn')) closePop();
 });
 
-// ── Route builder ─────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────────
+   ROUTE BUILDER — lógica de trazado de señal
+   
+   Concepto central: cada conexión en CONNS puede ser:
+   a) Cable real (es_thru=false): conecta dos equipos distintos
+   b) THRU interno (es_thru=true): conexión interna de un equipo
+      (ej: una placa distribuidora 1→9, o un patch panel)
+   
+   Los segmentos de la ruta son objetos:
+   { rack, eq, slot, placa, inPort, outPort, branches[], unknown, nc, disp_ext }
+   
+   Funciones auxiliares de filtrado (todas respetan la normalización nss()):
+     fOuts()  : cables que SALEN de rack/eq/slot/puerto
+     fThrus() : THRUs internos cuya ENTRADA es rack/eq/slot/inPort
+     fIns()   : cables que ENTRAN a rack/eq/slot/puerto (excluyendo N/C y ?)
+   ───────────────────────────────────────────────────────────────── */
+
+/* isAudio(): true si el nombre del puerto contiene "audio" (case insensitive). */
 function isAudio(p){ return /audio/i.test(p||''); }
 
+/* fOuts(): cables reales que salen del puerto indicado. */
 function fOuts(rack,eq,slot,port){
   return CONNS.filter(function(c){
-    return c.es_thru!==true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===port;
+    return c.es_thru_interno!==true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===port;
   });
 }
+
+/* fThrus(): conexiones internas (thru) cuyo srcPort es el inPort indicado. */
 function fThrus(rack,eq,slot,inPort){
   return CONNS.filter(function(c){
-    return c.es_thru===true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===inPort;
+    return c.es_thru_interno===true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===inPort;
   });
 }
+
+/* fIns(): cables reales que llegan al puerto indicado (excluye N/C y ?). */
 function fIns(rack,eq,slot,port){
   return CONNS.filter(function(c){
-    return c.es_thru!==true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===port
+    return c.es_thru_interno!==true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dp===port
       &&c.sr&&c.sr!=='?'&&c.sr!=='N/C';
   });
 }
 
+/* eqLabel(): HTML de una fila de equipo en la traza.
+   Formato: "RACK  NombreEquipo  / Slot N — Placa" */
 function eqLabel(rack,eq,slot,placa){
   var html='<div class="tr-node">';
   html+='<span class="tr-rack">'+h(rack)+'</span>';
@@ -536,6 +887,8 @@ function eqLabel(rack,eq,slot,placa){
   html+='</div>';
   return html;
 }
+
+/* getPlaca(): busca la placa de un equipo/slot desde CONNS. */
 function getPlaca(rack,eq,slot){
   var r=CONNS.find(function(c){
     return ((c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sl)
@@ -543,6 +896,9 @@ function getPlaca(rack,eq,slot){
   });
   return r?(r.sl||r.dl||''):'';
 }
+
+/* renderOut/renderIn(): HTML de líneas de puerto en la traza.
+   "Out 1 >>>" (naranja) o ">>> In 1" (cyan). */
 function renderOut(port){
   if(!port) return '';
   return '<div><span class="tr-out">'+h(port)+' &gt;&gt;&gt;</span></div>';
@@ -551,6 +907,9 @@ function renderIn(port){
   if(!port) return '';
   return '<div><span class="tr-in">&gt;&gt;&gt; '+h(port)+'</span></div>';
 }
+
+/* renderBranch(): HTML de una rama de distribución.
+   "Out N >>>  RACK  DestEq  / Slot N  > DestPuerto" */
 function renderBranch(br){
   var html='<div class="tr-branch">';
   html+='<span class="tr-out">'+h(br.outPort)+' &gt;&gt;&gt;</span>';
@@ -562,44 +921,82 @@ function renderBranch(br){
   return html;
 }
 
+/* ─────────────────────────────────────────────────────────────────
+   buildSegments(): construye la traza HACIA ADELANTE (downstream)
+   desde un puerto de salida dado.
+   
+   Algoritmo walk() recursivo con memoización (vis{}):
+   1. Busca cables que salen del outPort actual.
+   2. Para cada destino:
+      a. Si el destino no tiene THRUs → continúa directamente.
+      b. Si tiene THRUs de video → maneja distro (1→N) o thru normal.
+      c. Si tiene THRUs de audio → crea branches y no sigue.
+   3. Límite de profundidad: 12 niveles.
+   
+   El segmento inicial se crea con inPort='' (primer equipo del chain).
+   ───────────────────────────────────────────────────────────────── */
 function buildSegments(sr,se,ss0,sp){
   var segs=[], vis={};
+
   function walk(rack,eq,slot,inPort,outPort,depth){
     if(depth>12) return;
     var key=rack+'|'+eq+'|'+nss(slot)+'|'+String(inPort||'')+'|'+String(outPort||'');
     if(vis[key]) return; vis[key]=true;
+
     var placa=getPlaca(rack,eq,slot);
-    var esSalidaThruDown=inPort&&CONNS.some(function(c){
-      return c.es_thru===true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sp===inPort;
+
+    // Evitar duplicar segmento si inPort ya fue creado por un THRU previo
+    var esSalidaThruDown=inPort && CONNS.some(function(c){
+      return c.es_thru_interno===true && c.sr===rack && c.se===eq &&
+             nss(c.ss)===nss(slot) && c.sp===inPort;
     });
+
     var seg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:inPort,outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
     if(!esSalidaThruDown) segs.push(seg);
+
     var nexts=fOuts(rack,eq,slot,outPort);
     if(!nexts.length) return;
+
     nexts.forEach(function(c){
       if(!c.dr||c.dr==='N/C'){seg.nc=true;return;}
-      if(c.dr==='?'||c.dr==='N/D'){seg.unknown=true;return;}
+      if(c.dr==='?'){seg.unknown=true;return;}
+      // NOTA 18: no maneja c.dr==='N/D' — esos equipos sin rack documentado
+      // pasan como 'doc' y se intenta trazar, resultando en un seg sin destino visible
       if(c.disp_ext) seg.disp_ext=c.disp_ext;
       var dr=c.dr,de=c.de,ds=c.ds,dp=c.dp;
       var thrus=fThrus(dr,de,ds,dp);
       var audioT=thrus.filter(function(t){return isAudio(t.dp);});
       var videoT=thrus.filter(function(t){return !isAudio(t.dp);});
+
       var branches=[];
       audioT.forEach(function(t){
         var outs=fOuts(dr,de,ds,t.dp);
-        if(outs.length) outs.forEach(function(ao){branches.push({outPort:t.dp,dstRack:ao.dr||'?',dstEq:ao.de||'',dstSlot:ao.ds,dstPort:ao.dp||''});});
-        else branches.push({outPort:t.dp,dstRack:'?',dstEq:'',dstSlot:'',dstPort:''});
+        if(outs.length){
+          outs.forEach(function(ao){
+            branches.push({outPort:t.dp,dstRack:ao.dr||'?',dstEq:ao.de||'',dstSlot:ao.ds,dstPort:ao.dp||''});
+          });
+        } else {
+          branches.push({outPort:t.dp,dstRack:'?',dstEq:'',dstSlot:'',dstPort:''});
+        }
       });
+
       if(!thrus.length){
+        // Equipo sin THRUs → continuar directamente
         walk(dr,de,ds,dp,'',depth+1);
       } else if(videoT.length){
         var esDistroDown=videoT.length>1;
         if(esDistroDown){
+          // Distribuidora: UN segmento con todas las salidas como branches
           var distroBranches=[];
           videoT.forEach(function(vt){
             var outs=fOuts(dr,de,ds,vt.dp);
-            if(outs.length) outs.forEach(function(ao){distroBranches.push({outPort:vt.dp,dstRack:ao.dr||'?',dstEq:ao.de||'',dstSlot:ao.ds,dstPort:ao.dp||''});});
-            else distroBranches.push({outPort:vt.dp,dstRack:'',dstEq:'',dstSlot:'',dstPort:''});
+            if(outs.length){
+              outs.forEach(function(ao){
+                distroBranches.push({outPort:vt.dp,dstRack:ao.dr||'?',dstEq:ao.de||'',dstSlot:ao.ds,dstPort:ao.dp||''});
+              });
+            } else {
+              distroBranches.push({outPort:vt.dp,dstRack:'',dstEq:'',dstSlot:'',dstPort:''});
+            }
           });
           var distroKey=dr+'|'+de+'|'+nss(ds)+'|'+String(dp)+'|distro';
           if(!vis[distroKey]){
@@ -608,156 +1005,290 @@ function buildSegments(sr,se,ss0,sp){
               inPort:dp,outPort:'',branches:distroBranches.concat(branches),unknown:false,nc:false,disp_ext:''});
           }
         } else {
+          // THRU normal: segmento con inPort+outPort y seguir downstream
           videoT.forEach(function(vt){
+            var thruPlaca=getPlaca(dr,de,ds);
             var thruKey=dr+'|'+de+'|'+nss(ds)+'|'+String(dp)+'|'+String(vt.dp);
             if(!vis[thruKey]){
               vis[thruKey]=true;
-              segs.push({rack:dr,eq:de,slot:ds,placa:getPlaca(dr,de,ds),
+              segs.push({rack:dr,eq:de,slot:ds,placa:thruPlaca,
                 inPort:dp,outPort:vt.dp,branches:branches,unknown:false,nc:false,disp_ext:''});
             }
             walk(dr,de,ds,dp,vt.dp,depth+1);
           });
         }
       } else {
+        // Solo THRUs de audio: crear un segmento final con las branches de audio
         var k2=dr+'|'+de+'|'+nss(ds)+'|'+dp+'|audio';
-        if(!vis[k2]){
-          vis[k2]=true;
+        if(!vis[k2]){vis[k2]=true;
           segs.push({rack:dr,eq:de,slot:ds,placa:getPlaca(dr,de,ds),
-            inPort:dp,outPort:'',branches:branches,unknown:false,nc:false,disp_ext:''});
-        }
+                     inPort:dp,outPort:'',branches:branches,unknown:false,nc:false});}
       }
     });
   }
+
+  // Punto de entrada: si el puerto clickeado es input de un THRU,
+  // iniciar el walk desde el outPort del THRU (no desde el inPort).
   var thrusClick=fThrus(sr,se,ss0,sp);
   var videoClick=thrusClick.filter(function(t){return !isAudio(t.dp);});
   if(videoClick.length) videoClick.forEach(function(t){walk(sr,se,ss0,sp,t.dp,0);});
   else walk(sr,se,ss0,'',sp,0);
+
   return segs;
 }
 
+/* ─────────────────────────────────────────────────────────────────
+   buildUpstream(): construye la traza HACIA ATRÁS (upstream)
+   desde un puerto dado hasta el origen de la señal.
+   
+   walkUp() recursivo — busca:
+   1. Cables reales que llegan al puerto actual.
+   2. Si no hay cable: busca THRUs cuya salida sea este puerto
+      (para atravesar distros y patches hacia atrás).
+   
+   Los segmentos se insertan al INICIO del array (unshift) para
+   que al final segs[0] sea el origen más lejano.
+   Al terminar, agrega el equipo del puerto clickeado al final.
+   ───────────────────────────────────────────────────────────────── */
 function buildUpstream(sr,se,ss0,sp){
   var segs=[], vis={};
+  
   function walkUp(dstRack,dstEq,dstSlot,dstPort,depth){
     if(depth>12) return;
+    
+    // Si el destino es N/C, N/D o ?, detener aquí
+    if(!dstRack || dstRack==='N/C' || dstRack==='N/D' || dstRack==='?'){
+      return;
+    }
+    
     var key=dstRack+'|'+dstEq+'|'+nss(dstSlot)+'|'+dstPort;
-    if(vis[key]) return; vis[key]=true;
+    if(vis[key]) return;
+    vis[key]=true;
+    
+    // Buscar cable que ENTRA a este puerto
     var inConns=CONNS.filter(function(c){
-      return c.es_thru!==true&&c.dr===dstRack&&c.de===dstEq&&
-             nss(c.ds)===nss(dstSlot)&&c.dp===dstPort;
+      return c.es_thru_interno!==true && c.dr===dstRack && c.de===dstEq && 
+             nss(c.ds)===nss(dstSlot) && c.dp===dstPort;
     });
+	
     if(inConns.length){
+      // Hay cable(s) entrando
       inConns.forEach(function(conn){
-        var srcRack=conn.sr,srcEq=conn.se,srcSlot=conn.ss,srcPort=conn.sp;
+        var srcRack=conn.sr, srcEq=conn.se, srcSlot=conn.ss, srcPort=conn.sp;
+		// Si el source es N/D o N/C, detener acá
+		if(!srcRack || srcRack==='N/C' || srcRack==='N/D' || srcRack==='?'){
+			return; // Salir de este forEach
+		}
+		
         var srcPlaca=getPlaca(srcRack,srcEq,srcSlot);
+
+        // ¿El srcPort es salida de un THRU interno?
+        // Si es así, NO crear segmento aquí — la recursión entrará al branch THRU
+        // y lo creará completo (con inPort+outPort). Crearlo aquí genera el doblete.
         var esSalidaThru=CONNS.some(function(c){
-          return c.es_thru===true&&c.sr===srcRack&&c.se===srcEq&&
-                 nss(c.ss)===nss(srcSlot)&&c.dp===srcPort;
+          return c.es_thru_interno===true && c.sr===srcRack && c.se===srcEq &&
+                 nss(c.ss)===nss(srcSlot) && c.dp===srcPort;
         });
+
         if(!esSalidaThru){
-          segs.unshift({rack:srcRack,eq:srcEq,slot:srcSlot,placa:srcPlaca,
-            inPort:'',outPort:srcPort,branches:[],unknown:false,nc:false,disp_ext:conn.disp_ext||''});
+          var seg={
+            rack:srcRack, eq:srcEq, slot:srcSlot, placa:srcPlaca,
+            inPort:'', outPort:srcPort, branches:[], unknown:false, nc:false, disp_ext:conn.disp_ext||''
+          };
+          segs.unshift(seg);
         }
+
+        // Recursión: ¿qué entra al srcPort del source?
         walkUp(srcRack,srcEq,srcSlot,srcPort,depth+1);
       });
     } else {
-      var thruConns=CONNS.filter(function(c){
-        return c.es_thru===true&&c.dr===dstRack&&c.de===dstEq&&
-               nss(c.ds)===nss(dstSlot)&&c.dp===dstPort;
-      });
-      if(thruConns.length){
-        var uniqueIns=[];
-        thruConns.forEach(function(t){if(uniqueIns.indexOf(t.sp)<0) uniqueIns.push(t.sp);});
-        var esDistro=uniqueIns.length===1&&thruConns.length>1;
-        if(esDistro){
-          var thruIn=uniqueIns[0];
-          var distBranches=thruConns.map(function(t){return {outPort:t.dp,dstRack:'',dstEq:'',dstSlot:'',dstPort:''};});
-          segs.unshift({rack:dstRack,eq:dstEq,slot:dstSlot,placa:getPlaca(dstRack,dstEq,dstSlot),
-            inPort:thruIn,outPort:'',branches:distBranches,unknown:false,nc:false,disp_ext:''});
-          walkUp(dstRack,dstEq,dstSlot,thruIn,depth+1);
-        } else {
-          thruConns.forEach(function(thru){
-            var thruIn=thru.sp;
-            segs.unshift({rack:dstRack,eq:dstEq,slot:dstSlot,placa:getPlaca(dstRack,dstEq,dstSlot),
-              inPort:thruIn,outPort:dstPort,branches:[],unknown:false,nc:false,disp_ext:''});
-            walkUp(dstRack,dstEq,dstSlot,thruIn,depth+1);
-          });
-        }
-      }
-    }
+	  // Sin cable directo: ¿el destPort es ENTRADA de un THRU? (src del THRU)
+	  var thruConns=CONNS.filter(function(c){
+		return c.es_thru_interno===true && c.sr===dstRack && c.se===dstEq &&
+			   nss(c.ss)===nss(dstSlot) && c.sp===dstPort;
+	  });
+	  if(thruConns.length){
+		// El destPort es entrada de un THRU
+		// Seguir hacia atrás por la salida del THRU (c.dp)
+		thruConns.forEach(function(thru){
+		  var thruOut=thru.dp;
+		  // Recursión: ¿quién entra a este puerto de salida del THRU?
+		  walkUp(dstRack,dstEq,dstSlot,thruOut,depth+1);
+		});
+	  }
+	}
   }
+  
+  // INICIO: caminar hacia atrás desde el puerto clickeado
   walkUp(sr,se,ss0,sp,0);
+  
+  // Agregar el equipo final (donde clickeaste) como último elemento
+  // Este nodo tiene inPort=sp (la entrada) y outPort='' (se ajusta en buildRoute si es salida)
   var placa=getPlaca(sr,se,ss0);
-  segs.push({rack:sr,eq:se,slot:ss0,placa:placa,inPort:sp,outPort:'',branches:[],unknown:false,nc:false,disp_ext:''});
+  var finalSeg={rack:sr,eq:se,slot:ss0,placa:placa,inPort:sp,outPort:'',branches:[],unknown:false,nc:false,disp_ext:''};
+  segs.push(finalSeg);
+  
   return segs;
+  // Resultado: segs = [ origen, ... intermedios ..., equipoClickeado ]
 }
 
+/* ─────────────────────────────────────────────────────────────────
+   renderRoute(): convierte array de segmentos en HTML para el popover.
+   
+   Para cada segmento muestra:
+   - disp_ext del cable anterior (rótulo entre equipos)
+   - eqLabel (rack + nombre + slot)
+   - inPort  (>>> In X)
+   - outPort (Out X >>>)
+   - branches (ramas de distribución, indentadas)
+   - nc / unknown (fin de cadena)
+   ───────────────────────────────────────────────────────────────── */
 function renderRoute(segs){
   var html='';
   segs.forEach(function(seg,i){
-    if(i>0&&segs[i-1].disp_ext){
+    // disp_ext from PREVIOUS segment's cable goes before this equipo's label
+    if(i>0 && segs[i-1].disp_ext){
       html+='<div class="tr-dispext">&#9654; '+h(segs[i-1].disp_ext)+'</div>';
     }
-    html+=eqLabel(seg.rack,seg.eq,seg.slot,seg.placa);
-    if(seg.inPort)  html+=renderIn(seg.inPort);
-    if(seg.outPort) html+=renderOut(seg.outPort);
-    seg.branches.forEach(function(br){html+=renderBranch(br);});
-    if(seg.nc)      html+='<div class="tr-nc">N/C</div>';
-    if(seg.unknown) html+='<div class="tr-unk">&#10549; Destino desconocido</div>';
+    
+    // Si el rack es N/D o N/C, mostrar de forma especial
+    if(!seg.rack || seg.rack==='N/D'){
+      html+='<div class="tr-unk">N/D</div>';
+    } else if(seg.rack==='N/C'){
+      html+='<div class="tr-nc">N/C</div>';
+    } else {
+      html+=eqLabel(seg.rack,seg.eq,seg.slot,seg.placa);
+      if(seg.inPort) html+=renderIn(seg.inPort);
+      if(seg.outPort) html+=renderOut(seg.outPort);
+      seg.branches.forEach(function(br){html+=renderBranch(br);});
+    }
+    
     if(i<segs.length-1) html+='<div class="tr-gap"></div>';
   });
   if(!segs.length) html='<div class="tr-nodata">Sin datos.</div>';
   return html;
 }
 
+/* ─────────────────────────────────────────────────────────────────
+   buildRoute(): entry point para trazar la ruta de un puerto normal.
+   
+   1. Detecta si el puerto es salida (buscando en CONNS como src).
+   2. Llama a buildUpstream() y buildSegments() por separado.
+   3. Ajusta el finalSeg de upstream si el puerto clickeado es salida
+      (cambia inPort → outPort en ese nodo).
+   4. Concatena: upstream + downstream (saltando el primer seg de down
+      que es el mismo equipo ya incluido en upstream).
+   5. Para audio: solo muestra el destino directo, no expande más.
+   ───────────────────────────────────────────────────────────────── */
 function buildRoute(sr,se,ss0,sp){
+  // Detectar si el puerto clickeado es salida o entrada
   var isOutput=CONNS.some(function(c){
-    return c.es_thru!==true&&c.sr===sr&&c.se===se&&nss(c.ss)===nss(ss0)&&c.sp===sp;
+    return c.es_thru_interno!==true && c.sr===sr && c.se===se && nss(c.ss)===nss(ss0) && c.sp===sp;
   });
+  var isAudioPort=isAudio(sp);
+
   var upSegs=buildUpstream(sr,se,ss0,sp);
   var downSegs=buildSegments(sr,se,ss0,sp);
-  // FIX: si el puerto clickeado es salida, el nodo final debe mostrar outPort, no inPort
-  if(isOutput&&upSegs.length){
+
+  // Si es salida: el finalSeg debe tener outPort, no inPort
+  if(isOutput && upSegs.length){
     var last=upSegs[upSegs.length-1];
-    if(last.rack===sr&&last.eq===se&&nss(last.slot)===nss(ss0)&&last.inPort===sp){
+    if(last.rack===sr && last.eq===se && nss(last.slot)===nss(ss0) && last.inPort===sp){
       last.inPort=''; last.outPort=sp;
     }
   }
+
+  // Si es audio: downstream solo muestra el tramo directo (no expandir más)
   var allSegs;
-  if(isAudio(sp)){
+  if(isAudioPort){
+    // Solo el seg del equipo clickeado + su destino directo (primer seg del downstream)
     allSegs=upSegs.concat(downSegs.slice(1,2));
   } else {
     allSegs=upSegs.concat(downSegs.slice(1));
   }
+  
+  // Eliminar segmentos duplicados consecutivos (mismo rack+eq+slot)
+  var filtered=[];
+  for(var i=0; i<allSegs.length; i++){
+    if(i>0 && 
+       filtered[filtered.length-1].rack===allSegs[i].rack &&
+       filtered[filtered.length-1].eq===allSegs[i].eq &&
+       nss(filtered[filtered.length-1].slot)===nss(allSegs[i].slot)){
+      continue; // Saltar este segmento, es duplicado
+    }
+    filtered.push(allSegs[i]);
+  }
+  allSegs=filtered;
+  
   return renderRoute(allSegs);
 }
 
+/* ─────────────────────────────────────────────────────────────────
+   buildPassiveRoute(): traza la ruta a través de un conector pasivo
+   (patch panel). Muestra: origen → conector → destino.
+   
+   NOTA 19: upSegs.reverse() muta el array in-place.
+   Luego upSegs.slice(0,-1) descarta el ÚLTIMO elemento del array
+   ya invertido, que es el primer elemento original (el nodo más
+   lejano del upstream). Probablemente la intención era descartar
+   el último elemento ANTES de invertir (que es el connSeg duplicado).
+   Revisar si el resultado visual es correcto o si hay un nodo de más/menos.
+   ───────────────────────────────────────────────────────────────── */
 function buildPassiveRoute(rack,eq,slot,inPort,outPort){
   var upSegs=buildUpstream(rack,eq,slot,inPort);
+  console.log('buildPassiveRoute upSegs:', upSegs);  // ← AGREGÁ ESTO
   var placa=getPlaca(rack,eq,slot);
-
-  // FIX: usar slice() para no mutar upSegs con reverse()
-  var upReversed=upSegs.slice().reverse();
-
+  
+  // El conector mismo (punto en el medio de la cadena)
   var connSeg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:inPort,outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
-
+  
+  // Downstream desde outPort del conector
   var outConns=fOuts(rack,eq,slot,outPort);
   var downSegs=[];
   outConns.forEach(function(c){
-    if(!c.dr||c.dr==='?'||c.dr==='N/C'||c.dr==='N/D') return;
+    if(!c.dr||c.dr==='?'||c.dr==='N/C') return;
     var sub=buildSegments(c.dr,c.de,nss(c.ds),c.dp);
     sub.forEach(function(s){ downSegs.push(s); });
   });
+  
+  // Assembly: upstream invertido (origen primero) + conector + downstream
+  // NOTA 19 (ver arriba): reverse() muta upSegs, luego slice(0,-1) descarta
+  // el último elemento del array ya invertido (= el primer elemento original).
+  upSegs.reverse();
 
-  // FIX: excluir el último elemento de upReversed (que es el propio connSeg) antes del concat
-  var allSegs=upReversed.slice(0,-1).concat([connSeg]).concat(downSegs);
-
+  var allSegs=upSegs.reverse().concat([connSeg]).concat(downSegs);
+  
+  console.log('allSegs ANTES dedup:', allSegs);
+  // Estado del conector según si tiene salida documentada
   if(!outConns.length){
     connSeg.nc=true;
-  } else if(outConns[0].dr==='?'||outConns[0].dr==='N/D'){
+  } else if(outConns[0].dr==='?'){
     connSeg.unknown=true;
   }
-
-  return renderRoute(allSegs);
+  
+	// Eliminar segmentos duplicados consecutivos (mismo rack+eq+slot)
+  // Mantener el que tiene más información (inPort + outPort)
+  var filtered=[];
+  for(var i=0; i<allSegs.length; i++){
+    if(i>0 && 
+       filtered[filtered.length-1].rack===allSegs[i].rack &&
+       filtered[filtered.length-1].eq===allSegs[i].eq &&
+       nss(filtered[filtered.length-1].slot)===nss(allSegs[i].slot)){
+      // Es duplicado. Mantener el que tiene más puertos (inPort + outPort)
+      var prev=filtered[filtered.length-1];
+      var curr=allSegs[i];
+      var prevPorts=(prev.inPort?1:0)+(prev.outPort?1:0);
+      var currPorts=(curr.inPort?1:0)+(curr.outPort?1:0);
+      if(currPorts>prevPorts){
+        filtered[filtered.length-1]=curr; // Reemplazar con el mejor
+      }
+      continue;
+    }
+    filtered.push(allSegs[i]);
+  }
+  allSegs=filtered;
+  
+	return renderRoute(allSegs);
 }
 </script>
 </body>
