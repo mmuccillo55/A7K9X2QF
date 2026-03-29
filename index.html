@@ -279,7 +279,12 @@ function init(data){
   
   // Listener para regenerar layout cuando cambia el tamaño de la ventana
 	window.addEventListener('resize', function(){
-		if(_nav.length && _nav[0].type==='racks') showRacks();
+	  if(_nav.length && _nav[0].type==='racks') showRacks();
+	  // Redibujar líneas si estamos en vista de equipo
+	  var top = _nav[_nav.length-1];
+	  if(top && top.type==='equip'){
+		drawThruLines(top.rack, top.eq, top.slot, getThruPairs(top.rack, top.eq, top.slot));
+	  }
 	});
 	
 	window.addEventListener('scroll', function(){
@@ -559,17 +564,76 @@ function showSlots(rack,frameEq){
    slot: slot number string, o '' para equipos sin slots
    Muestra: metadatos + grilla de puertos (salidas / entradas / conectores pasivos)
    ───────────────────────────────────────────────────────────────── */
+function drawThruLines(rack, eq, slot, pairs){
+  var blockId = 'thru-block-'+rack+'-'+eq+'-'+slot;
+  var blockEl = document.getElementById(blockId);
+  if(!blockEl) return;
+
+  var oldSvg = blockEl.querySelector('svg');
+  if(oldSvg) oldSvg.remove();
+
+  var blockR   = blockEl.getBoundingClientRect();
+  var svgLines = '';
+
+  pairs.forEach(function(pair){
+    var inBtns = blockEl.querySelectorAll('.thru-ins .port-btn');
+    var inBtn  = null;
+    inBtns.forEach(function(b){
+      if(b.querySelector('.p-num').textContent === pair.inPort) inBtn = b;
+    });
+    if(!inBtn) return;
+
+    var outBtnsAll = blockEl.querySelectorAll('.thru-outs .port-btn');
+    var myOutBtns  = [];
+    outBtnsAll.forEach(function(b){
+      if(pair.outPorts.indexOf(b.querySelector('.p-num').textContent) >= 0) myOutBtns.push(b);
+    });
+    if(!myOutBtns.length) return;
+
+    var inR       = inBtn.getBoundingClientRect();
+    var firstOutR = myOutBtns[0].getBoundingClientRect();
+    var yIn       = inR.bottom    - blockR.top;
+    var yOut      = firstOutR.top - blockR.top;
+    var ymid      = yIn + (yOut - yIn) / 2;
+    var xIn       = inR.left + inR.width/2 - blockR.left;
+
+    svgLines += '<circle cx="'+xIn+'" cy="'+yIn+'" r="4" fill="var(--green)"/>';
+    svgLines += '<line x1="'+xIn+'" y1="'+yIn+'" x2="'+xIn+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
+
+    if(myOutBtns.length === 1){
+      var outR    = myOutBtns[0].getBoundingClientRect();
+      var xOut    = outR.left + outR.width/2 - blockR.left;
+      var yOutTop = outR.top  - blockR.top;
+      svgLines += '<line x1="'+xOut+'" y1="'+ymid+'" x2="'+xOut+'" y2="'+yOutTop+'" stroke="var(--green)" stroke-width="2"/>';
+      svgLines += '<circle cx="'+xOut+'" cy="'+yOutTop+'" r="4" fill="var(--green)"/>';
+    } else {
+      var xs = myOutBtns.map(function(b){ var r=b.getBoundingClientRect(); return r.left+r.width/2-blockR.left; });
+      svgLines += '<line x1="'+Math.min.apply(null,xs)+'" y1="'+ymid+'" x2="'+Math.max.apply(null,xs)+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
+      svgLines += '<line x1="'+xIn+'" y1="'+ymid+'" x2="'+xs[0]+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
+      myOutBtns.forEach(function(btn){
+        var r  = btn.getBoundingClientRect();
+        var cx = r.left + r.width/2 - blockR.left;
+        var cy = r.top  - blockR.top;
+        svgLines += '<line x1="'+cx+'" y1="'+ymid+'" x2="'+cx+'" y2="'+cy+'" stroke="var(--green)" stroke-width="2"/>';
+        svgLines += '<circle cx="'+cx+'" cy="'+cy+'" r="4" fill="var(--green)"/>';
+      });
+    }
+  });
+
+  var svg = '<svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;">'+svgLines+'</svg>';
+  blockEl.style.position = 'relative';
+  blockEl.insertAdjacentHTML('beforeend', svg);
+}
+
 function showEquip(rack,eq,slot){
   _nav.push({type:'equip',rack:rack,eq:eq,slot:slot}); closePop(); setView('view-equip');
 
-  // Armar breadcrumb según si es slot o equipo directo
   var isSlotEq = slot!=='';
   var bc = isSlotEq
     ? '<span class="hi">'+h(rack)+'</span> › '+h(eq)+' › Slot '+h(slot)
     : '<span class="hi">'+h(rack)+'</span> › '+h(eq);
   updateHdr(bc);
 
-  // Buscar la placa del slot (de la primera conexión que la tenga)
   var placa='';
   if(isSlotEq){
     var plRef=CONNS.find(function(c){
@@ -579,13 +643,9 @@ function showEquip(rack,eq,slot){
     if(plRef) placa=plRef.sl||plRef.dl||'';
   }
 
-  // Nombre de display: "Slot N — Placa" o el nombre del equipo
   var displayName = isSlotEq ? ('Slot '+slot+(placa?' — '+placa:'')) : eq;
-
-  // IP: para slots y equipos directos, usa la IP del equipo
   var ip = getIP(rack,eq);
 
-  // Filtrar conexiones del equipo/slot (excluir THRUs)
   var outsAll=CONNS.filter(function(c){
     return c.es_thru_interno!==true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
   });
@@ -593,165 +653,89 @@ function showEquip(rack,eq,slot){
     return c.es_thru_interno!==true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot);
   });
 
-  // Metadatos del equipo
   var html='<div class="eq-meta">';
   html+='<div class="eq-name">'+h(displayName)+'</div>';
   html+='<div class="eq-rack">'+h(rack)+(isSlotEq?' › '+h(eq):'')+'</div>';
   if(placa) html+='<div class="eq-placa">'+h(placa)+'</div>';
   html+=ipEl(ip,'eq-iprow')+'</div>';
 
-	// Equipo normal: grillas separadas de SALIDAS y ENTRADAS
-	var sortedOuts=sortByPort(outsAll,function(c){return c.sp;});
-	var sortedIns =sortByPort(insAll, function(c){return c.dp;});
-	
-	var pairs = getThruPairs(rack, eq, slot);
-	var pairedIns  = {};
-	var pairedOuts = {};
-	pairs.forEach(function(p) {
-	  pairedIns[p.inPort] = true;
-	  p.outPorts.forEach(function(op) { pairedOuts[op] = true; });
-	});
-	var looseOuts = sortedOuts.filter(function(c) { return !pairedOuts[c.sp]; });
-	var looseIns  = sortedIns.filter(function(c)  { return !pairedIns[c.dp];  });
+  var sortedOuts=sortByPort(outsAll,function(c){return c.sp;});
+  var sortedIns =sortByPort(insAll, function(c){return c.dp;});
 
-	/* portBtnHTML(): genera el HTML de un botón de puerto.
-	   port    = nombre del puerto
-	   state   = 'doc' | 'NC' | 'ND'
-	   lbl     = rótulo o equipo destino/fuente
-	   clickArgs = string con los args para onPortClick()
-	   isOutput = true si es salida (output), false si es entrada (input) */
-	function portBtnHTML(port,state,lbl,clickArgs,isOutput){
-	  var cls='port-btn '+(isOutput?'p-out':'p-in');
-	  if(state==='NC') cls+=' p-free';
-	  else if(state==='ND') cls+=' p-nd';
-	  var click=' onclick="onPortClick(this,'+clickArgs+',\''+state+'\')"';
-	  return '<div class="'+cls+'"'+click+'>'
-		+'<div class="p-num">'+h(port||'N/D')+'</div>'
-		+'<div class="p-lbl">'+h(lbl)+'</div>'
-		+'</div>';
-	}
-	
-	// SECCIÓN: PARES THRU
-	if(pairs.length){
-	  html+='<div class="ports-lbl">&#9670; CONEXIONES</div>';
-	  html+='<div class="thru-block" id="thru-block-'+h(rack)+'-'+h(eq)+'-'+h(slot)+'">';
-	  
-	  // Fila de entradas
-	  html+='<div class="ports-grid thru-ins">';
-	  pairs.forEach(function(pair){
-		var inConn = insAll.find(function(c){ return c.dp === pair.inPort; });
-		var inState = !inConn || !inConn.sr || inConn.sr==='N/D' ? 'ND' : inConn.sr==='N/C' ? 'NC' : 'doc';
-		var inLbl = inConn ? (inConn.rotulo||(inState!=='doc'?'':inConn.se)||'') : '';
-		var inArgs = inConn ? '\''+h(inConn.sr)+'\',\''+h(inConn.se)+'\',\''+h(inConn.ss)+'\',\''+h(inConn.sp)+'\'' : '\'\'';
-		html+=portBtnHTML(pair.inPort, inState, inLbl, inArgs, false);
-	  });
-	  html+='</div>';
+  var pairs = getThruPairs(rack, eq, slot);
+  var pairedIns={}, pairedOuts={};
+  pairs.forEach(function(p){
+    pairedIns[p.inPort]=true;
+    p.outPorts.forEach(function(op){ pairedOuts[op]=true; });
+  });
+  var looseOuts = sortedOuts.filter(function(c){ return !pairedOuts[c.sp]; });
+  var looseIns  = sortedIns.filter(function(c){  return !pairedIns[c.dp];  });
 
-	  // Fila de salidas (todos los outPorts de todos los pares)
-	  html+='<div class="ports-grid thru-outs">';
-	  pairs.forEach(function(pair){
-		pair.outPorts.forEach(function(outPort){
-		  var outConn = outsAll.find(function(c){ return c.sp === outPort; });
-		  var outState = !outConn || !outConn.dr || outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
-		  var outLbl = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
-		  var outArgs = outConn ? '\''+h(outConn.sr)+'\',\''+h(outConn.se)+'\',\''+h(outConn.ss)+'\',\''+h(outConn.sp)+'\'' : '\'\'';
-		  html+=portBtnHTML(outPort, outState, outLbl, outArgs, true);
-		});
-	  });
-	  html+='</div>';
-	  html+='</div>'; // thru-block
-	}
+  function portBtnHTML(port,state,lbl,clickArgs,isOutput){
+    var cls='port-btn '+(isOutput?'p-out':'p-in');
+    if(state==='NC') cls+=' p-free';
+    else if(state==='ND') cls+=' p-nd';
+    var click=' onclick="onPortClick(this,'+clickArgs+',\''+state+'\')"';
+    return '<div class="'+cls+'"'+click+'>'
+      +'<div class="p-num">'+h(port||'N/D')+'</div>'
+      +'<div class="p-lbl">'+h(lbl)+'</div>'
+      +'</div>';
+  }
 
-	  // SECCIÓN: ENTRADAS SUELTAS
-	  if(looseIns.length){
-		html+='<div class="ports-lbl">&#9670; ENTRADAS</div><div class="ports-grid">';
-		looseIns.forEach(function(c){
-		  var state = c.sr==='N/C' ? 'NC' : (!c.sr||c.sr==='N/D') ? 'ND' : 'doc';
-		  var lbl = c.rotulo||(state!=='doc'?'':c.se)||'';
-		  var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
-		  html+=portBtnHTML(c.dp,state,lbl,args,false);
-		});
-		html+='</div>';
-	  }
+  if(pairs.length){
+    html+='<div class="ports-lbl">&#9670; CONEXIONES</div>';
+    html+='<div class="thru-block" id="thru-block-'+h(rack)+'-'+h(eq)+'-'+h(slot)+'">';
+    html+='<div class="ports-grid thru-ins">';
+    pairs.forEach(function(pair){
+      var inConn  = insAll.find(function(c){ return c.dp === pair.inPort; });
+      var inState = !inConn||!inConn.sr||inConn.sr==='N/D' ? 'ND' : inConn.sr==='N/C' ? 'NC' : 'doc';
+      var inLbl   = inConn ? (inConn.rotulo||(inState!=='doc'?'':inConn.se)||'') : '';
+      var inArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(pair.inPort)+'\'';
+      html+=portBtnHTML(pair.inPort, inState, inLbl, inArgs, false);
+    });
+    html+='</div>';
+    html+='<div class="ports-grid thru-outs">';
+    pairs.forEach(function(pair){
+      pair.outPorts.forEach(function(outPort){
+        var outConn  = outsAll.find(function(c){ return c.sp === outPort; });
+        var outState = !outConn||!outConn.dr||outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
+        var outLbl   = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
+        var outArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(outPort)+'\'';
+        html+=portBtnHTML(outPort, outState, outLbl, outArgs, true);
+      });
+    });
+    html+='</div>';
+    html+='</div>';
+  }
 
-	  // SECCIÓN: SALIDAS SUELTAS
-	  if(looseOuts.length){
-		html+='<div class="ports-lbl">&#9670; SALIDAS</div><div class="ports-grid">';
-		looseOuts.forEach(function(c){
-		  var state = c.dr==='N/C' ? 'NC' : (!c.dr||c.dr==='N/D') ? 'ND' : 'doc';
-		  var lbl = c.rotulo||(state!=='doc'?'':c.de)||'';
-		  var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
-		  html+=portBtnHTML(c.sp,state,lbl,args,true);
-		});
-		html+='</div>';
-	  }
+  if(looseIns.length){
+    html+='<div class="ports-lbl">&#9670; ENTRADAS</div><div class="ports-grid">';
+    looseIns.forEach(function(c){
+      var state = c.sr==='N/C' ? 'NC' : (!c.sr||c.sr==='N/D') ? 'ND' : 'doc';
+      var lbl   = c.rotulo||(state!=='doc'?'':c.se)||'';
+      var args  = '\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
+      html+=portBtnHTML(c.dp,state,lbl,args,false);
+    });
+    html+='</div>';
+  }
 
-	  if(!pairs.length&&!looseOuts.length&&!looseIns.length){
-		html+='<p style="color:var(--text2);font-style:italic;margin-top:16px;">Sin conexiones documentadas.</p>';
-	  }
+  if(looseOuts.length){
+    html+='<div class="ports-lbl">&#9670; SALIDAS</div><div class="ports-grid">';
+    looseOuts.forEach(function(c){
+      var state = c.dr==='N/C' ? 'NC' : (!c.dr||c.dr==='N/D') ? 'ND' : 'doc';
+      var lbl   = c.rotulo||(state!=='doc'?'':c.de)||'';
+      var args  = '\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
+      html+=portBtnHTML(c.sp,state,lbl,args,true);
+    });
+    html+='</div>';
+  }
+
+  if(!pairs.length&&!looseOuts.length&&!looseIns.length){
+    html+='<p style="color:var(--text2);font-style:italic;margin-top:16px;">Sin conexiones documentadas.</p>';
+  }
 
   document.getElementById('view-equip').innerHTML=html;
-  // Dibujar líneas de thru con JS
-	var blockId = 'thru-block-'+rack+'-'+eq+'-'+slot;
-	var blockEl = document.getElementById(blockId);
-	if(blockEl){
-	  var blockR  = blockEl.getBoundingClientRect();
-	  var svgLines = '';
-
-	  pairs.forEach(function(pair){
-		// Buscar el botón del in por su texto
-		var inBtns = blockEl.querySelectorAll('.thru-ins .port-btn');
-		var inBtn = null;
-		inBtns.forEach(function(b){
-		  if(b.querySelector('.p-num').textContent === pair.inPort) inBtn = b;
-		});
-		if(!inBtn) return;
-
-		var outBtnsAll = blockEl.querySelectorAll('.thru-outs .port-btn');
-		var myOutBtns = [];
-		outBtnsAll.forEach(function(b){
-		  if(pair.outPorts.indexOf(b.querySelector('.p-num').textContent) >= 0) myOutBtns.push(b);
-		});
-		if(!myOutBtns.length) return;
-
-		var inR    = inBtn.getBoundingClientRect();
-		var firstOutR = myOutBtns[0].getBoundingClientRect();
-		var yIn    = inR.bottom  - blockR.top;
-		var yOut   = firstOutR.top - blockR.top;
-		var ymid   = yIn + (yOut - yIn) / 2;
-		var xIn    = inR.left + inR.width/2 - blockR.left;
-
-		// Punto y línea bajando desde el in
-		svgLines += '<circle cx="'+xIn+'" cy="'+yIn+'" r="4" fill="var(--green)"/>';
-		svgLines += '<line x1="'+xIn+'" y1="'+yIn+'" x2="'+xIn+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
-
-		if(myOutBtns.length === 1){
-		  // 1-a-1: solo línea vertical
-		  var outR = myOutBtns[0].getBoundingClientRect();
-		  var xOut = outR.left + outR.width/2 - blockR.left;
-		  var yOutTop = outR.top - blockR.top;
-		  svgLines += '<line x1="'+xOut+'" y1="'+ymid+'" x2="'+xOut+'" y2="'+yOutTop+'" stroke="var(--green)" stroke-width="2"/>';
-		  svgLines += '<circle cx="'+xOut+'" cy="'+yOutTop+'" r="4" fill="var(--green)"/>';
-		} else {
-		  // 1-a-N: línea horizontal + bajadas
-		  var xs = myOutBtns.map(function(b){ var r=b.getBoundingClientRect(); return r.left+r.width/2-blockR.left; });
-		  svgLines += '<line x1="'+Math.min.apply(null,xs)+'" y1="'+ymid+'" x2="'+Math.max.apply(null,xs)+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
-		  // Conectar xIn a la horizontal si no está en el rango
-		  svgLines += '<line x1="'+xIn+'" y1="'+ymid+'" x2="'+xs[0]+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
-		  myOutBtns.forEach(function(btn){
-			var r  = btn.getBoundingClientRect();
-			var cx = r.left + r.width/2 - blockR.left;
-			var cy = r.top  - blockR.top;
-			svgLines += '<line x1="'+cx+'" y1="'+ymid+'" x2="'+cx+'" y2="'+cy+'" stroke="var(--green)" stroke-width="2"/>';
-			svgLines += '<circle cx="'+cx+'" cy="'+cy+'" r="4" fill="var(--green)"/>';
-		  });
-		}
-	  });
-
-	  var svg = '<svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;">'+svgLines+'</svg>';
-	  blockEl.style.position = 'relative';
-	  blockEl.insertAdjacentHTML('beforeend', svg);
-	}
+  drawThruLines(rack, eq, slot, pairs);
   window.scrollTo(0,0);
 }
 
@@ -933,19 +917,19 @@ function buildSegments(rack, eq, slot, puerto, depth) {
 
     if (!thrusDst.length) {
       // Destino sin thru — nodo final
-      segs.push({
-        rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
-        inPort: c.dp, outPort: '',
-        branches: [], disp_ext: c.disp_ext || ''
-      });
+		segs.push({
+		  rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
+		  inPort: c.dp, outPort: '',
+		  branches: [], disp_ext_before: c.disp_ext || '', disp_ext_after: ''
+		});
     } else if (thrusDst.length === 1) {
       // Thru simple — seguir downstream
       var thru = thrusDst[0];
-      segs.push({
-        rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
-        inPort: c.dp, outPort: thru.dp,
-        branches: [], disp_ext: c.disp_ext || ''
-      });
+		segs.push({
+		  rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
+		  inPort: c.dp, outPort: thru.dp,
+		  branches: [], disp_ext_before: c.disp_ext || '', disp_ext_after: ''
+		});
       segs = segs.concat(buildSegments(c.dr, c.de, c.ds, thru.dp, depth + 1));
     } else {
       // Distro (múltiples thrus) — branches
@@ -959,11 +943,11 @@ function buildSegments(rack, eq, slot, puerto, depth) {
           dstPort: outs.length ? outs[0].dp : ''
         };
       });
-      segs.push({
-        rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
-        inPort: c.dp, outPort: '',
-        branches: branches, disp_ext: c.disp_ext || ''
-      });
+	segs.push({
+	  rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
+	  inPort: c.dp, outPort: '',
+	  branches: branches, disp_ext_before: c.disp_ext || '', disp_ext_after: ''
+	});
     }
   });
 
@@ -991,12 +975,12 @@ function buildUpstream(rack, eq, slot, puerto) {
       // ¿La salida del source tiene un thru? si tiene, agregamos inPort también
       var thru = getThruDeSalida(c.sr, c.se, c.ss, c.sp);
       
-      segs.unshift({
-        rack: c.sr, eq: c.se, slot: c.ss, placa: placa,
-        inPort: thru ? thru.sp : '',
-        outPort: c.sp,
-        branches: [], disp_ext: c.disp_ext || ''
-      });
+	segs.unshift({
+	  rack: c.sr, eq: c.se, slot: c.ss, placa: placa,
+	  inPort: thru ? thru.sp : '',
+	  outPort: c.sp,
+	  branches: [], disp_ext_before: '', disp_ext_after: c.disp_ext || ''
+	});
 
       // Si tiene thru, seguir upstream desde la entrada del thru
       if (thru) walkUp(c.sr, c.se, c.ss, thru.sp, depth + 1);
@@ -1021,23 +1005,18 @@ function buildUpstream(rack, eq, slot, puerto) {
 function renderRoute(segs){
   var html='';
   segs.forEach(function(seg,i){
-    // disp_ext from PREVIOUS segment's cable goes before this equipo's label
-    if(i>0 && segs[i-1].disp_ext){
-      html+='<div class="tr-dispext">&#9654; '+h(segs[i-1].disp_ext)+'</div>';
-    }
-    
-    // Si el rack es N/D o N/C, mostrar de forma especial
     if(!seg.rack || seg.rack==='N/D'){
       html+='<div class="tr-unk">N/D</div>';
     } else if(seg.rack==='N/C'){
       html+='<div class="tr-nc">N/C</div>';
     } else {
+      if(seg.disp_ext_before) html+='<div class="tr-dispext">&#9654; '+h(seg.disp_ext_before)+'</div>';
       html+=eqLabel(seg.rack,seg.eq,seg.slot,seg.placa);
       if(seg.inPort) html+=renderIn(seg.inPort);
       if(seg.outPort) html+=renderOut(seg.outPort);
+      if(seg.disp_ext_after) html+='<div class="tr-dispext">&#9654; '+h(seg.disp_ext_after)+'</div>';
       seg.branches.forEach(function(br){html+=renderBranch(br);});
     }
-    
     if(i<segs.length-1) html+='<div class="tr-gap"></div>';
   });
   if(!segs.length) html='<div class="tr-nodata">Sin datos.</div>';
@@ -1059,11 +1038,12 @@ function buildRoute(rack, eq, slot, puerto) {
     if (thru) {
       // Salida con thru → upstream desde la entrada del thru + downstream
       upSegs = buildUpstream(rack, eq, slot, thru.sp);
-      upSegs.push({
-        rack: rack, eq: eq, slot: slot, placa: placa,
-        inPort: thru.sp, outPort: puerto,
-        branches: [], disp_ext: ''
-      });
+		upSegs.push({
+		  rack: rack, eq: eq, slot: slot, placa: placa,
+		  inPort: thru ? thru.sp : '',
+		  outPort: puerto,
+		  branches: [], disp_ext_before: '', disp_ext_after: ''
+		});
     }
     // Con o sin thru → siempre downstream
     downSegs = buildSegments(rack, eq, slot, puerto, 0);
