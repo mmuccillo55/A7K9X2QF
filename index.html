@@ -216,6 +216,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .thru-pair .ports-grid{margin:6px 0;}
 .thru-block .thru-ins { margin-bottom: 30px; }
 
+
 </style>
 </head>
 <body>
@@ -279,11 +280,14 @@ function init(data){
   
   // Listener para regenerar layout cuando cambia el tamaño de la ventana
 	window.addEventListener('resize', function(){
-	  if(_nav.length && _nav[0].type==='racks') showRacks();
-	  // Redibujar líneas si estamos en vista de equipo
 	  var top = _nav[_nav.length-1];
+	  if(top && top.type==='racks') showRacks();
+	  // Redibujar líneas si estamos en vista de equipo
 	  if(top && top.type==='equip'){
-		drawThruLines(top.rack, top.eq, top.slot, getThruPairs(top.rack, top.eq, top.slot));
+	    clearTimeout(window._resizeTimer);
+	    window._resizeTimer = setTimeout(function() {
+	      drawThruLines(top.rack, top.eq, top.slot, getThruPairs(top.rack, top.eq, top.slot));
+	    }, 200);
 	  }
 	});
 	
@@ -713,7 +717,7 @@ function showEquip(rack,eq,slot){
     looseIns.forEach(function(c){
       var state = c.sr==='N/C' ? 'NC' : (!c.sr||c.sr==='N/D') ? 'ND' : 'doc';
       var lbl   = c.rotulo||(state!=='doc'?'':c.se)||'';
-      var args  = '\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
+      var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.dp)+'\'';
       html+=portBtnHTML(c.dp,state,lbl,args,false);
     });
     html+='</div>';
@@ -724,7 +728,7 @@ function showEquip(rack,eq,slot){
     looseOuts.forEach(function(c){
       var state = c.dr==='N/C' ? 'NC' : (!c.dr||c.dr==='N/D') ? 'ND' : 'doc';
       var lbl   = c.rotulo||(state!=='doc'?'':c.de)||'';
-      var args  = '\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
+      var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.sp)+'\'';
       html+=portBtnHTML(c.sp,state,lbl,args,true);
     });
     html+='</div>';
@@ -1035,16 +1039,27 @@ function buildRoute(rack, eq, slot, puerto) {
   var downSegs = [];
 
   if (esSalida) {
+    if (esSalida) {
     if (thru) {
-      // Salida con thru → upstream desde la entrada del thru + downstream
+      // con thru...
       upSegs = buildUpstream(rack, eq, slot, thru.sp);
-		upSegs.push({
-		  rack: rack, eq: eq, slot: slot, placa: placa,
-		  inPort: thru ? thru.sp : '',
-		  outPort: puerto,
-		  branches: [], disp_ext_before: '', disp_ext_after: ''
-		});
+      upSegs.push({
+        rack: rack, eq: eq, slot: slot, placa: placa,
+        inPort: thru ? thru.sp : '',
+        outPort: puerto,
+        branches: [], disp_ext_before: '', disp_ext_after: ''
+      });
+    } else {
+      // Sin thru → agregar el nodo inicial del CGX
+      upSegs.push({
+        rack: rack, eq: eq, slot: slot, placa: placa,
+        inPort: '',
+        outPort: puerto,
+        branches: [], disp_ext_before: '', disp_ext_after: ''
+      });
     }
+    downSegs = buildSegments(rack, eq, slot, puerto, 0);
+  }
     // Con o sin thru → siempre downstream
     downSegs = buildSegments(rack, eq, slot, puerto, 0);
   } else {
