@@ -316,15 +316,15 @@ function h(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').r
 /* nss(): normaliza slot strings — Necesario para comparar slots. */
 function nss(s){ return String(s||''); }
 
-/* portCls(): devuelve la clase CSS del borde superior según el nombre del puerto.
-   Detecta entradas (p-in), salidas (p-out), o genérico (p-aux).
-   El regex usa \w+ que matchea cualquier palabra antes de "in"/"out",
-   lo que puede dar falsos positivos (ej: "Rewind" matchearía p-out). */
-function portCls(p){
-  var l=String(p||'').toLowerCase();
-  if(/^(in\b|ret\b|hdmi in|sdi in|\w+ in\b)/.test(l)||l.indexOf('(in)')>=0) return 'p-in';
-  if(/^(out\b|sdi out|hdmi out|\w+ out\b)/.test(l)||l.indexOf('(out)')>=0) return 'p-out';
-  return 'p-aux';
+/**
+ * portCls(): devuelve la clase CSS del borde superior según el tipo de puerto.
+ * 
+ * @param {string} isOutput - true si es salida (src), false si es entrada (dst)
+ * @returns {string} 'p-out', 'p-in', o 'p-aux'
+ */
+function portCls(isOutput){
+  if(isOutput) return 'p-out';  // Naranja
+  return 'p-in';                // Cyan
 }
 
 /* portN(): extrae el primer número de un nombre de puerto, para ordenamiento.
@@ -358,9 +358,7 @@ function getIP(rack,eq){
 /* ipEl(): genera el HTML del indicador de IP.
    ip===undefined|null|'' → "Sin red" (gris)
    ip==='N/D'              → "IP pendiente" (amarillo)
-   cualquier otro valor  → muestra la IP (cyan)
-   NOTA 4: no maneja el caso ip==='N/D' que es el valor usado en el JSON
-   para indicar "no disponible" — esos se mostrarán como IPs reales (cyan). */
+   cualquier otro valor  → muestra la IP (cyan) */
 function ipEl(ip,cls){
   if(ip===undefined||ip===null||ip==='') return '<div class="'+cls+' none">Sin red</div>';
   if(ip==='N/D') return '<div class="'+cls+' pend">IP pendiente</div>';
@@ -395,9 +393,9 @@ function getSlots(rack,eq){
       if(c.sl&&!seen[k].placa) seen[k].placa=c.sl;
     }
     if(c.dr===rack&&c.de===eq&&c.ds){
-      var k=nss(c.ds);                       // NOTA 5: redeclara 'k' con var en el mismo scope — funciona
-      if(!seen[k]) seen[k]={slot:k,placa:''};// por hoisting de var pero sería más claro con un nombre distinto
-      if(c.dl&&!seen[k].placa) seen[k].placa=c.dl;
+      var kDst=nss(c.ds);
+      if(!seen[kDst]) seen[kDst]={slot:kDst,placa:''};
+      if(c.dl&&!seen[kDst].placa) seen[kDst].placa=c.dl;
     }
   });
   return Object.values(seen).sort(function(a,b){ return parseInt(a.slot)-parseInt(b.slot); });
@@ -644,17 +642,16 @@ function showEquip(rack,eq,slot){
   // Nombre de display: "Slot N — Placa" o el nombre del equipo
   var displayName = isSlotEq ? ('Slot '+slot+(placa?' — '+placa:'')) : eq;
 
-
-  // IP: para slots, usa la IP del frame padre (mismo equipo, diferente slot)
-  var ip = isSlotEq ? getIP(rack,eq) : getIP(rack,eq);   // NOTA 13: las dos ramas son idénticas, el comentario es el único diferenciador
+  // IP: para slots y equipos directos, usa la IP del equipo
+  var ip = getIP(rack,eq);
 
   // Filtrar conexiones del equipo/slot (excluir THRUs)
-	var outsAll=CONNS.filter(function(c){
-	  return c.es_thru_interno!==true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
-	});
-	var insAll=CONNS.filter(function(c){
-	  return c.es_thru_interno!==true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot);
-	});
+  var outsAll=CONNS.filter(function(c){
+    return c.es_thru_interno!==true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
+  });
+  var insAll=CONNS.filter(function(c){
+    return c.es_thru_interno!==true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot);
+  });
 
   // Metadatos del equipo
   var html='<div class="eq-meta">';
@@ -692,15 +689,15 @@ function showEquip(rack,eq,slot){
     var sortedIns =sortByPort(insAll, function(c){return c.dp;});
 
     /* portBtnHTML(): genera el HTML de un botón de puerto.
-       port  = nombre del puerto
-       state = 'doc' | 'NC' | 'ND'
-       lbl   = rótulo o equipo destino/fuente
-       clickArgs = string con los args para onPortClick() */
-    function portBtnHTML(port,state,lbl,clickArgs){
-      var cls='port-btn '+portCls(port);
-	  if(state==='NC') cls+=' p-free';     // NOTA 15: indentación con tab en las 2 líneas siguientes
-	  else if(state==='ND') cls+=' p-nd';  // mientras el resto usa spaces — no afecta funcionamiento
-                                            // pero indica edición inconsistente
+       port    = nombre del puerto
+       state   = 'doc' | 'NC' | 'ND'
+       lbl     = rótulo o equipo destino/fuente
+       clickArgs = string con los args para onPortClick()
+       isOutput = true si es salida (output), false si es entrada (input) */
+    function portBtnHTML(port,state,lbl,clickArgs,isOutput){
+      var cls='port-btn '+portCls(isOutput);
+      if(state==='NC') cls+=' p-free';
+      else if(state==='ND') cls+=' p-nd';
       var click=' onclick="onPortClick(this,'+clickArgs+',\''+state+'\')"';
       return '<div class="'+cls+'"'+click+'>'
         +'<div class="p-num">'+h(port||'N/D')+'</div>'
@@ -721,7 +718,7 @@ function showEquip(rack,eq,slot){
            Eso puede ser el comportamiento deseado. */
         var lbl=c.rotulo||(state!=='doc'?'':c.de)||'';
         var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
-        html+=portBtnHTML(c.sp,state,lbl,args);
+        html+=portBtnHTML(c.sp,state,lbl,args,true);
       });
       html+='</div>';
     }
@@ -734,7 +731,7 @@ function showEquip(rack,eq,slot){
         else state='doc';                 // Documentado
         var lbl=c.rotulo||(state!=='doc'?'':c.se)||'';
         var args='\''+h(c.sr)+'\',\''+h(c.se)+'\',\''+h(c.ss)+'\',\''+h(c.sp)+'\'';
-        html+=portBtnHTML(c.dp,state,lbl,args);
+        html+=portBtnHTML(c.dp,state,lbl,args,false);
       });
       html+='</div>';
     }
@@ -793,7 +790,6 @@ function showPop(btn,html){
    Determina el contenido del popover según el estado del puerto.
    state='doc' → buildRoute() para trazar la ruta de señal completa. */
 function onPortClick(btn,sr,se,ss0,sp,state){
-  console.log('onPortClick:', {sr,se,ss0,sp,state});  // NOTA 17: console.log de debug no removido
   var body;
   
   if(state==='NC'){
@@ -958,10 +954,15 @@ function buildSegments(sr,se,ss0,sp){
     if(!nexts.length) return;
 
     nexts.forEach(function(c){
-      if(!c.dr||c.dr==='N/C'){seg.nc=true;return;}
-      if(c.dr==='N/D'){seg.unknown=true;return;}
-      // NOTA 18: no maneja c.dr==='N/D' — esos equipos sin rack documentado
-      // pasan como 'doc' y se intenta trazar, resultando en un seg sin destino visible
+      if(!c.dr||c.dr==='N/C'){
+        seg.nc=true;
+        return;
+      }
+      if(c.dr==='N/D'){
+        seg.unknown=true;
+        return;  // No continuar trazando si el destino no está documentado
+      }
+      // A partir de acá, sabemos que c.dr es válido y documentado
       if(c.disp_ext) seg.disp_ext=c.disp_ext;
       var dr=c.dr,de=c.de,ds=c.ds,dp=c.dp;
       var thrus=fThrus(dr,de,ds,dp);
@@ -1236,7 +1237,7 @@ function buildRoute(sr,se,ss0,sp){
    ───────────────────────────────────────────────────────────────── */
 function buildPassiveRoute(rack,eq,slot,inPort,outPort){
   var upSegs=buildUpstream(rack,eq,slot,inPort);
-  console.log('buildPassiveRoute upSegs:', upSegs);  // ← AGREGÁ ESTO
+  console.log('upSegs completo:', upSegs);
   var placa=getPlaca(rack,eq,slot);
   
   // El conector mismo (punto en el medio de la cadena)
@@ -1250,15 +1251,11 @@ function buildPassiveRoute(rack,eq,slot,inPort,outPort){
     var sub=buildSegments(c.dr,c.de,nss(c.ds),c.dp);
     sub.forEach(function(s){ downSegs.push(s); });
   });
-  
-  // Assembly: upstream invertido (origen primero) + conector + downstream
-  // NOTA 19 (ver arriba): reverse() muta upSegs, luego slice(0,-1) descarta
-  // el último elemento del array ya invertido (= el primer elemento original).
+
   upSegs.reverse();
 
-  var allSegs=upSegs.reverse().concat([connSeg]).concat(downSegs);
-  
-  console.log('allSegs ANTES dedup:', allSegs);
+  var allSegs=upSegs.slice(0,-1).concat([connSeg]).concat(downSegs);
+
   // Estado del conector según si tiene salida documentada
   if(!outConns.length){
     connSeg.nc=true;
