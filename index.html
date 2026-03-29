@@ -1237,24 +1237,30 @@ function buildRoute(sr,se,ss0,sp){
    ───────────────────────────────────────────────────────────────── */
 function buildPassiveRoute(rack,eq,slot,inPort,outPort){
   var upSegs=buildUpstream(rack,eq,slot,inPort);
-  console.log('upSegs completo:', upSegs);
   var placa=getPlaca(rack,eq,slot);
   
   // El conector mismo (punto en el medio de la cadena)
   var connSeg={rack:rack,eq:eq,slot:slot,placa:placa,inPort:inPort,outPort:outPort,branches:[],unknown:false,nc:false,disp_ext:''};
   
   // Downstream desde outPort del conector
-  var outConns=fOuts(rack,eq,slot,outPort);
-  var downSegs=[];
-  outConns.forEach(function(c){
-    if(!c.dr||c.dr==='N/D'||c.dr==='N/C') return;
-    var sub=buildSegments(c.dr,c.de,nss(c.ds),c.dp);
-    sub.forEach(function(s){ downSegs.push(s); });
-  });
+	var outConns=fOuts(rack,eq,slot,outPort);
+	var downSegs=[];
+	outConns.forEach(function(c){
+	  if(!c.dr||c.dr==='N/D'||c.dr==='N/C') return;
+	  // Crear segmento del destino final (solo entrada, sin salida)
+	  var destPlaca=getPlaca(c.dr,c.de,nss(c.ds));
+	  var destSeg={
+		rack:c.dr, eq:c.de, slot:nss(c.ds), placa:destPlaca,
+		inPort:c.dp, outPort:'',  // inPort porque es entrada al destino
+		branches:[], unknown:false, nc:false, disp_ext:''
+	  };
+	  downSegs.push(destSeg);
+	});
 
-  upSegs.reverse();
+  var upstreamClean = upSegs.slice(0, -1);  // Quita el PRIMERO (Patch duplicado)
+  upstreamClean.reverse();  // Invierte para que origen esté primero
 
-  var allSegs=upSegs.slice(0,-1).concat([connSeg]).concat(downSegs);
+  var allSegs=upstreamClean.concat([connSeg]).concat(downSegs);
 
   // Estado del conector según si tiene salida documentada
   if(!outConns.length){
