@@ -7255,26 +7255,6 @@
     },
     {
       "src": {
-        "rack": "A.2",
-        "equipo": "Player A",
-        "slot": "2",
-        "placa": "DeckLink",
-        "puerto": "Out P1"
-      },
-      "dst": {
-        "rack": "A.2",
-        "equipo": "Player A",
-        "slot": "2",
-        "placa": "DeckLink",
-        "puerto": "Audio Out Ch 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
         "rack": "N/D",
         "equipo": "?????",
         "slot": "",
@@ -8325,9 +8305,9 @@
   ],
   "stats": {
     "nodos": 79,
-    "arcos_totales": 399,
+    "arcos_totales": 398,
     "arcos_externos": 293,
-    "arcos_thru_internos": 106,
+    "arcos_thru_internos": 105,
     "arcos_con_destino": 225,
     "arcos_sin_destino": 68
   }
