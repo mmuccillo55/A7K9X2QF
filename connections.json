@@ -2304,13 +2304,13 @@
         "puerto": "In 24"
       },
       "rotulo": "N/C",
-      "notas": "",
+      "notas": "Cable suelto en Rack D",
       "disp_ext": ""
     },
     {
       "src": {
-        "rack": "N/D",
-        "equipo": "?????",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -2322,8 +2322,8 @@
         "placa": "",
         "puerto": "In 25"
       },
-      "rotulo": "N/D",
-      "notas": "",
+      "rotulo": "",
+      "notas": "Cable suelto en Rack L",
       "disp_ext": ""
     },
     {
@@ -2965,8 +2965,8 @@
     },
     {
       "src": {
-        "rack": "N/D",
-        "equipo": "?????",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -2978,7 +2978,7 @@
         "placa": "",
         "puerto": "In 49"
       },
-      "rotulo": "SONY AUX 1",
+      "rotulo": "N/C",
       "notas": "",
       "disp_ext": ""
     },
@@ -2998,7 +2998,7 @@
         "puerto": "In 50"
       },
       "rotulo": "N/C",
-      "notas": "",
+      "notas": "Cable suelto en Rack F",
       "disp_ext": ""
     },
     {
@@ -3017,7 +3017,7 @@
         "puerto": "In 51"
       },
       "rotulo": "N/C",
-      "notas": "",
+      "notas": "Cable suelto en Rack F",
       "disp_ext": ""
     },
     {
@@ -3060,8 +3060,8 @@
     },
     {
       "src": {
-        "rack": "N/D",
-        "equipo": "?????",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -3136,8 +3136,8 @@
     },
     {
       "src": {
-        "rack": "N/D",
-        "equipo": "?????",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
         "puerto": ""
@@ -3150,7 +3150,7 @@
         "puerto": "In 58"
       },
       "rotulo": "AJA FS4 2",
-      "notas": "",
+      "notas": "Cable suelto en Rack D.11",
       "disp_ext": ""
     },
     {
