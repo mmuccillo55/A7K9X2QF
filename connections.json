@@ -5761,7 +5761,7 @@
         "equipo": "openGear X",
         "slot": "9",
         "placa": "Dist. Amp. 2x4",
-        "puerto": "J2"
+        "puerto": "J2 (in)"
       },
       "dst": {
         "rack": "D.7",
@@ -5800,7 +5800,7 @@
         "equipo": "openGear X",
         "slot": "9",
         "placa": "Dist. Amp. 2x4",
-        "puerto": "J2"
+        "puerto": "J2 (in)"
       },
       "dst": {
         "rack": "D.7",
