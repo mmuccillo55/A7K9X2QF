@@ -4525,7 +4525,7 @@
       },
       "rotulo": "",
       "notas": "",
-      "disp_ext": "Dest 47"
+      "disp_ext": ""
     },
     {
       "src": {
@@ -6346,7 +6346,7 @@
       },
       "rotulo": "",
       "notas": "",
-      "disp_ext": "Distribuidor PGM"
+      "disp_ext": "Distro PGM"
     },
     {
       "src": {
@@ -7236,25 +7236,6 @@
     },
     {
       "src": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "A.6",
-        "equipo": "Videotron DV100-EQ",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
         "rack": "A.2",
         "equipo": "Player A",
         "slot": "2",
@@ -7641,14 +7622,693 @@
       "notas": "",
       "disp_ext": "",
       "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.1",
+        "equipo": "Leader Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "Analog Out 1"
+      },
+      "dst": {
+        "rack": "N/D",
+        "equipo": "?????",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.1",
+        "equipo": "Leader Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "Analog Out 2"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.1",
+        "equipo": "Leader Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "Analog Out 3"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.1",
+        "equipo": "Leader Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "Analog Out 4"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.1",
+        "equipo": "Leader Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "Analog Out 5"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.1",
+        "equipo": "Leader Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "Analog Out 6"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 1"
+      },
+      "dst": {
+        "rack": "N/D",
+        "equipo": "?????",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 2"
+      },
+      "dst": {
+        "rack": "A.6",
+        "equipo": "Videotron DV100-EQ",
+        "slot": "",
+        "placa": "",
+        "puerto": "In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 3"
+      },
+      "dst": {
+        "rack": "N/D",
+        "equipo": "?????",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 4"
+      },
+      "dst": {
+        "rack": "L.6",
+        "equipo": "openGear X",
+        "slot": "0",
+        "placa": "Main",
+        "puerto": "REF In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 5"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 6"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 7"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 7"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 8"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video Out 8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Loop Out"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Loop Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Blackmagic 12 x 12",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "AJA KUMO 6464",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "N/D",
+        "equipo": "?????",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "F.2",
+        "equipo": "Sony HXCU-100 Cam 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.2",
+        "equipo": "Sony HXCU-100 Cam 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "dst": {
+        "rack": "F.3",
+        "equipo": "Sony HXCU-100 Cam 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.2",
+        "equipo": "Sony HXCU-100 Cam 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "dst": {
+        "rack": "F.2",
+        "equipo": "Sony HXCU-100 Cam 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "F.3",
+        "equipo": "Sony HXCU-100 Cam 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "dst": {
+        "rack": "F.4",
+        "equipo": "Sony HXCU-100 Cam 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.3",
+        "equipo": "Sony HXCU-100 Cam 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "dst": {
+        "rack": "F.3",
+        "equipo": "Sony HXCU-100 Cam 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "F.4",
+        "equipo": "Sony HXCU-100 Cam 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "dst": {
+        "rack": "F.5",
+        "equipo": "Sony HXCU-100 Cam 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.4",
+        "equipo": "Sony HXCU-100 Cam 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "dst": {
+        "rack": "F.4",
+        "equipo": "Sony HXCU-100 Cam 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "F.5",
+        "equipo": "Sony HXCU-100 Cam 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "dst": {
+        "rack": "F.7",
+        "equipo": "FOR A HVS-390HS",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.5",
+        "equipo": "Sony HXCU-100 Cam 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "dst": {
+        "rack": "F.5",
+        "equipo": "Sony HXCU-100 Cam 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     }
   ],
   "stats": {
     "nodos": 79,
-    "arcos_totales": 364,
-    "arcos_externos": 273,
-    "arcos_thru_internos": 91,
-    "arcos_con_destino": 216,
-    "arcos_sin_destino": 57
+    "arcos_totales": 398,
+    "arcos_externos": 293,
+    "arcos_thru_internos": 105,
+    "arcos_con_destino": 225,
+    "arcos_sin_destino": 68
   }
 }
