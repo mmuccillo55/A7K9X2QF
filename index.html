@@ -66,11 +66,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
    Dentro de cada columna: cards por rack, con botones por equipo.
    ───────────────────────────────────────────────────────────────── */
 #racks-wrap{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;padding-bottom:12px;}
-.rack-col{display:flex;flex-direction:column;gap:6px;min-width:160px;}
+.rack-col{display:flex;flex-direction:column;gap:6px;width:150px;}
 .rack-col-lbl{font-family:var(--mono);font-size:.8rem;letter-spacing:4px;color:var(--accent);padding:4px 2px;border-bottom:1px solid var(--accent);text-transform:uppercase;}
 .rack-card{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;gap:4px;cursor:pointer;transition:border-color .12s,background-color .12s;height:50px;justify-content:center;}
 .rack-card:hover{border-color:var(--accent);background:rgba(0,200,240,.05);}
-.rack-id{font-family:var(--mono);font-size:.8rem;color:var(--yellow);white-space:nowrap;}
+.rack-id{font-family:var(--mono);font-size:.6rem;color:var(--yellow);white-space:nowrap;}
 #view-racks .eq-name{font-size:.8rem;color:var(--text);}
 
 /* Vista MOBILE de racks (desplegables por rack) */
@@ -156,8 +156,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 }
 /* .p-num = nombre/número del puerto (ej. "Out 1", "SDI In 3")
    .p-lbl = rótulo o equipo destino (ej. "MATRIZ 1", "Player A") */
-.p-num{font-family:var(--mono);font-size:.6rem;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding:0 2px;}
-.p-lbl{font-size:.48rem;color:var(--text2);margin-top:2px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px;}
+.p-num{font-family:var(--mono);font-size:.8rem;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding:0 2px;}
+.p-lbl{font-size:.6rem;color:var(--text2);margin-top:2px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px;}
 
 /* ─────────────────────────────────────────────────────────────────
    POPOVER DE RUTA DE SEÑAL
@@ -211,11 +211,24 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--muted);border-radius:2px;}
 
-.thru-pair .ports-grid:first-child{margin-bottom:30px;}
-.thru-pair{margin-bottom:12px; padding:8px 0;}
-.thru-pair .ports-grid{margin:6px 0;}
-.thru-block .thru-ins { margin-bottom: 30px; }
 
+.thru-block{
+  display:grid;
+  column-gap:5px;
+  row-gap:40px;
+  grid-template-columns:repeat(4,1fr);
+  position:relative;
+}
+@media(min-width:600px){
+  .thru-block{
+    grid-template-columns:repeat(8,1fr);
+  }
+}
+@media(min-width:1200px){
+  .thru-block{
+    grid-template-columns:repeat(16,1fr);
+  }
+}
 
 </style>
 </head>
@@ -282,11 +295,17 @@ function init(data){
 	window.addEventListener('resize', function(){
 	  var top = _nav[_nav.length-1];
 	  if(top && top.type==='racks') showRacks();
-	  // Redibujar líneas si estamos en vista de equipo
+	  // Re-renderizar equipo si cambia el breakpoint (recalcula páginas y líneas)
 	  if(top && top.type==='equip'){
 	    clearTimeout(window._resizeTimer);
 	    window._resizeTimer = setTimeout(function() {
-	      drawThruLines(top.rack, top.eq, top.slot, getThruPairs(top.rack, top.eq, top.slot));
+	      var newCols = window.innerWidth >= 1200 ? 16 : window.innerWidth >= 600 ? 8 : 4;
+	      if(newCols !== window._lastColCount){
+	        window._lastColCount = newCols;
+	        showEquip(top.rack, top.eq, top.slot);
+	      } else {
+	        drawThruLines(top.rack, top.eq, top.slot, getThruPairs(top.rack, top.eq, top.slot));
+	      }
 	    }, 200);
 	  }
 	});
@@ -568,65 +587,68 @@ function showSlots(rack,frameEq){
    slot: slot number string, o '' para equipos sin slots
    Muestra: metadatos + grilla de puertos (salidas / entradas / conectores pasivos)
    ───────────────────────────────────────────────────────────────── */
+
 function drawThruLines(rack, eq, slot, pairs){
   var blockId = 'thru-block-'+rack+'-'+eq+'-'+slot;
   var blockEl = document.getElementById(blockId);
   if(!blockEl) return;
 
-  var oldSvg = blockEl.querySelector('svg');
-  if(oldSvg) oldSvg.remove();
+  // Limpiar SVGs anteriores
+  blockEl.querySelectorAll('svg.thru-line-svg').forEach(function(s){ s.remove(); });
 
-  var blockR   = blockEl.getBoundingClientRect();
+  var blockR = blockEl.getBoundingClientRect();
+
+  // Acumular todas las líneas en un solo SVG sobre el bloque
   var svgLines = '';
 
   pairs.forEach(function(pair){
-    var inBtns = blockEl.querySelectorAll('.thru-ins .port-btn');
-    var inBtn  = null;
-    inBtns.forEach(function(b){
-      if(b.querySelector('.p-num').textContent === pair.inPort) inBtn = b;
-    });
+    var inBtn = blockEl.querySelector('.port-btn[data-port="'+pair.inPort+'"][data-role="in"]');
     if(!inBtn) return;
 
-    var outBtnsAll = blockEl.querySelectorAll('.thru-outs .port-btn');
-    var myOutBtns  = [];
-    outBtnsAll.forEach(function(b){
-      if(pair.outPorts.indexOf(b.querySelector('.p-num').textContent) >= 0) myOutBtns.push(b);
-    });
-    if(!myOutBtns.length) return;
+    var inR = inBtn.getBoundingClientRect();
+    var xIn = inR.left + inR.width/2 - blockR.left;
+    var yIn = inR.bottom - blockR.top;
 
-    var inR       = inBtn.getBoundingClientRect();
-    var firstOutR = myOutBtns[0].getBoundingClientRect();
-    var yIn       = inR.bottom    - blockR.top;
-    var yOut      = firstOutR.top - blockR.top;
-    var ymid      = yIn + (yOut - yIn) / 2;
-    var xIn       = inR.left + inR.width/2 - blockR.left;
+    if(pair.outPorts.length === 1){
+      // CASO 1: 1 IN → 1 OUT
+      var outBtn = blockEl.querySelector('.port-btn[data-port="'+pair.outPorts[0]+'"][data-role="out"]');
+      if(!outBtn) return;
+      var outR = outBtn.getBoundingClientRect();
+      var xOut = outR.left + outR.width/2 - blockR.left;
+      var yOut = outR.top - blockR.top;
+      var ymid = yIn + (yOut - yIn) / 2;
 
-    svgLines += '<circle cx="'+xIn+'" cy="'+yIn+'" r="4" fill="var(--green)"/>';
-    svgLines += '<line x1="'+xIn+'" y1="'+yIn+'" x2="'+xIn+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
+      svgLines += '<circle cx="'+xIn+'" cy="'+yIn+'" r="4" fill="var(--green)"/>';
+      svgLines += '<line x1="'+xIn+'" y1="'+yIn+'" x2="'+xIn+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
+      svgLines += '<line x1="'+xIn+'" y1="'+ymid+'" x2="'+xOut+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
+      svgLines += '<line x1="'+xOut+'" y1="'+ymid+'" x2="'+xOut+'" y2="'+yOut+'" stroke="var(--green)" stroke-width="2"/>';
+      svgLines += '<circle cx="'+xOut+'" cy="'+yOut+'" r="4" fill="var(--green)"/>';
 
-    if(myOutBtns.length === 1){
-      var outR    = myOutBtns[0].getBoundingClientRect();
-      var xOut    = outR.left + outR.width/2 - blockR.left;
-      var yOutTop = outR.top  - blockR.top;
-      svgLines += '<line x1="'+xOut+'" y1="'+ymid+'" x2="'+xOut+'" y2="'+yOutTop+'" stroke="var(--green)" stroke-width="2"/>';
-      svgLines += '<circle cx="'+xOut+'" cy="'+yOutTop+'" r="4" fill="var(--green)"/>';
     } else {
-      var xs = myOutBtns.map(function(b){ var r=b.getBoundingClientRect(); return r.left+r.width/2-blockR.left; });
-      svgLines += '<line x1="'+Math.min.apply(null,xs)+'" y1="'+ymid+'" x2="'+Math.max.apply(null,xs)+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
-      svgLines += '<line x1="'+xIn+'" y1="'+ymid+'" x2="'+xs[0]+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
-      myOutBtns.forEach(function(btn){
-        var r  = btn.getBoundingClientRect();
-        var cx = r.left + r.width/2 - blockR.left;
-        var cy = r.top  - blockR.top;
-        svgLines += '<line x1="'+cx+'" y1="'+ymid+'" x2="'+cx+'" y2="'+cy+'" stroke="var(--green)" stroke-width="2"/>';
-        svgLines += '<circle cx="'+cx+'" cy="'+cy+'" r="4" fill="var(--green)"/>';
+      // CASO 2: 1 IN → MANY OUTs (distro)
+      svgLines += '<circle cx="'+xIn+'" cy="'+yIn+'" r="4" fill="var(--green)"/>';
+      var ymid = yIn + 15;
+      svgLines += '<line x1="'+xIn+'" y1="'+yIn+'" x2="'+xIn+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
+
+      pair.outPorts.forEach(function(outPort){
+        var outBtn = blockEl.querySelector('.port-btn[data-port="'+outPort+'"][data-role="out"]');
+        if(!outBtn) return;
+        var outR = outBtn.getBoundingClientRect();
+        var xOut = outR.left + outR.width/2 - blockR.left;
+        var yOut = outR.top - blockR.top;
+
+        svgLines += '<line x1="'+xIn+'" y1="'+ymid+'" x2="'+xOut+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
+        svgLines += '<line x1="'+xOut+'" y1="'+ymid+'" x2="'+xOut+'" y2="'+yOut+'" stroke="var(--green)" stroke-width="2"/>';
+        svgLines += '<circle cx="'+xOut+'" cy="'+yOut+'" r="4" fill="var(--green)"/>';
       });
     }
   });
 
-  var svg = '<svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;">'+svgLines+'</svg>';
-  blockEl.style.position = 'relative';
-  blockEl.insertAdjacentHTML('beforeend', svg);
+  if(svgLines){
+    blockEl.style.position = 'relative';
+    var svg = '<svg class="thru-line-svg" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:1;">'+svgLines+'</svg>';
+    blockEl.insertAdjacentHTML('beforeend', svg);
+  }
 }
 
 function showEquip(rack,eq,slot){
@@ -675,66 +697,107 @@ function showEquip(rack,eq,slot){
   var looseOuts = sortedOuts.filter(function(c){ return !pairedOuts[c.sp]; });
   var looseIns  = sortedIns.filter(function(c){  return !pairedIns[c.dp];  });
 
-  function portBtnHTML(port,state,lbl,clickArgs,isOutput){
-    var cls='port-btn '+(isOutput?'p-out':'p-in');
-    if(state==='NC') cls+=' p-free';
-    else if(state==='ND') cls+=' p-nd';
-    var click=' onclick="onPortClick(this,'+clickArgs+',\''+state+'\')"';
-    return '<div class="'+cls+'"'+click+'>'
-      +'<div class="p-num">'+h(port||'N/D')+'</div>'
-      +'<div class="p-lbl">'+h(lbl)+'</div>'
-      +'</div>';
+  function portBtnHTML(port, state, lbl, clickArgs, isOutput){
+    var cls = 'port-btn ' + (isOutput ? 'p-out' : 'p-in');
+    if(state === 'NC') cls += ' p-free';
+    else if(state === 'ND') cls += ' p-nd';
+    var role = isOutput ? 'out' : 'in';
+    var click = ' onclick="onPortClick(this,' + clickArgs + ',\'' + state + '\')"';
+    return '<div class="' + cls + '" data-port="' + h(port) + '" data-role="' + role + '"' + click + '>'
+      + '<div class="p-num">' + h(port || 'N/D') + '</div>'
+      + '<div class="p-lbl">' + h(lbl) + '</div>'
+      + '</div>';
   }
 
-  if(pairs.length){
-    html+='<div class="ports-lbl">&#9670; CONEXIONES</div>';
-    html+='<div class="thru-block" id="thru-block-'+h(rack)+'-'+h(eq)+'-'+h(slot)+'">';
-    html+='<div class="ports-grid thru-ins">';
-    pairs.forEach(function(pair){
-      var inConn  = insAll.find(function(c){ return c.dp === pair.inPort; });
-      var inState = !inConn||!inConn.sr||inConn.sr==='N/D' ? 'ND' : inConn.sr==='N/C' ? 'NC' : 'doc';
-      var inLbl   = inConn ? (inConn.rotulo||(inState!=='doc'?'':inConn.se)||'') : '';
-      var inArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(pair.inPort)+'\'';
-      html+=portBtnHTML(pair.inPort, inState, inLbl, inArgs, false);
+  // Construir allIns: thru ins + loose ins, ordenados numéricamente
+  var allInsMap = {};
+  pairs.forEach(function(pair){
+    var inConn  = insAll.find(function(c){ return c.dp === pair.inPort; });
+    var inState = !inConn||!inConn.sr||inConn.sr==='N/D' ? 'ND' : inConn.sr==='N/C' ? 'NC' : 'doc';
+    var inLbl   = inConn ? (inConn.rotulo||(inState!=='doc'?'':inConn.se)||'') : '';
+    var inArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(pair.inPort)+'\'';
+    allInsMap[pair.inPort] = { port: pair.inPort, state: inState, lbl: inLbl, args: inArgs };
+  });
+  looseIns.forEach(function(c){
+    var state = c.sr==='N/C' ? 'NC' : (!c.sr||c.sr==='N/D') ? 'ND' : 'doc';
+    var lbl   = c.rotulo||(state!=='doc'?'':c.se)||'';
+    var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.dp)+'\'';
+    allInsMap[c.dp] = { port: c.dp, state: state, lbl: lbl, args: args };
+  });
+  var allIns = Object.values(allInsMap).sort(function(a,b){
+    return portN(a.port) - portN(b.port) || String(a.port).localeCompare(String(b.port));
+  });
+
+  // Construir allOuts: thru outs + loose outs, ordenados numéricamente
+  var allOutsMap = {};
+  pairs.forEach(function(pair){
+    pair.outPorts.forEach(function(outPort){
+      var outConn  = outsAll.find(function(c){ return c.sp === outPort; });
+      var outState = !outConn||!outConn.dr||outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
+      var outLbl   = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
+      var outArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(outPort)+'\'';
+      allOutsMap[outPort] = { port: outPort, state: outState, lbl: outLbl, args: outArgs };
     });
-    html+='</div>';
-    html+='<div class="ports-grid thru-outs">';
-    pairs.forEach(function(pair){
-      pair.outPorts.forEach(function(outPort){
-        var outConn  = outsAll.find(function(c){ return c.sp === outPort; });
-        var outState = !outConn||!outConn.dr||outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
-        var outLbl   = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
-        var outArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(outPort)+'\'';
-        html+=portBtnHTML(outPort, outState, outLbl, outArgs, true);
+  });
+  looseOuts.forEach(function(c){
+    var state = c.dr==='N/C' ? 'NC' : (!c.dr||c.dr==='N/D') ? 'ND' : 'doc';
+    var lbl   = c.rotulo||(state!=='doc'?'':c.de)||'';
+    var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.sp)+'\'';
+    allOutsMap[c.sp] = { port: c.sp, state: state, lbl: lbl, args: args };
+  });
+  var allOuts = Object.values(allOutsMap).sort(function(a,b){
+    return portN(a.port) - portN(b.port) || String(a.port).localeCompare(String(b.port));
+  });
+
+  var hasAny = allIns.length || allOuts.length;
+
+  // Determinar columnas según viewport (mismo breakpoint que el CSS)
+  function getColCount(){
+    if(window.innerWidth >= 1200) return 16;
+    if(window.innerWidth >= 600)  return 8;
+    return 4;
+  }
+
+  if(hasAny){
+    var cols = getColCount();
+    var maxLen = Math.max(allIns.length, allOuts.length);
+
+    html += '<div class="thru-block" id="thru-block-'+h(rack)+'-'+h(eq)+'-'+h(slot)+'">';
+
+    // Dividir en páginas de `cols` puertos
+    // Cada página: INs de esa página en fila 1, OUTs en fila 2
+    for(var page = 0; page * cols < maxLen; page++){
+      var start = page * cols;
+      var end   = start + cols;
+      var pageIns  = allIns.slice(start, end);
+      var pageOuts = allOuts.slice(start, end);
+
+      // INs de esta página
+      pageIns.forEach(function(item, idx){
+        // Primer IN de cada página arranca en columna 1
+        var extraStyle = (page > 0 && idx === 0) ? ' style="grid-column-start:1;"' : '';
+        html += '<div' + extraStyle + '>' + portBtnHTML(item.port, item.state, item.lbl, item.args, false) + '</div>';
       });
-    });
-    html+='</div>';
-    html+='</div>';
+      // Rellenar columnas vacías si pageIns < cols (para que OUTs caigan en fila siguiente)
+      for(var fill = pageIns.length; fill < cols; fill++){
+        html += '<div></div>';
+      }
+
+      // OUTs de esta página — primer OUT fuerza columna 1
+      pageOuts.forEach(function(item, idx){
+        var extraStyle = idx === 0 ? ' style="grid-column-start:1;"' : '';
+        html += '<div' + extraStyle + '>' + portBtnHTML(item.port, item.state, item.lbl, item.args, true) + '</div>';
+      });
+      // Rellenar vacíos al final de los OUTs también
+      for(var fillO = pageOuts.length; fillO < cols; fillO++){
+        html += '<div></div>';
+      }
+    }
+
+    html += '</div>';
   }
 
-  if(looseIns.length){
-    html+='<div class="ports-lbl">&#9670; ENTRADAS</div><div class="ports-grid">';
-    looseIns.forEach(function(c){
-      var state = c.sr==='N/C' ? 'NC' : (!c.sr||c.sr==='N/D') ? 'ND' : 'doc';
-      var lbl   = c.rotulo||(state!=='doc'?'':c.se)||'';
-      var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.dp)+'\'';
-      html+=portBtnHTML(c.dp,state,lbl,args,false);
-    });
-    html+='</div>';
-  }
-
-  if(looseOuts.length){
-    html+='<div class="ports-lbl">&#9670; SALIDAS</div><div class="ports-grid">';
-    looseOuts.forEach(function(c){
-      var state = c.dr==='N/C' ? 'NC' : (!c.dr||c.dr==='N/D') ? 'ND' : 'doc';
-      var lbl   = c.rotulo||(state!=='doc'?'':c.de)||'';
-      var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.sp)+'\'';
-      html+=portBtnHTML(c.sp,state,lbl,args,true);
-    });
-    html+='</div>';
-  }
-
-  if(!pairs.length&&!looseOuts.length&&!looseIns.length){
+  if(!hasAny){
     html+='<p style="color:var(--text2);font-style:italic;margin-top:16px;">Sin conexiones documentadas.</p>';
   }
 
@@ -882,6 +945,7 @@ function renderOut(port){
   if(!port) return '';
   return '<div><span class="tr-out">'+h(port)+' &gt;&gt;&gt;</span></div>';
 }
+
 function renderIn(port){
   if(!port) return '';
   return '<div><span class="tr-in">&gt;&gt;&gt; '+h(port)+'</span></div>';
