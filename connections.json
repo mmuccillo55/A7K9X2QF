@@ -8301,14 +8301,33 @@
       "notas": "",
       "disp_ext": "",
       "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "8",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
     }
   ],
   "stats": {
     "nodos": 79,
-    "arcos_totales": 398,
-    "arcos_externos": 293,
+    "arcos_totales": 399,
+    "arcos_externos": 294,
     "arcos_thru_internos": 105,
-    "arcos_con_destino": 225,
+    "arcos_con_destino": 226,
     "arcos_sin_destino": 68
   }
 }
