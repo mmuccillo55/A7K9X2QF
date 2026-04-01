@@ -709,96 +709,146 @@ function showEquip(rack,eq,slot){
       + '</div>';
   }
 
-  // Construir allIns: thru ins + loose ins, ordenados numéricamente
-  var allInsMap = {};
-  pairs.forEach(function(pair){
-    var inConn  = insAll.find(function(c){ return c.dp === pair.inPort; });
-    var inState = !inConn||!inConn.sr||inConn.sr==='N/D' ? 'ND' : inConn.sr==='N/C' ? 'NC' : 'doc';
-    var inLbl   = inConn ? (inConn.rotulo||(inState!=='doc'?'':inConn.se)||'') : '';
-    var inArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(pair.inPort)+'\'';
-    allInsMap[pair.inPort] = { port: pair.inPort, state: inState, lbl: inLbl, args: inArgs };
-  });
-  looseIns.forEach(function(c){
-    var state = c.sr==='N/C' ? 'NC' : (!c.sr||c.sr==='N/D') ? 'ND' : 'doc';
-    var lbl   = c.rotulo||(state!=='doc'?'':c.se)||'';
-    var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.dp)+'\'';
-    allInsMap[c.dp] = { port: c.dp, state: state, lbl: lbl, args: args };
-  });
-  var allIns = Object.values(allInsMap).sort(function(a,b){
-    return portN(a.port) - portN(b.port) || String(a.port).localeCompare(String(b.port));
-  });
+  if(pairs.length > 1){
+    // LAYOUT UNIFICADO PAGINADO — equipos con muchos thrus (PP, DA, etc.)
 
-  // Construir allOuts: thru outs + loose outs, ordenados numéricamente
-  var allOutsMap = {};
-  pairs.forEach(function(pair){
-    pair.outPorts.forEach(function(outPort){
-      var outConn  = outsAll.find(function(c){ return c.sp === outPort; });
-      var outState = !outConn||!outConn.dr||outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
-      var outLbl   = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
-      var outArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(outPort)+'\'';
-      allOutsMap[outPort] = { port: outPort, state: outState, lbl: outLbl, args: outArgs };
+    // Construir allIns: thru ins + loose ins, ordenados numéricamente
+    var allInsMap = {};
+    pairs.forEach(function(pair){
+      var inConn  = insAll.find(function(c){ return c.dp === pair.inPort; });
+      var inState = !inConn||!inConn.sr||inConn.sr==='N/D' ? 'ND' : inConn.sr==='N/C' ? 'NC' : 'doc';
+      var inLbl   = inConn ? (inConn.rotulo||(inState!=='doc'?'':inConn.se)||'') : '';
+      var inArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(pair.inPort)+'\'';
+      allInsMap[pair.inPort] = { port: pair.inPort, state: inState, lbl: inLbl, args: inArgs };
     });
-  });
-  looseOuts.forEach(function(c){
-    var state = c.dr==='N/C' ? 'NC' : (!c.dr||c.dr==='N/D') ? 'ND' : 'doc';
-    var lbl   = c.rotulo||(state!=='doc'?'':c.de)||'';
-    var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.sp)+'\'';
-    allOutsMap[c.sp] = { port: c.sp, state: state, lbl: lbl, args: args };
-  });
-  var allOuts = Object.values(allOutsMap).sort(function(a,b){
-    return portN(a.port) - portN(b.port) || String(a.port).localeCompare(String(b.port));
-  });
+    looseIns.forEach(function(c){
+      var state = c.sr==='N/C' ? 'NC' : (!c.sr||c.sr==='N/D') ? 'ND' : 'doc';
+      var lbl   = c.rotulo||(state!=='doc'?'':c.se)||'';
+      var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.dp)+'\'';
+      allInsMap[c.dp] = { port: c.dp, state: state, lbl: lbl, args: args };
+    });
+    var allIns = Object.values(allInsMap).sort(function(a,b){
+      return portN(a.port) - portN(b.port) || String(a.port).localeCompare(String(b.port));
+    });
 
-  var hasAny = allIns.length || allOuts.length;
+    // Construir allOuts: thru outs + loose outs, ordenados numéricamente
+    var allOutsMap = {};
+    pairs.forEach(function(pair){
+      pair.outPorts.forEach(function(outPort){
+        var outConn  = outsAll.find(function(c){ return c.sp === outPort; });
+        var outState = !outConn||!outConn.dr||outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
+        var outLbl   = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
+        var outArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(outPort)+'\'';
+        allOutsMap[outPort] = { port: outPort, state: outState, lbl: outLbl, args: outArgs };
+      });
+    });
+    looseOuts.forEach(function(c){
+      var state = c.dr==='N/C' ? 'NC' : (!c.dr||c.dr==='N/D') ? 'ND' : 'doc';
+      var lbl   = c.rotulo||(state!=='doc'?'':c.de)||'';
+      var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.sp)+'\'';
+      allOutsMap[c.sp] = { port: c.sp, state: state, lbl: lbl, args: args };
+    });
+    var allOuts = Object.values(allOutsMap).sort(function(a,b){
+      return portN(a.port) - portN(b.port) || String(a.port).localeCompare(String(b.port));
+    });
 
-  // Determinar columnas según viewport (mismo breakpoint que el CSS)
-  function getColCount(){
-    if(window.innerWidth >= 1200) return 16;
-    if(window.innerWidth >= 600)  return 8;
-    return 4;
-  }
+    function getColCount(){
+      if(window.innerWidth >= 1200) return 16;
+      if(window.innerWidth >= 600)  return 8;
+      return 4;
+    }
 
-  if(hasAny){
     var cols = getColCount();
     var maxLen = Math.max(allIns.length, allOuts.length);
 
     html += '<div class="thru-block" id="thru-block-'+h(rack)+'-'+h(eq)+'-'+h(slot)+'">';
 
-    // Dividir en páginas de `cols` puertos
-    // Cada página: INs de esa página en fila 1, OUTs en fila 2
     for(var page = 0; page * cols < maxLen; page++){
       var start = page * cols;
       var end   = start + cols;
       var pageIns  = allIns.slice(start, end);
       var pageOuts = allOuts.slice(start, end);
 
-      // INs de esta página
       pageIns.forEach(function(item, idx){
-        // Primer IN de cada página arranca en columna 1
         var extraStyle = (page > 0 && idx === 0) ? ' style="grid-column-start:1;"' : '';
         html += '<div' + extraStyle + '>' + portBtnHTML(item.port, item.state, item.lbl, item.args, false) + '</div>';
       });
-      // Rellenar columnas vacías si pageIns < cols (para que OUTs caigan en fila siguiente)
       for(var fill = pageIns.length; fill < cols; fill++){
         html += '<div></div>';
       }
-
-      // OUTs de esta página — primer OUT fuerza columna 1
       pageOuts.forEach(function(item, idx){
         var extraStyle = idx === 0 ? ' style="grid-column-start:1;"' : '';
         html += '<div' + extraStyle + '>' + portBtnHTML(item.port, item.state, item.lbl, item.args, true) + '</div>';
       });
-      // Rellenar vacíos al final de los OUTs también
       for(var fillO = pageOuts.length; fillO < cols; fillO++){
         html += '<div></div>';
       }
     }
 
     html += '</div>';
-  }
 
-  if(!hasAny){
-    html+='<p style="color:var(--text2);font-style:italic;margin-top:16px;">Sin conexiones documentadas.</p>';
+  } else {
+    // LAYOUT SEPARADO — equipos sin thrus o con 1 solo par (Kumo, etc.)
+    if(pairs.length){
+      html+='<div class="ports-lbl">&#9670; CONEXIONES</div>';
+      html+='<div class="thru-block" id="thru-block-'+h(rack)+'-'+h(eq)+'-'+h(slot)+'">';
+      pairs.forEach(function(pair){
+        var inConn  = insAll.find(function(c){ return c.dp === pair.inPort; });
+        var inState = !inConn||!inConn.sr||inConn.sr==='N/D' ? 'ND' : inConn.sr==='N/C' ? 'NC' : 'doc';
+        var inLbl   = inConn ? (inConn.rotulo||(inState!=='doc'?'':inConn.se)||'') : '';
+        var inArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(pair.inPort)+'\'';
+        if(pair.outPorts.length === 1){
+          var outPort = pair.outPorts[0];
+          var outConn  = outsAll.find(function(c){ return c.sp === outPort; });
+          var outState = !outConn||!outConn.dr||outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
+          var outLbl   = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
+          var outArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(outPort)+'\'';
+          html+='<div class="thru-pair" style="display:flex;flex-direction:column;gap:4px;position:relative;">';
+          html+='<div class="ports-grid" style="grid-template-columns:1fr;">'+portBtnHTML(pair.inPort,inState,inLbl,inArgs,false)+'</div>';
+          html+='<div class="ports-grid" style="grid-template-columns:1fr;">'+portBtnHTML(outPort,outState,outLbl,outArgs,true)+'</div>';
+          html+='</div>';
+        } else {
+          var numOuts = pair.outPorts.length;
+          html+='<div class="thru-pair-distro" style="display:grid;grid-template-columns:repeat('+numOuts+',1fr);gap:4px;row-gap:30px;position:relative;grid-column:span '+numOuts+';">';
+          html+='<div class="thru-pair-in">'+portBtnHTML(pair.inPort,inState,inLbl,inArgs,false)+'</div>';
+          pair.outPorts.forEach(function(outPort){
+            var outConn  = outsAll.find(function(c){ return c.sp === outPort; });
+            var outState = !outConn||!outConn.dr||outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
+            var outLbl   = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
+            var outArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(outPort)+'\'';
+            html+='<div style="grid-row:2;">'+portBtnHTML(outPort,outState,outLbl,outArgs,true)+'</div>';
+          });
+          html+='</div>';
+        }
+      });
+      html+='</div>';
+    }
+
+    if(looseIns.length){
+      html+='<div class="ports-lbl">&#9670; ENTRADAS</div><div class="ports-grid">';
+      looseIns.forEach(function(c){
+        var state = c.sr==='N/C' ? 'NC' : (!c.sr||c.sr==='N/D') ? 'ND' : 'doc';
+        var lbl   = c.rotulo||(state!=='doc'?'':c.se)||'';
+        var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.dp)+'\'';
+        html+=portBtnHTML(c.dp,state,lbl,args,false);
+      });
+      html+='</div>';
+    }
+
+    if(looseOuts.length){
+      html+='<div class="ports-lbl">&#9670; SALIDAS</div><div class="ports-grid">';
+      looseOuts.forEach(function(c){
+        var state = c.dr==='N/C' ? 'NC' : (!c.dr||c.dr==='N/D') ? 'ND' : 'doc';
+        var lbl   = c.rotulo||(state!=='doc'?'':c.de)||'';
+        var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.sp)+'\'';
+        html+=portBtnHTML(c.sp,state,lbl,args,true);
+      });
+      html+='</div>';
+    }
+
+    if(!pairs.length && !looseIns.length && !looseOuts.length){
+      html+='<p style="color:var(--text2);font-style:italic;margin-top:16px;">Sin conexiones documentadas.</p>';
+    }
   }
 
   document.getElementById('view-equip').innerHTML=html;
