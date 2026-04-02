@@ -215,7 +215,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .thru-block{
   display:grid;
   column-gap:5px;
-  row-gap:40px;
+  row-gap:30px;
   grid-template-columns:repeat(4,1fr);
   position:relative;
 }
@@ -803,7 +803,7 @@ function showEquip(rack,eq,slot){
           var outState = !outConn||!outConn.dr||outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
           var outLbl   = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
           var outArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(outPort)+'\'';
-          html+='<div class="thru-pair" style="display:flex;flex-direction:column;gap:4px;position:relative;">';
+          html+='<div class="thru-pair" style="display:flex;flex-direction:column;gap:30px;position:relative;">';
           html+='<div class="ports-grid" style="grid-template-columns:1fr;">'+portBtnHTML(pair.inPort,inState,inLbl,inArgs,false)+'</div>';
           html+='<div class="ports-grid" style="grid-template-columns:1fr;">'+portBtnHTML(outPort,outState,outLbl,outArgs,true)+'</div>';
           html+='</div>';
@@ -1006,10 +1006,16 @@ function renderIn(port){
 function renderBranch(br){
   var html='<div class="tr-branch">';
   html+='<span class="tr-out">'+h(br.outPort)+' &gt;&gt;&gt;</span>';
-  if(br.dstRack&&br.dstRack!=='N/D') html+=' <span class="tr-branch-dst">'+h(br.dstRack)+'</span>';
-  html+=' <span class="tr-branch-dst">'+h(br.dstEq)+'</span>';
-  if(nss(br.dstSlot)) html+=' <span class="tr-slot">/ Slot '+h(nss(br.dstSlot))+'</span>';
-  if(br.dstPort) html+=' <span class="tr-branch-dport">&gt; '+h(br.dstPort)+'</span>';
+
+  if(br.dstEq && br.dstEq!=='N/D'){
+    if(br.dstRack && br.dstRack!=='N/D') html+=' <span class="tr-branch-dst">'+h(br.dstRack)+'</span>';
+    html+=' <span class="tr-branch-dst">'+h(br.dstEq)+'</span>';
+    if(nss(br.dstSlot)) html+=' <span class="tr-slot">/ Slot '+h(nss(br.dstSlot))+'</span>';
+    if(br.dstPort) html+=' <span class="tr-branch-dport">&gt; '+h(br.dstPort)+'</span>';
+  } else {
+    html+=' <span class="tr-nodata">⚠ AÚN NO DOCUMENTADO</span>';
+  }
+
   html+='</div>';
   return html;
 }
@@ -1022,11 +1028,28 @@ function buildSegments(rack, eq, slot, puerto, depth) {
   if (!cables.length) return [];
 
   cables.forEach(function(c) {
-    if (!c.dr || c.dr === 'N/C' || c.dr === 'N/D') return;
+    if (!c.dr || c.dr === 'N/C') {
+      segs.push({
+        rack: '', eq: '', slot: '', placa: '',
+        inPort: '', outPort: '',
+        branches: [], disp_ext_before: c.disp_ext || '', disp_ext_after: '',
+        noDoc: true, noDocReason: 'N/C'
+      });
+      return;
+    }
+
+    if (c.dr === 'N/D' || c.de === 'N/D') {
+      segs.push({
+        rack: c.dr, eq: c.de, slot: c.ds, placa: '',
+        inPort: c.dp, outPort: '',
+        branches: [], disp_ext_before: c.disp_ext || '', disp_ext_after: '',
+        noDoc: true, noDocReason: 'N/D'
+      });
+      return;
+    }
 
     var placa = getPlaca(c.dr, c.de, c.ds);
 
-    // ¿El destino tiene thru? (la entrada al destino es salida de un thru)
     var thrusDst = CONNS.filter(function(t) {
       return t.es_thru_interno === true
         && t.sr === c.dr && t.se === c.de && nss(t.ss) === nss(c.ds)
@@ -1034,38 +1057,35 @@ function buildSegments(rack, eq, slot, puerto, depth) {
     });
 
     if (!thrusDst.length) {
-      // Destino sin thru — nodo final
-		segs.push({
-		  rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
-		  inPort: c.dp, outPort: '',
-		  branches: [], disp_ext_before: c.disp_ext || '', disp_ext_after: ''
-		});
+      segs.push({
+        rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
+        inPort: c.dp, outPort: '',
+        branches: [], disp_ext_before: c.disp_ext || '', disp_ext_after: ''
+      });
     } else if (thrusDst.length === 1) {
-      // Thru simple — seguir downstream
       var thru = thrusDst[0];
-		segs.push({
-		  rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
-		  inPort: c.dp, outPort: thru.dp,
-		  branches: [], disp_ext_before: c.disp_ext || '', disp_ext_after: ''
-		});
+      segs.push({
+        rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
+        inPort: c.dp, outPort: thru.dp,
+        branches: [], disp_ext_before: c.disp_ext || '', disp_ext_after: ''
+      });
       segs = segs.concat(buildSegments(c.dr, c.de, c.ds, thru.dp, depth + 1));
     } else {
-      // Distro (múltiples thrus) — branches
       var branches = thrusDst.map(function(thru) {
         var outs = getCablesOut(c.dr, c.de, c.ds, thru.dp);
         return {
           outPort: thru.dp,
           dstRack: outs.length ? outs[0].dr : 'N/D',
-          dstEq:   outs.length ? outs[0].de : '',
+          dstEq:   outs.length ? outs[0].de : 'N/D',
           dstSlot: outs.length ? outs[0].ds : '',
           dstPort: outs.length ? outs[0].dp : ''
         };
       });
-	segs.push({
-	  rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
-	  inPort: c.dp, outPort: '',
-	  branches: branches, disp_ext_before: c.disp_ext || '', disp_ext_after: ''
-	});
+      segs.push({
+        rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
+        inPort: c.dp, outPort: '',
+        branches: branches, disp_ext_before: c.disp_ext || '', disp_ext_after: ''
+      });
     }
   });
 
@@ -1081,26 +1101,40 @@ function buildUpstream(rack, eq, slot, puerto) {
     if (vis[key]) return;
     vis[key] = true;
 
-    // Buscar cable real que llega a este puerto
     var cables = getCablesIn(rack, eq, slot, puerto);
     if (!cables.length) return;
 
     cables.forEach(function(c) {
-      if (!c.sr || c.sr === 'N/C' || c.sr === 'N/D') return;
+      if (!c.sr || c.sr === 'N/C') {
+        segs.unshift({
+          rack: '', eq: '', slot: '', placa: '',
+          inPort: '', outPort: '',
+          branches: [], disp_ext_before: '', disp_ext_after: c.disp_ext || '',
+          noDoc: true, noDocReason: 'N/C'
+        });
+        return;
+      }
+
+      if (c.sr === 'N/D' || c.se === 'N/D') {
+        segs.unshift({
+          rack: c.sr, eq: c.se, slot: c.ss, placa: '',
+          inPort: '', outPort: c.sp,
+          branches: [], disp_ext_before: '', disp_ext_after: c.disp_ext || '',
+          noDoc: true, noDocReason: 'N/D'
+        });
+        return;
+      }
 
       var placa = getPlaca(c.sr, c.se, c.ss);
-      
-      // ¿La salida del source tiene un thru? si tiene, agregamos inPort también
       var thru = getThruDeSalida(c.sr, c.se, c.ss, c.sp);
-      
-	segs.unshift({
-	  rack: c.sr, eq: c.se, slot: c.ss, placa: placa,
-	  inPort: thru ? thru.sp : '',
-	  outPort: c.sp,
-	  branches: [], disp_ext_before: '', disp_ext_after: c.disp_ext || ''
-	});
 
-      // Si tiene thru, seguir upstream desde la entrada del thru
+      segs.unshift({
+        rack: c.sr, eq: c.se, slot: c.ss, placa: placa,
+        inPort: thru ? thru.sp : '',
+        outPort: c.sp,
+        branches: [], disp_ext_before: '', disp_ext_after: c.disp_ext || ''
+      });
+
       if (thru) walkUp(c.sr, c.se, c.ss, thru.sp, depth + 1);
     });
   }
@@ -1120,24 +1154,29 @@ function buildUpstream(rack, eq, slot, puerto) {
    - branches (ramas de distribución, indentadas)
    - nc / unknown (fin de cadena)
    ───────────────────────────────────────────────────────────────── */
-function renderRoute(segs){
-  var html='';
-  segs.forEach(function(seg,i){
-    if(!seg.rack || seg.rack==='N/D'){
-      html+='<div class="tr-unk">N/D</div>';
-    } else if(seg.rack==='N/C'){
-      html+='<div class="tr-nc">N/C</div>';
+function renderRoute(segs) {
+  var html = '';
+  segs.forEach(function(seg, i) {
+    
+    if (seg.noDoc) {
+      if (seg.noDocReason === 'N/C') {
+        html += '<div class="tr-nc">— N/C</div>';
+      } else {
+        html += '<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO</div>'; // tr-nodata en lugar de tr-unk
+      }
     } else {
-      if(seg.disp_ext_before) html+='<div class="tr-dispext">&#9654; '+h(seg.disp_ext_before)+'</div>';
-      html+=eqLabel(seg.rack,seg.eq,seg.slot,seg.placa);
-      if(seg.inPort) html+=renderIn(seg.inPort);
-      if(seg.outPort) html+=renderOut(seg.outPort);
-      if(seg.disp_ext_after) html+='<div class="tr-dispext">&#9654; '+h(seg.disp_ext_after)+'</div>';
-      seg.branches.forEach(function(br){html+=renderBranch(br);});
+      if (seg.disp_ext_before) html += '<div class="tr-dispext">&#9654; ' + h(seg.disp_ext_before) + '</div>';
+      html += eqLabel(seg.rack, seg.eq, seg.slot, seg.placa);
+      if (seg.inPort)  html += renderIn(seg.inPort);
+      if (seg.outPort) html += renderOut(seg.outPort);
+      if (seg.disp_ext_after) html += '<div class="tr-dispext">&#9654; ' + h(seg.disp_ext_after) + '</div>';
+      seg.branches.forEach(function(br) { html += renderBranch(br); });
     }
-    if(i<segs.length-1) html+='<div class="tr-gap"></div>';
+
+    if (i < segs.length - 1) html += '<div class="tr-gap"></div>';
   });
-  if(!segs.length) html='<div class="tr-nodata">Sin datos.</div>';
+
+  if (!segs.length) html = '<div class="tr-nodata">Sin datos.</div>';
   return html;
 }
 
@@ -1153,7 +1192,6 @@ function buildRoute(rack, eq, slot, puerto) {
   var downSegs = [];
 
   if (esSalida) {
-    if (esSalida) {
     if (thru) {
       // con thru...
       upSegs = buildUpstream(rack, eq, slot, thru.sp);
@@ -1172,8 +1210,6 @@ function buildRoute(rack, eq, slot, puerto) {
         branches: [], disp_ext_before: '', disp_ext_after: ''
       });
     }
-    downSegs = buildSegments(rack, eq, slot, puerto, 0);
-  }
     // Con o sin thru → siempre downstream
     downSegs = buildSegments(rack, eq, slot, puerto, 0);
   } else {
