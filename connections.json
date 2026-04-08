@@ -652,7 +652,7 @@
       },
       "rotulo": "MATRIZ 1",
       "notas": "",
-      "disp_ext": "PRUEBA"
+      "disp_ext": ""
     },
     {
       "src": {
@@ -1822,11 +1822,11 @@
         "puerto": "Out 63"
       },
       "dst": {
-        "rack": "L.6",
-        "equipo": "openGear X",
-        "slot": "N/D",
+        "rack": "N/D",
+        "equipo": "?????",
+        "slot": "",
         "placa": "",
-        "puerto": "SDI In"
+        "puerto": ""
       },
       "rotulo": "RADIO TX",
       "notas": "",
@@ -3350,6 +3350,26 @@
         "equipo": "Blackmagic Multiview 16",
         "slot": "",
         "placa": "",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
         "puerto": "Out 10"
       },
       "dst": {
@@ -3362,6 +3382,26 @@
       "rotulo": "Source 10",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 10"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 10"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3388,6 +3428,26 @@
         "equipo": "Blackmagic Multiview 16",
         "slot": "",
         "placa": "",
+        "puerto": "In 11"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 11"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
         "puerto": "Out 12"
       },
       "dst": {
@@ -3400,6 +3460,26 @@
       "rotulo": "RET. SATELITE",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 12"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 12"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3582,6 +3662,26 @@
         "equipo": "Blackmagic Multiview 16",
         "slot": "",
         "placa": "",
+        "puerto": "In 2"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
         "puerto": "Out 3"
       },
       "dst": {
@@ -3594,6 +3694,26 @@
       "rotulo": "CANAL 13",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 3"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3620,6 +3740,26 @@
         "equipo": "Blackmagic Multiview 16",
         "slot": "",
         "placa": "",
+        "puerto": "In 4"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
         "puerto": "Out 5"
       },
       "dst": {
@@ -3632,6 +3772,26 @@
       "rotulo": "MOV. SATELITAL",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 5"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3658,6 +3818,26 @@
         "equipo": "Blackmagic Multiview 16",
         "slot": "",
         "placa": "",
+        "puerto": "In 6"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
         "puerto": "Out 7"
       },
       "dst": {
@@ -3670,6 +3850,26 @@
       "rotulo": "Source 7",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 7"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 7"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3696,6 +3896,26 @@
         "equipo": "Blackmagic Multiview 16",
         "slot": "",
         "placa": "",
+        "puerto": "In 8"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
         "puerto": "Out 9"
       },
       "dst": {
@@ -3708,6 +3928,26 @@
       "rotulo": "Source 9",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 9"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Blackmagic Multiview 16",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 9"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -7632,11 +7872,11 @@
         "puerto": "Analog Out 1"
       },
       "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "0",
+        "placa": "Main",
+        "puerto": "REF In"
       },
       "rotulo": "",
       "notas": "",
@@ -7746,11 +7986,11 @@
         "puerto": "Video Out 1"
       },
       "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
+        "rack": "D.14",
+        "equipo": "Digiwave DSC-131",
         "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "REF In"
       },
       "rotulo": "",
       "notas": "",
@@ -7824,11 +8064,11 @@
         "puerto": "Video Out 3"
       },
       "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
+        "rack": "F.2",
+        "equipo": "Sony HXCU-100 Cam 1",
         "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "REF In"
       },
       "rotulo": "",
       "notas": "",
@@ -8129,25 +8369,6 @@
     },
     {
       "src": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "F.2",
-        "equipo": "Sony HXCU-100 Cam 1",
-        "slot": "",
-        "placa": "",
-        "puerto": "REF In"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
         "rack": "F.2",
         "equipo": "Sony HXCU-100 Cam 1",
         "slot": "",
@@ -8320,14 +8541,170 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "0",
+        "placa": "Main",
+        "puerto": "REF Out"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "0",
+        "placa": "Main",
+        "puerto": "REF In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "0",
+        "placa": "Main",
+        "puerto": "REF In"
+      },
+      "dst": {
+        "rack": "D.7",
+        "equipo": "openGear X",
+        "slot": "0",
+        "placa": "Main",
+        "puerto": "REF Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "0",
+        "placa": "Main",
+        "puerto": "REF Out"
+      },
+      "dst": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "0",
+        "placa": "Main",
+        "puerto": "REF In"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "0",
+        "placa": "Main",
+        "puerto": "REF Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "dst": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "dst": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "E.3",
+        "equipo": "Leader LV 7770",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out B"
+      },
+      "dst": {
+        "rack": "E.4",
+        "equipo": "PC Rack",
+        "slot": "1",
+        "placa": "DeckLink",
+        "puerto": "In P2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "E.3",
+        "equipo": "Leader LV 7770",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In B"
+      },
+      "dst": {
+        "rack": "E.3",
+        "equipo": "Leader LV 7770",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out B"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     }
   ],
   "stats": {
     "nodos": 79,
-    "arcos_totales": 399,
-    "arcos_externos": 294,
-    "arcos_thru_internos": 105,
-    "arcos_con_destino": 226,
-    "arcos_sin_destino": 68
+    "arcos_totales": 418,
+    "arcos_externos": 297,
+    "arcos_thru_internos": 121,
+    "arcos_con_destino": 231,
+    "arcos_sin_destino": 66
   }
 }
