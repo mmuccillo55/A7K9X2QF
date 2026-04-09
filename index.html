@@ -1007,7 +1007,9 @@ function renderBranch(br){
   var html='<div class="tr-branch">';
   html+='<span class="tr-out">'+h(br.outPort)+' &gt;&gt;&gt;</span>';
 
-  if(br.dstEq && br.dstEq!=='N/D'){
+  if(br.dstRack === 'N/C' || !br.dstRack){
+    html+='<span class="tr-nc">N/C</span>';
+  } else if(br.dstEq && br.dstEq!=='N/D'){
     if(br.dstRack && br.dstRack!=='N/D') html+=' <span class="tr-branch-dst">'+h(br.dstRack)+'</span>';
     html+=' <span class="tr-branch-dst">'+h(br.dstEq)+'</span>';
     if(nss(br.dstSlot)) html+=' <span class="tr-slot">/ Slot '+h(nss(br.dstSlot))+'</span>';
@@ -1160,7 +1162,7 @@ function renderRoute(segs) {
     
     if (seg.noDoc) {
       if (seg.noDocReason === 'N/C') {
-        html += '<div class="tr-nc">— N/C</div>';
+        html += '<div class="tr-nc">N/C</div>';
       } else {
         html += '<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO</div>'; // tr-nodata en lugar de tr-unk
       }
@@ -1213,23 +1215,14 @@ function buildRoute(rack, eq, slot, puerto) {
     // Con o sin thru → siempre downstream
     downSegs = buildSegments(rack, eq, slot, puerto, 0);
   } else {
-    // Es entrada → upstream completo
+    // Es entrada → upstream completo SOLAMENTE
     upSegs = buildUpstream(rack, eq, slot, puerto);
     upSegs.push({
       rack: rack, eq: eq, slot: slot, placa: placa,
       inPort: puerto, outPort: '',
       branches: [], disp_ext: ''
     });
-    // Si tiene thru, agregar downstream desde la salida del thru
-    var thruSalida = CONNS.find(function(c) {
-      return c.es_thru_interno === true
-        && c.sr === rack && c.se === eq && nss(c.ss) === nss(slot)
-        && c.sp === puerto;
-    });
-    if (thruSalida) {
-      upSegs[upSegs.length - 1].outPort = thruSalida.dp;
-      downSegs = buildSegments(rack, eq, slot, thruSalida.dp, 0);
-    }
+    // NO agregar downstream para entradas
   }
 
   var allSegs = upSegs.concat(downSegs);
