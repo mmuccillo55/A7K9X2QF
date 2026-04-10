@@ -6268,6 +6268,26 @@
       "src": {
         "rack": "D.9",
         "equipo": "openGear X",
+        "slot": "5",
+        "placa": "Emb / De-emb",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "5",
+        "placa": "Emb / De-emb",
+        "puerto": "A2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
         "slot": "6",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J5"
@@ -8701,9 +8721,9 @@
   ],
   "stats": {
     "nodos": 79,
-    "arcos_totales": 418,
+    "arcos_totales": 419,
     "arcos_externos": 297,
-    "arcos_thru_internos": 121,
+    "arcos_thru_internos": 122,
     "arcos_con_destino": 231,
     "arcos_sin_destino": 66
   }
