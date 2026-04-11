@@ -201,9 +201,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .tr-branch-dst{color:var(--text2);}
 .tr-branch-dport{color:var(--accent);}
 .tr-gap{height:7px;}
-.tr-nodata{color:#ff4444;font-style:normal;font-size:.64rem;font-weight:600;}
-.tr-dispext{padding-left:8px;font-size:.6rem;color:var(--text2);font-style:italic;margin-bottom:2px;}
-.tr-nc{color:#888888;font-size:.64rem;}
+.tr-nodata{color:var(--red);font-style:normal;font-size:.64rem;font-weight:600;}
+.tr-dispext{font-size:.6rem;color:var(--green);}
+.tr-nc{color:var(--text);font-size:.64rem;}
 .tr-unk{color:var(--red);font-size:.64rem;}
 
 /* Scrollbar minimalista */
@@ -464,9 +464,10 @@ function updateHdr(bc){
    → showSlots() → push → _nav = [racks, slots]  ✓ correcto */
 function goBack(){
   closePop();
-  _nav.pop();
-  if(!_nav.length){showRacks();return;}
-  var top=_nav[_nav.length-1]; _nav.pop();
+  _nav.pop(); // saca la vista actual
+  if(!_nav.length){ showRacks(); return; }
+  var top = _nav[_nav.length-1]; // mira la anterior SIN sacarla
+  _nav.pop(); // la saca antes de llamar, porque el show la va a volver a pushear
   if(top.type==='racks')      showRacks();
   else if(top.type==='slots') showSlots(top.rack,top.eq);
   else if(top.type==='equip') showEquip(top.rack,top.eq,top.slot);
@@ -709,10 +710,31 @@ function showEquip(rack,eq,slot){
       + '</div>';
   }
 
-  if(pairs.length > 1){
-    // LAYOUT UNIFICADO PAGINADO — equipos con muchos thrus (PP, DA, etc.)
+  if(pairs.length > 1 && pairs[0].outPorts.length > 1){
+    // DISTRO MÚLTIPLE — cada in tiene múltiples outs propios
+    html+='<div class="ports-lbl">&#9670; CONEXIONES</div>';
+    html+='<div class="thru-block" id="thru-block-'+h(rack)+'-'+h(eq)+'-'+h(slot)+'">';
+    pairs.forEach(function(pair){
+      var inConn  = insAll.find(function(c){ return c.dp === pair.inPort; });
+      var inState = !inConn||!inConn.sr||inConn.sr==='N/D' ? 'ND' : inConn.sr==='N/C' ? 'NC' : 'doc';
+      var inLbl   = inConn ? (inConn.rotulo||(inState!=='doc'?'':inConn.se)||'') : '';
+      var inArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(pair.inPort)+'\'';
+      var numOuts = pair.outPorts.length;
+      html+='<div class="thru-pair-distro" style="display:grid;grid-template-columns:repeat('+numOuts+',1fr);gap:4px;row-gap:30px;position:relative;grid-column:span '+numOuts+';">';
+      html+='<div class="thru-pair-in" style="min-width:0;">'+portBtnHTML(pair.inPort,inState,inLbl,inArgs,false)+'</div>';
+      pair.outPorts.forEach(function(outPort){
+        var outConn  = outsAll.find(function(c){ return c.sp === outPort; });
+        var outState = !outConn||!outConn.dr||outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
+        var outLbl   = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
+        var outArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(outPort)+'\'';
+        html+='<div style="grid-row:2;min-width:0;">'+portBtnHTML(outPort,outState,outLbl,outArgs,true)+'</div>';
+      });
+      html+='</div>';
+    });
+    html+='</div>';
 
-    // Construir allIns: thru ins + loose ins, ordenados numéricamente
+  } else if(pairs.length > 1){
+    // LAYOUT PAGINADO — equipos con muchos thrus (PP, DA, etc.)
     var allInsMap = {};
     pairs.forEach(function(pair){
       var inConn  = insAll.find(function(c){ return c.dp === pair.inPort; });
@@ -731,7 +753,6 @@ function showEquip(rack,eq,slot){
       return portN(a.port) - portN(b.port) || String(a.port).localeCompare(String(b.port));
     });
 
-    // Construir allOuts: thru outs + loose outs, ordenados numéricamente
     var allOutsMap = {};
     pairs.forEach(function(pair){
       pair.outPorts.forEach(function(outPort){
@@ -770,14 +791,14 @@ function showEquip(rack,eq,slot){
       var pageOuts = allOuts.slice(start, end);
 
       pageIns.forEach(function(item, idx){
-        var extraStyle = (page > 0 && idx === 0) ? ' style="grid-column-start:1;"' : '';
+        var extraStyle = (page > 0 && idx === 0) ? ' style="grid-column-start:1;min-width:0;"' : ' style="min-width:0;"';
         html += '<div' + extraStyle + '>' + portBtnHTML(item.port, item.state, item.lbl, item.args, false) + '</div>';
       });
       for(var fill = pageIns.length; fill < cols; fill++){
         html += '<div></div>';
       }
       pageOuts.forEach(function(item, idx){
-        var extraStyle = idx === 0 ? ' style="grid-column-start:1;"' : '';
+        var extraStyle = idx === 0 ? ' style="grid-column-start:1;min-width:0;"' : ' style="min-width:0;"';
         html += '<div' + extraStyle + '>' + portBtnHTML(item.port, item.state, item.lbl, item.args, true) + '</div>';
       });
       for(var fillO = pageOuts.length; fillO < cols; fillO++){
@@ -788,7 +809,7 @@ function showEquip(rack,eq,slot){
     html += '</div>';
 
   } else {
-    // LAYOUT SEPARADO — equipos sin thrus o con 1 solo par (Kumo, etc.)
+    // LAYOUT SEPARADO — equipos sin thrus o con 1 solo par
     if(pairs.length){
       html+='<div class="ports-lbl">&#9670; CONEXIONES</div>';
       html+='<div class="thru-block" id="thru-block-'+h(rack)+'-'+h(eq)+'-'+h(slot)+'">';
@@ -810,13 +831,13 @@ function showEquip(rack,eq,slot){
         } else {
           var numOuts = pair.outPorts.length;
           html+='<div class="thru-pair-distro" style="display:grid;grid-template-columns:repeat('+numOuts+',1fr);gap:4px;row-gap:30px;position:relative;grid-column:span '+numOuts+';">';
-          html+='<div class="thru-pair-in">'+portBtnHTML(pair.inPort,inState,inLbl,inArgs,false)+'</div>';
+          html+='<div class="thru-pair-in" style="min-width:0;">'+portBtnHTML(pair.inPort,inState,inLbl,inArgs,false)+'</div>';
           pair.outPorts.forEach(function(outPort){
             var outConn  = outsAll.find(function(c){ return c.sp === outPort; });
             var outState = !outConn||!outConn.dr||outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
             var outLbl   = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
             var outArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(outPort)+'\'';
-            html+='<div style="grid-row:2;">'+portBtnHTML(outPort,outState,outLbl,outArgs,true)+'</div>';
+            html+='<div style="grid-row:2;min-width:0;">'+portBtnHTML(outPort,outState,outLbl,outArgs,true)+'</div>';
           });
           html+='</div>';
         }
@@ -855,7 +876,6 @@ function showEquip(rack,eq,slot){
   drawThruLines(rack, eq, slot, pairs);
   window.scrollTo(0,0);
 }
-
 /* ─────────────────────────────────────────────────────────────────
    POPOVER
    ───────────────────────────────────────────────────────────────── */
@@ -907,7 +927,7 @@ function onPortClick(btn,sr,se,ss0,sp,state){
   if(state==='NC'){
     body='<div class="tr-nc">N/C — No Conectado</div>';
   } else if(state==='ND'){
-    body='<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO</div>';
+    body='<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO ⚠</div>';
   } else if(state==='doc'){
     body=buildRoute(sr,se,ss0,sp);
   } else {
@@ -1015,7 +1035,7 @@ function renderBranch(br){
     if(nss(br.dstSlot)) html+=' <span class="tr-slot">/ Slot '+h(nss(br.dstSlot))+'</span>';
     if(br.dstPort) html+=' <span class="tr-branch-dport">&gt; '+h(br.dstPort)+'</span>';
   } else {
-    html+=' <span class="tr-nodata">⚠ AÚN NO DOCUMENTADO</span>';
+    html+=' <span class="tr-nodata">⚠ AÚN NO DOCUMENTADO ⚠</span>';
   }
 
   html+='</div>';
@@ -1164,14 +1184,14 @@ function renderRoute(segs) {
       if (seg.noDocReason === 'N/C') {
         html += '<div class="tr-nc">N/C</div>';
       } else {
-        html += '<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO</div>'; // tr-nodata en lugar de tr-unk
+        html += '<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO ⚠</div>'; // tr-nodata en lugar de tr-unk
       }
     } else {
-      if (seg.disp_ext_before) html += '<div class="tr-dispext">&#9654; ' + h(seg.disp_ext_before) + '</div>';
+      if (seg.disp_ext_before) html += '<div class="tr-dispext">⟳ ' + h(seg.disp_ext_before) + ' ⟳</div>';
       html += eqLabel(seg.rack, seg.eq, seg.slot, seg.placa);
       if (seg.inPort)  html += renderIn(seg.inPort);
       if (seg.outPort) html += renderOut(seg.outPort);
-      if (seg.disp_ext_after) html += '<div class="tr-dispext">&#9654; ' + h(seg.disp_ext_after) + '</div>';
+      if (seg.disp_ext_after) html += '<div class="tr-dispext"><br>⟳ ' + h(seg.disp_ext_after) + ' ⟳</div>';
       seg.branches.forEach(function(br) { html += renderBranch(br); });
     }
 
