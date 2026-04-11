@@ -6559,6 +6559,279 @@
     },
     {
       "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J2"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J4"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J6"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J7"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J7"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J8"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J9"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J9"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J10"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J10"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
         "rack": "D.BACK.1",
         "equipo": "Raspberry PI 1",
         "slot": "",
@@ -8974,10 +9247,10 @@
   ],
   "stats": {
     "nodos": 79,
-    "arcos_totales": 432,
-    "arcos_externos": 304,
-    "arcos_thru_internos": 128,
+    "arcos_totales": 446,
+    "arcos_externos": 311,
+    "arcos_thru_internos": 135,
     "arcos_con_destino": 232,
-    "arcos_sin_destino": 72
+    "arcos_sin_destino": 79
   }
 }
