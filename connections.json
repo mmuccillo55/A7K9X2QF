@@ -3136,6 +3136,26 @@
     },
     {
       "src": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 1"
+      },
+      "dst": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
         "rack": "N/C",
         "equipo": "",
         "slot": "",
@@ -3178,6 +3198,26 @@
         "equipo": "AJA FS4",
         "slot": "",
         "placa": "",
+        "puerto": "SDI In 3"
+      },
+      "dst": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
         "puerto": "SDI Out 4"
       },
       "dst": {
@@ -3190,6 +3230,26 @@
       "rotulo": "AJA FS4 4",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 4"
+      },
+      "dst": {
+        "rack": "D.11",
+        "equipo": "AJA FS4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -9243,14 +9303,53 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "dst": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     }
   ],
   "stats": {
     "nodos": 79,
-    "arcos_totales": 446,
-    "arcos_externos": 311,
-    "arcos_thru_internos": 135,
+    "arcos_totales": 451,
+    "arcos_externos": 312,
+    "arcos_thru_internos": 139,
     "arcos_con_destino": 232,
-    "arcos_sin_destino": 79
+    "arcos_sin_destino": 80
   }
 }
