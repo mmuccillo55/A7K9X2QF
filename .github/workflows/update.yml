@@ -3,7 +3,7 @@ name: Actualizar conexiones
 on:
   push:
     paths:
-      - 'Conexiones.xlsx'
+      - 'Racks.xlsx'
 
 jobs:
   parse:
@@ -18,10 +18,10 @@ jobs:
       - name: Instalar dependencias
         run: pip install pandas openpyxl
 
-      - name: Parsear Conexiones.xlsx
+      - name: Parsear Racks.xlsx
         run: |
-          if [ -f Conexiones.xlsx ]; then
-            python parse.py
+          if [ -f Racks.xlsx ]; then
+            python parse_rack.py
           fi
 
       - name: Commit y push
@@ -29,7 +29,7 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add connections.json
+          git add racks.json
 
           git diff --staged --quiet || git commit -m "auto: actualizar jsons"
           git pull --rebase
