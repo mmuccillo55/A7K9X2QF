@@ -75,7 +75,7 @@
     },
     {
       "rack": "B.9",
-      "equipo": "PC CGX",
+      "equipo": "PC CG",
       "ip": null,
       "management": {
         "puerto": ""
@@ -421,82 +421,6 @@
   "conexiones": [
     {
       "src": {
-        "rack": "C.2",
-        "equipo": "Ikegami BS-80 4",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI In 5"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Ikegami BS-80 4",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 2"
-      },
-      "dst": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.3",
-        "equipo": "Ikegami BS-80 5",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI In 6"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.3",
-        "equipo": "Ikegami BS-80 5",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 2"
-      },
-      "dst": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
@@ -510,7 +434,7 @@
         "placa": "DeckLink",
         "puerto": "P1"
       },
-      "rotulo": "",
+      "rotulo": "1",
       "notas": "",
       "disp_ext": ""
     },
@@ -549,7 +473,7 @@
         "placa": "DeckLink",
         "puerto": "P2"
       },
-      "rotulo": "",
+      "rotulo": "2",
       "notas": "",
       "disp_ext": ""
     },
@@ -588,7 +512,7 @@
         "placa": "DeckLink",
         "puerto": "P3"
       },
-      "rotulo": "",
+      "rotulo": "3",
       "notas": "",
       "disp_ext": ""
     },
@@ -627,7 +551,7 @@
         "placa": "DeckLink",
         "puerto": "P4"
       },
-      "rotulo": "",
+      "rotulo": "4",
       "notas": "",
       "disp_ext": ""
     },
@@ -653,117 +577,42 @@
     },
     {
       "src": {
-        "rack": "B.3",
-        "equipo": "Telecast CopperHead ProHD 1",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 3"
+        "puerto": "Out 5"
       },
-      "rotulo": "",
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "5",
       "notas": "",
       "disp_ext": ""
     },
     {
       "src": {
-        "rack": "B.3",
-        "equipo": "Telecast CopperHead ProHD 1",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 2"
-      },
-      "dst": {
-        "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI In 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "B.4",
-        "equipo": "Telecast CopperHead ProHD 2",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 4"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "B.4",
-        "equipo": "Telecast CopperHead ProHD 2",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 2"
-      },
-      "dst": {
-        "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI In 3"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "B.5",
-        "equipo": "Telecast CopperHead ProHD 3",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
         "puerto": "In 5"
       },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "B.5",
-        "equipo": "Telecast CopperHead ProHD 3",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 2"
-      },
       "dst": {
-        "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "rack": "B.1",
+        "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "SDI In 4"
+        "puerto": "Out 5"
       },
       "rotulo": "",
       "notas": "",
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -780,7 +629,7 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "rotulo": "",
+      "rotulo": "6",
       "notas": "",
       "disp_ext": ""
     },
@@ -819,7 +668,7 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "rotulo": "",
+      "rotulo": "7",
       "notas": "",
       "disp_ext": ""
     },
@@ -858,7 +707,7 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "rotulo": "",
+      "rotulo": "8",
       "notas": "",
       "disp_ext": ""
     },
@@ -896,6 +745,355 @@
         "slot": "",
         "placa": "",
         "puerto": "In 10"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 9"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 9"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 10"
+      },
+      "dst": {
+        "rack": "N/D",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 10"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 10"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 11"
+      },
+      "dst": {
+        "rack": "N/D",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 11"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 11"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 12"
+      },
+      "dst": {
+        "rack": "N/D",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 12"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 12"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 13"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Ikegami BS-80 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "Trunk In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 13"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 13"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 14"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "Ikegami BS-80 5",
+        "slot": "",
+        "placa": "",
+        "puerto": "Trunk In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 14"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 14"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 15"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 15"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 15"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Ikegami BS-80 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 2"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.3",
+        "equipo": "Ikegami BS-80 5",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 2"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.3",
+        "equipo": "Telecast CopperHead ProHD 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.4",
+        "equipo": "Telecast CopperHead ProHD 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.5",
+        "equipo": "Telecast CopperHead ProHD 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 5"
       },
       "rotulo": "",
       "notas": "",
@@ -1036,57 +1234,94 @@
     },
     {
       "src": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 15"
-      },
-      "dst": {
         "rack": "B.9",
-        "equipo": "PC CGX",
+        "equipo": "PC CG",
         "slot": "1",
         "placa": "DeckLink",
         "puerto": "P1"
       },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "Patch Cable Externo"
-    },
-    {
-      "src": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 9"
-      },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 15"
+        "puerto": "In 15"
       },
       "rotulo": "",
       "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
+      "disp_ext": ""
     },
     {
       "src": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
+        "rack": "B.3",
+        "equipo": "Telecast CopperHead ProHD 1",
         "slot": "",
         "placa": "",
-        "puerto": "Out 13"
+        "puerto": "SDI Out 2"
       },
       "dst": {
+        "rack": "B.2",
+        "equipo": "ATEM 1 Production Studio",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.4",
+        "equipo": "Telecast CopperHead ProHD 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 2"
+      },
+      "dst": {
+        "rack": "B.2",
+        "equipo": "ATEM 1 Production Studio",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.5",
+        "equipo": "Telecast CopperHead ProHD 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 2"
+      },
+      "dst": {
+        "rack": "B.2",
+        "equipo": "ATEM 1 Production Studio",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
         "rack": "C.2",
         "equipo": "Ikegami BS-80 4",
         "slot": "",
         "placa": "",
-        "puerto": "Trunk In"
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "B.2",
+        "equipo": "ATEM 1 Production Studio",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 5"
       },
       "rotulo": "",
       "notas": "",
@@ -1094,62 +1329,22 @@
     },
     {
       "src": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 13"
-      },
-      "dst": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 13"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 14"
-      },
-      "dst": {
         "rack": "C.3",
         "equipo": "Ikegami BS-80 5",
         "slot": "",
         "placa": "",
-        "puerto": "Trunk In"
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "B.2",
+        "equipo": "ATEM 1 Production Studio",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 6"
       },
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 14"
-      },
-      "dst": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 14"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
     },
     {
       "src": {
@@ -1232,10 +1427,10 @@
   ],
   "stats": {
     "nodos": 52,
-    "arcos_totales": 42,
-    "arcos_externos": 30,
-    "arcos_thru_internos": 12,
+    "arcos_totales": 52,
+    "arcos_externos": 35,
+    "arcos_thru_internos": 17,
     "arcos_con_destino": 30,
-    "arcos_sin_destino": 0
+    "arcos_sin_destino": 5
   }
 }
