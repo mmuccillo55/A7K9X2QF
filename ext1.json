@@ -486,14 +486,170 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 2"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 2"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 3"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 3"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 4"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 4"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     }
   ],
   "stats": {
     "nodos": 51,
-    "arcos_totales": 4,
-    "arcos_externos": 4,
-    "arcos_thru_internos": 0,
+    "arcos_totales": 12,
+    "arcos_externos": 8,
+    "arcos_thru_internos": 4,
     "arcos_con_destino": 4,
-    "arcos_sin_destino": 0
+    "arcos_sin_destino": 4
   }
 }
