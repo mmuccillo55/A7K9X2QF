@@ -1234,6 +1234,44 @@
     },
     {
       "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 13"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 14"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
         "rack": "B.9",
         "equipo": "PC CG",
         "slot": "1",
@@ -1427,10 +1465,10 @@
   ],
   "stats": {
     "nodos": 52,
-    "arcos_totales": 52,
-    "arcos_externos": 35,
+    "arcos_totales": 54,
+    "arcos_externos": 37,
     "arcos_thru_internos": 17,
-    "arcos_con_destino": 30,
+    "arcos_con_destino": 32,
     "arcos_sin_destino": 5
   }
 }
