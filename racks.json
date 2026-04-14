@@ -2465,7 +2465,7 @@
         "equipo": "PC Rack",
         "slot": "1",
         "placa": "DeckLink",
-        "puerto": "Out P4"
+        "puerto": "Out P1"
       },
       "dst": {
         "rack": "C.3",
@@ -3061,7 +3061,7 @@
         "equipo": "PC Rack",
         "slot": "1",
         "placa": "DeckLink",
-        "puerto": "Out P1"
+        "puerto": "Out P4"
       },
       "dst": {
         "rack": "C.3",
