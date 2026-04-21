@@ -1304,6 +1304,162 @@
     },
     {
       "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Emb 7 L"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "De-embedder",
+        "puerto": "Audio Out R"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Emb 7 R"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "De-embedder",
+        "puerto": "Audio Out R"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "6",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Emb 8 L"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "6",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "6",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "6",
+        "placa": "De-embedder",
+        "puerto": "Audio Out R"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Emb 8 R"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "6",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "6",
+        "placa": "De-embedder",
+        "puerto": "Audio Out R"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
         "rack": "Ext.Patch",
         "equipo": "Patchera Externa",
         "slot": "",
@@ -1628,50 +1784,11 @@
     },
     {
       "src": {
-        "rack": "C.1",
-        "equipo": "RF",
-        "slot": "6",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "A1"
-      },
-      "dst": {
         "rack": "C.2",
         "equipo": "Miranda Densite3",
-        "slot": "",
-        "placa": "",
-        "puerto": "HD-QTV In"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.1",
-        "equipo": "RF",
-        "slot": "6",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "SDI In A"
-      },
-      "dst": {
-        "rack": "C.1",
-        "equipo": "RF",
-        "slot": "6",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "A1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.1",
-        "equipo": "RF",
         "slot": "7",
         "placa": "Dist. Amp. 2x4",
-        "puerto": "B1"
+        "puerto": "A1"
       },
       "dst": {
         "rack": "C.3",
@@ -1686,18 +1803,174 @@
     },
     {
       "src": {
-        "rack": "C.1",
-        "equipo": "RF",
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
         "slot": "7",
         "placa": "Dist. Amp. 2x4",
-        "puerto": "SDI In B"
+        "puerto": "In A"
       },
       "dst": {
-        "rack": "C.1",
-        "equipo": "RF",
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
         "slot": "7",
         "placa": "Dist. Amp. 2x4",
+        "puerto": "A1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
         "puerto": "B1"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Ikegami BS-80 5",
+        "slot": "",
+        "placa": "",
+        "puerto": "HD-QTV In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "In B"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "B1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "A2"
+      },
+      "dst": {
+        "rack": "B.3",
+        "equipo": "Telecast CopperHead ProHD 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "In A"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "A2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "B2"
+      },
+      "dst": {
+        "rack": "B.4",
+        "equipo": "Telecast CopperHead ProHD 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "In B"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "B2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "A1"
+      },
+      "dst": {
+        "rack": "B.5",
+        "equipo": "Telecast CopperHead ProHD 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "In A"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "A1"
       },
       "rotulo": "",
       "notas": "",
@@ -1839,14 +2112,52 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.Patch",
+        "equipo": "Patchera Externa",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI 7"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.Patch",
+        "equipo": "Patchera Externa",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI 8"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "6",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
     }
   ],
   "stats": {
     "nodos": 53,
-    "arcos_totales": 73,
-    "arcos_externos": 47,
-    "arcos_thru_internos": 26,
-    "arcos_con_destino": 44,
+    "arcos_totales": 89,
+    "arcos_externos": 56,
+    "arcos_thru_internos": 33,
+    "arcos_con_destino": 53,
     "arcos_sin_destino": 3
   }
 }
