@@ -11,7 +11,7 @@
     },
     {
       "rack": "B.2",
-      "equipo": "ATEM 1 Production Studio",
+      "equipo": "ATEM 1 M/E",
       "ip": null,
       "management": {
         "puerto": ""
@@ -19,7 +19,7 @@
     },
     {
       "rack": "B.3",
-      "equipo": "Telecast CopperHead ProHD 1",
+      "equipo": "CopperHead ProHD 1",
       "ip": null,
       "management": {
         "puerto": ""
@@ -27,7 +27,7 @@
     },
     {
       "rack": "B.4",
-      "equipo": "Telecast CopperHead ProHD 2",
+      "equipo": "CopperHead ProHD 2",
       "ip": null,
       "management": {
         "puerto": ""
@@ -35,7 +35,7 @@
     },
     {
       "rack": "B.5",
-      "equipo": "Telecast CopperHead ProHD 3",
+      "equipo": "CopperHead ProHD 3",
       "ip": null,
       "management": {
         "puerto": ""
@@ -43,7 +43,7 @@
     },
     {
       "rack": "B.6",
-      "equipo": "Blackmagic HyperDeck Studio Pro",
+      "equipo": "HyperDeck Studio Pro",
       "ip": null,
       "management": {
         "puerto": ""
@@ -51,7 +51,7 @@
     },
     {
       "rack": "B.7",
-      "equipo": "Blackmagic SmartView Duo",
+      "equipo": "SmartView Duo",
       "ip": null,
       "management": {
         "puerto": ""
@@ -115,7 +115,7 @@
     },
     {
       "rack": "C.6",
-      "equipo": "Blackmagic SmartScope Duo",
+      "equipo": "SmartScope Duo",
       "ip": null,
       "management": {
         "puerto": ""
@@ -155,7 +155,7 @@
     },
     {
       "rack": "D.4",
-      "equipo": "ATEM 1 Broadcast Panel",
+      "equipo": "ATEM 1 Panel",
       "ip": null,
       "management": {
         "puerto": ""
@@ -163,7 +163,7 @@
     },
     {
       "rack": "D.5",
-      "equipo": "Blackmagic SmartView HD",
+      "equipo": "SmartView HD",
       "ip": null,
       "management": {
         "puerto": ""
@@ -171,7 +171,7 @@
     },
     {
       "rack": "D.6",
-      "equipo": "Blackmagic SmartScope Duo",
+      "equipo": "SmartScope Duo",
       "ip": null,
       "management": {
         "puerto": ""
@@ -203,7 +203,7 @@
     },
     {
       "rack": "Ext.1",
-      "equipo": "Patchera Externa Video",
+      "equipo": "Patch Ext. Video",
       "ip": null,
       "management": {
         "puerto": ""
@@ -211,135 +211,7 @@
     },
     {
       "rack": "Ext.2",
-      "equipo": "Patchera Externa Audio",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.1",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.2",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.3",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.4",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.5",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.6",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.7",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.8",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.9",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.10",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.11",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.12",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.13",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.14",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.15",
-      "equipo": "",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "P.16",
-      "equipo": "",
+      "equipo": "Patch Ext. Audio",
       "ip": null,
       "management": {
         "puerto": ""
@@ -576,7 +448,7 @@
       },
       "dst": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "In 7"
@@ -615,7 +487,7 @@
       },
       "dst": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "In 8"
@@ -654,7 +526,7 @@
       },
       "dst": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "In 9"
@@ -698,7 +570,7 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "In A"
       },
-      "rotulo": "OUT AUX 1",
+      "rotulo": "SW AUX 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -737,7 +609,7 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "In B"
       },
-      "rotulo": "OUT AUX 2",
+      "rotulo": "SW AUX 2",
       "notas": "",
       "disp_ext": ""
     },
@@ -776,7 +648,7 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "In A"
       },
-      "rotulo": "OUT AUX 3",
+      "rotulo": "SW AUX 3",
       "notas": "",
       "disp_ext": ""
     },
@@ -888,7 +760,7 @@
       },
       "dst": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "In 10"
@@ -927,7 +799,7 @@
       },
       "dst": {
         "rack": "B.6",
-        "equipo": "Blackmagic HyperDeck Studio Pro",
+        "equipo": "HyperDeck Studio Pro",
         "slot": "",
         "placa": "",
         "puerto": "In A"
@@ -1036,7 +908,7 @@
     {
       "src": {
         "rack": "B.3",
-        "equipo": "Telecast CopperHead ProHD 1",
+        "equipo": "CopperHead ProHD 1",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 1"
@@ -1055,7 +927,7 @@
     {
       "src": {
         "rack": "B.4",
-        "equipo": "Telecast CopperHead ProHD 2",
+        "equipo": "CopperHead ProHD 2",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 1"
@@ -1074,7 +946,7 @@
     {
       "src": {
         "rack": "B.5",
-        "equipo": "Telecast CopperHead ProHD 3",
+        "equipo": "CopperHead ProHD 3",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 1"
@@ -1171,7 +1043,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V3"
@@ -1190,14 +1062,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V3"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V3"
@@ -1210,7 +1082,7 @@
     {
       "src": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "Aux 1"
@@ -1229,7 +1101,7 @@
     {
       "src": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "Aux 2"
@@ -1248,7 +1120,7 @@
     {
       "src": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "Aux 3"
@@ -1324,7 +1196,7 @@
     {
       "src": {
         "rack": "C.6",
-        "equipo": "Blackmagic SmartScope Duo",
+        "equipo": "SmartScope Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 2"
@@ -1343,14 +1215,14 @@
     {
       "src": {
         "rack": "C.6",
-        "equipo": "Blackmagic SmartScope Duo",
+        "equipo": "SmartScope Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 2"
       },
       "dst": {
         "rack": "C.6",
-        "equipo": "Blackmagic SmartScope Duo",
+        "equipo": "SmartScope Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 2"
@@ -1363,7 +1235,7 @@
     {
       "src": {
         "rack": "B.6",
-        "equipo": "Blackmagic HyperDeck Studio Pro",
+        "equipo": "HyperDeck Studio Pro",
         "slot": "",
         "placa": "",
         "puerto": "Out A"
@@ -1382,7 +1254,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V4"
@@ -1401,14 +1273,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V4"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V4"
@@ -1421,7 +1293,7 @@
     {
       "src": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "PGM Out"
@@ -1440,14 +1312,14 @@
     {
       "src": {
         "rack": "B.3",
-        "equipo": "Telecast CopperHead ProHD 1",
+        "equipo": "CopperHead ProHD 1",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 2"
       },
       "dst": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "In 2"
@@ -1459,14 +1331,14 @@
     {
       "src": {
         "rack": "B.4",
-        "equipo": "Telecast CopperHead ProHD 2",
+        "equipo": "CopperHead ProHD 2",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 2"
       },
       "dst": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "In 3"
@@ -1478,14 +1350,14 @@
     {
       "src": {
         "rack": "B.5",
-        "equipo": "Telecast CopperHead ProHD 3",
+        "equipo": "CopperHead ProHD 3",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 2"
       },
       "dst": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "In 4"
@@ -1497,14 +1369,14 @@
     {
       "src": {
         "rack": "B.7",
-        "equipo": "Blackmagic SmartView Duo",
+        "equipo": "SmartView Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 2"
       },
       "dst": {
         "rack": "C.6",
-        "equipo": "Blackmagic SmartScope Duo",
+        "equipo": "SmartScope Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 1"
@@ -1516,14 +1388,14 @@
     {
       "src": {
         "rack": "B.7",
-        "equipo": "Blackmagic SmartView Duo",
+        "equipo": "SmartView Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 2"
       },
       "dst": {
         "rack": "B.7",
-        "equipo": "Blackmagic SmartView Duo",
+        "equipo": "SmartView Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 2"
@@ -1543,7 +1415,7 @@
       },
       "dst": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "HDMI In 1"
@@ -1562,7 +1434,7 @@
       },
       "dst": {
         "rack": "B.7",
-        "equipo": "Blackmagic SmartView Duo",
+        "equipo": "SmartView Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 1"
@@ -1620,7 +1492,7 @@
       },
       "dst": {
         "rack": "B.5",
-        "equipo": "Telecast CopperHead ProHD 3",
+        "equipo": "CopperHead ProHD 3",
         "slot": "",
         "placa": "",
         "puerto": "SDI In"
@@ -1659,7 +1531,7 @@
       },
       "dst": {
         "rack": "B.7",
-        "equipo": "Blackmagic SmartView Duo",
+        "equipo": "SmartView Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 2"
@@ -1698,7 +1570,7 @@
       },
       "dst": {
         "rack": "B.3",
-        "equipo": "Telecast CopperHead ProHD 1",
+        "equipo": "CopperHead ProHD 1",
         "slot": "",
         "placa": "",
         "puerto": "SDI In"
@@ -1776,7 +1648,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V11"
@@ -1854,7 +1726,7 @@
       },
       "dst": {
         "rack": "B.4",
-        "equipo": "Telecast CopperHead ProHD 2",
+        "equipo": "CopperHead ProHD 2",
         "slot": "",
         "placa": "",
         "puerto": "SDI In"
@@ -1893,7 +1765,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V6"
@@ -1932,7 +1804,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V10"
@@ -1971,7 +1843,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V7"
@@ -2010,7 +1882,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V13"
@@ -2049,7 +1921,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V12"
@@ -2088,7 +1960,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V8"
@@ -2205,7 +2077,7 @@
       },
       "dst": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "In 5"
@@ -2224,7 +2096,7 @@
       },
       "dst": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "In 6"
@@ -2594,7 +2466,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V9"
@@ -2782,14 +2654,14 @@
     {
       "src": {
         "rack": "C.6",
-        "equipo": "Blackmagic SmartScope Duo",
+        "equipo": "SmartScope Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 1"
       },
       "dst": {
         "rack": "C.6",
-        "equipo": "Blackmagic SmartScope Duo",
+        "equipo": "SmartScope Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 2"
@@ -2801,14 +2673,14 @@
     {
       "src": {
         "rack": "C.6",
-        "equipo": "Blackmagic SmartScope Duo",
+        "equipo": "SmartScope Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 1"
       },
       "dst": {
         "rack": "C.6",
-        "equipo": "Blackmagic SmartScope Duo",
+        "equipo": "SmartScope Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 1"
@@ -2821,7 +2693,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V5"
@@ -2840,14 +2712,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V5"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V5"
@@ -2860,7 +2732,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V17"
@@ -2879,14 +2751,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V17"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V17"
@@ -2899,7 +2771,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V18"
@@ -2918,14 +2790,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V18"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V18"
@@ -2938,14 +2810,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V14"
       },
       "dst": {
         "rack": "B.3",
-        "equipo": "Telecast CopperHead ProHD 1",
+        "equipo": "CopperHead ProHD 1",
         "slot": "",
         "placa": "",
         "puerto": "Fiber I/O"
@@ -2957,14 +2829,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V14"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V14"
@@ -2977,14 +2849,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V15"
       },
       "dst": {
         "rack": "B.4",
-        "equipo": "Telecast CopperHead ProHD 2",
+        "equipo": "CopperHead ProHD 2",
         "slot": "",
         "placa": "",
         "puerto": "Fiber I/O"
@@ -2996,14 +2868,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V15"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V15"
@@ -3016,14 +2888,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V16"
       },
       "dst": {
         "rack": "B.5",
-        "equipo": "Telecast CopperHead ProHD 3",
+        "equipo": "CopperHead ProHD 3",
         "slot": "",
         "placa": "",
         "puerto": "Fiber I/O"
@@ -3035,14 +2907,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V16"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V16"
@@ -3055,7 +2927,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V1"
@@ -3074,14 +2946,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V1"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V1"
@@ -3094,7 +2966,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V2"
@@ -3113,14 +2985,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V2"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V2"
@@ -3133,7 +3005,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A1"
@@ -3152,14 +3024,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A1"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A1"
@@ -3172,7 +3044,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A2"
@@ -3191,14 +3063,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A2"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A2"
@@ -3211,7 +3083,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A3"
@@ -3230,14 +3102,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A3"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A3"
@@ -3250,7 +3122,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A4"
@@ -3269,14 +3141,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A4"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A4"
@@ -3289,7 +3161,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A5"
@@ -3308,14 +3180,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A5"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A5"
@@ -3328,7 +3200,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A6"
@@ -3347,14 +3219,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A6"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A6"
@@ -3367,7 +3239,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A7"
@@ -3386,14 +3258,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A7"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A7"
@@ -3406,7 +3278,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A8"
@@ -3425,14 +3297,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A8"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A8"
@@ -3445,7 +3317,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A9"
@@ -3464,14 +3336,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A9"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A9"
@@ -3491,7 +3363,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A13"
@@ -3530,7 +3402,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A14"
@@ -3569,7 +3441,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A15"
@@ -3608,7 +3480,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A16"
@@ -3647,7 +3519,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A17"
@@ -3686,7 +3558,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A18"
@@ -3725,7 +3597,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A19"
@@ -3744,7 +3616,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A20"
@@ -3763,7 +3635,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A21"
@@ -3782,7 +3654,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A22"
@@ -3801,7 +3673,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A23"
@@ -3820,7 +3692,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A24"
@@ -3832,14 +3704,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A25"
       },
       "dst": {
         "rack": "B.3",
-        "equipo": "Telecast CopperHead ProHD 1",
+        "equipo": "CopperHead ProHD 1",
         "slot": "",
         "placa": "",
         "puerto": "Audio Out L"
@@ -3851,14 +3723,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A25"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A25"
@@ -3871,14 +3743,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A26"
       },
       "dst": {
         "rack": "B.3",
-        "equipo": "Telecast CopperHead ProHD 1",
+        "equipo": "CopperHead ProHD 1",
         "slot": "",
         "placa": "",
         "puerto": "Audio Out R"
@@ -3890,14 +3762,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A26"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A26"
@@ -3910,14 +3782,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A27"
       },
       "dst": {
         "rack": "B.4",
-        "equipo": "Telecast CopperHead ProHD 2",
+        "equipo": "CopperHead ProHD 2",
         "slot": "",
         "placa": "",
         "puerto": "Audio Out L"
@@ -3929,14 +3801,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A27"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A27"
@@ -3949,14 +3821,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A28"
       },
       "dst": {
         "rack": "B.4",
-        "equipo": "Telecast CopperHead ProHD 2",
+        "equipo": "CopperHead ProHD 2",
         "slot": "",
         "placa": "",
         "puerto": "Audio Out R"
@@ -3968,14 +3840,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A28"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A28"
@@ -3988,14 +3860,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A29"
       },
       "dst": {
         "rack": "B.5",
-        "equipo": "Telecast CopperHead ProHD 3",
+        "equipo": "CopperHead ProHD 3",
         "slot": "",
         "placa": "",
         "puerto": "Audio Out L"
@@ -4007,14 +3879,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A29"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A29"
@@ -4027,14 +3899,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A30"
       },
       "dst": {
         "rack": "B.5",
-        "equipo": "Telecast CopperHead ProHD 3",
+        "equipo": "CopperHead ProHD 3",
         "slot": "",
         "placa": "",
         "puerto": "Audio Out R"
@@ -4046,14 +3918,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A30"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A30"
@@ -4066,7 +3938,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A31"
@@ -4085,14 +3957,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A31"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A31"
@@ -4105,7 +3977,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A32"
@@ -4124,14 +3996,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A32"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A32"
@@ -4144,7 +4016,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A33"
@@ -4163,14 +4035,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A33"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A33"
@@ -4183,7 +4055,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A34"
@@ -4202,14 +4074,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A34"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A34"
@@ -4222,14 +4094,14 @@
     {
       "src": {
         "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "equipo": "ATEM 1 M/E",
         "slot": "",
         "placa": "",
         "puerto": "Preview"
       },
       "dst": {
         "rack": "D.5",
-        "equipo": "Blackmagic SmartView HD",
+        "equipo": "SmartView HD",
         "slot": "",
         "placa": "",
         "puerto": "SDI In"
@@ -4241,14 +4113,14 @@
     {
       "src": {
         "rack": "D.5",
-        "equipo": "Blackmagic SmartView HD",
+        "equipo": "SmartView HD",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out"
       },
       "dst": {
         "rack": "D.6",
-        "equipo": "Blackmagic SmartScope Duo",
+        "equipo": "SmartScope Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 1"
@@ -4260,14 +4132,14 @@
     {
       "src": {
         "rack": "D.5",
-        "equipo": "Blackmagic SmartView HD",
+        "equipo": "SmartView HD",
         "slot": "",
         "placa": "",
         "puerto": "SDI In"
       },
       "dst": {
         "rack": "D.5",
-        "equipo": "Blackmagic SmartView HD",
+        "equipo": "SmartView HD",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out"
@@ -4280,14 +4152,14 @@
     {
       "src": {
         "rack": "D.6",
-        "equipo": "Blackmagic SmartScope Duo",
+        "equipo": "SmartScope Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 1"
       },
       "dst": {
         "rack": "D.6",
-        "equipo": "Blackmagic SmartScope Duo",
+        "equipo": "SmartScope Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 2"
@@ -4299,14 +4171,14 @@
     {
       "src": {
         "rack": "D.6",
-        "equipo": "Blackmagic SmartScope Duo",
+        "equipo": "SmartScope Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 1"
       },
       "dst": {
         "rack": "D.6",
-        "equipo": "Blackmagic SmartScope Duo",
+        "equipo": "SmartScope Duo",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 1"
@@ -4326,7 +4198,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V1"
@@ -4345,7 +4217,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V2"
@@ -4364,7 +4236,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V3"
@@ -4383,7 +4255,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V4"
@@ -4402,7 +4274,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V5"
@@ -4414,7 +4286,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V6"
@@ -4433,14 +4305,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V6"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V6"
@@ -4453,7 +4325,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V7"
@@ -4472,14 +4344,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V7"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V7"
@@ -4492,7 +4364,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V8"
@@ -4511,14 +4383,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V8"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V8"
@@ -4531,7 +4403,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V9"
@@ -4550,14 +4422,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V9"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V9"
@@ -4570,7 +4442,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V10"
@@ -4589,14 +4461,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V10"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V10"
@@ -4609,7 +4481,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V11"
@@ -4628,14 +4500,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V11"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V11"
@@ -4648,7 +4520,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V12"
@@ -4667,14 +4539,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V12"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V12"
@@ -4687,7 +4559,7 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V13"
@@ -4706,14 +4578,14 @@
     {
       "src": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V13"
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V13"
@@ -4733,7 +4605,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V17"
@@ -4752,7 +4624,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V18"
@@ -4771,7 +4643,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V14"
@@ -4790,7 +4662,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V15"
@@ -4809,7 +4681,7 @@
       },
       "dst": {
         "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
+        "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
         "puerto": "V16"
@@ -4828,7 +4700,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A1"
@@ -4847,7 +4719,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A2"
@@ -4866,7 +4738,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A3"
@@ -4885,7 +4757,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A4"
@@ -4904,7 +4776,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A5"
@@ -4923,7 +4795,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A6"
@@ -4942,7 +4814,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A7"
@@ -4961,7 +4833,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A8"
@@ -4980,7 +4852,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A9"
@@ -4992,7 +4864,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A13"
@@ -5011,14 +4883,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A13"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A13"
@@ -5031,7 +4903,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A14"
@@ -5050,14 +4922,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A14"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A14"
@@ -5070,7 +4942,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A15"
@@ -5089,14 +4961,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A15"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A15"
@@ -5109,7 +4981,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A16"
@@ -5128,14 +5000,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A16"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A16"
@@ -5148,7 +5020,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A17"
@@ -5167,14 +5039,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A17"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A17"
@@ -5187,7 +5059,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A18"
@@ -5206,14 +5078,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A18"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A18"
@@ -5226,7 +5098,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A19"
@@ -5245,14 +5117,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A19"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A19"
@@ -5265,7 +5137,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A20"
@@ -5284,14 +5156,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A20"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A20"
@@ -5304,7 +5176,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A21"
@@ -5323,14 +5195,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A21"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A21"
@@ -5343,7 +5215,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A22"
@@ -5362,14 +5234,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A22"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A22"
@@ -5382,7 +5254,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A23"
@@ -5401,14 +5273,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A23"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A23"
@@ -5421,7 +5293,7 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A24"
@@ -5440,14 +5312,14 @@
     {
       "src": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A24"
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A24"
@@ -5467,7 +5339,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A25"
@@ -5486,7 +5358,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A26"
@@ -5505,7 +5377,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A27"
@@ -5524,7 +5396,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A28"
@@ -5543,7 +5415,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A29"
@@ -5562,7 +5434,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A30"
@@ -5581,7 +5453,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A31"
@@ -5600,7 +5472,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A32"
@@ -5619,7 +5491,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A33"
@@ -5638,7 +5510,7 @@
       },
       "dst": {
         "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
+        "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
         "puerto": "A34"
@@ -5649,7 +5521,7 @@
     }
   ],
   "stats": {
-    "nodos": 46,
+    "nodos": 30,
     "arcos_totales": 272,
     "arcos_externos": 164,
     "arcos_thru_internos": 108,
