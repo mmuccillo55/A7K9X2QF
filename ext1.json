@@ -1392,7 +1392,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 18"
+        "puerto": "In/Out 18"
       },
       "rotulo": "I/O 10",
       "notas": "",
