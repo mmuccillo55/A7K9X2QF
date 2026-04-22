@@ -581,7 +581,7 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "rotulo": "",
+      "rotulo": "IN 7",
       "notas": "",
       "disp_ext": ""
     },
@@ -620,7 +620,7 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "rotulo": "",
+      "rotulo": "IN 8",
       "notas": "",
       "disp_ext": ""
     },
@@ -659,7 +659,7 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "rotulo": "",
+      "rotulo": "IN 9",
       "notas": "",
       "disp_ext": ""
     },
