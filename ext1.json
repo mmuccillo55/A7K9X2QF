@@ -1434,7 +1434,7 @@
         "placa": "",
         "puerto": "In 15"
       },
-      "rotulo": "",
+      "rotulo": "PC CG",
       "notas": "",
       "disp_ext": ""
     },
@@ -1453,7 +1453,7 @@
         "placa": "",
         "puerto": "In 16"
       },
-      "rotulo": "",
+      "rotulo": "PGM",
       "notas": "PGM",
       "disp_ext": ""
     },
@@ -1492,7 +1492,7 @@
         "placa": "",
         "puerto": "In 17"
       },
-      "rotulo": "",
+      "rotulo": "GRAB Out",
       "notas": "",
       "disp_ext": ""
     },
@@ -2969,7 +2969,7 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "In B"
       },
-      "rotulo": "",
+      "rotulo": "AIRE IN",
       "notas": "",
       "disp_ext": ""
     },
@@ -2988,7 +2988,7 @@
         "placa": "",
         "puerto": "OF I/O"
       },
-      "rotulo": "",
+      "rotulo": "IKE 4",
       "notas": "",
       "disp_ext": ""
     },
@@ -3007,7 +3007,7 @@
         "placa": "",
         "puerto": "OF I/O"
       },
-      "rotulo": "",
+      "rotulo": "IKE 5",
       "notas": "",
       "disp_ext": ""
     },
@@ -3026,7 +3026,7 @@
         "placa": "",
         "puerto": "OF I/O"
       },
-      "rotulo": "",
+      "rotulo": "JVC 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -3045,7 +3045,7 @@
         "placa": "",
         "puerto": "OF I/O"
       },
-      "rotulo": "",
+      "rotulo": "JVC 2",
       "notas": "",
       "disp_ext": ""
     },
@@ -3064,7 +3064,7 @@
         "placa": "",
         "puerto": "OF I/O"
       },
-      "rotulo": "",
+      "rotulo": "JVC 3",
       "notas": "",
       "disp_ext": ""
     },
@@ -3083,7 +3083,7 @@
         "placa": "De-embedder",
         "puerto": "SDI In"
       },
-      "rotulo": "",
+      "rotulo": "IN 7",
       "notas": "",
       "disp_ext": ""
     },
@@ -3102,7 +3102,7 @@
         "placa": "De-embedder",
         "puerto": "SDI In"
       },
-      "rotulo": "",
+      "rotulo": "IN 8",
       "notas": "",
       "disp_ext": ""
     },
@@ -3121,7 +3121,7 @@
         "placa": "",
         "puerto": "In 1"
       },
-      "rotulo": "",
+      "rotulo": "IN 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -3140,7 +3140,7 @@
         "placa": "",
         "puerto": "In 2"
       },
-      "rotulo": "",
+      "rotulo": "IN 2",
       "notas": "",
       "disp_ext": ""
     },
@@ -3159,7 +3159,7 @@
         "placa": "",
         "puerto": "In 3"
       },
-      "rotulo": "",
+      "rotulo": "IN 3",
       "notas": "",
       "disp_ext": ""
     },
@@ -3178,7 +3178,7 @@
         "placa": "",
         "puerto": "In 4"
       },
-      "rotulo": "",
+      "rotulo": "IN 4",
       "notas": "",
       "disp_ext": ""
     },
@@ -3197,7 +3197,7 @@
         "placa": "",
         "puerto": "In 5"
       },
-      "rotulo": "",
+      "rotulo": "IN 5",
       "notas": "",
       "disp_ext": ""
     },
@@ -3216,7 +3216,7 @@
         "placa": "",
         "puerto": "In 6"
       },
-      "rotulo": "",
+      "rotulo": "IN 6",
       "notas": "",
       "disp_ext": ""
     },
@@ -3235,7 +3235,7 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "rotulo": "",
+      "rotulo": "IN 7",
       "notas": "",
       "disp_ext": ""
     },
@@ -3254,7 +3254,7 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "rotulo": "",
+      "rotulo": "IN 8",
       "notas": "",
       "disp_ext": ""
     },
@@ -3273,7 +3273,7 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "rotulo": "",
+      "rotulo": "IN 9",
       "notas": "",
       "disp_ext": ""
     },
@@ -3697,7 +3697,7 @@
         "placa": "",
         "puerto": "Audio Out L"
       },
-      "rotulo": "",
+      "rotulo": "C1A1",
       "notas": "",
       "disp_ext": ""
     },
@@ -3716,7 +3716,7 @@
         "placa": "",
         "puerto": "Audio Out R"
       },
-      "rotulo": "",
+      "rotulo": "C1A2",
       "notas": "",
       "disp_ext": ""
     },
@@ -3735,7 +3735,7 @@
         "placa": "",
         "puerto": "Audio Out L"
       },
-      "rotulo": "",
+      "rotulo": "C2A1",
       "notas": "",
       "disp_ext": ""
     },
@@ -3754,7 +3754,7 @@
         "placa": "",
         "puerto": "Audio Out R"
       },
-      "rotulo": "",
+      "rotulo": "C2A2",
       "notas": "",
       "disp_ext": ""
     },
@@ -3773,7 +3773,7 @@
         "placa": "",
         "puerto": "Audio Out L"
       },
-      "rotulo": "",
+      "rotulo": "C3A1",
       "notas": "",
       "disp_ext": ""
     },
@@ -3792,7 +3792,7 @@
         "placa": "",
         "puerto": "Audio Out R"
       },
-      "rotulo": "",
+      "rotulo": "C3A2",
       "notas": "",
       "disp_ext": ""
     },
@@ -3811,7 +3811,7 @@
         "placa": "",
         "puerto": "Audio Out L"
       },
-      "rotulo": "",
+      "rotulo": "C4A1",
       "notas": "",
       "disp_ext": ""
     },
@@ -3830,7 +3830,7 @@
         "placa": "",
         "puerto": "Audio Out R"
       },
-      "rotulo": "",
+      "rotulo": "C4A2",
       "notas": "",
       "disp_ext": ""
     },
@@ -3849,7 +3849,7 @@
         "placa": "",
         "puerto": "Audio Out L"
       },
-      "rotulo": "",
+      "rotulo": "C5A1",
       "notas": "",
       "disp_ext": ""
     },
@@ -3868,7 +3868,7 @@
         "placa": "",
         "puerto": "Audio Out R"
       },
-      "rotulo": "",
+      "rotulo": "C5A2",
       "notas": "",
       "disp_ext": ""
     },
