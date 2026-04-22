@@ -4150,31 +4150,12 @@
     },
     {
       "src": {
-        "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
-        "slot": "",
-        "placa": "",
-        "puerto": "V4"
-      },
-      "dst": {
         "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "I/O 10",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
-        "slot": "",
-        "placa": "",
-        "puerto": "V4"
-      },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patchera Externa Video",
@@ -4182,10 +4163,9 @@
         "placa": "",
         "puerto": "V4"
       },
-      "rotulo": "",
+      "rotulo": "I/O 10",
       "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
+      "disp_ext": ""
     },
     {
       "src": {
@@ -4364,11 +4344,30 @@
     },
     {
       "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V10"
+      },
+      "dst": {
         "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
         "puerto": ""
+      },
+      "rotulo": "AIRE OUT",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V10"
       },
       "dst": {
         "rack": "Ext.1",
@@ -4377,9 +4376,10 @@
         "placa": "",
         "puerto": "V10"
       },
-      "rotulo": "AIRE OUT",
+      "rotulo": "",
       "notas": "",
-      "disp_ext": ""
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
