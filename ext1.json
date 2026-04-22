@@ -3234,7 +3234,7 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "In 1"
+        "puerto": "A1"
       },
       "dst": {
         "rack": "D.1",
@@ -3253,7 +3253,27 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "In 2"
+        "puerto": "A1"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A2"
       },
       "dst": {
         "rack": "D.1",
@@ -3272,7 +3292,27 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "In 3"
+        "puerto": "A2"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A3"
       },
       "dst": {
         "rack": "D.1",
@@ -3291,7 +3331,27 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "In 4"
+        "puerto": "A3"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A4"
       },
       "dst": {
         "rack": "D.1",
@@ -3310,7 +3370,27 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "In 5"
+        "puerto": "A4"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A5"
       },
       "dst": {
         "rack": "D.1",
@@ -3329,7 +3409,27 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "In 6"
+        "puerto": "A5"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A6"
       },
       "dst": {
         "rack": "D.1",
@@ -3348,7 +3448,27 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "In 7"
+        "puerto": "A6"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A7"
       },
       "dst": {
         "rack": "D.1",
@@ -3367,7 +3487,27 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "In 8"
+        "puerto": "A7"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A7"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A8"
       },
       "dst": {
         "rack": "D.1",
@@ -3386,7 +3526,27 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "In 9"
+        "puerto": "A8"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A9"
       },
       "dst": {
         "rack": "D.1",
@@ -3405,7 +3565,27 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "In 10"
+        "puerto": "A9"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A9"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A10"
       },
       "dst": {
         "rack": "N/C",
@@ -3424,7 +3604,27 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "In 11"
+        "puerto": "A10"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A10"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A11"
       },
       "dst": {
         "rack": "N/C",
@@ -3443,7 +3643,27 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "In 12"
+        "puerto": "A11"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A11"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A12"
       },
       "dst": {
         "rack": "N/C",
@@ -3455,6 +3675,26 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A12"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A12"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3469,7 +3709,7 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "XLR Orden 1"
+        "puerto": "A13"
       },
       "rotulo": "Orden",
       "notas": "",
@@ -3508,7 +3748,7 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "XLR Orden 2"
+        "puerto": "A14"
       },
       "rotulo": "Orden",
       "notas": "",
@@ -3547,7 +3787,7 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "XLR Orden 3"
+        "puerto": "A15"
       },
       "rotulo": "Orden",
       "notas": "",
@@ -3586,7 +3826,7 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "XLR Orden 4"
+        "puerto": "A16"
       },
       "rotulo": "Orden",
       "notas": "",
@@ -3625,7 +3865,7 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "PGM L"
+        "puerto": "A17"
       },
       "rotulo": "PGM",
       "notas": "",
@@ -3664,7 +3904,7 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "PGM R"
+        "puerto": "A18"
       },
       "rotulo": "PGM",
       "notas": "",
@@ -3703,7 +3943,7 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "Sub 1"
+        "puerto": "A19"
       },
       "rotulo": "Sub 1",
       "notas": "",
@@ -3722,7 +3962,7 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "Sub 3"
+        "puerto": "A20"
       },
       "rotulo": "Sub 3",
       "notas": "",
@@ -3741,7 +3981,7 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "Aux 1"
+        "puerto": "A21"
       },
       "rotulo": "Aux 1",
       "notas": "",
@@ -3760,7 +4000,7 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "Aux 3"
+        "puerto": "A22"
       },
       "rotulo": "Aux 3",
       "notas": "",
@@ -3779,7 +4019,7 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "Aux 1"
+        "puerto": "A23"
       },
       "rotulo": "Aux 1",
       "notas": "",
@@ -3798,7 +4038,7 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "Sub 3"
+        "puerto": "A24"
       },
       "rotulo": "Sub 3",
       "notas": "",
@@ -4592,14 +4832,710 @@
       "rotulo": "JVC 3",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A1"
+      },
+      "rotulo": "IN 1",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A2"
+      },
+      "rotulo": "IN 2",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A3"
+      },
+      "rotulo": "IN 3",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A4"
+      },
+      "rotulo": "IN 4",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A5"
+      },
+      "rotulo": "IN 5",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A6"
+      },
+      "rotulo": "IN 6",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A7"
+      },
+      "rotulo": "IN 7",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A8"
+      },
+      "rotulo": "IN 8",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A9"
+      },
+      "rotulo": "IN 9",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A10"
+      },
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A11"
+      },
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A12"
+      },
+      "rotulo": "N/C",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A13"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "Orden",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A13"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A13"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A14"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "Orden",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A14"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A14"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A15"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "Orden",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A15"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A15"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A16"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "Orden",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A16"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A16"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A17"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "PGM",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A17"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A17"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A18"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "PGM",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A18"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A18"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A19"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "Sub 1",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A19"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A19"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A20"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "Sub 3",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A20"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A20"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A21"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "Aux 1",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A21"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A21"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A22"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "Aux 3",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A22"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A22"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A23"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "Aux 1",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A23"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A23"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A24"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "Sub 3",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A24"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "A24"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     }
   ],
   "stats": {
     "nodos": 51,
-    "arcos_totales": 216,
-    "arcos_externos": 138,
-    "arcos_thru_internos": 78,
-    "arcos_con_destino": 120,
-    "arcos_sin_destino": 18
+    "arcos_totales": 264,
+    "arcos_externos": 162,
+    "arcos_thru_internos": 102,
+    "arcos_con_destino": 132,
+    "arcos_sin_destino": 30
   }
 }
