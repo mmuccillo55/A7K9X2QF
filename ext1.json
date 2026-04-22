@@ -2276,7 +2276,7 @@
         "placa": "Embedder",
         "puerto": "Audio In 1"
       },
-      "rotulo": "PGM",
+      "rotulo": "PGM L",
       "notas": "",
       "disp_ext": ""
     },
@@ -2315,7 +2315,7 @@
         "placa": "Embedder",
         "puerto": "Audio In 2"
       },
-      "rotulo": "PGM",
+      "rotulo": "PGM R",
       "notas": "",
       "disp_ext": ""
     },
@@ -3612,6 +3612,26 @@
         "equipo": "Miranda Densite3",
         "slot": "8",
         "placa": "Audio Dist.",
+        "puerto": "In 2"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
         "puerto": "Out 1"
       },
       "dst": {
@@ -3624,6 +3644,26 @@
       "rotulo": "SUB 3",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3650,6 +3690,26 @@
         "equipo": "Miranda Densite3",
         "slot": "9",
         "placa": "Audio Dist.",
+        "puerto": "In 2"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "9",
+        "placa": "Audio Dist.",
+        "puerto": "Out 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "9",
+        "placa": "Audio Dist.",
         "puerto": "Out 1"
       },
       "dst": {
@@ -3662,6 +3722,26 @@
       "rotulo": "AUX 3",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "9",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "9",
+        "placa": "Audio Dist.",
+        "puerto": "Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3686,6 +3766,26 @@
       "src": {
         "rack": "C.5",
         "equipo": "Miranda Densite3",
+        "slot": "9",
+        "placa": "Audio Dist.",
+        "puerto": "In 2"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "9",
+        "placa": "Audio Dist.",
+        "puerto": "Out 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
         "slot": "8",
         "placa": "Audio Dist.",
         "puerto": "Out 2"
@@ -3700,6 +3800,26 @@
       "rotulo": "SUB 3",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -5750,9 +5870,9 @@
   ],
   "stats": {
     "nodos": 30,
-    "arcos_totales": 284,
+    "arcos_totales": 290,
     "arcos_externos": 176,
-    "arcos_thru_internos": 108,
+    "arcos_thru_internos": 114,
     "arcos_con_destino": 150,
     "arcos_sin_destino": 26
   }
