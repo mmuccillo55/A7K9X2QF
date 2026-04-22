@@ -2032,9 +2032,9 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "PGM 1"
+        "puerto": "PGM"
       },
-      "rotulo": "",
+      "rotulo": "1",
       "notas": "",
       "disp_ext": ""
     },
@@ -2110,9 +2110,9 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "PGM 2"
+        "puerto": "PGM"
       },
-      "rotulo": "",
+      "rotulo": "2",
       "notas": "",
       "disp_ext": ""
     },
@@ -2227,9 +2227,9 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "PGM 3"
+        "puerto": "PGM"
       },
-      "rotulo": "",
+      "rotulo": "3",
       "notas": "",
       "disp_ext": ""
     },
