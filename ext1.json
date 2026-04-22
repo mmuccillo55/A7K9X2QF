@@ -1479,8 +1479,8 @@
     },
     {
       "src": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
         "puerto": "V4"
@@ -1498,15 +1498,15 @@
     },
     {
       "src": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
         "puerto": "V4"
       },
       "dst": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
         "puerto": "V4"
