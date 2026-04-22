@@ -450,7 +450,7 @@
         "placa": "DeckLink",
         "puerto": "P1"
       },
-      "rotulo": "",
+      "rotulo": "1",
       "notas": "",
       "disp_ext": ""
     },
@@ -489,7 +489,7 @@
         "placa": "DeckLink",
         "puerto": "P2"
       },
-      "rotulo": "",
+      "rotulo": "2",
       "notas": "",
       "disp_ext": ""
     },
@@ -528,7 +528,7 @@
         "placa": "DeckLink",
         "puerto": "P3"
       },
-      "rotulo": "",
+      "rotulo": "3",
       "notas": "",
       "disp_ext": ""
     },
@@ -567,7 +567,7 @@
         "placa": "DeckLink",
         "puerto": "P4"
       },
-      "rotulo": "",
+      "rotulo": "4",
       "notas": "",
       "disp_ext": ""
     },
@@ -606,7 +606,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "5",
       "notas": "",
       "disp_ext": ""
     },
@@ -645,7 +645,7 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "rotulo": "",
+      "rotulo": "6",
       "notas": "",
       "disp_ext": ""
     },
@@ -684,7 +684,7 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "rotulo": "",
+      "rotulo": "7",
       "notas": "",
       "disp_ext": ""
     },
@@ -723,7 +723,7 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "rotulo": "",
+      "rotulo": "8",
       "notas": "",
       "disp_ext": ""
     },
@@ -762,7 +762,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "9",
       "notas": "",
       "disp_ext": ""
     },
@@ -801,7 +801,7 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "In A"
       },
-      "rotulo": "",
+      "rotulo": "10",
       "notas": "",
       "disp_ext": ""
     },
@@ -840,7 +840,7 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "In B"
       },
-      "rotulo": "",
+      "rotulo": "11",
       "notas": "",
       "disp_ext": ""
     },
@@ -879,7 +879,7 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "In A"
       },
-      "rotulo": "",
+      "rotulo": "12",
       "notas": "",
       "disp_ext": ""
     },
@@ -918,7 +918,7 @@
         "placa": "",
         "puerto": "Trunk In"
       },
-      "rotulo": "",
+      "rotulo": "13",
       "notas": "",
       "disp_ext": ""
     },
@@ -957,7 +957,7 @@
         "placa": "",
         "puerto": "Trunk In"
       },
-      "rotulo": "",
+      "rotulo": "14",
       "notas": "",
       "disp_ext": ""
     },
@@ -996,7 +996,7 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "rotulo": "",
+      "rotulo": "15",
       "notas": "",
       "disp_ext": ""
     },
@@ -1035,7 +1035,7 @@
         "placa": "",
         "puerto": "In A"
       },
-      "rotulo": "",
+      "rotulo": "16",
       "notas": "",
       "disp_ext": ""
     },
@@ -1074,7 +1074,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "17",
       "notas": "",
       "disp_ext": ""
     },
@@ -1113,7 +1113,7 @@
         "placa": "",
         "puerto": "I/O 10"
       },
-      "rotulo": "",
+      "rotulo": "18",
       "notas": "",
       "disp_ext": ""
     },
@@ -1152,7 +1152,7 @@
         "placa": "",
         "puerto": "In 1"
       },
-      "rotulo": "",
+      "rotulo": "19",
       "notas": "",
       "disp_ext": ""
     },
@@ -1171,7 +1171,7 @@
         "placa": "",
         "puerto": "In 2"
       },
-      "rotulo": "",
+      "rotulo": "20",
       "notas": "",
       "disp_ext": ""
     },
@@ -1190,7 +1190,7 @@
         "placa": "",
         "puerto": "In 3"
       },
-      "rotulo": "",
+      "rotulo": "21",
       "notas": "",
       "disp_ext": ""
     },
@@ -1209,7 +1209,7 @@
         "placa": "",
         "puerto": "In 4"
       },
-      "rotulo": "",
+      "rotulo": "22",
       "notas": "",
       "disp_ext": ""
     },
@@ -1228,7 +1228,7 @@
         "placa": "",
         "puerto": "In 5"
       },
-      "rotulo": "",
+      "rotulo": "23",
       "notas": "",
       "disp_ext": ""
     },
@@ -1247,7 +1247,7 @@
         "placa": "",
         "puerto": "In 6"
       },
-      "rotulo": "",
+      "rotulo": "24",
       "notas": "",
       "disp_ext": ""
     },
@@ -1286,7 +1286,7 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "rotulo": "",
+      "rotulo": "25",
       "notas": "",
       "disp_ext": ""
     },
@@ -1312,162 +1312,6 @@
     },
     {
       "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "5",
-        "placa": "De-embedder",
-        "puerto": "Audio Out L"
-      },
-      "dst": {
-        "rack": "D.1",
-        "equipo": "Yamaha MG166",
-        "slot": "",
-        "placa": "",
-        "puerto": "Emb 7 L"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "5",
-        "placa": "De-embedder",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "5",
-        "placa": "De-embedder",
-        "puerto": "Audio Out L"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "5",
-        "placa": "De-embedder",
-        "puerto": "Audio Out R"
-      },
-      "dst": {
-        "rack": "D.1",
-        "equipo": "Yamaha MG166",
-        "slot": "",
-        "placa": "",
-        "puerto": "Emb 7 R"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "5",
-        "placa": "De-embedder",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "5",
-        "placa": "De-embedder",
-        "puerto": "Audio Out R"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "6",
-        "placa": "De-embedder",
-        "puerto": "Audio Out L"
-      },
-      "dst": {
-        "rack": "D.1",
-        "equipo": "Yamaha MG166",
-        "slot": "",
-        "placa": "",
-        "puerto": "Emb 8 L"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "6",
-        "placa": "De-embedder",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "6",
-        "placa": "De-embedder",
-        "puerto": "Audio Out L"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "6",
-        "placa": "De-embedder",
-        "puerto": "Audio Out R"
-      },
-      "dst": {
-        "rack": "D.1",
-        "equipo": "Yamaha MG166",
-        "slot": "",
-        "placa": "",
-        "puerto": "Emb 8 R"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "6",
-        "placa": "De-embedder",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "6",
-        "placa": "De-embedder",
-        "puerto": "Audio Out R"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
         "rack": "Ext.1",
         "equipo": "Patchera Externa Video",
         "slot": "",
@@ -1481,7 +1325,7 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "rotulo": "",
+      "rotulo": "26",
       "notas": "",
       "disp_ext": ""
     },
@@ -1500,7 +1344,7 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "rotulo": "",
+      "rotulo": "27",
       "notas": "",
       "disp_ext": ""
     },
@@ -1519,7 +1363,7 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "rotulo": "",
+      "rotulo": "28",
       "notas": "",
       "disp_ext": ""
     },
@@ -1538,7 +1382,7 @@
         "placa": "",
         "puerto": "In 11"
       },
-      "rotulo": "",
+      "rotulo": "29",
       "notas": "",
       "disp_ext": ""
     },
@@ -1557,7 +1401,7 @@
         "placa": "",
         "puerto": "In 12"
       },
-      "rotulo": "",
+      "rotulo": "30",
       "notas": "",
       "disp_ext": ""
     },
@@ -1576,7 +1420,7 @@
         "placa": "",
         "puerto": "In 13"
       },
-      "rotulo": "",
+      "rotulo": "31",
       "notas": "",
       "disp_ext": ""
     },
@@ -1595,7 +1439,7 @@
         "placa": "",
         "puerto": "In 14"
       },
-      "rotulo": "",
+      "rotulo": "32",
       "notas": "",
       "disp_ext": ""
     },
@@ -1614,7 +1458,7 @@
         "placa": "",
         "puerto": "In 15"
       },
-      "rotulo": "",
+      "rotulo": "33",
       "notas": "",
       "disp_ext": ""
     },
@@ -1633,7 +1477,7 @@
         "placa": "",
         "puerto": "In 16"
       },
-      "rotulo": "",
+      "rotulo": "34",
       "notas": "PGM",
       "disp_ext": ""
     },
@@ -1672,7 +1516,7 @@
         "placa": "",
         "puerto": "In 17"
       },
-      "rotulo": "",
+      "rotulo": "35",
       "notas": "",
       "disp_ext": ""
     },
@@ -1690,6 +1534,25 @@
         "slot": "",
         "placa": "",
         "puerto": "In 18"
+      },
+      "rotulo": "36",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.2",
+        "equipo": "ATEM 1 Production Studio",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI In"
       },
       "rotulo": "",
       "notas": "",
@@ -1754,18 +1617,18 @@
     },
     {
       "src": {
-        "rack": "C.3",
-        "equipo": "Ikegami BS-80 4",
+        "rack": "B.7",
+        "equipo": "Blackmagic SmartView Duo",
         "slot": "",
         "placa": "",
-        "puerto": "SDI Out 1"
+        "puerto": "SDI Out 2"
       },
       "dst": {
-        "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
+        "rack": "C.6",
+        "equipo": "Blackmagic SmartScope Duo",
         "slot": "",
         "placa": "",
-        "puerto": "SDI In 5"
+        "puerto": "Mon 1"
       },
       "rotulo": "",
       "notas": "",
@@ -1773,18 +1636,96 @@
     },
     {
       "src": {
-        "rack": "C.4",
-        "equipo": "Ikegami BS-80 5",
+        "rack": "B.7",
+        "equipo": "Blackmagic SmartView Duo",
         "slot": "",
         "placa": "",
-        "puerto": "SDI Out 1"
+        "puerto": "Mon 2"
+      },
+      "dst": {
+        "rack": "B.7",
+        "equipo": "Blackmagic SmartView Duo",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.7",
+        "equipo": "Blackmagic SmartView Duo",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 2"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "AIRE In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.7",
+        "equipo": "Blackmagic SmartView Duo",
+        "slot": "",
+        "placa": "",
+        "puerto": "Mon 1"
+      },
+      "dst": {
+        "rack": "B.7",
+        "equipo": "Blackmagic SmartView Duo",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.8",
+        "equipo": "PC Video",
+        "slot": "1",
+        "placa": "Intensity",
+        "puerto": "HDMI Out"
       },
       "dst": {
         "rack": "B.2",
         "equipo": "ATEM 1 Production Studio",
         "slot": "",
         "placa": "",
-        "puerto": "SDI In 6"
+        "puerto": "HDMI In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.9",
+        "equipo": "PC CG",
+        "slot": "1",
+        "placa": "DeckLink",
+        "puerto": "P2"
+      },
+      "dst": {
+        "rack": "B.7",
+        "equipo": "Blackmagic SmartView Duo",
+        "slot": "",
+        "placa": "",
+        "puerto": "Mon 1"
       },
       "rotulo": "",
       "notas": "",
@@ -1823,123 +1764,6 @@
         "slot": "7",
         "placa": "Dist. Amp. 2x4",
         "puerto": "A1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "B1"
-      },
-      "dst": {
-        "rack": "C.4",
-        "equipo": "Ikegami BS-80 5",
-        "slot": "",
-        "placa": "",
-        "puerto": "HD-QTV In"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "In B"
-      },
-      "dst": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "B1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "A2"
-      },
-      "dst": {
-        "rack": "B.3",
-        "equipo": "Telecast CopperHead ProHD 1",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI In"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "In A"
-      },
-      "dst": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "A2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "B2"
-      },
-      "dst": {
-        "rack": "B.4",
-        "equipo": "Telecast CopperHead ProHD 2",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI In"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "In B"
-      },
-      "dst": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "B2"
       },
       "rotulo": "",
       "notas": "",
@@ -2026,114 +1850,17 @@
     },
     {
       "src": {
-        "rack": "B.7",
-        "equipo": "Blackmagic SmartView Duo",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 2"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Blackmagic SmartScope Duo",
-        "slot": "",
-        "placa": "",
-        "puerto": "Mon 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "B.7",
-        "equipo": "Blackmagic SmartView Duo",
-        "slot": "",
-        "placa": "",
-        "puerto": "Mon 2"
-      },
-      "dst": {
-        "rack": "B.7",
-        "equipo": "Blackmagic SmartView Duo",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Blackmagic SmartScope Duo",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Blackmagic SmartScope Duo",
-        "slot": "",
-        "placa": "",
-        "puerto": "Mon 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.6",
-        "equipo": "Blackmagic SmartScope Duo",
-        "slot": "",
-        "placa": "",
-        "puerto": "Mon 1"
-      },
-      "dst": {
-        "rack": "C.6",
-        "equipo": "Blackmagic SmartScope Duo",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "B.8",
-        "equipo": "PC Video",
-        "slot": "1",
-        "placa": "Intensity",
-        "puerto": "HDMI Out"
-      },
-      "dst": {
-        "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
-        "slot": "",
-        "placa": "",
-        "puerto": "HDMI In"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI 7"
-      },
-      "dst": {
-        "rack": "C.5",
+        "rack": "C.2",
         "equipo": "Miranda Densite3",
-        "slot": "5",
-        "placa": "De-embedder",
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "A2"
+      },
+      "dst": {
+        "rack": "B.3",
+        "equipo": "Telecast CopperHead ProHD 1",
+        "slot": "",
+        "placa": "",
         "puerto": "SDI In"
       },
       "rotulo": "",
@@ -2142,41 +1869,179 @@
     },
     {
       "src": {
-        "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI 8"
-      },
-      "dst": {
-        "rack": "C.5",
+        "rack": "C.2",
         "equipo": "Miranda Densite3",
-        "slot": "6",
-        "placa": "De-embedder",
-        "puerto": "SDI In"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
-        "slot": "",
-        "placa": "",
-        "puerto": "AIRE In"
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "In A"
       },
       "dst": {
         "rack": "C.2",
         "equipo": "Miranda Densite3",
         "slot": "7",
         "placa": "Dist. Amp. 2x4",
-        "puerto": "In B"
+        "puerto": "A2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "A2"
+      },
+      "dst": {
+        "rack": "B.9",
+        "equipo": "PC CG",
+        "slot": "1",
+        "placa": "DeckLink",
+        "puerto": "P3"
       },
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "In A"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "A2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "A3"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "Aux 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "In A"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "A3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "B1"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Ikegami BS-80 5",
+        "slot": "",
+        "placa": "",
+        "puerto": "HD-QTV In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "In B"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "B1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "B2"
+      },
+      "dst": {
+        "rack": "B.4",
+        "equipo": "Telecast CopperHead ProHD 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "In B"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "B2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -2221,6 +2086,45 @@
       "src": {
         "rack": "C.2",
         "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "B2"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "AIRE Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "In B"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "B2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
         "slot": "5",
         "placa": "Dist. Amp. 1x9",
         "puerto": "B3"
@@ -2249,6 +2153,84 @@
         "equipo": "Miranda Densite3",
         "slot": "5",
         "placa": "Dist. Amp. 1x9",
+        "puerto": "B3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "B3"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "AIRE Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "In B"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "B3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "B3"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "Aux 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "In B"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Dist. Amp. 2x4",
         "puerto": "B3"
       },
       "rotulo": "",
@@ -2301,162 +2283,6 @@
         "equipo": "Miranda Densite3",
         "slot": "7",
         "placa": "Dist. Amp. 2x4",
-        "puerto": "B2"
-      },
-      "dst": {
-        "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
-        "slot": "",
-        "placa": "",
-        "puerto": "AIRE Out 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "In B"
-      },
-      "dst": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "B2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "B3"
-      },
-      "dst": {
-        "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
-        "slot": "",
-        "placa": "",
-        "puerto": "AIRE Out 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "In B"
-      },
-      "dst": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "B3"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "A3"
-      },
-      "dst": {
-        "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
-        "slot": "",
-        "placa": "",
-        "puerto": "Aux 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "In A"
-      },
-      "dst": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "A3"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "B3"
-      },
-      "dst": {
-        "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
-        "slot": "",
-        "placa": "",
-        "puerto": "Aux 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "In B"
-      },
-      "dst": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Dist. Amp. 2x4",
-        "puerto": "B3"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Dist. Amp. 2x4",
         "puerto": "B4"
       },
       "dst": {
@@ -2489,6 +2315,803 @@
       "notas": "",
       "disp_ext": "",
       "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "CG",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "A1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "CG",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "CG",
+        "puerto": "SDI Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.3",
+        "equipo": "Ikegami BS-80 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "B.2",
+        "equipo": "ATEM 1 Production Studio",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Ikegami BS-80 5",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "B.2",
+        "equipo": "ATEM 1 Production Studio",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Emb 7 L"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "6",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Emb 8 L"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "6",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "6",
+        "placa": "De-embedder",
+        "puerto": "Audio Out L"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "De-embedder",
+        "puerto": "Audio Out R"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Emb 7 R"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "De-embedder",
+        "puerto": "Audio Out R"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "6",
+        "placa": "De-embedder",
+        "puerto": "Audio Out R"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Emb 8 R"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "6",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "6",
+        "placa": "De-embedder",
+        "puerto": "Audio Out R"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "Out 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "Audio In 1"
+      },
+      "rotulo": "",
+      "notas": "PGM",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "Out 2"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "PGM L"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "Out 5"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "Audio In 2"
+      },
+      "rotulo": "",
+      "notas": "PGM",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "In 2"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "Out 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 5"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "Audio In 3"
+      },
+      "rotulo": "",
+      "notas": "Sub 1",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "In 2"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 5"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "Audio In 4"
+      },
+      "rotulo": "",
+      "notas": "Sub 1",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "In 2"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "Out 6"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "PGM R"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "In 2"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "Out 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR Orden 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR Orden 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR Orden 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR Orden 4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "CG",
+        "puerto": "SDI In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out 2"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "PGM Sin CG"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Blackmagic SmartScope Duo",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Blackmagic SmartScope Duo",
+        "slot": "",
+        "placa": "",
+        "puerto": "Mon 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.6",
+        "equipo": "Blackmagic SmartScope Duo",
+        "slot": "",
+        "placa": "",
+        "puerto": "Mon 1"
+      },
+      "dst": {
+        "rack": "C.6",
+        "equipo": "Blackmagic SmartScope Duo",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "AIRE In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Dist. Amp. 2x4",
+        "puerto": "In B"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF IKE 4"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "Ikegami BS-80 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF I/O"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF IKE 5"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Ikegami BS-80 5",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF I/O"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
     },
     {
       "src": {
@@ -2553,14 +3176,14 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF IKE 4"
+        "puerto": "SDI 7"
       },
       "dst": {
-        "rack": "C.3",
-        "equipo": "Ikegami BS-80 4",
-        "slot": "",
-        "placa": "",
-        "puerto": "OF I/O"
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "5",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
       },
       "rotulo": "",
       "notas": "",
@@ -2572,14 +3195,71 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF IKE 5"
+        "puerto": "SDI 8"
       },
       "dst": {
-        "rack": "C.4",
-        "equipo": "Ikegami BS-80 5",
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "6",
+        "placa": "De-embedder",
+        "puerto": "SDI In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "OF I/O"
+        "puerto": "Aux 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "9",
+        "placa": "Audio Dist.",
+        "puerto": "Out 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "Aux 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "9",
+        "placa": "Audio Dist.",
+        "puerto": "Out 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "Aux 3"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "9",
+        "placa": "Audio Dist.",
+        "puerto": "Out 1"
       },
       "rotulo": "",
       "notas": "",
@@ -2781,6 +3461,63 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
+        "puerto": "Sub 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "Sub 3"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "Sub 3"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
         "puerto": "XLR 1"
       },
       "dst": {
@@ -2945,743 +3682,6 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR Orden 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "In 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR Orden 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "In 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR Orden 3"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "In 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR Orden 4"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "In 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "Out 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "Embedder",
-        "puerto": "Audio In 1"
-      },
-      "rotulo": "",
-      "notas": "PGM",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "In 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "Out 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "Out 5"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "Embedder",
-        "puerto": "Audio In 2"
-      },
-      "rotulo": "",
-      "notas": "PGM",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "In 2"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "Out 5"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "Out 2"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "PGM L"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "In 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "Out 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "Out 6"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "PGM R"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "In 2"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "Out 6"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 5"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "Embedder",
-        "puerto": "Audio In 3"
-      },
-      "rotulo": "",
-      "notas": "Sub 1",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "In 2"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 5"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 5"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "Embedder",
-        "puerto": "Audio In 4"
-      },
-      "rotulo": "",
-      "notas": "Sub 1",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "In 2"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 5"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "Embedder",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "CG",
-        "puerto": "SDI In"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "Embedder",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "Embedder",
-        "puerto": "SDI Out 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "Embedder",
-        "puerto": "SDI Out 2"
-      },
-      "dst": {
-        "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
-        "slot": "",
-        "placa": "",
-        "puerto": "PGM Sin CG"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "Embedder",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "Embedder",
-        "puerto": "SDI Out 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "B.2",
-        "equipo": "ATEM 1 Production Studio",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "Embedder",
-        "puerto": "SDI In"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "Sub 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 6"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "Sub 3"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "Aux 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "9",
-        "placa": "Audio Dist.",
-        "puerto": "Out 5"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "Aux 3"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "9",
-        "placa": "Audio Dist.",
-        "puerto": "Out 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "Aux 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "9",
-        "placa": "Audio Dist.",
-        "puerto": "Out 6"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "Sub 3"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "CG",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "5",
-        "placa": "Dist. Amp. 1x9",
-        "puerto": "A1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "CG",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "CG",
-        "puerto": "SDI Out"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "B.9",
-        "equipo": "PC CG",
-        "slot": "1",
-        "placa": "DeckLink",
-        "puerto": "P2"
-      },
-      "dst": {
-        "rack": "B.7",
-        "equipo": "Blackmagic SmartView Duo",
-        "slot": "",
-        "placa": "",
-        "puerto": "Mon 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "B.7",
-        "equipo": "Blackmagic SmartView Duo",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 2"
-      },
-      "dst": {
-        "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
-        "slot": "",
-        "placa": "",
-        "puerto": "AIRE In"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "B.7",
-        "equipo": "Blackmagic SmartView Duo",
-        "slot": "",
-        "placa": "",
-        "puerto": "Mon 1"
-      },
-      "dst": {
-        "rack": "B.7",
-        "equipo": "Blackmagic SmartView Duo",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI Out 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "5",
-        "placa": "Dist. Amp. 1x9",
-        "puerto": "A2"
-      },
-      "dst": {
-        "rack": "B.9",
-        "equipo": "PC CG",
-        "slot": "1",
-        "placa": "DeckLink",
-        "puerto": "P3"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "5",
-        "placa": "Dist. Amp. 1x9",
-        "puerto": "In A"
-      },
-      "dst": {
-        "rack": "C.2",
-        "equipo": "Miranda Densite3",
-        "slot": "5",
-        "placa": "Dist. Amp. 1x9",
-        "puerto": "A2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
     }
   ],
   "stats": {
