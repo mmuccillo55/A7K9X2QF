@@ -581,7 +581,7 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "rotulo": "SW IN 7",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -620,7 +620,7 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "rotulo": "SW IN 8",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -659,7 +659,7 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "rotulo": "SW IN 9",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -893,7 +893,7 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "rotulo": "SW IN 10",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1222,7 +1222,7 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "rotulo": "SW AUX 1",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1241,7 +1241,7 @@
         "placa": "",
         "puerto": "In 11"
       },
-      "rotulo": "SW AUX 2",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1260,7 +1260,7 @@
         "placa": "",
         "puerto": "In 12"
       },
-      "rotulo": "SW AUX 3",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1424,7 +1424,7 @@
         "equipo": "ATEM 1 Production Studio",
         "slot": "",
         "placa": "",
-        "puerto": "PGM 1"
+        "puerto": "PGM Out"
       },
       "dst": {
         "rack": "C.5",
@@ -1433,7 +1433,7 @@
         "placa": "Embedder",
         "puerto": "SDI In"
       },
-      "rotulo": "PGM",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -2210,7 +2210,7 @@
         "placa": "",
         "puerto": "In 5"
       },
-      "rotulo": "IN 5",
+      "rotulo": "IKE 4",
       "notas": "",
       "disp_ext": ""
     },
@@ -2229,7 +2229,7 @@
         "placa": "",
         "puerto": "In 6"
       },
-      "rotulo": "IN 6",
+      "rotulo": "IKE 5",
       "notas": "",
       "disp_ext": ""
     },
@@ -4234,7 +4234,7 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "rotulo": "PREVIEW",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
