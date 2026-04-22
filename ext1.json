@@ -2959,6 +2959,26 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
+        "puerto": "OF IKE 4"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF IKE 4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
         "puerto": "OF IKE 5"
       },
       "dst": {
@@ -3933,9 +3953,9 @@
   ],
   "stats": {
     "nodos": 51,
-    "arcos_totales": 182,
+    "arcos_totales": 183,
     "arcos_externos": 121,
-    "arcos_thru_internos": 61,
+    "arcos_thru_internos": 62,
     "arcos_con_destino": 111,
     "arcos_sin_destino": 10
   }
