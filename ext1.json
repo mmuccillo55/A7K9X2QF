@@ -2960,7 +2960,7 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "AIRE In"
+        "puerto": "AIRE"
       },
       "dst": {
         "rack": "C.2",
