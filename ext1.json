@@ -581,7 +581,7 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "rotulo": "IN 7",
+      "rotulo": "SW IN 7",
       "notas": "",
       "disp_ext": ""
     },
@@ -620,7 +620,7 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "rotulo": "IN 8",
+      "rotulo": "SW IN 8",
       "notas": "",
       "disp_ext": ""
     },
@@ -659,7 +659,7 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "rotulo": "IN 9",
+      "rotulo": "SW IN 9",
       "notas": "",
       "disp_ext": ""
     },
@@ -893,7 +893,7 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "rotulo": "",
+      "rotulo": "SW IN 10",
       "notas": "",
       "disp_ext": ""
     },
@@ -1222,7 +1222,7 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "rotulo": "",
+      "rotulo": "SW AUX 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -1241,7 +1241,7 @@
         "placa": "",
         "puerto": "In 11"
       },
-      "rotulo": "",
+      "rotulo": "SW AUX 2",
       "notas": "",
       "disp_ext": ""
     },
@@ -1260,7 +1260,7 @@
         "placa": "",
         "puerto": "In 12"
       },
-      "rotulo": "",
+      "rotulo": "SW AUX 3",
       "notas": "",
       "disp_ext": ""
     },
@@ -1433,7 +1433,7 @@
         "placa": "Embedder",
         "puerto": "SDI In"
       },
-      "rotulo": "",
+      "rotulo": "PGM",
       "notas": "",
       "disp_ext": ""
     },
@@ -4234,7 +4234,7 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "rotulo": "",
+      "rotulo": "PVW",
       "notas": "",
       "disp_ext": ""
     },
