@@ -2041,7 +2041,7 @@
         "equipo": "Miranda Densite3",
         "slot": "5",
         "placa": "Dist. Amp. 1x9",
-        "puerto": "A1"
+        "puerto": "In A"
       },
       "rotulo": "PGM",
       "notas": "",
@@ -2501,7 +2501,7 @@
         "equipo": "Miranda Densite3",
         "slot": "1",
         "placa": "Embedder",
-        "puerto": "SDI Out 1"
+        "puerto": "SDI Out 2"
       },
       "dst": {
         "rack": "",
@@ -2527,7 +2527,7 @@
         "equipo": "Miranda Densite3",
         "slot": "1",
         "placa": "Embedder",
-        "puerto": "SDI Out 1"
+        "puerto": "SDI Out 2"
       },
       "rotulo": "",
       "notas": "",
@@ -2540,7 +2540,7 @@
         "equipo": "Miranda Densite3",
         "slot": "1",
         "placa": "Embedder",
-        "puerto": "SDI Out 1"
+        "puerto": "SDI Out 2"
       },
       "dst": {
         "rack": "",
@@ -2566,7 +2566,7 @@
         "equipo": "Miranda Densite3",
         "slot": "1",
         "placa": "Embedder",
-        "puerto": "SDI Out 1"
+        "puerto": "SDI Out 2"
       },
       "rotulo": "",
       "notas": "",
@@ -2579,7 +2579,7 @@
         "equipo": "Miranda Densite3",
         "slot": "1",
         "placa": "Embedder",
-        "puerto": "SDI Out 1"
+        "puerto": "SDI Out 2"
       },
       "dst": {
         "rack": "",
@@ -2605,7 +2605,7 @@
         "equipo": "Miranda Densite3",
         "slot": "1",
         "placa": "Embedder",
-        "puerto": "SDI Out 1"
+        "puerto": "SDI Out 2"
       },
       "rotulo": "",
       "notas": "",
@@ -2618,7 +2618,7 @@
         "equipo": "Miranda Densite3",
         "slot": "1",
         "placa": "Embedder",
-        "puerto": "SDI Out 1"
+        "puerto": "SDI Out 2"
       },
       "dst": {
         "rack": "",
@@ -2644,7 +2644,7 @@
         "equipo": "Miranda Densite3",
         "slot": "1",
         "placa": "Embedder",
-        "puerto": "SDI Out 1"
+        "puerto": "SDI Out 2"
       },
       "rotulo": "",
       "notas": "",
@@ -3524,7 +3524,7 @@
         "placa": "",
         "puerto": "A17"
       },
-      "rotulo": "PGM",
+      "rotulo": "PGM L",
       "notas": "",
       "disp_ext": ""
     },
@@ -3563,7 +3563,7 @@
         "placa": "",
         "puerto": "A18"
       },
-      "rotulo": "PGM",
+      "rotulo": "PGM R",
       "notas": "",
       "disp_ext": ""
     },
@@ -4187,6 +4187,234 @@
       "notas": "",
       "disp_ext": "",
       "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.2",
+        "equipo": "ATEM 1 M/E",
+        "slot": "",
+        "placa": "",
+        "puerto": "HDMI Out (MV)"
+      },
+      "dst": {
+        "rack": "D.8",
+        "equipo": "Monitor Multiview",
+        "slot": "",
+        "placa": "",
+        "puerto": "HDMI In"
+      },
+      "rotulo": "Multiview",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Monitor Out L"
+      },
+      "dst": {
+        "rack": "D.2",
+        "equipo": "Monitor Audio L",
+        "slot": "",
+        "placa": "",
+        "puerto": "Line In"
+      },
+      "rotulo": "MON L",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Monitor Out R"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "Monitor Audio R",
+        "slot": "",
+        "placa": "",
+        "puerto": "Line In"
+      },
+      "rotulo": "MON R",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Stereo Out L"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "rotulo": "ST L",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Stereo Out R"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "",
+        "puerto": "In 2"
+      },
+      "rotulo": "ST R",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Sub Out 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "",
+        "puerto": "In 2"
+      },
+      "rotulo": "SUB 1",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Sub Out 3"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "rotulo": "SUB 3",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Aux Out 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "9",
+        "placa": "",
+        "puerto": "In 2"
+      },
+      "rotulo": "AUX 1",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Aux Out 2"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "rotulo": "AUX 2",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Aux Out 2"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "",
+        "puerto": "In 2"
+      },
+      "rotulo": "AUX 2",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Aux Out 3"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "9",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "rotulo": "AUX 3",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "Aux Out 4"
+      },
+      "dst": {
+        "rack": "C.1",
+        "equipo": "RF",
+        "slot": "",
+        "placa": "",
+        "puerto": "Line In"
+      },
+      "rotulo": "RF",
+      "notas": "",
+      "disp_ext": ""
     },
     {
       "src": {
@@ -5522,10 +5750,10 @@
   ],
   "stats": {
     "nodos": 30,
-    "arcos_totales": 272,
-    "arcos_externos": 164,
+    "arcos_totales": 284,
+    "arcos_externos": 176,
     "arcos_thru_internos": 108,
-    "arcos_con_destino": 138,
+    "arcos_con_destino": 150,
     "arcos_sin_destino": 26
   }
 }
