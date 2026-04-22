@@ -1076,45 +1076,6 @@
     },
     {
       "src": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 18"
-      },
-      "dst": {
-        "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
-        "slot": "",
-        "placa": "",
-        "puerto": "V4"
-      },
-      "rotulo": "I/O 10",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 18"
-      },
-      "dst": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 18"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
         "rack": "C.3",
         "equipo": "Ikegami BS-80 4",
         "slot": "",
@@ -1518,11 +1479,11 @@
     },
     {
       "src": {
-        "rack": "N/C",
-        "equipo": "",
+        "rack": "B.1",
+        "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "V4"
       },
       "dst": {
         "rack": "B.1",
@@ -1531,9 +1492,29 @@
         "placa": "",
         "puerto": "In 18"
       },
-      "rotulo": "",
+      "rotulo": "I/O 10",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "V4"
+      },
+      "dst": {
+        "rack": "B.1",
+        "equipo": "Patch panel",
+        "slot": "",
+        "placa": "",
+        "puerto": "V4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4383,31 +4364,12 @@
     },
     {
       "src": {
-        "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
-        "slot": "",
-        "placa": "",
-        "puerto": "V10"
-      },
-      "dst": {
         "rack": "N/C",
         "equipo": "",
         "slot": "",
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "AIRE OUT",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.1",
-        "equipo": "Patchera Externa Video",
-        "slot": "",
-        "placa": "",
-        "puerto": "V10"
-      },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patchera Externa Video",
@@ -4415,10 +4377,9 @@
         "placa": "",
         "puerto": "V10"
       },
-      "rotulo": "",
+      "rotulo": "AIRE OUT",
       "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
+      "disp_ext": ""
     },
     {
       "src": {
@@ -4635,10 +4596,10 @@
   ],
   "stats": {
     "nodos": 51,
-    "arcos_totales": 218,
-    "arcos_externos": 139,
-    "arcos_thru_internos": 79,
+    "arcos_totales": 216,
+    "arcos_externos": 138,
+    "arcos_thru_internos": 78,
     "arcos_con_destino": 120,
-    "arcos_sin_destino": 19
+    "arcos_sin_destino": 18
   }
 }
