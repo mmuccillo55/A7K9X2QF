@@ -2403,7 +2403,7 @@
         "equipo": "Miranda Densite3",
         "slot": "8",
         "placa": "Audio Dist.",
-        "puerto": "In 2"
+        "puerto": "Out 5"
       },
       "dst": {
         "rack": "C.5",
