@@ -3483,123 +3483,6 @@
     },
     {
       "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "A10"
-      },
-      "dst": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "A10"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "A10"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "A11"
-      },
-      "dst": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "A11"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "A11"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "A12"
-      },
-      "dst": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "A12"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "A12"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
         "rack": "C.5",
         "equipo": "Miranda Densite3",
         "slot": "10",
@@ -5108,63 +4991,6 @@
     },
     {
       "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "A10"
-      },
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "A11"
-      },
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "A12"
-      },
-      "rotulo": "N/C",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
         "rack": "Ext.2",
         "equipo": "Patchera Externa Audio",
         "slot": "",
@@ -5824,10 +5650,10 @@
   ],
   "stats": {
     "nodos": 46,
-    "arcos_totales": 281,
-    "arcos_externos": 170,
-    "arcos_thru_internos": 111,
-    "arcos_con_destino": 141,
-    "arcos_sin_destino": 29
+    "arcos_totales": 272,
+    "arcos_externos": 164,
+    "arcos_thru_internos": 108,
+    "arcos_con_destino": 138,
+    "arcos_sin_destino": 26
   }
 }
