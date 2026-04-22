@@ -1307,6 +1307,26 @@
     },
     {
       "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V3"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
         "rack": "N/C",
         "equipo": "",
         "slot": "",
@@ -2940,6 +2960,26 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
+        "puerto": "V5"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
         "puerto": "OF IKE 4"
       },
       "dst": {
@@ -2998,6 +3038,26 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
+        "puerto": "OF IKE 5"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF IKE 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
         "puerto": "OF JVC 1"
       },
       "dst": {
@@ -3010,6 +3070,26 @@
       "rotulo": "JVC 1",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF JVC 1"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF JVC 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3036,6 +3116,26 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
+        "puerto": "OF JVC 2"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF JVC 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
         "puerto": "OF JVC 3"
       },
       "dst": {
@@ -3048,6 +3148,26 @@
       "rotulo": "JVC 3",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF JVC 3"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF JVC 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3074,6 +3194,26 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
+        "puerto": "V1"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
         "puerto": "V2"
       },
       "dst": {
@@ -3086,6 +3226,26 @@
       "rotulo": "IN 8",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V2"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -3949,14 +4109,536 @@
       "notas": "",
       "disp_ext": "",
       "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V1"
+      },
+      "rotulo": "IN 7",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V2"
+      },
+      "rotulo": "IN 8",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V3"
+      },
+      "rotulo": "IN 9",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V4"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "I/O 10",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V4"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V5"
+      },
+      "rotulo": "AIRE IN",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V6"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "PGM",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V6"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V7"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "PGM",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V7"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V7"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V8"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "PGM",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V8"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V9"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "PGM Sin CG",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V9"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V9"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V10"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "AIRE OUT",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V10"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V10"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V11"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "AUX 1",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V11"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V11"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V12"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "AUX 2",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V12"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V12"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V13"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "AUX 3",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V13"
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "V13"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF IKE 4"
+      },
+      "rotulo": "IKE 4",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF IKE 5"
+      },
+      "rotulo": "IKE 5",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF JVC 1"
+      },
+      "rotulo": "JVC 1",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF JVC 2"
+      },
+      "rotulo": "JVC 2",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "Ext.1",
+        "equipo": "Patchera Externa Video",
+        "slot": "",
+        "placa": "",
+        "puerto": "OF JVC 3"
+      },
+      "rotulo": "JVC 3",
+      "notas": "",
+      "disp_ext": ""
     }
   ],
   "stats": {
     "nodos": 51,
-    "arcos_totales": 183,
-    "arcos_externos": 121,
-    "arcos_thru_internos": 62,
-    "arcos_con_destino": 111,
-    "arcos_sin_destino": 10
+    "arcos_totales": 218,
+    "arcos_externos": 139,
+    "arcos_thru_internos": 79,
+    "arcos_con_destino": 120,
+    "arcos_sin_destino": 19
   }
 }
