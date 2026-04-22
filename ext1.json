@@ -2,14 +2,6 @@
   "proyecto": "Ext1",
   "nodos": [
     {
-      "rack": "A.1",
-      "equipo": "Monitor PC CGX",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
       "rack": "B.1",
       "equipo": "Patch panel",
       "ip": null,
@@ -147,14 +139,6 @@
     },
     {
       "rack": "D.2",
-      "equipo": "Monitor PC Audio",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "D.3",
       "equipo": "Monitor Audio L",
       "ip": null,
       "management": {
@@ -162,7 +146,7 @@
       }
     },
     {
-      "rack": "D.4",
+      "rack": "D.3",
       "equipo": "Mixer Intercom",
       "ip": null,
       "management": {
@@ -170,7 +154,7 @@
       }
     },
     {
-      "rack": "D.5",
+      "rack": "D.4",
       "equipo": "ATEM 1 Broadcast Panel",
       "ip": null,
       "management": {
@@ -178,7 +162,7 @@
       }
     },
     {
-      "rack": "D.6",
+      "rack": "D.5",
       "equipo": "Blackmagic SmartView HD",
       "ip": null,
       "management": {
@@ -186,7 +170,7 @@
       }
     },
     {
-      "rack": "D.7",
+      "rack": "D.6",
       "equipo": "Blackmagic SmartScope Duo",
       "ip": null,
       "management": {
@@ -194,7 +178,7 @@
       }
     },
     {
-      "rack": "D.8",
+      "rack": "D.7",
       "equipo": "Monitor Aire",
       "ip": null,
       "management": {
@@ -202,7 +186,7 @@
       }
     },
     {
-      "rack": "D.9",
+      "rack": "D.8",
       "equipo": "Monitor Multiview",
       "ip": null,
       "management": {
@@ -210,7 +194,7 @@
       }
     },
     {
-      "rack": "D.10",
+      "rack": "D.9",
       "equipo": "Remoto CCU 1",
       "ip": null,
       "management": {
@@ -218,7 +202,7 @@
       }
     },
     {
-      "rack": "D.11",
+      "rack": "D.10",
       "equipo": "Remoto CCU 2",
       "ip": null,
       "management": {
@@ -226,7 +210,7 @@
       }
     },
     {
-      "rack": "D.12",
+      "rack": "D.11",
       "equipo": "Remoto CCU 3",
       "ip": null,
       "management": {
@@ -234,7 +218,7 @@
       }
     },
     {
-      "rack": "D.13",
+      "rack": "D.12",
       "equipo": "Remoto CCU 4",
       "ip": null,
       "management": {
@@ -242,7 +226,7 @@
       }
     },
     {
-      "rack": "D.14",
+      "rack": "D.13",
       "equipo": "Remoto CCU 5",
       "ip": null,
       "management": {
@@ -250,15 +234,7 @@
       }
     },
     {
-      "rack": "D.15",
-      "equipo": "Monitor PC Player",
-      "ip": null,
-      "management": {
-        "puerto": ""
-      }
-    },
-    {
-      "rack": "D.16",
+      "rack": "D.14",
       "equipo": "Monitor Audio R",
       "ip": null,
       "management": {
@@ -1487,7 +1463,7 @@
         "equipo": "Blackmagic SmartScope Duo",
         "slot": "",
         "placa": "",
-        "puerto": "Mon 2"
+        "puerto": "SDI In 2"
       },
       "dst": {
         "rack": "C.6",
@@ -1628,7 +1604,7 @@
         "equipo": "Blackmagic SmartScope Duo",
         "slot": "",
         "placa": "",
-        "puerto": "Mon 1"
+        "puerto": "SDI In 1"
       },
       "rotulo": "",
       "notas": "",
@@ -1640,7 +1616,7 @@
         "equipo": "Blackmagic SmartView Duo",
         "slot": "",
         "placa": "",
-        "puerto": "Mon 2"
+        "puerto": "SDI In 2"
       },
       "dst": {
         "rack": "B.7",
@@ -1679,7 +1655,7 @@
         "equipo": "Blackmagic SmartView Duo",
         "slot": "",
         "placa": "",
-        "puerto": "Mon 1"
+        "puerto": "SDI In 1"
       },
       "dst": {
         "rack": "B.7",
@@ -1725,7 +1701,7 @@
         "equipo": "Blackmagic SmartView Duo",
         "slot": "",
         "placa": "",
-        "puerto": "Mon 1"
+        "puerto": "SDI In 1"
       },
       "rotulo": "",
       "notas": "",
@@ -1822,7 +1798,7 @@
         "equipo": "Blackmagic SmartView Duo",
         "slot": "",
         "placa": "",
-        "puerto": "Mon 2"
+        "puerto": "SDI In 2"
       },
       "rotulo": "",
       "notas": "",
@@ -2286,7 +2262,7 @@
         "puerto": "B4"
       },
       "dst": {
-        "rack": "D.8",
+        "rack": "D.7",
         "equipo": "Monitor Aire",
         "slot": "",
         "placa": "",
@@ -2952,7 +2928,7 @@
         "equipo": "Blackmagic SmartScope Duo",
         "slot": "",
         "placa": "",
-        "puerto": "Mon 2"
+        "puerto": "SDI In 2"
       },
       "rotulo": "",
       "notas": "",
@@ -2964,7 +2940,7 @@
         "equipo": "Blackmagic SmartScope Duo",
         "slot": "",
         "placa": "",
-        "puerto": "Mon 1"
+        "puerto": "SDI In 1"
       },
       "dst": {
         "rack": "C.6",
@@ -3895,14 +3871,111 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.2",
+        "equipo": "ATEM 1 Production Studio",
+        "slot": "",
+        "placa": "",
+        "puerto": "Preview"
+      },
+      "dst": {
+        "rack": "D.5",
+        "equipo": "Blackmagic SmartView HD",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.5",
+        "equipo": "Blackmagic SmartView HD",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "D.6",
+        "equipo": "Blackmagic SmartScope Duo",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.5",
+        "equipo": "Blackmagic SmartView HD",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "D.5",
+        "equipo": "Blackmagic SmartView HD",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.6",
+        "equipo": "Blackmagic SmartScope Duo",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "D.6",
+        "equipo": "Blackmagic SmartScope Duo",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.6",
+        "equipo": "Blackmagic SmartScope Duo",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 1"
+      },
+      "dst": {
+        "rack": "D.6",
+        "equipo": "Blackmagic SmartScope Duo",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     }
   ],
   "stats": {
-    "nodos": 54,
-    "arcos_totales": 179,
-    "arcos_externos": 119,
-    "arcos_thru_internos": 60,
-    "arcos_con_destino": 109,
+    "nodos": 51,
+    "arcos_totales": 184,
+    "arcos_externos": 122,
+    "arcos_thru_internos": 62,
+    "arcos_con_destino": 112,
     "arcos_sin_destino": 10
   }
 }
