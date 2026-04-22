@@ -581,7 +581,7 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "rotulo": "SW In 7",
+      "rotulo": "SW IN 7",
       "notas": "",
       "disp_ext": ""
     },
@@ -620,7 +620,7 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "rotulo": "SW In 8",
+      "rotulo": "SW IN 8",
       "notas": "",
       "disp_ext": ""
     },
@@ -659,7 +659,7 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "rotulo": "SW In 9",
+      "rotulo": "SW IN 9",
       "notas": "",
       "disp_ext": ""
     },
@@ -698,7 +698,7 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "In A"
       },
-      "rotulo": "Out Aux 1",
+      "rotulo": "OUT AUX 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -737,7 +737,7 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "In B"
       },
-      "rotulo": "Out Aux 2",
+      "rotulo": "OUT AUX 2",
       "notas": "",
       "disp_ext": ""
     },
@@ -776,7 +776,7 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "In A"
       },
-      "rotulo": "Out Aux 3",
+      "rotulo": "OUT AUX 3",
       "notas": "",
       "disp_ext": ""
     },
@@ -815,7 +815,7 @@
         "placa": "",
         "puerto": "Trunk In"
       },
-      "rotulo": "IKE 4 Trunk",
+      "rotulo": "IKE 4 TRUNK",
       "notas": "",
       "disp_ext": ""
     },
@@ -854,7 +854,7 @@
         "placa": "",
         "puerto": "Trunk In"
       },
-      "rotulo": "IKE 5 Trunk",
+      "rotulo": "IKE 5 TRUNK",
       "notas": "",
       "disp_ext": ""
     },
@@ -893,7 +893,7 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "rotulo": "SW In 10",
+      "rotulo": "SW IN 10",
       "notas": "",
       "disp_ext": ""
     },
@@ -932,7 +932,7 @@
         "placa": "",
         "puerto": "In A"
       },
-      "rotulo": "GRAB In",
+      "rotulo": "GRAB IN",
       "notas": "",
       "disp_ext": ""
     },
@@ -1105,7 +1105,7 @@
         "placa": "",
         "puerto": "In 6"
       },
-      "rotulo": "In 7",
+      "rotulo": "IN 7",
       "notas": "",
       "disp_ext": ""
     },
@@ -1144,7 +1144,7 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "rotulo": "In 8",
+      "rotulo": "IN 8",
       "notas": "",
       "disp_ext": ""
     },
@@ -1183,7 +1183,7 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "rotulo": "In 9",
+      "rotulo": "IN 9",
       "notas": "",
       "disp_ext": ""
     },
@@ -1222,7 +1222,7 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "rotulo": "SW Aux 1",
+      "rotulo": "SW AUX 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -1241,7 +1241,7 @@
         "placa": "",
         "puerto": "In 11"
       },
-      "rotulo": "SW Aux 2",
+      "rotulo": "SW AUX 2",
       "notas": "",
       "disp_ext": ""
     },
@@ -1260,7 +1260,7 @@
         "placa": "",
         "puerto": "In 12"
       },
-      "rotulo": "SW Aux 3",
+      "rotulo": "SW AUX 3",
       "notas": "",
       "disp_ext": ""
     },
@@ -1337,7 +1337,7 @@
         "puerto": "In 16"
       },
       "rotulo": "PGM",
-      "notas": "PGM",
+      "notas": "",
       "disp_ext": ""
     },
     {
@@ -1424,7 +1424,7 @@
         "equipo": "ATEM 1 Production Studio",
         "slot": "",
         "placa": "",
-        "puerto": "SDI Out 1"
+        "puerto": "PGM 1"
       },
       "dst": {
         "rack": "C.5",
@@ -1433,7 +1433,7 @@
         "placa": "Embedder",
         "puerto": "SDI In"
       },
-      "rotulo": "",
+      "rotulo": "PGM",
       "notas": "",
       "disp_ext": ""
     },
@@ -1450,9 +1450,9 @@
         "equipo": "ATEM 1 Production Studio",
         "slot": "",
         "placa": "",
-        "puerto": "SDI In 2"
+        "puerto": "In 2"
       },
-      "rotulo": "",
+      "rotulo": "JVC 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -1469,9 +1469,9 @@
         "equipo": "ATEM 1 Production Studio",
         "slot": "",
         "placa": "",
-        "puerto": "SDI In 3"
+        "puerto": "In 3"
       },
-      "rotulo": "",
+      "rotulo": "JVC 2",
       "notas": "",
       "disp_ext": ""
     },
@@ -1488,9 +1488,9 @@
         "equipo": "ATEM 1 Production Studio",
         "slot": "",
         "placa": "",
-        "puerto": "SDI In 4"
+        "puerto": "In 4"
       },
-      "rotulo": "",
+      "rotulo": "JVC 3",
       "notas": "",
       "disp_ext": ""
     },
@@ -1509,7 +1509,7 @@
         "placa": "",
         "puerto": "SDI In 1"
       },
-      "rotulo": "",
+      "rotulo": "PGM (WF)",
       "notas": "",
       "disp_ext": ""
     },
@@ -1546,9 +1546,9 @@
         "equipo": "ATEM 1 Production Studio",
         "slot": "",
         "placa": "",
-        "puerto": "HDMI In"
+        "puerto": "HDMI In 1"
       },
-      "rotulo": "",
+      "rotulo": "PC VIDEO",
       "notas": "",
       "disp_ext": ""
     },
@@ -1567,7 +1567,7 @@
         "placa": "",
         "puerto": "SDI In 1"
       },
-      "rotulo": "",
+      "rotulo": "AIRE",
       "notas": "",
       "disp_ext": ""
     },
@@ -1586,7 +1586,7 @@
         "placa": "",
         "puerto": "HD-QTV In"
       },
-      "rotulo": "",
+      "rotulo": "AUX 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -1625,7 +1625,7 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "rotulo": "",
+      "rotulo": "AUX 3",
       "notas": "",
       "disp_ext": ""
     },
@@ -1664,7 +1664,7 @@
         "placa": "",
         "puerto": "SDI In 2"
       },
-      "rotulo": "",
+      "rotulo": "PGM",
       "notas": "",
       "disp_ext": ""
     },
@@ -1703,7 +1703,7 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "rotulo": "",
+      "rotulo": "AUX 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -1742,7 +1742,7 @@
         "placa": "DeckLink",
         "puerto": "P3"
       },
-      "rotulo": "",
+      "rotulo": "PGM",
       "notas": "",
       "disp_ext": ""
     },
@@ -1781,7 +1781,7 @@
         "placa": "",
         "puerto": "V11"
       },
-      "rotulo": "Aux 1",
+      "rotulo": "AUX 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -1820,7 +1820,7 @@
         "placa": "",
         "puerto": "HD-QTV In"
       },
-      "rotulo": "",
+      "rotulo": "AUX 2",
       "notas": "",
       "disp_ext": ""
     },
@@ -1859,7 +1859,7 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "rotulo": "",
+      "rotulo": "AUX 2",
       "notas": "",
       "disp_ext": ""
     },
@@ -1937,7 +1937,7 @@
         "placa": "",
         "puerto": "V10"
       },
-      "rotulo": "AIRE Out",
+      "rotulo": "AIRE OUT",
       "notas": "",
       "disp_ext": ""
     },
@@ -2015,7 +2015,7 @@
         "placa": "",
         "puerto": "V13"
       },
-      "rotulo": "AIRE Out",
+      "rotulo": "AIRE OUT",
       "notas": "",
       "disp_ext": ""
     },
@@ -2054,7 +2054,7 @@
         "placa": "",
         "puerto": "V12"
       },
-      "rotulo": "Aux 2",
+      "rotulo": "AUX 2",
       "notas": "",
       "disp_ext": ""
     },
@@ -2132,7 +2132,7 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "rotulo": "",
+      "rotulo": "AIRE",
       "notas": "",
       "disp_ext": "BM SDI to HDMI"
     },
@@ -2171,7 +2171,7 @@
         "placa": "Dist. Amp. 1x9",
         "puerto": "A1"
       },
-      "rotulo": "",
+      "rotulo": "PGM",
       "notas": "",
       "disp_ext": ""
     },
@@ -2208,9 +2208,9 @@
         "equipo": "ATEM 1 Production Studio",
         "slot": "",
         "placa": "",
-        "puerto": "SDI In 5"
+        "puerto": "In 5"
       },
-      "rotulo": "",
+      "rotulo": "IN 5",
       "notas": "",
       "disp_ext": ""
     },
@@ -2227,9 +2227,9 @@
         "equipo": "ATEM 1 Production Studio",
         "slot": "",
         "placa": "",
-        "puerto": "SDI In 6"
+        "puerto": "In 6"
       },
-      "rotulo": "",
+      "rotulo": "IN 6",
       "notas": "",
       "disp_ext": ""
     },
@@ -2248,7 +2248,7 @@
         "placa": "",
         "puerto": "Emb 7 L"
       },
-      "rotulo": "",
+      "rotulo": "EMB 7",
       "notas": "",
       "disp_ext": ""
     },
@@ -2287,7 +2287,7 @@
         "placa": "",
         "puerto": "Emb 8 L"
       },
-      "rotulo": "",
+      "rotulo": "EMB 8",
       "notas": "",
       "disp_ext": ""
     },
@@ -2326,7 +2326,7 @@
         "placa": "",
         "puerto": "Emb 7 R"
       },
-      "rotulo": "",
+      "rotulo": "EMB 7",
       "notas": "",
       "disp_ext": ""
     },
@@ -2365,7 +2365,7 @@
         "placa": "",
         "puerto": "Emb 8 R"
       },
-      "rotulo": "",
+      "rotulo": "EMB 8",
       "notas": "",
       "disp_ext": ""
     },
@@ -2404,8 +2404,8 @@
         "placa": "Embedder",
         "puerto": "Audio In 1"
       },
-      "rotulo": "",
-      "notas": "PGM",
+      "rotulo": "PGM",
+      "notas": "",
       "disp_ext": ""
     },
     {
@@ -2443,8 +2443,8 @@
         "placa": "Embedder",
         "puerto": "Audio In 2"
       },
-      "rotulo": "",
-      "notas": "PGM",
+      "rotulo": "PGM",
+      "notas": "",
       "disp_ext": ""
     },
     {
@@ -2482,8 +2482,8 @@
         "placa": "Embedder",
         "puerto": "Audio In 3"
       },
-      "rotulo": "",
-      "notas": "Sub 1",
+      "rotulo": "SUB 1",
+      "notas": "",
       "disp_ext": ""
     },
     {
@@ -2521,8 +2521,8 @@
         "placa": "Embedder",
         "puerto": "Audio In 4"
       },
-      "rotulo": "",
-      "notas": "Sub 1",
+      "rotulo": "SUB 1",
+      "notas": "",
       "disp_ext": ""
     },
     {
@@ -2560,7 +2560,7 @@
         "placa": "CG",
         "puerto": "SDI In"
       },
-      "rotulo": "",
+      "rotulo": "PGM",
       "notas": "",
       "disp_ext": ""
     },
@@ -2638,7 +2638,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "PGM",
       "notas": "",
       "disp_ext": ""
     },
@@ -2677,7 +2677,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "PGM",
       "notas": "",
       "disp_ext": ""
     },
@@ -2716,7 +2716,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "SUB 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -2755,7 +2755,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "SUB 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -2794,7 +2794,7 @@
         "placa": "",
         "puerto": "SDI In 2"
       },
-      "rotulo": "",
+      "rotulo": "PGM (AUDIO)",
       "notas": "",
       "disp_ext": ""
     },
@@ -3496,7 +3496,7 @@
         "placa": "",
         "puerto": "A13"
       },
-      "rotulo": "Orden",
+      "rotulo": "ORDEN",
       "notas": "",
       "disp_ext": ""
     },
@@ -3535,7 +3535,7 @@
         "placa": "",
         "puerto": "A14"
       },
-      "rotulo": "Orden",
+      "rotulo": "ORDEN",
       "notas": "",
       "disp_ext": ""
     },
@@ -3574,7 +3574,7 @@
         "placa": "",
         "puerto": "A15"
       },
-      "rotulo": "Orden",
+      "rotulo": "ORDEN",
       "notas": "",
       "disp_ext": ""
     },
@@ -3613,7 +3613,7 @@
         "placa": "",
         "puerto": "A16"
       },
-      "rotulo": "Orden",
+      "rotulo": "ORDEN",
       "notas": "",
       "disp_ext": ""
     },
@@ -3730,7 +3730,7 @@
         "placa": "",
         "puerto": "A19"
       },
-      "rotulo": "Sub 1",
+      "rotulo": "SUB 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -3749,7 +3749,7 @@
         "placa": "",
         "puerto": "A20"
       },
-      "rotulo": "Sub 3",
+      "rotulo": "SUB 3",
       "notas": "",
       "disp_ext": ""
     },
@@ -3768,7 +3768,7 @@
         "placa": "",
         "puerto": "A21"
       },
-      "rotulo": "Aux 1",
+      "rotulo": "AUX 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -3787,7 +3787,7 @@
         "placa": "",
         "puerto": "A22"
       },
-      "rotulo": "Aux 3",
+      "rotulo": "AUX 3",
       "notas": "",
       "disp_ext": ""
     },
@@ -3806,7 +3806,7 @@
         "placa": "",
         "puerto": "A23"
       },
-      "rotulo": "Aux 1",
+      "rotulo": "AUX 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -3825,7 +3825,7 @@
         "placa": "",
         "puerto": "A24"
       },
-      "rotulo": "Sub 3",
+      "rotulo": "SUB 3",
       "notas": "",
       "disp_ext": ""
     },
@@ -4234,7 +4234,7 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "rotulo": "",
+      "rotulo": "PREVIEW",
       "notas": "",
       "disp_ext": ""
     },
@@ -4253,7 +4253,7 @@
         "placa": "",
         "puerto": "SDI In 1"
       },
-      "rotulo": "",
+      "rotulo": "PVW (VS)",
       "notas": "",
       "disp_ext": ""
     },
@@ -4292,7 +4292,7 @@
         "placa": "",
         "puerto": "SDI In 2"
       },
-      "rotulo": "",
+      "rotulo": "PVW (WF)",
       "notas": "",
       "disp_ext": ""
     },
@@ -5004,7 +5004,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "Orden",
+      "rotulo": "ORDEN",
       "notas": "",
       "disp_ext": ""
     },
@@ -5043,7 +5043,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "Orden",
+      "rotulo": "ORDEN",
       "notas": "",
       "disp_ext": ""
     },
@@ -5082,7 +5082,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "Orden",
+      "rotulo": "ORDEN",
       "notas": "",
       "disp_ext": ""
     },
@@ -5121,7 +5121,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "Orden",
+      "rotulo": "ORDEN",
       "notas": "",
       "disp_ext": ""
     },
@@ -5238,7 +5238,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "Sub 1",
+      "rotulo": "SUB 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -5277,7 +5277,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "Sub 3",
+      "rotulo": "SUB 3",
       "notas": "",
       "disp_ext": ""
     },
@@ -5316,7 +5316,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "Aux 1",
+      "rotulo": "AUX 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -5355,7 +5355,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "Aux 3",
+      "rotulo": "AUX 3",
       "notas": "",
       "disp_ext": ""
     },
@@ -5394,7 +5394,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "Aux 1",
+      "rotulo": "AUX 1",
       "notas": "",
       "disp_ext": ""
     },
@@ -5433,7 +5433,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "Sub 3",
+      "rotulo": "SUB 3",
       "notas": "",
       "disp_ext": ""
     },
