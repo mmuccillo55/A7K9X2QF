@@ -689,45 +689,6 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 9"
-      },
-      "dst": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 9"
-      },
-      "dst": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 9"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
         "puerto": "Out 10"
       },
       "dst": {
@@ -1245,25 +1206,6 @@
       "notas": "",
       "disp_ext": "",
       "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "N/C",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "B.1",
-        "equipo": "Patch panel",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 9"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
     },
     {
       "src": {
@@ -5882,10 +5824,10 @@
   ],
   "stats": {
     "nodos": 46,
-    "arcos_totales": 284,
-    "arcos_externos": 172,
-    "arcos_thru_internos": 112,
-    "arcos_con_destino": 142,
-    "arcos_sin_destino": 30
+    "arcos_totales": 281,
+    "arcos_externos": 170,
+    "arcos_thru_internos": 111,
+    "arcos_con_destino": 141,
+    "arcos_sin_destino": 29
   }
 }
