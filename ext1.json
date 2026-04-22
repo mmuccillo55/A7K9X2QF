@@ -2594,45 +2594,6 @@
         "equipo": "Miranda Densite3",
         "slot": "7",
         "placa": "Audio Dist.",
-        "puerto": "Out 2"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "PGM L"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "In 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "Out 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
         "puerto": "Out 5"
       },
       "dst": {
@@ -2738,201 +2699,6 @@
         "slot": "8",
         "placa": "Audio Dist.",
         "puerto": "Out 5"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "Out 6"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "PGM R"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "In 2"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "7",
-        "placa": "Audio Dist.",
-        "puerto": "Out 6"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR Orden 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "In 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR Orden 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "In 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR Orden 3"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "In 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
-      },
-      "dst": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR Orden 4"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "In 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8"
       },
       "rotulo": "",
       "notas": "",
@@ -3214,33 +2980,533 @@
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
-        "puerto": "Aux 1"
+        "puerto": "XLR 1"
       },
       "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR 2"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR 3"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR 4"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR 5"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR 6"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR 7"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 7"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR 8"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR 9"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 9"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR 10"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR 11"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR 12"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR Orden 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR Orden 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR Orden 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "XLR Orden 4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "Out 2"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "PGM L"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "Out 6"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "PGM R"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "In 2"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "7",
+        "placa": "Audio Dist.",
+        "puerto": "Out 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 6"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "Sub 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 1"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "Sub 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
         "rack": "C.5",
         "equipo": "Miranda Densite3",
         "slot": "9",
         "placa": "Audio Dist.",
         "puerto": "Out 5"
       },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
+      "dst": {
         "rack": "Ext.2",
         "equipo": "Patchera Externa Audio",
         "slot": "",
         "placa": "",
         "puerto": "Aux 1"
       },
-      "dst": {
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
         "rack": "C.5",
         "equipo": "Miranda Densite3",
         "slot": "9",
         "placa": "Audio Dist.",
-        "puerto": "Out 6"
+        "puerto": "Out 1"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "Aux 3"
       },
       "rotulo": "",
       "notas": "",
@@ -3248,18 +3514,37 @@
     },
     {
       "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "Aux 3"
-      },
-      "dst": {
         "rack": "C.5",
         "equipo": "Miranda Densite3",
         "slot": "9",
         "placa": "Audio Dist.",
-        "puerto": "Out 1"
+        "puerto": "Out 6"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "Aux 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 2"
+      },
+      "dst": {
+        "rack": "Ext.2",
+        "equipo": "Patchera Externa Audio",
+        "slot": "",
+        "placa": "",
+        "puerto": "Sub 3"
       },
       "rotulo": "",
       "notas": "",
@@ -3454,242 +3739,14 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "Sub 1"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 6"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "Sub 3"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "Sub 3"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR 1"
-      },
-      "dst": {
-        "rack": "D.1",
-        "equipo": "Yamaha MG166",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR 2"
-      },
-      "dst": {
-        "rack": "D.1",
-        "equipo": "Yamaha MG166",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR 3"
-      },
-      "dst": {
-        "rack": "D.1",
-        "equipo": "Yamaha MG166",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 3"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR 4"
-      },
-      "dst": {
-        "rack": "D.1",
-        "equipo": "Yamaha MG166",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 4"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR 5"
-      },
-      "dst": {
-        "rack": "D.1",
-        "equipo": "Yamaha MG166",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 5"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR 6"
-      },
-      "dst": {
-        "rack": "D.1",
-        "equipo": "Yamaha MG166",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 6"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR 7"
-      },
-      "dst": {
-        "rack": "D.1",
-        "equipo": "Yamaha MG166",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 7"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR 8"
-      },
-      "dst": {
-        "rack": "D.1",
-        "equipo": "Yamaha MG166",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 8"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "Ext.2",
-        "equipo": "Patchera Externa Audio",
-        "slot": "",
-        "placa": "",
-        "puerto": "XLR 9"
-      },
-      "dst": {
-        "rack": "D.1",
-        "equipo": "Yamaha MG166",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 9"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
     }
   ],
   "stats": {
     "nodos": 54,
-    "arcos_totales": 168,
-    "arcos_externos": 112,
+    "arcos_totales": 171,
+    "arcos_externos": 115,
     "arcos_thru_internos": 56,
     "arcos_con_destino": 109,
-    "arcos_sin_destino": 3
+    "arcos_sin_destino": 6
   }
 }
