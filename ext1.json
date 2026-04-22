@@ -450,7 +450,7 @@
         "placa": "DeckLink",
         "puerto": "P1"
       },
-      "rotulo": "01",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -489,7 +489,7 @@
         "placa": "DeckLink",
         "puerto": "P2"
       },
-      "rotulo": "02",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -528,7 +528,7 @@
         "placa": "DeckLink",
         "puerto": "P3"
       },
-      "rotulo": "03",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -567,7 +567,7 @@
         "placa": "DeckLink",
         "puerto": "P4"
       },
-      "rotulo": "04",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -606,7 +606,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "05",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -645,7 +645,7 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "rotulo": "06",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -684,7 +684,7 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "rotulo": "07",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -723,7 +723,7 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "rotulo": "08",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -762,7 +762,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "09",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -801,7 +801,7 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "In A"
       },
-      "rotulo": "10",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -840,7 +840,7 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "In B"
       },
-      "rotulo": "11",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -879,7 +879,7 @@
         "placa": "Dist. Amp. 2x4",
         "puerto": "In A"
       },
-      "rotulo": "12",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -918,7 +918,7 @@
         "placa": "",
         "puerto": "Trunk In"
       },
-      "rotulo": "13",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -957,7 +957,7 @@
         "placa": "",
         "puerto": "Trunk In"
       },
-      "rotulo": "14",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -996,7 +996,7 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "rotulo": "15",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1035,7 +1035,7 @@
         "placa": "",
         "puerto": "In A"
       },
-      "rotulo": "16",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1074,7 +1074,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "17",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1113,7 +1113,7 @@
         "placa": "",
         "puerto": "I/O 10"
       },
-      "rotulo": "18",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1152,7 +1152,7 @@
         "placa": "",
         "puerto": "In 1"
       },
-      "rotulo": "19",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1171,7 +1171,7 @@
         "placa": "",
         "puerto": "In 2"
       },
-      "rotulo": "20",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1190,7 +1190,7 @@
         "placa": "",
         "puerto": "In 3"
       },
-      "rotulo": "21",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1209,7 +1209,7 @@
         "placa": "",
         "puerto": "In 4"
       },
-      "rotulo": "22",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1228,7 +1228,7 @@
         "placa": "",
         "puerto": "In 5"
       },
-      "rotulo": "23",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1247,7 +1247,7 @@
         "placa": "",
         "puerto": "In 6"
       },
-      "rotulo": "24",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1286,7 +1286,7 @@
         "placa": "",
         "puerto": "In 7"
       },
-      "rotulo": "25",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1325,7 +1325,7 @@
         "placa": "",
         "puerto": "In 8"
       },
-      "rotulo": "26",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1344,7 +1344,7 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "rotulo": "27",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1363,7 +1363,7 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "rotulo": "28",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1382,7 +1382,7 @@
         "placa": "",
         "puerto": "In 11"
       },
-      "rotulo": "29",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1401,7 +1401,7 @@
         "placa": "",
         "puerto": "In 12"
       },
-      "rotulo": "30",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1420,7 +1420,7 @@
         "placa": "",
         "puerto": "In 13"
       },
-      "rotulo": "31",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1439,7 +1439,7 @@
         "placa": "",
         "puerto": "In 14"
       },
-      "rotulo": "32",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1458,7 +1458,7 @@
         "placa": "",
         "puerto": "In 15"
       },
-      "rotulo": "33",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1477,7 +1477,7 @@
         "placa": "",
         "puerto": "In 16"
       },
-      "rotulo": "34",
+      "rotulo": "",
       "notas": "PGM",
       "disp_ext": ""
     },
@@ -1516,7 +1516,7 @@
         "placa": "",
         "puerto": "In 17"
       },
-      "rotulo": "35",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -1535,7 +1535,7 @@
         "placa": "",
         "puerto": "In 18"
       },
-      "rotulo": "36",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -2785,6 +2785,162 @@
     },
     {
       "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "Audio In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "Audio In 2"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "Audio In 3"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "Audio In 4"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
         "rack": "C.6",
         "equipo": "Blackmagic SmartScope Duo",
         "slot": "",
@@ -3743,10 +3899,10 @@
   ],
   "stats": {
     "nodos": 54,
-    "arcos_totales": 171,
-    "arcos_externos": 115,
-    "arcos_thru_internos": 56,
+    "arcos_totales": 179,
+    "arcos_externos": 119,
+    "arcos_thru_internos": 60,
     "arcos_con_destino": 109,
-    "arcos_sin_destino": 6
+    "arcos_sin_destino": 10
   }
 }
