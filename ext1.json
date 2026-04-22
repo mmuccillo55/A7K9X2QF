@@ -2032,9 +2032,9 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "PGM"
+        "puerto": "PGM A"
       },
-      "rotulo": "1",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -2071,7 +2071,7 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "AIRE Out 1"
+        "puerto": "AIRE Out A"
       },
       "rotulo": "",
       "notas": "",
@@ -2110,9 +2110,9 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "PGM"
+        "puerto": "PGM B"
       },
-      "rotulo": "2",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
@@ -2149,7 +2149,7 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "AIRE Out 2"
+        "puerto": "AIRE Out B"
       },
       "rotulo": "",
       "notas": "",
@@ -2227,9 +2227,9 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "PGM"
+        "puerto": "PGM C"
       },
-      "rotulo": "3",
+      "rotulo": "",
       "notas": "",
       "disp_ext": ""
     },
