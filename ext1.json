@@ -2980,14 +2980,14 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF IKE 4"
+        "puerto": "V17"
       },
       "dst": {
         "rack": "C.3",
         "equipo": "Ikegami BS-80 4",
         "slot": "",
         "placa": "",
-        "puerto": "OF I/O"
+        "puerto": "Fiber I/O"
       },
       "rotulo": "IKE 4",
       "notas": "",
@@ -2999,14 +2999,14 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF IKE 4"
+        "puerto": "V17"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF IKE 4"
+        "puerto": "V17"
       },
       "rotulo": "",
       "notas": "",
@@ -3019,14 +3019,14 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF IKE 5"
+        "puerto": "V18"
       },
       "dst": {
         "rack": "C.4",
         "equipo": "Ikegami BS-80 5",
         "slot": "",
         "placa": "",
-        "puerto": "OF I/O"
+        "puerto": "Fiber I/O"
       },
       "rotulo": "IKE 5",
       "notas": "",
@@ -3038,14 +3038,14 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF IKE 5"
+        "puerto": "V18"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF IKE 5"
+        "puerto": "V18"
       },
       "rotulo": "",
       "notas": "",
@@ -3058,14 +3058,14 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF JVC 1"
+        "puerto": "V14"
       },
       "dst": {
         "rack": "B.3",
         "equipo": "Telecast CopperHead ProHD 1",
         "slot": "",
         "placa": "",
-        "puerto": "OF I/O"
+        "puerto": "Fiber I/O"
       },
       "rotulo": "JVC 1",
       "notas": "",
@@ -3077,14 +3077,14 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF JVC 1"
+        "puerto": "V14"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF JVC 1"
+        "puerto": "V14"
       },
       "rotulo": "",
       "notas": "",
@@ -3097,14 +3097,14 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF JVC 2"
+        "puerto": "V15"
       },
       "dst": {
         "rack": "B.4",
         "equipo": "Telecast CopperHead ProHD 2",
         "slot": "",
         "placa": "",
-        "puerto": "OF I/O"
+        "puerto": "Fiber I/O"
       },
       "rotulo": "JVC 2",
       "notas": "",
@@ -3116,14 +3116,14 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF JVC 2"
+        "puerto": "V15"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF JVC 2"
+        "puerto": "V15"
       },
       "rotulo": "",
       "notas": "",
@@ -3136,14 +3136,14 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF JVC 3"
+        "puerto": "V16"
       },
       "dst": {
         "rack": "B.5",
         "equipo": "Telecast CopperHead ProHD 3",
         "slot": "",
         "placa": "",
-        "puerto": "OF I/O"
+        "puerto": "Fiber I/O"
       },
       "rotulo": "JVC 3",
       "notas": "",
@@ -3155,14 +3155,14 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF JVC 3"
+        "puerto": "V16"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF JVC 3"
+        "puerto": "V16"
       },
       "rotulo": "",
       "notas": "",
@@ -4550,7 +4550,7 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF IKE 4"
+        "puerto": "V17"
       },
       "rotulo": "IKE 4",
       "notas": "",
@@ -4569,7 +4569,7 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF IKE 5"
+        "puerto": "V18"
       },
       "rotulo": "IKE 5",
       "notas": "",
@@ -4588,7 +4588,7 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF JVC 1"
+        "puerto": "V14"
       },
       "rotulo": "JVC 1",
       "notas": "",
@@ -4607,7 +4607,7 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF JVC 2"
+        "puerto": "V15"
       },
       "rotulo": "JVC 2",
       "notas": "",
@@ -4626,7 +4626,7 @@
         "equipo": "Patchera Externa Video",
         "slot": "",
         "placa": "",
-        "puerto": "OF JVC 3"
+        "puerto": "V16"
       },
       "rotulo": "JVC 3",
       "notas": "",
