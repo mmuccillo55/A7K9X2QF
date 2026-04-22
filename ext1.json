@@ -2382,16 +2382,16 @@
       "src": {
         "rack": "C.5",
         "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 5"
-      },
-      "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda Densite3",
         "slot": "1",
         "placa": "Embedder",
         "puerto": "Audio In 4"
+      },
+      "dst": {
+        "rack": "",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
       },
       "rotulo": "SUB 1",
       "notas": "",
@@ -2401,16 +2401,16 @@
       "src": {
         "rack": "C.5",
         "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 5"
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "In 2"
       },
       "dst": {
         "rack": "C.5",
         "equipo": "Miranda Densite3",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 5"
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "Audio In 4"
       },
       "rotulo": "",
       "notas": "",
@@ -5717,7 +5717,7 @@
     "arcos_totales": 282,
     "arcos_externos": 172,
     "arcos_thru_internos": 110,
-    "arcos_con_destino": 150,
-    "arcos_sin_destino": 22
+    "arcos_con_destino": 149,
+    "arcos_sin_destino": 23
   }
 }
