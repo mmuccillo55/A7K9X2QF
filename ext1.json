@@ -2345,7 +2345,7 @@
         "equipo": "Miranda Densite3",
         "slot": "8",
         "placa": "Audio Dist.",
-        "puerto": "Out 5"
+        "puerto": "Out 5a"
       },
       "dst": {
         "rack": "C.5",
@@ -2371,7 +2371,7 @@
         "equipo": "Miranda Densite3",
         "slot": "8",
         "placa": "Audio Dist.",
-        "puerto": "Out 5"
+        "puerto": "Out 5a"
       },
       "rotulo": "",
       "notas": "",
@@ -2382,16 +2382,16 @@
       "src": {
         "rack": "C.5",
         "equipo": "Miranda Densite3",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 5b"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda Densite3",
         "slot": "1",
         "placa": "Embedder",
         "puerto": "Audio In 4"
-      },
-      "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
       },
       "rotulo": "SUB 1",
       "notas": "",
@@ -2401,16 +2401,16 @@
       "src": {
         "rack": "C.5",
         "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "Embedder",
+        "slot": "8",
+        "placa": "Audio Dist.",
         "puerto": "In 2"
       },
       "dst": {
         "rack": "C.5",
         "equipo": "Miranda Densite3",
-        "slot": "1",
-        "placa": "Embedder",
-        "puerto": "Audio In 4"
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 5b"
       },
       "rotulo": "",
       "notas": "",
@@ -4310,7 +4310,7 @@
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
-        "puerto": "Aux Out 2"
+        "puerto": "Aux Out 2a"
       },
       "dst": {
         "rack": "C.5",
@@ -4329,7 +4329,7 @@
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
-        "puerto": "Aux Out 2"
+        "puerto": "Aux Out 2b"
       },
       "dst": {
         "rack": "C.5",
@@ -5117,7 +5117,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A14"
+        "puerto": "A13"
       },
       "dst": {
         "rack": "Ext.2",
@@ -5156,7 +5156,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A15"
+        "puerto": "A13"
       },
       "dst": {
         "rack": "Ext.2",
@@ -5195,7 +5195,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A16"
+        "puerto": "A13"
       },
       "dst": {
         "rack": "Ext.2",
@@ -5717,7 +5717,7 @@
     "arcos_totales": 282,
     "arcos_externos": 172,
     "arcos_thru_internos": 110,
-    "arcos_con_destino": 149,
-    "arcos_sin_destino": 23
+    "arcos_con_destino": 150,
+    "arcos_sin_destino": 22
   }
 }
