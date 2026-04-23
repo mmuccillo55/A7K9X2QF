@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Racks</title>
+<title>Movil Exteriores 1</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600&display=swap">
 <style>
@@ -156,8 +156,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 }
 /* .p-num = nombre/número del puerto (ej. "Out 1", "SDI In 3")
    .p-lbl = rótulo o equipo destino (ej. "MATRIZ 1", "Player A") */
-.p-num{font-family:var(--mono);font-size:.8rem;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding:0 2px;}
-.p-lbl{font-size:.6rem;color:var(--text2);margin-top:2px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px;}
+.p-num{font-family:var(--mono);font-size:.8rem;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding:0 2px;}
+.p-lbl{font-size:.6rem;color:var(--text);margin-top:2px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px;}
 
 /* ─────────────────────────────────────────────────────────────────
    POPOVER DE RUTA DE SEÑAL
@@ -230,6 +230,147 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
   }
 }
 
+/* ─────────────────────────────────────────────────────────────────
+   VISTA: MAPA DE RUTA DE SEÑAL
+   Layout horizontal en ≥600px, vertical en móvil.
+   Cada nodo es una caja con rack/equipo/puertos/IP.
+   Las flechas son SVG absolutas sobre el contenedor.
+   ───────────────────────────────────────────────────────────────── */
+
+#view-map{padding:14px;}
+
+.map-title{
+  font-family:var(--mono);font-size:.52rem;letter-spacing:3px;
+  color:var(--accent);text-transform:uppercase;margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.map-title::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* Contenedor principal del grafo — position:relative para el SVG overlay */
+.map-graph{
+  position:relative;
+  display:flex;
+  flex-direction:row;
+  align-items:flex-start;
+  gap:0;
+  overflow-x:auto;
+  padding-bottom:20px;
+  min-height:calc(100vh - 120px);
+}
+
+/* Columna = un paso en la cadena (para layout horizontal) */
+.map-col{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+}
+
+/* Espacio entre columnas para que las flechas tengan lugar */
+.map-col + .map-col{
+  margin-left:52px;
+}
+
+/* Nodo — la caja de cada equipo */
+.map-node{
+  background:var(--panel);
+  border:1px solid var(--border2);
+  border-radius:6px;
+  padding:9px 12px;
+  min-width:140px;
+  max-width:200px;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  position:relative;
+}
+.map-node.node-nc{
+  border-color:var(--muted);
+  opacity:.5;
+}
+.map-node.node-nd{
+  border-color:var(--yellow);
+  background:rgba(255,209,102,.06);
+}
+
+/* Línea de color en el borde izquierdo según tipo de puerto */
+.map-node::before{
+  content:'';
+  position:absolute;
+  left:0;top:8px;bottom:8px;
+  width:3px;
+  border-radius:2px;
+  background:var(--accent);   /* default: entrada (cyan) */
+}
+.map-node.has-out::before{ background:var(--orange); }
+.map-node.has-both::before{
+  background: linear-gradient(to bottom, var(--accent) 50%, var(--orange) 50%);
+}
+
+/* Contenido del nodo */
+.map-node-rack{
+  font-family:var(--mono);font-size:.55rem;color:var(--yellow);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.map-node-eq{
+  font-family:var(--sans);font-size:.78rem;font-weight:600;color:var(--text);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.map-node-slot{
+  font-family:var(--mono);font-size:.55rem;color:var(--accent);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.map-node-ip{
+  font-family:var(--mono);font-size:.55rem;margin-top:2px;
+}
+.map-node-ip.ok{color:var(--accent);}
+.map-node-ip.pend{color:var(--yellow);}
+.map-node-ip.none{color:var(--muted);}
+
+.map-node-divider{
+  height:1px;background:var(--border);margin:3px 0;
+}
+
+.map-node-port{
+  font-family:var(--mono);font-size:.6rem;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.map-node-port.in{color:var(--accent);}
+.map-node-port.out{color:var(--orange);text-align:right;}
+
+.map-node-rotulo{
+  font-size:.55rem;color:var(--green);font-style:italic;
+  margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+/* Nodos especiales: N/C y N/D */
+.map-node-nc-lbl{
+  font-family:var(--mono);font-size:.7rem;color:var(--muted);
+}
+.map-node-nd-lbl{
+  font-family:var(--mono);font-size:.65rem;color:var(--yellow);
+}
+
+/* SVG overlay de flechas — cubre todo el .map-graph */
+.map-svg{
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+  pointer-events:none;
+  overflow:visible;
+}
+.map-arrow{
+  fill:none;
+  stroke:var(--green);
+  stroke-width:2;
+  marker-end:url(#map-arrowhead);
+}
+.map-arrow.branch{
+  stroke:var(--green);
+  opacity:1;
+}
+
 </style>
 </head>
 <body>
@@ -249,11 +390,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 <div id="view-racks" class="view"><div id="racks-wrap"></div><div id="racks-mobile"></div></div>
 <div id="view-slots" class="view"></div>
 <div id="view-equip" class="view"></div>
+<div id="view-map" class="view"></div>
 
 <!-- Popover de ruta de señal. Posicionado con JS, z-index 500. -->
 <div id="pop">
   <div id="pop-hdr">
     <span id="pop-lbl">&#9654; RUTA DE SEÑAL</span>
+    <a id="pop-map-link" style="display:none;font-family:var(--mono);font-size:.6rem;color:var(--accent);text-decoration:none;cursor:pointer;margin-left:8px;padding:2px 7px;border:1px solid var(--border2);border-radius:3px;">&#9638; Mapa</a>
     <button id="pop-close" onclick="closePop()">&#10005;</button>
   </div>
   <div id="pop-body"></div>
@@ -261,7 +404,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 
 <script>
 
-var CONNS=[], NODOS={}, PROJ='', _nav=[], _selBtn=null;
+var CONNS=[], NODOS={}, PROJ='', _nav=[], _selBtn=null, _onEquipReady=null;
 
 fetch('racks.json')
   .then(function(r){
@@ -274,7 +417,7 @@ fetch('racks.json')
   });
 
 function init(data){
-  PROJ=data.proyecto||'RackFlow';
+  PROJ=data.proyecto||'RacksFlow';
   document.title=PROJ;
   document.getElementById('hdr-title').textContent='\u25c6 '+PROJ;
 
@@ -432,7 +575,7 @@ function getSlots(rack,eq){
 
 /* setView(): activa una vista y desactiva las otras. */
 function setView(id){
-  ['view-racks','view-slots','view-equip'].forEach(function(v){
+  ['view-racks','view-slots','view-equip','view-map'].forEach(function(v){
     document.getElementById(v).className='view'+(v===id?' active':'');
   });
 }
@@ -464,13 +607,35 @@ function updateHdr(bc){
    → showSlots() → push → _nav = [racks, slots]  ✓ correcto */
 function goBack(){
   closePop();
-  _nav.pop(); // saca la vista actual
+  _nav.pop();
   if(!_nav.length){ showRacks(); return; }
-  var top = _nav[_nav.length-1]; // mira la anterior SIN sacarla
-  _nav.pop(); // la saca antes de llamar, porque el show la va a volver a pushear
+  var top = _nav[_nav.length-1];
+  _nav.pop();
   if(top.type==='racks')      showRacks();
   else if(top.type==='slots') showSlots(top.rack,top.eq);
   else if(top.type==='equip') showEquip(top.rack,top.eq,top.slot);
+  else if(top.type==='map'){
+  _onEquipReady = function(){
+    var body = buildRoute(top.rack, top.eq, top.slot, top.puerto);
+    var mapArgs = { rack:top.rack, eq:top.eq, slot:top.slot, puerto:top.puerto };
+    var ghost = document.createElement('div');
+    ghost.style.cssText = 'position:fixed;left:50%;top:50%;width:1px;height:1px;';
+    document.body.appendChild(ghost);
+    showPop(ghost, body, mapArgs);
+    positionPopCenter();
+    setTimeout(function(){ ghost.remove(); }, 100);
+  };
+  showEquip(top.rack, top.eq, top.slot);
+}
+}
+
+function positionPopCenter(){
+  var pop = document.getElementById('pop');
+  var pw  = 300;
+  var ph  = pop.offsetHeight || 340;
+  pop.style.left = Math.round((window.innerWidth  - pw) / 2) + 'px';
+  pop.style.top  = Math.round((window.innerHeight - ph) / 2) + 'px';
+  pop.style.width = pw + 'px';
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -875,6 +1040,11 @@ function showEquip(rack,eq,slot){
   document.getElementById('view-equip').innerHTML=html;
   drawThruLines(rack, eq, slot, pairs);
   window.scrollTo(0,0);
+  if(typeof _onEquipReady === 'function'){ 
+    var cb = _onEquipReady;
+    _onEquipReady = null;
+    requestAnimationFrame(cb);
+  }
 }
 /* ─────────────────────────────────────────────────────────────────
    POPOVER
@@ -909,11 +1079,22 @@ function positionPop(btn){
 
 /* showPop(): muestra el popover con contenido html.
    Si se clickea el mismo botón dos veces, cierra el popover (toggle). */
-function showPop(btn,html){
+function showPop(btn,html,mapArgs){
   if(_selBtn===btn){closePop();return;}
   if(_selBtn) _selBtn.classList.remove('selected');
   _selBtn=btn; btn.classList.add('selected');
   document.getElementById('pop-body').innerHTML=html;
+
+  // Link "Mapa" — solo si el puerto está documentado
+  var mapLink=document.getElementById('pop-map-link');
+  if(mapArgs){
+    mapLink.style.display='inline';
+    mapLink.onclick=function(){ showMap(mapArgs.rack,mapArgs.eq,mapArgs.slot,mapArgs.puerto); };
+  } else {
+    mapLink.style.display='none';
+    mapLink.onclick=null;
+  }
+
   document.getElementById('pop').classList.add('on');
   positionPop(btn);
 }
@@ -923,17 +1104,19 @@ function showPop(btn,html){
    state='doc' → buildRoute() para trazar la ruta de señal completa. */
 function onPortClick(btn,sr,se,ss0,sp,state){
   var body;
-  
+  var mapArgs=null;
+
   if(state==='NC'){
     body='<div class="tr-nc">N/C — No Conectado</div>';
   } else if(state==='ND'){
     body='<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO ⚠</div>';
   } else if(state==='doc'){
     body=buildRoute(sr,se,ss0,sp);
+    mapArgs={rack:sr,eq:se,slot:ss0,puerto:sp};
   } else {
     body='<div class="tr-nodata">Estado desconocido.</div>';
   }
-  showPop(btn,body);
+  showPop(btn,body,mapArgs);
 }
 
 /* Cerrar popover al clickear fuera de él o de los botones de puerto */
@@ -1247,6 +1430,328 @@ function buildRoute(rack, eq, slot, puerto) {
 
   var allSegs = upSegs.concat(downSegs);
   return renderRoute(allSegs);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   VISTA: MAPA DE RUTA DE SEÑAL
+   showMap(): construye los segmentos con buildRoute logic,
+   los renderiza como grafo de nodos + flechas SVG.
+   ───────────────────────────────────────────────────────────────── */
+
+function showMap(rack, eq, slot, puerto) {
+  closePop();
+
+  // Guardar contexto para poder reabrir el popover al volver
+  _nav.push({ type:'map', rack:rack, eq:eq, slot:slot, puerto:puerto });
+
+  var bc = '<span class="hi">' + h(rack) + '</span> › '
+         + h(eq)
+         + (slot ? ' › Slot ' + h(slot) : '')
+         + ' › <span class="hi">MAPA</span>';
+  updateHdr(bc);
+  setView('view-map');
+
+  // Reusar la misma lógica de buildRoute pero capturando los segmentos
+  var esSalida = getCablesOut(rack, eq, slot, puerto).length > 0;
+  var thru     = getThruDeSalida(rack, eq, slot, puerto);
+  var placa    = getPlaca(rack, eq, slot);
+  var upSegs   = [];
+  var downSegs = [];
+
+  if (esSalida) {
+    if (thru) {
+      upSegs = buildUpstream(rack, eq, slot, thru.sp);
+      upSegs.push({ rack:rack, eq:eq, slot:slot, placa:placa, inPort:thru.sp, outPort:puerto, branches:[], disp_ext_before:'', disp_ext_after:'' });
+    } else {
+      upSegs.push({ rack:rack, eq:eq, slot:slot, placa:placa, inPort:'', outPort:puerto, branches:[], disp_ext_before:'', disp_ext_after:'' });
+    }
+    downSegs = buildSegments(rack, eq, slot, puerto, 0);
+  } else {
+    upSegs = buildUpstream(rack, eq, slot, puerto);
+    upSegs.push({ rack:rack, eq:eq, slot:slot, placa:placa, inPort:puerto, outPort:'', branches:[], disp_ext:'', branches:[] });
+  }
+
+  var segs = upSegs.concat(downSegs);
+  renderMap(segs);
+  window.scrollTo(0,0);
+}
+
+function getPlaca(rack, eq, slot) {
+  if (!slot) return '';
+  var c = CONNS.find(function(c) {
+    return ((c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sl) ||
+            (c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dl));
+  });
+  if (!c) return '';
+  if (c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)) return c.sl||'';
+  return c.dl||'';
+}
+
+function renderMap(segs) {
+  var container = document.getElementById('view-map');
+
+  if (!segs.length) {
+    container.innerHTML = '<p style="color:var(--text2);padding:20px;">Sin datos para mostrar.</p>';
+    return;
+  }
+
+  // Construir columnas: cada segmento = una columna con sus nodos
+  // Las ramas de un segmento van como nodos extra en la misma columna
+  var cols = [];
+
+  segs.forEach(function(seg) {
+    var nodes = [];
+
+    if (seg.noDoc) {
+      nodes.push({ type: seg.noDocReason === 'N/C' ? 'nc' : 'nd' });
+      cols.push(nodes);
+    } else {
+      var ip = getIP(seg.rack, seg.eq);
+      var hasIn  = !!seg.inPort;
+      var hasOut = !!seg.outPort;
+      var hasBranches = seg.branches && seg.branches.length > 0;
+      var borderCls = hasIn && hasOut ? 'has-both'
+                    : hasOut          ? 'has-out'
+                    : hasBranches     ? 'has-out'  // tiene salidas aunque sean ramas
+                    : '';
+
+      nodes.push({
+        type:         'eq',
+        rack:         seg.rack,
+        eq:           seg.eq,
+        slot:         seg.slot,
+        placa:        seg.placa,
+        inPort:       seg.inPort,
+        outPort:      seg.outPort,
+        ip:           ip,
+        rotuloBefore: seg.disp_ext_before || '',
+        rotuloAfter:  seg.disp_ext_after  || '',
+        borderCls:    borderCls,
+        branches:     seg.branches || []
+      });
+
+      cols.push(nodes);
+
+      // Si tiene ramas → columna extra con los destinos
+      if (hasBranches) {
+        var branchNodes = seg.branches.map(function(br) {
+          return {
+            type:         'eq',
+            rack:         br.dstRack,
+            eq:           br.dstEq,
+            slot:         br.dstSlot || '',
+            placa:        '',
+            inPort:       br.dstPort,
+            outPort:      '',
+            ip:           getIP(br.dstRack, br.dstEq),
+            rotuloBefore: '',
+            rotuloAfter:  '',
+            borderCls:    '',
+            branches:     [],
+            // guardamos el outPort del padre para dibujar la flecha correcta
+            srcOutPort:   br.outPort,
+            srcColIdx:    cols.length - 1  // índice de la columna padre
+          };
+        });
+        cols.push(branchNodes);
+      }
+    }
+  });
+
+  // Renderizar HTML
+  var html = '<div class="map-title">&#9638; MAPA DE RUTA DE SEÑAL</div>';
+  html += '<div class="map-graph" id="map-graph">';
+
+  // Definición del arrowhead SVG (se incluye una vez, invisible)
+  html += '<svg width="0" height="0" style="position:absolute">'
+        + '<defs>'
+        + '<marker id="map-arrowhead" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">'
+        + '<polygon points="0 0, 7 3.5, 0 7" fill="var(--green)"/>'
+        + '</marker>'
+        + '<marker id="map-arrowhead-branch" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">'
+        + '<polygon points="0 0, 7 3.5, 0 7" fill="var(--green)"/>'
+        + '</marker>'
+        + '</defs>'
+        + '</svg>';
+
+  cols.forEach(function(nodes, colIdx) {
+    html += '<div class="map-col" id="map-col-' + colIdx + '">';
+
+    nodes.forEach(function(node, nodeIdx) {
+      html += '<div class="map-node' 
+            + (node.type==='nc' ? ' node-nc' : '')
+            + (node.type==='nd' ? ' node-nd' : '')
+            + (node.type==='branch' ? ' node-branch' : '')
+            + (node.borderCls ? ' '+node.borderCls : '')
+            + '" id="map-node-' + colIdx + '-' + nodeIdx + '">';
+
+      if (node.type === 'nc') {
+        html += '<div class="map-node-nc-lbl">N/C</div>';
+
+      } else if (node.type === 'nd') {
+        html += '<div class="map-node-nd-lbl">⚠ No documentado</div>';
+
+      } else {
+        // Rótulo before (cable entrante)
+        if (node.rotuloBefore) {
+          html += '<div class="map-node-rotulo">⟳ ' + h(node.rotuloBefore) + '</div>';
+          html += '<div class="map-node-divider"></div>';
+        }
+
+        html += '<div class="map-node-rack">' + h(node.rack) + '</div>';
+        html += '<div class="map-node-eq">'   + h(node.eq)   + '</div>';
+
+        if (node.slot) {
+          var slotTxt = 'Slot ' + h(node.slot);
+          if (node.placa) slotTxt += ' — ' + h(node.placa);
+          html += '<div class="map-node-slot">' + slotTxt + '</div>';
+        }
+
+        // IP
+        if (node.ip && node.ip !== '') {
+          var ipCls = node.ip === 'N/D' ? 'pend' : 'ok';
+          var ipTxt = node.ip === 'N/D' ? 'IP pendiente' : node.ip;
+          html += '<div class="map-node-ip ' + ipCls + '">' + h(ipTxt) + '</div>';
+        }
+
+        // Puertos
+        html += '<div class="map-node-divider"></div>';
+        if (node.inPort)  html += '<div class="map-node-port in"  id="map-in-'  + colIdx + '-' + nodeIdx + '">▶ ' + h(node.inPort)  + '</div>';
+        if (node.outPort) html += '<div class="map-node-port out" id="map-out-' + colIdx + '-' + nodeIdx + '-' + cssId(node.outPort) + '">'  + h(node.outPort) + ' ▶</div>';
+
+        // Si el nodo tiene ramas, renderizar cada outPort de rama
+        if (node.branches && node.branches.length) {
+          node.branches.forEach(function(br) {
+            html += '<div class="map-node-port out" id="map-out-' + colIdx + '-' + nodeIdx + '-' + cssId(br.outPort) + '">' + h(br.outPort) + ' ▶</div>';
+          });
+        }
+
+        // Rótulo after (cable saliente)
+        if (node.rotuloAfter) {
+          html += '<div class="map-node-divider"></div>';
+          html += '<div class="map-node-rotulo">⟳ ' + h(node.rotuloAfter) + '</div>';
+        }
+      }
+
+      html += '</div>'; // .map-node
+    });
+
+    html += '</div>'; // .map-col
+  });
+
+  // SVG overlay para las flechas (se dibuja después con JS)
+  html += '<svg class="map-svg" id="map-svg"></svg>';
+  html += '</div>'; // .map-graph
+  window._mapCols = cols;
+  container.innerHTML = html;
+
+  // Dibujar flechas después de que el DOM esté listo
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      drawMapArrows(cols);
+    });
+  });
+}
+
+function drawMapArrows(cols) {
+  var svg   = document.getElementById('map-svg');
+  var graph = document.getElementById('map-graph');
+  if (!svg || !graph) return;
+
+  var gRect   = graph.getBoundingClientRect();
+  var isHoriz = true;
+  var paths   = '';
+
+  function elMidY(el) {
+    var r = el.getBoundingClientRect();
+    return r.top - gRect.top + r.height / 2;
+  }
+  function elMidX(el) {
+    var r = el.getBoundingClientRect();
+    return r.left - gRect.left + r.width / 2;
+  }
+  function elRight(el) { return el.getBoundingClientRect().right  - gRect.left; }
+  function elLeft(el)  { return el.getBoundingClientRect().left   - gRect.left; }
+  function elBottom(el){ return el.getBoundingClientRect().bottom - gRect.top;  }
+  function elTop(el)   { return el.getBoundingClientRect().top    - gRect.top;  }
+
+  function bezier(x1,y1,x2,y2,isBranch){
+    var dx = (x2-x1)*0.5, dy = (y2-y1)*0.5;
+    var cx1 = isHoriz ? x1+dx : x1;
+    var cy1 = isHoriz ? y1    : y1+dy;
+    var cx2 = isHoriz ? x2-dx : x2;
+    var cy2 = isHoriz ? y2    : y2-dy;
+    var marker = isBranch ? 'url(#map-arrowhead-branch)' : 'url(#map-arrowhead)';
+    return '<path class="map-arrow'+(isBranch?' branch':'')+'" d="M'+x1+','+y1+' C'+cx1+','+cy1+' '+cx2+','+cy2+' '+x2+','+y2+'" marker-end="'+marker+'"/>';
+  }
+
+  cols.forEach(function(nodes, colIdx) {
+    // ¿Es columna de ramas? — los nodos tienen srcColIdx definido
+    var isBranchCol = nodes.length > 0 && nodes[0].srcColIdx !== undefined;
+
+    if (isBranchCol) {
+      // Cada nodo tiene su propio srcOutPort y apunta al padre en srcColIdx
+      nodes.forEach(function(node, nodeIdx) {
+        var parentColIdx = node.srcColIdx;
+        // Buscar el elemento "out" del padre que corresponde a esta rama
+        // El padre está en cols[parentColIdx][0]
+        var parentOutEl = document.getElementById('map-out-' + parentColIdx + '-0-' + cssId(node.srcOutPort));
+        var parentNodeEl = document.getElementById('map-node-' + parentColIdx + '-0');
+        var toInEl   = document.getElementById('map-in-'   + colIdx + '-' + nodeIdx);
+        var toNodeEl = document.getElementById('map-node-' + colIdx + '-' + nodeIdx);
+        if (!parentNodeEl || !toNodeEl) return;
+
+        var pR = parentNodeEl.getBoundingClientRect();
+        var tR = toNodeEl.getBoundingClientRect();
+
+        var x1 = isHoriz ? elRight(parentNodeEl)
+                         : elMidX(parentNodeEl);
+        var y1 = parentOutEl ? elMidY(parentOutEl)
+                             : (pR.top - gRect.top + pR.height / 2);
+        var x2 = isHoriz ? elLeft(toNodeEl) - 4
+                         : elMidX(toNodeEl);
+        var y2 = toInEl  ? elMidY(toInEl)
+                         : (tR.top - gRect.top + tR.height / 2);
+
+        paths += bezier(x1, y1, x2, y2, true);
+      });
+      return; // no dibujar flecha hacia la siguiente columna
+    }
+
+    // Columna normal — flecha hacia la siguiente columna no-rama
+    // Buscar la próxima columna que no sea de ramas
+    var nextColIdx = colIdx + 1;
+    while (nextColIdx < cols.length && cols[nextColIdx][0] && cols[nextColIdx][0].srcColIdx !== undefined) {
+      nextColIdx++;
+    }
+    if (nextColIdx >= cols.length) return;
+
+    var fromOutEl = (function(){
+      // Buscar cualquier elemento map-out de este nodo (el primero que aparezca)
+      var all = document.querySelectorAll('[id^="map-out-' + colIdx + '-0-"]');
+      return all.length ? all[0] : null;
+    })();
+    var fromNodeEl = document.getElementById('map-node-' + colIdx     + '-0');
+    var toInEl     = document.getElementById('map-in-'   + nextColIdx + '-0');
+    var toNodeEl   = document.getElementById('map-node-' + nextColIdx + '-0');
+    if (!fromNodeEl || !toNodeEl) return;
+
+    var fR = fromNodeEl.getBoundingClientRect();
+    var tR = toNodeEl.getBoundingClientRect();
+
+    var x1 = isHoriz ? elRight(fromNodeEl)      : elMidX(fromNodeEl);
+    var y1 = fromOutEl ? elMidY(fromOutEl)       : (fR.top - gRect.top + fR.height / 2);
+    var x2 = isHoriz ? elLeft(toNodeEl) - 4     : elMidX(toNodeEl);
+    var y2 = toInEl  ? elMidY(toInEl)           : (tR.top - gRect.top + tR.height / 2);
+
+    paths += bezier(x1, y1, x2, y2, false);
+  });
+
+  svg.innerHTML = paths;
+}
+
+function cssId(str) {
+  return String(str||'').replace(/[^a-zA-Z0-9_-]/g, '_');
 }
 </script>
 </body>
