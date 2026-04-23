@@ -5,6 +5,7 @@ on:
     paths:
       - 'Racks.xlsx'
       - 'Ext1.xlsx'
+      - 'Ext2.xlsx'
   workflow_dispatch:
 
 jobs:
@@ -28,12 +29,13 @@ jobs:
         run: |
           if [ -f Racks.xlsx ]; then python parse_rack.py; fi
           if [ -f Ext1.xlsx ];  then python parse_ext1.py; fi
+          if [ -f Ext2.xlsx ];  then python parse_ext2.py; fi
 
       - name: Commit JSONs
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add racks.json ext1.json
+          git add racks.json ext1.json ext2.json
           git diff --staged --quiet || git commit -m "auto: actualizar jsons"
           git pull --rebase
           git push
