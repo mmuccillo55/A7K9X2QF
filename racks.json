@@ -8706,11 +8706,11 @@
         "puerto": "Video Out 4"
       },
       "dst": {
-        "rack": "L.6",
-        "equipo": "openGear X",
-        "slot": "0",
-        "placa": "Main",
-        "puerto": "REF In"
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
       },
       "rotulo": "",
       "notas": "",
@@ -9365,7 +9365,7 @@
     "arcos_totales": 451,
     "arcos_externos": 312,
     "arcos_thru_internos": 139,
-    "arcos_con_destino": 234,
-    "arcos_sin_destino": 78
+    "arcos_con_destino": 233,
+    "arcos_sin_destino": 79
   }
 }
