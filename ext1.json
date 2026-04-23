@@ -51,7 +51,7 @@
     },
     {
       "rack": "B.7",
-      "equipo": "SmartView Duo",
+      "equipo": "SmartView (AIRE/PGM)",
       "ip": null,
       "management": {
         "puerto": ""
@@ -115,7 +115,7 @@
     },
     {
       "rack": "C.6",
-      "equipo": "SmartScope Duo",
+      "equipo": "SmartScope (PGM)",
       "ip": null,
       "management": {
         "puerto": ""
@@ -163,7 +163,7 @@
     },
     {
       "rack": "D.5",
-      "equipo": "SmartView HD",
+      "equipo": "SmartView (PVW)",
       "ip": null,
       "management": {
         "puerto": ""
@@ -171,7 +171,7 @@
     },
     {
       "rack": "D.6",
-      "equipo": "SmartScope Duo",
+      "equipo": "SmartScope (PVW)",
       "ip": null,
       "management": {
         "puerto": ""
@@ -1196,7 +1196,7 @@
     {
       "src": {
         "rack": "C.6",
-        "equipo": "SmartScope Duo",
+        "equipo": "SmartScope (PGM)",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 2"
@@ -1215,14 +1215,14 @@
     {
       "src": {
         "rack": "C.6",
-        "equipo": "SmartScope Duo",
+        "equipo": "SmartScope (PGM)",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 2"
       },
       "dst": {
         "rack": "C.6",
-        "equipo": "SmartScope Duo",
+        "equipo": "SmartScope (PGM)",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 2"
@@ -1369,14 +1369,14 @@
     {
       "src": {
         "rack": "B.7",
-        "equipo": "SmartView Duo",
+        "equipo": "SmartView (AIRE/PGM)",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 2"
       },
       "dst": {
         "rack": "C.6",
-        "equipo": "SmartScope Duo",
+        "equipo": "SmartScope (PGM)",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 1"
@@ -1388,14 +1388,14 @@
     {
       "src": {
         "rack": "B.7",
-        "equipo": "SmartView Duo",
+        "equipo": "SmartView (AIRE/PGM)",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 2"
       },
       "dst": {
         "rack": "B.7",
-        "equipo": "SmartView Duo",
+        "equipo": "SmartView (AIRE/PGM)",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 2"
@@ -1434,7 +1434,7 @@
       },
       "dst": {
         "rack": "B.7",
-        "equipo": "SmartView Duo",
+        "equipo": "SmartView (AIRE/PGM)",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 1"
@@ -1531,7 +1531,7 @@
       },
       "dst": {
         "rack": "B.7",
-        "equipo": "SmartView Duo",
+        "equipo": "SmartView (AIRE/PGM)",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 2"
@@ -2498,14 +2498,14 @@
     {
       "src": {
         "rack": "C.6",
-        "equipo": "SmartScope Duo",
+        "equipo": "SmartScope (PGM)",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 1"
       },
       "dst": {
         "rack": "C.6",
-        "equipo": "SmartScope Duo",
+        "equipo": "SmartScope (PGM)",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 2"
@@ -2517,14 +2517,14 @@
     {
       "src": {
         "rack": "C.6",
-        "equipo": "SmartScope Duo",
+        "equipo": "SmartScope (PGM)",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 1"
       },
       "dst": {
         "rack": "C.6",
-        "equipo": "SmartScope Duo",
+        "equipo": "SmartScope (PGM)",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 1"
@@ -4065,7 +4065,7 @@
       },
       "dst": {
         "rack": "D.5",
-        "equipo": "SmartView HD",
+        "equipo": "SmartView (PVW)",
         "slot": "",
         "placa": "",
         "puerto": "SDI In"
@@ -4077,14 +4077,14 @@
     {
       "src": {
         "rack": "D.5",
-        "equipo": "SmartView HD",
+        "equipo": "SmartView (PVW)",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out"
       },
       "dst": {
         "rack": "D.6",
-        "equipo": "SmartScope Duo",
+        "equipo": "SmartScope (PVW)",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 1"
@@ -4096,14 +4096,14 @@
     {
       "src": {
         "rack": "D.5",
-        "equipo": "SmartView HD",
+        "equipo": "SmartView (PVW)",
         "slot": "",
         "placa": "",
         "puerto": "SDI In"
       },
       "dst": {
         "rack": "D.5",
-        "equipo": "SmartView HD",
+        "equipo": "SmartView (PVW)",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out"
@@ -4116,14 +4116,14 @@
     {
       "src": {
         "rack": "D.6",
-        "equipo": "SmartScope Duo",
+        "equipo": "SmartScope (PVW)",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 1"
       },
       "dst": {
         "rack": "D.6",
-        "equipo": "SmartScope Duo",
+        "equipo": "SmartScope (PVW)",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 2"
@@ -4135,14 +4135,14 @@
     {
       "src": {
         "rack": "D.6",
-        "equipo": "SmartScope Duo",
+        "equipo": "SmartScope (PVW)",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 1"
       },
       "dst": {
         "rack": "D.6",
-        "equipo": "SmartScope Duo",
+        "equipo": "SmartScope (PVW)",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 1"
