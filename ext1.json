@@ -248,6 +248,14 @@
       "management": {
         "puerto": ""
       }
+    },
+    {
+      "rack": "GL",
+      "equipo": "GENLOCK",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
     }
   ],
   "conexiones": [
@@ -6129,26 +6137,6 @@
         "equipo": "Sync Generator",
         "slot": "",
         "placa": "",
-        "puerto": "REF"
-      },
-      "dst": {
-        "rack": "C.0",
-        "equipo": "Sync Generator",
-        "slot": "",
-        "placa": "",
-        "puerto": "REF Out 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.0",
-        "equipo": "Sync Generator",
-        "slot": "",
-        "placa": "",
         "puerto": "REF Out 2"
       },
       "dst": {
@@ -6168,26 +6156,6 @@
         "equipo": "Sync Generator",
         "slot": "",
         "placa": "",
-        "puerto": "REF"
-      },
-      "dst": {
-        "rack": "C.0",
-        "equipo": "Sync Generator",
-        "slot": "",
-        "placa": "",
-        "puerto": "REF Out 2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.0",
-        "equipo": "Sync Generator",
-        "slot": "",
-        "placa": "",
         "puerto": "REF Out 3"
       },
       "dst": {
@@ -6200,26 +6168,6 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.0",
-        "equipo": "Sync Generator",
-        "slot": "",
-        "placa": "",
-        "puerto": "REF"
-      },
-      "dst": {
-        "rack": "C.0",
-        "equipo": "Sync Generator",
-        "slot": "",
-        "placa": "",
-        "puerto": "REF Out 3"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
     },
     {
       "src": {
@@ -6246,26 +6194,6 @@
         "equipo": "Sync Generator",
         "slot": "",
         "placa": "",
-        "puerto": "REF"
-      },
-      "dst": {
-        "rack": "C.0",
-        "equipo": "Sync Generator",
-        "slot": "",
-        "placa": "",
-        "puerto": "REF Out 4"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.0",
-        "equipo": "Sync Generator",
-        "slot": "",
-        "placa": "",
         "puerto": "REF Out 5"
       },
       "dst": {
@@ -6285,26 +6213,6 @@
         "equipo": "Sync Generator",
         "slot": "",
         "placa": "",
-        "puerto": "REF"
-      },
-      "dst": {
-        "rack": "C.0",
-        "equipo": "Sync Generator",
-        "slot": "",
-        "placa": "",
-        "puerto": "REF Out 5"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "C.0",
-        "equipo": "Sync Generator",
-        "slot": "",
-        "placa": "",
         "puerto": "REF Out 6"
       },
       "dst": {
@@ -6317,26 +6225,6 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "C.0",
-        "equipo": "Sync Generator",
-        "slot": "",
-        "placa": "",
-        "puerto": "REF"
-      },
-      "dst": {
-        "rack": "C.0",
-        "equipo": "Sync Generator",
-        "slot": "",
-        "placa": "",
-        "puerto": "REF Out 6"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
     },
     {
       "src": {
@@ -6461,6 +6349,45 @@
         "equipo": "Miranda D3 (Video)",
         "slot": "6",
         "placa": "Analog Dist. Amp.",
+        "puerto": "Out 4"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
         "puerto": "Out 5"
       },
       "dst": {
@@ -6527,6 +6454,84 @@
         "slot": "6",
         "placa": "Analog Dist. Amp.",
         "puerto": "Out 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 7"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 7"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 8"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 8"
       },
       "rotulo": "",
       "notas": "",
@@ -6652,11 +6657,11 @@
     }
   ],
   "stats": {
-    "nodos": 31,
+    "nodos": 32,
     "arcos_totales": 330,
-    "arcos_externos": 201,
-    "arcos_thru_internos": 129,
+    "arcos_externos": 204,
+    "arcos_thru_internos": 126,
     "arcos_con_destino": 176,
-    "arcos_sin_destino": 25
+    "arcos_sin_destino": 28
   }
 }
