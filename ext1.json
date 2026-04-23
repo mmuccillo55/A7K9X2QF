@@ -74,6 +74,14 @@
       }
     },
     {
+      "rack": "C.0",
+      "equipo": "Sync Generator",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
       "rack": "C.1",
       "equipo": "RF",
       "ip": null,
@@ -155,7 +163,7 @@
     },
     {
       "rack": "D.4",
-      "equipo": "ATEM 1 Panel",
+      "equipo": "Headset Director",
       "ip": null,
       "management": {
         "puerto": ""
@@ -1178,7 +1186,7 @@
       "src": {
         "rack": "B.9",
         "equipo": "PC CG",
-        "slot": "1",
+        "slot": "2",
         "placa": "DeckLink",
         "puerto": "P1"
       },
@@ -1428,7 +1436,7 @@
       "src": {
         "rack": "B.9",
         "equipo": "PC CG",
-        "slot": "1",
+        "slot": "2",
         "placa": "DeckLink",
         "puerto": "P2"
       },
@@ -1610,7 +1618,7 @@
       "dst": {
         "rack": "B.9",
         "equipo": "PC CG",
-        "slot": "1",
+        "slot": "2",
         "placa": "DeckLink",
         "puerto": "P3"
       },
@@ -5710,14 +5718,945 @@
       "rotulo": "C5A2",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.9",
+        "equipo": "PC CG",
+        "slot": "1",
+        "placa": "Soundcard",
+        "puerto": "Speaker Out"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "PC CG"
+      },
+      "rotulo": "AIRE",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.8",
+        "equipo": "PC Video",
+        "slot": "0",
+        "placa": "Onboard",
+        "puerto": "Speaker Out"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "PC VID"
+      },
+      "rotulo": "PC VIDEO",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "PC Audio",
+        "slot": "0",
+        "placa": "Onboard",
+        "puerto": "Speaker Out"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "PC AUD"
+      },
+      "rotulo": "PC AUDIO",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.3",
+        "equipo": "CopperHead ProHD 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom Out"
+      },
+      "dst": {
+        "rack": "D.3",
+        "equipo": "Mixer Intercom",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "rotulo": "INCOM JVC 1",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.4",
+        "equipo": "CopperHead ProHD 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom Out"
+      },
+      "dst": {
+        "rack": "D.3",
+        "equipo": "Mixer Intercom",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 2"
+      },
+      "rotulo": "INCOM JVC 2",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.5",
+        "equipo": "CopperHead ProHD 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom Out"
+      },
+      "dst": {
+        "rack": "D.3",
+        "equipo": "Mixer Intercom",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 3"
+      },
+      "rotulo": "INCOM JVC 3",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.3",
+        "equipo": "Ikegami BS-80 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom Out"
+      },
+      "dst": {
+        "rack": "D.3",
+        "equipo": "Mixer Intercom",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 4"
+      },
+      "rotulo": "INCOM IKE 4",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.4",
+        "equipo": "Ikegami BS-80 5",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom Out"
+      },
+      "dst": {
+        "rack": "D.3",
+        "equipo": "Mixer Intercom",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 5"
+      },
+      "rotulo": "INCOM IKE 5",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 1"
+      },
+      "dst": {
+        "rack": "B.3",
+        "equipo": "CopperHead ProHD 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom In"
+      },
+      "rotulo": "INTERCOM",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 2"
+      },
+      "dst": {
+        "rack": "B.4",
+        "equipo": "CopperHead ProHD 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom In"
+      },
+      "rotulo": "INTERCOM",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 3"
+      },
+      "dst": {
+        "rack": "B.5",
+        "equipo": "CopperHead ProHD 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom In"
+      },
+      "rotulo": "INTERCOM",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 4"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "Ikegami BS-80 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom In"
+      },
+      "rotulo": "INTERCOM",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 5"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Ikegami BS-80 5",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom In"
+      },
+      "rotulo": "INTERCOM",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.3",
+        "equipo": "Mixer Intercom",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out"
+      },
+      "dst": {
+        "rack": "D.4",
+        "equipo": "Headset Director",
+        "slot": "",
+        "placa": "",
+        "puerto": "SPK"
+      },
+      "rotulo": "HEADSET",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.4",
+        "equipo": "Headset Director",
+        "slot": "",
+        "placa": "",
+        "puerto": "MIC"
+      },
+      "dst": {
+        "rack": "D.1",
+        "equipo": "Yamaha MG166",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 9"
+      },
+      "rotulo": "MIC ORD",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out 1"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "rotulo": "REF",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF"
+      },
+      "dst": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out 2"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF"
+      },
+      "dst": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out 3"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF"
+      },
+      "dst": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out 4"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "1",
+        "placa": "CG",
+        "puerto": "REF In"
+      },
+      "rotulo": "REF",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF"
+      },
+      "dst": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out 4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out 5"
+      },
+      "dst": {
+        "rack": "B.2",
+        "equipo": "ATEM 1 M/E",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "REF",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF"
+      },
+      "dst": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out 6"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF"
+      },
+      "dst": {
+        "rack": "C.0",
+        "equipo": "Sync Generator",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 1"
+      },
+      "dst": {
+        "rack": "C.4",
+        "equipo": "Ikegami BS-80 5",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "REF",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 2"
+      },
+      "dst": {
+        "rack": "B.3",
+        "equipo": "CopperHead ProHD 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "REF",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 3"
+      },
+      "dst": {
+        "rack": "B.9",
+        "equipo": "PC CG",
+        "slot": "2",
+        "placa": "DeckLink",
+        "puerto": "REF In"
+      },
+      "rotulo": "REF",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 5"
+      },
+      "dst": {
+        "rack": "C.3",
+        "equipo": "Ikegami BS-80 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "REF",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 6"
+      },
+      "dst": {
+        "rack": "B.8",
+        "equipo": "PC Video",
+        "slot": "2",
+        "placa": "DeckLink",
+        "puerto": "REF In"
+      },
+      "rotulo": "REF",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "C.2",
+        "equipo": "Miranda D3 (Video)",
+        "slot": "6",
+        "placa": "Analog Dist. Amp.",
+        "puerto": "Out 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.3",
+        "equipo": "CopperHead ProHD 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "dst": {
+        "rack": "B.4",
+        "equipo": "CopperHead ProHD 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "REF",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.3",
+        "equipo": "CopperHead ProHD 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "dst": {
+        "rack": "B.3",
+        "equipo": "CopperHead ProHD 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.4",
+        "equipo": "CopperHead ProHD 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "dst": {
+        "rack": "B.5",
+        "equipo": "CopperHead ProHD 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "REF",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.4",
+        "equipo": "CopperHead ProHD 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "dst": {
+        "rack": "B.4",
+        "equipo": "CopperHead ProHD 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "B.5",
+        "equipo": "CopperHead ProHD 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "dst": {
+        "rack": "B.6",
+        "equipo": "HyperDeck Studio Pro",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "rotulo": "REF",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.5",
+        "equipo": "CopperHead ProHD 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF In"
+      },
+      "dst": {
+        "rack": "B.5",
+        "equipo": "CopperHead ProHD 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "REF Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     }
   ],
   "stats": {
-    "nodos": 30,
-    "arcos_totales": 282,
-    "arcos_externos": 172,
-    "arcos_thru_internos": 110,
-    "arcos_con_destino": 150,
-    "arcos_sin_destino": 22
+    "nodos": 31,
+    "arcos_totales": 330,
+    "arcos_externos": 201,
+    "arcos_thru_internos": 129,
+    "arcos_con_destino": 176,
+    "arcos_sin_destino": 25
   }
 }
