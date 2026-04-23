@@ -1,0 +1,86 @@
+{
+  "proyecto": "Ext2",
+  "nodos": [
+    {
+      "rack": "A.1",
+      "equipo": "N/D",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "B.1",
+      "equipo": "N/D",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "C.1",
+      "equipo": "N/D",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "D.1",
+      "equipo": "N/D",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "Ext.1",
+      "equipo": "N/D",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "Ext.2",
+      "equipo": "N/D",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "VACANTE",
+      "equipo": "",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "N/D",
+      "equipo": "",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "N/C",
+      "equipo": "",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    }
+  ],
+  "conexiones": [],
+  "stats": {
+    "nodos": 9,
+    "arcos_totales": 0,
+    "arcos_externos": 0,
+    "arcos_thru_internos": 0,
+    "arcos_con_destino": 0,
+    "arcos_sin_destino": 0
+  }
+}
