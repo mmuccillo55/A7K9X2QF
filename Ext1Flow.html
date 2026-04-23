@@ -15,7 +15,7 @@
 :root{
   --bg:#080c11;          /* fondo de página */
   --panel:#0e1520;       /* fondo de cards / header */
-  --panel2:#131d2b;      /* fondo secundario (botones de puerto, popover) */
+  --panel2:#131d2b;      /* fondo secundario (botones de puerto) */
   --border:#1c2a3c;      /* borde estándar */
   --border2:#243548;     /* borde ligeramente más visible */
   --accent:#00c8f0;      /* cyan — entradas, links, highlights */
@@ -159,53 +159,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .p-num{font-family:var(--mono);font-size:.8rem;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding:0 2px;}
 .p-lbl{font-size:.6rem;color:var(--text);margin-top:2px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px;}
 
-/* ─────────────────────────────────────────────────────────────────
-   POPOVER DE RUTA DE SEÑAL
-   Se posiciona con JS (positionPop) cerca del puerto clickeado.
-   Muestra la traza upstream + downstream del puerto.
-   Se cierra con closePop() o clickeando afuera.
-   ───────────────────────────────────────────────────────────────── */
-#pop{position:fixed;z-index:500;background:var(--panel2);border:1px solid var(--border2);
-  border-radius:6px;padding:12px 14px 14px;min-width:240px;max-width:320px;
-  max-height:70vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.85);display:none;}
-#pop.on{display:block;}
-#pop-hdr{display:flex;align-items:center;margin-bottom:10px;}
-#pop-lbl{font-family:var(--mono);font-size:.52rem;letter-spacing:2px;color:var(--accent);flex:1;}
-#pop-close{background:none;border:none;color:var(--text2);cursor:pointer;font-size:.9rem;padding:0 0 0 8px;line-height:1;}
-#pop-close:hover{color:var(--text);}
-#pop-body{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
-
-/* ─────────────────────────────────────────────────────────────────
-   ESTILOS DE LA TRAZA (dentro del popover)
-   Cada nodo de la ruta se renderiza con estas clases:
-   .tr-node  = fila del equipo
-   .tr-rack  = identificador de rack (amarillo)
-   .tr-eq    = nombre del equipo
-   .tr-slot  = slot / placa (cyan)
-   .tr-out   = puerto de salida (naranja) "Out 1 >>>"
-   .tr-in    = puerto de entrada (cyan) ">>> In 1"
-   .tr-branch = rama de distribución (indentada, verde)
-   .tr-gap   = separador visual entre nodos
-   .tr-nodata = error / sin datos (rojo)
-   .tr-dispext = rótulo del cable (gris itálica)
-   .tr-nc    = N/C no conectado (gris)
-   .tr-unk   = destino desconocido (amarillo)
-   ───────────────────────────────────────────────────────────────── */
-.tr-node{margin-bottom:1px;}
-.tr-eq{color:var(--text);font-weight:600;font-family:var(--sans);font-size:.72rem;}
-.tr-rack{color:var(--yellow);font-size:.6rem;margin-right:4px;}
-.tr-slot{color:var(--accent);font-size:.6rem;}
-.tr-out{color:var(--orange);}
-.tr-in{color:var(--accent);}
-.tr-branch{padding-left:42px;color:var(--green);font-size:.64rem;display:flex;align-items:baseline;gap:4px;flex-wrap:wrap;}
-.tr-branch-dst{color:var(--text2);}
-.tr-branch-dport{color:var(--accent);}
-.tr-gap{height:7px;}
-.tr-nodata{color:var(--red);font-style:normal;font-size:.64rem;font-weight:600;}
-.tr-dispext{font-size:.6rem;color:var(--green);}
-.tr-nc{color:var(--text);font-size:.64rem;}
-.tr-unk{color:var(--red);font-size:.64rem;}
-
 /* Scrollbar minimalista */
 ::-webkit-scrollbar{width:4px;height:4px;}
 ::-webkit-scrollbar-track{background:transparent;}
@@ -284,7 +237,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
   flex-direction:column;
   gap:3px;
   position:relative;
+  cursor:pointer;
 }
+
+.map-node:hover{
+  border-color:var(--accent);
+}
+
 .map-node.node-nc{
   border-color:var(--muted);
   opacity:.5;
@@ -392,16 +351,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 <div id="view-equip" class="view"></div>
 <div id="view-map" class="view"></div>
 
-<!-- Popover de ruta de señal. Posicionado con JS, z-index 500. -->
-<div id="pop">
-  <div id="pop-hdr">
-    <span id="pop-lbl">&#9654; RUTA DE SEÑAL</span>
-    <a id="pop-map-link" style="display:none;font-family:var(--mono);font-size:.6rem;color:var(--accent);text-decoration:none;cursor:pointer;margin-left:8px;padding:2px 7px;border:1px solid var(--border2);border-radius:3px;">&#9638; Mapa</a>
-    <button id="pop-close" onclick="closePop()">&#10005;</button>
-  </div>
-  <div id="pop-body"></div>
-</div>
-
 <script>
 
 var CONNS=[], NODOS={}, PROJ='', _nav=[], _selBtn=null, _onEquipReady=null;
@@ -451,10 +400,6 @@ function init(data){
 	      }
 	    }, 200);
 	  }
-	});
-	
-	window.addEventListener('scroll', function(){
-	closePop();
 	});
 }
 
@@ -606,36 +551,24 @@ function updateHdr(bc){
    → pop → _nav = [racks]
    → showSlots() → push → _nav = [racks, slots]  ✓ correcto */
 function goBack(){
-  closePop();
-  _nav.pop();
-  if(!_nav.length){ showRacks(); return; }
-  var top = _nav[_nav.length-1];
-  _nav.pop();
-  if(top.type==='racks')      showRacks();
-  else if(top.type==='slots') showSlots(top.rack,top.eq);
-  else if(top.type==='equip') showEquip(top.rack,top.eq,top.slot);
-  else if(top.type==='map'){
-  _onEquipReady = function(){
-    var body = buildRoute(top.rack, top.eq, top.slot, top.puerto);
-    var mapArgs = { rack:top.rack, eq:top.eq, slot:top.slot, puerto:top.puerto };
-    var ghost = document.createElement('div');
-    ghost.style.cssText = 'position:fixed;left:50%;top:50%;width:1px;height:1px;';
-    document.body.appendChild(ghost);
-    showPop(ghost, body, mapArgs);
-    positionPopCenter();
-    setTimeout(function(){ ghost.remove(); }, 100);
-  };
-  showEquip(top.rack, top.eq, top.slot);
-}
-}
+  if(_nav.length <= 1){
+    showRacks(true);
+    return;
+  }
 
-function positionPopCenter(){
-  var pop = document.getElementById('pop');
-  var pw  = 300;
-  var ph  = pop.offsetHeight || 340;
-  pop.style.left = Math.round((window.innerWidth  - pw) / 2) + 'px';
-  pop.style.top  = Math.round((window.innerHeight - ph) / 2) + 'px';
-  pop.style.width = pw + 'px';
+  _nav.pop();
+
+  var top = _nav[_nav.length - 1];
+
+  if(!top || !top.type){
+    showRacks(true);
+    return;
+  }
+
+  if(top.type==='racks')      showRacks(true);
+  else if(top.type==='slots') showSlots(top.rack, top.eq, true);
+  else if(top.type==='equip') showEquip(top.rack, top.eq, top.slot, true);
+  else if(top.type==='map')   showMap(top.rack, top.eq, top.slot, top.puerto, true);
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -643,9 +576,12 @@ function positionPopCenter(){
    Agrupa todos los equipos por prefijo de rack (A, B, C, DC, TX...).
    Fuente de datos: CONNS (conexiones no-thru) + NODOS (equipos del JSON).
    ───────────────────────────────────────────────────────────────── */
-function showRacks(){
-  _nav=[{type:'racks'}]; closePop(); updateHdr(''); setView('view-racks');
+function showRacks(fromBack){
+  if(!fromBack){
+    _nav = [{type:'racks'}]; // reset limpio
+  }
 
+  setView('view-racks');
   /* rm: dict de rack → { equipo: true }
      Se construye desde CONNS y desde NODOS para incluir equipos
      que existan en el JSON pero no tengan conexiones documentadas. */
@@ -727,8 +663,12 @@ function toggleMobileList(btn){
    Para frames (equipos con múltiples slots).
    Lista los slots disponibles con su placa asociada.
    ───────────────────────────────────────────────────────────────── */
-function showSlots(rack,frameEq){
-  _nav.push({type:'slots',rack:rack,eq:frameEq}); closePop(); setView('view-slots');
+function showSlots(rack,frameEq,fromBack){
+  if(!fromBack){
+    _nav.push({type:'slots', rack:rack, eq:frameEq});
+  }
+
+  setView('view-slots');
   updateHdr('<span class="hi">'+h(rack)+'</span> › '+h(frameEq));
   var slots=getSlots(rack,frameEq);
   var ip=getIP(rack,frameEq);
@@ -817,8 +757,12 @@ function drawThruLines(rack, eq, slot, pairs){
   }
 }
 
-function showEquip(rack,eq,slot){
-  _nav.push({type:'equip',rack:rack,eq:eq,slot:slot}); closePop(); setView('view-equip');
+function showEquip(rack, eq, slot, fromBack){
+  if(!fromBack){
+    _nav.push({type:'equip', rack:rack, eq:eq, slot:slot});
+  }
+
+  setView('view-equip');
 
   var isSlotEq = slot!=='';
   var bc = isSlotEq
@@ -868,7 +812,7 @@ function showEquip(rack,eq,slot){
     if(state === 'NC') cls += ' p-free';
     else if(state === 'ND') cls += ' p-nd';
     var role = isOutput ? 'out' : 'in';
-    var click = ' onclick="onPortClick(this,' + clickArgs + ',\'' + state + '\')"';
+    var click = ' onclick="event.stopPropagation(); onPortClick(this,' + clickArgs + ',\'' + state + '\')"';
     return '<div class="' + cls + '" data-port="' + h(port) + '" data-role="' + role + '"' + click + '>'
       + '<div class="p-num">' + h(port || 'N/D') + '</div>'
       + '<div class="p-lbl">' + h(lbl) + '</div>'
@@ -1046,85 +990,44 @@ function showEquip(rack,eq,slot){
     requestAnimationFrame(cb);
   }
 }
-/* ─────────────────────────────────────────────────────────────────
-   POPOVER
-   ───────────────────────────────────────────────────────────────── */
-
-/* closePop(): cierra el popover y deselecciona el botón activo. */
-function closePop(){
-  document.getElementById('pop').classList.remove('on');
-  if(_selBtn){_selBtn.classList.remove('selected');_selBtn=null;}
-}
-
-/* positionPop(): posiciona el popover cerca del botón clickeado.
-   Intenta aparecer abajo; si no hay espacio, aparece arriba. */
-function positionPop(btn){
-  var pop=document.getElementById('pop');
-  var r=btn.getBoundingClientRect();
-  var pw=300;
-  var left=r.left+r.width/2-pw/2;
-  left=Math.max(8,Math.min(left,window.innerWidth-pw-8));
-  
-  var top=r.bottom+8;
-  var popHeight=pop.offsetHeight||340; // Usar altura real del popover
-  
-  if(top+popHeight>window.innerHeight){
-    top=r.top-popHeight-8; // Ir arriba con espacio
-  }
-  
-  top=Math.max(8,top); // No salirse del top de la pantalla
-  
-  pop.style.left=left+'px'; pop.style.top=top+'px'; pop.style.width=pw+'px';
-}
-
-/* showPop(): muestra el popover con contenido html.
-   Si se clickea el mismo botón dos veces, cierra el popover (toggle). */
-function showPop(btn,html,mapArgs){
-  if(_selBtn===btn){closePop();return;}
-  if(_selBtn) _selBtn.classList.remove('selected');
-  _selBtn=btn; btn.classList.add('selected');
-  document.getElementById('pop-body').innerHTML=html;
-
-  // Link "Mapa" — solo si el puerto está documentado
-  var mapLink=document.getElementById('pop-map-link');
-  if(mapArgs){
-    mapLink.style.display='inline';
-    mapLink.onclick=function(){ showMap(mapArgs.rack,mapArgs.eq,mapArgs.slot,mapArgs.puerto); };
-  } else {
-    mapLink.style.display='none';
-    mapLink.onclick=null;
-  }
-
-  document.getElementById('pop').classList.add('on');
-  positionPop(btn);
-}
 
 /* onPortClick(): handler de click en puerto normal.
    Determina el contenido del popover según el estado del puerto.
    state='doc' → buildRoute() para trazar la ruta de señal completa. */
 function onPortClick(btn,sr,se,ss0,sp,state){
-  var body;
-  var mapArgs=null;
 
-  if(state==='NC'){
-    body='<div class="tr-nc">N/C — No Conectado</div>';
-  } else if(state==='ND'){
-    body='<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO ⚠</div>';
-  } else if(state==='doc'){
-    body=buildRoute(sr,se,ss0,sp);
-    mapArgs={rack:sr,eq:se,slot:ss0,puerto:sp};
-  } else {
-    body='<div class="tr-nodata">Estado desconocido.</div>';
+  if(state === 'doc'){
+
+    var inMap = document.getElementById('view-map').classList.contains('active');
+
+    if(inMap){
+      // 👉 si estoy en mapa → voy al equipo
+      showEquip(sr, se, ss0);
+    } else {
+      // 👉 si estoy en equipo → voy al mapa
+      showMap(sr, se, ss0, sp);
+    }
+
+    return;
   }
-  showPop(btn,body,mapArgs);
+
+  // NC / ND → ignorar o alert
 }
 
-/* Cerrar popover al clickear fuera de él o de los botones de puerto */
-document.addEventListener('click',function(e){
-  var pop=document.getElementById('pop');
-  if(!pop.contains(e.target)&&!e.target.closest('.port-btn')) closePop();
-});
-
+function onMapNodeClick(rack, eq, slot){
+  // elegir puerto default del nodo
+  var outs = getCablesOut(rack, eq, slot, '');
+  
+  if(outs.length){
+    showMap(rack, eq, slot, outs[0].sp);
+  } else {
+    // fallback: agarrar cualquier conexión
+    var c = CONNS.find(function(x){
+      return x.sr===rack && x.se===eq && nss(x.ss)===nss(slot);
+    });
+    if(c) showMap(rack, eq, slot, c.sp);
+  }
+}
 /* ─────────────────────────────────────────────────────────────────
    ROUTE BUILDER — lógica de trazado de señal
    
@@ -1438,11 +1341,12 @@ function buildRoute(rack, eq, slot, puerto) {
    los renderiza como grafo de nodos + flechas SVG.
    ───────────────────────────────────────────────────────────────── */
 
-function showMap(rack, eq, slot, puerto) {
-  closePop();
+function showMap(rack, eq, slot, puerto, fromBack) {
+  if(!fromBack){
+    _nav.push({type:'map', rack:rack, eq:eq, slot:slot, puerto:puerto});
+  }
 
-  // Guardar contexto para poder reabrir el popover al volver
-  _nav.push({ type:'map', rack:rack, eq:eq, slot:slot, puerto:puerto });
+  setView('view-map');
 
   var bc = '<span class="hi">' + h(rack) + '</span> › '
          + h(eq)
@@ -1583,7 +1487,8 @@ function renderMap(segs) {
             + (node.type==='nd' ? ' node-nd' : '')
             + (node.type==='branch' ? ' node-branch' : '')
             + (node.borderCls ? ' '+node.borderCls : '')
-            + '" id="map-node-' + colIdx + '-' + nodeIdx + '">';
+            + '" id="map-node-' + colIdx + '-' + nodeIdx + '"'
+            + '>';
 
       if (node.type === 'nc') {
         html += '<div class="map-node-nc-lbl">N/C</div>';
@@ -1614,15 +1519,24 @@ function renderMap(segs) {
           html += '<div class="map-node-ip ' + ipCls + '">' + h(ipTxt) + '</div>';
         }
 
-        // Puertos
-        html += '<div class="map-node-divider"></div>';
-        if (node.inPort)  html += '<div class="map-node-port in"  id="map-in-'  + colIdx + '-' + nodeIdx + '">▶ ' + h(node.inPort)  + '</div>';
-        if (node.outPort) html += '<div class="map-node-port out" id="map-out-' + colIdx + '-' + nodeIdx + '-' + cssId(node.outPort) + '">'  + h(node.outPort) + ' ▶</div>';
+        if (node.inPort)  
+          html += '<div class="map-node-port in" '
+                + 'onclick="event.stopPropagation(); onPortClick(this,\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\',\'' + h(node.inPort) + '\',\'doc\')" '
+                + 'id="map-in-' + colIdx + '-' + nodeIdx + '">▶ ' + h(node.inPort) + '</div>';
 
-        // Si el nodo tiene ramas, renderizar cada outPort de rama
+        if (node.outPort) 
+          html += '<div class="map-node-port out" '
+                + 'onclick="event.stopPropagation(); onPortClick(this,\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\',\'' + h(node.outPort) + '\',\'doc\')" '
+                + 'id="map-out-' + colIdx + '-' + nodeIdx + '-' + cssId(node.outPort) + '">'
+                + h(node.outPort) + ' ▶</div>';
+
+        // ramas
         if (node.branches && node.branches.length) {
           node.branches.forEach(function(br) {
-            html += '<div class="map-node-port out" id="map-out-' + colIdx + '-' + nodeIdx + '-' + cssId(br.outPort) + '">' + h(br.outPort) + ' ▶</div>';
+            html += '<div class="map-node-port out" '
+                  + 'onclick="event.stopPropagation(); onPortClick(this,\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\',\'' + h(br.outPort) + '\',\'doc\')" '
+                  + 'id="map-out-' + colIdx + '-' + nodeIdx + '-' + cssId(br.outPort) + '">'
+                  + h(br.outPort) + ' ▶</div>';
           });
         }
 
