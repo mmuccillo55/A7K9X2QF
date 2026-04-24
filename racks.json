@@ -450,7 +450,39 @@
       }
     },
     {
-      "rack": "L.5",
+      "rack": "L.5a",
+      "equipo": "BM Fiber Converter",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "L.5b",
+      "equipo": "BM Fiber Converter",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "L.6a",
+      "equipo": "TBS Encoder",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "L.6b",
+      "equipo": "SDI to OF",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "L.6c",
       "equipo": "",
       "ip": null,
       "management": {
@@ -458,7 +490,7 @@
       }
     },
     {
-      "rack": "L.6",
+      "rack": "L.7",
       "equipo": "openGear X",
       "ip": "192.168.2.1",
       "management": {
@@ -466,8 +498,8 @@
       }
     },
     {
-      "rack": "L.BACK.1",
-      "equipo": "BM OF to SDI",
+      "rack": "L.8",
+      "equipo": "Ateme Kyrion CM5000",
       "ip": null,
       "management": {
         "puerto": ""
@@ -2080,7 +2112,7 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "2",
         "placa": "Optic to SDI",
@@ -2099,7 +2131,7 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "5",
         "placa": "Optic to SDI",
@@ -2119,7 +2151,7 @@
     {
       "src": {
         "rack": "L.BACK.1",
-        "equipo": "BM OF to SDI",
+        "equipo": "",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out"
@@ -2137,7 +2169,7 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "6",
         "placa": "Optic to SDI",
@@ -2156,7 +2188,7 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "4",
         "placa": "Optic to SDI",
@@ -2194,7 +2226,7 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "3",
         "placa": "Optic to SDI",
@@ -6427,139 +6459,6 @@
       "src": {
         "rack": "D.9",
         "equipo": "openGear X",
-        "slot": "1",
-        "placa": "Emb / De-emb",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "1",
-        "placa": "Emb / De-emb",
-        "puerto": "A1"
-      },
-      "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "1",
-        "placa": "Emb / De-emb",
-        "puerto": "A2"
-      },
-      "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "2",
-        "placa": "Emb / De-emb",
-        "puerto": "SDI Out"
-      },
-      "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "2",
-        "placa": "Emb / De-emb",
-        "puerto": "A1"
-      },
-      "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "2",
-        "placa": "Emb / De-emb",
-        "puerto": "A2"
-      },
-      "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "3",
-        "placa": "Emb / De-emb",
-        "puerto": "A1"
-      },
-      "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
         "slot": "5",
         "placa": "De-embbeder",
         "puerto": "SDI Out"
@@ -6599,45 +6498,6 @@
       "src": {
         "rack": "D.9",
         "equipo": "openGear X",
-        "slot": "5",
-        "placa": "Emb / De-emb",
-        "puerto": "A2"
-      },
-      "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "5",
-        "placa": "Emb / De-emb",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "5",
-        "placa": "Emb / De-emb",
-        "puerto": "A2"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
         "slot": "6",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J5"
@@ -6650,7 +6510,7 @@
         "puerto": "SDI In 1"
       },
       "rotulo": "",
-      "notas": "N/D",
+      "notas": "",
       "disp_ext": ""
     },
     {
@@ -8145,7 +8005,7 @@
         "puerto": ""
       },
       "dst": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
@@ -8157,16 +8017,16 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J2 (out)"
       },
       "dst": {
-        "rack": "L.6",
-        "equipo": "openGear X",
-        "slot": "N/D",
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
         "placa": "",
         "puerto": ""
       },
@@ -8176,14 +8036,14 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J1 (in)"
       },
       "dst": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
@@ -8196,33 +8056,33 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J3 (out)"
       },
       "dst": {
-        "rack": "L.6",
-        "equipo": "openGear X",
-        "slot": "N/D",
+        "rack": "L.5b",
+        "equipo": "BM Fiber Converter",
+        "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "SDI In"
       },
       "rotulo": "",
-      "notas": "",
+      "notas": "Canal 4",
       "disp_ext": ""
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J1 (in)"
       },
       "dst": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
@@ -8235,33 +8095,33 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J4 (out)"
       },
       "dst": {
-        "rack": "L.6",
-        "equipo": "openGear X",
-        "slot": "N/D",
+        "rack": "L.5a",
+        "equipo": "BM Fiber Converter",
+        "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "SDI In"
       },
       "rotulo": "",
-      "notas": "",
+      "notas": "4 - C12",
       "disp_ext": ""
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J1 (in)"
       },
       "dst": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
@@ -8274,14 +8134,14 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J5 (out)"
       },
       "dst": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "3",
         "placa": "Optic to SDI",
@@ -8293,14 +8153,14 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J1 (in)"
       },
       "dst": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
@@ -8313,14 +8173,14 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J6 (out)"
       },
       "dst": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "2",
         "placa": "Optic to SDI",
@@ -8332,14 +8192,14 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J1 (in)"
       },
       "dst": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
@@ -8352,14 +8212,14 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J7 (out)"
       },
       "dst": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "5",
         "placa": "Optic to SDI",
@@ -8371,14 +8231,14 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J1 (in)"
       },
       "dst": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
@@ -8391,7 +8251,7 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
@@ -8410,14 +8270,14 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J1 (in)"
       },
       "dst": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
@@ -8430,7 +8290,7 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
@@ -8449,14 +8309,14 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J1 (in)"
       },
       "dst": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
@@ -8469,7 +8329,7 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
@@ -8488,14 +8348,14 @@
     },
     {
       "src": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
         "puerto": "J1 (in)"
       },
       "dst": {
-        "rack": "L.6",
+        "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Dist. Amp. 1x9",
@@ -9450,7 +9310,7 @@
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Embedder",
-        "puerto": "Audio In L"
+        "puerto": "A1"
       },
       "rotulo": "",
       "notas": "",
@@ -9469,7 +9329,7 @@
         "equipo": "openGear X",
         "slot": "1",
         "placa": "Embedder",
-        "puerto": "Audio In R"
+        "puerto": "A2"
       },
       "rotulo": "",
       "notas": "",
@@ -9488,7 +9348,7 @@
         "equipo": "openGear X",
         "slot": "2",
         "placa": "Embedder",
-        "puerto": "Audio In L"
+        "puerto": "A1"
       },
       "rotulo": "",
       "notas": "",
@@ -9507,19 +9367,311 @@
         "equipo": "openGear X",
         "slot": "2",
         "placa": "Embedder",
-        "puerto": "Audio In R"
+        "puerto": "A2"
       },
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.1",
+        "equipo": "VIDEOTRON",
+        "slot": "3",
+        "placa": "PAL-B",
+        "puerto": "Out 1"
+      },
+      "dst": {
+        "rack": "L.6b",
+        "equipo": "SDI to OF",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.1",
+        "equipo": "VIDEOTRON",
+        "slot": "3",
+        "placa": "PAL-B",
+        "puerto": "Input"
+      },
+      "dst": {
+        "rack": "L.1",
+        "equipo": "VIDEOTRON",
+        "slot": "3",
+        "placa": "PAL-B",
+        "puerto": "Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "L.1",
+        "equipo": "VIDEOTRON",
+        "slot": "4",
+        "placa": "PAL-N",
+        "puerto": "Out 5"
+      },
+      "dst": {
+        "rack": "L.6b",
+        "equipo": "SDI to OF",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.1",
+        "equipo": "VIDEOTRON",
+        "slot": "4",
+        "placa": "PAL-N",
+        "puerto": "Input"
+      },
+      "dst": {
+        "rack": "L.1",
+        "equipo": "VIDEOTRON",
+        "slot": "4",
+        "placa": "PAL-N",
+        "puerto": "Out 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "L.1",
+        "equipo": "VIDEOTRON",
+        "slot": "4",
+        "placa": "PAL-N",
+        "puerto": "Out 6"
+      },
+      "dst": {
+        "rack": "L.3",
+        "equipo": "VIDEObit V2A-FIBER-5T",
+        "slot": "",
+        "placa": "",
+        "puerto": "VID IN"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.1",
+        "equipo": "VIDEOTRON",
+        "slot": "4",
+        "placa": "PAL-N",
+        "puerto": "Input"
+      },
+      "dst": {
+        "rack": "L.1",
+        "equipo": "VIDEOTRON",
+        "slot": "4",
+        "placa": "PAL-N",
+        "puerto": "Out 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.14",
+        "equipo": "Digiwave DSC-131",
+        "slot": "",
+        "placa": "",
+        "puerto": "CVBS Out 1"
+      },
+      "dst": {
+        "rack": "L.1",
+        "equipo": "VIDEOTRON",
+        "slot": "3",
+        "placa": "PAL-B",
+        "puerto": "Input"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.14",
+        "equipo": "Digiwave DSC-131",
+        "slot": "",
+        "placa": "",
+        "puerto": "CVBS In"
+      },
+      "dst": {
+        "rack": "D.14",
+        "equipo": "Digiwave DSC-131",
+        "slot": "",
+        "placa": "",
+        "puerto": "CVBS Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.15",
+        "equipo": "vidicraft vst2110",
+        "slot": "",
+        "placa": "",
+        "puerto": "Video Out"
+      },
+      "dst": {
+        "rack": "L.1",
+        "equipo": "VIDEOTRON",
+        "slot": "4",
+        "placa": "PAL-N",
+        "puerto": "Input"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.15",
+        "equipo": "vidicraft vst2110",
+        "slot": "",
+        "placa": "",
+        "puerto": "Video In"
+      },
+      "dst": {
+        "rack": "D.15",
+        "equipo": "vidicraft vst2110",
+        "slot": "",
+        "placa": "",
+        "puerto": "Video Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "N/D",
+        "equipo": "?????",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "L.4",
+        "equipo": "VIDEObit 3G-LINK-TD",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.4",
+        "equipo": "VIDEObit 3G-LINK-TD",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "L.8",
+        "equipo": "Ateme Kyrion CM5000",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.4",
+        "equipo": "VIDEObit 3G-LINK-TD",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 1"
+      },
+      "dst": {
+        "rack": "L.4",
+        "equipo": "VIDEObit 3G-LINK-TD",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "L.4",
+        "equipo": "VIDEObit 3G-LINK-TD",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 2"
+      },
+      "dst": {
+        "rack": "L.6a",
+        "equipo": "TBS Encoder",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "L.4",
+        "equipo": "VIDEObit 3G-LINK-TD",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 2"
+      },
+      "dst": {
+        "rack": "L.4",
+        "equipo": "VIDEObit 3G-LINK-TD",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     }
   ],
   "stats": {
-    "nodos": 81,
-    "arcos_totales": 459,
+    "nodos": 85,
+    "arcos_totales": 465,
     "arcos_externos": 318,
-    "arcos_thru_internos": 141,
-    "arcos_con_destino": 239,
-    "arcos_sin_destino": 79
+    "arcos_thru_internos": 147,
+    "arcos_con_destino": 249,
+    "arcos_sin_destino": 69
   }
 }
