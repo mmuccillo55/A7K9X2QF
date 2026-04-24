@@ -680,6 +680,14 @@
       "management": {
         "puerto": ""
       }
+    },
+    {
+      "rack": "TX.4",
+      "equipo": "Mixer Audio TX",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
     }
   ],
   "conexiones": [
@@ -7614,14 +7622,14 @@
         "equipo": "tc electronic Finalizer",
         "slot": "",
         "placa": "",
-        "puerto": "AES/EBU Out (Audio)"
+        "puerto": "AES/EBU Out"
       },
       "dst": {
         "rack": "D.13",
         "equipo": "AJA FS2",
         "slot": "",
         "placa": "",
-        "puerto": "AES/EBU In (Audio)"
+        "puerto": "AES/EBU In"
       },
       "rotulo": "",
       "notas": "",
@@ -7633,7 +7641,7 @@
         "equipo": "tc electronic Finalizer",
         "slot": "",
         "placa": "",
-        "puerto": "Balanced Out L (Audio)"
+        "puerto": "Bal Out L"
       },
       "dst": {
         "rack": "N/C",
@@ -7652,7 +7660,7 @@
         "equipo": "tc electronic Finalizer",
         "slot": "",
         "placa": "",
-        "puerto": "Balanced Out R (Audio)"
+        "puerto": "Bal Out R"
       },
       "dst": {
         "rack": "N/C",
@@ -9570,25 +9578,6 @@
     },
     {
       "src": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "L.4",
-        "equipo": "VIDEObit 3G-LINK-TD",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI In 1"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
         "rack": "L.4",
         "equipo": "VIDEObit 3G-LINK-TD",
         "slot": "",
@@ -9740,14 +9729,131 @@
       "rotulo": "",
       "notas": "Chequear orden canales",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "TX.4",
+        "equipo": "Mixer Audio TX",
+        "slot": "",
+        "placa": "",
+        "puerto": "Stereo Out L"
+      },
+      "dst": {
+        "rack": "D.10",
+        "equipo": "tc electronic Finalizer",
+        "slot": "",
+        "placa": "",
+        "puerto": "Bal In L"
+      },
+      "rotulo": "",
+      "notas": "Viene de TX?",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "TX.4",
+        "equipo": "Mixer Audio TX",
+        "slot": "",
+        "placa": "",
+        "puerto": "Audio In"
+      },
+      "dst": {
+        "rack": "TX.4",
+        "equipo": "Mixer Audio TX",
+        "slot": "",
+        "placa": "",
+        "puerto": "Stereo Out L"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "TX.4",
+        "equipo": "Mixer Audio TX",
+        "slot": "",
+        "placa": "",
+        "puerto": "Stereo Out R"
+      },
+      "dst": {
+        "rack": "D.10",
+        "equipo": "tc electronic Finalizer",
+        "slot": "",
+        "placa": "",
+        "puerto": "Bal In R"
+      },
+      "rotulo": "",
+      "notas": "Viene de TX?",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "TX.4",
+        "equipo": "Mixer Audio TX",
+        "slot": "",
+        "placa": "",
+        "puerto": "Audio In"
+      },
+      "dst": {
+        "rack": "TX.4",
+        "equipo": "Mixer Audio TX",
+        "slot": "",
+        "placa": "",
+        "puerto": "Stereo Out R"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "5",
+        "placa": "De-embbeder",
+        "puerto": "Audio Out 2"
+      },
+      "dst": {
+        "rack": "TX.4",
+        "equipo": "Mixer Audio TX",
+        "slot": "",
+        "placa": "",
+        "puerto": "Audio In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "5",
+        "placa": "De-embbeder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "5",
+        "placa": "De-embbeder",
+        "puerto": "Audio Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     }
   ],
   "stats": {
-    "nodos": 85,
-    "arcos_totales": 469,
-    "arcos_externos": 322,
-    "arcos_thru_internos": 147,
-    "arcos_con_destino": 253,
+    "nodos": 86,
+    "arcos_totales": 474,
+    "arcos_externos": 324,
+    "arcos_thru_internos": 150,
+    "arcos_con_destino": 255,
     "arcos_sin_destino": 69
   }
 }
