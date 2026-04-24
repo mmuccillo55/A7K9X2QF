@@ -291,7 +291,7 @@
     },
     {
       "rack": "E.1",
-      "equipo": "fm",
+      "equipo": "DiTel Demodulador",
       "ip": null,
       "management": {
         "puerto": ""
@@ -9664,14 +9664,90 @@
       "notas": "",
       "disp_ext": "",
       "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.8",
+        "equipo": "Cisco D9865",
+        "slot": "",
+        "placa": "",
+        "puerto": "Audio L"
+      },
+      "dst": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Audio In 1"
+      },
+      "rotulo": "",
+      "notas": "Chequear orden canales",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.8",
+        "equipo": "Cisco D9865",
+        "slot": "",
+        "placa": "",
+        "puerto": "Audio R"
+      },
+      "dst": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Audio In 2"
+      },
+      "rotulo": "",
+      "notas": "Chequear orden canales",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "E.1",
+        "equipo": "DiTel Demodulador",
+        "slot": "",
+        "placa": "",
+        "puerto": "Audio L"
+      },
+      "dst": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Audio In 3"
+      },
+      "rotulo": "",
+      "notas": "Chequear orden canales",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "E.1",
+        "equipo": "DiTel Demodulador",
+        "slot": "",
+        "placa": "",
+        "puerto": "Audio R"
+      },
+      "dst": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Audio In 4"
+      },
+      "rotulo": "",
+      "notas": "Chequear orden canales",
+      "disp_ext": ""
     }
   ],
   "stats": {
     "nodos": 85,
-    "arcos_totales": 465,
-    "arcos_externos": 318,
+    "arcos_totales": 469,
+    "arcos_externos": 322,
     "arcos_thru_internos": 147,
-    "arcos_con_destino": 249,
+    "arcos_con_destino": 253,
     "arcos_sin_destino": 69
   }
 }
