@@ -1945,11 +1945,11 @@
     },
     {
       "src": {
-        "rack": "F.7",
-        "equipo": "FOR A HVS-390HS",
-        "slot": "",
-        "placa": "",
-        "puerto": "Out 1"
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out"
       },
       "dst": {
         "rack": "C.3",
@@ -1964,11 +1964,31 @@
     },
     {
       "src": {
-        "rack": "F.7",
-        "equipo": "FOR A HVS-390HS",
-        "slot": "",
-        "placa": "",
-        "puerto": "Aux 6"
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "2",
+        "placa": "Embedder",
+        "puerto": "SDI Out"
       },
       "dst": {
         "rack": "C.3",
@@ -1980,6 +2000,26 @@
       "rotulo": "FOR A AUX 6",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "2",
+        "placa": "Embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "2",
+        "placa": "Embedder",
+        "puerto": "SDI Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -9358,14 +9398,128 @@
       "notas": "",
       "disp_ext": "",
       "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "F.7",
+        "equipo": "FOR A HVS-390HS",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.7",
+        "equipo": "FOR A HVS-390HS",
+        "slot": "",
+        "placa": "",
+        "puerto": "Aux 6"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "2",
+        "placa": "Embedder",
+        "puerto": "SDI In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "DC.2",
+        "equipo": "Yamaha QL5",
+        "slot": "",
+        "placa": "",
+        "puerto": "Omni 15a"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "Audio In L"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "DC.2",
+        "equipo": "Yamaha QL5",
+        "slot": "",
+        "placa": "",
+        "puerto": "Omni 15b"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "Audio In R"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "DC.2",
+        "equipo": "Yamaha QL5",
+        "slot": "",
+        "placa": "",
+        "puerto": "Omni 15c"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "2",
+        "placa": "Embedder",
+        "puerto": "Audio In L"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "DC.2",
+        "equipo": "Yamaha QL5",
+        "slot": "",
+        "placa": "",
+        "puerto": "Omni 15d"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "2",
+        "placa": "Embedder",
+        "puerto": "Audio In R"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
     }
   ],
   "stats": {
     "nodos": 81,
-    "arcos_totales": 451,
-    "arcos_externos": 312,
-    "arcos_thru_internos": 139,
-    "arcos_con_destino": 233,
+    "arcos_totales": 459,
+    "arcos_externos": 318,
+    "arcos_thru_internos": 141,
+    "arcos_con_destino": 239,
     "arcos_sin_destino": 79
   }
 }
