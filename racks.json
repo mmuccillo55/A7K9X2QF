@@ -1011,7 +1011,7 @@
         "puerto": "SDI In 2"
       },
       "rotulo": "LOOP A.1",
-      "notas": "Convierte norma para Loop A1",
+      "notas": "",
       "disp_ext": ""
     },
     {
@@ -2158,8 +2158,8 @@
     },
     {
       "src": {
-        "rack": "L.BACK.1",
-        "equipo": "",
+        "rack": "L.5a",
+        "equipo": "BM Fiber Converter",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out"
@@ -6511,11 +6511,11 @@
         "puerto": "J5"
       },
       "dst": {
-        "rack": "L.1",
-        "equipo": "VIDEOTRON",
-        "slot": "",
-        "placa": "",
-        "puerto": "SDI In 1"
+        "rack": "L.7",
+        "equipo": "openGear X",
+        "slot": "1",
+        "placa": "Dist. Amp. 1x9",
+        "puerto": "J1 (in)"
       },
       "rotulo": "",
       "notas": "",
@@ -8006,25 +8006,6 @@
     },
     {
       "src": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
-      },
-      "dst": {
-        "rack": "L.7",
-        "equipo": "openGear X",
-        "slot": "1",
-        "placa": "Dist. Amp. 1x9",
-        "puerto": "J1 (in)"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
         "rack": "L.7",
         "equipo": "openGear X",
         "slot": "1",
@@ -8273,7 +8254,7 @@
         "puerto": ""
       },
       "rotulo": "",
-      "notas": "",
+      "notas": "Cable verde (va para el lado de edicion)",
       "disp_ext": ""
     },
     {
@@ -9850,10 +9831,10 @@
   ],
   "stats": {
     "nodos": 86,
-    "arcos_totales": 474,
-    "arcos_externos": 324,
+    "arcos_totales": 473,
+    "arcos_externos": 323,
     "arcos_thru_internos": 150,
-    "arcos_con_destino": 255,
+    "arcos_con_destino": 254,
     "arcos_sin_destino": 69
   }
 }
