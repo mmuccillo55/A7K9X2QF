@@ -250,8 +250,24 @@
       }
     },
     {
-      "rack": "GL",
-      "equipo": "GENLOCK",
+      "rack": "S.1",
+      "equipo": "Split 1",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "S.2",
+      "equipo": "Split 2",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "S.3",
+      "equipo": "Split 3",
       "ip": null,
       "management": {
         "puerto": ""
@@ -2361,7 +2377,46 @@
         "equipo": "Miranda D3 (Audio)",
         "slot": "8",
         "placa": "Audio Dist.",
-        "puerto": "Out 5a"
+        "puerto": "Out 5"
+      },
+      "dst": {
+        "rack": "S.2",
+        "equipo": "Split 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "In 2"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "8",
+        "placa": "Audio Dist.",
+        "puerto": "Out 5"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "S.2",
+        "equipo": "Split 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
       },
       "dst": {
         "rack": "C.5",
@@ -2376,18 +2431,18 @@
     },
     {
       "src": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "In 2"
+        "rack": "S.2",
+        "equipo": "Split 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "In"
       },
       "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 5a"
+        "rack": "S.2",
+        "equipo": "Split 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
       },
       "rotulo": "",
       "notas": "",
@@ -2396,11 +2451,11 @@
     },
     {
       "src": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 5b"
+        "rack": "S.2",
+        "equipo": "Split 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 2"
       },
       "dst": {
         "rack": "C.5",
@@ -2415,18 +2470,18 @@
     },
     {
       "src": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "In 2"
+        "rack": "S.2",
+        "equipo": "Split 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "In"
       },
       "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "8",
-        "placa": "Audio Dist.",
-        "puerto": "Out 5b"
+        "rack": "S.2",
+        "equipo": "Split 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 2"
       },
       "rotulo": "",
       "notas": "",
@@ -3219,7 +3274,46 @@
         "equipo": "Miranda D3 (Audio)",
         "slot": "10",
         "placa": "Audio Dist.",
-        "puerto": "Out 8a"
+        "puerto": "Out 8"
+      },
+      "dst": {
+        "rack": "S.3",
+        "equipo": "Split 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 2"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 8"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "S.3",
+        "equipo": "Split 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
       },
       "dst": {
         "rack": "Ext.2",
@@ -3234,18 +3328,18 @@
     },
     {
       "src": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "In 2"
+        "rack": "S.3",
+        "equipo": "Split 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "In"
       },
       "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8a"
+        "rack": "S.3",
+        "equipo": "Split 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
       },
       "rotulo": "",
       "notas": "",
@@ -3254,11 +3348,11 @@
     },
     {
       "src": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8b"
+        "rack": "S.3",
+        "equipo": "Split 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 2"
       },
       "dst": {
         "rack": "Ext.2",
@@ -3273,18 +3367,18 @@
     },
     {
       "src": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "In 2"
+        "rack": "S.3",
+        "equipo": "Split 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "In"
       },
       "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8b"
+        "rack": "S.3",
+        "equipo": "Split 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 2"
       },
       "rotulo": "",
       "notas": "",
@@ -3293,11 +3387,11 @@
     },
     {
       "src": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8c"
+        "rack": "S.3",
+        "equipo": "Split 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 3"
       },
       "dst": {
         "rack": "Ext.2",
@@ -3312,18 +3406,18 @@
     },
     {
       "src": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "In 2"
+        "rack": "S.3",
+        "equipo": "Split 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "In"
       },
       "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8c"
+        "rack": "S.3",
+        "equipo": "Split 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 3"
       },
       "rotulo": "",
       "notas": "",
@@ -3332,11 +3426,11 @@
     },
     {
       "src": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8d"
+        "rack": "S.3",
+        "equipo": "Split 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 4"
       },
       "dst": {
         "rack": "Ext.2",
@@ -3351,18 +3445,18 @@
     },
     {
       "src": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "In 2"
+        "rack": "S.3",
+        "equipo": "Split 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "In"
       },
       "dst": {
-        "rack": "C.5",
-        "equipo": "Miranda D3 (Audio)",
-        "slot": "10",
-        "placa": "Audio Dist.",
-        "puerto": "Out 8d"
+        "rack": "S.3",
+        "equipo": "Split 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 4"
       },
       "rotulo": "",
       "notas": "",
@@ -4237,7 +4331,7 @@
         "rack": "C.5",
         "equipo": "Miranda D3 (Audio)",
         "slot": "7",
-        "placa": "",
+        "placa": "Audio Dist.",
         "puerto": "In 1"
       },
       "rotulo": "ST L",
@@ -4256,7 +4350,7 @@
         "rack": "C.5",
         "equipo": "Miranda D3 (Audio)",
         "slot": "7",
-        "placa": "",
+        "placa": "Audio Dist.",
         "puerto": "In 2"
       },
       "rotulo": "ST R",
@@ -4275,7 +4369,7 @@
         "rack": "C.5",
         "equipo": "Miranda D3 (Audio)",
         "slot": "8",
-        "placa": "",
+        "placa": "Audio Dist.",
         "puerto": "In 2"
       },
       "rotulo": "SUB 1",
@@ -4294,7 +4388,7 @@
         "rack": "C.5",
         "equipo": "Miranda D3 (Audio)",
         "slot": "8",
-        "placa": "",
+        "placa": "Audio Dist.",
         "puerto": "In 1"
       },
       "rotulo": "SUB 3",
@@ -4313,7 +4407,7 @@
         "rack": "C.5",
         "equipo": "Miranda D3 (Audio)",
         "slot": "9",
-        "placa": "",
+        "placa": "Audio Dist.",
         "puerto": "In 2"
       },
       "rotulo": "AUX 1",
@@ -4326,13 +4420,32 @@
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
-        "puerto": "Aux Out 2a"
+        "puerto": "Aux Out 2"
+      },
+      "dst": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
       },
       "dst": {
         "rack": "C.5",
         "equipo": "Miranda D3 (Audio)",
         "slot": "10",
-        "placa": "",
+        "placa": "Audio Dist.",
         "puerto": "In 1"
       },
       "rotulo": "AUX 2",
@@ -4341,22 +4454,62 @@
     },
     {
       "src": {
-        "rack": "D.1",
-        "equipo": "Yamaha MG166",
+        "rack": "S.1",
+        "equipo": "Split 1",
         "slot": "",
         "placa": "",
-        "puerto": "Aux Out 2b"
+        "puerto": "In"
+      },
+      "dst": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 2"
       },
       "dst": {
         "rack": "C.5",
         "equipo": "Miranda D3 (Audio)",
         "slot": "10",
-        "placa": "",
+        "placa": "Audio Dist.",
         "puerto": "In 2"
       },
       "rotulo": "AUX 2",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "In"
+      },
+      "dst": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -4370,7 +4523,7 @@
         "rack": "C.5",
         "equipo": "Miranda D3 (Audio)",
         "slot": "9",
-        "placa": "",
+        "placa": "Audio Dist.",
         "puerto": "In 1"
       },
       "rotulo": "AUX 3",
@@ -6540,11 +6693,11 @@
     }
   ],
   "stats": {
-    "nodos": 32,
-    "arcos_totales": 324,
-    "arcos_externos": 201,
-    "arcos_thru_internos": 123,
-    "arcos_con_destino": 176,
+    "nodos": 34,
+    "arcos_totales": 331,
+    "arcos_externos": 204,
+    "arcos_thru_internos": 127,
+    "arcos_con_destino": 179,
     "arcos_sin_destino": 25
   }
 }

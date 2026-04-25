@@ -688,6 +688,70 @@
       "management": {
         "puerto": ""
       }
+    },
+    {
+      "rack": "S.1",
+      "equipo": "Split 1",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "S.2",
+      "equipo": "Split 2",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "S.3",
+      "equipo": "Split 3",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "S.4",
+      "equipo": "Split 4",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "MG.1",
+      "equipo": "Merge 1",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "MG.2",
+      "equipo": "Merge 2",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "MG.3",
+      "equipo": "Merge 3",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "MG.4",
+      "equipo": "Merge 4",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
     }
   ],
   "conexiones": [
@@ -5272,7 +5336,7 @@
       },
       "rotulo": "",
       "notas": "",
-      "disp_ext": "Fibra TDA 1 S"
+      "disp_ext": ""
     },
     {
       "src": {
@@ -6020,7 +6084,7 @@
         "rack": "D.7",
         "equipo": "openGear X",
         "slot": "8",
-        "placa": "De-embbeder",
+        "placa": "De-embedder",
         "puerto": "SDI Out"
       },
       "dst": {
@@ -6039,14 +6103,14 @@
         "rack": "D.7",
         "equipo": "openGear X",
         "slot": "8",
-        "placa": "De-embbeder",
+        "placa": "De-embedder",
         "puerto": "SDI In"
       },
       "dst": {
         "rack": "D.7",
         "equipo": "openGear X",
         "slot": "8",
-        "placa": "De-embbeder",
+        "placa": "De-embedder",
         "puerto": "SDI Out"
       },
       "rotulo": "",
@@ -6468,7 +6532,7 @@
         "rack": "D.9",
         "equipo": "openGear X",
         "slot": "5",
-        "placa": "De-embbeder",
+        "placa": "De-embedder",
         "puerto": "SDI Out"
       },
       "dst": {
@@ -6487,14 +6551,14 @@
         "rack": "D.9",
         "equipo": "openGear X",
         "slot": "5",
-        "placa": "De-embbeder",
+        "placa": "De-embedder",
         "puerto": "SDI In"
       },
       "dst": {
         "rack": "D.9",
         "equipo": "openGear X",
         "slot": "5",
-        "placa": "De-embbeder",
+        "placa": "De-embedder",
         "puerto": "SDI Out"
       },
       "rotulo": "",
@@ -7097,7 +7161,7 @@
       },
       "rotulo": "",
       "notas": "",
-      "disp_ext": "Distro PGM"
+      "disp_ext": ""
     },
     {
       "src": {
@@ -9292,7 +9356,26 @@
         "equipo": "Yamaha QL5",
         "slot": "",
         "placa": "",
-        "puerto": "Omni 15a"
+        "puerto": "Omni 15"
+      },
+      "dst": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
       },
       "dst": {
         "rack": "D.9",
@@ -9307,11 +9390,31 @@
     },
     {
       "src": {
-        "rack": "DC.2",
-        "equipo": "Yamaha QL5",
+        "rack": "S.1",
+        "equipo": "Split 1",
         "slot": "",
         "placa": "",
-        "puerto": "Omni 15b"
+        "puerto": "In"
+      },
+      "dst": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 2"
       },
       "dst": {
         "rack": "D.9",
@@ -9326,11 +9429,31 @@
     },
     {
       "src": {
-        "rack": "DC.2",
-        "equipo": "Yamaha QL5",
+        "rack": "S.1",
+        "equipo": "Split 1",
         "slot": "",
         "placa": "",
-        "puerto": "Omni 15c"
+        "puerto": "In"
+      },
+      "dst": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 2"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 3"
       },
       "dst": {
         "rack": "D.9",
@@ -9345,11 +9468,31 @@
     },
     {
       "src": {
-        "rack": "DC.2",
-        "equipo": "Yamaha QL5",
+        "rack": "S.1",
+        "equipo": "Split 1",
         "slot": "",
         "placa": "",
-        "puerto": "Omni 15d"
+        "puerto": "In"
+      },
+      "dst": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 3"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 4"
       },
       "dst": {
         "rack": "D.9",
@@ -9361,6 +9504,26 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "In"
+      },
+      "dst": {
+        "rack": "S.1",
+        "equipo": "Split 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Out 4"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     },
     {
       "src": {
@@ -9794,7 +9957,7 @@
         "rack": "D.9",
         "equipo": "openGear X",
         "slot": "5",
-        "placa": "De-embbeder",
+        "placa": "De-embedder",
         "puerto": "Audio Out 2"
       },
       "dst": {
@@ -9813,14 +9976,14 @@
         "rack": "D.9",
         "equipo": "openGear X",
         "slot": "5",
-        "placa": "De-embbeder",
+        "placa": "De-embedder",
         "puerto": "SDI In"
       },
       "dst": {
         "rack": "D.9",
         "equipo": "openGear X",
         "slot": "5",
-        "placa": "De-embbeder",
+        "placa": "De-embedder",
         "puerto": "Audio Out 2"
       },
       "rotulo": "",
@@ -9830,11 +9993,11 @@
     }
   ],
   "stats": {
-    "nodos": 86,
-    "arcos_totales": 473,
-    "arcos_externos": 323,
-    "arcos_thru_internos": 150,
-    "arcos_con_destino": 254,
+    "nodos": 94,
+    "arcos_totales": 478,
+    "arcos_externos": 324,
+    "arcos_thru_internos": 154,
+    "arcos_con_destino": 255,
     "arcos_sin_destino": 69
   }
 }
