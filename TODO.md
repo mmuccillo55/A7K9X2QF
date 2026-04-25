@@ -1,1 +1,1 @@
-EMPATAR CRITERIO DE UI (COLORES GAPS ETC)
+corregir map view en mobile (chinga svg)
