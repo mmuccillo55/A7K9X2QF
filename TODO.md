@@ -1,1 +1,5 @@
-corregir map view en mobile (chinga svg)
+BOTON HOME
+
+GOBACK AL DEVICE, NO ITERATIVO
+
+CLICK EN PUERTOS NO HACE NADA A VECES
