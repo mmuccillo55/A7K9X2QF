@@ -162,12 +162,54 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 
 @media(max-width:768px){
   .map-graph{
-    flex-wrap:wrap;
-    gap:40px 0;
-    overflow-x:hidden;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    overflow-x: hidden;
   }
-  .map-col + .map-col{
-    margin-left:0;
+  .map-col {
+    width: 90%;
+    align-items: center;
+    margin-left: 0 !important;
+  }
+  .map-col-pair {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    width: 90%;
+  }
+  .map-sm-splitmerge-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 90%;
+  }
+  .map-sm-splitmerge-group .map-col-pair,
+  .map-sm-splitmerge-group > .map-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+  .map-col-sm-origin {
+    width: 90%;
+    align-items: center;
+    margin-left: 0 !important;
+  }
+  .map-node.map-node-splitmerge {
+    margin-top: 0;
+  }
+  .map-col-pair > .map-col:first-child {
+    width: auto;
+    flex-shrink: 0;
+    align-items: center;
+    padding-top: 8px;
+  }
+  .map-col-pair > .map-col:last-child {
+    flex: 1;
+    min-width: 0;
   }
 }
 
@@ -1484,6 +1526,7 @@ function isSplitterOrMerger(rack) {
 }
 
 function renderMap(segs) {
+  window._mapSegs = segs;
   var container = document.getElementById('view-map');
 
   if (!segs.length) {
@@ -1491,8 +1534,8 @@ function renderMap(segs) {
     return;
   }
 
-  // Construir columnas: cada segmento = una columna con sus nodos
-  // Las ramas de un segmento van como nodos extra en la misma columna
+  var isMobile = window.innerWidth <= 768;
+
   var cols = [];
 
   segs.forEach(function(seg) {
@@ -1508,30 +1551,29 @@ function renderMap(segs) {
       var hasBranches = seg.branches && seg.branches.length > 0;
       var borderCls = hasIn && hasOut ? 'has-both'
                     : hasOut          ? 'has-out'
-                    : hasBranches     ? 'has-out'  // tiene salidas aunque sean ramas
+                    : hasBranches     ? 'has-out'
                     : '';
 
       var isSplitMerge = isSplitterOrMerger(seg.rack);
-      
+
       nodes.push({
-        type:         isSplitMerge ? 'splitmerge' : 'eq',
-        rack:         seg.rack,
-        eq:           seg.eq,
-        slot:         seg.slot,
-        placa:        seg.placa,
-        inPort:       seg.inPort,
-        outPort:      seg.outPort,
-        ip:           ip,
-        rotuloBefore: seg.disp_ext_before || '',
-        rotuloAfter:  '',
+        type:           isSplitMerge ? 'splitmerge' : 'eq',
+        rack:           seg.rack,
+        eq:             seg.eq,
+        slot:           seg.slot,
+        placa:          seg.placa,
+        inPort:         seg.inPort,
+        outPort:        seg.outPort,
+        ip:             ip,
+        rotuloBefore:   seg.disp_ext_before || '',
+        rotuloAfter:    '',
         _pendingRotulo: seg.disp_ext_after || '',
-        borderCls:    isSplitMerge ? '' : borderCls,
-        branches:     seg.branches || []
+        borderCls:      isSplitMerge ? '' : borderCls,
+        branches:       seg.branches || []
       });
 
       cols.push(nodes);
 
-      // Si tiene ramas → columna extra con los destinos
       if (hasBranches) {
         var branchNodes = seg.branches.map(function(br) {
           return {
@@ -1547,9 +1589,8 @@ function renderMap(segs) {
             rotuloAfter:  '',
             borderCls:    '',
             branches:     [],
-            // guardamos el outPort del padre para dibujar la flecha correcta
             srcOutPort:   br.outPort,
-            srcColIdx:    cols.length - 1  // índice de la columna padre
+            srcColIdx:    cols.length - 1
           };
         });
         cols.push(branchNodes);
@@ -1557,32 +1598,41 @@ function renderMap(segs) {
     }
   });
 
-  // Insertar nodo conversor como columna propia entre equipos
+  // Insertar nodos conversores
   var colsConv = [];
-    for (var ci = 0; ci < cols.length; ci++) {
-      var node = cols[ci][0];
-      // rotuloBefore → insertar nodo conv ANTES de esta columna
-      if (node && node.rotuloBefore) {
-        colsConv.push([{ type: 'conv', label: node.rotuloBefore }]);
-        node.rotuloBefore = ''; // limpiar para que no se renderice dentro del nodo
+  for (var ci = 0; ci < cols.length; ci++) {
+    var node = cols[ci][0];
+    if (node && node.rotuloBefore) {
+      colsConv.push([{ type: 'conv', label: node.rotuloBefore }]);
+      node.rotuloBefore = '';
+    }
+    colsConv.push(cols[ci]);
+    if (node && node._pendingRotulo) {
+      var ni = ci + 1;
+      while (ni < cols.length && cols[ni][0] && cols[ni][0].srcColIdx !== undefined) ni++;
+      if (ni < cols.length) {
+        colsConv.push([{ type: 'conv', label: node._pendingRotulo }]);
       }
-      colsConv.push(cols[ci]);
-      // _pendingRotulo (rotuloAfter) → insertar nodo conv DESPUÉS de esta columna
-      if (node && node._pendingRotulo) {
-        var ni = ci + 1;
-        while (ni < cols.length && cols[ni][0] && cols[ni][0].srcColIdx !== undefined) ni++;
-        if (ni < cols.length) {
-          colsConv.push([{ type: 'conv', label: node._pendingRotulo }]);
+    }
+  }
+  cols = colsConv;
+
+  // Mobile: marcar origen y dot del splitmerge
+  if (isMobile) {
+    for (var ci = 0; ci < cols.length; ci++) {
+      if (cols[ci].length === 1 && cols[ci][0].type === 'splitmerge') {
+        var prevCol = ci - 1;
+        if (prevCol >= 0) {
+          cols[prevCol][0]._isSplitMergeOrigin = true;
+          cols[ci][0]._isSplitMergeDot = true;
         }
       }
     }
-  cols = colsConv;
+  }
 
-  // Renderizar HTML
   var html = '<div class="map-title">&#9638; MAPA DE RUTA DE SEÑAL</div>';
   html += '<div class="map-graph" id="map-graph">';
 
-  // Definición del arrowhead SVG (se incluye una vez, invisible)
   html += '<svg width="0" height="0" style="position:absolute">'
         + '<defs>'
         + '<marker id="map-arrowhead" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">'
@@ -1596,9 +1646,8 @@ function renderMap(segs) {
         + '</defs>'
         + '</svg>';
 
-  cols.forEach(function(nodes, colIdx) {
-    html += '<div class="map-col" id="map-col-' + colIdx + '">';
-
+  function renderColHtml(nodes, colIdx) {
+    var out = '';
     nodes.forEach(function(node, nodeIdx) {
       var extraCls = '';
       if (node.type === 'splitmerge') {
@@ -1612,89 +1661,143 @@ function renderMap(segs) {
                 + (node.borderCls ? ' ' + node.borderCls : '');
       }
 
-      html += '<div class="map-node' + extraCls
-            + '" id="map-node-' + colIdx + '-' + nodeIdx + '"'
-            + '>';
+      out += '<div class="map-node' + extraCls
+           + '" id="map-node-' + colIdx + '-' + nodeIdx + '">';
 
       if (node.type === 'nc') {
-        html += '<div class="map-node-nc-lbl">N/C</div>';
-
+        out += '<div class="map-node-nc-lbl">N/C</div>';
       } else if (node.type === 'splitmerge') {
-        html += '<div id="map-dot-' + colIdx + '-' + nodeIdx + '" style="width:14px;height:14px;border-radius:50%;background:var(--green);box-shadow:0 0 0 2px var(--bg);margin:auto;"></div>';
+        out += '<div id="map-dot-' + colIdx + '-' + nodeIdx + '" style="width:14px;height:14px;border-radius:50%;background:var(--green);box-shadow:0 0 0 2px var(--bg);margin:auto;"></div>';
       } else if (node.type === 'conv') {
-        html += '<div style="font-family:var(--mono);font-size:.45rem;letter-spacing:2px;color:var(--text);text-align:center;margin-bottom:3px;">Conversor</div>';
-        html += '<div class="map-node-conv-lbl">' + h(node.label) + '</div>';
+        out += '<div style="font-family:var(--mono);font-size:.45rem;letter-spacing:2px;color:var(--text);text-align:center;margin-bottom:3px;">Conversor</div>';
+        out += '<div class="map-node-conv-lbl">' + h(node.label) + '</div>';
       } else if (node.type === 'nd') {
-        html += '<div class="map-node-nd-lbl">⚠ No documentado</div>';
-
+        out += '<div class="map-node-nd-lbl">&#9888; No documentado</div>';
       } else {
-        // Rótulo before (cable entrante)
-
-        html += '<div class="map-node-rack">' + h(node.rack) + '</div>';
-        html += '<div class="map-node-eq">'   + h(node.eq)   + '</div>';
+        out += '<div class="map-node-rack">' + h(node.rack) + '</div>';
+        out += '<div class="map-node-eq">'   + h(node.eq)   + '</div>';
 
         if (node.slot) {
           var slotTxt = 'Slot ' + h(node.slot);
-          if (node.placa) slotTxt += ' — ' + h(node.placa);
-          html += '<div class="map-node-slot">' + slotTxt + '</div>';
+          if (node.placa) slotTxt += ' \u2014 ' + h(node.placa);
+          out += '<div class="map-node-slot">' + slotTxt + '</div>';
         }
 
-        // IP
         if (node.ip && node.ip !== '') {
           var ipCls = node.ip === 'N/D' ? 'pend' : 'ok';
           var ipTxt = node.ip === 'N/D' ? 'IP pendiente' : node.ip;
-          html += '<div class="map-node-ip ' + ipCls + '">' + h(ipTxt) + '</div>';
+          out += '<div class="map-node-ip ' + ipCls + '">' + h(ipTxt) + '</div>';
         }
 
-        if (node.inPort)  
+        if (node.inPort) {
           if (node.rotuloBefore) {
-            html += '<div class="map-node-divider"></div>';
-            html += '<div class="map-node-rotulo" id="map-rotulo-' + colIdx + '-' + nodeIdx + '">⟳ ' + h(node.rotuloBefore) + '</div>';
+            out += '<div class="map-node-divider"></div>';
+            out += '<div class="map-node-rotulo" id="map-rotulo-' + colIdx + '-' + nodeIdx + '">\u27f3 ' + h(node.rotuloBefore) + '</div>';
           }
-          html += '<div class="map-node-port in" '
-                + 'onclick="event.stopPropagation(); onPortClick(this,\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\',\'' + h(node.inPort) + '\',\'doc\')" '
-                + 'id="map-in-' + colIdx + '-' + nodeIdx + '">▶ ' + h(node.inPort) + '</div>';
+          out += '<div class="map-node-port in" '
+               + 'onclick="event.stopPropagation(); onPortClick(this,\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\',\'' + h(node.inPort) + '\',\'doc\')" '
+               + 'id="map-in-' + colIdx + '-' + nodeIdx + '">\u25b6 ' + h(node.inPort) + '</div>';
+        }
 
-        if (node.outPort) 
-          html += '<div class="map-node-port out" '
-                + 'onclick="event.stopPropagation(); onPortClick(this,\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\',\'' + h(node.outPort) + '\',\'doc\')" '
-                + 'id="map-out-' + colIdx + '-' + nodeIdx + '-' + cssId(node.outPort) + '">'
-                + h(node.outPort) + ' ▶</div>';
+        if (node.outPort)
+          out += '<div class="map-node-port out" '
+               + 'onclick="event.stopPropagation(); onPortClick(this,\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\',\'' + h(node.outPort) + '\',\'doc\')" '
+               + 'id="map-out-' + colIdx + '-' + nodeIdx + '-' + cssId(node.outPort) + '">'
+               + h(node.outPort) + ' \u25b6</div>';
 
-        // ramas
         if (node.branches && node.branches.length) {
           node.branches.forEach(function(br) {
-            html += '<div class="map-node-port out" '
-                  + 'onclick="event.stopPropagation(); onPortClick(this,\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\',\'' + h(br.outPort) + '\',\'doc\')" '
-                  + 'id="map-out-' + colIdx + '-' + nodeIdx + '-' + cssId(br.outPort) + '">'
-                  + h(br.outPort) + ' ▶</div>';
+            out += '<div class="map-node-port out" '
+                 + 'onclick="event.stopPropagation(); onPortClick(this,\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\',\'' + h(br.outPort) + '\',\'doc\')" '
+                 + 'id="map-out-' + colIdx + '-' + nodeIdx + '-' + cssId(br.outPort) + '">'
+                 + h(br.outPort) + ' \u25b6</div>';
           });
         }
 
-        // Rótulo after (cable saliente)
         if (node.rotuloAfter) {
-          html += '<div class="map-node-divider"></div>';
-          html += '<div class="map-node-rotulo">⟳ ' + h(node.rotuloAfter) + '</div>';
+          out += '<div class="map-node-divider"></div>';
+          out += '<div class="map-node-rotulo">\u27f3 ' + h(node.rotuloAfter) + '</div>';
         }
       }
 
-      html += '</div>'; // .map-node
+      out += '</div>';
     });
+    return out;
+  }
 
-    html += '</div>'; // .map-col
-  });
+  var ci = 0;
+  while (ci < cols.length) {
+    var nodes      = cols[ci];
+    var colIdx     = ci;
+    var isBranchCol        = nodes.length > 0 && nodes[0].srcColIdx !== undefined;
+    var isSplitMergeOrigin = isMobile && nodes.length > 0 && nodes[0]._isSplitMergeOrigin;
+    var isSplitMergeDot    = isMobile && nodes.length === 1 && nodes[0]._isSplitMergeDot;
 
-  // SVG overlay para las flechas (se dibuja después con JS)
+    // Siguiente col es branches normales (mobile, sin splitmerge)
+    var nextIsBranch = isMobile &&
+                       !isBranchCol &&
+                       !isSplitMergeOrigin &&
+                       !isSplitMergeDot &&
+                       (ci + 1 < cols.length) &&
+                       cols[ci + 1].length > 0 &&
+                       cols[ci + 1][0].srcColIdx !== undefined;
+
+    // Siguiente col es branches del dot splitmerge
+    var nextIsBranchForDot = isSplitMergeDot &&
+                             (ci + 1 < cols.length) &&
+                             cols[ci + 1].length > 0 &&
+                             cols[ci + 1][0].srcColIdx !== undefined;
+
+    if (isSplitMergeOrigin) {
+      // Nodo origen: arriba centrado, luego dot+branches abajo en row
+      html += '<div class=\"map-sm-splitmerge-group\">';
+      html += '<div class=\"map-col map-col-sm-origin\" id=\"map-col-' + colIdx + '\">';
+      html += renderColHtml(nodes, colIdx);
+      html += '</div>';
+      // ci++ va a apuntar al dot, que a su vez puede tener branches en ci+1
+      ci++;
+      continue;
+    }
+
+    if (nextIsBranch || nextIsBranchForDot) {
+      if (window.innerWidth > 768) {
+        html += '<div class="map-col-pair">';
+      }
+    }
+
+    html += '<div class="map-col' + (isBranchCol ? ' map-col-branches' : '') + '" id="map-col-' + colIdx + '">';
+    html += renderColHtml(nodes, colIdx);
+    html += '</div>';
+
+    if (nextIsBranch || nextIsBranchForDot) {
+      ci++;
+      var branchColIdx = ci;
+      if (window.innerWidth > 768) {
+        html += '<div class="map-col map-col-branches" id="map-col-' + branchColIdx + '">';
+        html += renderColHtml(cols[branchColIdx], branchColIdx);
+        html += '</div>';
+        html += '</div>'; // .map-col-pair
+      } else {
+        html += '<div class="map-col map-col-branches" id="map-col-' + branchColIdx + '">';
+        html += renderColHtml(cols[branchColIdx], branchColIdx);
+        html += '</div>';
+      }
+    }
+
+    ci++;
+  }
+
   html += '<svg class="map-svg" id="map-svg"></svg>';
   html += '</div>'; // .map-graph
   window._mapCols = cols;
   container.innerHTML = html;
 
-  // Esperar al paint completo
   window.requestAnimationFrame(function() {
     window.requestAnimationFrame(function() {
-      drawMapArrows(cols);
-      initMapObserver();
+      window.requestAnimationFrame(function() {
+        drawMapArrows(cols);
+        initMapObserver();
+      });
     });
   });
 }
@@ -1713,7 +1816,7 @@ function drawMapArrows(cols) {
     return;
   }
 
-  var isHoriz = true;
+  var isHoriz = window.innerWidth > 768;
   var paths   = '';
 
   function elMidY(el) { 
@@ -1748,17 +1851,30 @@ function drawMapArrows(cols) {
     return el.getBoundingClientRect().top - gRect.top; 
   }
 
-  function bezier(x1, y1, x2, y2, isBranch, withArrow = true) {
+  function bezier(x1, y1, x2, y2, isBranch, withArrow = true, isSplitMergeDest = false) {
     // Evitar líneas inválidas (coordenadas NaN o muy pequeñas)
     if (isNaN(x1) || isNaN(y1) || isNaN(x2) || isNaN(y2)) return '';
     if (Math.abs(x1 - x2) < 1 && Math.abs(y1 - y2) < 1) return '';
     
     var dx = (x2 - x1) * 0.5;
     var dy = (y2 - y1) * 0.5;
-    var cx1 = isHoriz ? x1 + dx : x1;
-    var cy1 = isHoriz ? y1 : y1 + dy;
-    var cx2 = isHoriz ? x2 - dx : x2;
-    var cy2 = isHoriz ? y2 : y2 - dy;
+    var cx1, cy1, cx2, cy2;
+
+    if (isHoriz) {
+      cx1 = x1 + dx; cy1 = y1;
+      cx2 = x2 - dx; cy2 = y2;
+    } else if (isBranch) {
+      cx1 = x1 - 180; cy1 = y1;
+      cx2 = x2 - 60; cy2 = y2;
+    } else if (isSplitMergeDest) {
+      cx1 = x1 + 100; cy1 = y1 + dy;
+      cx2 = x2 + 60; cy2 = y2;
+    } else {
+      var spread = Math.abs(x2 - x1) * 1 + 60;
+      cx1 = x1 + spread; cy1 = y1 + dy;
+      cx2 = x2 - spread; cy2 = y2 - dy;
+    }
+
     var path = '<path class="map-arrow' + (isBranch ? ' branch' : '') + '" d="M' + x1 + ',' + y1 + ' C' + cx1 + ',' + cy1 + ' ' + cx2 + ',' + cy2 + ' ' + x2 + ',' + y2 + '" fill="none" stroke="var(--green)" stroke-width="2"';
     if (withArrow) {
       var marker = isBranch ? 'url(#map-arrowhead-branch)' : 'url(#map-arrowhead)';
@@ -1827,7 +1943,11 @@ function drawMapArrows(cols) {
         var spread = 20;
         var offset = (nodeIdx - (total - 1) / 2) * spread;
 
-        var o = {
+        var dotElB = document.getElementById('map-dot-' + parentColIdx + '-0');
+        var o = (!isHoriz && dotElB) ? {
+          x: elLeft(dotElB),
+          y: elMidY(dotElB)
+        } : {
           x: base.x,
           y: base.y
         };
@@ -1868,81 +1988,82 @@ function drawMapArrows(cols) {
     if (d.x === 0 && d.y === 0) return;
 
     if (toNodeIsSplitMerge) {
-      // No modificamos d.y porque el punto se va a mover
-      // En lugar de eso, calculamos el destino final del punto
-      
       var dotEl = document.getElementById('map-dot-' + nextColIdx + '-0');
-      if (dotEl) {
-        // Guardar el target Y sin depender de getBoundingClientRect post-transform
-        var targetY = o.y;
-        var currentY = elMidY(dotEl);
-        var delta = targetY - currentY;
-        
-        if (!isNaN(delta) && Math.abs(delta) > 0.1) {
-          dotEl.style.transform = 'translateY(' + delta + 'px)';
-          dotEl._appliedDeltaY = delta;
+      if (isHoriz) {
+        if (dotEl) {
+          var targetY = o.y;
+          var currentY = elMidY(dotEl);
+          var delta = targetY - currentY;
+          if (!isNaN(delta) && Math.abs(delta) > 0.1) {
+            dotEl.style.transform = 'translateY(' + delta + 'px)';
+            dotEl._appliedDeltaY = delta;
+          }
+          d.y = targetY;
         }
-        
-        // Para las líneas, usamos targetY (no la coordenada actual del dot)
-        d.y = targetY;
+      } else {
+      d = { x: dotEl ? elRight(dotEl) : elMidX(toNodeEl), y: dotEl ? elMidY(dotEl) : elMidY(toNodeEl) };
       }
     }
     
-    var path = bezier(o.x, o.y, d.x, d.y, false, !toNodeIsSplitMerge);
+    var path = bezier(o.x, o.y, d.x, d.y, false, !toNodeIsSplitMerge, toNodeIsSplitMerge && !isHoriz);
     if (path) paths += path;
   });
 
   svg.innerHTML = paths;
 }
 
-// Función para inicializar la observación de cambios de tamaño y scroll
+// Observer de resize del graph (se crea una vez por renderMap, se destruye al re-renderizar)
+var _mapResizeObserver = null;
+
+// Listener de scroll (registrado una sola vez)
+var _mapScrollListenerAdded = false;
+
+// Listener de resize de ventana (registrado una sola vez)
+var _mapWindowResizeListenerAdded = false;
+var _lastMapBreakpoint = window.innerWidth > 768;
+
 function initMapObserver() {
   var graph = document.getElementById('map-graph');
   if (!graph) return;
-  
-  var resizeObserver = new ResizeObserver(function() {
-    var cols = window._mapCols;
-    if (cols && document.getElementById('view-map').classList.contains('active')) {
-      requestAnimationFrame(function() {
-        drawMapArrows(cols);
-      });
-    }
-  });
-  
-  resizeObserver.observe(graph);
-  
-  // También redibujar en scroll
-  window.addEventListener('scroll', function() {
-    var cols = window._mapCols;
-    if (cols && document.getElementById('view-map').classList.contains('active')) {
-      requestAnimationFrame(function() {
-        drawMapArrows(cols);
-      });
-    }
-  });
-  
-  // Redibujar cuando cambie el tamaño de la ventana
-  window.addEventListener('resize', function() {
-    var cols = window._mapCols;
-    if (cols && document.getElementById('view-map').classList.contains('active')) {
-      setTimeout(function() {
-        drawMapArrows(cols);
-      }, 50);
-    }
-  });
-}
 
-// Llamar a initMapObserver después de que se cargue el DOM
-// También modificar la función renderMap para llamar a initMapObserver la primera vez
-var _originalRenderMap = renderMap;
-window.renderMap = function(segs) {
-  _originalRenderMap(segs);
-  setTimeout(function() {
-    initMapObserver();
-  }, 100);
-};
-// Sobrescribir renderMap
-renderMap = window.renderMap;
+  // Destruir observer anterior si existe
+  if (_mapResizeObserver) {
+    _mapResizeObserver.disconnect();
+    _mapResizeObserver = null;
+  }
+
+  _mapResizeObserver = new ResizeObserver(function() {
+    if (window._mapCols && document.getElementById('view-map').classList.contains('active')) {
+      requestAnimationFrame(function() { drawMapArrows(window._mapCols); });
+    }
+  });
+  _mapResizeObserver.observe(graph);
+
+  // Scroll: registrar solo una vez
+  if (!_mapScrollListenerAdded) {
+    _mapScrollListenerAdded = true;
+    window.addEventListener('scroll', function() {
+      if (window._mapCols && document.getElementById('view-map').classList.contains('active')) {
+        requestAnimationFrame(function() { drawMapArrows(window._mapCols); });
+      }
+    });
+  }
+
+  // Resize de ventana: registrar solo una vez
+  if (!_mapWindowResizeListenerAdded) {
+    _mapWindowResizeListenerAdded = true;
+    window.addEventListener('resize', function() {
+      if (!document.getElementById('view-map').classList.contains('active')) return;
+      var isNowHoriz = window.innerWidth > 768;
+      if (isNowHoriz !== _lastMapBreakpoint) {
+        _lastMapBreakpoint = isNowHoriz;
+        if (window._mapSegs) renderMap(window._mapSegs);
+      } else {
+        setTimeout(function() { drawMapArrows(window._mapCols); }, 50);
+      }
+    });
+  }
+}
 function cssId(str) {
   return String(str||'').replace(/[^a-zA-Z0-9_-]/g, '_');
 }
