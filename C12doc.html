@@ -38,9 +38,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 #hdr-bc{font-family:var(--mono);font-size:.68rem;color:var(--text2);}
 #hdr-bc .hi{color:var(--accent);}
 
-#btn-back{display:none;align-items:center;gap:6px;background:none;border:1px solid var(--border2);color:var(--text2);font-family:var(--mono);font-size:.68rem;padding:5px 12px;border-radius:3px;cursor:pointer;}
-#btn-back:hover{border-color:var(--accent);color:var(--accent);}
-#btn-back.show{display:flex;}
+#btn-back,#btn-home{display:none;align-items:center;gap:6px;background:none;border:1px solid var(--border2);color:var(--text2);font-family:var(--mono);font-size:.68rem;padding:5px 12px;border-radius:3px;cursor:pointer;}
+#btn-back:hover,#btn-home:hover{border-color:var(--accent);color:var(--accent);}
+#btn-back.show,#btn-home.show{display:flex;}
 
 /* ─────────────────────────────────────────────────────────────────
    SISTEMA DE VISTAS
@@ -140,7 +140,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 /* ─────────────────────────────────────────────────────────────────
    VISTA: MAPA DE RUTA DE SEÑAL
    ───────────────────────────────────────────────────────────────── */
-#view-map{padding:14px;}
+#view-map{padding:14px;overflow-x:auto;}
 
 .map-title{
   font-family:var(--mono);font-size:.52rem;letter-spacing:3px;
@@ -155,7 +155,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
   flex-direction:row;
   align-items:flex-start;
   gap:0;
-  overflow-x:visible;
   padding-bottom:20px;
   min-height:calc(100vh - 120px);
 }
@@ -268,6 +267,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .map-node-nc-lbl{font-family:var(--mono);font-size:.7rem;color:var(--muted);}
 .map-node-nd-lbl{font-family:var(--mono);font-size:.65rem;color:var(--yellow);}
 
+.map-node.node-origin{border-color:var(--accent);background:rgba(0,200,240,.06);}
+
 .map-svg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;}
 .map-arrow{fill:none;stroke:var(--green);stroke-width:2;}
 
@@ -302,6 +303,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 
 .map-node-conv-lbl{font-size:.78rem;color:var(--green);text-align:center;}
 .map-node-conv-title{font-family:var(--mono);font-size:.45rem;letter-spacing:2px;color:var(--text2);text-transform:uppercase;text-align:center;margin-bottom:3px;}
+
 
 /* ─────────────────────────────────────────────────────────────────
    PANTALLA INDEX
@@ -414,6 +416,7 @@ footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mo
 
 <!-- Header sticky. Contenido dinámico via JS. -->
 <div id="hdr" style="display:none">
+  <button id="btn-home" onclick="volverAlIndex()">&#8962;</button>
   <button id="btn-back" onclick="goBack()">&#8592; Volver</button>
   <div id="hdr-title">&#9672; CARGANDO...</div>
   <div id="hdr-bc"></div>
@@ -632,41 +635,22 @@ function setView(id){
    El botón Volver siempre está visible cuando el header está activo. */
 function updateHdr(bc){
   document.getElementById('btn-back').className = 'show';
+  document.getElementById('btn-home').className = 'show';
   document.getElementById('hdr-title').textContent=_nav.length<=1?('\u25c6 '+PROJ):'';
   document.getElementById('hdr-bc').innerHTML=bc||'';
+  history.pushState({app:'c12'}, '');
 }
 
-/* goBack(): navega un nivel atrás.
-   1. Popea el nivel actual.
-   2. Si _nav queda vacío → va a racks.
-   3. Si no: popea de nuevo para "re-navegar" el nivel anterior
-      (las funciones show* siempre pushean, por eso hay que popear antes de llamarlas).
-   NOTA 9: este doble pop puede ser confuso. Si estás en:
-   _nav = [racks, slots, equip] y hacés goBack():
-   → pop → _nav = [racks, slots]
-   → top = slots
-   → pop → _nav = [racks]
-   → showSlots() → push → _nav = [racks, slots]  ✓ correcto */
 function goBack(){
-  if(_nav.length <= 1){
-    // primer nivel → volver al index
-    volverAlIndex();
-    return;
-  }
-
-  _nav.pop();
-
   var top = _nav[_nav.length - 1];
+  if(!top) { volverAlIndex(); return; }
 
-  if(!top || !top.type){
-    showRacks(true);
-    return;
-  }
+  if(top.type==='racks') { volverAlIndex(); return; }
+  if(top.type==='slots') { showRacks(true); return; }
+  if(top.type==='equip') { showRacks(true); return; }
+  if(top.type==='map')   { showRacks(true); return; }
 
-  if(top.type==='racks')      showRacks(true);
-  else if(top.type==='slots') showSlots(top.rack, top.eq, true);
-  else if(top.type==='equip') showEquip(top.rack, top.eq, top.slot, true);
-  else if(top.type==='map')   showMap(top.rack, top.eq, top.slot, top.puerto, true);
+  volverAlIndex();
 }
 
 function volverAlIndex(){
@@ -772,7 +756,10 @@ function showRacks(fromBack){
     document.getElementById('racks-wrap').innerHTML=html;
     document.getElementById('racks-mobile').innerHTML='';
   }
-  updateHdr('');
+  document.getElementById('btn-back').className = '';
+  document.getElementById('btn-home').className = 'show';
+  document.getElementById('hdr-title').textContent = '\u25c6 ' + PROJ;
+  document.getElementById('hdr-bc').innerHTML = '';
 }
 
 /* onEqClick(): decide si ir a slots o directo al equipo. */
@@ -1506,7 +1493,7 @@ function showMap(rack, eq, slot, puerto, fromBack) {
   }
 
   var segs = upSegs.concat(downSegs);
-  renderMap(segs);
+  renderMap(segs, rack, eq, slot);
   window.scrollTo(0,0);
 }
 
@@ -1526,7 +1513,7 @@ function isSplitterOrMerger(rack) {
   return pfx === 'S' || pfx === 'MG';
 }
 
-function renderMap(segs) {
+function renderMap(segs, originRack, originEq, originSlot) {
   window._mapSegs = segs;
   var container = document.getElementById('view-map');
 
@@ -1543,7 +1530,8 @@ function renderMap(segs) {
     var nodes = [];
 
     if (seg.noDoc) {
-      nodes.push({ type: seg.noDocReason === 'N/C' ? 'nc' : 'nd' });
+      if(seg.noDocReason === 'N/C') return;
+      nodes.push({ type: 'nd' });
       cols.push(nodes);
     } else {
       var ip = getIP(seg.rack, seg.eq);
@@ -1578,7 +1566,7 @@ function renderMap(segs) {
       if (hasBranches) {
         var branchNodes = seg.branches.map(function(br) {
           return {
-            type:         'eq',
+            type:         (!br.dstRack || br.dstRack==='N/C') ? 'nc' : (br.dstRack==='N/D' || br.dstEq==='N/D') ? 'nd' : 'eq',
             rack:         br.dstRack,
             eq:           br.dstEq,
             slot:         br.dstSlot || '',
@@ -1662,8 +1650,16 @@ function renderMap(segs) {
                 + (node.borderCls ? ' ' + node.borderCls : '');
       }
 
+      var isOrigin = node.type === 'eq'
+        && node.rack === originRack
+        && node.eq   === originEq
+        && nss(node.slot||'') === nss(originSlot||'');
+      var nodeClick = (node.type === 'eq')
+        ? ' onclick="showEquip(\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\')"'
+        : '';
       out += '<div class="map-node' + extraCls
-           + '" id="map-node-' + colIdx + '-' + nodeIdx + '">';
+          + (isOrigin ? ' node-origin' : '')
+          + '" id="map-node-' + colIdx + '-' + nodeIdx + '"' + nodeClick + '>';
 
       if (node.type === 'nc') {
         out += '<div class="map-node-nc-lbl">N/C</div>';
@@ -2081,6 +2077,13 @@ function initMapObserver() {
 function cssId(str) {
   return String(str||'').replace(/[^a-zA-Z0-9_-]/g, '_');
 }
+
+window.addEventListener('popstate', function(e){
+  if(e.state && e.state.app === 'c12'){
+    history.pushState({app:'c12'}, '');
+    goBack();
+  }
+});
 </script>
 </body>
 </html>
