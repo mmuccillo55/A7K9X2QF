@@ -546,6 +546,14 @@
       }
     },
     {
+      "rack": "P.4",
+      "equipo": "KP 3016 Asistente",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
       "rack": "DC.1",
       "equipo": "Monitor Sonidista",
       "ip": null,
@@ -634,6 +642,38 @@
       }
     },
     {
+      "rack": "DC.12",
+      "equipo": "KP 3016 Sonidista",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "DC.13",
+      "equipo": "KP 3016 Titulador",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "DC.14",
+      "equipo": "KP 3016 Director",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "DC.15",
+      "equipo": "KP 3016 Productor",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
       "rack": "VACANTE",
       "equipo": "",
       "ip": null,
@@ -684,6 +724,14 @@
     {
       "rack": "TX.4",
       "equipo": "Mixer Audio TX",
+      "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "TX.5",
+      "equipo": "KP 3016 Transmision",
       "ip": null,
       "management": {
         "puerto": ""
@@ -749,6 +797,14 @@
       "rack": "MG.4",
       "equipo": "Merge 4",
       "ip": null,
+      "management": {
+        "puerto": ""
+      }
+    },
+    {
+      "rack": "H.1",
+      "equipo": "RTS Zeus III",
+      "ip": "192.168.3.40",
       "management": {
         "puerto": ""
       }
@@ -10009,14 +10065,710 @@
       "notas": "",
       "disp_ext": "",
       "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "F.2",
+        "equipo": "Sony HXCU-100 Cam 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom Out"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P1 In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.3",
+        "equipo": "Sony HXCU-100 Cam 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom Out"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P2 In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.4",
+        "equipo": "Sony HXCU-100 Cam 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom Out"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P3 In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "F.5",
+        "equipo": "Sony HXCU-100 Cam 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom Out"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P4 In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P1 Out"
+      },
+      "dst": {
+        "rack": "F.2",
+        "equipo": "Sony HXCU-100 Cam 1",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P1 In"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P1 Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P2 Out"
+      },
+      "dst": {
+        "rack": "F.3",
+        "equipo": "Sony HXCU-100 Cam 2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P2 In"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P2 Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P3 Out"
+      },
+      "dst": {
+        "rack": "F.4",
+        "equipo": "Sony HXCU-100 Cam 3",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P3 In"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P3 Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P4 Out"
+      },
+      "dst": {
+        "rack": "F.5",
+        "equipo": "Sony HXCU-100 Cam 4",
+        "slot": "",
+        "placa": "",
+        "puerto": "Incom In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P4 In"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P4 Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "P.4",
+        "equipo": "KP 3016 Asistente",
+        "slot": "",
+        "placa": "",
+        "puerto": "Frame Out"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P11 In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P11 Out"
+      },
+      "dst": {
+        "rack": "P.4",
+        "equipo": "KP 3016 Asistente",
+        "slot": "",
+        "placa": "",
+        "puerto": "Frame In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P11 In"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P11 Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P13 Out"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "Cable suelto en D.Cam. (QL5)",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P13 In"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P13 Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P12 In"
+      },
+      "rotulo": "",
+      "notas": "Cable suelto en D.Cam. (QL5)",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P12 Out"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P12 In"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P12 Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P13 In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P21 Out"
+      },
+      "dst": {
+        "rack": "DC.12",
+        "equipo": "KP 3016 Sonidista",
+        "slot": "",
+        "placa": "",
+        "puerto": "Frame In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P21 In"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P21 Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P22 Out"
+      },
+      "dst": {
+        "rack": "DC.13",
+        "equipo": "KP 3016 Titulador",
+        "slot": "",
+        "placa": "",
+        "puerto": "Frame In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P22 In"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P22 Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P23 Out"
+      },
+      "dst": {
+        "rack": "DC.14",
+        "equipo": "KP 3016 Director",
+        "slot": "",
+        "placa": "",
+        "puerto": "Frame In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P23 In"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P23 Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P24 Out"
+      },
+      "dst": {
+        "rack": "DC.15",
+        "equipo": "KP 3016 Productor",
+        "slot": "",
+        "placa": "",
+        "puerto": "Frame In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P24 In"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P24 Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "DC.12",
+        "equipo": "KP 3016 Sonidista",
+        "slot": "",
+        "placa": "",
+        "puerto": "Frame Out"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P21 In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "DC.13",
+        "equipo": "KP 3016 Titulador",
+        "slot": "",
+        "placa": "",
+        "puerto": "Frame Out"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P22 In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "DC.14",
+        "equipo": "KP 3016 Director",
+        "slot": "",
+        "placa": "",
+        "puerto": "Frame Out"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P23 In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "DC.15",
+        "equipo": "KP 3016 Productor",
+        "slot": "",
+        "placa": "",
+        "puerto": "Frame Out"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P24 In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P25 Out"
+      },
+      "dst": {
+        "rack": "TX.5",
+        "equipo": "KP 3016 Transmision",
+        "slot": "",
+        "placa": "",
+        "puerto": "Frame In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P25 In"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P25 Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "TX.5",
+        "equipo": "KP 3016 Transmision",
+        "slot": "",
+        "placa": "",
+        "puerto": "Frame Out"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P25 In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
     }
   ],
   "stats": {
-    "nodos": 94,
-    "arcos_totales": 479,
-    "arcos_externos": 325,
-    "arcos_thru_internos": 154,
-    "arcos_con_destino": 255,
-    "arcos_sin_destino": 70
+    "nodos": 101,
+    "arcos_totales": 515,
+    "arcos_externos": 349,
+    "arcos_thru_internos": 166,
+    "arcos_con_destino": 277,
+    "arcos_sin_destino": 72
   }
 }
