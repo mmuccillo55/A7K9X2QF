@@ -6229,6 +6229,45 @@
     },
     {
       "src": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 6"
+      },
+      "dst": {
+        "rack": "C.7",
+        "equipo": "PC Audio",
+        "slot": "1",
+        "placa": "Soundcard",
+        "puerto": "Line In"
+      },
+      "rotulo": "INTERCOM",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "In 1"
+      },
+      "dst": {
+        "rack": "C.5",
+        "equipo": "Miranda D3 (Audio)",
+        "slot": "10",
+        "placa": "Audio Dist.",
+        "puerto": "Out 6"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
         "rack": "D.3",
         "equipo": "Mixer Intercom",
         "slot": "",
@@ -6690,14 +6729,33 @@
       "notas": "",
       "disp_ext": "",
       "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "C.7",
+        "equipo": "PC Audio",
+        "slot": "1",
+        "placa": "Soundcard",
+        "puerto": "Speaker Out"
+      },
+      "dst": {
+        "rack": "D.3",
+        "equipo": "Mixer Intercom",
+        "slot": "",
+        "placa": "",
+        "puerto": "In 6"
+      },
+      "rotulo": "INTERCOM",
+      "notas": "",
+      "disp_ext": ""
     }
   ],
   "stats": {
     "nodos": 34,
-    "arcos_totales": 331,
-    "arcos_externos": 204,
-    "arcos_thru_internos": 127,
-    "arcos_con_destino": 179,
+    "arcos_totales": 334,
+    "arcos_externos": 206,
+    "arcos_thru_internos": 128,
+    "arcos_con_destino": 181,
     "arcos_sin_destino": 25
   }
 }
