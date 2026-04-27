@@ -2088,11 +2088,11 @@
     },
     {
       "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "2",
-        "placa": "Embedder",
-        "puerto": "SDI Out"
+        "rack": "F.7",
+        "equipo": "FOR A HVS-390HS",
+        "slot": "",
+        "placa": "",
+        "puerto": "Aux 6"
       },
       "dst": {
         "rack": "C.3",
@@ -2104,26 +2104,6 @@
       "rotulo": "FOR A AUX 6",
       "notas": "",
       "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "2",
-        "placa": "Embedder",
-        "puerto": "SDI In"
-      },
-      "dst": {
-        "rack": "D.9",
-        "equipo": "openGear X",
-        "slot": "2",
-        "placa": "Embedder",
-        "puerto": "SDI Out"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
     },
     {
       "src": {
@@ -9333,11 +9313,11 @@
     },
     {
       "src": {
-        "rack": "F.7",
-        "equipo": "FOR A HVS-390HS",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
-        "puerto": "Aux 6"
+        "puerto": ""
       },
       "dst": {
         "rack": "D.9",
@@ -9347,7 +9327,7 @@
         "puerto": "SDI In"
       },
       "rotulo": "",
-      "notas": "",
+      "notas": "Cable suelto en Rack E",
       "disp_ext": ""
     },
     {
@@ -9890,7 +9870,7 @@
         "puerto": "Bal In L"
       },
       "rotulo": "",
-      "notas": "Viene de TX?",
+      "notas": "",
       "disp_ext": ""
     },
     {
@@ -9929,7 +9909,7 @@
         "puerto": "Bal In R"
       },
       "rotulo": "",
-      "notas": "Viene de TX?",
+      "notas": "",
       "disp_ext": ""
     },
     {
@@ -9990,14 +9970,53 @@
       "notas": "",
       "disp_ext": "",
       "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "2",
+        "placa": "Embedder",
+        "puerto": "SDI Out"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "Cable suelto en Rack C",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "2",
+        "placa": "Embedder",
+        "puerto": "SDI In"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "2",
+        "placa": "Embedder",
+        "puerto": "SDI Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     }
   ],
   "stats": {
     "nodos": 94,
-    "arcos_totales": 478,
-    "arcos_externos": 324,
+    "arcos_totales": 479,
+    "arcos_externos": 325,
     "arcos_thru_internos": 154,
     "arcos_con_destino": 255,
-    "arcos_sin_destino": 69
+    "arcos_sin_destino": 70
   }
 }
