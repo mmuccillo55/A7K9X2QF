@@ -10779,11 +10779,11 @@
         "puerto": "P29 Out"
       },
       "dst": {
-        "rack": "",
-        "equipo": "",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
+        "rack": "H.2",
+        "equipo": "Servidor",
+        "slot": "0",
+        "placa": "Onboard",
+        "puerto": "Line In"
       },
       "rotulo": "",
       "notas": "",
@@ -10808,14 +10808,33 @@
       "notas": "",
       "disp_ext": "",
       "es_thru_interno": true
+    },
+    {
+      "src": {
+        "rack": "H.2",
+        "equipo": "Servidor",
+        "slot": "0",
+        "placa": "Onboard",
+        "puerto": "Speaker Out"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P29 In"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
     }
   ],
   "stats": {
     "nodos": 102,
-    "arcos_totales": 517,
-    "arcos_externos": 350,
+    "arcos_totales": 518,
+    "arcos_externos": 351,
     "arcos_thru_internos": 167,
-    "arcos_con_destino": 277,
-    "arcos_sin_destino": 73
+    "arcos_con_destino": 279,
+    "arcos_sin_destino": 72
   }
 }
