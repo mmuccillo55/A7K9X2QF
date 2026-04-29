@@ -10827,14 +10827,72 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Audio Out 1"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P32 In"
+      },
+      "rotulo": "",
+      "notas": "AIRE",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P32 Out"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P32 In"
+      },
+      "dst": {
+        "rack": "H.1",
+        "equipo": "RTS Zeus III",
+        "slot": "",
+        "placa": "",
+        "puerto": "P32 Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     }
   ],
   "stats": {
     "nodos": 102,
-    "arcos_totales": 518,
-    "arcos_externos": 351,
-    "arcos_thru_internos": 167,
-    "arcos_con_destino": 279,
-    "arcos_sin_destino": 72
+    "arcos_totales": 521,
+    "arcos_externos": 353,
+    "arcos_thru_internos": 168,
+    "arcos_con_destino": 280,
+    "arcos_sin_destino": 73
   }
 }
