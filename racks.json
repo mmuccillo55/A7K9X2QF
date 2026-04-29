@@ -10849,6 +10849,26 @@
     },
     {
       "src": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "AES/EBU In"
+      },
+      "dst": {
+        "rack": "D.13",
+        "equipo": "AJA FS2",
+        "slot": "",
+        "placa": "",
+        "puerto": "Audio Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
+    },
+    {
+      "src": {
         "rack": "H.1",
         "equipo": "RTS Zeus III",
         "slot": "",
@@ -10889,9 +10909,9 @@
   ],
   "stats": {
     "nodos": 102,
-    "arcos_totales": 521,
+    "arcos_totales": 522,
     "arcos_externos": 353,
-    "arcos_thru_internos": 168,
+    "arcos_thru_internos": 169,
     "arcos_con_destino": 280,
     "arcos_sin_destino": 73
   }
