@@ -960,79 +960,94 @@ function showEquip(rack, eq, slot, fromBack){
     html+='</div>';
 
   } else if(pairs.length > 1){
-    // LAYOUT PAGINADO — equipos con muchos thrus (PP, DA, etc.)
-    var allInsMap = {};
-    pairs.forEach(function(pair){
-      var inConn  = insAll.find(function(c){ return c.dp === pair.inPort; });
-      var inState = !inConn||!inConn.sr||inConn.sr==='N/D' ? 'ND' : inConn.sr==='N/C' ? 'NC' : 'doc';
-      var inLbl   = inConn ? (inConn.rotulo||(inState!=='doc'?'':inConn.se)||'') : '';
-      var inArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(pair.inPort)+'\'';
-      allInsMap[pair.inPort] = { port: pair.inPort, state: inState, lbl: inLbl, args: inArgs };
-    });
-    looseIns.forEach(function(c){
-      var state = c.sr==='N/C' ? 'NC' : (!c.sr||c.sr==='N/D') ? 'ND' : 'doc';
-      var lbl   = c.rotulo||(state!=='doc'?'':c.se)||'';
-      var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.dp)+'\'';
-      allInsMap[c.dp] = { port: c.dp, state: state, lbl: lbl, args: args };
-    });
-    var allIns = Object.values(allInsMap).sort(function(a,b){
-      return portN(a.port) - portN(b.port) || String(a.port).localeCompare(String(b.port));
-    });
-
-    var allOutsMap = {};
-    pairs.forEach(function(pair){
-      pair.outPorts.forEach(function(outPort){
-        var outConn  = outsAll.find(function(c){ return c.sp === outPort; });
-        var outState = !outConn||!outConn.dr||outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
-        var outLbl   = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
-        var outArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(outPort)+'\'';
-        allOutsMap[outPort] = { port: outPort, state: outState, lbl: outLbl, args: outArgs };
-      });
-    });
-    looseOuts.forEach(function(c){
-      var state = c.dr==='N/C' ? 'NC' : (!c.dr||c.dr==='N/D') ? 'ND' : 'doc';
-      var lbl   = c.rotulo||(state!=='doc'?'':c.de)||'';
-      var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.sp)+'\'';
-      allOutsMap[c.sp] = { port: c.sp, state: state, lbl: lbl, args: args };
-    });
-    var allOuts = Object.values(allOutsMap).sort(function(a,b){
-      return portN(a.port) - portN(b.port) || String(a.port).localeCompare(String(b.port));
-    });
-
-    function getColCount(){
-      if(window.innerWidth >= 1200) return 16;
-      if(window.innerWidth >= 600)  return 8;
-      return 4;
-    }
-
-    var cols = getColCount();
-    var maxLen = Math.max(allIns.length, allOuts.length);
-
-    html += '<div class="thru-block" id="thru-block-'+h(rack)+'-'+h(eq)+'-'+h(slot)+'">';
-
-    for(var page = 0; page * cols < maxLen; page++){
-      var start = page * cols;
-      var end   = start + cols;
-      var pageIns  = allIns.slice(start, end);
-      var pageOuts = allOuts.slice(start, end);
-
-      pageIns.forEach(function(item, idx){
-        var extraStyle = (page > 0 && idx === 0) ? ' style="grid-column-start:1;min-width:0;"' : ' style="min-width:0;"';
-        html += '<div' + extraStyle + '>' + portBtnHTML(item.port, item.state, item.lbl, item.args, false) + '</div>';
-      });
-      for(var fill = pageIns.length; fill < cols; fill++){
-        html += '<div></div>';
+      // LAYOUT PAGINADO — columnas alineadas: cada par thru ocupa columna(s) propias,
+      // luego loose ins y loose outs al final.
+      function makeInItem(port, conn){
+        var state = !conn||!conn.sr||conn.sr==='N/D' ? 'ND' : conn.sr==='N/C' ? 'NC' : 'doc';
+        var lbl   = conn ? (conn.rotulo||(state!=='doc'?'':conn.se)||'') : '';
+        var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(port)+'\'';
+        return { port: port, state: state, lbl: lbl, args: args };
       }
-      pageOuts.forEach(function(item, idx){
-        var extraStyle = idx === 0 ? ' style="grid-column-start:1;min-width:0;"' : ' style="min-width:0;"';
-        html += '<div' + extraStyle + '>' + portBtnHTML(item.port, item.state, item.lbl, item.args, true) + '</div>';
-      });
-      for(var fillO = pageOuts.length; fillO < cols; fillO++){
-        html += '<div></div>';
+      function makeOutItem(port, conn){
+        var state = !conn||!conn.dr||conn.dr==='N/D' ? 'ND' : conn.dr==='N/C' ? 'NC' : 'doc';
+        var lbl   = conn ? (conn.rotulo||(state!=='doc'?'':conn.de)||'') : '';
+        var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(port)+'\'';
+        return { port: port, state: state, lbl: lbl, args: args };
       }
-    }
 
-    html += '</div>';
+      // Construir array de columnas { inItem, outItem } respetando emparejamiento thru
+      var columns = [];
+
+      pairs.forEach(function(pair){
+        var inConn = insAll.find(function(c){ return c.dp === pair.inPort; });
+        var inItem = makeInItem(pair.inPort, inConn);
+        pair.outPorts.forEach(function(outPort, i){
+          var outConn = outsAll.find(function(c){ return c.sp === outPort; });
+          var outItem = makeOutItem(outPort, outConn);
+          columns.push({ inItem: i === 0 ? inItem : null, outItem: outItem });
+        });
+      });
+
+      // Loose ins (sin thru) — ordenados
+      var sortedLooseIns = looseIns.slice().sort(function(a,b){
+        return portN(a.dp)-portN(b.dp)||String(a.dp).localeCompare(String(b.dp));
+      });
+      sortedLooseIns.forEach(function(c){
+        var inConn = insAll.find(function(x){ return x.dp === c.dp; });
+        columns.push({ inItem: makeInItem(c.dp, inConn), outItem: null });
+      });
+
+      // Loose outs (sin thru) — ordenados
+      var sortedLooseOuts = looseOuts.slice().sort(function(a,b){
+        return portN(a.sp)-portN(b.sp)||String(a.sp).localeCompare(String(b.sp));
+      });
+      sortedLooseOuts.forEach(function(c){
+        var outConn = outsAll.find(function(x){ return x.sp === c.sp; });
+        columns.push({ inItem: null, outItem: makeOutItem(c.sp, outConn) });
+      });
+
+      function getColCount(){
+        if(window.innerWidth >= 1200) return 16;
+        if(window.innerWidth >= 600)  return 8;
+        return 4;
+      }
+
+      var cols = getColCount();
+
+      html += '<div class="thru-block" id="thru-block-'+h(rack)+'-'+h(eq)+'-'+h(slot)+'">';
+
+      for(var page = 0; page * cols < columns.length; page++){
+        var start = page * cols;
+        var pageCols = columns.slice(start, start + cols);
+
+        // Fila de ins
+        pageCols.forEach(function(col, idx){
+          var extraStyle = (page > 0 && idx === 0) ? ' style="grid-column-start:1;min-width:0;"' : ' style="min-width:0;"';
+          if(col.inItem){
+            html += '<div' + extraStyle + '>' + portBtnHTML(col.inItem.port, col.inItem.state, col.inItem.lbl, col.inItem.args, false) + '</div>';
+          } else {
+            html += '<div' + extraStyle + '></div>';
+          }
+        });
+        for(var fill = pageCols.length; fill < cols; fill++){
+          html += '<div></div>';
+        }
+
+        // Fila de outs
+        pageCols.forEach(function(col, idx){
+          var extraStyle = idx === 0 ? ' style="grid-column-start:1;min-width:0;"' : ' style="min-width:0;"';
+          if(col.outItem){
+            html += '<div' + extraStyle + '>' + portBtnHTML(col.outItem.port, col.outItem.state, col.outItem.lbl, col.outItem.args, true) + '</div>';
+          } else {
+            html += '<div' + extraStyle + '></div>';
+          }
+        });
+        for(var fillO = pageCols.length; fillO < cols; fillO++){
+          html += '<div></div>';
+        }
+      }
+
+      html += '</div>';
 
   } else {
     // LAYOUT SEPARADO — equipos sin thrus o con 1 solo par
