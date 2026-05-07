@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+c<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -988,23 +988,24 @@ function showEquip(rack, eq, slot, fromBack){
         });
       });
 
-      // Loose ins (sin thru) — ordenados
+      // Loose ins y outs combinados — comparten columna cuando es posible
       var sortedLooseIns = looseIns.slice().sort(function(a,b){
         return portN(a.dp)-portN(b.dp)||String(a.dp).localeCompare(String(b.dp));
       });
-      sortedLooseIns.forEach(function(c){
-        var inConn = insAll.find(function(x){ return x.dp === c.dp; });
-        columns.push({ inItem: makeInItem(c.dp, inConn), outItem: null });
-      });
-
-      // Loose outs (sin thru) — ordenados
       var sortedLooseOuts = looseOuts.slice().sort(function(a,b){
         return portN(a.sp)-portN(b.sp)||String(a.sp).localeCompare(String(b.sp));
       });
-      sortedLooseOuts.forEach(function(c){
-        var outConn = outsAll.find(function(x){ return x.sp === c.sp; });
-        columns.push({ inItem: null, outItem: makeOutItem(c.sp, outConn) });
-      });
+      var looseLen = Math.max(sortedLooseIns.length, sortedLooseOuts.length);
+      for(var li = 0; li < looseLen; li++){
+        var lIn  = sortedLooseIns[li]  || null;
+        var lOut = sortedLooseOuts[li] || null;
+        var inConn  = lIn  ? insAll.find(function(x){ return x.dp === lIn.dp; })   : null;
+        var outConn = lOut ? outsAll.find(function(x){ return x.sp === lOut.sp; }) : null;
+        columns.push({
+          inItem:  lIn  ? makeInItem(lIn.dp,   inConn)  : null,
+          outItem: lOut ? makeOutItem(lOut.sp, outConn) : null
+        });
+      }
 
       function getColCount(){
         if(window.innerWidth >= 1200) return 16;
