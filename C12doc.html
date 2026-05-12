@@ -1903,6 +1903,11 @@ function drawMapArrows(cols) {
   });
 
   svg.innerHTML = paths;
+
+  // ajustar tamaño del SVG al graph
+  var gr = graph.getBoundingClientRect();
+  svg.setAttribute('width',  gr.width);
+  svg.setAttribute('height', gr.height);
 }
 
 function scheduleMapArrows() {
