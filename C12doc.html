@@ -1,4 +1,4 @@
-c<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -7,9 +7,7 @@ c<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600&display=swap">
 <style>
-/* ─────────────────────────────────────────────────────────────────
-   DESIGN TOKENS
-   ───────────────────────────────────────────────────────────────── */
+/* ── DESIGN TOKENS ─────────────────────────────────────────────── */
 :root{
   --bg:#080c11;
   --panel:#0e1520;
@@ -23,34 +21,67 @@ c<!DOCTYPE html>
   --muted:#2e4055;
   --text:#b8ccd8;
   --text2:#587080;
-  --red:#ff3333;
   --mono:'Share Tech Mono',monospace;
   --sans:'Barlow',sans-serif;
 }
+
+/* ── RESET & BASE ───────────────────────────────────────────────── */
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;overflow-x:hidden;position:relative;}
 
-/* ─────────────────────────────────────────────────────────────────
-   HEADER
-   ───────────────────────────────────────────────────────────────── */
+/* ── SCROLLBAR ──────────────────────────────────────────────────── */
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--muted);border-radius:2px;}
+
+/* ── HEADER ─────────────────────────────────────────────────────── */
 #hdr{display:flex;align-items:center;gap:12px;padding:10px 20px;border-bottom:1px solid var(--border);background:var(--panel);position:sticky;top:0;z-index:100;}
 #hdr-title{font-family:var(--mono);font-size:.85rem;color:var(--accent);letter-spacing:3px;flex:1;}
 #hdr-bc{font-family:var(--mono);font-size:.68rem;color:var(--text2);}
 #hdr-bc .hi{color:var(--accent);}
-
+#hdr-bc .bc-link {cursor: pointer;transition: color .15s;}
+#hdr-bc .bc-link:hover {color: var(--accent) !important;text-decoration: underline;}
 #btn-back,#btn-home{display:none;align-items:center;gap:6px;background:none;border:1px solid var(--border2);color:var(--text2);font-family:var(--mono);font-size:.68rem;padding:5px 12px;border-radius:3px;cursor:pointer;}
 #btn-back:hover,#btn-home:hover{border-color:var(--accent);color:var(--accent);}
 #btn-back.show,#btn-home.show{display:flex;}
 
-/* ─────────────────────────────────────────────────────────────────
-   SISTEMA DE VISTAS
-   ───────────────────────────────────────────────────────────────── */
+/* ── SISTEMA DE VISTAS ──────────────────────────────────────────── */
 .view{display:none;padding:10px;}
 .view.active{display:block;}
 
-/* ─────────────────────────────────────────────────────────────────
-   VISTA: RACKS
-   ───────────────────────────────────────────────────────────────── */
+/* ── VISTA: INDEX ───────────────────────────────────────────────── */
+#screen-index{display:flex;flex-direction:column;min-height:100vh;}
+#screen-index main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;position:relative;z-index:1;}
+
+.hero-label{font-family:var(--mono);font-size:.6rem;letter-spacing:5px;color:var(--text2);text-transform:uppercase;margin-bottom:10px;text-align:center;}
+.hero-title{font-family:var(--mono);font-size:1.5rem;color:var(--accent);letter-spacing:2px;text-align:center;margin-bottom:4px;}
+.hero-sub{font-family:var(--mono);font-size:.65rem;color:var(--text2);letter-spacing:3px;text-align:center;margin-bottom:48px;}
+
+.divider{width:100%;max-width:560px;display:flex;align-items:center;gap:10px;margin-bottom:32px;}
+.divider-line{flex:1;height:1px;background:var(--border);}
+.divider-lbl{font-family:var(--mono);font-size:.52rem;letter-spacing:3px;color:var(--text2);text-transform:uppercase;white-space:nowrap;}
+
+.cards{display:flex;flex-direction:column;gap:10px;width:100%;max-width:560px;}
+.card{display:flex;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:16px 20px;text-decoration:none;color:inherit;cursor:pointer;transition:border-color .15s,background .15s,transform .1s;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transform-origin:bottom;transition:transform .2s ease;}
+.card:hover{border-color:var(--accent);background:rgba(0,200,240,.04);transform:translateX(3px);}
+.card:hover::before{transform:scaleY(1);}
+.card:active{transform:translateX(3px) scale(.99);}
+.card-icon{font-family:var(--mono);font-size:1rem;color:var(--accent);min-width:20px;text-align:center;transition:color .15s;}
+.card:hover .card-icon{color:var(--green);}
+.card-body{flex:1;min-width:0;}
+.card-name{font-family:var(--mono);font-size:.88rem;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .15s;}
+.card:hover .card-name{color:var(--accent);}
+.card-sub{font-size:.68rem;color:var(--text2);margin-top:3px;font-family:var(--sans);font-weight:300;}
+.card-arrow{font-family:var(--mono);font-size:.8rem;color:var(--muted);transition:color .15s,transform .15s;}
+.card:hover .card-arrow{color:var(--accent);transform:translateX(4px);}
+.card-tag{font-family:var(--mono);font-size:.52rem;letter-spacing:2px;padding:2px 6px;border-radius:2px;text-transform:uppercase;white-space:nowrap;border:1px solid;}
+.tag-rack{color:var(--yellow);border-color:rgba(255,209,102,.3);background:rgba(255,209,102,.05);}
+.tag-movil{color:var(--orange);border-color:rgba(255,107,53,.3);background:rgba(255,107,53,.05);}
+
+footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mono);font-size:.56rem;color:var(--muted);text-align:center;letter-spacing:1px;position:relative;z-index:1;}
+
+/* ── VISTA: RACKS ───────────────────────────────────────────────── */
 #racks-wrap{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;padding-bottom:12px;}
 .rack-col{display:flex;flex-direction:column;gap:6px;width:150px;}
 .rack-col-lbl{font-family:var(--mono);font-size:.8rem;letter-spacing:4px;color:var(--accent);padding:4px 2px;border-bottom:1px solid var(--accent);text-transform:uppercase;}
@@ -60,35 +91,29 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 #view-racks .eq-name{font-size:.8rem;color:var(--text);}
 
 #racks-mobile{display:none;padding:10px;}
-@media(max-width:768px){
-  #racks-wrap{display:none;}
-  #racks-mobile{display:block;}
-}
-
 .rack-mobile-btn{width:100%;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--text);cursor:pointer;text-align:left;transition:border-color .12s;margin-bottom:8px;font-family:var(--mono);font-size:.85rem;display:flex;justify-content:space-between;align-items:center;}
 .rack-mobile-btn:hover{border-color:var(--accent);}
 .rack-mobile-btn.open{border-color:var(--accent);background:rgba(0,200,240,.05);}
-
 .eq-mobile-list{display:none;flex-direction:column;gap:4px;padding:8px 0 12px 14px;margin-bottom:8px;}
 .eq-mobile-list.show{display:flex;}
-
 .eq-mobile-item{background:var(--panel2);border:1px solid var(--border);border-radius:4px;padding:8px 10px;cursor:pointer;font-size:.8rem;color:var(--text);transition:border-color .12s;display:flex;gap:8px;align-items:center;}
 .eq-mobile-item:hover{border-color:var(--accent);color:var(--accent);}
 .eq-mobile-item .rack-id{font-family:var(--mono);font-size:.8rem;color:var(--yellow);white-space:nowrap;min-width:40px;}
 .eq-mobile-item .eq-name{flex:1;}
 
-/* ─────────────────────────────────────────────────────────────────
-   VISTA: SLOTS
-   ───────────────────────────────────────────────────────────────── */
+@media(max-width:768px){
+  #racks-wrap{display:none;}
+  #racks-mobile{display:block;}
+}
+
+/* ── VISTA: SLOTS ───────────────────────────────────────────────── */
 .slots-list{display:flex;flex-direction:column;gap:6px;max-width:480px;}
 .slot-btn{background:var(--panel);border:1px solid var(--border);border-radius:5px;padding:10px 14px;cursor:pointer;text-align:left;transition:border-color .12s;}
 .slot-btn:hover{border-color:var(--accent);}
 .slot-num{font-family:var(--mono);font-size:.8rem;color:var(--yellow);margin-bottom:2px;}
 .slot-placa{font-family:var(--mono);font-size:1rem;color:var(--accent);margin-left:8px;}
 
-/* ─────────────────────────────────────────────────────────────────
-   VISTA: EQUIPO
-   ───────────────────────────────────────────────────────────────── */
+/* ── VISTA: EQUIPO ──────────────────────────────────────────────── */
 .eq-meta{margin-bottom:20px;}
 .eq-name{font-family:var(--mono);font-size:1.25rem;color:var(--green);margin-bottom:2px;}
 .eq-rack{font-family:var(--mono);font-size:1rem;color:var(--yellow);}
@@ -101,154 +126,40 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .ports-lbl{font-family:var(--mono);font-size:.55rem;letter-spacing:3px;color:var(--text2);text-transform:uppercase;margin:16px 0 8px;display:flex;align-items:center;gap:10px;}
 .ports-lbl::after{content:'';flex:1;height:1px;background:var(--border);}
 
-/* ─────────────────────────────────────────────────────────────────
-   GRILLA DE PUERTOS
-   ───────────────────────────────────────────────────────────────── */
 .ports-grid{display:grid;gap:5px;margin-bottom:4px;grid-template-columns:repeat(4,1fr);}
 @media(min-width:600px){.ports-grid{grid-template-columns:repeat(8,1fr);}}
 @media(min-width:1200px){.ports-grid{grid-template-columns:repeat(16,1fr);}}
 
-.port-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
-  padding:5px 3px;min-height:50px;background:var(--panel2);border:1px solid var(--border);
-  border-radius:4px;cursor:pointer;transition:border-color .12s,background .12s;overflow:hidden;}
+.port-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5px 3px;min-height:50px;background:var(--panel2);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:border-color .12s,background .12s;overflow:hidden;}
 .port-btn:hover{border-color:var(--accent);background:rgba(0,200,240,.06);}
-.port-btn.selected{border-color:var(--accent);background:rgba(0,200,240,.12);}
 .port-btn.p-in {border-top:2px solid var(--accent);}
 .port-btn.p-out{border-top:2px solid var(--orange);}
-.port-btn.p-aux{border-top:2px solid var(--green);}
-.port-btn.p-free{opacity:.3;}
-.port-btn.p-nd{border-color:var(--yellow);background:rgba(255,209,102,.08);}
-
+.port-btn.p-free{opacity:.3;pointer-events: none;cursor: default;}
+.port-btn.p-nd{border-color:var(--yellow);background:rgba(255,209,102,.08);cursor: help;}
 .p-num{font-family:var(--mono);font-size:.8rem;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding:0 2px;}
 .p-lbl{font-size:.6rem;color:var(--text);margin-top:2px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px;}
 
-/* Scrollbar */
-::-webkit-scrollbar{width:4px;height:4px;}
-::-webkit-scrollbar-track{background:transparent;}
-::-webkit-scrollbar-thumb{background:var(--muted);border-radius:2px;}
-
-.thru-block{
-  display:grid;
-  column-gap:5px;
-  row-gap:30px;
-  grid-template-columns:repeat(4,1fr);
-  position:relative;
-}
+.thru-block{display:grid;column-gap:5px;row-gap:30px;grid-template-columns:repeat(4,1fr);position:relative;}
 @media(min-width:600px){.thru-block{grid-template-columns:repeat(8,1fr);}}
 @media(min-width:1200px){.thru-block{grid-template-columns:repeat(16,1fr);}}
 
-/* ─────────────────────────────────────────────────────────────────
-   VISTA: MAPA DE RUTA DE SEÑAL
-   ───────────────────────────────────────────────────────────────── */
+/* ── VISTA: MAPA ────────────────────────────────────────────────── */
 #view-map{padding:14px;overflow-x:auto;}
 
-.map-title{
-  font-family:var(--mono);font-size:.52rem;letter-spacing:3px;
-  color:var(--accent);text-transform:uppercase;margin-bottom:16px;
-  display:flex;align-items:center;gap:10px;
-}
+.map-title{font-family:var(--mono);font-size:.52rem;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .map-title::after{content:'';flex:1;height:1px;background:var(--border);}
 
-.map-graph{
-  position:relative;
-  display:flex;
-  flex-direction:row;
-  align-items:flex-start;
-  gap:0;
-  padding-bottom:20px;
-  min-height:calc(100vh - 120px);
-}
+.map-graph{position:relative;display:flex;flex-direction:row;align-items:flex-start;gap:0;padding-bottom:20px;min-height:calc(100vh - 120px);}
+@media(min-width:769px){.map-graph{flex-wrap:wrap;row-gap:100px;min-height:0;padding-right: 100px;padding-left: 100px;}}
+.map-col{display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;}
+.map-col + .map-col{margin-left:100px;}
 
-@media(max-width:768px){
-  .map-graph{
-    flex-direction: column;
-    align-items: center;
-    gap: 60px;
-    overflow-x: hidden;
-  }
-  .map-col {
-    width: 90%;
-    align-items: center;
-    margin-left: 0 !important;
-  }
-  .map-col-pair {
-    display: flex;
-    flex-direction: row;
-    gap: 80px;
-    width: auto;
-    align-self: center;
-  }
-  .map-sm-splitmerge-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    width: 90%;
-  }
-  .map-sm-splitmerge-group .map-col-pair,
-  .map-sm-splitmerge-group > .map-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-  }
-  .map-col-sm-origin {
-    width: 90%;
-    align-items: center;
-    margin-left: 0 !important;
-  }
-  .map-node.map-node-splitmerge {
-    margin-top: 0;
-  }
-  .map-col-pair > .map-col:first-child {
-    width: auto;
-    flex-shrink: 0;
-    align-items: center;
-    padding-top: 8px;
-  }
-  .map-col-pair > .map-col:last-child {
-    flex: 1;
-    min-width: 0;
-  }
-}
-
-.map-col{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:10px;
-  flex-shrink:0;
-}
-.map-col + .map-col{
-  margin-left:100px;
-}
-
-.map-node{
-  background:var(--panel);
-  border:1px solid var(--border2);
-  border-radius:6px;
-  padding:9px 12px;
-  min-width:140px;
-  max-width:200px;
-  display:flex;
-  flex-direction:column;
-  gap:3px;
-  position:relative;
-  cursor:pointer;
-}
+.map-node{background:var(--panel);border:1px solid var(--border2);border-radius:6px;padding:9px 12px;min-width:140px;max-width:200px;display:flex;flex-direction:column;gap:3px;position:relative;cursor:pointer;}
 .map-node:hover{border-color:var(--accent);}
 .map-node.node-nc{border-color:var(--muted);opacity:.5;}
 .map-node.node-nd{border-color:var(--yellow);background:rgba(255,209,102,.06);}
-
-.map-node::before{
-  content:'';
-  position:absolute;
-  left:0;top:8px;bottom:8px;
-  width:3px;
-  border-radius:2px;
-  background:var(--accent);
-}
+.map-node.node-origin{border-color:var(--accent);background:rgba(0,200,240,.06);}
+.map-node::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:2px;background:var(--accent);}
 .map-node.has-out::before{background:var(--orange);}
 .map-node.has-both::before{background:linear-gradient(to bottom, var(--accent) 50%, var(--orange) 50%);}
 
@@ -258,7 +169,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .map-node-ip{font-family:var(--mono);font-size:.55rem;margin-top:2px;}
 .map-node-ip.ok{color:var(--accent);}
 .map-node-ip.pend{color:var(--yellow);}
-.map-node-ip.none{color:var(--muted);}
 .map-node-divider{height:1px;background:var(--border);margin:3px 0;}
 .map-node-port{font-family:var(--mono);font-size:.6rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .map-node-port.in{color:var(--accent);}
@@ -267,78 +177,30 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .map-node-nc-lbl{font-family:var(--mono);font-size:.7rem;color:var(--muted);}
 .map-node-nd-lbl{font-family:var(--mono);font-size:.65rem;color:var(--yellow);}
 
-.map-node.node-origin{border-color:var(--accent);background:rgba(0,200,240,.06);}
+.map-node.map-node-splitmerge{width:auto;min-width:0;max-width:none;height:auto;min-height:0;padding:0;border:none;background:transparent;opacity:1;cursor:default;pointer-events:none;overflow:visible;display:flex;justify-content:center;align-items:center;}
+
+.map-node.node-conv{background:var(--panel);border:1px dashed var(--border2);padding:6px;min-width:80px;cursor:default;pointer-events:none;}
+.map-node.node-conv::before{display:none;}
+.map-node.node-conv:hover{border-color:var(--border2);}
+.map-node-conv-lbl{font-size:.78rem;color:var(--green);text-align:center;}
 
 .map-svg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;}
 .map-arrow{fill:none;stroke:var(--green);stroke-width:2;}
 
-.map-node.map-node-splitmerge {
-  width: auto;
-  min-width: 0;
-  max-width: none;
-  height: auto;
-  min-height: 0;
-  padding: 0;
-  border: none;
-  background: transparent;
-  opacity: 1;
-  cursor: default;
-  pointer-events: none;
-  overflow: visible;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media(max-width:768px){
+  .map-graph{flex-direction:column;align-items:center;gap:60px;overflow-x:hidden;}
+  .map-col{width:90%;align-items:center;margin-left:0 !important;}
+  .map-col-pair{display:flex;flex-direction:row;gap:80px;width:auto;align-self:center;}
+  .map-sm-splitmerge-group{display:flex;flex-direction:column;align-items:center;gap:40px;width:90%;}
+  .map-sm-splitmerge-group .map-col-pair,
+  .map-sm-splitmerge-group > .map-col{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;}
+  .map-col-sm-origin{width:90%;align-items:center;margin-left:0 !important;}
+  .map-node.map-node-splitmerge{margin-top:0;}
+  .map-col-pair > .map-col:first-child{width:auto;flex-shrink:0;align-items:center;padding-top:8px;}
+  .map-col-pair > .map-col:last-child{flex:1;min-width:0;}
 }
 
-.map-node.node-conv{
-  background:var(--panel);
-  border:1px dashed var(--border2);
-  padding:6px;
-  min-width:80px;
-  cursor:default;
-  pointer-events:none;
-}
-.map-node.node-conv::before{display:none;}
-.map-node.node-conv:hover{border-color:var(--border2);}
-
-.map-node-conv-lbl{font-size:.78rem;color:var(--green);text-align:center;}
-.map-node-conv-title{font-family:var(--mono);font-size:.45rem;letter-spacing:2px;color:var(--text2);text-transform:uppercase;text-align:center;margin-bottom:3px;}
-
-
-/* ─────────────────────────────────────────────────────────────────
-   PANTALLA INDEX
-   ───────────────────────────────────────────────────────────────── */
-.hero-label{font-family:var(--mono);font-size:.6rem;letter-spacing:5px;color:var(--text2);text-transform:uppercase;margin-bottom:10px;text-align:center;}
-.hero-title{font-family:var(--mono);font-size:1.5rem;color:var(--accent);letter-spacing:2px;text-align:center;margin-bottom:4px;}
-.hero-sub{font-family:var(--mono);font-size:.65rem;color:var(--text2);letter-spacing:3px;text-align:center;margin-bottom:48px;}
-
-.divider{width:100%;max-width:560px;display:flex;align-items:center;gap:10px;margin-bottom:32px;}
-.divider-line{flex:1;height:1px;background:var(--border);}
-.divider-lbl{font-family:var(--mono);font-size:.52rem;letter-spacing:3px;color:var(--text2);text-transform:uppercase;white-space:nowrap;}
-
-.cards{display:flex;flex-direction:column;gap:10px;width:100%;max-width:560px;}
-
-.card{display:flex;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:16px 20px;text-decoration:none;color:inherit;cursor:pointer;transition:border-color .15s,background .15s,transform .1s;position:relative;overflow:hidden;}
-.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transform-origin:bottom;transition:transform .2s ease;}
-.card:hover{border-color:var(--accent);background:rgba(0,200,240,.04);transform:translateX(3px);}
-.card:hover::before{transform:scaleY(1);}
-.card:active{transform:translateX(3px) scale(.99);}
-
-.card-icon{font-family:var(--mono);font-size:1rem;color:var(--accent);min-width:20px;text-align:center;transition:color .15s;}
-.card:hover .card-icon{color:var(--green);}
-.card-body{flex:1;min-width:0;}
-.card-name{font-family:var(--mono);font-size:.88rem;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .15s;}
-.card:hover .card-name{color:var(--accent);}
-.card-sub{font-size:.68rem;color:var(--text2);margin-top:3px;font-family:var(--sans);font-weight:300;}
-.card-arrow{font-family:var(--mono);font-size:.8rem;color:var(--muted);transition:color .15s,transform .15s;}
-.card:hover .card-arrow{color:var(--accent);transform:translateX(4px);}
-
-.card-tag{font-family:var(--mono);font-size:.52rem;letter-spacing:2px;padding:2px 6px;border-radius:2px;text-transform:uppercase;white-space:nowrap;border:1px solid;}
-.tag-rack{color:var(--yellow);border-color:rgba(255,209,102,.3);background:rgba(255,209,102,.05);}
-.tag-movil{color:var(--orange);border-color:rgba(255,107,53,.3);background:rgba(255,107,53,.05);}
-
-footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mono);font-size:.56rem;color:var(--muted);text-align:center;letter-spacing:1px;position:relative;z-index:1;}
-
+/* ── ANIMACIONES ────────────────────────────────────────────────── */
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(14px);}
   to{opacity:1;transform:translateY(0);}
@@ -351,16 +213,13 @@ footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mo
 .card:nth-child(2){animation:fadeUp .4s ease both;animation-delay:.38s;}
 .card:nth-child(3){animation:fadeUp .4s ease both;animation-delay:.46s;}
 
+/* ── RESPONSIVE GENERAL ─────────────────────────────────────────── */
 @media(max-width:480px){
   .hero-title{font-size:1.1rem;}
   .card{padding:13px 14px;}
   .card-name{font-size:.78rem;}
   .card-tag{display:none;}
 }
-
-#screen-index{display:flex;flex-direction:column;min-height:100vh;}
-#screen-index main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;position:relative;z-index:1;}
-
 </style>
 </head>
 <body>
@@ -410,13 +269,8 @@ footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mo
   </footer>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     ESTRUCTURA HTML — mínima, todo se renderiza con JS
-     ═══════════════════════════════════════════════════════════════ -->
-
-<!-- Header sticky. Contenido dinámico via JS. -->
 <div id="hdr" style="display:none">
-  <button id="btn-home" onclick="volverAlIndex()">&#8962;</button>
+  <button id="btn-home" onclick="goHome()">&#8962;</button>
   <button id="btn-back" onclick="goBack()">&#8592; Volver</button>
   <div id="hdr-title">&#9672; CARGANDO...</div>
   <div id="hdr-bc"></div>
@@ -429,21 +283,50 @@ footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mo
 
 <script>
 
-var CONNS=[], NODOS={}, PROJ='', _nav=[], _selBtn=null, _onEquipReady=null;
-
-// ─────────────────────────────────────────────────
-// UI OVERRIDES (hardcode)
-// ─────────────────────────────────────────────────
+var CONNS=[], NODOS={}, PROJ='', _nav=[], _onEquipReady=null;
+var _idxOut  = {};
+var _idxIn   = {};
+var _idxThru = {};
+var _mapArrowsPending = false;
+var _mapResizeObserver = null;
+var _lastMapBreakpoint = window.innerWidth > 768;
+var _resizeInitHandler = null;
+var _scrollMapHandler = null;
+var _resizeMapHandler = null;
 const HIDDEN_PFX = ['S','MG'];
-
 const PFX_ALIAS = {
   'TX': 'Transmisión',
   'DC': 'Dirección',
   'P' : 'Piso'
 };
-
-// orden al final (en este orden)
 const PFX_PINNED_LAST = ['DC','P','TX'];
+
+// SETUP - CARGA //
+
+function buildIndexes() {
+  _idxOut  = {};
+  _idxIn   = {};
+  _idxThru = {};
+
+  CONNS.forEach(function(c) {
+    if (c.es_thru_interno) {
+      // índice de thrus por rack+eq+slot
+      var kt = c.sr + '|' + c.se + '|' + nss(c.ss);
+      if (!_idxThru[kt]) _idxThru[kt] = [];
+      _idxThru[kt].push(c);
+    } else {
+      // índice de salidas
+      var ko = c.sr + '|' + c.se + '|' + nss(c.ss) + '|' + c.sp;
+      if (!_idxOut[ko]) _idxOut[ko] = [];
+      _idxOut[ko].push(c);
+
+      // índice de entradas
+      var ki = c.dr + '|' + c.de + '|' + nss(c.ds) + '|' + c.dp;
+      if (!_idxIn[ki]) _idxIn[ki] = [];
+      _idxIn[ki].push(c);
+    }
+  });
+}
 
 function loadUnit(jsonFile, defaultProj){
   document.getElementById('screen-index').style.display = 'none';
@@ -485,10 +368,15 @@ function init(data){
       disp_ext:c.disp_ext||''
     });
   });
+
+  buildIndexes();
   showRacks();
 
-  // Listener para regenerar layout cuando cambia el tamaño de la ventana
-  window.addEventListener('resize', function(){
+  if (_resizeInitHandler) {
+    window.removeEventListener('resize', _resizeInitHandler);
+  }
+  
+  _resizeInitHandler = function() {
     var top = _nav[_nav.length-1];
     if(top && top.type==='racks') showRacks();
     // Re-renderizar equipo si cambia el breakpoint (recalcula páginas y líneas)
@@ -504,78 +392,87 @@ function init(data){
         }
       }, 200);
     }
-  });
+  };
+  window.addEventListener('resize', _resizeInitHandler);
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   HELPERS GENERALES
-   ───────────────────────────────────────────────────────────────── */
+// HELPERS GENERALES //
 
-/* h(): escapa HTML para inserción segura en innerHTML.
-   NOTA 3: no escapa comillas simples (') — puede romper atributos onclick inline
-   cuando el nombre de un equipo contiene apóstrofos (ej: "O'Connor"). */
-function h(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function h(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/'/g,'&#39;'); }
 
-/* nss(): normaliza slot strings — Necesario para comparar slots. */
 function nss(s){ return String(s||''); }
 
-/* portN(): extrae el primer número de un nombre de puerto, para ordenamiento.
-   Retorna 9998 si no hay número → los puertos sin número van al final. */
 function portN(p){
   var m=String(p||'').match(/\d+/); return m?parseInt(m[0]):9998;
 }
 
-/* sortByPort(): ordena un array por nombre de puerto (numérico primero, luego lexicográfico).
-   fn es la función que extrae el puerto de cada elemento del array. */
 function sortByPort(arr,fn){
   return arr.slice().sort(function(a,b){
     return portN(fn(a))-portN(fn(b))||String(fn(a)).localeCompare(String(fn(b)));
   });
 }
 
-/* getIP(): busca la IP de un rack+equipo en el dict NODOS.
-   Primero intenta match exacto, luego case-insensitive del equipo.
-   Retorna undefined si no encuentra nada. */
-function getIP(rack,eq){
-  var k=rack+'|||'+eq;
-  if(NODOS.hasOwnProperty(k)) return NODOS[k];
-  var ks=Object.keys(NODOS);
-  for(var i=0;i<ks.length;i++){
-    var p=ks[i].split('|||');
-    if(p[0]===rack&&p[1].toLowerCase()===eq.toLowerCase()) return NODOS[ks[i]];
+function getRackPfx(r){ var m=r.match(/^([A-Za-z]+)/); return m?m[1].toUpperCase():'?'; }
+
+function getIP(rack, eq) {
+  var k = rack + '|||' + eq;
+  if (NODOS.hasOwnProperty(k)) return NODOS[k];
+
+  var rackLow = rack.toLowerCase(); // ← agregar
+  var eqLow   = eq.toLowerCase();
+
+  var ks = Object.keys(NODOS);
+  for (var i = 0; i < ks.length; i++) {
+    var p = ks[i].split('|||');
+    if (p[0].toLowerCase() === rackLow &&  // ← normalizado
+        p[1].toLowerCase() === eqLow)
+      return NODOS[ks[i]];
   }
   return undefined;
 }
 
-/* ipEl(): genera el HTML del indicador de IP.
-   ip===undefined|null|'' → "Sin red" (gris)
-   ip==='N/D'              → "IP pendiente" (amarillo)
-   cualquier otro valor  → muestra la IP (cyan) */
 function ipEl(ip,cls){
   if(ip===undefined||ip===null||ip==='') return '<div class="'+cls+' none">Sin red</div>';
   if(ip==='N/D') return '<div class="'+cls+' pend">IP pendiente</div>';
   return '<div class="'+cls+' ok">'+h(ip)+'</div>';
 }
 
-/* getRackPfx(): extrae el prefijo de letra de un rack (ej: "A.1" → "A", "DC.2" → "DC").
-   Se usa para agrupar racks en columnas en la vista principal. */
-function getRackPfx(r){ var m=r.match(/^([A-Za-z]+)/); return m?m[1].toUpperCase():'?'; }
+// HELPERS DE DATOS //
+
+function getPlaca(rack, eq, slot) {
+  if (!slot) return '';
+  var ko = rack + '|' + eq + '|' + nss(slot);
+  var thrus = _idxThru[ko] || [];
+  if (thrus.length && thrus[0].sl) return thrus[0].sl;
+  // buscar en salidas
+  var outKeys = Object.keys(_idxOut).filter(function(k) {
+    return k.startsWith(ko + '|');
+  });
+  if (outKeys.length) {
+    var c = _idxOut[outKeys[0]][0];
+    if (c && c.sl) return c.sl;
+  }
+  // buscar en entradas
+  var inKeys = Object.keys(_idxIn).filter(function(k) {
+    return k.startsWith(ko + '|');
+  });
+  if (inKeys.length) {
+    var c = _idxIn[inKeys[0]][0];
+    if (c && c.dl) return c.dl;
+  }
+  return '';
+}
 
 function getThruPairs(rack, eq, slot) {
-  // Todos los thrus del equipo/slot
-  var thrus = CONNS.filter(function(c) {
-    return c.es_thru_interno === true
-      && c.sr === rack && c.se === eq && nss(c.ss) === nss(slot);
-  });
-
-  // Agrupar por entrada (sp) → array de salidas (dp)
+  var k = rack + '|' + eq + '|' + nss(slot);
+  var thrus = _idxThru[k] || [];
+  
   var pairs = {};
   thrus.forEach(function(t) {
     if (!pairs[t.sp]) pairs[t.sp] = [];
     pairs[t.sp].push(t.dp);
   });
 
-  // Devuelve array de { inPort, outPorts[] }
   return Object.keys(pairs).map(function(inPort) {
     return { inPort: inPort, outPorts: pairs[inPort] };
   }).sort(function(a, b) {
@@ -583,56 +480,110 @@ function getThruPairs(rack, eq, slot) {
   });
 }
 
+function getCablesOut(rack, eq, slot, puerto) {
+  var k = rack + '|' + eq + '|' + nss(slot) + '|' + puerto;
+  return _idxOut[k] || [];
+}
 
-/* ─────────────────────────────────────────────────────────────────
-   DETECCIÓN DE FRAMES Y SLOTS
-   Un "frame" es un equipo que tiene slots (ej: openGear, Miranda Densite).
-   Se detecta buscando conexiones donde el campo slot (ss o ds) no esté vacío.
-   ───────────────────────────────────────────────────────────────── */
+function getCablesIn(rack, eq, slot, puerto) {
+  var k = rack + '|' + eq + '|' + nss(slot) + '|' + puerto;
+  return _idxIn[k] || [];
+}
 
-/* isFrame(): true si el equipo tiene alguna conexión con slot no vacío. */
+function getThruDeSalida(rack, eq, slot, puertoSalida) {
+  var k = rack + '|' + eq + '|' + nss(slot);
+  var thrus = _idxThru[k] || [];
+  return thrus.find(function(t) { return t.dp === puertoSalida; }) || null;
+}
+
+function getThruDeEntrada(rack, eq, slot, puertoEntrada) {
+  var k = rack + '|' + eq + '|' + nss(slot);
+  var thrus = _idxThru[k] || [];
+  return thrus.find(function(t) { return t.sp === puertoEntrada; }) || null;
+}
+
 function isFrame(rack,eq){
   return CONNS.some(function(c){
     return (c.sr===rack&&c.se===eq&&c.ss) || (c.dr===rack&&c.de===eq&&c.ds);
   });
 }
 
-/* getSlots(): devuelve array de { slot, placa } para un frame, ordenado numéricamente.
-   Combina slots de conexiones de entrada y de salida. */
-function getSlots(rack,eq){
-  var seen={};
-  CONNS.forEach(function(c){
-    if(c.sr===rack&&c.se===eq&&c.ss){
-      var k=nss(c.ss);
-      if(!seen[k]) seen[k]={slot:k,placa:''};
-      if(c.sl&&!seen[k].placa) seen[k].placa=c.sl;
-    }
-    if(c.dr===rack&&c.de===eq&&c.ds){
-      var kDst=nss(c.ds);
-      if(!seen[kDst]) seen[kDst]={slot:kDst,placa:''};
-      if(c.dl&&!seen[kDst].placa) seen[kDst].placa=c.dl;
+function getSlots(rack, eq) {
+  var seen = {};
+  // Buscar en índices en lugar de CONNS
+  Object.keys(_idxOut).forEach(function(k) {
+    var parts = k.split('|');
+    if (parts[0] === rack && parts[1] === eq && parts[2]) {
+      var slot = parts[2];
+      if (!seen[slot]) seen[slot] = { slot: slot, placa: '' };
+      var c = (_idxOut[k] || [])[0];
+      if (c && c.sl && !seen[slot].placa) seen[slot].placa = c.sl;
     }
   });
-  return Object.values(seen).sort(function(a,b){ return parseInt(a.slot)-parseInt(b.slot); });
+  Object.keys(_idxIn).forEach(function(k) {
+    var parts = k.split('|');
+    if (parts[0] === rack && parts[1] === eq && parts[2]) {
+      var slot = parts[2];
+      if (!seen[slot]) seen[slot] = { slot: slot, placa: '' };
+      var c = (_idxIn[k] || [])[0];
+      if (c && c.dl && !seen[slot].placa) seen[slot].placa = c.dl;
+    }
+  });
+  return Object.values(seen).sort(function(a, b) {
+    return parseInt(a.slot) - parseInt(b.slot);
+  });
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   NAVEGACIÓN
-   Stack _nav: cada vista pushea su estado. goBack() popea y restaura.
-   Flujo: showRacks → onEqClick → showSlots / showEquip
-   ───────────────────────────────────────────────────────────────── */
+function isSplitterOrMerger(rack) {
+  var pfx = getRackPfx(rack);
+  return pfx === 'S' || pfx === 'MG';
+}
 
-/* setView(): activa una vista y desactiva las otras. */
+// NAVEGACION //
+
 function setView(id){
   ['view-racks','view-slots','view-equip','view-map'].forEach(function(v){
     document.getElementById(v).className='view'+(v===id?' active':'');
   });
 }
 
-/* updateHdr(): actualiza header según el estado de navegación.
-   Si _nav.length <= 1 → en la raíz → muestra el título del proyecto.
-   Si _nav.length > 1  → en una vista hija → muestra breadcrumb.
-   El botón Volver siempre está visible cuando el header está activo. */
+function bcGoRacks() {
+  _nav = [{type:'racks'}];
+  window._mapSegs  = null;
+  window._mapCols  = null;
+  window._mapOrigin = null;
+  showRacks(true);
+}
+
+function bcGoSlotEquip(rack, eq, slot) {
+  window._mapSegs  = null;
+  window._mapCols  = null;
+  window._mapOrigin = null;
+  _nav = [{type:'racks'}, {type:'slots', rack:rack, eq:eq}, {type:'equip', rack:rack, eq:eq, slot:slot}];
+  showEquip(rack, eq, slot, true);
+}
+
+function bcGoSlotList(rack, eq) {
+  _nav = [{type:'racks'}, {type:'slots', rack:rack, eq:eq}];
+  window._mapSegs  = null;
+  window._mapCols  = null;
+  window._mapOrigin = null;
+  showSlots(rack, eq, true);
+}
+
+function bcGoEquip(rack, eq, slot) {
+  window._mapSegs  = null;
+  window._mapCols  = null;
+  window._mapOrigin = null;
+  if(slot) {
+    // ir a lista de slots — bcGoSlotList ya setea _nav
+    bcGoSlotList(rack, eq);
+  } else {
+    _nav = [{type:'racks'}, {type:'equip', rack:rack, eq:eq, slot:''}];
+    showEquip(rack, eq, '', true);
+  }
+}
+
 function updateHdr(bc){
   document.getElementById('btn-back').className = 'show';
   document.getElementById('btn-home').className = 'show';
@@ -642,38 +593,64 @@ function updateHdr(bc){
 }
 
 function goBack(){
+  _nav.pop(); // sacar la vista actual
+  var top = _nav[_nav.length - 1]; // ver a donde volver
+
+  if(!top){ goHome(); return; }
+
+  if(top.type==='racks') { showRacks(true); return; }
+  if(top.type==='slots') { showSlots(top.rack, top.eq, true); return; }
+  if(top.type==='equip') { showEquip(top.rack, top.eq, top.slot, true); return; }
+  if(top.type==='map')   { showMap(top.rack, top.eq, top.slot, top.puerto, true); return; }
+
+  goHome();
+}
+
+function goHome(){
   var top = _nav[_nav.length - 1];
-  if(!top) { volverAlIndex(); return; }
 
-  if(top.type==='racks') { volverAlIndex(); return; }
-  if(top.type==='slots') { showRacks(true); return; }
-  if(top.type==='equip') { showRacks(true); return; }
-  if(top.type==='map')   { showRacks(true); return; }
+  if (_resizeInitHandler) {
+    window.removeEventListener('resize', _resizeInitHandler);
+    _resizeInitHandler = null;
+  }
+  if (_scrollMapHandler) {
+    window.removeEventListener('scroll', _scrollMapHandler);
+    _scrollMapHandler = null;
+  }
+  if (_resizeMapHandler) {
+    window.removeEventListener('resize', _resizeMapHandler);
+    _resizeMapHandler = null;
+  }
 
-  volverAlIndex();
+  if(!top || top.type === 'racks'){
+    // reset completo → index
+    _idxOut = {}; _idxIn = {}; _idxThru = {};
+    window._mapSegs  = null;
+    window._mapCols  = null;
+    window._mapOrigin = null;
+    CONNS=[]; NODOS={}; PROJ=''; _nav=[]; _onEquipReady=null;
+    document.title = 'C12 Documentación';
+    document.querySelectorAll('.view').forEach(function(v){
+      v.classList.remove('active');
+    });
+    document.getElementById('view-slots').innerHTML = '';
+    document.getElementById('view-equip').innerHTML = '';
+    document.getElementById('view-map').innerHTML = '';
+    document.getElementById('hdr-bc').textContent = '';
+    document.getElementById('hdr').style.display = 'none';
+    document.getElementById('screen-index').style.display = '';
+  } else {
+    // volver a racks sin resetear
+    window._mapSegs  = null;
+    window._mapCols  = null;
+    window._mapOrigin = null;
+    _nav = [{type:'racks'}];
+    showRacks(true);
+  }
 }
 
-function volverAlIndex(){
-  CONNS=[]; NODOS={}; PROJ=''; _nav=[]; _selBtn=null; _onEquipReady=null;
-  document.title = 'C12 Documentación';
-  document.querySelectorAll('.view').forEach(function(v){
-    v.classList.remove('active');
-  });
-  document.getElementById('racks-wrap').innerHTML = '';
-  document.getElementById('racks-mobile').innerHTML = '';
-  document.getElementById('view-slots').innerHTML = '';
-  document.getElementById('view-equip').innerHTML = '';
-  document.getElementById('view-map').innerHTML = '';
-  document.getElementById('hdr-bc').textContent = '';
-  document.getElementById('hdr').style.display = 'none';
-  document.getElementById('screen-index').style.display = '';
-}
+// VISTA RACKS //
 
-/* ─────────────────────────────────────────────────────────────────
-   VISTA: RACKS
-   Agrupa todos los equipos por prefijo de rack (A, B, C, DC, TX...).
-   Fuente de datos: CONNS (conexiones no-thru) + NODOS (equipos del JSON).
-   ───────────────────────────────────────────────────────────────── */
 function showRacks(fromBack){
   if(!fromBack){
     _nav = [{type:'racks'}]; // reset limpio
@@ -762,31 +739,29 @@ function showRacks(fromBack){
   document.getElementById('hdr-bc').innerHTML = '';
 }
 
-/* onEqClick(): decide si ir a slots o directo al equipo. */
 function onEqClick(rack,eq){
   if(isFrame(rack,eq)) showSlots(rack,eq);
   else showEquip(rack,eq,'');
 }
 
-/* toggleMobileList(): muestra/oculta la lista de equipos en mobile */
 function toggleMobileList(btn){
   var list=btn.nextElementSibling;
   list.classList.toggle('show');
   btn.classList.toggle('open');
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   VISTA: SLOTS
-   Para frames (equipos con múltiples slots).
-   Lista los slots disponibles con su placa asociada.
-   ───────────────────────────────────────────────────────────────── */
+// VISTA SLOTS //
+
 function showSlots(rack,frameEq,fromBack){
   if(!fromBack){
     _nav.push({type:'slots', rack:rack, eq:frameEq});
   }
 
   setView('view-slots');
-  updateHdr('<span class="hi">'+h(rack)+'</span> › '+h(frameEq));
+  updateHdr(
+    '<span class="hi bc-link" onclick="bcGoRacks()">'+h(rack)+'</span>'
+    + ' › ' + h(frameEq)
+  );
   var slots=getSlots(rack,frameEq);
   var ip=getIP(rack,frameEq);
   var html='<div class="eq-meta"><div class="eq-name">'+h(frameEq)+'</div>'
@@ -804,12 +779,7 @@ function showSlots(rack,frameEq,fromBack){
   window.scrollTo(0,0);
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   VISTA: EQUIPO
-   rack, eq: identificadores del equipo base
-   slot: slot number string, o '' para equipos sin slots
-   Muestra: metadatos + grilla de puertos (salidas / entradas / conectores pasivos)
-   ───────────────────────────────────────────────────────────────── */
+// VISTA EQUIPO //
 
 function drawThruLines(rack, eq, slot, pairs){
   var blockId = 'thru-block-'+rack+'-'+eq+'-'+slot;
@@ -883,28 +853,38 @@ function showEquip(rack, eq, slot, fromBack){
 
   var isSlotEq = slot!=='';
   var bc = isSlotEq
-    ? '<span class="hi">'+h(rack)+'</span> › '+h(eq)+' › Slot '+h(slot)
-    : '<span class="hi">'+h(rack)+'</span> › '+h(eq);
+    ? '<span class="hi bc-link" onclick="bcGoRacks()">'+h(rack)+'</span>'
+      + ' › <span class="bc-link" onclick="bcGoSlotList(\''+h(rack)+'\',\''+h(eq)+'\')">'+h(eq)+'</span>'
+      + ' › Slot '+h(slot)
+    : '<span class="hi bc-link" onclick="bcGoRacks()">'+h(rack)+'</span>'
+      + ' › ' + h(eq);
   updateHdr(bc);
 
   var placa='';
   if(isSlotEq){
-    var plRef=CONNS.find(function(c){
-      return ((c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sl)
-             ||(c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dl));
-    });
-    if(plRef) placa=plRef.sl||plRef.dl||'';
+    var ko = rack + '|' + eq + '|' + nss(slot);
+    var thrus = _idxThru[ko] || [];
+    if(thrus.length && thrus[0].sl) placa = thrus[0].sl;
+    if(!placa) {
+      var outKeys = Object.keys(_idxOut).filter(function(k){ return k.startsWith(ko+'|'); });
+      if(outKeys.length) placa = (_idxOut[outKeys[0]][0].sl) || '';
+    }
+    if(!placa) {
+      var inKeys = Object.keys(_idxIn).filter(function(k){ return k.startsWith(ko+'|'); });
+      if(inKeys.length) placa = (_idxIn[inKeys[0]][0].dl) || '';
+    }
   }
 
   var displayName = isSlotEq ? ('Slot '+slot+(placa?' — '+placa:'')) : eq;
   var ip = getIP(rack,eq);
 
-  var outsAll=CONNS.filter(function(c){
-    return c.es_thru_interno!==true&&c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot);
-  });
-  var insAll=CONNS.filter(function(c){
-    return c.es_thru_interno!==true&&c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot);
-  });
+  var outsAll = Object.keys(_idxOut)
+    .filter(function(k){ return k.startsWith(rack+'|'+eq+'|'+nss(slot)+'|'); })
+    .reduce(function(acc, k){ return acc.concat(_idxOut[k]); }, []);
+
+  var insAll = Object.keys(_idxIn)
+    .filter(function(k){ return k.startsWith(rack+'|'+eq+'|'+nss(slot)+'|'); })
+    .reduce(function(acc, k){ return acc.concat(_idxIn[k]); }, []);
 
   var html='<div class="eq-meta">';
   html+='<div class="eq-name">'+h(displayName)+'</div>';
@@ -1115,150 +1095,86 @@ function showEquip(rack, eq, slot, fromBack){
   }
 
   document.getElementById('view-equip').innerHTML=html;
-  drawThruLines(rack, eq, slot, pairs);
   window.scrollTo(0,0);
-  if(typeof _onEquipReady === 'function'){ 
-    var cb = _onEquipReady;
-    _onEquipReady = null;
-    requestAnimationFrame(cb);
-  }
+  requestAnimationFrame(function() {
+    drawThruLines(rack, eq, slot, pairs);
+    if(typeof _onEquipReady === 'function'){
+      var cb = _onEquipReady;
+      _onEquipReady = null;
+      requestAnimationFrame(cb);
+    }
+  });
 }
 
-/* onPortClick(): handler de click en puerto normal.
-   Determina el contenido del popover según el estado del puerto.
-   state='doc' → buildRoute() para trazar la ruta de señal completa. */
-function onPortClick(btn,sr,se,ss0,sp,state){
+function onPortClick(btn, sr, se, ss0, sp, state) {
 
   if(state === 'doc'){
-
     var inMap = document.getElementById('view-map').classList.contains('active');
-
-    if(inMap){
-      // 👉 si estoy en mapa → voy al equipo
-      showEquip(sr, se, ss0);
-    } else {
-      // 👉 si estoy en equipo → voy al mapa
-      showMap(sr, se, ss0, sp);
-    }
-
+    if(inMap) showEquip(sr, se, ss0);
+    else showMap(sr, se, ss0, sp);
     return;
   }
 
-  // NC / ND → ignorar o alert
+  if(state === 'ND') {
+    btn.style.transition = 'background .1s';
+    btn.style.background = 'rgba(255,209,102,.2)';
+    setTimeout(function() {
+      btn.style.background = '';
+    }, 400);
+  }
 }
 
-function onMapNodeClick(rack, eq, slot){
-  // elegir puerto default del nodo
-  var outs = getCablesOut(rack, eq, slot, '');
-  
-  if(outs.length){
-    showMap(rack, eq, slot, outs[0].sp);
-  } else {
-    // fallback: agarrar cualquier conexión
-    var c = CONNS.find(function(x){
-      return x.sr===rack && x.se===eq && nss(x.ss)===nss(slot);
+// ROUTE BUILDER //
+
+function buildUpstream(rack, eq, slot, puerto) {
+  var segs = [], vis = {};
+
+  function walkUp(rack, eq, slot, puerto, depth) {
+    if (depth > 12) return;
+    var key = rack + '|' + eq + '|' + nss(slot) + '|' + puerto;
+    if (vis[key]) return;
+    vis[key] = true;
+
+    var cables = getCablesIn(rack, eq, slot, puerto);
+    if (!cables.length) return;
+
+    cables.forEach(function(c) {
+      if (!c.sr || c.sr === 'N/C') {
+        segs.unshift({
+          rack: '', eq: '', slot: '', placa: '',
+          inPort: '', outPort: '',
+          branches: [], disp_ext_before: '', disp_ext_after: c.disp_ext || '',
+          noDoc: true, noDocReason: 'N/C'
+        });
+        return;
+      }
+
+      if (c.sr === 'N/D' || c.se === 'N/D') {
+        segs.unshift({
+          rack: c.sr, eq: c.se, slot: c.ss, placa: '',
+          inPort: '', outPort: c.sp,
+          branches: [], disp_ext_before: '', disp_ext_after: c.disp_ext || '',
+          noDoc: true, noDocReason: 'N/D'
+        });
+        return;
+      }
+
+      var placa = getPlaca(c.sr, c.se, c.ss);
+      var thru = getThruDeSalida(c.sr, c.se, c.ss, c.sp);
+
+      segs.unshift({
+        rack: c.sr, eq: c.se, slot: c.ss, placa: placa,
+        inPort: thru ? thru.sp : '',
+        outPort: c.sp,
+        branches: [], disp_ext_before: '', disp_ext_after: c.disp_ext || ''
+      });
+
+      if (thru) walkUp(c.sr, c.se, c.ss, thru.sp, depth + 1);
     });
-    if(c) showMap(rack, eq, slot, c.sp);
-  }
-}
-/* ─────────────────────────────────────────────────────────────────
-   ROUTE BUILDER — lógica de trazado de señal
-   
-   Concepto central: cada conexión en CONNS puede ser:
-   a) Cable real (es_thru=false): conecta dos equipos distintos
-   b) THRU interno (es_thru=true): conexión interna de un equipo
-      (ej: una placa distribuidora 1→9, o un patch panel)
-   
-   Los segmentos de la ruta son objetos:
-   { rack, eq, slot, placa, inPort, outPort, branches[], unknown, nc, disp_ext }
-  
-   ───────────────────────────────────────────────────────────────── */
-
-/* isAudio(): true si el nombre del puerto contiene "audio" (case insensitive). */
-function isAudio(p){ return /audio/i.test(p||''); }
-
-// Cables reales que salen de un puerto (src)
-function getCablesOut(rack, eq, slot, puerto) {
-  return CONNS.filter(function(c) {
-    return c.es_thru_interno !== true
-      && c.sr === rack && c.se === eq && nss(c.ss) === nss(slot)
-      && c.sp === puerto;
-  });
-}
-
-// Cables reales que entran a un puerto (dst)
-function getCablesIn(rack, eq, slot, puerto) {
-  return CONNS.filter(function(c) {
-    return c.es_thru_interno !== true
-      && c.dr === rack && c.de === eq && nss(c.ds) === nss(slot)
-      && c.dp === puerto;
-  });
-}
-
-// Busca el thru asociado a una salida — devuelve el thru o null
-function getThruDeSalida(rack, eq, slot, puertoSalida) {
-  return CONNS.find(function(c) {
-    return c.es_thru_interno === true
-      && c.sr === rack && c.se === eq && nss(c.ss) === nss(slot)
-      && c.dp === puertoSalida;
-  }) || null;
-}
-
-/* eqLabel(): HTML de una fila de equipo en la traza.
-   Formato: "RACK  NombreEquipo  / Slot N — Placa" */
-function eqLabel(rack,eq,slot,placa){
-  var html='<div class="tr-node">';
-  html+='<span class="tr-rack">'+h(rack)+'</span>';
-  html+='<span class="tr-eq">'+h(eq)+'</span>';
-  if(nss(slot)){
-    html+=' <span class="tr-slot">/ Slot '+h(nss(slot));
-    if(placa) html+=' — '+h(placa);
-    html+='</span>';
-  }
-  html+='</div>';
-  return html;
-}
-
-/* getPlaca(): busca la placa de un equipo/slot desde CONNS. */
-function getPlaca(rack,eq,slot){
-  var r=CONNS.find(function(c){
-    return ((c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sl)
-           ||(c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dl));
-  });
-  return r?(r.sl||r.dl||''):'';
-}
-
-/* renderOut/renderIn(): HTML de líneas de puerto en la traza.
-   "Out 1 >>>" (naranja) o ">>> In 1" (cyan). */
-function renderOut(port){
-  if(!port) return '';
-  return '<div><span class="tr-out">'+h(port)+' &gt;&gt;&gt;</span></div>';
-}
-
-function renderIn(port){
-  if(!port) return '';
-  return '<div><span class="tr-in">&gt;&gt;&gt; '+h(port)+'</span></div>';
-}
-
-/* renderBranch(): HTML de una rama de distribución.
-   "Out N >>>  RACK  DestEq  / Slot N  > DestPuerto" */
-function renderBranch(br){
-  var html='<div class="tr-branch">';
-  html+='<span class="tr-out">'+h(br.outPort)+' &gt;&gt;&gt;</span>';
-
-  if(br.dstRack === 'N/C' || !br.dstRack){
-    html+='<span class="tr-nc">N/C</span>';
-  } else if(br.dstEq && br.dstEq!=='N/D'){
-    if(br.dstRack && br.dstRack!=='N/D') html+=' <span class="tr-branch-dst">'+h(br.dstRack)+'</span>';
-    html+=' <span class="tr-branch-dst">'+h(br.dstEq)+'</span>';
-    if(nss(br.dstSlot)) html+=' <span class="tr-slot">/ Slot '+h(nss(br.dstSlot))+'</span>';
-    if(br.dstPort) html+=' <span class="tr-branch-dport">&gt; '+h(br.dstPort)+'</span>';
-  } else {
-    html+=' <span class="tr-nodata">⚠ AÚN NO DOCUMENTADO ⚠</span>';
   }
 
-  html+='</div>';
-  return html;
+  walkUp(rack, eq, slot, puerto, 0);
+  return segs;
 }
 
 function buildSegments(rack, eq, slot, puerto, depth) {
@@ -1333,146 +1249,43 @@ function buildSegments(rack, eq, slot, puerto, depth) {
   return segs;
 }
 
-function buildUpstream(rack, eq, slot, puerto) {
-  var segs = [], vis = {};
+function detectAndCollapseFD(segs) {
+  var result = [];
+  var i = 0;
+  while (i < segs.length) {
+    // Buscar patrón: segs[i] → segs[i+1] → segs[i+2]
+    // donde segs[i].rack===segs[i+2].rack && segs[i].eq===segs[i+2].eq
+    if (
+      i + 2 < segs.length &&
+      !segs[i].noDoc && !segs[i+1].noDoc && !segs[i+2].noDoc &&
+      segs[i].rack   === segs[i+2].rack &&
+      segs[i].eq     === segs[i+2].eq &&
+      nss(segs[i].slot||'') === nss(segs[i+2].slot||'')
+    ) {
+      // Colapsar: el nodo del medio (segs[i+1]) recibe fdPair
+      var nodeA  = segs[i];
+      var nodeMid = segs[i+1];
+      var nodeA2 = segs[i+2];
 
-  function walkUp(rack, eq, slot, puerto, depth) {
-    if (depth > 12) return;
-    var key = rack + '|' + eq + '|' + nss(slot) + '|' + puerto;
-    if (vis[key]) return;
-    vis[key] = true;
+      // nodeA queda con ambos puertos (out que va + in que vuelve)
+      nodeA.fdReturnInPort = nodeA2.inPort;   // "Incom In"
 
-    var cables = getCablesIn(rack, eq, slot, puerto);
-    if (!cables.length) return;
+      // nodeMid queda con ambos puertos y sabe que es FD
+      nodeMid.fdReturnOutPort = nodeMid.outPort; // "P1 Out" — ya lo tiene
+      nodeMid.isFD = true;
 
-    cables.forEach(function(c) {
-      if (!c.sr || c.sr === 'N/C') {
-        segs.unshift({
-          rack: '', eq: '', slot: '', placa: '',
-          inPort: '', outPort: '',
-          branches: [], disp_ext_before: '', disp_ext_after: c.disp_ext || '',
-          noDoc: true, noDocReason: 'N/C'
-        });
-        return;
-      }
-
-      if (c.sr === 'N/D' || c.se === 'N/D') {
-        segs.unshift({
-          rack: c.sr, eq: c.se, slot: c.ss, placa: '',
-          inPort: '', outPort: c.sp,
-          branches: [], disp_ext_before: '', disp_ext_after: c.disp_ext || '',
-          noDoc: true, noDocReason: 'N/D'
-        });
-        return;
-      }
-
-      var placa = getPlaca(c.sr, c.se, c.ss);
-      var thru = getThruDeSalida(c.sr, c.se, c.ss, c.sp);
-
-      segs.unshift({
-        rack: c.sr, eq: c.se, slot: c.ss, placa: placa,
-        inPort: thru ? thru.sp : '',
-        outPort: c.sp,
-        branches: [], disp_ext_before: '', disp_ext_after: c.disp_ext || ''
-      });
-
-      if (thru) walkUp(c.sr, c.se, c.ss, thru.sp, depth + 1);
-    });
-  }
-
-  walkUp(rack, eq, slot, puerto, 0);
-  return segs;
-}
-
-/* ─────────────────────────────────────────────────────────────────
-   renderRoute(): convierte array de segmentos en HTML para el popover.
-   
-   Para cada segmento muestra:
-   - disp_ext del cable anterior (rótulo entre equipos)
-   - eqLabel (rack + nombre + slot)
-   - inPort  (>>> In X)
-   - outPort (Out X >>>)
-   - branches (ramas de distribución, indentadas)
-   - nc / unknown (fin de cadena)
-   ───────────────────────────────────────────────────────────────── */
-function renderRoute(segs) {
-  var html = '';
-  segs.forEach(function(seg, i) {
-    
-    if (seg.noDoc) {
-      if (seg.noDocReason === 'N/C') {
-        html += '<div class="tr-nc">N/C</div>';
-      } else {
-        html += '<div class="tr-nodata">⚠ AÚN NO DOCUMENTADO ⚠</div>'; // tr-nodata en lugar de tr-unk
-      }
+      result.push(nodeA);
+      result.push(nodeMid);
+      i += 3; // saltar los 3, ya los procesamos
     } else {
-      if (seg.disp_ext_before) html += '<div class="tr-dispext">⟳ ' + h(seg.disp_ext_before) + ' ⟳</div>';
-      html += eqLabel(seg.rack, seg.eq, seg.slot, seg.placa);
-      if (seg.inPort)  html += renderIn(seg.inPort);
-      if (seg.outPort) html += renderOut(seg.outPort);
-      if (seg.disp_ext_after) html += '<div class="tr-dispext"><br>⟳ ' + h(seg.disp_ext_after) + ' ⟳</div>';
-      seg.branches.forEach(function(br) { html += renderBranch(br); });
+      result.push(segs[i]);
+      i++;
     }
-
-    if (i < segs.length - 1) html += '<div class="tr-gap"></div>';
-  });
-
-  if (!segs.length) html = '<div class="tr-nodata">Sin datos.</div>';
-  return html;
-}
-
-function buildRoute(rack, eq, slot, puerto) {
-  // ¿Es salida? aparece como src en un cable real
-  var esSalida = getCablesOut(rack, eq, slot, puerto).length > 0;
-  
-  // ¿Tiene thru asociado?
-  var thru = getThruDeSalida(rack, eq, slot, puerto);
-  
-  var placa = getPlaca(rack, eq, slot);
-  var upSegs = [];
-  var downSegs = [];
-
-  if (esSalida) {
-    if (thru) {
-      // con thru...
-      upSegs = buildUpstream(rack, eq, slot, thru.sp);
-      upSegs.push({
-        rack: rack, eq: eq, slot: slot, placa: placa,
-        inPort: thru ? thru.sp : '',
-        outPort: puerto,
-        branches: [], disp_ext_before: '', disp_ext_after: ''
-      });
-    } else {
-      // Sin thru → agregar el nodo inicial del CGX
-      upSegs.push({
-        rack: rack, eq: eq, slot: slot, placa: placa,
-        inPort: '',
-        outPort: puerto,
-        branches: [], disp_ext_before: '', disp_ext_after: ''
-      });
-    }
-    // Con o sin thru → siempre downstream
-    downSegs = buildSegments(rack, eq, slot, puerto, 0);
-  } else {
-    // Es entrada → upstream completo SOLAMENTE
-    upSegs = buildUpstream(rack, eq, slot, puerto);
-    upSegs.push({
-      rack: rack, eq: eq, slot: slot, placa: placa,
-      inPort: puerto, outPort: '',
-      branches: [], disp_ext: ''
-    });
-    // NO agregar downstream para entradas
   }
-
-  var allSegs = upSegs.concat(downSegs);
-  return renderRoute(allSegs);
+  return result;
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   VISTA: MAPA DE RUTA DE SEÑAL
-   showMap(): construye los segmentos con buildRoute logic,
-   los renderiza como grafo de nodos + flechas SVG.
-   ───────────────────────────────────────────────────────────────── */
+// VISTA MAPA //
 
 function showMap(rack, eq, slot, puerto, fromBack) {
   if(!fromBack){
@@ -1481,14 +1294,13 @@ function showMap(rack, eq, slot, puerto, fromBack) {
 
   setView('view-map');
 
-  var bc = '<span class="hi">' + h(rack) + '</span> › '
-         + h(eq)
-         + (slot ? ' › Slot ' + h(slot) : '')
-         + ' › <span class="hi">MAPA</span>';
+  var bc = '<span class="hi bc-link" onclick="bcGoRacks()">'+h(rack)+'</span>'
+    + ' › <span class="bc-link" onclick="bcGoEquip(\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot||'')+'\')">'+h(eq)+'</span>'
+    + (slot ? ' › <span class="bc-link" onclick="bcGoSlotEquip(\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\')">Slot '+h(slot)+'</span>' : '')
+    + ' › <span class="hi">MAPA</span>';
   updateHdr(bc);
   setView('view-map');
 
-  // Reusar la misma lógica de buildRoute pero capturando los segmentos
   var esSalida = getCablesOut(rack, eq, slot, puerto).length > 0;
   var thru     = getThruDeSalida(rack, eq, slot, puerto);
   var placa    = getPlaca(rack, eq, slot);
@@ -1505,28 +1317,12 @@ function showMap(rack, eq, slot, puerto, fromBack) {
     downSegs = buildSegments(rack, eq, slot, puerto, 0);
   } else {
     upSegs = buildUpstream(rack, eq, slot, puerto);
-    upSegs.push({ rack:rack, eq:eq, slot:slot, placa:placa, inPort:puerto, outPort:'', branches:[], disp_ext:'', branches:[] });
+    upSegs.push({ rack:rack, eq:eq, slot:slot, placa:placa, inPort:puerto, outPort:'', branches:[], disp_ext_before:'', disp_ext_after:'' });
   }
-
-  var segs = upSegs.concat(downSegs);
+  var segs = detectAndCollapseFD(upSegs.concat(downSegs));
+  window._mapOrigin = { rack: rack, eq: eq, slot: slot };
   renderMap(segs, rack, eq, slot);
   window.scrollTo(0,0);
-}
-
-function getPlaca(rack, eq, slot) {
-  if (!slot) return '';
-  var c = CONNS.find(function(c) {
-    return ((c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)&&c.sl) ||
-            (c.dr===rack&&c.de===eq&&nss(c.ds)===nss(slot)&&c.dl));
-  });
-  if (!c) return '';
-  if (c.sr===rack&&c.se===eq&&nss(c.ss)===nss(slot)) return c.sl||'';
-  return c.dl||'';
-}
-
-function isSplitterOrMerger(rack) {
-  var pfx = getRackPfx(rack);
-  return pfx === 'S' || pfx === 'MG';
 }
 
 function renderMap(segs, originRack, originEq, originSlot) {
@@ -1574,7 +1370,10 @@ function renderMap(segs, originRack, originEq, originSlot) {
         rotuloAfter:    '',
         _pendingRotulo: seg.disp_ext_after || '',
         borderCls:      isSplitMerge ? '' : borderCls,
-        branches:       seg.branches || []
+        branches:       seg.branches || [],
+        fdReturnInPort:  seg.fdReturnInPort  || '',
+        fdReturnOutPort: seg.fdReturnOutPort || '',
+        isFD:            seg.isFD            || false
       });
 
       cols.push(nodes);
@@ -1713,10 +1512,17 @@ function renderMap(segs, originRack, originEq, originSlot) {
         }
 
         if (node.outPort)
-          out += '<div class="map-node-port out" '
+          out += '<div class="map-node-port ' + (node.isFD ? 'in' : 'out') + '" '
                + 'onclick="event.stopPropagation(); onPortClick(this,\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\',\'' + h(node.outPort) + '\',\'doc\')" '
-               + 'id="map-out-' + colIdx + '-' + nodeIdx + '-' + cssId(node.outPort) + '">'
-               + h(node.outPort) + ' \u25b6</div>';
+               + 'id="map-out-' + colIdx + '-' + nodeIdx + '-' + cssId(node.outPort) + '"'
+               + (node.isFD ? ' data-fd-out="1"' : '') + '>'
+               + (node.isFD ? '\u25b6 ' + h(node.outPort) : h(node.outPort) + ' \u25b6') + '</div>';
+
+        // Puerto FD de retorno — entrada que viene del nodo del medio
+        if (node.fdReturnInPort)
+          out += '<div class="map-node-port out" '
+               + 'id="map-fd-in-' + colIdx + '-' + nodeIdx + '">'
+               + h(node.fdReturnInPort) + ' \u25b6</div>';
 
         if (node.branches && node.branches.length) {
           node.branches.forEach(function(br) {
@@ -1853,16 +1659,6 @@ function drawMapArrows(cols) {
     if (!el) return 0;
     return el.getBoundingClientRect().left - gRect.left; 
   }
-  
-  function elBottom(el){ 
-    if (!el) return 0;
-    return el.getBoundingClientRect().bottom - gRect.top; 
-  }
-  
-  function elTop(el) { 
-    if (!el) return 0;
-    return el.getBoundingClientRect().top - gRect.top; 
-  }
 
   function bezier(x1, y1, x2, y2, isBranch, withArrow = true, isSplitMergeDest = false, isFromDot = false) {
     // Evitar líneas inválidas (coordenadas NaN o muy pequeñas)
@@ -1871,9 +1667,16 @@ function drawMapArrows(cols) {
     
     var dx = (x2 - x1) * 0.5;
     var dy = (y2 - y1) * 0.5;
+    var isRowWrap = isHoriz && (y2 - y1) > 40;
     var cx1, cy1, cx2, cy2;
 
-    if (isHoriz) {
+
+    if (isRowWrap) {
+      // Salto de fila en desktop
+      var spread = Math.abs(x2 - x1) * 1 + 60;
+      cx1 = x1 + (spread / 2); cy1 = y1 + dy;
+      cx2 = x2 - (spread / 2); cy2 = y2 - dy*1.5;
+    } else if (isHoriz) {
     //  Desktop
       cx1 = x1 + dx; cy1 = y1;
       cx2 = x2 - dx; cy2 = y2;
@@ -1892,6 +1695,12 @@ function drawMapArrows(cols) {
     //  Node to DOT
       cx1 = x1 + 100; cy1 = y1 + dy;
       cx2 = x2 + 60; cy2 = y2;
+    } else if (x1 < x2) {
+      var spread = Math.abs(x2 - x1) + 60;
+      cx1 = x1 - spread - 50;
+      cy1 = y1 + dy - 50;
+      cx2 = x2 + spread - 50;
+      cy2 = y2 - dy * 1.5 - 75;
     } else {
       var spread = Math.abs(x2 - x1) * 1 + 60;
       cx1 = x1 + spread; cy1 = y1 + dy;
@@ -2031,22 +1840,51 @@ function drawMapArrows(cols) {
       }
     }
     
-    var path = bezier(o.x, o.y, d.x, d.y, false, !toNodeIsSplitMerge, toNodeIsSplitMerge && !isHoriz, fromIsDot && !isHoriz);
-    if (path) paths += path;
+    var toNodeIsFD = toNodeEl && toNodeEl.querySelector('[data-fd-out="1"]');
+    var fromNodeHasFDReturn = fromNodeEl && fromNodeEl.querySelector('[id^="map-fd-in-"]');
+
+    if (toNodeIsFD && fromNodeHasFDReturn) {
+      // Bezier directa (A → mid): igual que antes
+      var path1 = bezier(o.x, o.y, d.x, d.y, false, !toNodeIsSplitMerge, false, false);
+      if (path1) paths += path1;
+
+      // Bezier de retorno (mid → A): usa el puerto fd-out del nodo mid como origen
+      //   y el puerto fd-in del nodo A como destino
+      var fdOutEl  = toNodeEl.querySelector('[data-fd-out="1"]');
+      var fdInEl   = fromNodeEl.querySelector('[id^="map-fd-in-"]');
+      var oRet = { x: elLeft(toNodeEl), y: elMidY(fdOutEl) };
+      var dRet = { x: elRight(fromNodeEl), y: elMidY(fdInEl) };
+
+      var path2 = bezier(
+        oRet.x,
+        oRet.y,
+        dRet.x,
+        dRet.y,
+        false,
+        true,
+        false,
+        false
+      );
+
+      paths += path2;
+    } else {
+      var path = bezier(o.x, o.y, d.x, d.y, false, !toNodeIsSplitMerge, toNodeIsSplitMerge && !isHoriz, fromIsDot && !isHoriz);
+      if (path) paths += path;
+    }
   });
 
   svg.innerHTML = paths;
 }
 
-// Observer de resize del graph (se crea una vez por renderMap, se destruye al re-renderizar)
-var _mapResizeObserver = null;
-
-// Listener de scroll (registrado una sola vez)
-var _mapScrollListenerAdded = false;
-
-// Listener de resize de ventana (registrado una sola vez)
-var _mapWindowResizeListenerAdded = false;
-var _lastMapBreakpoint = window.innerWidth > 768;
+function scheduleMapArrows() {
+  if (!window._mapCols) return;
+  if (_mapArrowsPending) return;
+  _mapArrowsPending = true;
+  requestAnimationFrame(function() {
+    _mapArrowsPending = false;
+    drawMapArrows(window._mapCols);
+  });
+}
 
 function initMapObserver() {
   var graph = document.getElementById('map-graph');
@@ -2059,37 +1897,42 @@ function initMapObserver() {
   }
 
   _mapResizeObserver = new ResizeObserver(function() {
-    if (window._mapCols && document.getElementById('view-map').classList.contains('active')) {
-      requestAnimationFrame(function() { drawMapArrows(window._mapCols); });
+    if (document.getElementById('view-map').classList.contains('active')) {
+      scheduleMapArrows();  // ← reemplaza el requestAnimationFrame directo
     }
   });
   _mapResizeObserver.observe(graph);
 
-  // Scroll: registrar solo una vez
-  if (!_mapScrollListenerAdded) {
-    _mapScrollListenerAdded = true;
-    window.addEventListener('scroll', function() {
-      if (window._mapCols && document.getElementById('view-map').classList.contains('active')) {
-        requestAnimationFrame(function() { drawMapArrows(window._mapCols); });
-      }
-    });
+  if (_scrollMapHandler) {
+    window.removeEventListener('scroll', _scrollMapHandler);
   }
+  _scrollMapHandler = function() {
+    if (document.getElementById('view-map').classList.contains('active')) {
+      scheduleMapArrows();  // ← reemplaza el requestAnimationFrame directo
+    }
+  };
+  window.addEventListener('scroll', _scrollMapHandler);
 
-  // Resize de ventana: registrar solo una vez
-  if (!_mapWindowResizeListenerAdded) {
-    _mapWindowResizeListenerAdded = true;
-    window.addEventListener('resize', function() {
-      if (!document.getElementById('view-map').classList.contains('active')) return;
-      var isNowHoriz = window.innerWidth > 768;
-      if (isNowHoriz !== _lastMapBreakpoint) {
-        _lastMapBreakpoint = isNowHoriz;
-        if (window._mapSegs) renderMap(window._mapSegs);
-      } else {
-        setTimeout(function() { drawMapArrows(window._mapCols); }, 50);
-      }
-    });
+  if (_resizeMapHandler) {
+    window.removeEventListener('resize', _resizeMapHandler);
   }
+  _resizeMapHandler = function() {
+    if (!document.getElementById('view-map').classList.contains('active')) return;
+    var isNowHoriz = window.innerWidth > 768;
+    if (isNowHoriz !== _lastMapBreakpoint) {
+      _lastMapBreakpoint = isNowHoriz;
+      if (window._mapSegs && window._mapOrigin) {
+        renderMap(window._mapSegs, window._mapOrigin.rack, window._mapOrigin.eq, window._mapOrigin.slot);
+      }
+    } else {
+      setTimeout(function() { drawMapArrows(window._mapCols); }, 50);
+    }
+  };
+  window.addEventListener('resize', _resizeMapHandler);
 }
+
+// UTILIDADES CSS/DOM //
+
 function cssId(str) {
   return String(str||'').replace(/[^a-zA-Z0-9_-]/g, '_');
 }
@@ -2100,6 +1943,16 @@ window.addEventListener('popstate', function(e){
     goBack();
   }
 });
+
+
+/* TO DO:     forzar overflow de branches con su origen (para no cruzar todos los bezier) */
+
+
+
+
+
+
 </script>
 </body>
 </html>
+
