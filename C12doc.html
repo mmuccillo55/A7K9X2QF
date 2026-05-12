@@ -85,19 +85,19 @@ footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mo
 #racks-wrap{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;padding-bottom:12px;}
 .rack-col{display:flex;flex-direction:column;gap:6px;width:150px;}
 .rack-col-lbl{font-family:var(--mono);font-size:.8rem;letter-spacing:4px;color:var(--accent);padding:4px 2px;border-bottom:1px solid var(--accent);text-transform:uppercase;}
-.rack-card{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;gap:4px;cursor:pointer;transition:border-color .12s,background-color .12s;height:50px;justify-content:center;}
-.rack-card:hover{border-color:var(--accent);background:rgba(0,200,240,.05);}
+.rack-card{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;gap:4px;cursor:pointer;transition:border-color .12s,background-color .12s;height:50px;justify-content:center;transition: box-shadow .2s;}
+.rack-card:hover{border-color:var(--accent);background:rgba(0,200,240,.05);box-shadow: 0 0 5px currentColor;}
 .rack-id{font-family:var(--mono);font-size:.6rem;color:var(--yellow);white-space:nowrap;}
 #view-racks .eq-name{font-size:.8rem;color:var(--text);}
 
 #racks-mobile{display:none;padding:10px;}
-.rack-mobile-btn{width:100%;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--text);cursor:pointer;text-align:left;transition:border-color .12s;margin-bottom:8px;font-family:var(--mono);font-size:.85rem;display:flex;justify-content:space-between;align-items:center;}
-.rack-mobile-btn:hover{border-color:var(--accent);}
+.rack-mobile-btn{width:100%;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--text);cursor:pointer;text-align:left;transition:border-color .12s;margin-bottom:8px;font-family:var(--mono);font-size:.85rem;display:flex;justify-content:space-between;align-items:center;transition: box-shadow .2s;}
+.rack-mobile-btn:hover{border-color:var(--accent);box-shadow: 0 0 5px currentColor;}
 .rack-mobile-btn.open{border-color:var(--accent);background:rgba(0,200,240,.05);}
 .eq-mobile-list{display:none;flex-direction:column;gap:4px;padding:8px 0 12px 14px;margin-bottom:8px;}
 .eq-mobile-list.show{display:flex;}
-.eq-mobile-item{background:var(--panel2);border:1px solid var(--border);border-radius:4px;padding:8px 10px;cursor:pointer;font-size:.8rem;color:var(--text);transition:border-color .12s;display:flex;gap:8px;align-items:center;}
-.eq-mobile-item:hover{border-color:var(--accent);color:var(--accent);}
+.eq-mobile-item{background:var(--panel2);border:1px solid var(--border);border-radius:4px;padding:8px 10px;cursor:pointer;font-size:.8rem;color:var(--text);transition:border-color .12s;display:flex;gap:8px;align-items:center;transition: box-shadow .2s;}
+.eq-mobile-item:hover{border-color:var(--accent);color:var(--accent);box-shadow: 0 0 5px currentColor;}
 .eq-mobile-item .rack-id{font-family:var(--mono);font-size:.8rem;color:var(--yellow);white-space:nowrap;min-width:40px;}
 .eq-mobile-item .eq-name{flex:1;}
 
@@ -108,8 +108,8 @@ footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mo
 
 /* ── VISTA: SLOTS ───────────────────────────────────────────────── */
 .slots-list{display:flex;flex-direction:column;gap:6px;max-width:480px;}
-.slot-btn{background:var(--panel);border:1px solid var(--border);border-radius:5px;padding:10px 14px;cursor:pointer;text-align:left;transition:border-color .12s;}
-.slot-btn:hover{border-color:var(--accent);}
+.slot-btn{background:var(--panel);border:1px solid var(--border);border-radius:5px;padding:10px 14px;cursor:pointer;text-align:left;transition:border-color .12s;transition: box-shadow .2s;}
+.slot-btn:hover{border-color:var(--accent);box-shadow: 0 0 5px currentColor;}
 .slot-num{font-family:var(--mono);font-size:.8rem;color:var(--yellow);margin-bottom:2px;}
 .slot-placa{font-family:var(--mono);font-size:1rem;color:var(--accent);margin-left:8px;}
 
@@ -130,8 +130,8 @@ footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mo
 @media(min-width:600px){.ports-grid{grid-template-columns:repeat(8,1fr);}}
 @media(min-width:1200px){.ports-grid{grid-template-columns:repeat(16,1fr);}}
 
-.port-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5px 3px;min-height:50px;background:var(--panel2);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:border-color .12s,background .12s;overflow:hidden;}
-.port-btn:hover{border-color:var(--accent);background:rgba(0,200,240,.06);}
+.port-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5px 3px;min-height:50px;background:var(--panel2);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:border-color .12s,background .12s;overflow:hidden;transition: box-shadow .2s;}
+.port-btn:hover{border-color:var(--accent);background:rgba(0,200,240,.06);box-shadow: 0 0 5px currentColor;}
 .port-btn.p-in {border-top:2px solid var(--accent);}
 .port-btn.p-out{border-top:2px solid var(--orange);}
 .port-btn.p-free{opacity:.3;pointer-events: none;cursor: default;}
@@ -154,11 +154,11 @@ footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mo
 .map-col{display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;}
 .map-col + .map-col{margin-left:100px;}
 
-.map-node{background:var(--panel);border:1px solid var(--border2);border-radius:6px;padding:9px 12px;min-width:140px;max-width:200px;display:flex;flex-direction:column;gap:3px;position:relative;cursor:pointer;}
-.map-node:hover{border-color:var(--accent);}
+.map-node{background:var(--panel);border:1px solid var(--border2);border-radius:6px;padding:9px 12px;min-width:140px;max-width:200px;display:flex;flex-direction:column;gap:3px;position:relative;cursor:pointer;transition: box-shadow .2s;}
+.map-node:hover{border-color:var(--accent);box-shadow: 0 0 5px currentColor;}
 .map-node.node-nc{border-color:var(--muted);opacity:.5;}
 .map-node.node-nd{border-color:var(--yellow);background:rgba(255,209,102,.06);}
-.map-node.node-origin{border-color:var(--accent);background:rgba(0,200,240,.06);}
+.map-node.node-origin{border-color:var(--accent);background:rgba(0,200,240,.06);box-shadow: 0 0 10px currentColor;}
 .map-node::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:2px;background:var(--accent);}
 .map-node.has-out::before{background:var(--orange);}
 .map-node.has-both::before{background:linear-gradient(to bottom, var(--accent) 50%, var(--orange) 50%);}
@@ -1292,14 +1292,11 @@ function showMap(rack, eq, slot, puerto, fromBack) {
     _nav.push({type:'map', rack:rack, eq:eq, slot:slot, puerto:puerto});
   }
 
-  setView('view-map');
-
   var bc = '<span class="hi bc-link" onclick="bcGoRacks()">'+h(rack)+'</span>'
     + ' › <span class="bc-link" onclick="bcGoEquip(\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot||'')+'\')">'+h(eq)+'</span>'
     + (slot ? ' › <span class="bc-link" onclick="bcGoSlotEquip(\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\')">Slot '+h(slot)+'</span>' : '')
     + ' › <span class="hi">MAPA</span>';
   updateHdr(bc);
-  setView('view-map');
 
   var esSalida = getCablesOut(rack, eq, slot, puerto).length > 0;
   var thru     = getThruDeSalida(rack, eq, slot, puerto);
@@ -1609,16 +1606,35 @@ function renderMap(segs, originRack, originEq, originSlot) {
   html += '<svg class="map-svg" id="map-svg"></svg>';
   html += '</div>'; // .map-graph
   window._mapCols = cols;
-  container.innerHTML = html;
 
-  window.requestAnimationFrame(function() {
-    window.requestAnimationFrame(function() {
-      window.requestAnimationFrame(function() {
-        drawMapArrows(cols);
-        initMapObserver();
-      });
-    });
-  });
+  container.innerHTML = html;
+  setView('view-map');
+  container.getBoundingClientRect();
+
+  var lastW = 0, lastH = 0, stableFrames = 0;
+
+  function waitForLayout() {
+    const wrap = document.getElementById('view-map');
+    if (!wrap) { requestAnimationFrame(waitForLayout); return; }
+
+    const r = wrap.getBoundingClientRect();
+
+    if (r.width === lastW && r.height === lastH && r.width > 100) {
+      stableFrames++;
+    } else {
+      stableFrames = 0;
+      lastW = r.width;
+      lastH = r.height;
+    }
+
+    if (stableFrames >= 4) {
+      drawMapArrows(cols);
+      initMapObserver();
+    } else {
+      requestAnimationFrame(waitForLayout);
+    }
+  }
+  requestAnimationFrame(waitForLayout);
 }
 
 function drawMapArrows(cols) {
@@ -1901,7 +1917,7 @@ function initMapObserver() {
       scheduleMapArrows();  // ← reemplaza el requestAnimationFrame directo
     }
   });
-  _mapResizeObserver.observe(graph);
+  _mapResizeObserver.observe(document.getElementById('view-map'));
 
   if (_scrollMapHandler) {
     window.removeEventListener('scroll', _scrollMapHandler);
@@ -1944,7 +1960,6 @@ window.addEventListener('popstate', function(e){
   }
 });
 
-
 /*  TO DO:     
 
 
@@ -1953,7 +1968,7 @@ window.addEventListener('popstate', function(e){
               evitar scroll vertical innecesario en mobile
               arreglar puertos input de zeus que no muestran fd
               cambiar triple rAF por delay 100ms o que espere todos los nodos
-              
+              probar zeus no FD
 
               
 TO DO  */
