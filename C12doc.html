@@ -144,7 +144,7 @@ footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mo
 @media(min-width:1200px){.thru-block{grid-template-columns:repeat(16,1fr);}}
 
 /* ── VISTA: MAPA ────────────────────────────────────────────────── */
-#view-map{padding:14px;overflow-x:auto;overflow-y: auto;max-height: calc(100dvh - 52px);}
+#view-map{padding:14px;overflow-x:auto;overflow-y: auto;}
 
 .map-title{font-family:var(--mono);font-size:.52rem;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .map-title::after{content:'';flex:1;height:1px;background:var(--border);}
@@ -546,6 +546,11 @@ function setView(id) {
     document.getElementById(v).className='view'+(v===id?' active':'');
   });
   document.body.style.overflowY = (id === 'view-map') ? 'hidden' : '';
+  
+  if (id === 'view-map') {
+    var hdrH = document.getElementById('hdr').offsetHeight;
+    document.getElementById('view-map').style.maxHeight = 'calc(100dvh - ' + hdrH + 'px)';
+  }
 }
 
 function bcGoRacks() {
