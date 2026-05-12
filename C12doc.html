@@ -144,7 +144,7 @@ footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mo
 @media(min-width:1200px){.thru-block{grid-template-columns:repeat(16,1fr);}}
 
 /* ── VISTA: MAPA ────────────────────────────────────────────────── */
-#view-map{padding:14px;overflow-x:auto;}
+#view-map{padding:14px;overflow-x:auto;overflow-y: auto;max-height: calc(100dvh - 52px);}
 
 .map-title{font-family:var(--mono);font-size:.52rem;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .map-title::after{content:'';flex:1;height:1px;background:var(--border);}
