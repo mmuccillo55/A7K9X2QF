@@ -541,10 +541,11 @@ function isSplitterOrMerger(rack) {
 
 // NAVEGACION //
 
-function setView(id){
+function setView(id) {
   ['view-racks','view-slots','view-equip','view-map'].forEach(function(v){
     document.getElementById(v).className='view'+(v===id?' active':'');
   });
+  document.body.style.overflowY = (id === 'view-map') ? 'hidden' : '';
 }
 
 function bcGoRacks() {
@@ -1903,11 +1904,6 @@ function drawMapArrows(cols) {
   });
 
   svg.innerHTML = paths;
-
-  // ajustar tamaño del SVG al graph
-  var gr = graph.getBoundingClientRect();
-  svg.setAttribute('width',  gr.width);
-  svg.setAttribute('height', gr.height);
 }
 
 function scheduleMapArrows() {
