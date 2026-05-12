@@ -27,7 +27,7 @@
 
 /* ── RESET & BASE ───────────────────────────────────────────────── */
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;overflow-x:hidden;position:relative;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100dvh;overflow-x:hidden;position:relative;}
 
 /* ── SCROLLBAR ──────────────────────────────────────────────────── */
 ::-webkit-scrollbar{width:4px;height:4px;}
@@ -50,7 +50,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 .view.active{display:block;}
 
 /* ── VISTA: INDEX ───────────────────────────────────────────────── */
-#screen-index{display:flex;flex-direction:column;min-height:100vh;}
+#screen-index{display:flex;flex-direction:column;min-height:100dvh;}
 #screen-index main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;position:relative;z-index:1;}
 
 .hero-label{font-family:var(--mono);font-size:.6rem;letter-spacing:5px;color:var(--text2);text-transform:uppercase;margin-bottom:10px;text-align:center;}
@@ -1288,6 +1288,9 @@ function detectAndCollapseFD(segs) {
 // VISTA MAPA //
 
 function showMap(rack, eq, slot, puerto, fromBack) {
+  var esSalida = getCablesOut(rack, eq, slot, puerto).length > 0;
+  var thru     = getThruDeSalida(rack, eq, slot, puerto);
+  
   if(!fromBack){
     _nav.push({type:'map', rack:rack, eq:eq, slot:slot, puerto:puerto});
   }
@@ -1313,9 +1316,19 @@ function showMap(rack, eq, slot, puerto, fromBack) {
     }
     downSegs = buildSegments(rack, eq, slot, puerto, 0);
   } else {
-    upSegs = buildUpstream(rack, eq, slot, puerto);
-    upSegs.push({ rack:rack, eq:eq, slot:slot, placa:placa, inPort:puerto, outPort:'', branches:[], disp_ext_before:'', disp_ext_after:'' });
+    var thruDeEntrada = getThruDeEntrada(rack, eq, slot, puerto);
+    console.log('thruDeEntrada:', JSON.stringify(thruDeEntrada)); // temporal
+    if (thruDeEntrada) {
+      // Es entrada de un par thru — mostrar up + down completo
+      upSegs = buildUpstream(rack, eq, slot, puerto);
+      upSegs.push({ rack:rack, eq:eq, slot:slot, placa:placa, inPort:puerto, outPort:thruDeEntrada.dp, branches:[], disp_ext_before:'', disp_ext_after:'' });
+      downSegs = buildSegments(rack, eq, slot, thruDeEntrada.dp, 0);
+    } else {
+      upSegs = buildUpstream(rack, eq, slot, puerto);
+      upSegs.push({ rack:rack, eq:eq, slot:slot, placa:placa, inPort:puerto, outPort:'', branches:[], disp_ext_before:'', disp_ext_after:'' });
+    }
   }
+
   var segs = detectAndCollapseFD(upSegs.concat(downSegs));
   window._mapOrigin = { rack: rack, eq: eq, slot: slot };
   renderMap(segs, rack, eq, slot);
@@ -1962,15 +1975,10 @@ window.addEventListener('popstate', function(e){
 
 /*  TO DO:     
 
-
               forzar overflow de branches con su origen (para no cruzar todos los bezier) 
               arreglar overflow de bezier en mobile
               evitar scroll vertical innecesario en mobile
-              arreglar puertos input de zeus que no muestran fd
-              cambiar triple rAF por delay 100ms o que espere todos los nodos
-              probar zeus no FD
-
-              
+    
 TO DO  */
 
 
