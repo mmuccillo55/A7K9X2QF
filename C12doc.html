@@ -541,16 +541,10 @@ function isSplitterOrMerger(rack) {
 
 // NAVEGACION //
 
-function setView(id) {
+function setView(id){
   ['view-racks','view-slots','view-equip','view-map'].forEach(function(v){
     document.getElementById(v).className='view'+(v===id?' active':'');
   });
-  document.body.style.overflowY = (id === 'view-map') ? 'hidden' : '';
-  
-  if (id === 'view-map') {
-    var hdrH = document.getElementById('hdr').offsetHeight;
-    document.getElementById('view-map').style.maxHeight = 'calc(100dvh - ' + hdrH + 'px)';
-  }
 }
 
 function bcGoRacks() {
@@ -1737,9 +1731,9 @@ function drawMapArrows(cols) {
       cx2 = x2 + spread - 50;
       cy2 = y2 - dy * 1.5 - 75;
     } else {
-      var spread = Math.abs(x2 - x1) * 1 + 60;
-      cx1 = x1 + spread; cy1 = y1 + dy;
-      cx2 = x2 - spread; cy2 = y2 - dy*1.5;
+      // var spread = Math.abs(x2 - x1) * 1 + 60;
+      cx1 = x1 + 150; cy1 = y1 + dy;
+      cx2 = x2 - 150; cy2 = y2 - dy*1.5;
     }
 
     var path = '<path class="map-arrow' + (isBranch ? ' branch' : '') + '" d="M' + x1 + ',' + y1 + ' C' + cx1 + ',' + cy1 + ' ' + cx2 + ',' + cy2 + ' ' + x2 + ',' + y2 + '" fill="none" stroke="var(--green)" stroke-width="2"';
@@ -1984,6 +1978,7 @@ window.addEventListener('popstate', function(e){
               forzar overflow de branches con su origen (para no cruzar todos los bezier) 
               arreglar overflow de bezier en mobile
               evitar scroll vertical innecesario en mobile
+              normalizar bezier
     
 TO DO  */
 
