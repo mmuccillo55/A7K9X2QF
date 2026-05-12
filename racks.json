@@ -10983,72 +10983,14 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "H.1",
-        "equipo": "RTS Zeus III",
-        "slot": "",
-        "placa": "",
-        "puerto": "P15 Out"
-      },
-      "dst": {
-        "rack": "DC.2",
-        "equipo": "Yamaha QL5",
-        "slot": "",
-        "placa": "",
-        "puerto": "In 37 (Audio)"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
-    },
-    {
-      "src": {
-        "rack": "H.1",
-        "equipo": "RTS Zeus III",
-        "slot": "",
-        "placa": "",
-        "puerto": "P15 In"
-      },
-      "dst": {
-        "rack": "H.1",
-        "equipo": "RTS Zeus III",
-        "slot": "",
-        "placa": "",
-        "puerto": "P15 Out"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": "",
-      "es_thru_interno": true
-    },
-    {
-      "src": {
-        "rack": "TX.4",
-        "equipo": "Mixer Audio TX",
-        "slot": "",
-        "placa": "",
-        "puerto": "Aux 1 Out"
-      },
-      "dst": {
-        "rack": "H.1",
-        "equipo": "RTS Zeus III",
-        "slot": "",
-        "placa": "",
-        "puerto": "P15 In"
-      },
-      "rotulo": "",
-      "notas": "",
-      "disp_ext": ""
     }
   ],
   "stats": {
     "nodos": 102,
-    "arcos_totales": 529,
-    "arcos_externos": 357,
-    "arcos_thru_internos": 172,
-    "arcos_con_destino": 283,
+    "arcos_totales": 526,
+    "arcos_externos": 355,
+    "arcos_thru_internos": 171,
+    "arcos_con_destino": 281,
     "arcos_sin_destino": 74
   }
 }
