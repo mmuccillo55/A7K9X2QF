@@ -1,0 +1,2659 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C12 Documentación</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600&display=swap">
+<style>
+/* ── DESIGN TOKENS ─────────────────────────────────────────────── */
+:root{
+  --bg:#080c11;
+  --panel:#0e1520;
+  --panel2:#131d2b;
+  --border:#1c2a3c;
+  --border2:#243548;
+  --accent:#00c8f0;
+  --orange:#ff6b35;
+  --green:#8fff6a;
+  --yellow:#ffd166;
+  --muted:#2e4055;
+  --text:#b8ccd8;
+  --text2:#587080;
+  --mono:'Share Tech Mono',monospace;
+  --sans:'Barlow',sans-serif;
+}
+
+/* ── RESET & BASE ───────────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100dvh;overflow-x:hidden;position:relative;}
+
+/* ── SCROLLBAR ──────────────────────────────────────────────────── */
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--muted);border-radius:2px;}
+
+/* ── HEADER ─────────────────────────────────────────────────────── */
+#hdr{display:flex;align-items:center;gap:12px;padding:10px 20px;border-bottom:1px solid var(--border);background:var(--panel);position:sticky;top:0;z-index:100;}
+#hdr-title{font-family:var(--mono);font-size:.85rem;color:var(--accent);letter-spacing:3px;flex:1;}
+#hdr-bc{font-family:var(--mono);font-size:.68rem;color:var(--text2);}
+#hdr-bc .hi{color:var(--accent);}
+#hdr-bc .bc-link {cursor: pointer;transition: color .15s;}
+#hdr-bc .bc-link:hover {color: var(--accent) !important;text-decoration: underline;}
+#btn-back,#btn-home{display:none;align-items:center;gap:6px;background:none;border:1px solid var(--border2);color:var(--text2);font-family:var(--mono);font-size:.68rem;padding:5px 12px;border-radius:3px;cursor:pointer;}
+#btn-back:hover,#btn-home:hover{border-color:var(--accent);color:var(--accent);}
+#btn-back.show,#btn-home.show{display:flex;}
+
+#btn-radial-map{display:none;align-items:center;gap:6px;background:none;border:1px solid var(--border2);color:var(--text2);font-family:var(--mono);font-size:.68rem;padding:5px 12px;border-radius:3px;cursor:pointer;}
+#btn-radial-map:hover{border-color:var(--accent);color:var(--accent);}
+#btn-radial-map.show{display:flex;}
+
+/* ── SISTEMA DE VISTAS ──────────────────────────────────────────── */
+.view{display:none;padding:10px;}
+.view.active{display:block;}
+
+/* ── VISTA: INDEX ───────────────────────────────────────────────── */
+#screen-index{display:flex;flex-direction:column;min-height:100dvh;}
+#screen-index main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;position:relative;z-index:1;}
+
+.hero-label{font-family:var(--mono);font-size:.6rem;letter-spacing:5px;color:var(--text2);text-transform:uppercase;margin-bottom:10px;text-align:center;}
+.hero-title{font-family:var(--mono);font-size:1.5rem;color:var(--accent);letter-spacing:2px;text-align:center;margin-bottom:4px;}
+.hero-sub{font-family:var(--mono);font-size:.65rem;color:var(--text2);letter-spacing:3px;text-align:center;margin-bottom:48px;}
+
+.divider{width:100%;max-width:560px;display:flex;align-items:center;gap:10px;margin-bottom:32px;}
+.divider-line{flex:1;height:1px;background:var(--border);}
+.divider-lbl{font-family:var(--mono);font-size:.52rem;letter-spacing:3px;color:var(--text2);text-transform:uppercase;white-space:nowrap;}
+
+.cards{display:flex;flex-direction:column;gap:10px;width:100%;max-width:560px;}
+.card{display:flex;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:16px 20px;text-decoration:none;color:inherit;cursor:pointer;transition:border-color .15s,background .15s,transform .1s;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transform-origin:bottom;transition:transform .2s ease;}
+.card:hover{border-color:var(--accent);background:rgba(0,200,240,.04);transform:translateX(3px);}
+.card:hover::before{transform:scaleY(1);}
+.card:active{transform:translateX(3px) scale(.99);}
+.card-icon{font-family:var(--mono);font-size:1rem;color:var(--accent);min-width:20px;text-align:center;transition:color .15s;}
+.card:hover .card-icon{color:var(--green);}
+.card-body{flex:1;min-width:0;}
+.card-name{font-family:var(--mono);font-size:.88rem;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .15s;}
+.card:hover .card-name{color:var(--accent);}
+.card-sub{font-size:.68rem;color:var(--text2);margin-top:3px;font-family:var(--sans);font-weight:300;}
+.card-arrow{font-family:var(--mono);font-size:.8rem;color:var(--muted);transition:color .15s,transform .15s;}
+.card:hover .card-arrow{color:var(--accent);transform:translateX(4px);}
+.card-tag{font-family:var(--mono);font-size:.52rem;letter-spacing:2px;padding:2px 6px;border-radius:2px;text-transform:uppercase;white-space:nowrap;border:1px solid;}
+.tag-rack{color:var(--yellow);border-color:rgba(255,209,102,.3);background:rgba(255,209,102,.05);}
+.tag-movil{color:var(--orange);border-color:rgba(255,107,53,.3);background:rgba(255,107,53,.05);}
+
+footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mono);font-size:.56rem;color:var(--muted);text-align:center;letter-spacing:1px;position:relative;z-index:1;}
+
+/* ── VISTA: RACKS ───────────────────────────────────────────────── */
+#racks-wrap{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;padding-bottom:12px;}
+.rack-col{display:flex;flex-direction:column;gap:6px;width:150px;}
+.rack-col-lbl{font-family:var(--mono);font-size:.8rem;letter-spacing:4px;color:var(--accent);padding:4px 2px;border-bottom:1px solid var(--accent);text-transform:uppercase;}
+.rack-card{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;gap:4px;cursor:pointer;transition:border-color .12s,background-color .12s;height:50px;justify-content:center;transition: box-shadow .2s;}
+.rack-card:hover{border-color:var(--accent);background:rgba(0,200,240,.05);box-shadow: 0 0 5px currentColor;}
+.rack-id{font-family:var(--mono);font-size:.6rem;color:var(--yellow);white-space:nowrap;}
+#view-racks .eq-name{font-size:.8rem;color:var(--text);}
+
+#racks-mobile{display:none;padding:10px;}
+.rack-mobile-btn{width:100%;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--text);cursor:pointer;text-align:left;transition:border-color .12s;margin-bottom:8px;font-family:var(--mono);font-size:.85rem;display:flex;justify-content:space-between;align-items:center;transition: box-shadow .2s;}
+.rack-mobile-btn:hover{border-color:var(--accent);box-shadow: 0 0 5px currentColor;}
+.rack-mobile-btn.open{border-color:var(--accent);background:rgba(0,200,240,.05);}
+.eq-mobile-list{display:none;flex-direction:column;gap:4px;padding:8px 0 12px 14px;margin-bottom:8px;}
+.eq-mobile-list.show{display:flex;}
+.eq-mobile-item{background:var(--panel2);border:1px solid var(--border);border-radius:4px;padding:8px 10px;cursor:pointer;font-size:.8rem;color:var(--text);transition:border-color .12s;display:flex;gap:8px;align-items:center;transition: box-shadow .2s;}
+.eq-mobile-item:hover{border-color:var(--accent);color:var(--accent);box-shadow: 0 0 5px currentColor;}
+.eq-mobile-item .rack-id{font-family:var(--mono);font-size:.8rem;color:var(--yellow);white-space:nowrap;min-width:40px;}
+.eq-mobile-item .eq-name{flex:1;}
+
+@media(max-width:768px){
+  #racks-wrap{display:none;}
+  #racks-mobile{display:block;}
+}
+
+/* ── VISTA: SLOTS ───────────────────────────────────────────────── */
+.slots-list{display:flex;flex-direction:column;gap:6px;max-width:480px;}
+.slot-btn{background:var(--panel);border:1px solid var(--border);border-radius:5px;padding:10px 14px;cursor:pointer;text-align:left;transition:border-color .12s;transition: box-shadow .2s;}
+.slot-btn:hover{border-color:var(--accent);box-shadow: 0 0 5px currentColor;}
+.slot-num{font-family:var(--mono);font-size:.8rem;color:var(--yellow);margin-bottom:2px;}
+.slot-placa{font-family:var(--mono);font-size:1rem;color:var(--accent);margin-left:8px;}
+
+/* ── VISTA: EQUIPO ──────────────────────────────────────────────── */
+.eq-meta{margin-bottom:20px;}
+.eq-name{font-family:var(--mono);font-size:1.25rem;color:var(--green);margin-bottom:2px;}
+.eq-rack{font-family:var(--mono);font-size:1rem;color:var(--yellow);}
+.eq-placa{font-family:var(--mono);font-size:1rem;color:var(--accent);margin-top:2px;}
+.eq-iprow{font-family:var(--mono);font-size:1rem;margin-top:4px;}
+.eq-iprow.ok{color:var(--accent);}
+.eq-iprow.none{color:var(--muted);}
+.eq-iprow.pend{color:var(--yellow);}
+
+.ports-lbl{font-family:var(--mono);font-size:.55rem;letter-spacing:3px;color:var(--text2);text-transform:uppercase;margin:16px 0 8px;display:flex;align-items:center;gap:10px;}
+.ports-lbl::after{content:'';flex:1;height:1px;background:var(--border);}
+
+.ports-grid{display:grid;gap:5px;margin-bottom:4px;grid-template-columns:repeat(4,1fr);}
+@media(min-width:600px){.ports-grid{grid-template-columns:repeat(8,1fr);}}
+@media(min-width:1200px){.ports-grid{grid-template-columns:repeat(16,1fr);}}
+
+.port-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5px 3px;min-height:50px;background:var(--panel2);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:border-color .12s,background .12s;overflow:hidden;transition: box-shadow .2s;}
+.port-btn:hover{border-color:var(--accent);background:rgba(0,200,240,.06);box-shadow: 0 0 5px currentColor;}
+.port-btn.p-in {border-top:2px solid var(--accent);}
+.port-btn.p-out{border-top:2px solid var(--orange);}
+.port-btn.p-free{opacity:.3;pointer-events: none;cursor: default;}
+.port-btn.p-nd{border-color:var(--yellow);background:rgba(255,209,102,.08);cursor: help;}
+.p-num{font-family:var(--mono);font-size:.8rem;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;padding:0 2px;}
+.p-lbl{font-size:.6rem;color:var(--text);margin-top:2px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px;}
+
+.thru-block{display:grid;column-gap:5px;row-gap:30px;grid-template-columns:repeat(4,1fr);position:relative;}
+@media(min-width:600px){.thru-block{grid-template-columns:repeat(8,1fr);}}
+@media(min-width:1200px){.thru-block{grid-template-columns:repeat(16,1fr);}}
+
+/* ── VISTA: MAPA ────────────────────────────────────────────────── */
+#view-map{padding:14px;overflow-x:auto;overflow-y: auto;}
+
+.map-title{font-family:var(--mono);font-size:.52rem;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.map-title::after{content:'';flex:1;height:1px;background:var(--border);}
+
+.map-graph{position:relative;display:flex;flex-direction:row;align-items:flex-start;gap:0;padding-bottom:20px;min-height:calc(100vh - 120px);}
+@media(min-width:769px){.map-graph{flex-wrap:wrap;row-gap:100px;min-height:0;padding-right: 100px;padding-left: 100px;}}
+.map-col{display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;}
+.map-col + .map-col{margin-left:100px;}
+.map-col + .map-col-pair {margin-left: 100px;}
+
+.map-col-pair {display: flex;flex-direction: row;align-items: flex-start;flex-wrap: nowrap;}
+
+.map-node{background:var(--panel);border:1px solid var(--border2);border-radius:6px;padding:9px 12px;min-width:140px;max-width:200px;display:flex;flex-direction:column;gap:3px;position:relative;cursor:pointer;transition: box-shadow .2s;}
+.map-node:hover{border-color:var(--accent);box-shadow: 0 0 5px currentColor;}
+.map-node.node-nc{border-color:var(--muted);opacity:.5;}
+.map-node.node-nd{border-color:var(--yellow);background:rgba(255,209,102,.06);}
+.map-node.node-origin{border-color:var(--accent);background:rgba(0,200,240,.06);box-shadow: 0 0 10px currentColor;}
+.map-node::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:2px;background:var(--accent);}
+.map-node.has-out::before{background:var(--orange);}
+.map-node.has-both::before{background:linear-gradient(to bottom, var(--accent) 50%, var(--orange) 50%);}
+
+.map-node-rack{font-family:var(--mono);font-size:.55rem;color:var(--yellow);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.map-node-eq{font-family:var(--sans);font-size:.78rem;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.map-node-slot{font-family:var(--mono);font-size:.55rem;color:var(--accent);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.map-node-ip{font-family:var(--mono);font-size:.55rem;margin-top:2px;}
+.map-node-ip.ok{color:var(--accent);}
+.map-node-ip.pend{color:var(--yellow);}
+.map-node-divider{height:1px;background:var(--border);margin:3px 0;}
+.map-node-port{font-family:var(--mono);font-size:.6rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.map-node-port.in{color:var(--accent);}
+.map-node-port.out{color:var(--orange);text-align:right;}
+.map-node-rotulo{font-size:.55rem;color:var(--green);font-style:italic;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.map-node-nc-lbl{font-family:var(--mono);font-size:.7rem;color:var(--muted);}
+.map-node-nd-lbl{font-family:var(--mono);font-size:.65rem;color:var(--yellow);}
+
+.map-node.map-node-splitmerge{width:auto;min-width:0;max-width:none;height:auto;min-height:0;padding:0;border:none;background:transparent;opacity:1;cursor:default;pointer-events:none;overflow:visible;display:flex;justify-content:center;align-items:center;}
+
+.map-node.node-conv{background:var(--panel);border:1px dashed var(--border2);padding:6px;min-width:80px;cursor:default;pointer-events:none;}
+.map-node.node-conv::before{display:none;}
+.map-node.node-conv:hover{border-color:var(--border2);}
+.map-node-conv-lbl{font-size:.78rem;color:var(--green);text-align:center;}
+
+.map-svg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;}
+.map-arrow{fill:none;stroke:var(--green);stroke-width:2;}
+
+@media(max-width:768px){
+  .map-graph{flex-direction:column;align-items:center;gap:60px;overflow-x:hidden;}
+  .map-col{width:90%;align-items:center;margin-left:0 !important;}
+  .map-col-pair{display:flex;flex-direction:row;gap:80px;width:auto;align-self:center;}
+  .map-sm-splitmerge-group{display:flex;flex-direction:column;align-items:center;gap:40px;width:90%;}
+  .map-sm-splitmerge-group .map-col-pair,
+  .map-sm-splitmerge-group > .map-col{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;}
+  .map-col-sm-origin{width:90%;align-items:center;margin-left:0 !important;}
+  .map-node.map-node-splitmerge{margin-top:0;}
+  .map-col-pair > .map-col:first-child{width:auto;flex-shrink:0;align-items:center;padding-top:8px;}
+  .map-col-pair > .map-col:last-child{flex:1;min-width:0;}
+}
+
+/* ── VISTA: MAPA RADIAL ─────────────────────────────────────────── */
+#view-radial-map{padding:0;overflow:hidden;display:flex;flex-direction:column;}
+
+.rm-controls{display:flex;align-items:center;gap:20px;padding:10px 20px;background:var(--panel);border-bottom:1px solid var(--border);flex-shrink:0;flex-wrap:wrap;}
+.rm-ctrl-group{display:flex;align-items:center;gap:8px;}
+.rm-ctrl-lbl{font-family:var(--mono);font-size:.6rem;color:var(--text2);letter-spacing:1px;}
+.rm-ctrl-val{font-family:var(--mono);font-size:.75rem;color:var(--accent);min-width:16px;text-align:center;}
+.rm-btn{background:none;border:1px solid var(--border2);color:var(--text2);font-family:var(--mono);font-size:.68rem;padding:4px 10px;border-radius:3px;cursor:pointer;}
+.rm-btn:hover{border-color:var(--accent);color:var(--accent);}
+.rm-btn-fit{padding:4px 12px;}
+
+.rm-viewport{flex:1;overflow:hidden;position:relative;cursor:grab;background:var(--bg);}
+.rm-canvas{position:relative;transform-origin:0 0;}
+.rm-svg{position:absolute;top:0;left:0;pointer-events:none;overflow:visible;}
+
+.rm-node{position:absolute;background:var(--panel);border:1px solid var(--border2);border-radius:6px;padding:9px 12px;display:flex;flex-direction:column;gap:3px;cursor:pointer;transition:box-shadow .2s;}
+.rm-node:hover{border-color:var(--accent);box-shadow:0 0 5px var(--accent);}
+.rm-node::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:2px;background:var(--accent);}
+.rm-node-center{border-color:var(--accent);background:rgba(0,200,240,.06);box-shadow:0 0 10px var(--accent);cursor:default;}
+.rm-node-center:hover{box-shadow:0 0 10px var(--accent);}
+
+.rm-node-rack{font-family:var(--mono);font-size:.55rem;color:var(--yellow);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rm-node-eq{font-family:var(--sans);font-size:.78rem;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rm-node-slot{font-family:var(--mono);font-size:.55rem;color:var(--accent);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rm-node-ip{font-family:var(--mono);font-size:.55rem;margin-top:2px;}
+.rm-node-ip.ok{color:var(--accent);}
+.rm-node-ip.pend{color:var(--yellow);}
+.rm-node-divider{height:1px;background:var(--border);margin:3px 0;}
+.rm-node-port{font-family:var(--mono);font-size:.6rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rm-node-port.in{color:var(--accent);}
+.rm-node-port.out{color:var(--orange);text-align:right;}
+
+
+/* ── ANIMACIONES ────────────────────────────────────────────────── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(14px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.hero-label  {animation:fadeUp .4s ease both;animation-delay:.05s;}
+.hero-title  {animation:fadeUp .4s ease both;animation-delay:.12s;}
+.hero-sub    {animation:fadeUp .4s ease both;animation-delay:.18s;}
+.divider     {animation:fadeUp .4s ease both;animation-delay:.25s;}
+.card:nth-child(1){animation:fadeUp .4s ease both;animation-delay:.30s;}
+.card:nth-child(2){animation:fadeUp .4s ease both;animation-delay:.38s;}
+.card:nth-child(3){animation:fadeUp .4s ease both;animation-delay:.46s;}
+
+/* ── RESPONSIVE GENERAL ─────────────────────────────────────────── */
+@media(max-width:480px){
+  .hero-title{font-size:1.1rem;}
+  .card{padding:13px 14px;}
+  .card-name{font-size:.78rem;}
+  .card-tag{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div id="screen-index">
+  <main>
+    <div class="hero-label">&#9670; documentación técnica</div>
+    <div class="hero-title">MAPA DE SEÑAL</div>
+    <div class="hero-sub">SELECCIONAR UNIDAD</div>
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-lbl">&#9670; unidades disponibles</div>
+      <div class="divider-line"></div>
+    </div>
+    <div class="cards">
+      <div class="card" onclick="loadUnit('racks.json','RacksFlow')">
+        <div class="card-icon">&#9632;</div>
+        <div class="card-body">
+          <div class="card-name">Racks C12</div>
+          <div class="card-sub">Instalación fija</div>
+        </div>
+        <div class="card-tag tag-rack">RACK</div>
+        <div class="card-arrow">&#8594;</div>
+      </div>
+      <div class="card" onclick="loadUnit('ext1.json','Ext1Flow')">
+        <div class="card-icon">&#9654;</div>
+        <div class="card-body">
+          <div class="card-name">Móvil de Exteriores 1</div>
+          <div class="card-sub">Sprinter 515</div>
+        </div>
+        <div class="card-tag tag-movil">MÓVIL</div>
+        <div class="card-arrow">&#8594;</div>
+      </div>
+      <div class="card" onclick="loadUnit('ext2.json','Ext2Flow')">
+        <div class="card-icon">&#9654;</div>
+        <div class="card-body">
+          <div class="card-name">Móvil de Exteriores 2</div>
+          <div class="card-sub">Piñata</div>
+        </div>
+        <div class="card-tag tag-movil">MÓVIL</div>
+        <div class="card-arrow">&#8594;</div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    Sistema de documentación de señal &nbsp;&#9672;&nbsp; mmuccillo55
+  </footer>
+</div>
+
+<div id="hdr" style="display:none">
+  <button id="btn-home" onclick="goHome()">&#8962;</button>
+  <button id="btn-back" onclick="goBack()">&#8592; Volver</button>
+  <button id="btn-radial-map" onclick="showRadialMap()">&#9685; Mapa</button>
+  <div id="hdr-title">&#9672; CARGANDO...</div>
+  <div id="hdr-bc"></div>
+</div>
+
+<div id="view-racks" class="view"><div id="racks-wrap"></div><div id="racks-mobile"></div></div>
+<div id="view-slots" class="view"></div>
+<div id="view-equip" class="view"></div>
+<div id="view-map" class="view"></div>
+<div id="view-radial-map" class="view"></div>
+
+<script>
+
+var CONNS=[], NODOS={}, PROJ='', _nav=[], _onEquipReady=null;
+var _idxOut  = {};
+var _idxIn   = {};
+var _idxThru = {};
+var _mapArrowsPending = false;
+var _mapResizeObserver = null;
+var _lastMapBreakpoint = window.innerWidth > 768;
+var _resizeInitHandler = null;
+var _scrollMapHandler = null;
+var _resizeMapHandler = null;
+const HIDDEN_PFX = ['S','MG'];
+const PFX_ALIAS = {
+  'TX': 'Transmisión',
+  'DC': 'Dirección',
+  'P' : 'Piso'
+};
+const PFX_PINNED_LAST = ['DC','P','TX'];
+
+// SETUP - CARGA //
+
+function buildIndexes() {
+  _idxOut  = {};
+  _idxIn   = {};
+  _idxThru = {};
+
+  CONNS.forEach(function(c) {
+    if (c.es_thru_interno) {
+      // índice de thrus por rack+eq+slot
+      var kt = c.sr + '|' + c.se + '|' + nss(c.ss);
+      if (!_idxThru[kt]) _idxThru[kt] = [];
+      _idxThru[kt].push(c);
+    } else {
+      // índice de salidas
+      var ko = c.sr + '|' + c.se + '|' + nss(c.ss) + '|' + c.sp;
+      if (!_idxOut[ko]) _idxOut[ko] = [];
+      _idxOut[ko].push(c);
+
+      // índice de entradas
+      var ki = c.dr + '|' + c.de + '|' + nss(c.ds) + '|' + c.dp;
+      if (!_idxIn[ki]) _idxIn[ki] = [];
+      _idxIn[ki].push(c);
+    }
+  });
+}
+
+function loadUnit(jsonFile, defaultProj){
+  document.getElementById('screen-index').style.display = 'none';
+  document.getElementById('hdr').style.display = '';
+
+  // Agregar timestamp para evitar caché
+  var url = jsonFile + '?v=' + Date.now();
+
+  fetch(url)
+    .then(function(r){
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return r.json();
+    })
+    .then(function(data){ init(data); })
+    .catch(function(e){
+      document.getElementById('hdr-title').textContent = 'Error cargando '+jsonFile+': '+e.message;
+    });
+}
+
+function init(data){
+  PROJ = data.proyecto || 'C12 Documentación';
+  var TITLE_ALIAS = {
+    'Racks':  'Racks C12',
+    'Ext1':   'Móvil Ext 1',
+    'Ext2':   'Móvil Ext 2'
+  };
+
+  document.title = TITLE_ALIAS[PROJ] || PROJ;
+  document.getElementById('hdr-title').textContent = '\u25c6 ' + (TITLE_ALIAS[PROJ] || PROJ);
+
+  (data.nodos||[]).forEach(function(n){ NODOS[n.rack+'|||'+n.equipo]=n.ip; });
+
+  (data.conexiones||[]).forEach(function(c){
+    CONNS.push({
+      sr:c.src.rack, se:c.src.equipo, ss:nss(c.src.slot), sl:c.src.placa, sp:c.src.puerto,
+      dr:c.dst.rack, de:c.dst.equipo, ds:nss(c.dst.slot), dl:c.dst.placa, dp:c.dst.puerto,
+      rotulo:c.rotulo, notas:c.notas,
+      es_thru_interno:c.es_thru_interno||false,
+      disp_ext:c.disp_ext||''
+    });
+  });
+
+  buildIndexes();
+  showRacks();
+
+  if (_resizeInitHandler) {
+    window.removeEventListener('resize', _resizeInitHandler);
+  }
+  
+  _resizeInitHandler = function() {
+    var top = _nav[_nav.length-1];
+    if(top && top.type==='racks') showRacks();
+    // Re-renderizar equipo si cambia el breakpoint (recalcula páginas y líneas)
+    if(top && top.type==='equip'){
+      clearTimeout(window._resizeTimer);
+      window._resizeTimer = setTimeout(function() {
+        var newCols = window.innerWidth >= 1200 ? 16 : window.innerWidth >= 600 ? 8 : 4;
+        if(newCols !== window._lastColCount){
+          window._lastColCount = newCols;
+          showEquip(top.rack, top.eq, top.slot);
+        } else {
+          drawThruLines(top.rack, top.eq, top.slot, getThruPairs(top.rack, top.eq, top.slot));
+        }
+      }, 200);
+    }
+  };
+  window.addEventListener('resize', _resizeInitHandler);
+}
+
+// HELPERS GENERALES //
+
+function h(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/'/g,'&#39;'); }
+
+function nss(s){ return String(s||''); }
+
+function portN(p){
+  var m=String(p||'').match(/\d+/); return m?parseInt(m[0]):9998;
+}
+
+function sortByPort(arr,fn){
+  return arr.slice().sort(function(a,b){
+    return portN(fn(a))-portN(fn(b))||String(fn(a)).localeCompare(String(fn(b)));
+  });
+}
+
+function getRackPfx(r){ var m=r.match(/^([A-Za-z]+)/); return m?m[1].toUpperCase():'?'; }
+
+function getIP(rack, eq) {
+  var k = rack + '|||' + eq;
+  if (NODOS.hasOwnProperty(k)) return NODOS[k];
+
+  var rackLow = rack.toLowerCase(); // ← agregar
+  var eqLow   = eq.toLowerCase();
+
+  var ks = Object.keys(NODOS);
+  for (var i = 0; i < ks.length; i++) {
+    var p = ks[i].split('|||');
+    if (p[0].toLowerCase() === rackLow &&  // ← normalizado
+        p[1].toLowerCase() === eqLow)
+      return NODOS[ks[i]];
+  }
+  return undefined;
+}
+
+function ipEl(ip,cls){
+  if(ip===undefined||ip===null||ip==='') return '<div class="'+cls+' none">Sin red</div>';
+  if(ip==='N/D') return '<div class="'+cls+' pend">IP pendiente</div>';
+  return '<div class="'+cls+' ok">'+h(ip)+'</div>';
+}
+
+function setRadialMapBtn(show, rack, eq, slot) {
+  var btn = document.getElementById('btn-radial-map');
+  if (show) {
+    btn.className = 'show';
+    btn.onclick = function() { showRadialMap(rack, eq, slot); };
+  } else {
+    btn.className = '';
+    btn.onclick = null;
+  }
+}
+
+// HELPERS DE DATOS //
+
+function getPlaca(rack, eq, slot) {
+  if (!slot) return '';
+  var ko = rack + '|' + eq + '|' + nss(slot);
+  var thrus = _idxThru[ko] || [];
+  if (thrus.length && thrus[0].sl) return thrus[0].sl;
+  // buscar en salidas
+  var outKeys = Object.keys(_idxOut).filter(function(k) {
+    return k.startsWith(ko + '|');
+  });
+  if (outKeys.length) {
+    var c = _idxOut[outKeys[0]][0];
+    if (c && c.sl) return c.sl;
+  }
+  // buscar en entradas
+  var inKeys = Object.keys(_idxIn).filter(function(k) {
+    return k.startsWith(ko + '|');
+  });
+  if (inKeys.length) {
+    var c = _idxIn[inKeys[0]][0];
+    if (c && c.dl) return c.dl;
+  }
+  return '';
+}
+
+function getThruPairs(rack, eq, slot) {
+  var k = rack + '|' + eq + '|' + nss(slot);
+  var thrus = _idxThru[k] || [];
+  
+  var pairs = {};
+  thrus.forEach(function(t) {
+    if (!pairs[t.sp]) pairs[t.sp] = [];
+    pairs[t.sp].push(t.dp);
+  });
+
+  return Object.keys(pairs).map(function(inPort) {
+    return { inPort: inPort, outPorts: pairs[inPort] };
+  }).sort(function(a, b) {
+    return portN(a.inPort) - portN(b.inPort);
+  });
+}
+
+function getCablesOut(rack, eq, slot, puerto) {
+  var k = rack + '|' + eq + '|' + nss(slot) + '|' + puerto;
+  return _idxOut[k] || [];
+}
+
+function getCablesIn(rack, eq, slot, puerto) {
+  var k = rack + '|' + eq + '|' + nss(slot) + '|' + puerto;
+  return _idxIn[k] || [];
+}
+
+function getThruDeSalida(rack, eq, slot, puertoSalida) {
+  var k = rack + '|' + eq + '|' + nss(slot);
+  var thrus = _idxThru[k] || [];
+  return thrus.find(function(t) { return t.dp === puertoSalida; }) || null;
+}
+
+function getThruDeEntrada(rack, eq, slot, puertoEntrada) {
+  var k = rack + '|' + eq + '|' + nss(slot);
+  var thrus = _idxThru[k] || [];
+  return thrus.find(function(t) { return t.sp === puertoEntrada; }) || null;
+}
+
+function isFrame(rack,eq){
+  return CONNS.some(function(c){
+    return (c.sr===rack&&c.se===eq&&c.ss) || (c.dr===rack&&c.de===eq&&c.ds);
+  });
+}
+
+function getSlots(rack, eq) {
+  var seen = {};
+  // Buscar en índices en lugar de CONNS
+  Object.keys(_idxOut).forEach(function(k) {
+    var parts = k.split('|');
+    if (parts[0] === rack && parts[1] === eq && parts[2]) {
+      var slot = parts[2];
+      if (!seen[slot]) seen[slot] = { slot: slot, placa: '' };
+      var c = (_idxOut[k] || [])[0];
+      if (c && c.sl && !seen[slot].placa) seen[slot].placa = c.sl;
+    }
+  });
+  Object.keys(_idxIn).forEach(function(k) {
+    var parts = k.split('|');
+    if (parts[0] === rack && parts[1] === eq && parts[2]) {
+      var slot = parts[2];
+      if (!seen[slot]) seen[slot] = { slot: slot, placa: '' };
+      var c = (_idxIn[k] || [])[0];
+      if (c && c.dl && !seen[slot].placa) seen[slot].placa = c.dl;
+    }
+  });
+  return Object.values(seen).sort(function(a, b) {
+    return parseInt(a.slot) - parseInt(b.slot);
+  });
+}
+
+function isSplitterOrMerger(rack) {
+  var pfx = getRackPfx(rack);
+  return pfx === 'S' || pfx === 'MG';
+}
+
+// NAVEGACION //
+
+function setView(id){
+  ['view-racks','view-slots','view-equip','view-map'].forEach(function(v){
+    document.getElementById(v).className='view'+(v===id?' active':'');
+  });
+  setRadialMapBtn(false);
+}
+
+function bcGoRacks() {
+  _nav = [{type:'racks'}];
+  window._mapSegs  = null;
+  window._mapCols  = null;
+  window._mapOrigin = null;
+  showRacks(true);
+}
+
+function bcGoSlotEquip(rack, eq, slot) {
+  window._mapSegs  = null;
+  window._mapCols  = null;
+  window._mapOrigin = null;
+  _nav = [{type:'racks'}, {type:'slots', rack:rack, eq:eq}, {type:'equip', rack:rack, eq:eq, slot:slot}];
+  showEquip(rack, eq, slot, true);
+}
+
+function bcGoSlotList(rack, eq) {
+  _nav = [{type:'racks'}, {type:'slots', rack:rack, eq:eq}];
+  window._mapSegs  = null;
+  window._mapCols  = null;
+  window._mapOrigin = null;
+  showSlots(rack, eq, true);
+}
+
+function bcGoEquip(rack, eq, slot) {
+  window._mapSegs  = null;
+  window._mapCols  = null;
+  window._mapOrigin = null;
+  if(slot) {
+    // ir a lista de slots — bcGoSlotList ya setea _nav
+    bcGoSlotList(rack, eq);
+  } else {
+    _nav = [{type:'racks'}, {type:'equip', rack:rack, eq:eq, slot:''}];
+    showEquip(rack, eq, '', true);
+  }
+}
+
+function updateHdr(bc){
+  document.getElementById('btn-back').className = 'show';
+  document.getElementById('btn-home').className = 'show';
+  document.getElementById('hdr-title').textContent=_nav.length<=1?('\u25c6 '+PROJ):'';
+  document.getElementById('hdr-bc').innerHTML=bc||'';
+  history.pushState({app:'c12'}, '');
+}
+
+function goBack(){
+  _nav.pop(); // sacar la vista actual
+  var top = _nav[_nav.length - 1]; // ver a donde volver
+
+  if(!top){ goHome(); return; }
+
+  if(top.type==='racks') { showRacks(true); return; }
+  if(top.type==='slots') { showSlots(top.rack, top.eq, true); return; }
+  if(top.type==='equip') { showEquip(top.rack, top.eq, top.slot, true); return; }
+  if(top.type==='map')   { showMap(top.rack, top.eq, top.slot, top.puerto, true); return; }
+  if(top.type==='radial'){ showRadialMap(top.rack, top.eq, top.slot, true); return; }
+
+  goHome();
+}
+
+function goHome(){
+  var top = _nav[_nav.length - 1];
+
+  if (_resizeInitHandler) {
+    window.removeEventListener('resize', _resizeInitHandler);
+    _resizeInitHandler = null;
+  }
+  if (_scrollMapHandler) {
+    window.removeEventListener('scroll', _scrollMapHandler);
+    _scrollMapHandler = null;
+  }
+  if (_resizeMapHandler) {
+    window.removeEventListener('resize', _resizeMapHandler);
+    _resizeMapHandler = null;
+  }
+
+  if(!top || top.type === 'racks'){
+    // reset completo → index
+    _idxOut = {}; _idxIn = {}; _idxThru = {};
+    window._mapSegs  = null;
+    window._mapCols  = null;
+    window._mapOrigin = null;
+    CONNS=[]; NODOS={}; PROJ=''; _nav=[]; _onEquipReady=null;
+    document.title = 'C12 Documentación';
+    document.querySelectorAll('.view').forEach(function(v){
+      v.classList.remove('active');
+    });
+    document.getElementById('view-slots').innerHTML = '';
+    document.getElementById('view-equip').innerHTML = '';
+    document.getElementById('view-map').innerHTML = '';
+    document.getElementById('view-radial-map').innerHTML = '';
+    document.getElementById('hdr-bc').textContent = '';
+    document.getElementById('hdr').style.display = 'none';
+    document.getElementById('screen-index').style.display = '';
+  } else {
+    // volver a racks sin resetear
+    window._mapSegs  = null;
+    window._mapCols  = null;
+    window._mapOrigin = null;
+    _nav = [{type:'racks'}];
+    showRacks(true);
+  }
+}
+
+// VISTA RACKS //
+
+function showRacks(fromBack){
+  if(!fromBack){
+    _nav = [{type:'racks'}]; // reset limpio
+  }
+
+  setView('view-racks');
+  /* rm: dict de rack → { equipo: true }
+     Se construye desde CONNS y desde NODOS para incluir equipos
+     que existan en el JSON pero no tengan conexiones documentadas. */
+  var rm={};
+  CONNS.forEach(function(c){
+    [[c.sr,c.se],[c.dr,c.de]].forEach(function(pair){
+      var r=pair[0],e=pair[1];
+      if(!r||r==='N/D'||!e||e==='N/D') return;
+      if(c.es_thru_interno===true) return;
+      if(!rm[r]) rm[r]={};
+      rm[r][e]=true;
+    });
+  });
+  Object.keys(NODOS).forEach(function(k){
+    var p=k.split('|||'),r=p[0],e=p[1];
+    if(!r||!e||r==='N/D') return;
+    if(!rm[r]) rm[r]={};
+    rm[r][e]=true;
+  });
+
+  /* Agrupar por prefijo de rack y ordenar */
+  var secs={};
+  Object.keys(rm).sort(function(a,b){return a.localeCompare(b,undefined,{numeric:true});}).forEach(function(rack){
+    var pfx=getRackPfx(rack);
+
+    // 🚫 ocultar prefijos
+    if(HIDDEN_PFX.includes(pfx)) return;
+    if(!secs[pfx]) secs[pfx]=[];
+    secs[pfx].push({rack:rack,eqs:Object.keys(rm[rack]).sort()});
+  });
+
+  /* Generar HTML de columnas y cards */
+  var isMobile=window.innerWidth<=768;
+
+  // Función de ordenamiento compartida (mobile y desktop)
+  function sortPfx(a, b) {
+    var ai = PFX_PINNED_LAST.indexOf(a);
+    var bi = PFX_PINNED_LAST.indexOf(b);
+    if(ai !== -1 && bi !== -1) return ai - bi; // ambos pinneados → orden definido
+    if(ai !== -1) return 1;                    // solo a pinneado → va al final
+    if(bi !== -1) return -1;
+    return a.localeCompare(b);
+  }
+
+  if(isMobile){
+    // Versión MOBILE: desplegables por PREFIJO (A, B, C, etc)
+    var htmlMobile=''; var delay=0;
+    Object.keys(secs).sort(sortPfx).forEach(function(pfx){
+      var lbl = PFX_ALIAS[pfx] || pfx;
+      htmlMobile+='<div class="rack-mobile-btn" style="animation:fadeUp .35s ease both;animation-delay:'+(delay++*0.05)+'s" onclick="toggleMobileList(this)"><span>'+h(lbl)+'</span><span>▼</span></div>';
+      htmlMobile+='<div class="eq-mobile-list">';
+      secs[pfx].forEach(function(item){
+        item.eqs.forEach(function(eq){
+          htmlMobile+='<div class="eq-mobile-item" onclick="onEqClick(\''+h(item.rack)+'\',\''+h(eq)+'\')"><span class="rack-id">'+h(item.rack)+'</span> <span class="eq-name">'+h(eq)+'</span></div>';
+        });
+      });
+      htmlMobile+='</div>';
+    });
+    document.getElementById('racks-mobile').innerHTML=htmlMobile;
+    document.getElementById('racks-wrap').innerHTML='';
+  } else {
+    // Versión DESKTOP: layout horizontal con scroll
+    var html=''; var delay=0;
+    Object.keys(secs).sort(sortPfx).forEach(function(pfx){
+      var lbl = PFX_ALIAS[pfx] || pfx;
+      html+='<div class="rack-col"><div class="rack-col-lbl">'+h(lbl)+'</div>';
+      secs[pfx].forEach(function(item){
+        item.eqs.forEach(function(eq){
+          html+='<div class="rack-card" style="animation:fadeUp .35s ease both;animation-delay:'+(delay++*0.01)+'s" onclick="onEqClick(\''+h(item.rack)+'\',\''+h(eq)+'\')"><span class="rack-id">'+h(item.rack)+'</span><span class="eq-name">'+h(eq)+'</span></div>';
+        });
+      });
+      html+='</div>';
+    });
+    document.getElementById('racks-wrap').innerHTML=html;
+    document.getElementById('racks-mobile').innerHTML='';
+  }
+  document.getElementById('btn-back').className = '';
+  document.getElementById('btn-home').className = 'show';
+  document.getElementById('hdr-title').textContent = '\u25c6 ' + PROJ;
+  document.getElementById('hdr-bc').innerHTML = '';
+}
+
+function onEqClick(rack,eq){
+  if(isFrame(rack,eq)) showSlots(rack,eq);
+  else showEquip(rack,eq,'');
+}
+
+function toggleMobileList(btn){
+  var list=btn.nextElementSibling;
+  list.classList.toggle('show');
+  btn.classList.toggle('open');
+}
+
+// VISTA SLOTS //
+
+function showSlots(rack,frameEq,fromBack){
+  if(!fromBack){
+    _nav.push({type:'slots', rack:rack, eq:frameEq});
+  }
+
+  setView('view-slots');
+  updateHdr(
+    '<span class="hi bc-link" onclick="bcGoRacks()">'+h(rack)+'</span>'
+    + ' › ' + h(frameEq)
+  );
+  setRadialMapBtn(false);
+  var slots=getSlots(rack,frameEq);
+  var ip=getIP(rack,frameEq);
+  var html='<div class="eq-meta"><div class="eq-name">'+h(frameEq)+'</div>'
+    +'<div class="eq-rack">'+h(rack)+'</div>'+ipEl(ip,'eq-iprow')+'</div>';
+  html+='<div class="slots-list">';
+  slots.forEach(function(s){
+    html+='<div class="slot-btn" onclick="showEquip(\''+h(rack)+'\',\''+h(frameEq)+'\',\''+h(s.slot)+'\')">';
+    html+='<div class="slot-num">Slot '+h(s.slot);
+    if(s.placa) html+='<span class="slot-placa">'+h(s.placa)+'</span>';
+    html+='</div>';
+    html+='</div>';
+  });
+  html+='</div>';
+  document.getElementById('view-slots').innerHTML=html;
+  window.scrollTo(0,0);
+}
+
+// VISTA EQUIPO //
+
+function drawThruLines(rack, eq, slot, pairs){
+  var blockId = 'thru-block-'+rack+'-'+eq+'-'+slot;
+  var blockEl = document.getElementById(blockId);
+  if(!blockEl) return;
+
+  // Limpiar SVGs anteriores
+  blockEl.querySelectorAll('svg.thru-line-svg').forEach(function(s){ s.remove(); });
+
+  var blockR = blockEl.getBoundingClientRect();
+
+  // Acumular todas las líneas en un solo SVG sobre el bloque
+  var svgLines = '';
+
+  pairs.forEach(function(pair){
+    var inBtn = blockEl.querySelector('.port-btn[data-port="'+pair.inPort+'"][data-role="in"]');
+    if(!inBtn) return;
+
+    var inR = inBtn.getBoundingClientRect();
+    var xIn = inR.left + inR.width/2 - blockR.left;
+    var yIn = inR.bottom - blockR.top;
+
+    if(pair.outPorts.length === 1){
+      // CASO 1: 1 IN → 1 OUT
+      var outBtn = blockEl.querySelector('.port-btn[data-port="'+pair.outPorts[0]+'"][data-role="out"]');
+      if(!outBtn) return;
+      var outR = outBtn.getBoundingClientRect();
+      var xOut = outR.left + outR.width/2 - blockR.left;
+      var yOut = outR.top - blockR.top;
+      var ymid = yIn + (yOut - yIn) / 2;
+
+      svgLines += '<circle cx="'+xIn+'" cy="'+yIn+'" r="4" fill="var(--green)"/>';
+      svgLines += '<line x1="'+xIn+'" y1="'+yIn+'" x2="'+xIn+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
+      svgLines += '<line x1="'+xIn+'" y1="'+ymid+'" x2="'+xOut+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
+      svgLines += '<line x1="'+xOut+'" y1="'+ymid+'" x2="'+xOut+'" y2="'+yOut+'" stroke="var(--green)" stroke-width="2"/>';
+      svgLines += '<circle cx="'+xOut+'" cy="'+yOut+'" r="4" fill="var(--green)"/>';
+
+    } else {
+      // CASO 2: 1 IN → MANY OUTs (distro)
+      svgLines += '<circle cx="'+xIn+'" cy="'+yIn+'" r="4" fill="var(--green)"/>';
+      var ymid = yIn + 15;
+      svgLines += '<line x1="'+xIn+'" y1="'+yIn+'" x2="'+xIn+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
+
+      pair.outPorts.forEach(function(outPort){
+        var outBtn = blockEl.querySelector('.port-btn[data-port="'+outPort+'"][data-role="out"]');
+        if(!outBtn) return;
+        var outR = outBtn.getBoundingClientRect();
+        var xOut = outR.left + outR.width/2 - blockR.left;
+        var yOut = outR.top - blockR.top;
+
+        svgLines += '<line x1="'+xIn+'" y1="'+ymid+'" x2="'+xOut+'" y2="'+ymid+'" stroke="var(--green)" stroke-width="2"/>';
+        svgLines += '<line x1="'+xOut+'" y1="'+ymid+'" x2="'+xOut+'" y2="'+yOut+'" stroke="var(--green)" stroke-width="2"/>';
+        svgLines += '<circle cx="'+xOut+'" cy="'+yOut+'" r="4" fill="var(--green)"/>';
+      });
+    }
+  });
+
+  if(svgLines){
+    blockEl.style.position = 'relative';
+    var svg = '<svg class="thru-line-svg" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:1;">'+svgLines+'</svg>';
+    blockEl.insertAdjacentHTML('beforeend', svg);
+  }
+}
+
+function showEquip(rack, eq, slot, fromBack){
+  if(!fromBack){
+    _nav.push({type:'equip', rack:rack, eq:eq, slot:slot});
+  }
+
+  setView('view-equip');
+
+  var isSlotEq = slot!=='';
+  var bc = isSlotEq
+    ? '<span class="hi bc-link" onclick="bcGoRacks()">'+h(rack)+'</span>'
+      + ' › <span class="bc-link" onclick="bcGoSlotList(\''+h(rack)+'\',\''+h(eq)+'\')">'+h(eq)+'</span>'
+      + ' › Slot '+h(slot)
+    : '<span class="hi bc-link" onclick="bcGoRacks()">'+h(rack)+'</span>'
+      + ' › ' + h(eq);
+
+  updateHdr(bc);
+  var isFrame = getSlots(rack, eq).length > 0;
+  setRadialMapBtn(isSlotEq || !isFrame, rack, eq, slot);
+
+  var placa='';
+  if(isSlotEq){
+    var ko = rack + '|' + eq + '|' + nss(slot);
+    var thrus = _idxThru[ko] || [];
+    if(thrus.length && thrus[0].sl) placa = thrus[0].sl;
+    if(!placa) {
+      var outKeys = Object.keys(_idxOut).filter(function(k){ return k.startsWith(ko+'|'); });
+      if(outKeys.length) placa = (_idxOut[outKeys[0]][0].sl) || '';
+    }
+    if(!placa) {
+      var inKeys = Object.keys(_idxIn).filter(function(k){ return k.startsWith(ko+'|'); });
+      if(inKeys.length) placa = (_idxIn[inKeys[0]][0].dl) || '';
+    }
+  }
+
+  var displayName = isSlotEq ? ('Slot '+slot+(placa?' — '+placa:'')) : eq;
+  var ip = getIP(rack,eq);
+
+  var outsAll = Object.keys(_idxOut)
+    .filter(function(k){ return k.startsWith(rack+'|'+eq+'|'+nss(slot)+'|'); })
+    .reduce(function(acc, k){ return acc.concat(_idxOut[k]); }, []);
+
+  var insAll = Object.keys(_idxIn)
+    .filter(function(k){ return k.startsWith(rack+'|'+eq+'|'+nss(slot)+'|'); })
+    .reduce(function(acc, k){ return acc.concat(_idxIn[k]); }, []);
+
+  var html='<div class="eq-meta">';
+  html+='<div class="eq-name">'+h(displayName)+'</div>';
+  html+='<div class="eq-rack">'+h(rack)+(isSlotEq?' › '+h(eq):'')+'</div>';
+  if(placa) html+='<div class="eq-placa">'+h(placa)+'</div>';
+  html+=ipEl(ip,'eq-iprow')+'</div>';
+
+  var sortedOuts=sortByPort(outsAll,function(c){return c.sp;});
+  var sortedIns =sortByPort(insAll, function(c){return c.dp;});
+
+  var pairs = getThruPairs(rack, eq, slot);
+  var pairedIns={}, pairedOuts={};
+  pairs.forEach(function(p){
+    pairedIns[p.inPort]=true;
+    p.outPorts.forEach(function(op){ pairedOuts[op]=true; });
+  });
+  var looseOuts = sortedOuts.filter(function(c){ return !pairedOuts[c.sp]; });
+  var looseIns  = sortedIns.filter(function(c){  return !pairedIns[c.dp];  });
+
+  function portBtnHTML(port, state, lbl, clickArgs, isOutput){
+    var cls = 'port-btn ' + (isOutput ? 'p-out' : 'p-in');
+    if(state === 'NC') cls += ' p-free';
+    else if(state === 'ND') cls += ' p-nd';
+    var role = isOutput ? 'out' : 'in';
+    var click = ' onclick="event.stopPropagation(); onPortClick(this,' + clickArgs + ',\'' + state + '\')"';
+    return '<div class="' + cls + '" data-port="' + h(port) + '" data-role="' + role + '"' + click + '>'
+      + '<div class="p-num">' + h(port || 'N/D') + '</div>'
+      + '<div class="p-lbl">' + h(lbl) + '</div>'
+      + '</div>';
+  }
+
+  if(pairs.length > 1 && pairs[0].outPorts.length > 1){
+    // DISTRO MÚLTIPLE — cada in tiene múltiples outs propios
+    html+='<div class="ports-lbl">&#9670; CONEXIONES</div>';
+    html+='<div class="thru-block" id="thru-block-'+h(rack)+'-'+h(eq)+'-'+h(slot)+'">';
+    pairs.forEach(function(pair){
+      var inConn  = insAll.find(function(c){ return c.dp === pair.inPort; });
+      var inState = !inConn||!inConn.sr||inConn.sr==='N/D' ? 'ND' : inConn.sr==='N/C' ? 'NC' : 'doc';
+      var inLbl   = inConn ? (inConn.rotulo||(inState!=='doc'?'':inConn.se)||'') : '';
+      var inArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(pair.inPort)+'\'';
+      var numOuts = pair.outPorts.length;
+      html+='<div class="thru-pair-distro" style="display:grid;grid-template-columns:repeat('+numOuts+',1fr);gap:4px;row-gap:30px;position:relative;grid-column:span '+numOuts+';">';
+      html+='<div class="thru-pair-in" style="min-width:0;">'+portBtnHTML(pair.inPort,inState,inLbl,inArgs,false)+'</div>';
+      pair.outPorts.forEach(function(outPort){
+        var outConn  = outsAll.find(function(c){ return c.sp === outPort; });
+        var outState = !outConn||!outConn.dr||outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
+        var outLbl   = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
+        var outArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(outPort)+'\'';
+        html+='<div style="grid-row:2;min-width:0;">'+portBtnHTML(outPort,outState,outLbl,outArgs,true)+'</div>';
+      });
+      html+='</div>';
+    });
+    html+='</div>';
+
+  } else if(pairs.length > 1){
+      // LAYOUT PAGINADO — columnas alineadas: cada par thru ocupa columna(s) propias,
+      // luego loose ins y loose outs al final.
+      function makeInItem(port, conn){
+        var state = !conn||!conn.sr||conn.sr==='N/D' ? 'ND' : conn.sr==='N/C' ? 'NC' : 'doc';
+        var lbl   = conn ? (conn.rotulo||(state!=='doc'?'':conn.se)||'') : '';
+        var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(port)+'\'';
+        return { port: port, state: state, lbl: lbl, args: args };
+      }
+      function makeOutItem(port, conn){
+        var state = !conn||!conn.dr||conn.dr==='N/D' ? 'ND' : conn.dr==='N/C' ? 'NC' : 'doc';
+        var lbl   = conn ? (conn.rotulo||(state!=='doc'?'':conn.de)||'') : '';
+        var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(port)+'\'';
+        return { port: port, state: state, lbl: lbl, args: args };
+      }
+
+      // Construir array de columnas { inItem, outItem } respetando emparejamiento thru
+      var columns = [];
+
+      pairs.forEach(function(pair){
+        var inConn = insAll.find(function(c){ return c.dp === pair.inPort; });
+        var inItem = makeInItem(pair.inPort, inConn);
+        pair.outPorts.forEach(function(outPort, i){
+          var outConn = outsAll.find(function(c){ return c.sp === outPort; });
+          var outItem = makeOutItem(outPort, outConn);
+          columns.push({ inItem: i === 0 ? inItem : null, outItem: outItem });
+        });
+      });
+
+      // Loose ins y outs combinados — comparten columna cuando es posible
+      var sortedLooseIns = looseIns.slice().sort(function(a,b){
+        return portN(a.dp)-portN(b.dp)||String(a.dp).localeCompare(String(b.dp));
+      });
+      var sortedLooseOuts = looseOuts.slice().sort(function(a,b){
+        return portN(a.sp)-portN(b.sp)||String(a.sp).localeCompare(String(b.sp));
+      });
+      var looseLen = Math.max(sortedLooseIns.length, sortedLooseOuts.length);
+      for(var li = 0; li < looseLen; li++){
+        var lIn  = sortedLooseIns[li]  || null;
+        var lOut = sortedLooseOuts[li] || null;
+        var inConn  = lIn  ? insAll.find(function(x){ return x.dp === lIn.dp; })   : null;
+        var outConn = lOut ? outsAll.find(function(x){ return x.sp === lOut.sp; }) : null;
+        columns.push({
+          inItem:  lIn  ? makeInItem(lIn.dp,   inConn)  : null,
+          outItem: lOut ? makeOutItem(lOut.sp, outConn) : null
+        });
+      }
+
+      function getColCount(){
+        if(window.innerWidth >= 1200) return 16;
+        if(window.innerWidth >= 600)  return 8;
+        return 4;
+      }
+
+      var cols = getColCount();
+
+      html += '<div class="thru-block" id="thru-block-'+h(rack)+'-'+h(eq)+'-'+h(slot)+'">';
+
+      for(var page = 0; page * cols < columns.length; page++){
+        var start = page * cols;
+        var pageCols = columns.slice(start, start + cols);
+
+        // Fila de ins
+        pageCols.forEach(function(col, idx){
+          var extraStyle = (page > 0 && idx === 0) ? ' style="grid-column-start:1;min-width:0;"' : ' style="min-width:0;"';
+          if(col.inItem){
+            html += '<div' + extraStyle + '>' + portBtnHTML(col.inItem.port, col.inItem.state, col.inItem.lbl, col.inItem.args, false) + '</div>';
+          } else {
+            html += '<div' + extraStyle + '></div>';
+          }
+        });
+        for(var fill = pageCols.length; fill < cols; fill++){
+          html += '<div></div>';
+        }
+
+        // Fila de outs
+        pageCols.forEach(function(col, idx){
+          var extraStyle = idx === 0 ? ' style="grid-column-start:1;min-width:0;"' : ' style="min-width:0;"';
+          if(col.outItem){
+            html += '<div' + extraStyle + '>' + portBtnHTML(col.outItem.port, col.outItem.state, col.outItem.lbl, col.outItem.args, true) + '</div>';
+          } else {
+            html += '<div' + extraStyle + '></div>';
+          }
+        });
+        for(var fillO = pageCols.length; fillO < cols; fillO++){
+          html += '<div></div>';
+        }
+      }
+
+      html += '</div>';
+
+  } else {
+    // LAYOUT SEPARADO — equipos sin thrus o con 1 solo par
+    if(pairs.length){
+      html+='<div class="ports-lbl">&#9670; CONEXIONES</div>';
+      html+='<div class="thru-block" id="thru-block-'+h(rack)+'-'+h(eq)+'-'+h(slot)+'">';
+      pairs.forEach(function(pair){
+        var inConn  = insAll.find(function(c){ return c.dp === pair.inPort; });
+        var inState = !inConn||!inConn.sr||inConn.sr==='N/D' ? 'ND' : inConn.sr==='N/C' ? 'NC' : 'doc';
+        var inLbl   = inConn ? (inConn.rotulo||(inState!=='doc'?'':inConn.se)||'') : '';
+        var inArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(pair.inPort)+'\'';
+        if(pair.outPorts.length === 1){
+          var outPort = pair.outPorts[0];
+          var outConn  = outsAll.find(function(c){ return c.sp === outPort; });
+          var outState = !outConn||!outConn.dr||outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
+          var outLbl   = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
+          var outArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(outPort)+'\'';
+          html+='<div class="thru-pair" style="display:flex;flex-direction:column;gap:30px;position:relative;">';
+          html+='<div class="ports-grid" style="grid-template-columns:1fr;">'+portBtnHTML(pair.inPort,inState,inLbl,inArgs,false)+'</div>';
+          html+='<div class="ports-grid" style="grid-template-columns:1fr;">'+portBtnHTML(outPort,outState,outLbl,outArgs,true)+'</div>';
+          html+='</div>';
+        } else {
+          var numOuts = pair.outPorts.length;
+          html+='<div class="thru-pair-distro" style="display:grid;grid-template-columns:repeat('+numOuts+',1fr);gap:4px;row-gap:30px;position:relative;grid-column:span '+numOuts+';">';
+          html+='<div class="thru-pair-in" style="min-width:0;">'+portBtnHTML(pair.inPort,inState,inLbl,inArgs,false)+'</div>';
+          pair.outPorts.forEach(function(outPort){
+            var outConn  = outsAll.find(function(c){ return c.sp === outPort; });
+            var outState = !outConn||!outConn.dr||outConn.dr==='N/D' ? 'ND' : outConn.dr==='N/C' ? 'NC' : 'doc';
+            var outLbl   = outConn ? (outConn.rotulo||(outState!=='doc'?'':outConn.de)||'') : '';
+            var outArgs  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(outPort)+'\'';
+            html+='<div style="grid-row:2;min-width:0;">'+portBtnHTML(outPort,outState,outLbl,outArgs,true)+'</div>';
+          });
+          html+='</div>';
+        }
+      });
+      html+='</div>';
+    }
+
+    if(looseIns.length){
+      html+='<div class="ports-lbl">&#9670; ENTRADAS</div><div class="ports-grid">';
+      looseIns.forEach(function(c){
+        var state = c.sr==='N/C' ? 'NC' : (!c.sr||c.sr==='N/D') ? 'ND' : 'doc';
+        var lbl   = c.rotulo||(state!=='doc'?'':c.se)||'';
+        var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.dp)+'\'';
+        html+=portBtnHTML(c.dp,state,lbl,args,false);
+      });
+      html+='</div>';
+    }
+
+    if(looseOuts.length){
+      html+='<div class="ports-lbl">&#9670; SALIDAS</div><div class="ports-grid">';
+      looseOuts.forEach(function(c){
+        var state = c.dr==='N/C' ? 'NC' : (!c.dr||c.dr==='N/D') ? 'ND' : 'doc';
+        var lbl   = c.rotulo||(state!=='doc'?'':c.de)||'';
+        var args  = '\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\',\''+h(c.sp)+'\'';
+        html+=portBtnHTML(c.sp,state,lbl,args,true);
+      });
+      html+='</div>';
+    }
+
+    if(!pairs.length && !looseIns.length && !looseOuts.length){
+      html+='<p style="color:var(--text2);font-style:italic;margin-top:16px;">Sin conexiones documentadas.</p>';
+    }
+  }
+
+  document.getElementById('view-equip').innerHTML=html;
+  window.scrollTo(0,0);
+  requestAnimationFrame(function() {
+    drawThruLines(rack, eq, slot, pairs);
+    if(typeof _onEquipReady === 'function'){
+      var cb = _onEquipReady;
+      _onEquipReady = null;
+      requestAnimationFrame(cb);
+    }
+  });
+}
+
+function onPortClick(btn, sr, se, ss0, sp, state) {
+
+  if(state === 'doc'){
+    var inMap = document.getElementById('view-map').classList.contains('active');
+    if(inMap) showEquip(sr, se, ss0);
+    else showMap(sr, se, ss0, sp);
+    return;
+  }
+
+  if(state === 'ND') {
+    btn.style.transition = 'background .1s';
+    btn.style.background = 'rgba(255,209,102,.2)';
+    setTimeout(function() {
+      btn.style.background = '';
+    }, 400);
+  }
+}
+
+// ROUTE BUILDER //
+
+function buildUpstream(rack, eq, slot, puerto) {
+  var segs = [], vis = {};
+
+  function walkUp(rack, eq, slot, puerto, depth) {
+    if (depth > 12) return;
+    var key = rack + '|' + eq + '|' + nss(slot) + '|' + puerto;
+    if (vis[key]) return;
+    vis[key] = true;
+
+    var cables = getCablesIn(rack, eq, slot, puerto);
+    if (!cables.length) return;
+
+    cables.forEach(function(c) {
+      if (!c.sr || c.sr === 'N/C') {
+        segs.unshift({
+          rack: '', eq: '', slot: '', placa: '',
+          inPort: '', outPort: '',
+          branches: [], disp_ext_before: '', disp_ext_after: c.disp_ext || '',
+          noDoc: true, noDocReason: 'N/C'
+        });
+        return;
+      }
+
+      if (c.sr === 'N/D' || c.se === 'N/D') {
+        segs.unshift({
+          rack: c.sr, eq: c.se, slot: c.ss, placa: '',
+          inPort: '', outPort: c.sp,
+          branches: [], disp_ext_before: '', disp_ext_after: c.disp_ext || '',
+          noDoc: true, noDocReason: 'N/D'
+        });
+        return;
+      }
+
+      var placa = getPlaca(c.sr, c.se, c.ss);
+      var thru = getThruDeSalida(c.sr, c.se, c.ss, c.sp);
+
+      segs.unshift({
+        rack: c.sr, eq: c.se, slot: c.ss, placa: placa,
+        inPort: thru ? thru.sp : '',
+        outPort: c.sp,
+        branches: [], disp_ext_before: '', disp_ext_after: c.disp_ext || ''
+      });
+
+      if (thru) walkUp(c.sr, c.se, c.ss, thru.sp, depth + 1);
+    });
+  }
+
+  walkUp(rack, eq, slot, puerto, 0);
+  return segs;
+}
+
+function buildSegments(rack, eq, slot, puerto, depth) {
+  if (depth > 12) return [];
+  var segs = [];
+
+  var cables = getCablesOut(rack, eq, slot, puerto);
+  if (!cables.length) return [];
+
+  cables.forEach(function(c) {
+    if (!c.dr || c.dr === 'N/C') {
+      segs.push({
+        rack: '', eq: '', slot: '', placa: '',
+        inPort: '', outPort: '',
+        branches: [], disp_ext_before: c.disp_ext || '', disp_ext_after: '',
+        noDoc: true, noDocReason: 'N/C'
+      });
+      return;
+    }
+
+    if (c.dr === 'N/D' || c.de === 'N/D') {
+      segs.push({
+        rack: c.dr, eq: c.de, slot: c.ds, placa: '',
+        inPort: c.dp, outPort: '',
+        branches: [], disp_ext_before: c.disp_ext || '', disp_ext_after: '',
+        noDoc: true, noDocReason: 'N/D'
+      });
+      return;
+    }
+
+    var placa = getPlaca(c.dr, c.de, c.ds);
+
+    var thrusDst = CONNS.filter(function(t) {
+      return t.es_thru_interno === true
+        && t.sr === c.dr && t.se === c.de && nss(t.ss) === nss(c.ds)
+        && t.sp === c.dp;
+    });
+
+    if (!thrusDst.length) {
+      segs.push({
+        rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
+        inPort: c.dp, outPort: '',
+        branches: [], disp_ext_before: c.disp_ext || '', disp_ext_after: ''
+      });
+    } else if (thrusDst.length === 1) {
+      var thru = thrusDst[0];
+      segs.push({
+        rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
+        inPort: c.dp, outPort: thru.dp,
+        branches: [], disp_ext_before: c.disp_ext || '', disp_ext_after: ''
+      });
+      segs = segs.concat(buildSegments(c.dr, c.de, c.ds, thru.dp, depth + 1));
+    } else {
+      var branches = thrusDst.map(function(thru) {
+        var outs = getCablesOut(c.dr, c.de, c.ds, thru.dp);
+        return {
+          outPort: thru.dp,
+          dstRack: outs.length ? outs[0].dr : 'N/D',
+          dstEq:   outs.length ? outs[0].de : 'N/D',
+          dstSlot: outs.length ? outs[0].ds : '',
+          dstPort: outs.length ? outs[0].dp : ''
+        };
+      });
+      segs.push({
+        rack: c.dr, eq: c.de, slot: c.ds, placa: placa,
+        inPort: c.dp, outPort: '',
+        branches: branches, disp_ext_before: c.disp_ext || '', disp_ext_after: ''
+      });
+    }
+  });
+
+  return segs;
+}
+
+function detectAndCollapseFD(segs) {
+  var result = [];
+  var i = 0;
+  while (i < segs.length) {
+    // Buscar patrón: segs[i] → segs[i+1] → segs[i+2]
+    // donde segs[i].rack===segs[i+2].rack && segs[i].eq===segs[i+2].eq
+    if (
+      i + 2 < segs.length &&
+      !segs[i].noDoc && !segs[i+1].noDoc && !segs[i+2].noDoc &&
+      segs[i].rack   === segs[i+2].rack &&
+      segs[i].eq     === segs[i+2].eq &&
+      nss(segs[i].slot||'') === nss(segs[i+2].slot||'')
+    ) {
+      // Colapsar: el nodo del medio (segs[i+1]) recibe fdPair
+      var nodeA  = segs[i];
+      var nodeMid = segs[i+1];
+      var nodeA2 = segs[i+2];
+
+      // nodeA queda con ambos puertos (out que va + in que vuelve)
+      nodeA.fdReturnInPort = nodeA2.inPort;   // "Incom In"
+
+      // nodeMid queda con ambos puertos y sabe que es FD
+      nodeMid.fdReturnOutPort = nodeMid.outPort; // "P1 Out" — ya lo tiene
+      nodeMid.isFD = true;
+
+      result.push(nodeA);
+      result.push(nodeMid);
+      i += 3; // saltar los 3, ya los procesamos
+    } else {
+      result.push(segs[i]);
+      i++;
+    }
+  }
+  return result;
+}
+
+// VISTA MAPA //
+
+function showMap(rack, eq, slot, puerto, fromBack) {
+  var esSalida = getCablesOut(rack, eq, slot, puerto).length > 0;
+  var thru     = getThruDeSalida(rack, eq, slot, puerto);
+  
+  if(!fromBack){
+    _nav.push({type:'map', rack:rack, eq:eq, slot:slot, puerto:puerto});
+  }
+
+  var bc = '<span class="hi bc-link" onclick="bcGoRacks()">'+h(rack)+'</span>'
+    + ' › <span class="bc-link" onclick="bcGoEquip(\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot||'')+'\')">'+h(eq)+'</span>'
+    + (slot ? ' › <span class="bc-link" onclick="bcGoSlotEquip(\''+h(rack)+'\',\''+h(eq)+'\',\''+h(slot)+'\')">Slot '+h(slot)+'</span>' : '')
+    + ' › <span class="hi">MAPA</span>';
+  updateHdr(bc);
+  setRadialMapBtn(false);
+
+  var esSalida = getCablesOut(rack, eq, slot, puerto).length > 0;
+  var thru     = getThruDeSalida(rack, eq, slot, puerto);
+  var placa    = getPlaca(rack, eq, slot);
+  var upSegs   = [];
+  var downSegs = [];
+
+  if (esSalida) {
+    if (thru) {
+      upSegs = buildUpstream(rack, eq, slot, thru.sp);
+      upSegs.push({ rack:rack, eq:eq, slot:slot, placa:placa, inPort:thru.sp, outPort:puerto, branches:[], disp_ext_before:'', disp_ext_after:'' });
+    } else {
+      upSegs.push({ rack:rack, eq:eq, slot:slot, placa:placa, inPort:'', outPort:puerto, branches:[], disp_ext_before:'', disp_ext_after:'' });
+    }
+    downSegs = buildSegments(rack, eq, slot, puerto, 0);
+  } else {
+    var thruDeEntrada = getThruDeEntrada(rack, eq, slot, puerto);
+    console.log('thruDeEntrada:', JSON.stringify(thruDeEntrada)); // temporal
+    if (thruDeEntrada) {
+      // Es entrada de un par thru — mostrar up + down completo
+      upSegs = buildUpstream(rack, eq, slot, puerto);
+      upSegs.push({ rack:rack, eq:eq, slot:slot, placa:placa, inPort:puerto, outPort:thruDeEntrada.dp, branches:[], disp_ext_before:'', disp_ext_after:'' });
+      downSegs = buildSegments(rack, eq, slot, thruDeEntrada.dp, 0);
+    } else {
+      upSegs = buildUpstream(rack, eq, slot, puerto);
+      upSegs.push({ rack:rack, eq:eq, slot:slot, placa:placa, inPort:puerto, outPort:'', branches:[], disp_ext_before:'', disp_ext_after:'' });
+    }
+  }
+
+  var segs = detectAndCollapseFD(upSegs.concat(downSegs));
+  window._mapOrigin = { rack: rack, eq: eq, slot: slot };
+  renderMap(segs, rack, eq, slot);
+  window.scrollTo(0,0);
+}
+
+function renderMap(segs, originRack, originEq, originSlot) {
+  window._mapSegs = segs;
+  var container = document.getElementById('view-map');
+
+  if (!segs.length) {
+    container.innerHTML = '<p style="color:var(--text2);padding:20px;">Sin datos para mostrar.</p>';
+    return;
+  }
+
+  var isMobile = window.innerWidth <= 768;
+
+  var cols = [];
+
+  segs.forEach(function(seg) {
+    var nodes = [];
+
+    if (seg.noDoc) {
+      if(seg.noDocReason === 'N/C') return;
+      nodes.push({ type: 'nd' });
+      cols.push(nodes);
+    } else {
+      var ip = getIP(seg.rack, seg.eq);
+      var hasIn  = !!seg.inPort;
+      var hasOut = !!seg.outPort;
+      var hasBranches = seg.branches && seg.branches.length > 0;
+      var borderCls = hasIn && hasOut ? 'has-both'
+                    : hasOut          ? 'has-out'
+                    : hasBranches     ? 'has-out'
+                    : '';
+
+      var isSplitMerge = isSplitterOrMerger(seg.rack);
+
+      nodes.push({
+        type:           isSplitMerge ? 'splitmerge' : 'eq',
+        rack:           seg.rack,
+        eq:             seg.eq,
+        slot:           seg.slot,
+        placa:          seg.placa,
+        inPort:         seg.inPort,
+        outPort:        seg.outPort,
+        ip:             ip,
+        rotuloBefore:   seg.disp_ext_before || '',
+        rotuloAfter:    '',
+        _pendingRotulo: seg.disp_ext_after || '',
+        borderCls:      isSplitMerge ? '' : borderCls,
+        branches:       seg.branches || [],
+        fdReturnInPort:  seg.fdReturnInPort  || '',
+        fdReturnOutPort: seg.fdReturnOutPort || '',
+        isFD:            seg.isFD            || false
+      });
+
+      cols.push(nodes);
+
+      if (hasBranches) {
+        var branchNodes = seg.branches.map(function(br) {
+          return {
+            type:         (!br.dstRack || br.dstRack==='N/C') ? 'nc' : (br.dstRack==='N/D' || br.dstEq==='N/D') ? 'nd' : 'eq',
+            rack:         br.dstRack,
+            eq:           br.dstEq,
+            slot:         br.dstSlot || '',
+            placa:        getPlaca(br.dstRack, br.dstEq, br.dstSlot || ''),
+            inPort:       br.dstPort,
+            outPort:      '',
+            ip:           getIP(br.dstRack, br.dstEq),
+            rotuloBefore: '',
+            rotuloAfter:  '',
+            borderCls:    '',
+            branches:     [],
+            srcOutPort:   br.outPort,
+            srcColIdx:    cols.length - 1
+          };
+        });
+        cols.push(branchNodes);
+      }
+    }
+  });
+
+  // Insertar nodos conversores
+  var colsConv = [];
+  for (var ci = 0; ci < cols.length; ci++) {
+    var node = cols[ci][0];
+    if (node && node.rotuloBefore) {
+      colsConv.push([{ type: 'conv', label: node.rotuloBefore }]);
+      node.rotuloBefore = '';
+    }
+    colsConv.push(cols[ci]);
+    if (node && node._pendingRotulo) {
+      var ni = ci + 1;
+      while (ni < cols.length && cols[ni][0] && cols[ni][0].srcColIdx !== undefined) ni++;
+      if (ni < cols.length) {
+        colsConv.push([{ type: 'conv', label: node._pendingRotulo }]);
+      }
+    }
+  }
+  cols = colsConv;
+
+  // Mobile: marcar origen y dot del splitmerge
+  if (isMobile) {
+    for (var ci = 0; ci < cols.length; ci++) {
+      if (cols[ci].length === 1 && cols[ci][0].type === 'splitmerge') {
+        var prevCol = ci - 1;
+        if (prevCol >= 0) {
+          cols[prevCol][0]._isSplitMergeOrigin = true;
+          cols[ci][0]._isSplitMergeDot = true;
+        }
+      }
+    }
+  }
+
+  var html = '<div class="map-title">&#9638; MAPA DE RUTA DE SEÑAL</div>';
+  html += '<div class="map-graph" id="map-graph">';
+
+  html += '<svg width="0" height="0" style="position:absolute">'
+        + '<defs>'
+        + '<marker id="map-arrowhead" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">'
+        + '<polygon points="0 0, 7 3.5, 0 7" fill="var(--green)"/>'
+        + '</marker>'
+        + '<marker id="map-arrowhead-branch" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">'
+        + '<polygon points="0 0, 7 3.5, 0 7" fill="var(--green)"/>'
+        + '</marker>'
+        + '<marker id="map-arrowhead-none" markerWidth="0" markerHeight="0" refX="0" refY="0">'
+        + '</marker>'
+        + '</defs>'
+        + '</svg>';
+
+  function renderColHtml(nodes, colIdx) {
+    var out = '';
+    nodes.forEach(function(node, nodeIdx) {
+      var extraCls = '';
+      if (node.type === 'splitmerge') {
+        extraCls = ' map-node-splitmerge';
+      } else if (node.type === 'conv') {
+        extraCls = ' node-conv';
+      } else {
+        extraCls = (node.type === 'nc' ? ' node-nc' : '')
+                + (node.type === 'nd' ? ' node-nd' : '')
+                + (node.type === 'branch' ? ' node-branch' : '')
+                + (node.borderCls ? ' ' + node.borderCls : '');
+      }
+
+      var isOrigin = node.type === 'eq'
+        && node.rack === originRack
+        && node.eq   === originEq
+        && nss(node.slot||'') === nss(originSlot||'');
+      var nodeClick = (node.type === 'eq')
+        ? ' onclick="showEquip(\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\')"'
+        : '';
+      out += '<div class="map-node' + extraCls
+          + (isOrigin ? ' node-origin' : '')
+          + '" id="map-node-' + colIdx + '-' + nodeIdx + '"' + nodeClick + '>';
+
+      if (node.type === 'nc') {
+        out += '<div class="map-node-nc-lbl">N/C</div>';
+      } else if (node.type === 'splitmerge') {
+        out += '<div id="map-dot-' + colIdx + '-' + nodeIdx + '" style="width:14px;height:14px;border-radius:50%;background:var(--green);box-shadow:0 0 0 2px var(--bg);margin:auto;"></div>';
+      } else if (node.type === 'conv') {
+        out += '<div style="font-family:var(--mono);font-size:.45rem;letter-spacing:2px;color:var(--text);text-align:center;margin-bottom:3px;">Conversor</div>';
+        out += '<div class="map-node-conv-lbl">' + h(node.label) + '</div>';
+      } else if (node.type === 'nd') {
+        out += '<div class="map-node-nd-lbl">&#9888; No documentado</div>';
+      } else {
+        out += '<div class="map-node-rack">' + h(node.rack) + '</div>';
+        out += '<div class="map-node-eq">'   + h(node.eq)   + '</div>';
+
+        if (node.slot) {
+          var slotTxt = 'Slot ' + h(node.slot);
+          if (node.placa) slotTxt += ' \u2014 ' + h(node.placa);
+          out += '<div class="map-node-slot">' + slotTxt + '</div>';
+        }
+
+        if (node.ip && node.ip !== '') {
+          var ipCls = node.ip === 'N/D' ? 'pend' : 'ok';
+          var ipTxt = node.ip === 'N/D' ? 'IP pendiente' : node.ip;
+          out += '<div class="map-node-ip ' + ipCls + '">' + h(ipTxt) + '</div>';
+        }
+
+        if (node.inPort) {
+          if (node.rotuloBefore) {
+            out += '<div class="map-node-divider"></div>';
+            out += '<div class="map-node-rotulo" id="map-rotulo-' + colIdx + '-' + nodeIdx + '">\u27f3 ' + h(node.rotuloBefore) + '</div>';
+          }
+          out += '<div class="map-node-port in" '
+               + 'onclick="event.stopPropagation(); onPortClick(this,\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\',\'' + h(node.inPort) + '\',\'doc\')" '
+               + 'id="map-in-' + colIdx + '-' + nodeIdx + '">\u25b6 ' + h(node.inPort) + '</div>';
+        }
+
+        if (node.outPort)
+          out += '<div class="map-node-port ' + (node.isFD ? 'in' : 'out') + '" '
+               + 'onclick="event.stopPropagation(); onPortClick(this,\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\',\'' + h(node.outPort) + '\',\'doc\')" '
+               + 'id="map-out-' + colIdx + '-' + nodeIdx + '-' + cssId(node.outPort) + '"'
+               + (node.isFD ? ' data-fd-out="1"' : '') + '>'
+               + (node.isFD ? '\u25b6 ' + h(node.outPort) : h(node.outPort) + ' \u25b6') + '</div>';
+
+        // Puerto FD de retorno — entrada que viene del nodo del medio
+        if (node.fdReturnInPort)
+          out += '<div class="map-node-port out" '
+               + 'id="map-fd-in-' + colIdx + '-' + nodeIdx + '">'
+               + h(node.fdReturnInPort) + ' \u25b6</div>';
+
+        if (node.branches && node.branches.length) {
+          node.branches.forEach(function(br) {
+            out += '<div class="map-node-port out" '
+                 + 'onclick="event.stopPropagation(); onPortClick(this,\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot||'') + '\',\'' + h(br.outPort) + '\',\'doc\')" '
+                 + 'id="map-out-' + colIdx + '-' + nodeIdx + '-' + cssId(br.outPort) + '">'
+                 + h(br.outPort) + ' \u25b6</div>';
+          });
+        }
+
+        if (node.rotuloAfter) {
+          out += '<div class="map-node-divider"></div>';
+          out += '<div class="map-node-rotulo">\u27f3 ' + h(node.rotuloAfter) + '</div>';
+        }
+      }
+
+      out += '</div>';
+    });
+    return out;
+  }
+
+  var ci = 0;
+
+  var branchOriginCols = {};
+  for (var i = 0; i < cols.length; i++) {
+    if (cols[i].length > 0 && cols[i][0].srcColIdx !== undefined) {
+      branchOriginCols[cols[i][0].srcColIdx] = i;
+    }
+  }
+
+  while (ci < cols.length) {
+    var nodes      = cols[ci];
+    var colIdx     = ci;
+  var isBranchCol        = nodes.length > 0 && nodes[0].srcColIdx !== undefined;
+  if (isBranchCol) { ci++; continue; } // ya fue renderizado dentro del pair de su origen
+    var isSplitMergeOrigin = isMobile && nodes.length > 0 && nodes[0]._isSplitMergeOrigin;
+    var isSplitMergeDot    = isMobile && nodes.length === 1 && nodes[0]._isSplitMergeDot;
+
+    // Siguiente col es branches normales (mobile, sin splitmerge)
+    var nextIsBranch = isMobile &&
+                       !isBranchCol &&
+                       !isSplitMergeOrigin &&
+                       !isSplitMergeDot &&
+                       (ci + 1 < cols.length) &&
+                       cols[ci + 1].length > 0 &&
+                       cols[ci + 1][0].srcColIdx !== undefined;
+
+    // Siguiente col es branches del dot splitmerge
+    var nextIsBranchForDot = isSplitMergeDot &&
+                             (ci + 1 < cols.length) &&
+                             cols[ci + 1].length > 0 &&
+                             cols[ci + 1][0].srcColIdx !== undefined;
+
+    if (isSplitMergeOrigin) {
+      // Nodo origen: arriba centrado, luego dot+branches abajo en row
+      html += '<div class=\"map-sm-splitmerge-group\">';
+      html += '<div class=\"map-col map-col-sm-origin\" id=\"map-col-' + colIdx + '\">';
+      html += renderColHtml(nodes, colIdx);
+      html += '</div>';
+      // ci++ va a apuntar al dot, que a su vez puede tener branches en ci+1
+      ci++;
+      continue;
+    }
+
+    if (window.innerWidth > 768 && !isMobile && branchOriginCols[ci] !== undefined) {
+      var branchColIdx = branchOriginCols[ci];
+      html += '<div class="map-col-pair">';
+      html += '<div class="map-col" id="map-col-' + colIdx + '">';
+      html += renderColHtml(nodes, colIdx);
+      html += '</div>';
+      html += '<div class="map-col map-col-branches" id="map-col-' + branchColIdx + '">';
+      html += renderColHtml(cols[branchColIdx], branchColIdx);
+      html += '</div>';
+      html += '</div>';
+      ci = branchColIdx + 1;
+      continue;
+    }
+
+    if (nextIsBranch || nextIsBranchForDot) {
+      if (window.innerWidth > 768 || nextIsBranch) {
+        html += '<div class="map-col-pair">';
+      }
+    }
+
+    html += '<div class="map-col' + (isBranchCol ? ' map-col-branches' : '') + '" id="map-col-' + colIdx + '">';
+    html += renderColHtml(nodes, colIdx);
+    html += '</div>';
+
+    if (nextIsBranch || nextIsBranchForDot) {
+      ci++;
+      var branchColIdx = ci;
+      if (window.innerWidth > 768 || nextIsBranch) {
+        html += '<div class="map-col map-col-branches" id="map-col-' + branchColIdx + '">';
+        html += renderColHtml(cols[branchColIdx], branchColIdx);
+        html += '</div>';
+        html += '</div>'; // .map-col-pair
+      } else {
+        html += '<div class="map-col map-col-branches" id="map-col-' + branchColIdx + '">';
+        html += renderColHtml(cols[branchColIdx], branchColIdx);
+        html += '</div>';
+      }
+    }
+
+    ci++;
+  }
+
+  html += '<svg class="map-svg" id="map-svg"></svg>';
+  html += '</div>'; // .map-graph
+  window._mapCols = cols;
+
+  container.innerHTML = html;
+  setView('view-map');
+  container.getBoundingClientRect();
+
+  var lastW = 0, lastH = 0, stableFrames = 0;
+
+  function waitForLayout() {
+    const wrap = document.getElementById('view-map');
+    if (!wrap) { requestAnimationFrame(waitForLayout); return; }
+
+    const r = wrap.getBoundingClientRect();
+
+    if (r.width === lastW && r.height === lastH && r.width > 100) {
+      stableFrames++;
+    } else {
+      stableFrames = 0;
+      lastW = r.width;
+      lastH = r.height;
+    }
+
+    if (stableFrames >= 4) {
+      drawMapArrows(cols);
+      initMapObserver();
+    } else {
+      requestAnimationFrame(waitForLayout);
+    }
+  }
+  requestAnimationFrame(waitForLayout);
+}
+
+function drawMapArrows(cols) {
+  var svg   = document.getElementById('map-svg');
+  var graph = document.getElementById('map-graph');
+  if (!svg || !graph) return;
+
+  var gRect   = graph.getBoundingClientRect();
+  // Si el gráfico no es visible (rectángulo con 0 altura o anchura), reintentar más tarde
+  if (gRect.width === 0 || gRect.height === 0) {
+    requestAnimationFrame(function() {
+      drawMapArrows(cols);
+    });
+    return;
+  }
+
+  var isHoriz = window.innerWidth > 768;
+  var paths   = '';
+
+  function elMidY(el) { 
+    if (!el) return 0;
+    var r = el.getBoundingClientRect(); 
+    return r.top - gRect.top + r.height / 2; 
+  }
+  
+  function elMidX(el) { 
+    if (!el) return 0;
+    var r = el.getBoundingClientRect(); 
+    return r.left - gRect.left + r.width / 2; 
+  }
+  
+  function elRight(el) { 
+    if (!el) return 0;
+    return el.getBoundingClientRect().right - gRect.left; 
+  }
+  
+  function elLeft(el) { 
+    if (!el) return 0;
+    return el.getBoundingClientRect().left - gRect.left; 
+  }
+
+  function bezier(x1, y1, x2, y2, isBranch, withArrow = true, isSplitMergeDest = false, isFromDot = false) {
+    // Evitar líneas inválidas (coordenadas NaN o muy pequeñas)
+    if (isNaN(x1) || isNaN(y1) || isNaN(x2) || isNaN(y2)) return '';
+    if (Math.abs(x1 - x2) < 1 && Math.abs(y1 - y2) < 1) return '';
+    
+    var dx = (x2 - x1) * 0.5;
+    var dy = (y2 - y1) * 0.5;
+    var isRowWrap = isHoriz && (y2 - y1) > 40;
+    var cx1, cy1, cx2, cy2;
+
+
+    if (isRowWrap) {
+      // Salto de fila en desktop
+      var spread = Math.abs(x2 - x1) * 1 + 60;
+      cx1 = x1 + (spread / 2); cy1 = y1 + dy;
+      cx2 = x2 - (spread / 2); cy2 = y2 - dy*1.5;
+    } else if (isHoriz) {
+    //  Desktop
+      cx1 = x1 + dx; cy1 = y1;
+      cx2 = x2 - dx; cy2 = y2;
+    } else if (isBranch && isFromDot) {
+    //  Branch post splitmerge
+      cx1 = x1 - 200; cy1 = y1;
+      cx2 = x2 - 60; cy2 = y2;
+    } else if (isBranch) {
+    //  Branch normal
+      cx1 = x1 + dx; cy1 = y1;
+      cx2 = x2 - dx; cy2 = y2;
+    } else if (isFromDot) {
+      cx1 = x1 - 100; cy1 = y1;
+      cx2 = x2 - 60; cy2 = y2 - dy;
+    } else if (isSplitMergeDest) {
+    //  Node to DOT
+      cx1 = x1 + 100; cy1 = y1 + dy;
+      cx2 = x2 + 60; cy2 = y2;
+    } else if (x1 < x2) {
+      var spread = Math.abs(x2 - x1) + 60;
+      cx1 = x1 - spread - 50;
+      cy1 = y1 + dy - 50;
+      cx2 = x2 + spread - 50;
+      cy2 = y2 - dy * 1.5 - 75;
+    } else {
+      // var spread = Math.abs(x2 - x1) * 1 + 60;
+      cx1 = x1 + 150; cy1 = y1 + dy;
+      cx2 = x2 - 150; cy2 = y2 - dy*1.5;
+    }
+
+    var path = '<path class="map-arrow' + (isBranch ? ' branch' : '') + '" d="M' + x1 + ',' + y1 + ' C' + cx1 + ',' + cy1 + ' ' + cx2 + ',' + cy2 + ' ' + x2 + ',' + y2 + '" fill="none" stroke="var(--green)" stroke-width="2"';
+    if (withArrow) {
+      var marker = isBranch ? 'url(#map-arrowhead-branch)' : 'url(#map-arrowhead)';
+      path += ' marker-end="' + marker + '"';
+    }
+    path += '/>';
+    return path;
+  }
+
+  // Helper: si el nodo es splitmerge, usa el punto central en lugar del borde del nodo
+  function getOrigin(nodeEl, colIdx, nodeIdx, outEl) {
+    if (!nodeEl) return { x: 0, y: 0 };
+    
+    var dotEl = document.getElementById('map-dot-' + colIdx + '-' + nodeIdx);
+    if (dotEl && dotEl.getBoundingClientRect().width > 0) { 
+      return { x: elMidX(dotEl), y: elMidY(dotEl) };
+    }
+    
+    // Fallback: usar el borde derecho del nodo
+    var r = nodeEl.getBoundingClientRect();
+    var y = outEl ? elMidY(outEl) : (r.top - gRect.top + r.height / 2);
+    return {
+      x: elRight(nodeEl),
+      y: isNaN(y) ? (r.top - gRect.top + r.height / 2) : y
+    };
+  }
+
+  function getDestination(nodeEl, colIdx, nodeIdx, inEl) {
+    if (!nodeEl) return { x: 0, y: 0 };
+    
+    var dotEl = document.getElementById('map-dot-' + colIdx + '-' + nodeIdx);
+    if (dotEl && dotEl.getBoundingClientRect().width > 0) {
+      return { x: elLeft(dotEl), y: elMidY(dotEl) };
+    }
+    
+    // Fallback: usar el borde izquierdo del nodo
+    var r = nodeEl.getBoundingClientRect();
+    var y = inEl ? elMidY(inEl) : (r.top - gRect.top + r.height / 2);
+    return {
+      x: elLeft(nodeEl) - 4,
+      y: isNaN(y) ? (r.top - gRect.top + r.height / 2) : y
+    };
+  }
+
+  cols.forEach(function(nodes, colIdx) {
+    var isBranchCol = nodes.length > 0 && nodes[0].srcColIdx !== undefined;
+
+    if (isBranchCol) {
+      var total = nodes.length;
+
+      nodes.forEach(function(node, nodeIdx) {
+        var parentColIdx = node.srcColIdx;
+        var parentOutEl  = document.getElementById('map-out-' + parentColIdx + '-0-' + cssId(node.srcOutPort));
+        var parentNodeEl = document.getElementById('map-node-' + parentColIdx + '-0');
+
+        var toInEl  = document.getElementById('map-rotulo-' + colIdx + '-' + nodeIdx)
+                  || document.getElementById('map-in-'    + colIdx + '-' + nodeIdx);
+        var toNodeEl = document.getElementById('map-node-' + colIdx + '-' + nodeIdx);
+        
+        if (!parentNodeEl || !toNodeEl) return;
+        if (toNodeEl.classList.contains('map-node-splitmerge')) return;
+
+        var base = getOrigin(parentNodeEl, parentColIdx, 0, parentOutEl);
+        if (base.x === 0 && base.y === 0) return;
+
+        var spread = 20;
+        var offset = (nodeIdx - (total - 1) / 2) * spread;
+
+        var dotElB = document.getElementById('map-dot-' + parentColIdx + '-0');
+        var o = (!isHoriz && dotElB) ? {
+          x: elLeft(dotElB),
+          y: elMidY(dotElB)
+        } : {
+          x: base.x,
+          y: base.y
+        };
+
+        var d = getDestination(toNodeEl, colIdx, nodeIdx, toInEl);
+        if (d.x === 0 && d.y === 0) return;
+
+        var dotElB = document.getElementById('map-dot-' + parentColIdx + '-0');
+        var fromDot = !isHoriz && !!dotElB;
+        var path = bezier(o.x, o.y, d.x, d.y, true, true, false, fromDot);
+        if (path) paths += path;
+      });
+
+      return;
+    }
+
+    var nextColIdx = colIdx + 1;
+    while (nextColIdx < cols.length && cols[nextColIdx][0] && cols[nextColIdx][0].srcColIdx !== undefined) {
+      nextColIdx++;
+    }
+    if (nextColIdx >= cols.length) return;
+
+    var fromOutEl = (function(){
+      var all = document.querySelectorAll('[id^="map-out-' + colIdx + '-0-"]');
+      return all.length ? all[0] : null;
+    })();
+    var fromNodeEl = document.getElementById('map-node-' + colIdx      + '-0');
+    var toInEl     = document.getElementById('map-rotulo-' + nextColIdx + '-0')
+                  || document.getElementById('map-in-'    + nextColIdx + '-0');
+    var toNodeEl   = document.getElementById('map-node-' + nextColIdx + '-0');
+    
+    if (!fromNodeEl || !toNodeEl) return;
+
+    var toNodeIsSplitMerge = toNodeEl && toNodeEl.classList.contains('map-node-splitmerge');
+
+    var fromIsDot = !isHoriz && fromNodeEl && fromNodeEl.classList.contains('map-node-splitmerge');
+    var o = getOrigin(fromNodeEl, colIdx, 0, fromOutEl);
+    if (o.x === 0 && o.y === 0) return;
+    
+    var d = getDestination(toNodeEl, nextColIdx, 0, toInEl);
+    if (d.x === 0 && d.y === 0) return;
+
+    if (toNodeIsSplitMerge) {
+      var dotEl = document.getElementById('map-dot-' + nextColIdx + '-0');
+      if (isHoriz) {
+        if (dotEl) {
+          var targetY = o.y;
+          var currentY = elMidY(dotEl);
+          var delta = targetY - currentY;
+          if (!isNaN(delta) && Math.abs(delta) > 0.1) {
+            dotEl.style.transform = 'translateY(' + delta + 'px)';
+            dotEl._appliedDeltaY = delta;
+          }
+          d.y = targetY;
+        }
+      } else {
+      d = { x: dotEl ? elRight(dotEl) : elMidX(toNodeEl), y: dotEl ? elMidY(dotEl) : elMidY(toNodeEl) };
+      }
+    }
+    
+    var toNodeIsFD = toNodeEl && toNodeEl.querySelector('[data-fd-out="1"]');
+    var fromNodeHasFDReturn = fromNodeEl && fromNodeEl.querySelector('[id^="map-fd-in-"]');
+
+    if (toNodeIsFD && fromNodeHasFDReturn) {
+      // Bezier directa (A → mid): igual que antes
+      var path1 = bezier(o.x, o.y, d.x, d.y, false, !toNodeIsSplitMerge, false, false);
+      if (path1) paths += path1;
+
+      // Bezier de retorno (mid → A): usa el puerto fd-out del nodo mid como origen
+      //   y el puerto fd-in del nodo A como destino
+      var fdOutEl  = toNodeEl.querySelector('[data-fd-out="1"]');
+      var fdInEl   = fromNodeEl.querySelector('[id^="map-fd-in-"]');
+      var oRet = { x: elLeft(toNodeEl), y: elMidY(fdOutEl) };
+      var dRet = { x: elRight(fromNodeEl), y: elMidY(fdInEl) };
+
+      var path2 = bezier(
+        oRet.x,
+        oRet.y,
+        dRet.x,
+        dRet.y,
+        false,
+        true,
+        false,
+        false
+      );
+
+      paths += path2;
+    } else {
+      var path = bezier(o.x, o.y, d.x, d.y, false, !toNodeIsSplitMerge, toNodeIsSplitMerge && !isHoriz, fromIsDot && !isHoriz);
+      if (path) paths += path;
+    }
+  });
+
+  svg.innerHTML = paths;
+}
+
+function scheduleMapArrows() {
+  if (!window._mapCols) return;
+  if (_mapArrowsPending) return;
+  _mapArrowsPending = true;
+  requestAnimationFrame(function() {
+    _mapArrowsPending = false;
+    drawMapArrows(window._mapCols);
+  });
+}
+
+function initMapObserver() {
+  var graph = document.getElementById('map-graph');
+  if (!graph) return;
+
+  // Destruir observer anterior si existe
+  if (_mapResizeObserver) {
+    _mapResizeObserver.disconnect();
+    _mapResizeObserver = null;
+  }
+
+  _mapResizeObserver = new ResizeObserver(function() {
+    if (document.getElementById('view-map').classList.contains('active')) {
+      scheduleMapArrows();  // ← reemplaza el requestAnimationFrame directo
+    }
+  });
+  _mapResizeObserver.observe(document.getElementById('view-map'));
+
+  if (_scrollMapHandler) {
+    window.removeEventListener('scroll', _scrollMapHandler);
+  }
+  _scrollMapHandler = function() {
+    if (document.getElementById('view-map').classList.contains('active')) {
+      scheduleMapArrows();  // ← reemplaza el requestAnimationFrame directo
+    }
+  };
+  window.addEventListener('scroll', _scrollMapHandler);
+
+  if (_resizeMapHandler) {
+    window.removeEventListener('resize', _resizeMapHandler);
+  }
+  _resizeMapHandler = function() {
+    if (!document.getElementById('view-map').classList.contains('active')) return;
+    var isNowHoriz = window.innerWidth > 768;
+    if (isNowHoriz !== _lastMapBreakpoint) {
+      _lastMapBreakpoint = isNowHoriz;
+      if (window._mapSegs && window._mapOrigin) {
+        renderMap(window._mapSegs, window._mapOrigin.rack, window._mapOrigin.eq, window._mapOrigin.slot);
+      }
+    } else {
+      setTimeout(function() { drawMapArrows(window._mapCols); }, 50);
+    }
+  };
+  window.addEventListener('resize', _resizeMapHandler);
+}
+
+// VISTA MAPA RADIAL //
+
+function buildRadialGraph(rack, eq, slot, stepsBw, stepsFw) {
+  var nodes = {};   // key -> node
+  var edges = [];   // { from, to, fromPort, toPort }
+
+  function nodeKey(r, e, s) {
+    return r + '|' + e + '|' + nss(s || '');
+  }
+
+  function ensureNode(r, e, s) {
+    var k = nodeKey(r, e, s);
+    if (!nodes[k]) {
+      nodes[k] = {
+        key: k, rack: r, eq: e, slot: s || '',
+        placa: getPlaca(r, e, s || ''),
+        ip: getIP(r, e),
+        ports: [],   // { port, role:'in'|'out' }
+        depth: null  // distancia del centro (negativo=upstream)
+      };
+    }
+    return nodes[k];
+  }
+
+  // Nodo central
+  var centerKey = nodeKey(rack, eq, slot);
+  var center = ensureNode(rack, eq, slot);
+  center.depth = 0;
+  center.isCenter = true;
+
+  // Recolectar todos los puertos del nodo central
+  var outsAll = Object.keys(_idxOut)
+    .filter(function(k) { return k.startsWith(rack + '|' + eq + '|' + nss(slot) + '|'); })
+    .reduce(function(acc, k) { return acc.concat(_idxOut[k]); }, []);
+  var insAll = Object.keys(_idxIn)
+    .filter(function(k) { return k.startsWith(rack + '|' + eq + '|' + nss(slot) + '|'); })
+    .reduce(function(acc, k) { return acc.concat(_idxIn[k]); }, []);
+
+  outsAll.forEach(function(c) {
+    if (!center.ports.find(function(p) { return p.port === c.sp; }))
+      center.ports.push({ port: c.sp, role: 'out' });
+  });
+  insAll.forEach(function(c) {
+    if (!center.ports.find(function(p) { return p.port === c.dp; }))
+      center.ports.push({ port: c.dp, role: 'in' });
+  });
+
+  // Walk downstream (forward)
+  function walkFw(r, e, s, depth) {
+    if (depth > stepsFw) return;
+    var outs = Object.keys(_idxOut)
+      .filter(function(k) { return k.startsWith(r + '|' + e + '|' + nss(s) + '|'); })
+      .reduce(function(acc, k) { return acc.concat(_idxOut[k]); }, []);
+
+    outs.forEach(function(c) {
+      if (!c.dr || c.dr === 'N/C' || c.dr === 'N/D') return;
+      var srcKey = nodeKey(r, e, s);
+      var dstKey = nodeKey(c.dr, c.de, c.ds);
+
+      // loop detection
+      if (dstKey === centerKey && depth > 0) {
+        edges.push({ from: srcKey, to: dstKey, fromPort: c.sp, toPort: c.dp, isLoop: true });
+        return;
+      }
+
+      var dst = ensureNode(c.dr, c.de, c.ds);
+      if (dst.depth === null) dst.depth = depth;
+
+      if (!dst.ports.find(function(p) { return p.port === c.dp; }))
+        dst.ports.push({ port: c.dp, role: 'in' });
+
+      edges.push({ from: srcKey, to: dstKey, fromPort: c.sp, toPort: c.dp });
+
+      // thru?
+      var thru = getThruDeEntrada(c.dr, c.de, c.ds, c.dp);
+      if (thru) {
+        if (!dst.ports.find(function(p) { return p.port === thru.dp; }))
+          dst.ports.push({ port: thru.dp, role: 'out' });
+        walkFw(c.dr, c.de, c.ds, depth + 1);
+      }
+    });
+  }
+
+  // Walk upstream (backward)
+  function walkBw(r, e, s, depth) {
+    if (depth > stepsBw) return;
+    var ins = Object.keys(_idxIn)
+      .filter(function(k) { return k.startsWith(r + '|' + e + '|' + nss(s) + '|'); })
+      .reduce(function(acc, k) { return acc.concat(_idxIn[k]); }, []);
+
+    ins.forEach(function(c) {
+      if (!c.sr || c.sr === 'N/C' || c.sr === 'N/D') return;
+      var dstKey = nodeKey(r, e, s);
+      var srcKey = nodeKey(c.sr, c.se, c.ss);
+
+      if (srcKey === centerKey && depth > 0) {
+        edges.push({ from: srcKey, to: dstKey, fromPort: c.sp, toPort: c.dp, isLoop: true });
+        return;
+      }
+
+      var src = ensureNode(c.sr, c.se, c.ss);
+      if (src.depth === null) src.depth = -depth;
+
+      if (!src.ports.find(function(p) { return p.port === c.sp; }))
+        src.ports.push({ port: c.sp, role: 'out' });
+
+      edges.push({ from: srcKey, to: dstKey, fromPort: c.sp, toPort: c.dp });
+
+      var thru = getThruDeSalida(c.sr, c.se, c.ss, c.sp);
+      if (thru) {
+        if (!src.ports.find(function(p) { return p.port === thru.sp; }))
+          src.ports.push({ port: thru.sp, role: 'in' });
+        walkBw(c.sr, c.se, c.ss, depth + 1);
+      }
+    });
+  }
+
+  walkFw(rack, eq, slot, 1);
+  walkBw(rack, eq, slot, 1);
+
+  return { nodes: nodes, edges: edges, centerKey: centerKey };
+}
+
+function computeRadialLayout(graph) {
+  var nodes = graph.nodes;
+  var centerKey = graph.centerKey;
+  var center = nodes[centerKey];
+
+  // Separar nodos por anillo (depth absoluto)
+  var rings = {}; // depth -> [nodes]
+  Object.values(nodes).forEach(function(n) {
+    if (n.isCenter) return;
+    var d = n.depth === null ? 1 : Math.abs(n.depth);
+    if (!rings[d]) rings[d] = [];
+    rings[d].push(n);
+  });
+
+  var RING_RADIUS = 400; // px entre anillos
+  var CENTER_X = 0;
+  var CENTER_Y = 0;
+
+  center.x = CENTER_X;
+  center.y = CENTER_Y;
+
+  // Para cada anillo distribuir en círculo
+  // Upstream (depth < 0) en semicírculo izquierdo, downstream (depth > 0) en derecho
+  Object.keys(rings).forEach(function(d) {
+    var ring = rings[d];
+    var r = parseInt(d) * RING_RADIUS;
+
+    // Separar upstream y downstream dentro del anillo
+    var upstream   = ring.filter(function(n) { return n.depth < 0; });
+    var downstream = ring.filter(function(n) { return n.depth > 0; });
+
+    // Upstream: semicírculo izquierdo (90° a 270°)
+    upstream.forEach(function(n, i) {
+      var total = upstream.length;
+      var startAngle = Math.PI / 2;   // 90°
+      var endAngle   = 3 * Math.PI / 2; // 270°
+      var angle = total === 1
+        ? Math.PI  // exactamente a la izquierda
+        : startAngle + (endAngle - startAngle) * i / (total - 1);
+      n.x = CENTER_X + r * Math.cos(angle);
+      n.y = CENTER_Y + r * Math.sin(angle);
+    });
+
+    // Downstream: semicírculo derecho (270° a 90°, pasando por 0°)
+    downstream.forEach(function(n, i) {
+      var total = downstream.length;
+      var startAngle = -Math.PI / 2;  // -90° (arriba)
+      var endAngle   =  Math.PI / 2;  //  90° (abajo)
+      var angle = total === 1
+        ? 0  // exactamente a la derecha
+        : startAngle + (endAngle - startAngle) * i / (total - 1);
+      n.x = CENTER_X + r * Math.cos(angle);
+      n.y = CENTER_Y + r * Math.sin(angle);
+    });
+  });
+
+  return nodes;
+}
+
+function showRadialMap(rack, eq, slot, fromBack) {
+  if (!fromBack) {
+    _nav.push({ type: 'radial', rack: rack, eq: eq, slot: slot });
+  }
+
+  var isSlotEq = slot !== '';
+  var bc = isSlotEq
+    ? '<span class="hi bc-link" onclick="bcGoRacks()">' + h(rack) + '</span>'
+      + ' › <span class="bc-link" onclick="bcGoSlotList(\'' + h(rack) + '\',\'' + h(eq) + '\')">' + h(eq) + '</span>'
+      + ' › Slot ' + h(slot)
+      + ' › <span class="hi">MAPA RADIAL</span>'
+    : '<span class="hi bc-link" onclick="bcGoRacks()">' + h(rack) + '</span>'
+      + ' › ' + h(eq)
+      + ' › <span class="hi">MAPA RADIAL</span>';
+  updateHdr(bc);
+  setRadialMapBtn(false);
+
+  var stepsBw = 1, stepsFw = 1;
+  var MAX_STEPS = 10;
+
+  function rebuild() {
+    var graph  = buildRadialGraph(rack, eq, slot, stepsBw, stepsFw);
+    var nodes  = computeRadialLayout(graph);
+    renderRadialMap(nodes, graph.edges, graph.centerKey, rack, eq, slot);
+  }
+
+  // Exponer para los botones
+  window._radialRebuild = rebuild;
+  window._radialSteps   = { bw: stepsBw, fw: stepsFw, max: MAX_STEPS };
+
+  rebuild();
+}
+
+function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
+  var container = document.getElementById('view-radial-map');
+
+  var NODE_W = 160;
+  var NODE_H_BASE = 80;
+
+  // Calcular bounding box
+  var allNodes = Object.values(nodes);
+  var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  allNodes.forEach(function(n) {
+    minX = Math.min(minX, n.x - NODE_W);
+    minY = Math.min(minY, n.y - NODE_H_BASE);
+    maxX = Math.max(maxX, n.x + NODE_W);
+    maxY = Math.max(maxY, n.y + NODE_H_BASE);
+  });
+
+  var PAD = 120;
+  var canvasW = maxX - minX + PAD * 2;
+  var canvasH = maxY - minY + PAD * 2;
+  var offsetX = -minX + PAD;
+  var offsetY = -minY + PAD;
+
+  // Controls HTML
+  var html = '<div class="rm-controls">';
+  html += '<div class="rm-ctrl-group">';
+  html += '<span class="rm-ctrl-lbl">↑ Upstream</span>';
+  html += '<button class="rm-btn" onclick="window._radialChangeBw(-1)">−</button>';
+  html += '<span class="rm-ctrl-val" id="rm-val-bw">' + window._radialSteps.bw + '</span>';
+  html += '<button class="rm-btn" onclick="window._radialChangeBw(1)">+</button>';
+  html += '</div>';
+  html += '<div class="rm-ctrl-group">';
+  html += '<span class="rm-ctrl-lbl">↓ Downstream</span>';
+  html += '<button class="rm-btn" onclick="window._radialChangeFw(-1)">−</button>';
+  html += '<span class="rm-ctrl-val" id="rm-val-fw">' + window._radialSteps.fw + '</span>';
+  html += '<button class="rm-btn" onclick="window._radialChangeFw(1)">+</button>';
+  html += '</div>';
+  html += '<div class="rm-ctrl-group">';
+  html += '<button class="rm-btn" onclick="window._radialZoom(-0.2)">−</button>';
+  html += '<span class="rm-ctrl-lbl">Zoom</span>';
+  html += '<button class="rm-btn" onclick="window._radialZoom(0.2)">+</button>';
+  html += '<button class="rm-btn rm-btn-fit" onclick="window._radialFit()">⊡ Fit</button>';
+  html += '</div>';
+  html += '</div>';
+
+  // Canvas
+  html += '<div class="rm-viewport" id="rm-viewport">';
+  html += '<div class="rm-canvas" id="rm-canvas" style="width:' + canvasW + 'px;height:' + canvasH + 'px;">';
+
+  // SVG vacío — flechas se dibujan después del layout
+  html += '<svg class="rm-svg" id="rm-svg" style="width:' + canvasW + 'px;height:' + canvasH + 'px;">'
+        + '<defs>'
+        + '<marker id="rm-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">'
+        + '<polygon points="0 0, 7 3.5, 0 7" fill="var(--green)"/></marker>'
+        + '<marker id="rm-arrow-loop" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">'
+        + '<polygon points="0 0, 7 3.5, 0 7" fill="var(--yellow)"/></marker>'
+        + '</defs>'
+        + '</svg>';
+
+  // Nodes
+  allNodes.forEach(function(node) {
+    var nx = node.x + offsetX - NODE_W / 2;
+    var ny = node.y + offsetY - NODE_H_BASE / 2;
+    var isCenter = node.key === centerKey;
+    var cls = 'rm-node' + (isCenter ? ' rm-node-center' : '');
+    var click = !isCenter
+      ? ' onclick="showEquip(\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot || '') + '\')"'
+      : '';
+    var nodeId = 'rm-node-' + node.key.replace(/\|/g, '-');
+
+    html += '<div class="' + cls + '" id="' + nodeId + '" style="left:' + nx + 'px;top:' + ny + 'px;width:' + NODE_W + 'px;"' + click + '>';
+    html += '<div class="rm-node-rack">' + h(node.rack) + '</div>';
+    html += '<div class="rm-node-eq">'   + h(node.eq)   + '</div>';
+    if (node.slot) {
+      var slotTxt = 'Slot ' + h(node.slot);
+      if (node.placa) slotTxt += ' — ' + h(node.placa);
+      html += '<div class="rm-node-slot">' + slotTxt + '</div>';
+    }
+    if (node.ip && node.ip !== '') {
+      var ipCls = node.ip === 'N/D' ? 'pend' : 'ok';
+      html += '<div class="rm-node-ip ' + ipCls + '">' + h(node.ip) + '</div>';
+    }
+    if (isCenter && node.ports.length) {
+      html += '<div class="rm-node-divider"></div>';
+      var inPorts  = node.ports.filter(function(p) { return p.role === 'in'; });
+      var outPorts = node.ports.filter(function(p) { return p.role === 'out'; });
+      inPorts.forEach(function(p) {
+        html += '<div class="rm-node-port in" id="rm-port-' + node.key.replace(/\|/g,'-')
+         + '-in-' + cssId(p.port) + '">▶ ' + h(p.port) + '</div>';
+      });
+      outPorts.forEach(function(p) {
+        html += '<div class="rm-node-port out" id="rm-port-' + node.key.replace(/\|/g,'-') 
+        + '-out-' + cssId(p.port) + '">' + h(p.port) + ' ▶</div>';
+      });
+    }
+    html += '</div>';
+  });
+
+  html += '</div>'; // .rm-canvas
+  html += '</div>'; // .rm-viewport
+
+  container.innerHTML = html;
+  setView('view-radial-map');
+
+  // Pan/zoom
+  var scale = 1;
+  var panX = 0, panY = 0;
+  var dragging = false;
+  var startX, startY, startPanX, startPanY;
+
+  var viewport = document.getElementById('rm-viewport');
+  var canvas   = document.getElementById('rm-canvas');
+
+  function applyTransform() {
+    canvas.style.transform = 'scale(' + scale + ') translate(' + panX + 'px,' + panY + 'px)';
+    canvas.style.transformOrigin = '0 0';
+  }
+
+  window._radialZoom = function(delta) {
+    scale = Math.min(3, Math.max(0.2, scale + delta));
+    applyTransform();
+  };
+
+  window._radialFit = function() {
+    var vw = viewport.clientWidth;
+    var vh = viewport.clientHeight;
+    var scaleX = vw / canvasW;
+    var scaleY = vh / canvasH;
+    scale = Math.min(scaleX, scaleY) * 0.9;
+    panX = 0;
+    panY = 0;
+    applyTransform();
+  };
+
+  window._radialChangeBw = function(delta) {
+    var s = window._radialSteps;
+    s.bw = Math.min(s.max, Math.max(1, s.bw + delta));
+    window._radialSteps = s;
+    var graph = buildRadialGraph(rack, eq, slot, s.bw, s.fw);
+    var newNodes = computeRadialLayout(graph);
+    renderRadialMap(newNodes, graph.edges, graph.centerKey, rack, eq, slot);
+  };
+
+  window._radialChangeFw = function(delta) {
+    var s = window._radialSteps;
+    s.fw = Math.min(s.max, Math.max(1, s.fw + delta));
+    window._radialSteps = s;
+    var graph = buildRadialGraph(rack, eq, slot, s.bw, s.fw);
+    var newNodes = computeRadialLayout(graph);
+    renderRadialMap(newNodes, graph.edges, graph.centerKey, rack, eq, slot);
+  };
+
+  // Mouse pan
+  viewport.addEventListener('mousedown', function(e) {
+    if (e.target.closest('.rm-node') || e.target.closest('.rm-controls')) return;
+    dragging = true;
+    startX = e.clientX; startY = e.clientY;
+    startPanX = panX; startPanY = panY;
+    viewport.style.cursor = 'grabbing';
+  });
+  window.addEventListener('mousemove', function(e) {
+    if (!dragging) return;
+    panX = startPanX + (e.clientX - startX) / scale;
+    panY = startPanY + (e.clientY - startY) / scale;
+    applyTransform();
+  });
+  window.addEventListener('mouseup', function() {
+    dragging = false;
+    if (viewport) viewport.style.cursor = 'grab';
+  });
+
+  // Touch pan
+  var touch0;
+  viewport.addEventListener('touchstart', function(e) {
+    if (e.touches.length === 1) {
+      touch0 = e.touches[0];
+      startPanX = panX; startPanY = panY;
+    }
+  });
+  viewport.addEventListener('touchmove', function(e) {
+    if (e.touches.length === 1 && touch0) {
+      e.preventDefault();
+      panX = startPanX + (e.touches[0].clientX - touch0.clientX) / scale;
+      panY = startPanY + (e.touches[0].clientY - touch0.clientY) / scale;
+      applyTransform();
+    }
+  }, { passive: false });
+
+  // Wheel zoom hacia cursor
+  viewport.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var rect = viewport.getBoundingClientRect();
+    var mouseX = e.clientX - rect.left;
+    var mouseY = e.clientY - rect.top;
+    var delta = e.deltaY > 0 ? -0.1 : 0.1;
+    var newScale = Math.min(3, Math.max(0.2, scale + delta));
+    // Ajustar pan para que el punto bajo el cursor no se mueva
+    panX = mouseX / newScale - mouseX / scale + panX;
+    panY = mouseY / newScale - mouseY / scale + panY;
+    scale = newScale;
+    applyTransform();
+  }, { passive: false });
+
+  // Fit inicial + flechas — esperar layout estable
+  var lastW = 0, lastH = 0, stableFrames = 0;
+
+  function waitForRadialLayout() {
+    var wrap = document.getElementById('view-radial-map');
+    if (!wrap) { requestAnimationFrame(waitForRadialLayout); return; }
+
+    var r = wrap.getBoundingClientRect();
+
+    if (r.width === lastW && r.height === lastH && r.width > 100) {
+      stableFrames++;
+    } else {
+      stableFrames = 0;
+      lastW = r.width;
+      lastH = r.height;
+    }
+
+    if (stableFrames >= 4) {
+      window._radialFit();
+      drawRadialArrows(nodes, edges, centerKey);
+    } else {
+      requestAnimationFrame(waitForRadialLayout);
+    }
+  }
+  requestAnimationFrame(waitForRadialLayout);
+}
+
+function drawRadialArrows(nodes, edges, centerKey) {
+  var svg    = document.getElementById('rm-svg');
+  var canvas = document.getElementById('rm-canvas');
+  if (!svg || !canvas) return;
+
+  var cRect = canvas.getBoundingClientRect();
+  if (cRect.width === 0 || cRect.height === 0) {
+    requestAnimationFrame(function() { drawRadialArrows(nodes, edges, centerKey); });
+    return;
+  }
+
+  function elMidY(el) {
+    if (!el) return null;
+    var r = el.getBoundingClientRect();
+    return r.top - cRect.top + r.height / 2;
+  }
+  function nodeEl(key) {
+    return document.getElementById('rm-node-' + key.replace(/\|/g, '-'));
+  }
+  function portEl(key, port, role) {
+    return document.getElementById('rm-port-' + key.replace(/\|/g, '-') + '-' + role + '-' + cssId(port));
+  }
+
+  // Detectar pares bidireccionales
+  var edgeMap = {};
+  edges.forEach(function(edge) {
+    var key    = edge.from + '>' + edge.to;
+    var revKey = edge.to   + '>' + edge.from;
+    edge._bidir = false;
+    edge._bidirFirst = false;
+    if (edgeMap[revKey] !== undefined) {
+      edge._bidir = true;
+      edges[edgeMap[revKey]]._bidir = true;
+      edges[edgeMap[revKey]]._bidirFirst = true;
+    }
+    edgeMap[key] = edges.indexOf(edge);
+  });
+
+  var BIDIR_OFFSET = 40; // px de separación perpendicular
+
+  function getPoints(edge, srcEl, dstEl, fromPortEl, toPortEl) {
+    var srcR = srcEl.getBoundingClientRect();
+    var dstR = dstEl.getBoundingClientRect();
+    var srcCX = srcR.left - cRect.left + srcR.width  / 2;
+    var srcCY = srcR.top  - cRect.top  + srcR.height / 2;
+    var dstCX = dstR.left - cRect.left + dstR.width  / 2;
+    var dstCY = dstR.top  - cRect.top  + dstR.height / 2;
+
+    var x1, y1, x2, y2;
+    var dx = dstCX - srcCX;
+    var dy = dstCY - srcCY;
+
+    if (edge.from === centerKey) {
+      x1 = srcR.right - cRect.left;
+      y1 = fromPortEl ? elMidY(fromPortEl) : srcCY;
+      if (Math.abs(dx) >= Math.abs(dy)) {
+        x2 = dx > 0 ? dstR.left - cRect.left : dstR.right - cRect.left;
+        y2 = dstCY;
+      } else {
+        x2 = dstCX;
+        y2 = dy > 0 ? dstR.top - cRect.top : dstR.bottom - cRect.top;
+      }
+    } else if (edge.to === centerKey) {
+      x2 = dstR.left - cRect.left;
+      y2 = toPortEl ? elMidY(toPortEl) : dstCY;
+      if (Math.abs(dx) >= Math.abs(dy)) {
+        x1 = dx > 0 ? srcR.right - cRect.left : srcR.left - cRect.left;
+        y1 = srcCY;
+      } else {
+        x1 = srcCX;
+        y1 = dy > 0 ? srcR.bottom - cRect.top : srcR.top - cRect.top;
+      }
+    } else {
+      if (Math.abs(dx) >= Math.abs(dy)) {
+        x1 = dx > 0 ? srcR.right - cRect.left : srcR.left  - cRect.left;
+        y1 = srcCY;
+        x2 = dx > 0 ? dstR.left  - cRect.left : dstR.right - cRect.left;
+        y2 = dstCY;
+      } else {
+        x1 = srcCX;
+        y1 = dy > 0 ? srcR.bottom - cRect.top : srcR.top    - cRect.top;
+        x2 = dstCX;
+        y2 = dy > 0 ? dstR.top    - cRect.top : dstR.bottom - cRect.top;
+      }
+    }
+
+    return { x1: x1, y1: y1, x2: x2, y2: y2 };
+  }
+
+  function bezier(x1, y1, x2, y2, isLoop, bidir, bidirFirst) {
+    if (isNaN(x1)||isNaN(y1)||isNaN(x2)||isNaN(y2)) return '';
+    if (Math.abs(x1-x2) < 1 && Math.abs(y1-y2) < 1) return '';
+
+    var cx1, cy1, cx2, cy2;
+
+    if (isLoop) {
+      cx1 = x1 + 120; cy1 = y1 - 80;
+      cx2 = x2 + 120; cy2 = y2 + 80;
+    } else if (bidir) {
+      // Calcular vector perpendicular a la línea
+      var len = Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1)) || 1;
+      var nx  = -(y2 - y1) / len;
+      var ny  =  (x2 - x1) / len;
+      var sign = bidirFirst ? 1 : -1;
+      var ox = nx * BIDIR_OFFSET * sign;
+      var oy = ny * BIDIR_OFFSET * sign;
+      var mx = (x1 + x2) / 2 + ox;
+      var my = (y1 + y2) / 2 + oy;
+      cx1 = x1 + (mx - x1) * 0.8;
+      cy1 = y1 + (my - y1) * 0.8;
+      cx2 = x2 + (mx - x2) * 0.8;
+      cy2 = y2 + (my - y2) * 0.8;
+    } else {
+      var ddx = (x2 - x1) * 0.5;
+      cx1 = x1 + ddx; cy1 = y1;
+      cx2 = x2 - ddx; cy2 = y2;
+    }
+
+    var color  = isLoop ? 'var(--yellow)' : 'var(--green)';
+    var marker = isLoop ? 'url(#rm-arrow-loop)' : 'url(#rm-arrow)';
+    return '<path d="M'+x1+','+y1+' C'+cx1+','+cy1+' '+cx2+','+cy2+' '+x2+','+y2+'"'
+         + ' fill="none" stroke="'+color+'" stroke-width="2" marker-end="'+marker+'"/>';
+  }
+
+  var paths = '';
+
+  edges.forEach(function(edge) {
+    var srcEl = nodeEl(edge.from);
+    var dstEl = nodeEl(edge.to);
+    if (!srcEl || !dstEl) return;
+
+    var fromPortEl = portEl(edge.from, edge.fromPort, 'out');
+    var toPortEl   = portEl(edge.to,   edge.toPort,   'in');
+
+    var pts = getPoints(edge, srcEl, dstEl, fromPortEl, toPortEl);
+    if (pts.x1 === null || pts.y1 === null) return;
+
+    paths += bezier(pts.x1, pts.y1, pts.x2, pts.y2, edge.isLoop, edge._bidir, edge._bidirFirst);
+  });
+
+  svg.innerHTML = '<defs>'
+    + '<marker id="rm-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">'
+    + '<polygon points="0 0, 7 3.5, 0 7" fill="var(--green)"/></marker>'
+    + '<marker id="rm-arrow-loop" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">'
+    + '<polygon points="0 0, 7 3.5, 0 7" fill="var(--yellow)"/></marker>'
+    + '</defs>' + paths;
+}
+// UTILIDADES CSS/DOM //
+
+function cssId(str) {
+  return String(str||'').replace(/[^a-zA-Z0-9_-]/g, '_');
+}
+
+window.addEventListener('popstate', function(e){
+  if(e.state && e.state.app === 'c12'){
+    history.pushState({app:'c12'}, '');
+    goBack();
+  }
+});
+
+/*  TO DO:     
+
+              forzar overflow de branches con su origen (para no cruzar todos los bezier)
+    
+TO DO  */
+</script>
+</body>
+</html>
+
