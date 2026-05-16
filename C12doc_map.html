@@ -26,7 +26,7 @@
 }
 
 /* ── RESET & BASE ───────────────────────────────────────────────── */
-*{box-sizing:border-box;margin:0;padding:0;}
+*{box-sizing:border-box;margin:0;padding:0;user-select:none;}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100dvh;overflow-x:hidden;position:relative;}
 
 /* ── SCROLLBAR ──────────────────────────────────────────────────── */
@@ -208,7 +208,8 @@ footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mo
 }
 
 /* ── VISTA: MAPA RADIAL ─────────────────────────────────────────── */
-#view-radial-map{padding:0;overflow:hidden;display:flex;flex-direction:column;}
+#view-radial-map{padding:0;overflow:hidden;flex-direction:column;height:calc(100dvh - 41px);}
+#view-radial-map.active{display:flex;}
 
 .rm-controls{display:flex;align-items:center;gap:20px;padding:10px 20px;background:var(--panel);border-bottom:1px solid var(--border);flex-shrink:0;flex-wrap:wrap;}
 .rm-ctrl-group{display:flex;align-items:center;gap:8px;}
@@ -218,15 +219,29 @@ footer{border-top:1px solid var(--border);padding:10px 20px;font-family:var(--mo
 .rm-btn:hover{border-color:var(--accent);color:var(--accent);}
 .rm-btn-fit{padding:4px 12px;}
 
-.rm-viewport{flex:1;overflow:hidden;position:relative;cursor:grab;background:var(--bg);}
+.rm-viewport{flex:1;overflow:hidden;position:relative;cursor:grab;background:var(--bg);width:100%;height:100%;}
 .rm-canvas{position:relative;transform-origin:0 0;}
 .rm-svg{position:absolute;top:0;left:0;pointer-events:none;overflow:visible;}
 
-.rm-node{position:absolute;background:var(--panel);border:1px solid var(--border2);border-radius:6px;padding:9px 12px;display:flex;flex-direction:column;gap:3px;cursor:pointer;transition:box-shadow .2s;}
+.rm-node{position:absolute;background:var(--panel);border:1px solid var(--border2);border-radius:6px;padding:9px 12px;display:flex;flex-direction:column;gap:3px;cursor:pointer;transition:box-shadow .2s;justify-content:center;}
 .rm-node:hover{border-color:var(--accent);box-shadow:0 0 5px var(--accent);}
 .rm-node::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:2px;background:var(--accent);}
 .rm-node-center{border-color:var(--accent);background:rgba(0,200,240,.06);box-shadow:0 0 10px var(--accent);cursor:default;}
 .rm-node-center:hover{box-shadow:0 0 10px var(--accent);}
+
+.rm-node.rm-node-conv{
+  border-style:dashed;
+  border-color:var(--border2);
+  background:var(--panel);
+  cursor:default;
+  pointer-events:none;
+  padding:5px 8px;
+  min-width:0;
+}
+.rm-node.rm-node-conv::before{display:none;}
+.rm-node.rm-node-conv:hover{border-color:var(--border2);box-shadow:none;}
+.rm-node-conv-lbl{font-family:var(--mono);font-size:.6rem;letter-spacing:2px;color:var(--text2);text-align:center;margin-bottom:2px;}
+.rm-node-conv-eq{font-size:.75rem;color:var(--green);text-align:center;}
 
 .rm-node-rack{font-family:var(--mono);font-size:.55rem;color:var(--yellow);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .rm-node-eq{font-family:var(--sans);font-size:.78rem;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -595,10 +610,10 @@ function isSplitterOrMerger(rack) {
 // NAVEGACION //
 
 function setView(id){
-  ['view-racks','view-slots','view-equip','view-map'].forEach(function(v){
+  ['view-racks','view-slots','view-equip','view-map','view-radial-map'].forEach(function(v){
     document.getElementById(v).className='view'+(v===id?' active':'');
   });
-  setRadialMapBtn(false);
+  if(id !== 'view-radial-map') setRadialMapBtn(false);
 }
 
 function bcGoRacks() {
@@ -2047,12 +2062,10 @@ function initMapObserver() {
 // VISTA MAPA RADIAL //
 
 function buildRadialGraph(rack, eq, slot, stepsBw, stepsFw) {
-  var nodes = {};   // key -> node
-  var edges = [];   // { from, to, fromPort, toPort }
+  var nodes = {};
+  var edges = [];
 
-  function nodeKey(r, e, s) {
-    return r + '|' + e + '|' + nss(s || '');
-  }
+  function nodeKey(r, e, s) { return r + '|' + e + '|' + nss(s || ''); }
 
   function ensureNode(r, e, s) {
     var k = nodeKey(r, e, s);
@@ -2061,20 +2074,20 @@ function buildRadialGraph(rack, eq, slot, stepsBw, stepsFw) {
         key: k, rack: r, eq: e, slot: s || '',
         placa: getPlaca(r, e, s || ''),
         ip: getIP(r, e),
-        ports: [],   // { port, role:'in'|'out' }
-        depth: null  // distancia del centro (negativo=upstream)
+        ports: [],
+        depth: null,
+        connLeft: 0,  // conexiones hacia/desde upstream
+        connRight: 0  // conexiones hacia/desde downstream
       };
     }
     return nodes[k];
   }
 
-  // Nodo central
   var centerKey = nodeKey(rack, eq, slot);
   var center = ensureNode(rack, eq, slot);
   center.depth = 0;
   center.isCenter = true;
 
-  // Recolectar todos los puertos del nodo central
   var outsAll = Object.keys(_idxOut)
     .filter(function(k) { return k.startsWith(rack + '|' + eq + '|' + nss(slot) + '|'); })
     .reduce(function(acc, k) { return acc.concat(_idxOut[k]); }, []);
@@ -2083,15 +2096,18 @@ function buildRadialGraph(rack, eq, slot, stepsBw, stepsFw) {
     .reduce(function(acc, k) { return acc.concat(_idxIn[k]); }, []);
 
   outsAll.forEach(function(c) {
-    if (!center.ports.find(function(p) { return p.port === c.sp; }))
-      center.ports.push({ port: c.sp, role: 'out' });
+    if (!center.ports.find(function(p) { return p.port === c.sp && p.role === 'out'; })) {
+      var isNC = !c.dr || c.dr === 'N/C' || c.dr === 'N/D';
+      center.ports.push({ port: c.sp, role: 'out', peerKey: isNC ? null : nodeKey(c.dr, c.de, c.ds), isNC: isNC });
+    }
   });
   insAll.forEach(function(c) {
-    if (!center.ports.find(function(p) { return p.port === c.dp; }))
-      center.ports.push({ port: c.dp, role: 'in' });
+    if (!center.ports.find(function(p) { return p.port === c.dp && p.role === 'in'; })) {
+      var isNC = !c.sr || c.sr === 'N/C' || c.sr === 'N/D';
+      center.ports.push({ port: c.dp, role: 'in', peerKey: isNC ? null : nodeKey(c.sr, c.se, c.ss), isNC: isNC });
+    }
   });
 
-  // Walk downstream (forward)
   function walkFw(r, e, s, depth) {
     if (depth > stepsFw) return;
     var outs = Object.keys(_idxOut)
@@ -2103,31 +2119,42 @@ function buildRadialGraph(rack, eq, slot, stepsBw, stepsFw) {
       var srcKey = nodeKey(r, e, s);
       var dstKey = nodeKey(c.dr, c.de, c.ds);
 
-      // loop detection
       if (dstKey === centerKey && depth > 0) {
         edges.push({ from: srcKey, to: dstKey, fromPort: c.sp, toPort: c.dp, isLoop: true });
         return;
       }
 
       var dst = ensureNode(c.dr, c.de, c.ds);
+      dst.connRight++;
       if (dst.depth === null) dst.depth = depth;
 
-      if (!dst.ports.find(function(p) { return p.port === c.dp; }))
+      if (!dst.ports.find(function(p) { return p.port === c.dp && p.role === 'in'; }))
         dst.ports.push({ port: c.dp, role: 'in' });
 
-      edges.push({ from: srcKey, to: dstKey, fromPort: c.sp, toPort: c.dp });
-
-      // thru?
+      if (c.disp_ext) {
+        var convKey = 'conv|' + c.disp_ext + '|' + srcKey + '>' + dstKey;
+        if (!nodes[convKey]) {
+          nodes[convKey] = {
+            key: convKey, rack: '', eq: c.disp_ext, slot: '',
+            placa: '', ip: '', ports: [],
+            depth: depth, isConv: true
+          };
+        }
+        edges.push({ from: srcKey, to: convKey, fromPort: c.sp, toPort: '' });
+        edges.push({ from: convKey, to: dstKey,  fromPort: '', toPort: c.dp });
+      } else {
+        edges.push({ from: srcKey, to: dstKey, fromPort: c.sp, toPort: c.dp });
+      }
+      
       var thru = getThruDeEntrada(c.dr, c.de, c.ds, c.dp);
       if (thru) {
-        if (!dst.ports.find(function(p) { return p.port === thru.dp; }))
+        if (!dst.ports.find(function(p) { return p.port === thru.dp && p.role === 'out'; }))
           dst.ports.push({ port: thru.dp, role: 'out' });
         walkFw(c.dr, c.de, c.ds, depth + 1);
       }
     });
   }
 
-  // Walk upstream (backward)
   function walkBw(r, e, s, depth) {
     if (depth > stepsBw) return;
     var ins = Object.keys(_idxIn)
@@ -2145,16 +2172,30 @@ function buildRadialGraph(rack, eq, slot, stepsBw, stepsFw) {
       }
 
       var src = ensureNode(c.sr, c.se, c.ss);
+      src.connLeft++;
       if (src.depth === null) src.depth = -depth;
 
-      if (!src.ports.find(function(p) { return p.port === c.sp; }))
+      if (!src.ports.find(function(p) { return p.port === c.sp && p.role === 'out'; }))
         src.ports.push({ port: c.sp, role: 'out' });
 
-      edges.push({ from: srcKey, to: dstKey, fromPort: c.sp, toPort: c.dp });
+      if (c.disp_ext) {
+        var convKey = 'conv|' + c.disp_ext + '|' + srcKey + '>' + dstKey;
+        if (!nodes[convKey]) {
+          nodes[convKey] = {
+            key: convKey, rack: '', eq: c.disp_ext, slot: '',
+            placa: '', ip: '', ports: [],
+            depth: -depth, isConv: true
+          };
+        }
+        edges.push({ from: srcKey, to: convKey, fromPort: c.sp, toPort: '' });
+        edges.push({ from: convKey, to: dstKey, fromPort: '', toPort: c.dp });
+      } else {
+        edges.push({ from: srcKey, to: dstKey, fromPort: c.sp, toPort: c.dp });
+      }
 
       var thru = getThruDeSalida(c.sr, c.se, c.ss, c.sp);
       if (thru) {
-        if (!src.ports.find(function(p) { return p.port === thru.sp; }))
+        if (!src.ports.find(function(p) { return p.port === thru.sp && p.role === 'in'; }))
           src.ports.push({ port: thru.sp, role: 'in' });
         walkBw(c.sr, c.se, c.ss, depth + 1);
       }
@@ -2164,65 +2205,73 @@ function buildRadialGraph(rack, eq, slot, stepsBw, stepsFw) {
   walkFw(rack, eq, slot, 1);
   walkBw(rack, eq, slot, 1);
 
+  // Resolver lado para nodos con conexiones en ambas direcciones
+  Object.values(nodes).forEach(function(n) {
+    if (n.isCenter) return;
+    if (n.connLeft > 0 && n.connRight > 0) {
+      n.depth = n.connLeft >= n.connRight ? -1 : 1;
+    }
+  });
+
   return { nodes: nodes, edges: edges, centerKey: centerKey };
 }
 
 function computeRadialLayout(graph) {
-  var nodes = graph.nodes;
+  var nodes     = graph.nodes;
   var centerKey = graph.centerKey;
-  var center = nodes[centerKey];
+  var center    = nodes[centerKey];
 
-  // Separar nodos por anillo (depth absoluto)
-  var rings = {}; // depth -> [nodes]
+  var COL_W   = 500;
+  var ROW_H_MIN = 20;
+  var NODE_H_BASE = 80;
+
+  // Agrupar por columna (depth negativo=izquierda, positivo=derecha)
+  var cols = {}; // depth -> [nodes]
   Object.values(nodes).forEach(function(n) {
     if (n.isCenter) return;
-    var d = n.depth === null ? 1 : Math.abs(n.depth);
-    if (!rings[d]) rings[d] = [];
-    rings[d].push(n);
+    var d = n.depth === null ? 1 : n.depth;
+    if (!cols[d]) cols[d] = [];
+    cols[d].push(n);
   });
 
-  var RING_RADIUS = 400; // px entre anillos
-  var CENTER_X = 0;
-  var CENTER_Y = 0;
+  center.x = 0;
+  center.y = 0;
 
-  center.x = CENTER_X;
-  center.y = CENTER_Y;
+  Object.keys(cols).forEach(function(d) {
+    d = parseInt(d);
+    var col = cols[d];
 
-  // Para cada anillo distribuir en círculo
-  // Upstream (depth < 0) en semicírculo izquierdo, downstream (depth > 0) en derecho
-  Object.keys(rings).forEach(function(d) {
-    var ring = rings[d];
-    var r = parseInt(d) * RING_RADIUS;
-
-    // Separar upstream y downstream dentro del anillo
-    var upstream   = ring.filter(function(n) { return n.depth < 0; });
-    var downstream = ring.filter(function(n) { return n.depth > 0; });
-
-    // Upstream: semicírculo izquierdo (90° a 270°)
-    upstream.forEach(function(n, i) {
-      var total = upstream.length;
-      var startAngle = Math.PI / 2;   // 90°
-      var endAngle   = 3 * Math.PI / 2; // 270°
-      var angle = total === 1
-        ? Math.PI  // exactamente a la izquierda
-        : startAngle + (endAngle - startAngle) * i / (total - 1);
-      n.x = CENTER_X + r * Math.cos(angle);
-      n.y = CENTER_Y + r * Math.sin(angle);
+    col.forEach(function(n) {
+      var edgeCount = graph.edges.filter(function(e) {
+        return e.from === n.key || e.to === n.key;
+      }).length;
+      n.nodeH = Math.max(NODE_H_BASE, edgeCount * 16);
     });
 
-    // Downstream: semicírculo derecho (270° a 90°, pasando por 0°)
-    downstream.forEach(function(n, i) {
-      var total = downstream.length;
-      var startAngle = -Math.PI / 2;  // -90° (arriba)
-      var endAngle   =  Math.PI / 2;  //  90° (abajo)
-      var angle = total === 1
-        ? 0  // exactamente a la derecha
-        : startAngle + (endAngle - startAngle) * i / (total - 1);
-      n.x = CENTER_X + r * Math.cos(angle);
-      n.y = CENTER_Y + r * Math.sin(angle);
+    // Altura disponible del viewport
+    var viewH = window.innerHeight - 100; // descontamos header y controls
+
+    // Separación dinámica: que los nodos quepan en pantalla, con un mínimo
+    var ROW_H = Math.max(20, Math.floor((viewH - col.reduce(function(acc,n){ return acc + n.nodeH; }, 0)) / (col.length + 1)));
+
+    var totalH = col.reduce(function(acc, n) { return acc + n.nodeH + ROW_H; }, 0);
+
+    // Calcular altura estimada del centro
+    var centerEdgeCount = graph.edges.filter(function(e) {
+      return e.from === centerKey || e.to === centerKey;
+    }).length;
+    var centerH = Math.max(NODE_H_BASE, centerEdgeCount * 16);
+
+    // Centrar la columna respecto al centro real
+    var cursor = -totalH / 2 + (centerH - NODE_H_BASE) / 2;
+
+    col.forEach(function(n) {
+      n.x = d * COL_W;
+      n.y = cursor + n.nodeH / 2;
+      cursor += n.nodeH + ROW_H;
     });
   });
-
+  window._radialLastNodes = nodes;
   return nodes;
 }
 
@@ -2262,7 +2311,7 @@ function showRadialMap(rack, eq, slot, fromBack) {
 function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
   var container = document.getElementById('view-radial-map');
 
-  var NODE_W = 160;
+  var NODE_W = 250;
   var NODE_H_BASE = 80;
 
   // Calcular bounding box
@@ -2319,39 +2368,96 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
 
   // Nodes
   allNodes.forEach(function(node) {
-    var nx = node.x + offsetX - NODE_W / 2;
-    var ny = node.y + offsetY - NODE_H_BASE / 2;
+    var isConv   = node.isConv;
     var isCenter = node.key === centerKey;
-    var cls = 'rm-node' + (isCenter ? ' rm-node-center' : '');
-    var click = !isCenter
+    var nodeW    = isConv ? 110 : NODE_W;
+    var nodeH    = isConv ? 48  : (node.nodeH || NODE_H_BASE);
+    var nx = node.x + offsetX - nodeW / 2;
+    var ny = node.y + offsetY - nodeH / 2;
+    var cls = 'rm-node'
+            + (isCenter ? ' rm-node-center' : '')
+            + (isConv   ? ' rm-node-conv'   : '');
+    var minH = isConv ? 48 : (!isCenter ? nodeH : NODE_H_BASE);
+    var click = !isCenter && !isConv
       ? ' onclick="showEquip(\'' + h(node.rack) + '\',\'' + h(node.eq) + '\',\'' + h(node.slot || '') + '\')"'
       : '';
     var nodeId = 'rm-node-' + node.key.replace(/\|/g, '-');
 
-    html += '<div class="' + cls + '" id="' + nodeId + '" style="left:' + nx + 'px;top:' + ny + 'px;width:' + NODE_W + 'px;"' + click + '>';
-    html += '<div class="rm-node-rack">' + h(node.rack) + '</div>';
-    html += '<div class="rm-node-eq">'   + h(node.eq)   + '</div>';
-    if (node.slot) {
-      var slotTxt = 'Slot ' + h(node.slot);
-      if (node.placa) slotTxt += ' — ' + h(node.placa);
-      html += '<div class="rm-node-slot">' + slotTxt + '</div>';
-    }
-    if (node.ip && node.ip !== '') {
-      var ipCls = node.ip === 'N/D' ? 'pend' : 'ok';
-      html += '<div class="rm-node-ip ' + ipCls + '">' + h(node.ip) + '</div>';
-    }
-    if (isCenter && node.ports.length) {
-      html += '<div class="rm-node-divider"></div>';
-      var inPorts  = node.ports.filter(function(p) { return p.role === 'in'; });
-      var outPorts = node.ports.filter(function(p) { return p.role === 'out'; });
-      inPorts.forEach(function(p) {
-        html += '<div class="rm-node-port in" id="rm-port-' + node.key.replace(/\|/g,'-')
-         + '-in-' + cssId(p.port) + '">▶ ' + h(p.port) + '</div>';
-      });
-      outPorts.forEach(function(p) {
-        html += '<div class="rm-node-port out" id="rm-port-' + node.key.replace(/\|/g,'-') 
-        + '-out-' + cssId(p.port) + '">' + h(p.port) + ' ▶</div>';
-      });
+    html += '<div class="' + cls + '" id="' + nodeId + '" style="left:' + nx + 'px;top:' + ny + 'px;width:' + nodeW + 'px;min-height:' + minH + 'px;"' + click + '>';
+
+    if (node.isConv) {
+      html += '<div class="rm-node-conv-lbl">Conversor</div>';
+      html += '<div class="rm-node-conv-eq">' + h(node.eq) + '</div>';
+    } else {
+      html += '<div class="rm-node-rack">' + h(node.rack) + '</div>';
+      html += '<div class="rm-node-eq">'   + h(node.eq)   + '</div>';
+
+      if (node.slot) {
+        var slotTxt = 'Slot ' + h(node.slot);
+        if (node.placa) slotTxt += ' — ' + h(node.placa);
+        html += '<div class="rm-node-slot">' + slotTxt + '</div>';
+      }
+      if (node.ip && node.ip !== '') {
+        var ipCls = node.ip === 'N/D' ? 'pend' : 'ok';
+        html += '<div class="rm-node-ip ' + ipCls + '">' + h(node.ip) + '</div>';
+      }
+
+      if (isCenter) {
+        node.ports.sort(function(a, b) {
+          var peerA = a.peerKey ? nodes[a.peerKey] : null;
+          var peerB = b.peerKey ? nodes[b.peerKey] : null;
+          var yA = peerA ? peerA.y : 99999;
+          var yB = peerB ? peerB.y : 99999;
+          return yA - yB;
+        });
+      }
+
+      if (isCenter && node.ports.length) {
+        html += '<div class="rm-node-divider"></div>';
+
+        var leftPorts  = [];
+        var rightPorts = [];
+        var ncPorts    = [];
+
+        node.ports.forEach(function(p) {
+          if (p.isNC) { ncPorts.push(p); return; }
+          var peerNode  = p.peerKey ? nodes[p.peerKey] : null;
+          var peerDepth = peerNode ? (peerNode.depth === null ? 1 : peerNode.depth) : 0;
+          if (peerDepth < 0) leftPorts.push(p);
+          else rightPorts.push(p);
+        });
+
+        function portHtml(p, color, side) {
+          var c   = color || (p.role === 'in' ? 'var(--accent)' : 'var(--orange)');
+          var id = 'rm-port-' + cssId(node.key.replace(/\|/g,'-')) + '-' + p.role + '-' + cssId(p.port);
+          var lbl = p.role === 'in' ? '▶ ' + h(p.port) : h(p.port) + ' ▶';
+          var align = side === 'left' ? 'text-align:left' : 'text-align:right';
+          return '<div class="rm-node-port ' + p.role + '" id="' + id + '" style="color:' + c + ';' + align + '">' + lbl + '</div>';
+        }
+
+        var rows = Math.max(leftPorts.length, rightPorts.length);
+        html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;">';
+        for (var ri = 0; ri < rows; ri++) {
+          var lp = leftPorts[ri]  ? portHtml(leftPorts[ri],  null, 'left')  : '<div></div>';
+          var rp = rightPorts[ri] ? portHtml(rightPorts[ri], null, 'right') : '<div></div>';
+          html += lp + rp;
+        }
+        html += '</div>';
+
+        if (ncPorts.length) {
+          var ncLeft  = ncPorts.filter(function(p) { return p.role === 'in'; });
+          var ncRight = ncPorts.filter(function(p) { return p.role === 'out'; });
+          var ncRows  = Math.max(ncLeft.length, ncRight.length);
+          html += '<div class="rm-node-divider" style="margin-top:6px"></div>';
+          html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;">';
+          for (var ni = 0; ni < ncRows; ni++) {
+            var nl = ncLeft[ni]  ? portHtml(ncLeft[ni],  'var(--yellow)', 'left')  : '<div></div>';
+            var nr = ncRight[ni] ? portHtml(ncRight[ni], 'var(--yellow)', 'right') : '<div></div>';
+            html += nl + nr;
+          }
+          html += '</div>';
+        }
+      }
     }
     html += '</div>';
   });
@@ -2372,7 +2478,7 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
   var canvas   = document.getElementById('rm-canvas');
 
   function applyTransform() {
-    canvas.style.transform = 'scale(' + scale + ') translate(' + panX + 'px,' + panY + 'px)';
+    canvas.style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')';
     canvas.style.transformOrigin = '0 0';
   }
 
@@ -2384,11 +2490,24 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
   window._radialFit = function() {
     var vw = viewport.clientWidth;
     var vh = viewport.clientHeight;
-    var scaleX = vw / canvasW;
-    var scaleY = vh / canvasH;
-    scale = Math.min(scaleX, scaleY) * 0.9;
-    panX = 0;
-    panY = 0;
+    // Recalcular bounding box real desde los nodos del DOM
+    var allNodeEls = canvas.querySelectorAll('.rm-node');
+    var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    allNodeEls.forEach(function(el) {
+      var l = parseInt(el.style.left) || 0;
+      var t = parseInt(el.style.top)  || 0;
+      var w = el.offsetWidth;
+      var h = el.offsetHeight;
+      minX = Math.min(minX, l);
+      minY = Math.min(minY, t);
+      maxX = Math.max(maxX, l + w);
+      maxY = Math.max(maxY, t + h);
+    });
+    var realW = maxX - minX + PAD * 2;
+    var realH = maxY - minY + PAD * 2;
+    scale = Math.min(vw / realW, vh / realH) * 0.92;
+    panX = (vw / scale - realW) / 2 - minX + PAD;
+    panY = (vh / scale - realH) / 2 - minY + PAD;
     applyTransform();
   };
 
@@ -2480,7 +2599,9 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
 
     if (stableFrames >= 4) {
       window._radialFit();
-      drawRadialArrows(nodes, edges, centerKey);
+      requestAnimationFrame(function() {
+        drawRadialArrows(nodes, edges, centerKey);
+      });
     } else {
       requestAnimationFrame(waitForRadialLayout);
     }
@@ -2494,6 +2615,8 @@ function drawRadialArrows(nodes, edges, centerKey) {
   if (!svg || !canvas) return;
 
   var cRect = canvas.getBoundingClientRect();
+  var scaleX = cRect.width  / canvas.offsetWidth  || 1;
+  var scaleY = cRect.height / canvas.offsetHeight || 1;
   if (cRect.width === 0 || cRect.height === 0) {
     requestAnimationFrame(function() { drawRadialArrows(nodes, edges, centerKey); });
     return;
@@ -2502,13 +2625,13 @@ function drawRadialArrows(nodes, edges, centerKey) {
   function elMidY(el) {
     if (!el) return null;
     var r = el.getBoundingClientRect();
-    return r.top - cRect.top + r.height / 2;
+    return (r.top - cRect.top) / scaleY + r.height / scaleY / 2;
   }
   function nodeEl(key) {
     return document.getElementById('rm-node-' + key.replace(/\|/g, '-'));
   }
   function portEl(key, port, role) {
-    return document.getElementById('rm-port-' + key.replace(/\|/g, '-') + '-' + role + '-' + cssId(port));
+    return document.getElementById('rm-port-' + cssId(key.replace(/\|/g, '-')) + '-' + role + '-' + cssId(port));
   }
 
   // Detectar pares bidireccionales
@@ -2528,50 +2651,34 @@ function drawRadialArrows(nodes, edges, centerKey) {
 
   var BIDIR_OFFSET = 40; // px de separación perpendicular
 
-  function getPoints(edge, srcEl, dstEl, fromPortEl, toPortEl) {
+  function getPoints(edge, srcEl, dstEl, fromPortEl, toPortEl, peerY) {
     var srcR = srcEl.getBoundingClientRect();
     var dstR = dstEl.getBoundingClientRect();
-    var srcCX = srcR.left - cRect.left + srcR.width  / 2;
-    var srcCY = srcR.top  - cRect.top  + srcR.height / 2;
-    var dstCX = dstR.left - cRect.left + dstR.width  / 2;
-    var dstCY = dstR.top  - cRect.top  + dstR.height / 2;
+    var srcCX = (srcR.left - cRect.left) / scaleX + srcR.width  / scaleX / 2;
+    var srcCY = (srcR.top  - cRect.top)  / scaleY + srcR.height / scaleY / 2;
+    var dstCX = (dstR.left - cRect.left) / scaleX + dstR.width  / scaleX / 2;
+    var dstCY = (dstR.top  - cRect.top)  / scaleY + dstR.height / scaleY / 2;
 
     var x1, y1, x2, y2;
     var dx = dstCX - srcCX;
-    var dy = dstCY - srcCY;
 
     if (edge.from === centerKey) {
-      x1 = srcR.right - cRect.left;
+      var toLeft = dx < 0;
+      x1 = toLeft ? (srcR.left  - cRect.left) / scaleX : (srcR.right - cRect.left) / scaleX;
       y1 = fromPortEl ? elMidY(fromPortEl) : srcCY;
-      if (Math.abs(dx) >= Math.abs(dy)) {
-        x2 = dx > 0 ? dstR.left - cRect.left : dstR.right - cRect.left;
-        y2 = dstCY;
-      } else {
-        x2 = dstCX;
-        y2 = dy > 0 ? dstR.top - cRect.top : dstR.bottom - cRect.top;
-      }
-    } else if (edge.to === centerKey) {
-      x2 = dstR.left - cRect.left;
-      y2 = toPortEl ? elMidY(toPortEl) : dstCY;
-      if (Math.abs(dx) >= Math.abs(dy)) {
-        x1 = dx > 0 ? srcR.right - cRect.left : srcR.left - cRect.left;
-        y1 = srcCY;
-      } else {
-        x1 = srcCX;
-        y1 = dy > 0 ? srcR.bottom - cRect.top : srcR.top - cRect.top;
-      }
+      x2 = toLeft ? (dstR.right - cRect.left) / scaleX : (dstR.left  - cRect.left) / scaleX;
+      y2 = peerY !== null ? peerY : dstCY;
+  } else if (edge.to === centerKey) {
+    var fromLeft = dx > 0;
+    x1 = fromLeft ? (srcR.right - cRect.left) / scaleX : (srcR.left - cRect.left) / scaleX;
+    x2 = fromLeft ? (dstR.left  - cRect.left) / scaleX : (dstR.right - cRect.left) / scaleX;
+    y2 = toPortEl ? elMidY(toPortEl) : dstCY;
+    y1 = peerY !== null ? peerY : srcCY;  // ← volvé a usar peerY
     } else {
-      if (Math.abs(dx) >= Math.abs(dy)) {
-        x1 = dx > 0 ? srcR.right - cRect.left : srcR.left  - cRect.left;
-        y1 = srcCY;
-        x2 = dx > 0 ? dstR.left  - cRect.left : dstR.right - cRect.left;
-        y2 = dstCY;
-      } else {
-        x1 = srcCX;
-        y1 = dy > 0 ? srcR.bottom - cRect.top : srcR.top    - cRect.top;
-        x2 = dstCX;
-        y2 = dy > 0 ? dstR.top    - cRect.top : dstR.bottom - cRect.top;
-      }
+      x1 = dx > 0 ? (srcR.right - cRect.left) / scaleX : (srcR.left  - cRect.left) / scaleX;
+      y1 = srcCY;
+      x2 = dx > 0 ? (dstR.left  - cRect.left) / scaleX : (dstR.right - cRect.left) / scaleX;
+      y2 = dstCY;
     }
 
     return { x1: x1, y1: y1, x2: x2, y2: y2 };
@@ -2601,7 +2708,7 @@ function drawRadialArrows(nodes, edges, centerKey) {
       cx2 = x2 + (mx - x2) * 0.8;
       cy2 = y2 + (my - y2) * 0.8;
     } else {
-      var ddx = (x2 - x1) * 0.5;
+      var ddx = Math.min(Math.abs(x2 - x1) * 0.5, 80) * Math.sign(x2 - x1);
       cx1 = x1 + ddx; cy1 = y1;
       cx2 = x2 - ddx; cy2 = y2;
     }
@@ -2614,6 +2721,15 @@ function drawRadialArrows(nodes, edges, centerKey) {
 
   var paths = '';
 
+  // Precalcular índice de cada edge por nodo secundario
+  var nodeEdgeIndex = {}; // nodeKey -> [edgeIndexLocal]
+  edges.forEach(function(edge) {
+    var peer = edge.from === centerKey ? edge.to : edge.from;
+    if (peer === centerKey) return;
+    if (!nodeEdgeIndex[peer]) nodeEdgeIndex[peer] = [];
+    nodeEdgeIndex[peer].push(edge);
+  });
+
   edges.forEach(function(edge) {
     var srcEl = nodeEl(edge.from);
     var dstEl = nodeEl(edge.to);
@@ -2622,12 +2738,29 @@ function drawRadialArrows(nodes, edges, centerKey) {
     var fromPortEl = portEl(edge.from, edge.fromPort, 'out');
     var toPortEl   = portEl(edge.to,   edge.toPort,   'in');
 
-    var pts = getPoints(edge, srcEl, dstEl, fromPortEl, toPortEl);
+    // Calcular posición vertical distribuida en nodo secundario
+    var peer = edge.from === centerKey ? edge.to : edge.from;
+    var peerEl = nodeEl(peer);
+    var peerEdges = nodeEdgeIndex[peer] || [];
+    var peerIdx = peerEdges.indexOf(edge);
+    var peerTotal = peerEdges.length;
+    var peerY = null;
+    if (peerEl && peerTotal > 1) {
+      var pr = peerEl.getBoundingClientRect();
+      var pad = 12;
+      peerY = (pr.top - cRect.top) / scaleY + pad + (peerIdx / (peerTotal - 1)) * ((pr.height / scaleY) - pad * 2);
+    }
+
+    var pts = getPoints(edge, srcEl, dstEl, fromPortEl, toPortEl, peerY);
     if (pts.x1 === null || pts.y1 === null) return;
 
     paths += bezier(pts.x1, pts.y1, pts.x2, pts.y2, edge.isLoop, edge._bidir, edge._bidirFirst);
   });
 
+
+
+  window._radialEdges = edges;
+  window._radialCenterKey = centerKey;
   svg.innerHTML = '<defs>'
     + '<marker id="rm-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">'
     + '<polygon points="0 0, 7 3.5, 0 7" fill="var(--green)"/></marker>'
@@ -2635,6 +2768,7 @@ function drawRadialArrows(nodes, edges, centerKey) {
     + '<polygon points="0 0, 7 3.5, 0 7" fill="var(--yellow)"/></marker>'
     + '</defs>' + paths;
 }
+
 // UTILIDADES CSS/DOM //
 
 function cssId(str) {
