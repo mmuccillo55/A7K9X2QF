@@ -2650,7 +2650,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 17"
+        "puerto": "Fiber 17"
       },
       "dst": {
         "rack": "C.3",
@@ -2669,14 +2669,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 17"
+        "puerto": "Fiber 17"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 17"
+        "puerto": "Fiber 17"
       },
       "rotulo": "",
       "notas": "",
@@ -2689,7 +2689,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 18"
+        "puerto": "Fiber 18"
       },
       "dst": {
         "rack": "C.4",
@@ -2708,14 +2708,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 18"
+        "puerto": "Fiber 18"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 18"
+        "puerto": "Fiber 18"
       },
       "rotulo": "",
       "notas": "",
@@ -2728,7 +2728,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 14"
+        "puerto": "Fiber 14"
       },
       "dst": {
         "rack": "B.3",
@@ -2747,14 +2747,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 14"
+        "puerto": "Fiber 14"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 14"
+        "puerto": "Fiber 14"
       },
       "rotulo": "",
       "notas": "",
@@ -2767,7 +2767,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 15"
+        "puerto": "Fiber 15"
       },
       "dst": {
         "rack": "B.4",
@@ -2786,14 +2786,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 15"
+        "puerto": "Fiber 15"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 15"
+        "puerto": "Fiber 15"
       },
       "rotulo": "",
       "notas": "",
@@ -2806,7 +2806,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 16"
+        "puerto": "Fiber 16"
       },
       "dst": {
         "rack": "B.5",
@@ -2825,14 +2825,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 16"
+        "puerto": "Fiber 16"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 16"
+        "puerto": "Fiber 16"
       },
       "rotulo": "",
       "notas": "",
@@ -4969,7 +4969,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 17"
+        "puerto": "Fiber 17"
       },
       "rotulo": "IKE 4",
       "notas": "",
@@ -4988,7 +4988,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 18"
+        "puerto": "Fiber 18"
       },
       "rotulo": "IKE 5",
       "notas": "",
@@ -5007,7 +5007,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 14"
+        "puerto": "Fiber 14"
       },
       "rotulo": "JVC 1",
       "notas": "",
@@ -5026,7 +5026,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 15"
+        "puerto": "Fiber 15"
       },
       "rotulo": "JVC 2",
       "notas": "",
@@ -5045,7 +5045,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "BNC 16"
+        "puerto": "Fiber 16"
       },
       "rotulo": "JVC 3",
       "notas": "",
