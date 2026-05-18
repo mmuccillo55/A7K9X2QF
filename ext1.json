@@ -1078,7 +1078,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V3"
+        "puerto": "BNC 3"
       },
       "dst": {
         "rack": "B.1",
@@ -1097,14 +1097,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V3"
+        "puerto": "BNC 3"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V3"
+        "puerto": "BNC 3"
       },
       "rotulo": "",
       "notas": "",
@@ -1289,7 +1289,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V4"
+        "puerto": "BNC 4"
       },
       "dst": {
         "rack": "B.1",
@@ -1308,14 +1308,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V4"
+        "puerto": "BNC 4"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V4"
+        "puerto": "BNC 4"
       },
       "rotulo": "",
       "notas": "",
@@ -1683,7 +1683,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V11"
+        "puerto": "BNC 11"
       },
       "rotulo": "AUX 1",
       "notas": "",
@@ -1800,7 +1800,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V6"
+        "puerto": "BNC 6"
       },
       "rotulo": "PGM",
       "notas": "",
@@ -1839,7 +1839,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V10"
+        "puerto": "BNC 10"
       },
       "rotulo": "AIRE OUT",
       "notas": "",
@@ -1878,7 +1878,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V7"
+        "puerto": "BNC 7"
       },
       "rotulo": "PGM",
       "notas": "",
@@ -1917,7 +1917,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V13"
+        "puerto": "BNC 13"
       },
       "rotulo": "AIRE OUT",
       "notas": "",
@@ -1956,7 +1956,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V12"
+        "puerto": "BNC 12"
       },
       "rotulo": "AUX 2",
       "notas": "",
@@ -1995,7 +1995,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V8"
+        "puerto": "BNC 8"
       },
       "rotulo": "PGM",
       "notas": "",
@@ -2540,7 +2540,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V9"
+        "puerto": "BNC 9"
       },
       "rotulo": "PGM Sin CG",
       "notas": "",
@@ -2611,7 +2611,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V5"
+        "puerto": "BNC 5"
       },
       "dst": {
         "rack": "C.2",
@@ -2630,14 +2630,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V5"
+        "puerto": "BNC 5"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V5"
+        "puerto": "BNC 5"
       },
       "rotulo": "",
       "notas": "",
@@ -2650,7 +2650,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V17"
+        "puerto": "BNC 17"
       },
       "dst": {
         "rack": "C.3",
@@ -2669,14 +2669,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V17"
+        "puerto": "BNC 17"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V17"
+        "puerto": "BNC 17"
       },
       "rotulo": "",
       "notas": "",
@@ -2689,7 +2689,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V18"
+        "puerto": "BNC 18"
       },
       "dst": {
         "rack": "C.4",
@@ -2708,14 +2708,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V18"
+        "puerto": "BNC 18"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V18"
+        "puerto": "BNC 18"
       },
       "rotulo": "",
       "notas": "",
@@ -2728,7 +2728,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V14"
+        "puerto": "BNC 14"
       },
       "dst": {
         "rack": "B.3",
@@ -2747,14 +2747,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V14"
+        "puerto": "BNC 14"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V14"
+        "puerto": "BNC 14"
       },
       "rotulo": "",
       "notas": "",
@@ -2767,7 +2767,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V15"
+        "puerto": "BNC 15"
       },
       "dst": {
         "rack": "B.4",
@@ -2786,14 +2786,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V15"
+        "puerto": "BNC 15"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V15"
+        "puerto": "BNC 15"
       },
       "rotulo": "",
       "notas": "",
@@ -2806,7 +2806,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V16"
+        "puerto": "BNC 16"
       },
       "dst": {
         "rack": "B.5",
@@ -2825,14 +2825,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V16"
+        "puerto": "BNC 16"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V16"
+        "puerto": "BNC 16"
       },
       "rotulo": "",
       "notas": "",
@@ -2845,7 +2845,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V1"
+        "puerto": "BNC 1"
       },
       "dst": {
         "rack": "C.5",
@@ -2864,14 +2864,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V1"
+        "puerto": "BNC 1"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V1"
+        "puerto": "BNC 1"
       },
       "rotulo": "",
       "notas": "",
@@ -2884,7 +2884,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V2"
+        "puerto": "BNC 2"
       },
       "dst": {
         "rack": "C.5",
@@ -2903,14 +2903,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V2"
+        "puerto": "BNC 2"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V2"
+        "puerto": "BNC 2"
       },
       "rotulo": "",
       "notas": "",
@@ -2923,7 +2923,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A1"
+        "puerto": "XLR 1"
       },
       "dst": {
         "rack": "D.1",
@@ -2942,14 +2942,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A1"
+        "puerto": "XLR 1"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A1"
+        "puerto": "XLR 1"
       },
       "rotulo": "",
       "notas": "",
@@ -2962,7 +2962,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A2"
+        "puerto": "XLR 2"
       },
       "dst": {
         "rack": "D.1",
@@ -2981,14 +2981,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A2"
+        "puerto": "XLR 2"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A2"
+        "puerto": "XLR 2"
       },
       "rotulo": "",
       "notas": "",
@@ -3001,7 +3001,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A3"
+        "puerto": "XLR 3"
       },
       "dst": {
         "rack": "D.1",
@@ -3020,14 +3020,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A3"
+        "puerto": "XLR 3"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A3"
+        "puerto": "XLR 3"
       },
       "rotulo": "",
       "notas": "",
@@ -3040,7 +3040,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A4"
+        "puerto": "XLR 4"
       },
       "dst": {
         "rack": "D.1",
@@ -3059,14 +3059,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A4"
+        "puerto": "XLR 4"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A4"
+        "puerto": "XLR 4"
       },
       "rotulo": "",
       "notas": "",
@@ -3079,7 +3079,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A5"
+        "puerto": "XLR 5"
       },
       "dst": {
         "rack": "D.1",
@@ -3098,14 +3098,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A5"
+        "puerto": "XLR 5"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A5"
+        "puerto": "XLR 5"
       },
       "rotulo": "",
       "notas": "",
@@ -3118,7 +3118,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A6"
+        "puerto": "XLR 6"
       },
       "dst": {
         "rack": "D.1",
@@ -3137,14 +3137,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A6"
+        "puerto": "XLR 6"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A6"
+        "puerto": "XLR 6"
       },
       "rotulo": "",
       "notas": "",
@@ -3157,7 +3157,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A7"
+        "puerto": "XLR 7"
       },
       "dst": {
         "rack": "D.1",
@@ -3176,14 +3176,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A7"
+        "puerto": "XLR 7"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A7"
+        "puerto": "XLR 7"
       },
       "rotulo": "",
       "notas": "",
@@ -3196,7 +3196,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A8"
+        "puerto": "XLR 8"
       },
       "dst": {
         "rack": "D.1",
@@ -3215,14 +3215,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A8"
+        "puerto": "XLR 8"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A8"
+        "puerto": "XLR 8"
       },
       "rotulo": "",
       "notas": "",
@@ -3235,7 +3235,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A9"
+        "puerto": "XLR 9"
       },
       "dst": {
         "rack": "D.1",
@@ -3254,14 +3254,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A9"
+        "puerto": "XLR 9"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A9"
+        "puerto": "XLR 9"
       },
       "rotulo": "",
       "notas": "",
@@ -3320,7 +3320,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A13"
+        "puerto": "XLR 13"
       },
       "rotulo": "ORDEN",
       "notas": "",
@@ -3359,7 +3359,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A14"
+        "puerto": "XLR 14"
       },
       "rotulo": "ORDEN",
       "notas": "",
@@ -3398,7 +3398,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A15"
+        "puerto": "XLR 15"
       },
       "rotulo": "ORDEN",
       "notas": "",
@@ -3437,7 +3437,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A16"
+        "puerto": "XLR 16"
       },
       "rotulo": "ORDEN",
       "notas": "",
@@ -3476,7 +3476,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A17"
+        "puerto": "XLR 17"
       },
       "rotulo": "PGM L",
       "notas": "",
@@ -3515,7 +3515,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A18"
+        "puerto": "XLR 18"
       },
       "rotulo": "PGM R",
       "notas": "",
@@ -3554,7 +3554,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A19"
+        "puerto": "XLR 19"
       },
       "rotulo": "SUB 1",
       "notas": "",
@@ -3593,7 +3593,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A20"
+        "puerto": "XLR 20"
       },
       "rotulo": "SUB 3",
       "notas": "",
@@ -3632,7 +3632,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A21"
+        "puerto": "XLR 21"
       },
       "rotulo": "AUX 1",
       "notas": "",
@@ -3671,7 +3671,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A22"
+        "puerto": "XLR 22"
       },
       "rotulo": "AUX 3",
       "notas": "",
@@ -3710,7 +3710,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A23"
+        "puerto": "XLR 23"
       },
       "rotulo": "AUX 1",
       "notas": "",
@@ -3749,7 +3749,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A24"
+        "puerto": "XLR 24"
       },
       "rotulo": "SUB 3",
       "notas": "",
@@ -3781,7 +3781,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A25"
+        "puerto": "XLR 25"
       },
       "dst": {
         "rack": "B.3",
@@ -3800,14 +3800,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A25"
+        "puerto": "XLR 25"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A25"
+        "puerto": "XLR 25"
       },
       "rotulo": "",
       "notas": "",
@@ -3820,7 +3820,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A26"
+        "puerto": "XLR 26"
       },
       "dst": {
         "rack": "B.3",
@@ -3839,14 +3839,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A26"
+        "puerto": "XLR 26"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A26"
+        "puerto": "XLR 26"
       },
       "rotulo": "",
       "notas": "",
@@ -3859,7 +3859,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A27"
+        "puerto": "XLR 27"
       },
       "dst": {
         "rack": "B.4",
@@ -3878,14 +3878,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A27"
+        "puerto": "XLR 27"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A27"
+        "puerto": "XLR 27"
       },
       "rotulo": "",
       "notas": "",
@@ -3898,7 +3898,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A28"
+        "puerto": "XLR 28"
       },
       "dst": {
         "rack": "B.4",
@@ -3917,14 +3917,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A28"
+        "puerto": "XLR 28"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A28"
+        "puerto": "XLR 28"
       },
       "rotulo": "",
       "notas": "",
@@ -3937,7 +3937,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A29"
+        "puerto": "XLR 29"
       },
       "dst": {
         "rack": "B.5",
@@ -3956,14 +3956,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A29"
+        "puerto": "XLR 29"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A29"
+        "puerto": "XLR 29"
       },
       "rotulo": "",
       "notas": "",
@@ -3976,7 +3976,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A30"
+        "puerto": "XLR 30"
       },
       "dst": {
         "rack": "B.5",
@@ -3995,14 +3995,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A30"
+        "puerto": "XLR 30"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A30"
+        "puerto": "XLR 30"
       },
       "rotulo": "",
       "notas": "",
@@ -4015,7 +4015,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A31"
+        "puerto": "XLR 31"
       },
       "dst": {
         "rack": "C.3",
@@ -4034,14 +4034,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A31"
+        "puerto": "XLR 31"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A31"
+        "puerto": "XLR 31"
       },
       "rotulo": "",
       "notas": "",
@@ -4054,7 +4054,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A32"
+        "puerto": "XLR 32"
       },
       "dst": {
         "rack": "C.3",
@@ -4073,14 +4073,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A32"
+        "puerto": "XLR 32"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A32"
+        "puerto": "XLR 32"
       },
       "rotulo": "",
       "notas": "",
@@ -4093,7 +4093,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A33"
+        "puerto": "XLR 33"
       },
       "dst": {
         "rack": "C.4",
@@ -4112,14 +4112,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A33"
+        "puerto": "XLR 33"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A33"
+        "puerto": "XLR 33"
       },
       "rotulo": "",
       "notas": "",
@@ -4132,7 +4132,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A34"
+        "puerto": "XLR 34"
       },
       "dst": {
         "rack": "C.4",
@@ -4151,14 +4151,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A34"
+        "puerto": "XLR 34"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A34"
+        "puerto": "XLR 34"
       },
       "rotulo": "",
       "notas": "",
@@ -4562,7 +4562,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V1"
+        "puerto": "BNC 1"
       },
       "rotulo": "IN 7",
       "notas": "",
@@ -4581,7 +4581,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V2"
+        "puerto": "BNC 2"
       },
       "rotulo": "IN 8",
       "notas": "",
@@ -4600,7 +4600,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V3"
+        "puerto": "BNC 3"
       },
       "rotulo": "IN 9",
       "notas": "",
@@ -4619,7 +4619,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V4"
+        "puerto": "BNC 4"
       },
       "rotulo": "I/O 10",
       "notas": "",
@@ -4638,7 +4638,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V5"
+        "puerto": "BNC 5"
       },
       "rotulo": "AIRE IN",
       "notas": "",
@@ -4650,7 +4650,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V6"
+        "puerto": "BNC 6"
       },
       "dst": {
         "rack": "N/C",
@@ -4669,14 +4669,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V6"
+        "puerto": "BNC 6"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V6"
+        "puerto": "BNC 6"
       },
       "rotulo": "",
       "notas": "",
@@ -4689,7 +4689,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V7"
+        "puerto": "BNC 7"
       },
       "dst": {
         "rack": "N/C",
@@ -4708,14 +4708,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V7"
+        "puerto": "BNC 7"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V7"
+        "puerto": "BNC 7"
       },
       "rotulo": "",
       "notas": "",
@@ -4728,7 +4728,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V8"
+        "puerto": "BNC 8"
       },
       "dst": {
         "rack": "N/C",
@@ -4747,14 +4747,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V8"
+        "puerto": "BNC 8"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V8"
+        "puerto": "BNC 8"
       },
       "rotulo": "",
       "notas": "",
@@ -4767,7 +4767,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V9"
+        "puerto": "BNC 9"
       },
       "dst": {
         "rack": "N/C",
@@ -4786,14 +4786,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V9"
+        "puerto": "BNC 9"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V9"
+        "puerto": "BNC 9"
       },
       "rotulo": "",
       "notas": "",
@@ -4806,7 +4806,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V10"
+        "puerto": "BNC 10"
       },
       "dst": {
         "rack": "N/C",
@@ -4825,14 +4825,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V10"
+        "puerto": "BNC 10"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V10"
+        "puerto": "BNC 10"
       },
       "rotulo": "",
       "notas": "",
@@ -4845,7 +4845,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V11"
+        "puerto": "BNC 11"
       },
       "dst": {
         "rack": "N/C",
@@ -4864,14 +4864,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V11"
+        "puerto": "BNC 11"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V11"
+        "puerto": "BNC 11"
       },
       "rotulo": "",
       "notas": "",
@@ -4884,7 +4884,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V12"
+        "puerto": "BNC 12"
       },
       "dst": {
         "rack": "N/C",
@@ -4903,14 +4903,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V12"
+        "puerto": "BNC 12"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V12"
+        "puerto": "BNC 12"
       },
       "rotulo": "",
       "notas": "",
@@ -4923,7 +4923,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V13"
+        "puerto": "BNC 13"
       },
       "dst": {
         "rack": "N/C",
@@ -4942,14 +4942,14 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V13"
+        "puerto": "BNC 13"
       },
       "dst": {
         "rack": "Ext.1",
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V13"
+        "puerto": "BNC 13"
       },
       "rotulo": "",
       "notas": "",
@@ -4969,7 +4969,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V17"
+        "puerto": "BNC 17"
       },
       "rotulo": "IKE 4",
       "notas": "",
@@ -4988,7 +4988,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V18"
+        "puerto": "BNC 18"
       },
       "rotulo": "IKE 5",
       "notas": "",
@@ -5007,7 +5007,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V14"
+        "puerto": "BNC 14"
       },
       "rotulo": "JVC 1",
       "notas": "",
@@ -5026,7 +5026,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V15"
+        "puerto": "BNC 15"
       },
       "rotulo": "JVC 2",
       "notas": "",
@@ -5045,7 +5045,7 @@
         "equipo": "Patch Ext. Video",
         "slot": "",
         "placa": "",
-        "puerto": "V16"
+        "puerto": "BNC 16"
       },
       "rotulo": "JVC 3",
       "notas": "",
@@ -5064,7 +5064,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A1"
+        "puerto": "XLR 1"
       },
       "rotulo": "IN 1",
       "notas": "",
@@ -5083,7 +5083,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A2"
+        "puerto": "XLR 2"
       },
       "rotulo": "IN 2",
       "notas": "",
@@ -5102,7 +5102,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A3"
+        "puerto": "XLR 3"
       },
       "rotulo": "IN 3",
       "notas": "",
@@ -5121,7 +5121,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A4"
+        "puerto": "XLR 4"
       },
       "rotulo": "IN 4",
       "notas": "",
@@ -5140,7 +5140,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A5"
+        "puerto": "XLR 5"
       },
       "rotulo": "IN 5",
       "notas": "",
@@ -5159,7 +5159,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A6"
+        "puerto": "XLR 6"
       },
       "rotulo": "IN 6",
       "notas": "",
@@ -5178,7 +5178,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A7"
+        "puerto": "XLR 7"
       },
       "rotulo": "IN 7",
       "notas": "",
@@ -5197,7 +5197,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A8"
+        "puerto": "XLR 8"
       },
       "rotulo": "IN 8",
       "notas": "",
@@ -5216,7 +5216,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A9"
+        "puerto": "XLR 9"
       },
       "rotulo": "IN 9",
       "notas": "",
@@ -5228,7 +5228,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A13"
+        "puerto": "XLR 13"
       },
       "dst": {
         "rack": "N/C",
@@ -5247,14 +5247,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A13"
+        "puerto": "XLR 13"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A13"
+        "puerto": "XLR 13"
       },
       "rotulo": "",
       "notas": "",
@@ -5267,7 +5267,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A14"
+        "puerto": "XLR 14"
       },
       "dst": {
         "rack": "N/C",
@@ -5286,14 +5286,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A14"
+        "puerto": "XLR 14"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A14"
+        "puerto": "XLR 14"
       },
       "rotulo": "",
       "notas": "",
@@ -5306,7 +5306,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A15"
+        "puerto": "XLR 15"
       },
       "dst": {
         "rack": "N/C",
@@ -5325,14 +5325,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A15"
+        "puerto": "XLR 15"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A15"
+        "puerto": "XLR 15"
       },
       "rotulo": "",
       "notas": "",
@@ -5345,7 +5345,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A16"
+        "puerto": "XLR 16"
       },
       "dst": {
         "rack": "N/C",
@@ -5364,14 +5364,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A16"
+        "puerto": "XLR 16"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A16"
+        "puerto": "XLR 16"
       },
       "rotulo": "",
       "notas": "",
@@ -5384,7 +5384,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A17"
+        "puerto": "XLR 17"
       },
       "dst": {
         "rack": "N/C",
@@ -5403,14 +5403,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A17"
+        "puerto": "XLR 17"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A17"
+        "puerto": "XLR 17"
       },
       "rotulo": "",
       "notas": "",
@@ -5423,7 +5423,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A18"
+        "puerto": "XLR 18"
       },
       "dst": {
         "rack": "N/C",
@@ -5442,14 +5442,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A18"
+        "puerto": "XLR 18"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A18"
+        "puerto": "XLR 18"
       },
       "rotulo": "",
       "notas": "",
@@ -5462,7 +5462,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A19"
+        "puerto": "XLR 19"
       },
       "dst": {
         "rack": "N/C",
@@ -5481,14 +5481,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A19"
+        "puerto": "XLR 19"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A19"
+        "puerto": "XLR 19"
       },
       "rotulo": "",
       "notas": "",
@@ -5501,7 +5501,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A20"
+        "puerto": "XLR 20"
       },
       "dst": {
         "rack": "N/C",
@@ -5520,14 +5520,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A20"
+        "puerto": "XLR 20"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A20"
+        "puerto": "XLR 20"
       },
       "rotulo": "",
       "notas": "",
@@ -5540,7 +5540,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A21"
+        "puerto": "XLR 21"
       },
       "dst": {
         "rack": "N/C",
@@ -5559,14 +5559,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A21"
+        "puerto": "XLR 21"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A21"
+        "puerto": "XLR 21"
       },
       "rotulo": "",
       "notas": "",
@@ -5579,7 +5579,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A22"
+        "puerto": "XLR 22"
       },
       "dst": {
         "rack": "N/C",
@@ -5598,14 +5598,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A22"
+        "puerto": "XLR 22"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A22"
+        "puerto": "XLR 22"
       },
       "rotulo": "",
       "notas": "",
@@ -5618,7 +5618,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A23"
+        "puerto": "XLR 23"
       },
       "dst": {
         "rack": "N/C",
@@ -5637,14 +5637,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A23"
+        "puerto": "XLR 23"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A23"
+        "puerto": "XLR 23"
       },
       "rotulo": "",
       "notas": "",
@@ -5657,7 +5657,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A24"
+        "puerto": "XLR 24"
       },
       "dst": {
         "rack": "N/C",
@@ -5676,14 +5676,14 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A24"
+        "puerto": "XLR 24"
       },
       "dst": {
         "rack": "Ext.2",
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A24"
+        "puerto": "XLR 24"
       },
       "rotulo": "",
       "notas": "",
@@ -5703,7 +5703,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A25"
+        "puerto": "XLR 25"
       },
       "rotulo": "C1A1",
       "notas": "",
@@ -5722,7 +5722,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A26"
+        "puerto": "XLR 26"
       },
       "rotulo": "C1A2",
       "notas": "",
@@ -5741,7 +5741,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A27"
+        "puerto": "XLR 27"
       },
       "rotulo": "C2A1",
       "notas": "",
@@ -5760,7 +5760,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A28"
+        "puerto": "XLR 28"
       },
       "rotulo": "C2A2",
       "notas": "",
@@ -5779,7 +5779,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A29"
+        "puerto": "XLR 29"
       },
       "rotulo": "C3A1",
       "notas": "",
@@ -5798,7 +5798,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A30"
+        "puerto": "XLR 30"
       },
       "rotulo": "C3A2",
       "notas": "",
@@ -5817,7 +5817,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A31"
+        "puerto": "XLR 31"
       },
       "rotulo": "C4A1",
       "notas": "",
@@ -5836,7 +5836,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A32"
+        "puerto": "XLR 32"
       },
       "rotulo": "C4A2",
       "notas": "",
@@ -5855,7 +5855,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A33"
+        "puerto": "XLR 33"
       },
       "rotulo": "C5A1",
       "notas": "",
@@ -5874,7 +5874,7 @@
         "equipo": "Patch Ext. Audio",
         "slot": "",
         "placa": "",
-        "puerto": "A34"
+        "puerto": "XLR 34"
       },
       "rotulo": "C5A2",
       "notas": "",
