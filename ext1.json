@@ -3784,11 +3784,11 @@
         "puerto": "XLR 25"
       },
       "dst": {
-        "rack": "B.3",
-        "equipo": "CopperHead ProHD 1",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
-        "puerto": "Audio Out L"
+        "puerto": ""
       },
       "rotulo": "C1A1",
       "notas": "",
@@ -3823,11 +3823,11 @@
         "puerto": "XLR 26"
       },
       "dst": {
-        "rack": "B.3",
-        "equipo": "CopperHead ProHD 1",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
-        "puerto": "Audio Out R"
+        "puerto": ""
       },
       "rotulo": "C1A2",
       "notas": "",
@@ -3862,11 +3862,11 @@
         "puerto": "XLR 27"
       },
       "dst": {
-        "rack": "B.4",
-        "equipo": "CopperHead ProHD 2",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
-        "puerto": "Audio Out L"
+        "puerto": ""
       },
       "rotulo": "C2A1",
       "notas": "",
@@ -3901,11 +3901,11 @@
         "puerto": "XLR 28"
       },
       "dst": {
-        "rack": "B.4",
-        "equipo": "CopperHead ProHD 2",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
-        "puerto": "Audio Out R"
+        "puerto": ""
       },
       "rotulo": "C2A2",
       "notas": "",
@@ -3940,11 +3940,11 @@
         "puerto": "XLR 29"
       },
       "dst": {
-        "rack": "B.5",
-        "equipo": "CopperHead ProHD 3",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
-        "puerto": "Audio Out L"
+        "puerto": ""
       },
       "rotulo": "C3A1",
       "notas": "",
@@ -3979,11 +3979,11 @@
         "puerto": "XLR 30"
       },
       "dst": {
-        "rack": "B.5",
-        "equipo": "CopperHead ProHD 3",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
-        "puerto": "Audio Out R"
+        "puerto": ""
       },
       "rotulo": "C3A2",
       "notas": "",
@@ -4018,11 +4018,11 @@
         "puerto": "XLR 31"
       },
       "dst": {
-        "rack": "C.3",
-        "equipo": "Ikegami BS-80 4",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
-        "puerto": "Audio Out L"
+        "puerto": ""
       },
       "rotulo": "C4A1",
       "notas": "",
@@ -4057,11 +4057,11 @@
         "puerto": "XLR 32"
       },
       "dst": {
-        "rack": "C.3",
-        "equipo": "Ikegami BS-80 4",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
-        "puerto": "Audio Out R"
+        "puerto": ""
       },
       "rotulo": "C4A2",
       "notas": "",
@@ -4096,11 +4096,11 @@
         "puerto": "XLR 33"
       },
       "dst": {
-        "rack": "C.4",
-        "equipo": "Ikegami BS-80 5",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
-        "puerto": "Audio Out L"
+        "puerto": ""
       },
       "rotulo": "C5A1",
       "notas": "",
@@ -4135,11 +4135,11 @@
         "puerto": "XLR 34"
       },
       "dst": {
-        "rack": "C.4",
-        "equipo": "Ikegami BS-80 5",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
-        "puerto": "Audio Out R"
+        "puerto": ""
       },
       "rotulo": "C5A2",
       "notas": "",
@@ -5692,11 +5692,11 @@
     },
     {
       "src": {
-        "rack": "N/C",
-        "equipo": "",
+        "rack": "B.3",
+        "equipo": "CopperHead ProHD 1",
         "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "Audio Out L"
       },
       "dst": {
         "rack": "Ext.2",
@@ -5711,11 +5711,11 @@
     },
     {
       "src": {
-        "rack": "N/C",
-        "equipo": "",
+        "rack": "B.3",
+        "equipo": "CopperHead ProHD 1",
         "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "Audio Out R"
       },
       "dst": {
         "rack": "Ext.2",
@@ -5730,11 +5730,11 @@
     },
     {
       "src": {
-        "rack": "N/C",
-        "equipo": "",
+        "rack": "B.4",
+        "equipo": "CopperHead ProHD 2",
         "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "Audio Out L"
       },
       "dst": {
         "rack": "Ext.2",
@@ -5749,11 +5749,11 @@
     },
     {
       "src": {
-        "rack": "N/C",
-        "equipo": "",
+        "rack": "B.4",
+        "equipo": "CopperHead ProHD 2",
         "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "Audio Out R"
       },
       "dst": {
         "rack": "Ext.2",
@@ -5768,11 +5768,11 @@
     },
     {
       "src": {
-        "rack": "N/C",
-        "equipo": "",
+        "rack": "B.5",
+        "equipo": "CopperHead ProHD 3",
         "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "Audio Out L"
       },
       "dst": {
         "rack": "Ext.2",
@@ -5787,11 +5787,11 @@
     },
     {
       "src": {
-        "rack": "N/C",
-        "equipo": "",
+        "rack": "B.5",
+        "equipo": "CopperHead ProHD 3",
         "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "Audio Out R"
       },
       "dst": {
         "rack": "Ext.2",
@@ -5806,11 +5806,11 @@
     },
     {
       "src": {
-        "rack": "N/C",
-        "equipo": "",
+        "rack": "C.3",
+        "equipo": "Ikegami BS-80 4",
         "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "Audio Out L"
       },
       "dst": {
         "rack": "Ext.2",
@@ -5825,11 +5825,11 @@
     },
     {
       "src": {
-        "rack": "N/C",
-        "equipo": "",
+        "rack": "C.3",
+        "equipo": "Ikegami BS-80 4",
         "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "Audio Out R"
       },
       "dst": {
         "rack": "Ext.2",
@@ -5844,11 +5844,11 @@
     },
     {
       "src": {
-        "rack": "N/C",
-        "equipo": "",
+        "rack": "C.4",
+        "equipo": "Ikegami BS-80 5",
         "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "Audio Out L"
       },
       "dst": {
         "rack": "Ext.2",
@@ -5863,11 +5863,11 @@
     },
     {
       "src": {
-        "rack": "N/C",
-        "equipo": "",
+        "rack": "C.4",
+        "equipo": "Ikegami BS-80 5",
         "slot": "",
         "placa": "",
-        "puerto": ""
+        "puerto": "Audio Out R"
       },
       "dst": {
         "rack": "Ext.2",
@@ -6755,7 +6755,7 @@
     "arcos_totales": 334,
     "arcos_externos": 206,
     "arcos_thru_internos": 128,
-    "arcos_con_destino": 181,
-    "arcos_sin_destino": 25
+    "arcos_con_destino": 171,
+    "arcos_sin_destino": 35
   }
 }
