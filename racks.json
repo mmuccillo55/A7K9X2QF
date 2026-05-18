@@ -2006,11 +2006,11 @@
         "puerto": "Out 63"
       },
       "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
+        "rack": "L.7",
+        "equipo": "openGear X",
+        "slot": "6",
+        "placa": "Optic to SDI",
+        "puerto": "SDI In"
       },
       "rotulo": "RADIO TX",
       "notas": "",
@@ -5041,14 +5041,14 @@
         "puerto": "Out 2"
       },
       "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
         "puerto": ""
       },
       "rotulo": "",
-      "notas": "",
+      "notas": "Cable suelto en TX",
       "disp_ext": ""
     },
     {
@@ -6269,14 +6269,14 @@
         "puerto": "J4"
       },
       "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
         "puerto": ""
       },
       "rotulo": "",
-      "notas": "Cable amarillo a Piso?",
+      "notas": "Cable suelto en Piso",
       "disp_ext": ""
     },
     {
@@ -6308,14 +6308,14 @@
         "puerto": "J6"
       },
       "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
+        "rack": "N/C",
+        "equipo": "",
         "slot": "",
         "placa": "",
         "puerto": ""
       },
       "rotulo": "",
-      "notas": "Cable amarillo a Piso?",
+      "notas": "Cable suelto en Piso",
       "disp_ext": ""
     },
     {
@@ -10935,11 +10935,11 @@
         "puerto": "SDI Out 2"
       },
       "dst": {
-        "rack": "N/D",
-        "equipo": "?????",
-        "slot": "",
-        "placa": "",
-        "puerto": ""
+        "rack": "L.7",
+        "equipo": "openGear X",
+        "slot": "4",
+        "placa": "Optic to SDI",
+        "puerto": "SDI In"
       },
       "rotulo": "",
       "notas": "",
@@ -10990,7 +10990,7 @@
     "arcos_totales": 526,
     "arcos_externos": 355,
     "arcos_thru_internos": 171,
-    "arcos_con_destino": 281,
-    "arcos_sin_destino": 74
+    "arcos_con_destino": 283,
+    "arcos_sin_destino": 72
   }
 }
