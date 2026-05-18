@@ -2548,22 +2548,58 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
     if (viewport) viewport.style.cursor = 'grab';
   });
 
-  // Touch pan
-  var touch0;
+  var touch0, touch1, startScale, startPinchDist;
+
   viewport.addEventListener('touchstart', function(e) {
     if (e.touches.length === 1) {
       touch0 = e.touches[0];
       startPanX = panX; startPanY = panY;
     }
   });
+
+  
+
+  viewport.addEventListener('touchstart', function(e) {
+    if (e.touches.length === 1) {
+      touch0 = e.touches[0];
+      startPanX = panX; startPanY = panY;
+      touch1 = null;
+    } else if (e.touches.length === 2) {
+      touch0 = e.touches[0];
+      touch1 = e.touches[1];
+      startScale = scale;
+      startPinchDist = Math.hypot(touch1.clientX - touch0.clientX, touch1.clientY - touch0.clientY);
+      startPanX = panX; startPanY = panY;
+    }
+  }, { passive: false });
   viewport.addEventListener('touchmove', function(e) {
-    if (e.touches.length === 1 && touch0) {
-      e.preventDefault();
+    e.preventDefault();
+    if (e.touches.length === 1 && touch0 && !touch1) {
       panX = startPanX + (e.touches[0].clientX - touch0.clientX) / scale;
       panY = startPanY + (e.touches[0].clientY - touch0.clientY) / scale;
       applyTransform();
+    } else if (e.touches.length === 2 && startPinchDist) {
+      var t0 = e.touches[0], t1 = e.touches[1];
+      var dist = Math.hypot(t1.clientX - t0.clientX, t1.clientY - t0.clientY);
+      var newScale = Math.min(3, Math.max(0.2, startScale * (dist / startPinchDist)));
+      // Centro del pinch como pivot
+      var cx = (t0.clientX + t1.clientX) / 2 - viewport.getBoundingClientRect().left;
+      var cy = (t0.clientY + t1.clientY) / 2 - viewport.getBoundingClientRect().top;
+      panX = cx / newScale - cx / scale + panX;
+      panY = cy / newScale - cy / scale + panY;
+      scale = newScale;
+      applyTransform();
     }
   }, { passive: false });
+  viewport.addEventListener('touchend', function(e) {
+    if (e.touches.length < 2) { touch1 = null; startPinchDist = null; }
+    if (e.touches.length === 0) { touch0 = null; }
+  });
+
+
+
+
+
 
   // Wheel zoom hacia cursor
   viewport.addEventListener('wheel', function(e) {
