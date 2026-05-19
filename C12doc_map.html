@@ -2582,6 +2582,21 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
     panY = Math.min(maxPanY, Math.max(panY, minPanY));
     canvas.style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')';
     canvas.style.transformOrigin = '0 0';
+
+    // DEBUG - borrá después
+    var dbg = document.getElementById('rm-debug');
+    if (!dbg) {
+      dbg = document.createElement('div');
+      dbg.id = 'rm-debug';
+      dbg.style.cssText = 'position:fixed;top:60px;left:0;background:rgba(0,0,0,0.8);color:lime;font-size:11px;padding:6px;z-index:9999;font-family:monospace;pointer-events:none;';
+      document.body.appendChild(dbg);
+    }
+    dbg.innerHTML = 
+      'scale: ' + scale.toFixed(3) + '<br>' +
+      'panX: ' + panX.toFixed(1) + ' (min ' + minPanX.toFixed(1) + ')<br>' +
+      'panY: ' + panY.toFixed(1) + ' (min ' + minPanY.toFixed(1) + ')<br>' +
+      'canvasW: ' + canvasRealW + ' canvasH: ' + canvasRealH + '<br>' +
+      'vw: ' + vw + ' vh: ' + vh;
   }
   
   window._radialFit = function() {
