@@ -2658,8 +2658,19 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
     }
   }, { passive: false });
   viewport.addEventListener('touchend', function(e) {
-    if (e.touches.length < 2) { touch1 = null; startPinchDist = null; }
-    if (e.touches.length === 0) { touch0 = null; }
+    if (e.touches.length < 2) {
+      touch1 = null;
+      startPinchDist = null;
+    }
+    if (e.touches.length === 1) {
+      // Resetear el pan para que arranque desde la posición actual
+      touch0 = e.touches[0];
+      startPanX = panX;
+      startPanY = panY;
+    }
+    if (e.touches.length === 0) {
+      touch0 = null;
+    }
   });
 
 
