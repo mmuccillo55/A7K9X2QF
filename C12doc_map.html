@@ -2535,6 +2535,7 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
   // Pan/zoom
   var scale = 1;
   var panX = 0, panY = 0;
+  var canvasRealW = 0, canvasRealH = 0;
   var clampMinX = -9999, clampMinY = -9999;  // ← agregá estas
   var clampMaxX = 60,    clampMaxY = 60;
   var dragging = false;
@@ -2570,8 +2571,15 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
   */
 
   function applyTransform() {
-    panX = Math.min(clampMaxX, Math.max(panX, clampMinX));
-    panY = Math.min(clampMaxY, Math.max(panY, clampMinY));
+    var vw = viewport.clientWidth;
+    var vh = viewport.clientHeight;
+    var margin = 60;
+    var minPanX = vw / scale - canvasRealW - margin;
+    var minPanY = vh / scale - canvasRealH - margin;
+    var maxPanX = margin;
+    var maxPanY = margin;
+    panX = Math.min(maxPanX, Math.max(panX, minPanX));
+    panY = Math.min(maxPanY, Math.max(panY, minPanY));
     canvas.style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')';
     canvas.style.transformOrigin = '0 0';
   }
@@ -2604,6 +2612,8 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
     var newH = maxY - minY + PAD * 2;
     canvas.style.width  = newW + 'px';
     canvas.style.height = newH + 'px';
+    canvasRealW = newW;  // ← guardá acá
+    canvasRealH = newH;
     // Después de canvas.style.width = newW, canvas.style.height = newH
     var margin = 60;
     clampMinX = (vw - margin) / scale - newW;
