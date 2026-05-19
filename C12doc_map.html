@@ -2098,13 +2098,13 @@ function buildRadialGraph(rack, eq, slot, stepsBw, stepsFw) {
   outsAll.forEach(function(c) {
     if (!center.ports.find(function(p) { return p.port === c.sp && p.role === 'out'; })) {
       var isNC = !c.dr || c.dr === 'N/C' || c.dr === 'N/D';
-      center.ports.push({ port: c.sp, role: 'out', peerKey: isNC ? null : nodeKey(c.dr, c.de, c.ds), isNC: isNC });
+      center.ports.push({ port: c.sp, role: 'out', peerKey: isNC ? null : nodeKey(c.dr, c.de, c.ds), isNC: isNC, rotulo: c.rotulo });
     }
   });
   insAll.forEach(function(c) {
     if (!center.ports.find(function(p) { return p.port === c.dp && p.role === 'in'; })) {
       var isNC = !c.sr || c.sr === 'N/C' || c.sr === 'N/D';
-      center.ports.push({ port: c.dp, role: 'in', peerKey: isNC ? null : nodeKey(c.sr, c.se, c.ss), isNC: isNC });
+      center.ports.push({ port: c.dp, role: 'in', peerKey: isNC ? null : nodeKey(c.sr, c.se, c.ss), isNC: isNC, rotulo: c.rotulo });
     }
   });
 
@@ -2237,6 +2237,27 @@ function computeRadialLayout(graph) {
   center.x = 0;
   center.y = 0;
 
+  // Sort ports del centro por número de puerto
+  var centerHasThru = !!(_idxThru[center.rack + '|' + center.eq + '|' + nss(center.slot)] || []).length;
+  if (centerHasThru) {
+    center.ports.sort(function(a, b) {
+      return portN(a.port) - portN(b.port) || String(a.port).localeCompare(String(b.port));
+    });
+  }
+
+  // Construir índice de orden por peerKey según ports del centro
+  var peerOrder = {};
+  var peerCount = {};
+  center.ports.forEach(function(p, i) {
+    if (!p.peerKey) return;
+    if (peerOrder[p.peerKey] === undefined) { peerOrder[p.peerKey] = 0; peerCount[p.peerKey] = 0; }
+    peerOrder[p.peerKey] += i;
+    peerCount[p.peerKey]++;
+  });
+  Object.keys(peerOrder).forEach(function(k) {
+    peerOrder[k] = peerOrder[k] / peerCount[k];
+  });
+
   Object.keys(cols).forEach(function(d) {
     d = parseInt(d);
     var col = cols[d];
@@ -2245,7 +2266,16 @@ function computeRadialLayout(graph) {
       var edgeCount = graph.edges.filter(function(e) {
         return e.from === n.key || e.to === n.key;
       }).length;
-      n.nodeH = Math.max(NODE_H_BASE, edgeCount * 16);
+      var portCount = n.ports ? n.ports.length : 0;
+      var portH = portCount > 0 ? 8 + portCount * 18 : 0; // divider + labels
+      n.nodeH = Math.max(NODE_H_BASE, edgeCount * 16, NODE_H_BASE + portH);
+    });
+
+    // Reordenar nodos de la columna según orden de ports del centro
+    col.sort(function(a, b) {
+      var oa = peerOrder[a.key] !== undefined ? peerOrder[a.key] : 99999;
+      var ob = peerOrder[b.key] !== undefined ? peerOrder[b.key] : 99999;
+      return oa - ob;
     });
 
     // Altura disponible del viewport
@@ -2318,13 +2348,14 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
   var allNodes = Object.values(nodes);
   var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
   allNodes.forEach(function(n) {
+    var nh = (n.nodeH || NODE_H_BASE) / 2;
     minX = Math.min(minX, n.x - NODE_W);
-    minY = Math.min(minY, n.y - NODE_H_BASE);
+    minY = Math.min(minY, n.y - nh);
     maxX = Math.max(maxX, n.x + NODE_W);
-    maxY = Math.max(maxY, n.y + NODE_H_BASE);
+    maxY = Math.max(maxY, n.y + nh);
   });
 
-  var PAD = 120;
+  var PAD = 60;
   var canvasW = maxX - minX + PAD * 2;
   var canvasH = maxY - minY + PAD * 2;
   var offsetX = -minX + PAD;
@@ -2332,24 +2363,7 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
 
   // Controls HTML
   var html = '<div class="rm-controls">';
-  html += '<div class="rm-ctrl-group">';
-  html += '<span class="rm-ctrl-lbl">↑ Upstream</span>';
-  html += '<button class="rm-btn" onclick="window._radialChangeBw(-1)">−</button>';
-  html += '<span class="rm-ctrl-val" id="rm-val-bw">' + window._radialSteps.bw + '</span>';
-  html += '<button class="rm-btn" onclick="window._radialChangeBw(1)">+</button>';
-  html += '</div>';
-  html += '<div class="rm-ctrl-group">';
-  html += '<span class="rm-ctrl-lbl">↓ Downstream</span>';
-  html += '<button class="rm-btn" onclick="window._radialChangeFw(-1)">−</button>';
-  html += '<span class="rm-ctrl-val" id="rm-val-fw">' + window._radialSteps.fw + '</span>';
-  html += '<button class="rm-btn" onclick="window._radialChangeFw(1)">+</button>';
-  html += '</div>';
-  html += '<div class="rm-ctrl-group">';
-  html += '<button class="rm-btn" onclick="window._radialZoom(-0.2)">−</button>';
-  html += '<span class="rm-ctrl-lbl">Zoom</span>';
-  html += '<button class="rm-btn" onclick="window._radialZoom(0.2)">+</button>';
   html += '<button class="rm-btn rm-btn-fit" onclick="window._radialFit()">⊡ Fit</button>';
-  html += '</div>';
   html += '</div>';
 
   // Canvas
@@ -2365,6 +2379,22 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
         + '<polygon points="0 0, 7 3.5, 0 7" fill="var(--yellow)"/></marker>'
         + '</defs>'
         + '</svg>';
+
+  // Construir orden de ports por nodo secundario según edges
+  var nodePortOrder = {};
+  edges.forEach(function(edge) {
+    var peer = edge.from === centerKey ? edge.to : edge.from;
+    if (peer === centerKey) return;
+    if (!nodePortOrder[peer]) nodePortOrder[peer] = [];
+    var centerPort = edge.from === centerKey ? edge.fromPort : edge.toPort;
+    var peerPort   = edge.from === centerKey ? edge.toPort   : edge.fromPort;
+    nodePortOrder[peer].push({ peerPort: peerPort, centerPort: centerPort });
+  });
+  Object.keys(nodePortOrder).forEach(function(k) {
+    nodePortOrder[k].sort(function(a, b) {
+      return portN(a.centerPort) - portN(b.centerPort) || String(a.centerPort).localeCompare(String(b.centerPort));
+    });
+  });
 
   // Nodes
   allNodes.forEach(function(node) {
@@ -2402,8 +2432,31 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
         html += '<div class="rm-node-ip ' + ipCls + '">' + h(node.ip) + '</div>';
       }
 
+      if (!isCenter && !isConv && node.ports.length) {
+        var portOrderList = nodePortOrder[node.key] || [];
+        var sortedPorts = node.ports.slice().sort(function(a, b) {
+          var ia = portOrderList.findIndex(function(x) { return x.peerPort === a.port; });
+          var ib = portOrderList.findIndex(function(x) { return x.peerPort === b.port; });
+          if (ia === -1) ia = 99999;
+          if (ib === -1) ib = 99999;
+          return ia - ib;
+        });
+        html += '<div class="rm-node-divider"></div>';
+        sortedPorts.forEach(function(p) {
+          var c   = p.role === 'in' ? 'var(--accent)' : 'var(--orange)';
+          var id  = 'rm-port-' + cssId(node.key.replace(/\|/g,'-')) + '-' + p.role + '-' + cssId(p.port);
+          var lbl = p.role === 'in' ? '▶ ' + h(p.port) : h(p.port) + ' ▶';
+          var align = p.role === 'in' ? 'text-align:left' : 'text-align:right';
+          html += '<div class="rm-node-port ' + p.role + '" id="' + id + '" style="color:' + c + ';' + align + '">' + lbl + '</div>';
+        });
+      }
+
       if (isCenter) {
+        var centerHasThru = !!(_idxThru[rack + '|' + eq + '|' + nss(slot)] || []).length;
         node.ports.sort(function(a, b) {
+          if (centerHasThru) {
+            return portN(a.port) - portN(b.port) || String(a.port).localeCompare(String(b.port));
+          }
           var peerA = a.peerKey ? nodes[a.peerKey] : null;
           var peerB = b.peerKey ? nodes[b.peerKey] : null;
           var yA = peerA ? peerA.y : 99999;
@@ -2420,7 +2473,12 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
         var ncPorts    = [];
 
         node.ports.forEach(function(p) {
-          if (p.isNC) { ncPorts.push(p); return; }
+          if (p.isNC && !centerHasThru) { ncPorts.push(p); return; }
+          if (centerHasThru) {
+            if (p.role === 'in') leftPorts.push(p);
+            else rightPorts.push(p);
+            return;
+          }
           var peerNode  = p.peerKey ? nodes[p.peerKey] : null;
           var peerDepth = peerNode ? (peerNode.depth === null ? 1 : peerNode.depth) : 0;
           if (peerDepth < 0) leftPorts.push(p);
@@ -2428,28 +2486,34 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
         });
 
         function portHtml(p, color, side) {
-          var c   = color || (p.role === 'in' ? 'var(--accent)' : 'var(--orange)');
-          var id = 'rm-port-' + cssId(node.key.replace(/\|/g,'-')) + '-' + p.role + '-' + cssId(p.port);
-          var lbl = p.role === 'in' ? '▶ ' + h(p.port) : h(p.port) + ' ▶';
+          var c     = color || (p.role === 'in' ? 'var(--accent)' : 'var(--orange)');
+          var id    = 'rm-port-' + cssId(node.key.replace(/\|/g,'-')) + '-' + p.role + '-' + cssId(p.port);
+          var lbl   = p.role === 'in' ? '▶ ' + h(p.port) : h(p.port) + ' ▶';
           var align = side === 'left' ? 'text-align:left' : 'text-align:right';
           return '<div class="rm-node-port ' + p.role + '" id="' + id + '" style="color:' + c + ';' + align + '">' + lbl + '</div>';
         }
 
         var rows = Math.max(leftPorts.length, rightPorts.length);
-        html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;">';
+        html += '<div style="display:grid;grid-template-columns:' + (centerHasThru ? '1fr auto 1fr' : '1fr 1fr') + ';gap:2px 8px;">';
         for (var ri = 0; ri < rows; ri++) {
-          var lp = leftPorts[ri]  ? portHtml(leftPorts[ri],  null, 'left')  : '<div></div>';
-          var rp = rightPorts[ri] ? portHtml(rightPorts[ri], null, 'right') : '<div></div>';
-          html += lp + rp;
+          var lp = leftPorts[ri]  ? portHtml(leftPorts[ri],  leftPorts[ri].isNC  ? 'var(--yellow)' : null, 'left')  : '<div></div>';
+          var rp = rightPorts[ri] ? portHtml(rightPorts[ri], rightPorts[ri].isNC ? 'var(--yellow)' : null, 'right') : '<div></div>';
+          if (centerHasThru) {
+            var rot = (leftPorts[ri] && leftPorts[ri].rotulo) || (rightPorts[ri] && rightPorts[ri].rotulo) || '';
+            var mid = rot ? '<div style="font-family:var(--mono);font-size:.55rem;color:var(--green);text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + h(rot) + '</div>' : '<div></div>';
+            html += lp + mid + rp;
+          } else {
+            html += lp + rp;
+          }
         }
         html += '</div>';
 
-        if (ncPorts.length) {
+        if (ncPorts.length && !centerHasThru) {
           var ncLeft  = ncPorts.filter(function(p) { return p.role === 'in'; });
           var ncRight = ncPorts.filter(function(p) { return p.role === 'out'; });
           var ncRows  = Math.max(ncLeft.length, ncRight.length);
           html += '<div class="rm-node-divider" style="margin-top:6px"></div>';
-          html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;">';
+          html += '<div style="display:grid;grid-template-columns:' + (centerHasThru ? '1fr auto 1fr' : '1fr 1fr') + ';gap:2px 8px;">';
           for (var ni = 0; ni < ncRows; ni++) {
             var nl = ncLeft[ni]  ? portHtml(ncLeft[ni],  'var(--yellow)', 'left')  : '<div></div>';
             var nr = ncRight[ni] ? portHtml(ncRight[ni], 'var(--yellow)', 'right') : '<div></div>';
@@ -2478,14 +2542,20 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
   var canvas   = document.getElementById('rm-canvas');
 
   function applyTransform() {
+    var vw = viewport.clientWidth;
+    var vh = viewport.clientHeight;
+    var cw = parseFloat(canvas.style.width)  || canvas.offsetWidth;
+    var ch = parseFloat(canvas.style.height) || canvas.offsetHeight;
+    var margin = 60;
+    var minPanX = vw / scale - cw - margin;
+    var minPanY = vh / scale - ch - margin;
+    var maxPanX = margin;
+    var maxPanY = margin;
+    panX = Math.min(maxPanX, Math.max(panX, minPanX));
+    panY = Math.min(maxPanY, Math.max(panY, minPanY));
     canvas.style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')';
     canvas.style.transformOrigin = '0 0';
   }
-
-  window._radialZoom = function(delta) {
-    scale = Math.min(3, Math.max(0.2, scale + delta));
-    applyTransform();
-  };
 
   window._radialFit = function() {
     var vw = viewport.clientWidth;
@@ -2505,28 +2575,28 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
     });
     var realW = maxX - minX + PAD * 2;
     var realH = maxY - minY + PAD * 2;
-    scale = Math.min(vw / realW, vh / realH) * 0.92;
+    scale = Math.min(vw / realW, vh / realH) * 0.98;
+    window._radialMinScale = scale; // guardar como mínimo
     panX = (vw / scale - realW) / 2 - minX + PAD;
     panY = (vh / scale - realH) / 2 - minY + PAD;
     applyTransform();
-  };
-
-  window._radialChangeBw = function(delta) {
-    var s = window._radialSteps;
-    s.bw = Math.min(s.max, Math.max(1, s.bw + delta));
-    window._radialSteps = s;
-    var graph = buildRadialGraph(rack, eq, slot, s.bw, s.fw);
-    var newNodes = computeRadialLayout(graph);
-    renderRadialMap(newNodes, graph.edges, graph.centerKey, rack, eq, slot);
-  };
-
-  window._radialChangeFw = function(delta) {
-    var s = window._radialSteps;
-    s.fw = Math.min(s.max, Math.max(1, s.fw + delta));
-    window._radialSteps = s;
-    var graph = buildRadialGraph(rack, eq, slot, s.bw, s.fw);
-    var newNodes = computeRadialLayout(graph);
-    renderRadialMap(newNodes, graph.edges, graph.centerKey, rack, eq, slot);
+    // Ajustar canvas al bounding box real
+    var newW = maxX - minX + PAD * 2;
+    var newH = maxY - minY + PAD * 2;
+    canvas.style.width  = newW + 'px';
+    canvas.style.height = newH + 'px';
+    var svg = document.getElementById('rm-svg');
+    if (svg) { svg.style.width = newW + 'px'; svg.style.height = newH + 'px'; }
+    // Corregir posición de nodos al nuevo origen
+    var shiftX = minX - PAD;
+    var shiftY = minY - PAD;
+    canvas.querySelectorAll('.rm-node').forEach(function(el) {
+      el.style.left = (parseInt(el.style.left) - shiftX) + 'px';
+      el.style.top  = (parseInt(el.style.top)  - shiftY) + 'px';
+    });
+    panX = 0; panY = 0;
+    applyTransform();
+    requestAnimationFrame(function() { drawRadialArrows(window._radialLastNodes, window._radialEdges, window._radialCenterKey); });
   };
 
   // Mouse pan
@@ -2608,7 +2678,7 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
     var mouseX = e.clientX - rect.left;
     var mouseY = e.clientY - rect.top;
     var delta = e.deltaY > 0 ? -0.1 : 0.1;
-    var newScale = Math.min(3, Math.max(0.2, scale + delta));
+    var newScale = Math.min(3, Math.max(window._radialMinScale || 0.2, scale + delta));
     // Ajustar pan para que el punto bajo el cursor no se mueva
     panX = mouseX / newScale - mouseX / scale + panX;
     panY = mouseY / newScale - mouseY / scale + panY;
@@ -2633,7 +2703,7 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
       lastH = r.height;
     }
 
-    if (stableFrames >= 4) {
+    if (stableFrames >= 8) {
       window._radialFit();
       requestAnimationFrame(function() {
         drawRadialArrows(nodes, edges, centerKey);
@@ -2758,12 +2828,20 @@ function drawRadialArrows(nodes, edges, centerKey) {
   var paths = '';
 
   // Precalcular índice de cada edge por nodo secundario
-  var nodeEdgeIndex = {}; // nodeKey -> [edgeIndexLocal]
+  var nodeEdgeIndex = {};
   edges.forEach(function(edge) {
     var peer = edge.from === centerKey ? edge.to : edge.from;
     if (peer === centerKey) return;
     if (!nodeEdgeIndex[peer]) nodeEdgeIndex[peer] = [];
     nodeEdgeIndex[peer].push(edge);
+  });
+  // Ordenar edges de cada nodo por número de puerto del centro
+  Object.keys(nodeEdgeIndex).forEach(function(k) {
+    nodeEdgeIndex[k].sort(function(a, b) {
+      var pa = a.from === centerKey ? a.fromPort : a.toPort;
+      var pb = b.from === centerKey ? b.fromPort : b.toPort;
+      return portN(pa) - portN(pb) || String(pa).localeCompare(String(pb));
+    });
   });
 
   edges.forEach(function(edge) {
@@ -2781,7 +2859,12 @@ function drawRadialArrows(nodes, edges, centerKey) {
     var peerIdx = peerEdges.indexOf(edge);
     var peerTotal = peerEdges.length;
     var peerY = null;
-    if (peerEl && peerTotal > 1) {
+    var peerPort   = edge.from === centerKey ? edge.toPort   : edge.fromPort;
+    var peerRole   = edge.from === centerKey ? 'in'          : 'out';
+    var peerPortEl = portEl(peer, peerPort, peerRole);
+    if (peerPortEl) {
+      peerY = elMidY(peerPortEl);
+    } else if (peerEl && peerTotal > 1) {
       var pr = peerEl.getBoundingClientRect();
       var pad = 12;
       peerY = (pr.top - cRect.top) / scaleY + pad + (peerIdx / (peerTotal - 1)) * ((pr.height / scaleY) - pad * 2);
