@@ -2541,6 +2541,7 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
   var viewport = document.getElementById('rm-viewport');
   var canvas   = document.getElementById('rm-canvas');
 
+  /*
   function applyTransform() {
     var vw = viewport.clientWidth;
     var vh = viewport.clientHeight;
@@ -2560,6 +2561,13 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
 
     panX = Math.min(maxPanX, Math.max(panX, minPanX));
     panY = Math.min(maxPanY, Math.max(panY, minPanY));
+    canvas.style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')';
+    canvas.style.transformOrigin = '0 0';
+  }
+
+  */
+
+  function applyTransform() {
     canvas.style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')';
     canvas.style.transformOrigin = '0 0';
   }
