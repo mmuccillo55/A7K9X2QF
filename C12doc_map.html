@@ -2604,6 +2604,19 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
     panX = 0; panY = 0;
     applyTransform();
     requestAnimationFrame(function() { drawRadialArrows(window._radialLastNodes, window._radialEdges, window._radialCenterKey); });
+
+    var cw = parseFloat(canvas.style.width);
+    var ch = parseFloat(canvas.style.height);
+    canvas.querySelectorAll('.rm-node').forEach(function(el) {
+      var r = parseInt(el.style.left) + el.offsetWidth;
+      var b = parseInt(el.style.top)  + el.offsetHeight;
+      if (r > cw || b > ch) {
+        el.style.outline = '3px solid red';
+      } else {
+        el.style.outline = '';
+      }
+    });
+    
   };
 
   // Mouse pan
