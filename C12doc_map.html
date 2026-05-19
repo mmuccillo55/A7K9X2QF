@@ -2544,19 +2544,35 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
   function applyTransform() {
     var vw = viewport.clientWidth;
     var vh = viewport.clientHeight;
-    var cw = parseFloat(canvas.style.width)  || canvas.offsetWidth;
-    var ch = parseFloat(canvas.style.height) || canvas.offsetHeight;
+
+    // Bounding box real del contenido
+    var allNodeEls = canvas.querySelectorAll('.rm-node');
+    var bMinX = Infinity, bMinY = Infinity, bMaxX = -Infinity, bMaxY = -Infinity;
+    allNodeEls.forEach(function(el) {
+      var l = parseInt(el.style.left) || 0;
+      var t = parseInt(el.style.top)  || 0;
+      var w = el.offsetWidth;
+      var h = el.offsetHeight;
+      bMinX = Math.min(bMinX, l);
+      bMinY = Math.min(bMinY, t);
+      bMaxX = Math.max(bMaxX, l + w);
+      bMaxY = Math.max(bMaxY, t + h);
+    });
+
     var margin = 60;
+    var cw = (bMaxX - bMinX) + margin * 2;
+    var ch = (bMaxY - bMinY) + margin * 2;
+
     var minPanX = vw / scale - cw - margin;
     var minPanY = vh / scale - ch - margin;
     var maxPanX = margin;
     var maxPanY = margin;
+
     panX = Math.min(maxPanX, Math.max(panX, minPanX));
     panY = Math.min(maxPanY, Math.max(panY, minPanY));
     canvas.style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')';
     canvas.style.transformOrigin = '0 0';
   }
-
   window._radialFit = function() {
     var vw = viewport.clientWidth;
     var vh = viewport.clientHeight;
