@@ -2535,6 +2535,8 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
   // Pan/zoom
   var scale = 1;
   var panX = 0, panY = 0;
+  var clampMinX = -9999, clampMinY = -9999;  // ← agregá estas
+  var clampMaxX = 60,    clampMaxY = 60;
   var dragging = false;
   var startX, startY, startPanX, startPanY;
 
@@ -2568,6 +2570,8 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
   */
 
   function applyTransform() {
+    panX = Math.min(clampMaxX, Math.max(panX, clampMinX));
+    panY = Math.min(clampMaxY, Math.max(panY, clampMinY));
     canvas.style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')';
     canvas.style.transformOrigin = '0 0';
   }
@@ -2600,6 +2604,12 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
     var newH = maxY - minY + PAD * 2;
     canvas.style.width  = newW + 'px';
     canvas.style.height = newH + 'px';
+    // Después de canvas.style.width = newW, canvas.style.height = newH
+    var margin = 60;
+    clampMinX = (vw - margin) / scale - newW;
+    clampMinY = (vh - margin) / scale - newH;
+    clampMaxX = margin;
+    clampMaxY = margin;
     var svg = document.getElementById('rm-svg');
     if (svg) { svg.style.width = newW + 'px'; svg.style.height = newH + 'px'; }
     // Corregir posición de nodos al nuevo origen
@@ -2611,20 +2621,7 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
     });
     panX = 0; panY = 0;
     applyTransform();
-    requestAnimationFrame(function() { drawRadialArrows(window._radialLastNodes, window._radialEdges, window._radialCenterKey); });
-
-    var cw = parseFloat(canvas.style.width);
-    var ch = parseFloat(canvas.style.height);
-    canvas.querySelectorAll('.rm-node').forEach(function(el) {
-      var r = parseInt(el.style.left) + el.offsetWidth;
-      var b = parseInt(el.style.top)  + el.offsetHeight;
-      if (r > cw || b > ch) {
-        el.style.outline = '3px solid red';
-      } else {
-        el.style.outline = '';
-      }
-    });
-    
+    requestAnimationFrame(function() { drawRadialArrows(window._radialLastNodes, window._radialEdges, window._radialCenterKey); });    
   };
 
   // Mouse pan
