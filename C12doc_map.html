@@ -2618,27 +2618,23 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
     if (viewport) viewport.style.cursor = 'grab';
   });
 
-  var touch0, touch1, startScale, startPinchDist;
+  var touch0, touch1, startScale, startPinchDist, startPinchWorldX, startPinchWorldY;
 
   viewport.addEventListener('touchstart', function(e) {
     if (e.touches.length === 1) {
       touch0 = e.touches[0];
-      startPanX = panX; startPanY = panY;
-    }
-  });
-
-  
-
-  viewport.addEventListener('touchstart', function(e) {
-    if (e.touches.length === 1) {
-      touch0 = e.touches[0];
-      startPanX = panX; startPanY = panY;
       touch1 = null;
+      startPanX = panX; startPanY = panY;
     } else if (e.touches.length === 2) {
       touch0 = e.touches[0];
       touch1 = e.touches[1];
       startScale = scale;
       startPinchDist = Math.hypot(touch1.clientX - touch0.clientX, touch1.clientY - touch0.clientY);
+      var rect = viewport.getBoundingClientRect();
+      var cx = (touch0.clientX + touch1.clientX) / 2 - rect.left;
+      var cy = (touch0.clientY + touch1.clientY) / 2 - rect.top;
+      startPinchWorldX = cx / startScale - panX;
+      startPinchWorldY = cy / startScale - panY;
       startPanX = panX; startPanY = panY;
     }
   }, { passive: false });
@@ -2652,11 +2648,11 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
       var t0 = e.touches[0], t1 = e.touches[1];
       var dist = Math.hypot(t1.clientX - t0.clientX, t1.clientY - t0.clientY);
       var newScale = Math.min(3, Math.max(0.2, startScale * (dist / startPinchDist)));
-      // Centro del pinch como pivot
-      var cx = (t0.clientX + t1.clientX) / 2 - viewport.getBoundingClientRect().left;
-      var cy = (t0.clientY + t1.clientY) / 2 - viewport.getBoundingClientRect().top;
-      panX = cx / newScale - cx / scale + panX;
-      panY = cy / newScale - cy / scale + panY;
+      var rect = viewport.getBoundingClientRect();
+      var cx = (t0.clientX + t1.clientX) / 2 - rect.left;
+      var cy = (t0.clientY + t1.clientY) / 2 - rect.top;
+      panX = cx / newScale - startPinchWorldX;
+      panY = cy / newScale - startPinchWorldY;
       scale = newScale;
       applyTransform();
     }
