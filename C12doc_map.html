@@ -2574,29 +2574,26 @@ function renderRadialMap(nodes, edges, centerKey, rack, eq, slot) {
     var vw = viewport.clientWidth;
     var vh = viewport.clientHeight;
     var margin = 60;
-    var minPanX = (vw - margin) / scale - canvasRealW;
-    var minPanY = (vh - margin) / scale - canvasRealH;
-    var maxPanX = margin;
-    var maxPanY = margin;
-    panX = Math.min(maxPanX, Math.max(panX, minPanX));
-    panY = Math.min(maxPanY, Math.max(panY, minPanY));
+
+    // Convertir pan a píxeles de pantalla para clampear
+    // Borde izquierdo del canvas en pantalla = panX * scale
+    // Borde derecho del canvas en pantalla = (panX + canvasRealW) * scale
+
+    var screenLeft  = panX * scale;
+    var screenTop   = panY * scale;
+    var screenRight = (panX + canvasRealW) * scale;
+    var screenBot   = (panY + canvasRealH) * scale;
+
+    // Borde izquierdo no puede pasar de +margin
+    if (screenLeft > margin)        panX = margin / scale;
+    // Borde derecho no puede quedar antes de vw-margin
+    if (screenRight < vw - margin)  panX = (vw - margin) / scale - canvasRealW;
+    // Igual para Y
+    if (screenTop > margin)         panY = margin / scale;
+    if (screenBot < vh - margin)    panY = (vh - margin) / scale - canvasRealH;
+
     canvas.style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')';
     canvas.style.transformOrigin = '0 0';
-
-    // DEBUG - borrá después
-    var dbg = document.getElementById('rm-debug');
-    if (!dbg) {
-      dbg = document.createElement('div');
-      dbg.id = 'rm-debug';
-      dbg.style.cssText = 'position:fixed;top:60px;left:0;background:rgba(0,0,0,0.8);color:lime;font-size:11px;padding:6px;z-index:9999;font-family:monospace;pointer-events:none;';
-      document.body.appendChild(dbg);
-    }
-    dbg.innerHTML =
-      'scale: ' + scale.toFixed(3) + '<br>' +
-      'panX: ' + panX.toFixed(1) + ' (min ' + minPanX.toFixed(1) + ')<br>' +
-      'panY: ' + panY.toFixed(1) + ' (min ' + minPanY.toFixed(1) + ')<br>' +
-      'canvasW: ' + canvasRealW + ' canvasH: ' + canvasRealH + '<br>' +
-      'vw: ' + vw + ' vh: ' + vh;
   }
   
   window._radialFit = function() {
