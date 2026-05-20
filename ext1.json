@@ -138,7 +138,7 @@
       }
     },
     {
-      "rack": "D.1",
+      "rack": "DC.1",
       "equipo": "Yamaha MG166",
       "ip": null,
       "management": {
@@ -146,7 +146,7 @@
       }
     },
     {
-      "rack": "D.2",
+      "rack": "DC.2",
       "equipo": "Monitor Audio L",
       "ip": null,
       "management": {
@@ -154,7 +154,7 @@
       }
     },
     {
-      "rack": "D.3",
+      "rack": "DC.3",
       "equipo": "Mixer Intercom",
       "ip": null,
       "management": {
@@ -162,7 +162,7 @@
       }
     },
     {
-      "rack": "D.4",
+      "rack": "DC.4",
       "equipo": "Headset Director",
       "ip": null,
       "management": {
@@ -170,7 +170,7 @@
       }
     },
     {
-      "rack": "D.5",
+      "rack": "DC.5",
       "equipo": "SmartView (PVW)",
       "ip": null,
       "management": {
@@ -178,7 +178,7 @@
       }
     },
     {
-      "rack": "D.6",
+      "rack": "DC.6",
       "equipo": "SmartScope (PVW)",
       "ip": null,
       "management": {
@@ -186,7 +186,7 @@
       }
     },
     {
-      "rack": "D.7",
+      "rack": "DC.7",
       "equipo": "Monitor Aire",
       "ip": null,
       "management": {
@@ -194,7 +194,7 @@
       }
     },
     {
-      "rack": "D.8",
+      "rack": "DC.8",
       "equipo": "Monitor Multiview",
       "ip": null,
       "management": {
@@ -202,7 +202,7 @@
       }
     },
     {
-      "rack": "D.9",
+      "rack": "DC.9",
       "equipo": "Monitor Audio R",
       "ip": null,
       "management": {
@@ -2030,7 +2030,7 @@
         "puerto": "B4"
       },
       "dst": {
-        "rack": "D.7",
+        "rack": "DC.7",
         "equipo": "Monitor Aire",
         "slot": "",
         "placa": "",
@@ -2146,7 +2146,7 @@
         "puerto": "Audio Out L"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -2185,7 +2185,7 @@
         "puerto": "Audio Out L"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -2224,7 +2224,7 @@
         "puerto": "Audio Out R"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -2263,7 +2263,7 @@
         "puerto": "Audio Out R"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -2926,7 +2926,7 @@
         "puerto": "XLR 1"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -2965,7 +2965,7 @@
         "puerto": "XLR 2"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -3004,7 +3004,7 @@
         "puerto": "XLR 3"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -3043,7 +3043,7 @@
         "puerto": "XLR 4"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -3082,7 +3082,7 @@
         "puerto": "XLR 5"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -3121,7 +3121,7 @@
         "puerto": "XLR 6"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -3160,7 +3160,7 @@
         "puerto": "XLR 7"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -3199,7 +3199,7 @@
         "puerto": "XLR 8"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -3238,7 +3238,7 @@
         "puerto": "XLR 9"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -4174,7 +4174,7 @@
         "puerto": "Preview"
       },
       "dst": {
-        "rack": "D.5",
+        "rack": "DC.5",
         "equipo": "SmartView (PVW)",
         "slot": "",
         "placa": "",
@@ -4186,14 +4186,14 @@
     },
     {
       "src": {
-        "rack": "D.5",
+        "rack": "DC.5",
         "equipo": "SmartView (PVW)",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out"
       },
       "dst": {
-        "rack": "D.6",
+        "rack": "DC.6",
         "equipo": "SmartScope (PVW)",
         "slot": "",
         "placa": "",
@@ -4205,14 +4205,14 @@
     },
     {
       "src": {
-        "rack": "D.5",
+        "rack": "DC.5",
         "equipo": "SmartView (PVW)",
         "slot": "",
         "placa": "",
         "puerto": "SDI In"
       },
       "dst": {
-        "rack": "D.5",
+        "rack": "DC.5",
         "equipo": "SmartView (PVW)",
         "slot": "",
         "placa": "",
@@ -4225,14 +4225,14 @@
     },
     {
       "src": {
-        "rack": "D.6",
+        "rack": "DC.6",
         "equipo": "SmartScope (PVW)",
         "slot": "",
         "placa": "",
         "puerto": "SDI Out 1"
       },
       "dst": {
-        "rack": "D.6",
+        "rack": "DC.6",
         "equipo": "SmartScope (PVW)",
         "slot": "",
         "placa": "",
@@ -4244,14 +4244,14 @@
     },
     {
       "src": {
-        "rack": "D.6",
+        "rack": "DC.6",
         "equipo": "SmartScope (PVW)",
         "slot": "",
         "placa": "",
         "puerto": "SDI In 1"
       },
       "dst": {
-        "rack": "D.6",
+        "rack": "DC.6",
         "equipo": "SmartScope (PVW)",
         "slot": "",
         "placa": "",
@@ -4271,7 +4271,7 @@
         "puerto": "HDMI Out (MV)"
       },
       "dst": {
-        "rack": "D.8",
+        "rack": "DC.8",
         "equipo": "Monitor Multiview",
         "slot": "",
         "placa": "",
@@ -4283,14 +4283,14 @@
     },
     {
       "src": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
         "puerto": "Monitor Out L"
       },
       "dst": {
-        "rack": "D.2",
+        "rack": "DC.2",
         "equipo": "Monitor Audio L",
         "slot": "",
         "placa": "",
@@ -4302,14 +4302,14 @@
     },
     {
       "src": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
         "puerto": "Monitor Out R"
       },
       "dst": {
-        "rack": "D.9",
+        "rack": "DC.9",
         "equipo": "Monitor Audio R",
         "slot": "",
         "placa": "",
@@ -4321,7 +4321,7 @@
     },
     {
       "src": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -4340,7 +4340,7 @@
     },
     {
       "src": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -4359,7 +4359,7 @@
     },
     {
       "src": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -4378,7 +4378,7 @@
     },
     {
       "src": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -4397,7 +4397,7 @@
     },
     {
       "src": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -4416,7 +4416,7 @@
     },
     {
       "src": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -4513,7 +4513,7 @@
     },
     {
       "src": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -4532,7 +4532,7 @@
     },
     {
       "src": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -5889,7 +5889,7 @@
         "puerto": "Speaker Out"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -5908,7 +5908,7 @@
         "puerto": "Speaker Out"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -5927,7 +5927,7 @@
         "puerto": "Speaker Out"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -5946,7 +5946,7 @@
         "puerto": "Incom Out"
       },
       "dst": {
-        "rack": "D.3",
+        "rack": "DC.3",
         "equipo": "Mixer Intercom",
         "slot": "",
         "placa": "",
@@ -5965,7 +5965,7 @@
         "puerto": "Incom Out"
       },
       "dst": {
-        "rack": "D.3",
+        "rack": "DC.3",
         "equipo": "Mixer Intercom",
         "slot": "",
         "placa": "",
@@ -5984,7 +5984,7 @@
         "puerto": "Incom Out"
       },
       "dst": {
-        "rack": "D.3",
+        "rack": "DC.3",
         "equipo": "Mixer Intercom",
         "slot": "",
         "placa": "",
@@ -6003,7 +6003,7 @@
         "puerto": "Incom Out"
       },
       "dst": {
-        "rack": "D.3",
+        "rack": "DC.3",
         "equipo": "Mixer Intercom",
         "slot": "",
         "placa": "",
@@ -6022,7 +6022,7 @@
         "puerto": "Incom Out"
       },
       "dst": {
-        "rack": "D.3",
+        "rack": "DC.3",
         "equipo": "Mixer Intercom",
         "slot": "",
         "placa": "",
@@ -6268,14 +6268,14 @@
     },
     {
       "src": {
-        "rack": "D.3",
+        "rack": "DC.3",
         "equipo": "Mixer Intercom",
         "slot": "",
         "placa": "",
         "puerto": "Out"
       },
       "dst": {
-        "rack": "D.4",
+        "rack": "DC.4",
         "equipo": "Headset Director",
         "slot": "",
         "placa": "",
@@ -6287,14 +6287,14 @@
     },
     {
       "src": {
-        "rack": "D.4",
+        "rack": "DC.4",
         "equipo": "Headset Director",
         "slot": "",
         "placa": "",
         "puerto": "MIC"
       },
       "dst": {
-        "rack": "D.1",
+        "rack": "DC.1",
         "equipo": "Yamaha MG166",
         "slot": "",
         "placa": "",
@@ -6739,7 +6739,7 @@
         "puerto": "Speaker Out"
       },
       "dst": {
-        "rack": "D.3",
+        "rack": "DC.3",
         "equipo": "Mixer Intercom",
         "slot": "",
         "placa": "",
