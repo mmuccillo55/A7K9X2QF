@@ -6,6 +6,7 @@ on:
       - 'Racks.xlsx'
       - 'Ext1.xlsx'
       - 'Ext2.xlsx'
+      - 'parse.py'
   workflow_dispatch:
 
 jobs:
@@ -27,9 +28,9 @@ jobs:
 
       - name: Parsear xlsx
         run: |
-          if [ -f Racks.xlsx ]; then python parse_rack.py; fi
-          if [ -f Ext1.xlsx ];  then python parse_ext1.py; fi
-          if [ -f Ext2.xlsx ];  then python parse_ext2.py; fi
+          if [ -f Racks.xlsx ]; then python parse.py Racks.xlsx racks.json; fi
+          if [ -f Ext1.xlsx ];  then python parse.py Ext1.xlsx ext1.json; fi
+          if [ -f Ext2.xlsx ];  then python parse.py Ext2.xlsx ext2.json; fi
 
       - name: Commit JSONs
         run: |
