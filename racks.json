@@ -2148,7 +2148,50 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": "",
-      "es_thru_interno": true
+      "es_thru_interno": true,
+      "es_merge": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "A1"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true,
+      "es_merge": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "A2"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "1",
+        "placa": "Embedder",
+        "puerto": "SDI Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true,
+      "es_merge": true
     },
     {
       "src": {
@@ -7005,7 +7048,7 @@
         "equipo": "PC Videollamada",
         "slot": "1",
         "placa": "DeckLink",
-        "puerto": "Out P?"
+        "puerto": "Out P1"
       },
       "dst": {
         "rack": "C.6",
@@ -10987,9 +11030,9 @@
   ],
   "stats": {
     "nodos": 102,
-    "arcos_totales": 526,
+    "arcos_totales": 528,
     "arcos_externos": 355,
-    "arcos_thru_internos": 171,
+    "arcos_thru_internos": 173,
     "arcos_con_destino": 283,
     "arcos_sin_destino": 72
   }
