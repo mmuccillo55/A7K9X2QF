@@ -26,7 +26,7 @@ COL = {
     'dst_rack':     'Rack (Destino)',
     'dst_equipo':   'Equipo (Destino)',
     'dst_slot':     'Slot (Destino)',
-    'dst_placa':    'Placa (Destino)',   # ← NUEVO
+    'dst_placa':    'Placa (Destino)',
     'dst_puerto':   'Puerto (Destino)',
     'rotulo':       'Rótulo',
     'notas':        'Notas',
@@ -37,7 +37,6 @@ COL_DB = {
     'rack':   'Rack',
     'equipo': 'Equipo',
     'ip':     'IP',
-    'puerto': 'Puerto',   # ← NUEVO
 }
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -112,7 +111,7 @@ for _, row in df_db.iterrows():
     rack = cv(row[COL_DB['rack']])
     equipo = cv(row[COL_DB['equipo']])
     ip = parse_ip(row[COL_DB['ip']])  # ← FALTABA ESTO
-    puerto = cv(row[COL_DB['puerto']]) if COL_DB['puerto'] in df_db.columns else ''
+    tipo = cv(row['Tipo']) if 'Tipo' in df_db.columns else ''
     
     if not rack and not equipo:
         continue
@@ -121,9 +120,7 @@ for _, row in df_db.iterrows():
         'rack':   rack,
         'equipo': equipo,
         'ip':     ip,
-        'management': {
-            'puerto': puerto
-        }
+        'tipo':   tipo or None,
     }
     
     nodos.append(nodo)
