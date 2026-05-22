@@ -5,73 +5,55 @@
       "rack": "A.1",
       "equipo": "N/D",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "B.1",
       "equipo": "N/D",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.1",
       "equipo": "N/D",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.1",
       "equipo": "N/D",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "Ext.1",
       "equipo": "N/D",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "Ext.2",
       "equipo": "N/D",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "VACANTE",
       "equipo": "",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "N/D",
       "equipo": "",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "N/C",
       "equipo": "",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     }
   ],
   "conexiones": [],

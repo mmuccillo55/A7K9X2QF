@@ -5,273 +5,205 @@
       "rack": "B.1",
       "equipo": "Patch panel",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "B.2",
       "equipo": "ATEM 1 M/E",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "B.3",
       "equipo": "CopperHead ProHD 1",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "B.4",
       "equipo": "CopperHead ProHD 2",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "B.5",
       "equipo": "CopperHead ProHD 3",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "B.6",
       "equipo": "HyperDeck Studio Pro",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "B.7",
       "equipo": "SmartView (AIRE/PGM)",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "B.8",
       "equipo": "PC Video",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "B.9",
       "equipo": "PC CG",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.0",
       "equipo": "Sync Generator",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.1",
       "equipo": "RF",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.2",
       "equipo": "Miranda D3 (Video)",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.3",
       "equipo": "Ikegami BS-80 4",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.4",
       "equipo": "Ikegami BS-80 5",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.5",
       "equipo": "Miranda D3 (Audio)",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.6",
       "equipo": "SmartScope (PGM)",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.7",
       "equipo": "PC Audio",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.1",
       "equipo": "Yamaha MG166",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.2",
       "equipo": "Monitor Audio L",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.3",
       "equipo": "Mixer Intercom",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.4",
       "equipo": "Headset Director",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.5",
       "equipo": "SmartView (PVW)",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.6",
       "equipo": "SmartScope (PVW)",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.7",
       "equipo": "Monitor Aire",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.8",
       "equipo": "Monitor Multiview",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.9",
       "equipo": "Monitor Audio R",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "Ext.1",
       "equipo": "Patch Ext. Video",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "Ext.2",
       "equipo": "Patch Ext. Audio",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "VACANTE",
       "equipo": "",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "N/D",
       "equipo": "",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "N/C",
       "equipo": "",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "S.1",
       "equipo": "Split 1",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "S.2",
       "equipo": "Split 2",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "S.3",
       "equipo": "Split 3",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     }
   ],
   "conexiones": [

@@ -5,817 +5,613 @@
       "rack": "A.1",
       "equipo": "Server Players",
       "ip": "192.168.20.2",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "A.2",
       "equipo": "Player A",
       "ip": "192.168.20.6",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "A.3",
       "equipo": "Player B",
       "ip": "192.168.20.8",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "A.4",
       "equipo": "Player C",
       "ip": "192.168.20.10",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "A.5",
       "equipo": "CGX",
       "ip": "10.0.0.21",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "A.6",
       "equipo": "Videotron DV100-EQ",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "B.1",
       "equipo": "Server Loops",
       "ip": "192.168.20.4",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "B.2",
       "equipo": "Loop A",
       "ip": "192.168.20.12",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "B.3",
       "equipo": "Loop B",
       "ip": "192.168.20.14",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "B.4",
       "equipo": "Loop C",
       "ip": "192.168.20.16",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.1",
       "equipo": "Leader Sync Generator",
       "ip": "192.168.30.30",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.2",
       "equipo": "Miranda Densite3",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.3",
       "equipo": "AJA KUMO 6464",
       "ip": "192.168.30.2",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.4",
       "equipo": "Blackmagic Multiview 16",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.5",
       "equipo": "Blackmagic 12 x 12",
       "ip": "N/D",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.6",
       "equipo": "Patch Panel",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "C.7",
       "equipo": "Patch Panel",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.BACK.1",
       "equipo": "Raspberry PI 1",
       "ip": "192.168.30.51",
-      "management": {
-        "puerto": "1030"
-      }
+      "tipo": null
     },
     {
       "rack": "D.BACK.2",
       "equipo": "Raspberry PI 2",
       "ip": "192.168.30.52",
-      "management": {
-        "puerto": "1021"
-      }
+      "tipo": null
     },
     {
       "rack": "D.BACK.3",
       "equipo": "",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.1",
       "equipo": "Telairity BE-IRD 5501",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.2",
       "equipo": "Cisco D9865",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.3",
       "equipo": "Wellav UMH160R",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.4",
       "equipo": "Wellav UMH160R",
       "ip": "192.168.30.28",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.5",
       "equipo": "CRD1000D",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.6",
       "equipo": "Telairity BE-IRD 5503",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.7",
       "equipo": "openGear X",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.8",
       "equipo": "Cisco D9865",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.9",
       "equipo": "openGear X",
       "ip": "192.168.30.12",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.10",
       "equipo": "tc electronic Finalizer",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.11",
       "equipo": "AJA FS4",
       "ip": "192.168.30.14",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.12",
       "equipo": "AJA FS2",
       "ip": "192.168.30.18",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.13",
       "equipo": "AJA FS2",
       "ip": "192.168.30.16",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.14",
       "equipo": "Digiwave DSC-131",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.15",
       "equipo": "vidicraft vst2110",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "D.16",
       "equipo": "Videocasetera",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "E.1",
       "equipo": "DiTel Demodulador",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "E.2",
       "equipo": "Thomson ViBE CP6100",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "E.3",
       "equipo": "Leader LV 7770",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "E.4",
       "equipo": "PC Rack",
       "ip": "192.168.30.205",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "E.5",
       "equipo": "Datavideo TC-200",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "F.1",
       "equipo": "?",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "F.2",
       "equipo": "Sony HXCU-100 Cam 1",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "F.3",
       "equipo": "Sony HXCU-100 Cam 2",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "F.4",
       "equipo": "Sony HXCU-100 Cam 3",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "F.5",
       "equipo": "Sony HXCU-100 Cam 4",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "F.6",
       "equipo": "Blackmagic Multiview 4",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "F.7",
       "equipo": "FOR A HVS-390HS",
       "ip": "N/D",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "F.8",
       "equipo": "AJA HD5DA",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "G.1",
       "equipo": "NVS-33 (Encoder)",
       "ip": "192.168.30.128",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "G.2",
       "equipo": "HS-1300 (Valija)",
       "ip": "192.168.30.245",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "K",
       "equipo": "",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "L.1",
       "equipo": "VIDEOTRON",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "L.2",
       "equipo": "VIDEObit 3G-LINK-R",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "L.3",
       "equipo": "VIDEObit V2A-FIBER-5T",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "L.4",
       "equipo": "VIDEObit 3G-LINK-TD",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "L.5a",
       "equipo": "BM Fiber Converter",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "L.5b",
       "equipo": "BM Fiber Converter",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "L.6a",
       "equipo": "TBS Encoder",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "L.6b",
       "equipo": "SDI to OF",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "L.6c",
       "equipo": "",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "L.7",
       "equipo": "openGear X",
       "ip": "192.168.2.1",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "L.8",
       "equipo": "Ateme Kyrion CM5000",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "L.BACK.2",
       "equipo": "",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "L.BACK.3",
       "equipo": "",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "P.1",
       "equipo": "Apple TV",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "P.2",
       "equipo": "Patch Estudio",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "P.3",
       "equipo": "Monitor Piso",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "P.4",
       "equipo": "KP 3016 Asistente",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.1",
       "equipo": "Monitor Sonidista",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.2",
       "equipo": "Yamaha QL5",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.3",
       "equipo": "Monitor Titulos",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.4",
       "equipo": "PC Videollamada",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.5",
       "equipo": "Monitor Director 1",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.6",
       "equipo": "Monitor Director 2",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.7",
       "equipo": "GrassValley T2",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.8",
       "equipo": "Monitor Iluminador",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.9",
       "equipo": "PC Pantalla",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.10",
       "equipo": "Escalador Pantalla",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.11",
       "equipo": "Deco Direccion",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.12",
       "equipo": "KP 3016 Sonidista",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.13",
       "equipo": "KP 3016 Titulador",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.14",
       "equipo": "KP 3016 Director",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "DC.15",
       "equipo": "KP 3016 Productor",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "VACANTE",
       "equipo": "",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "N/D",
       "equipo": "?????",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "N/C",
       "equipo": "",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "TX.1",
       "equipo": "Monitor MV TX",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "TX.2",
       "equipo": "Monitor Linea TX",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "TX.3",
       "equipo": "Monitor Pvw TX",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "TX.4",
       "equipo": "Mixer Audio TX",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "TX.5",
       "equipo": "KP 3016 Transmision",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "S.1",
       "equipo": "Split 1",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "S.2",
       "equipo": "Split 2",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "S.3",
       "equipo": "Split 3",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "S.4",
       "equipo": "Split 4",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "MG.1",
       "equipo": "Merge 1",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "MG.2",
       "equipo": "Merge 2",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "MG.3",
       "equipo": "Merge 3",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "MG.4",
       "equipo": "Merge 4",
       "ip": null,
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "H.1",
       "equipo": "RTS Zeus III",
       "ip": "192.168.3.40",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     },
     {
       "rack": "H.2",
       "equipo": "Servidor",
       "ip": "N/D",
-      "management": {
-        "puerto": ""
-      }
+      "tipo": null
     }
   ],
   "conexiones": [
