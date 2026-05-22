@@ -4910,7 +4910,7 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "rotulo": "",
+      "rotulo": "Out 48",
       "notas": "",
       "disp_ext": "BM SDI to HDMI"
     },
@@ -4949,7 +4949,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "Out 47",
       "notas": "Cable suelto en TX",
       "disp_ext": ""
     },
@@ -4988,7 +4988,7 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "rotulo": "",
+      "rotulo": "Out 46",
       "notas": "",
       "disp_ext": "BM SDI to HDMI"
     },
@@ -5027,7 +5027,7 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "rotulo": "",
+      "rotulo": "Out 45",
       "notas": "",
       "disp_ext": "BM SDI to HDMI"
     },
@@ -5066,7 +5066,7 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "rotulo": "",
+      "rotulo": "Out 44",
       "notas": "",
       "disp_ext": "BM SDI to HDMI"
     },
@@ -5105,7 +5105,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "Out 43",
       "notas": "",
       "disp_ext": ""
     },
@@ -5144,7 +5144,7 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "rotulo": "",
+      "rotulo": "Out 42",
       "notas": "",
       "disp_ext": ""
     },
@@ -5183,7 +5183,7 @@
         "placa": "",
         "puerto": "SDI In 1"
       },
-      "rotulo": "",
+      "rotulo": "Out 41",
       "notas": "",
       "disp_ext": ""
     },
@@ -5222,7 +5222,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "Out 40",
       "notas": "",
       "disp_ext": ""
     },
@@ -5261,7 +5261,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "Out 39",
       "notas": "",
       "disp_ext": ""
     },
@@ -5300,7 +5300,7 @@
         "placa": "",
         "puerto": "SDI In 1"
       },
-      "rotulo": "",
+      "rotulo": "Out 38",
       "notas": "",
       "disp_ext": ""
     },
@@ -5339,7 +5339,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "Out 37",
       "notas": "",
       "disp_ext": ""
     },
@@ -5378,7 +5378,7 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "rotulo": "",
+      "rotulo": "Out 36",
       "notas": "",
       "disp_ext": "BM SDI to HDMI"
     },
@@ -5417,7 +5417,7 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "rotulo": "",
+      "rotulo": "Out 35",
       "notas": "",
       "disp_ext": "BM SDI to HDMI"
     },
@@ -5456,7 +5456,7 @@
         "placa": "",
         "puerto": "HDMI In"
       },
-      "rotulo": "",
+      "rotulo": "Out 34",
       "notas": "",
       "disp_ext": "BM SDI to HDMI"
     },
@@ -5495,7 +5495,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "Out 33",
       "notas": "",
       "disp_ext": ""
     },
@@ -6981,7 +6981,7 @@
         "placa": "",
         "puerto": "In 9"
       },
-      "rotulo": "",
+      "rotulo": "In 40",
       "notas": "",
       "disp_ext": "BM HDMI to SDI"
     },
@@ -7000,7 +7000,7 @@
         "placa": "",
         "puerto": "In 14"
       },
-      "rotulo": "",
+      "rotulo": "In 35",
       "notas": "",
       "disp_ext": ""
     },
@@ -7384,7 +7384,7 @@
         "placa": "",
         "puerto": "In 15"
       },
-      "rotulo": "",
+      "rotulo": "In 34",
       "notas": "",
       "disp_ext": ""
     },
@@ -7555,7 +7555,7 @@
         "placa": "",
         "puerto": "In 10"
       },
-      "rotulo": "",
+      "rotulo": "In 39",
       "notas": "",
       "disp_ext": ""
     },
@@ -7574,7 +7574,7 @@
         "placa": "",
         "puerto": "In 11"
       },
-      "rotulo": "",
+      "rotulo": "In 38",
       "notas": "",
       "disp_ext": ""
     },
@@ -7593,7 +7593,7 @@
         "placa": "",
         "puerto": "In 12"
       },
-      "rotulo": "",
+      "rotulo": "In 37",
       "notas": "",
       "disp_ext": ""
     },
@@ -7612,7 +7612,7 @@
         "placa": "",
         "puerto": "In 13"
       },
-      "rotulo": "",
+      "rotulo": "In 36",
       "notas": "",
       "disp_ext": ""
     },
