@@ -95,23 +95,23 @@
       "rack": "C.6",
       "equipo": "Patch Panel",
       "ip": null,
-      "tipo": null
+      "tipo": "Passthrough"
     },
     {
       "rack": "C.7",
       "equipo": "Patch Panel",
       "ip": null,
-      "tipo": null
+      "tipo": "Passthrough"
     },
     {
       "rack": "D.BACK.1",
-      "equipo": "Raspberry PI 1",
+      "equipo": "RPi 1 (SRT 1030)",
       "ip": "192.168.30.51",
       "tipo": null
     },
     {
       "rack": "D.BACK.2",
-      "equipo": "Raspberry PI 2",
+      "equipo": "RPi 2 (SRT 1021)",
       "ip": "192.168.30.52",
       "tipo": null
     },
@@ -286,7 +286,7 @@
     {
       "rack": "F.7",
       "equipo": "FOR A HVS-390HS",
-      "ip": "N/D",
+      "ip": "192.168.20.43",
       "tipo": null
     },
     {
@@ -413,7 +413,7 @@
       "rack": "P.4",
       "equipo": "KP 3016 Asistente",
       "ip": null,
-      "tipo": null
+      "tipo": "Duplex"
     },
     {
       "rack": "DC.1",
@@ -485,25 +485,25 @@
       "rack": "DC.12",
       "equipo": "KP 3016 Sonidista",
       "ip": null,
-      "tipo": null
+      "tipo": "Duplex"
     },
     {
       "rack": "DC.13",
       "equipo": "KP 3016 Titulador",
       "ip": null,
-      "tipo": null
+      "tipo": "Duplex"
     },
     {
       "rack": "DC.14",
       "equipo": "KP 3016 Director",
       "ip": null,
-      "tipo": null
+      "tipo": "Duplex"
     },
     {
       "rack": "DC.15",
       "equipo": "KP 3016 Productor",
       "ip": null,
-      "tipo": null
+      "tipo": "Duplex"
     },
     {
       "rack": "VACANTE",
@@ -551,67 +551,67 @@
       "rack": "TX.5",
       "equipo": "KP 3016 Transmision",
       "ip": null,
-      "tipo": null
+      "tipo": "Duplex"
     },
     {
       "rack": "S.1",
       "equipo": "Split 1",
       "ip": null,
-      "tipo": null
+      "tipo": "Split"
     },
     {
       "rack": "S.2",
       "equipo": "Split 2",
       "ip": null,
-      "tipo": null
+      "tipo": "Split"
     },
     {
       "rack": "S.3",
       "equipo": "Split 3",
       "ip": null,
-      "tipo": null
+      "tipo": "Split"
     },
     {
       "rack": "S.4",
       "equipo": "Split 4",
       "ip": null,
-      "tipo": null
+      "tipo": "Split"
     },
     {
       "rack": "MG.1",
       "equipo": "Merge 1",
       "ip": null,
-      "tipo": null
+      "tipo": "Merge"
     },
     {
       "rack": "MG.2",
       "equipo": "Merge 2",
       "ip": null,
-      "tipo": null
+      "tipo": "Merge"
     },
     {
       "rack": "MG.3",
       "equipo": "Merge 3",
       "ip": null,
-      "tipo": null
+      "tipo": "Merge"
     },
     {
       "rack": "MG.4",
       "equipo": "Merge 4",
       "ip": null,
-      "tipo": null
+      "tipo": "Merge"
     },
     {
       "rack": "H.1",
       "equipo": "RTS Zeus III",
       "ip": "192.168.3.40",
-      "tipo": null
+      "tipo": "Duplex"
     },
     {
       "rack": "H.2",
       "equipo": "Servidor",
       "ip": "N/D",
-      "tipo": null
+      "tipo": "Duplex"
     }
   ],
   "conexiones": [
@@ -6931,7 +6931,7 @@
     {
       "src": {
         "rack": "D.BACK.1",
-        "equipo": "Raspberry PI 1",
+        "equipo": "RPi 1 (SRT 1030)",
         "slot": "",
         "placa": "",
         "puerto": "HDMI Out"
@@ -6950,7 +6950,7 @@
     {
       "src": {
         "rack": "D.BACK.2",
-        "equipo": "Raspberry PI 2",
+        "equipo": "RPi 2 (SRT 1021)",
         "slot": "",
         "placa": "",
         "puerto": "HDMI Out"

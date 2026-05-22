@@ -5,7 +5,7 @@
       "rack": "B.1",
       "equipo": "Patch panel",
       "ip": null,
-      "tipo": null
+      "tipo": "Passthrough"
     },
     {
       "rack": "B.2",
@@ -161,13 +161,13 @@
       "rack": "Ext.1",
       "equipo": "Patch Ext. Video",
       "ip": null,
-      "tipo": null
+      "tipo": "Passthrough"
     },
     {
       "rack": "Ext.2",
       "equipo": "Patch Ext. Audio",
       "ip": null,
-      "tipo": null
+      "tipo": "Passthrough"
     },
     {
       "rack": "VACANTE",
@@ -191,19 +191,19 @@
       "rack": "S.1",
       "equipo": "Split 1",
       "ip": null,
-      "tipo": null
+      "tipo": "Split"
     },
     {
       "rack": "S.2",
       "equipo": "Split 2",
       "ip": null,
-      "tipo": null
+      "tipo": "Split"
     },
     {
       "rack": "S.3",
       "equipo": "Split 3",
       "ip": null,
-      "tipo": null
+      "tipo": "Split"
     }
   ],
   "conexiones": [
