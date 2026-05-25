@@ -6680,14 +6680,53 @@
       "rotulo": "INTERCOM",
       "notas": "",
       "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.7",
+        "equipo": "SmartView (AIRE/PGM)",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "dst": {
+        "rack": "N/C",
+        "equipo": "",
+        "slot": "",
+        "placa": "",
+        "puerto": ""
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": ""
+    },
+    {
+      "src": {
+        "rack": "B.7",
+        "equipo": "SmartView (AIRE/PGM)",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI In 1"
+      },
+      "dst": {
+        "rack": "B.7",
+        "equipo": "SmartView (AIRE/PGM)",
+        "slot": "",
+        "placa": "",
+        "puerto": "SDI Out 1"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true
     }
   ],
   "stats": {
     "nodos": 34,
-    "arcos_totales": 334,
-    "arcos_externos": 206,
-    "arcos_thru_internos": 128,
+    "arcos_totales": 336,
+    "arcos_externos": 207,
+    "arcos_thru_internos": 129,
     "arcos_con_destino": 171,
-    "arcos_sin_destino": 35
+    "arcos_sin_destino": 36
   }
 }
