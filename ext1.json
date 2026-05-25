@@ -213,7 +213,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 1"
+        "puerto": "P1"
       },
       "dst": {
         "rack": "B.8",
@@ -232,14 +232,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 1"
+        "puerto": "P1"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 1"
+        "puerto": "P1"
       },
       "rotulo": "",
       "notas": "",
@@ -252,7 +252,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 2"
+        "puerto": "P2"
       },
       "dst": {
         "rack": "B.8",
@@ -271,14 +271,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 2"
+        "puerto": "P2"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 2"
+        "puerto": "P2"
       },
       "rotulo": "",
       "notas": "",
@@ -291,7 +291,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 3"
+        "puerto": "P3"
       },
       "dst": {
         "rack": "B.8",
@@ -310,14 +310,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 3"
+        "puerto": "P3"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 3"
+        "puerto": "P3"
       },
       "rotulo": "",
       "notas": "",
@@ -330,7 +330,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 4"
+        "puerto": "P4"
       },
       "dst": {
         "rack": "B.8",
@@ -349,14 +349,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 4"
+        "puerto": "P4"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 4"
+        "puerto": "P4"
       },
       "rotulo": "",
       "notas": "",
@@ -369,7 +369,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 5"
+        "puerto": "P5"
       },
       "dst": {
         "rack": "N/C",
@@ -388,14 +388,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 5"
+        "puerto": "P5"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 5"
+        "puerto": "P5"
       },
       "rotulo": "",
       "notas": "",
@@ -408,7 +408,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 6"
+        "puerto": "P6"
       },
       "dst": {
         "rack": "B.2",
@@ -427,14 +427,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 6"
+        "puerto": "P6"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 6"
+        "puerto": "P6"
       },
       "rotulo": "",
       "notas": "",
@@ -447,7 +447,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 7"
+        "puerto": "P7"
       },
       "dst": {
         "rack": "B.2",
@@ -466,14 +466,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 7"
+        "puerto": "P7"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 7"
+        "puerto": "P7"
       },
       "rotulo": "",
       "notas": "",
@@ -486,7 +486,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 8"
+        "puerto": "P8"
       },
       "dst": {
         "rack": "B.2",
@@ -505,14 +505,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 8"
+        "puerto": "P8"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 8"
+        "puerto": "P8"
       },
       "rotulo": "",
       "notas": "",
@@ -525,7 +525,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 10"
+        "puerto": "P10"
       },
       "dst": {
         "rack": "C.2",
@@ -544,14 +544,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 10"
+        "puerto": "P10"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 10"
+        "puerto": "P10"
       },
       "rotulo": "",
       "notas": "",
@@ -564,7 +564,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 11"
+        "puerto": "P11"
       },
       "dst": {
         "rack": "C.2",
@@ -583,14 +583,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 11"
+        "puerto": "P11"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 11"
+        "puerto": "P11"
       },
       "rotulo": "",
       "notas": "",
@@ -603,7 +603,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 12"
+        "puerto": "P12"
       },
       "dst": {
         "rack": "C.2",
@@ -622,14 +622,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 12"
+        "puerto": "P12"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 12"
+        "puerto": "P12"
       },
       "rotulo": "",
       "notas": "",
@@ -642,7 +642,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 13"
+        "puerto": "P13"
       },
       "dst": {
         "rack": "C.3",
@@ -661,14 +661,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 13"
+        "puerto": "P13"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 13"
+        "puerto": "P13"
       },
       "rotulo": "",
       "notas": "",
@@ -681,7 +681,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 14"
+        "puerto": "P14"
       },
       "dst": {
         "rack": "C.4",
@@ -700,14 +700,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 14"
+        "puerto": "P14"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 14"
+        "puerto": "P14"
       },
       "rotulo": "",
       "notas": "",
@@ -720,7 +720,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 15"
+        "puerto": "P15"
       },
       "dst": {
         "rack": "B.2",
@@ -739,14 +739,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 15"
+        "puerto": "P15"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 15"
+        "puerto": "P15"
       },
       "rotulo": "",
       "notas": "",
@@ -759,7 +759,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 16"
+        "puerto": "P16"
       },
       "dst": {
         "rack": "B.6",
@@ -778,14 +778,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 16"
+        "puerto": "P16"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 16"
+        "puerto": "P16"
       },
       "rotulo": "",
       "notas": "",
@@ -798,7 +798,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 17"
+        "puerto": "P17"
       },
       "dst": {
         "rack": "N/C",
@@ -817,14 +817,14 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 17"
+        "puerto": "P17"
       },
       "dst": {
         "rack": "B.1",
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "Out 17"
+        "puerto": "P17"
       },
       "rotulo": "",
       "notas": "",
@@ -844,7 +844,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 1"
+        "puerto": "P1"
       },
       "rotulo": "IKE 4",
       "notas": "",
@@ -863,7 +863,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 2"
+        "puerto": "P2"
       },
       "rotulo": "IKE 5",
       "notas": "",
@@ -882,7 +882,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 3"
+        "puerto": "P3"
       },
       "rotulo": "JVC 1",
       "notas": "",
@@ -901,7 +901,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 4"
+        "puerto": "P4"
       },
       "rotulo": "JVC 2",
       "notas": "",
@@ -920,7 +920,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 5"
+        "puerto": "P5"
       },
       "rotulo": "JVC 3",
       "notas": "",
@@ -939,7 +939,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 6"
+        "puerto": "P6"
       },
       "rotulo": "IN 7",
       "notas": "",
@@ -978,7 +978,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 7"
+        "puerto": "P7"
       },
       "rotulo": "IN 8",
       "notas": "",
@@ -1017,7 +1017,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 8"
+        "puerto": "P8"
       },
       "rotulo": "IN 9",
       "notas": "",
@@ -1056,7 +1056,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 10"
+        "puerto": "P10"
       },
       "rotulo": "SW AUX 1",
       "notas": "",
@@ -1075,7 +1075,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 11"
+        "puerto": "P11"
       },
       "rotulo": "SW AUX 2",
       "notas": "",
@@ -1094,7 +1094,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 12"
+        "puerto": "P12"
       },
       "rotulo": "SW AUX 3",
       "notas": "",
@@ -1113,7 +1113,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 13"
+        "puerto": "P13"
       },
       "rotulo": "",
       "notas": "",
@@ -1132,7 +1132,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 14"
+        "puerto": "P14"
       },
       "rotulo": "",
       "notas": "",
@@ -1151,7 +1151,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 15"
+        "puerto": "P15"
       },
       "rotulo": "PC CG",
       "notas": "",
@@ -1170,7 +1170,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 16"
+        "puerto": "P16"
       },
       "rotulo": "PGM",
       "notas": "",
@@ -1209,7 +1209,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In 17"
+        "puerto": "P17"
       },
       "rotulo": "GRAB Out",
       "notas": "",
@@ -1228,7 +1228,7 @@
         "equipo": "Patch panel",
         "slot": "",
         "placa": "",
-        "puerto": "In/Out 18"
+        "puerto": "P18"
       },
       "rotulo": "I/O 10",
       "notas": "",
