@@ -1061,7 +1061,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "N/C",
       "notas": "",
       "disp_ext": ""
     },
@@ -1156,7 +1156,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "N/C",
       "notas": "Cable suelto en Rack E",
       "disp_ext": ""
     },
@@ -1194,7 +1194,7 @@
         "placa": "",
         "puerto": "SDI In"
       },
-      "rotulo": "CG",
+      "rotulo": "CG IN",
       "notas": "",
       "disp_ext": ""
     },
@@ -1346,7 +1346,7 @@
         "placa": "",
         "puerto": "P10"
       },
-      "rotulo": "",
+      "rotulo": "PATCH C.7 39",
       "notas": "",
       "disp_ext": ""
     },
@@ -1384,7 +1384,7 @@
         "placa": "",
         "puerto": "P8"
       },
-      "rotulo": "TO MOVIo",
+      "rotulo": "VALIJA G.2",
       "notas": "",
       "disp_ext": ""
     },
@@ -1403,7 +1403,7 @@
         "placa": "",
         "puerto": "P7"
       },
-      "rotulo": "to cv hd",
+      "rotulo": "ENCODER G.1",
       "notas": "",
       "disp_ext": ""
     },
@@ -1422,7 +1422,7 @@
         "placa": "",
         "puerto": "P6"
       },
-      "rotulo": "Radio desem",
+      "rotulo": "PATCH C.7 43",
       "notas": "",
       "disp_ext": ""
     },
@@ -1460,7 +1460,7 @@
         "placa": "",
         "puerto": "P4"
       },
-      "rotulo": "",
+      "rotulo": "MON MV TX",
       "notas": "",
       "disp_ext": ""
     },
@@ -1479,7 +1479,7 @@
         "placa": "",
         "puerto": "P3"
       },
-      "rotulo": "MONI LINEA",
+      "rotulo": "MON LINEA TX",
       "notas": "",
       "disp_ext": ""
     },
@@ -1498,7 +1498,7 @@
         "placa": "",
         "puerto": "P2"
       },
-      "rotulo": "Dest 47",
+      "rotulo": "PATCH C.7 47",
       "notas": "",
       "disp_ext": ""
     },
@@ -1517,7 +1517,7 @@
         "placa": "",
         "puerto": "P1"
       },
-      "rotulo": "Dest 48",
+      "rotulo": "MON PVW TX",
       "notas": "",
       "disp_ext": ""
     },
@@ -1555,7 +1555,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "N/C",
       "notas": "",
       "disp_ext": ""
     },
@@ -1612,7 +1612,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "N/C",
       "notas": "",
       "disp_ext": ""
     },
@@ -1650,7 +1650,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "",
+      "rotulo": "N/C",
       "notas": "",
       "disp_ext": ""
     },
@@ -1707,7 +1707,7 @@
         "placa": "",
         "puerto": ""
       },
-      "rotulo": "AJA FS4 2",
+      "rotulo": "N/C",
       "notas": "Cable suelto en Rack D.11",
       "disp_ext": ""
     },
@@ -2442,7 +2442,7 @@
         "placa": "",
         "puerto": "In 25"
       },
-      "rotulo": "",
+      "rotulo": "N/C",
       "notas": "Cable suelto en Rack L",
       "disp_ext": ""
     },
@@ -2539,7 +2539,7 @@
         "placa": "",
         "puerto": "In 28"
       },
-      "rotulo": "",
+      "rotulo": "N/C",
       "notas": "",
       "disp_ext": ""
     },
@@ -2751,7 +2751,7 @@
         "placa": "",
         "puerto": "In 36"
       },
-      "rotulo": "titlo elec elec",
+      "rotulo": "PATCH C.6 36",
       "notas": "",
       "disp_ext": ""
     },
@@ -2790,7 +2790,7 @@
         "placa": "",
         "puerto": "In 37"
       },
-      "rotulo": "full ece",
+      "rotulo": "PATCH C.6 37",
       "notas": "",
       "disp_ext": ""
     },
@@ -2829,7 +2829,7 @@
         "placa": "",
         "puerto": "In 38"
       },
-      "rotulo": "PATCH 6",
+      "rotulo": "PATCH C.6 38",
       "notas": "",
       "disp_ext": ""
     },
@@ -2868,7 +2868,7 @@
         "placa": "",
         "puerto": "In 39"
       },
-      "rotulo": "PATCH 7",
+      "rotulo": "PATCH C.6 39",
       "notas": "",
       "disp_ext": ""
     },
@@ -2907,7 +2907,7 @@
         "placa": "",
         "puerto": "In 40"
       },
-      "rotulo": "ALL PTCH 8",
+      "rotulo": "DECO D.CAM.",
       "notas": "",
       "disp_ext": ""
     },
@@ -3193,7 +3193,7 @@
         "placa": "",
         "puerto": "In 54"
       },
-      "rotulo": "BM 12 Stre",
+      "rotulo": "N/C",
       "notas": "",
       "disp_ext": ""
     },
@@ -3289,7 +3289,7 @@
         "placa": "",
         "puerto": "In 58"
       },
-      "rotulo": "AJA FS4 2",
+      "rotulo": "N/C",
       "notas": "Cable suelto en Rack D.11",
       "disp_ext": ""
     },
