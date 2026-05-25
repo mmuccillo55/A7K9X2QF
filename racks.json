@@ -248,12 +248,6 @@
       "tipo": null
     },
     {
-      "rack": "F.1",
-      "equipo": "?",
-      "ip": null,
-      "tipo": null
-    },
-    {
       "rack": "F.2",
       "equipo": "Sony HXCU-100 Cam 1",
       "ip": null,
@@ -10204,7 +10198,50 @@
       "rotulo": "",
       "notas": "",
       "disp_ext": "",
-      "es_thru_interno": true
+      "es_thru_interno": true,
+      "es_merge": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "2",
+        "placa": "Embedder",
+        "puerto": "A1"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "2",
+        "placa": "Embedder",
+        "puerto": "SDI Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true,
+      "es_merge": true
+    },
+    {
+      "src": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "2",
+        "placa": "Embedder",
+        "puerto": "A2"
+      },
+      "dst": {
+        "rack": "D.9",
+        "equipo": "openGear X",
+        "slot": "2",
+        "placa": "Embedder",
+        "puerto": "SDI Out"
+      },
+      "rotulo": "",
+      "notas": "",
+      "disp_ext": "",
+      "es_thru_interno": true,
+      "es_merge": true
     },
     {
       "src": {
@@ -11098,10 +11135,10 @@
     }
   ],
   "stats": {
-    "nodos": 102,
-    "arcos_totales": 541,
+    "nodos": 101,
+    "arcos_totales": 543,
     "arcos_externos": 355,
-    "arcos_thru_internos": 186,
+    "arcos_thru_internos": 188,
     "arcos_con_destino": 283,
     "arcos_sin_destino": 72
   }
