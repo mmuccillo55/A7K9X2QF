@@ -3,40 +3,42 @@ import json
 import sys
 import os
 
-# ── Configuración ─────────────────────────────────────────────────────────────
+# ── Config ────────────────────────────────────────────────────────────────────
 
 if len(sys.argv) < 3:
-    print("Uso: python parse.py <archivo.xlsx> <salida.json>", file=sys.stderr)
+    print("Use: python parse.py <file.xlsx> <out.json>", file=sys.stderr)
     sys.exit(1)
 
 XLSX_FILE = sys.argv[1]
 JSON_FILE = sys.argv[2]
 
-THRU_MARCA = 'T'
-MERGE_MARCA = 'M'
+THRU_FLAG = 'T'
+MRG_FLAG  = 'M'
+SC_FLAG   = 'SC'
 
 COL = {
-    'src_rack':     'Rack (Origen)',
-    'src_equipo':   'Equipo (Origen)',
-    'src_slot':     'Slot (Origen)',
-    'src_placa':    'Placa (Origen)',
-    'src_puerto':   'Puerto (Origen)',
-    'thru':         'Thru',
-    'thru_entrada': 'Puerto Thru',
-    'dst_rack':     'Rack (Destino)',
-    'dst_equipo':   'Equipo (Destino)',
-    'dst_slot':     'Slot (Destino)',
-    'dst_placa':    'Placa (Destino)',
-    'dst_puerto':   'Puerto (Destino)',
-    'rotulo':       'Rótulo',
-    'notas':        'Notas',
-    'disp_ext':     'Disp. Ext.',
+    'src_rack':   'Rack (Origen)',
+    'src_equip':  'Equipo (Origen)',
+    'src_slot':   'Slot (Origen)',
+    'src_board':  'Placa (Origen)',
+    'src_port':   'Puerto (Origen)',
+    'link_type':  'Link',
+    'link_ports': 'Puerto Link',
+    'dst_rack':   'Rack (Destino)',
+    'dst_equip':  'Equipo (Destino)',
+    'dst_slot':   'Slot (Destino)',
+    'dst_board':  'Placa (Destino)',
+    'dst_port':   'Puerto (Destino)',
+    'label':      'Rótulo',
+    'notes':      'Notas',
+    'ext_device': 'Disp. Ext.',
 }
 
 COL_DB = {
-    'rack':   'Rack',
-    'equipo': 'Equipo',
-    'ip':     'IP',
+    'rack':  'Rack',
+    'equip': 'Equipo',
+    'ip':    'IP',
+    'type':  'Tipo',
 }
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -44,214 +46,209 @@ COL_DB = {
 def cv(v):
     if pd.isna(v):
         return ''
-    
-    # Si es número
     if isinstance(v, float):
         if v.is_integer():
             return str(int(v))  # 1021.0 → "1021"
         return str(v)
-    
     s = str(v).strip()
     return '' if s in ('nan', 'NaN') else s
 
 
 def parse_ip(v):
     s = cv(v)
-    if s == '':
-        return None
-    return s
+    return None if s == '' else s
 
 
-def make_endpoint(rack, equipo, slot, placa, puerto):
+def make_endpoint(rack, equip, slot, board, port):
     return {
-        'rack':   cv(rack),
-        'equipo': cv(equipo),
-        'slot':   cv(slot),
-        'placa':  cv(placa),
-        'puerto': cv(puerto),
+        'rack':  cv(rack),
+        'equip': cv(equip),
+        'slot':  cv(slot),
+        'board': cv(board),
+        'port':  cv(port),
     }
 
 
 def check_columns(df, required, sheet_name):
     missing = [col for col in required.values() if col not in df.columns]
     if missing:
-        print(f"ERROR: en la hoja '{sheet_name}' faltan columnas: {missing}", file=sys.stderr)
+        print(f"ERROR: missing columns in sheet '{sheet_name}': {missing}", file=sys.stderr)
         sys.exit(1)
 
 
 def endpoint_to_key(ep):
-    return f"{ep['rack']}/{ep['slot']}/{ep['placa']}/{ep['puerto']}"
+    return f"{ep['rack']}/{ep['slot']}/{ep['board']}/{ep['port']}"
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 if not os.path.exists(XLSX_FILE):
-    print(f"ERROR: no se encontró '{XLSX_FILE}'", file=sys.stderr)
+    print(f"ERROR: '{XLSX_FILE}' was not found", file=sys.stderr)
     sys.exit(1)
 
 sheets = pd.read_excel(XLSX_FILE, sheet_name=None)
 
 for sheet in ('Conexiones', 'DB'):
     if sheet not in sheets:
-        print(f"ERROR: no se encontró la hoja '{sheet}'", file=sys.stderr)
+        print(f"ERROR: sheet '{sheet}' was not found", file=sys.stderr)
         sys.exit(1)
 
 df_con = sheets['Conexiones']
-df_db = sheets['DB']
+df_db  = sheets['DB']
 
 check_columns(df_con, COL, 'Conexiones')
 check_columns(df_db, COL_DB, 'DB')
 
-# ── Construir nodos desde DB ──────────────────────────────────────────────────
+# ── Build nodes from DB ───────────────────────────────────────────────────────
 
-nodos = []
-nodos_index = {}
+nodes = []
+nodes_index = {}
 
 for _, row in df_db.iterrows():
-    rack = cv(row[COL_DB['rack']])
-    equipo = cv(row[COL_DB['equipo']])
-    ip = parse_ip(row[COL_DB['ip']])  # ← FALTABA ESTO
-    tipo = cv(row['Tipo']) if 'Tipo' in df_db.columns else ''
-    
-    if not rack and not equipo:
+    rack      = cv(row[COL_DB['rack']])
+    equip     = cv(row[COL_DB['equip']])
+    ip        = parse_ip(row[COL_DB['ip']])
+    node_type = cv(row[COL_DB['type']]) if COL_DB['type'] in df_db.columns else ''
+
+    if not rack and not equip:
         continue
-    
-    nodo = {
-        'rack':   rack,
-        'equipo': equipo,
-        'ip':     ip,
-        'tipo':   tipo or None,
+
+    node = {
+        'rack':  rack,
+        'equip': equip,
+        'ip':    ip,
+        'type':  node_type or None,
     }
-    
-    nodos.append(nodo)
-    nodos_index[rack] = nodo
 
-# ── Construir conexiones ──────────────────────────────────────────────────────
+    nodes.append(node)
+    nodes_index[rack] = node
 
-conexiones = []
-warnings = []
+# ── Build connections ─────────────────────────────────────────────────────────
+
+connections = []
+warnings    = []
 
 for idx, row in df_con.iterrows():
-    fila = idx + 2
-    
-    # Origen
-    src_rack = cv(row[COL['src_rack']])
-    src_equipo = cv(row[COL['src_equipo']])
-    src_slot = cv(row[COL['src_slot']])
-    src_placa = cv(row[COL['src_placa']])
-    src_puerto = cv(row[COL['src_puerto']])
-    
-    # Thru
-    tiene_thru  = cv(row[COL['thru']]) == THRU_MARCA
-    tiene_merge = cv(row[COL['thru']]) == MERGE_MARCA
-    thru_entrada = cv(row[COL['thru_entrada']])
-    
-    # Destino
-    dst_rack = cv(row[COL['dst_rack']])
-    dst_equipo = cv(row[COL['dst_equipo']])
-    dst_slot = cv(row[COL['dst_slot']])
-    dst_placa = cv(row[COL['dst_placa']])
-    dst_puerto = cv(row[COL['dst_puerto']])
-    
-    # Metadata
-    rotulo = cv(row[COL['rotulo']])
-    notas = cv(row[COL['notas']])
-    disp_ext = cv(row[COL['disp_ext']]) if COL['disp_ext'] in df_con.columns else ''
-    
-    if not src_rack and not src_equipo and not src_puerto:
+    line_no = idx + 2
+
+    src_rack  = cv(row[COL['src_rack']])
+    src_equip = cv(row[COL['src_equip']])
+    src_slot  = cv(row[COL['src_slot']])
+    src_board = cv(row[COL['src_board']])
+    src_port  = cv(row[COL['src_port']])
+
+    link_type  = cv(row[COL['link_type']])
+    link_ports = cv(row[COL['link_ports']])
+    is_thru = link_type == THRU_FLAG
+    is_mrg  = link_type == MRG_FLAG
+    is_sc   = link_type == SC_FLAG
+
+    dst_rack  = cv(row[COL['dst_rack']])
+    dst_equip = cv(row[COL['dst_equip']])
+    dst_slot  = cv(row[COL['dst_slot']])
+    dst_board = cv(row[COL['dst_board']])
+    dst_port  = cv(row[COL['dst_port']])
+
+    label      = cv(row[COL['label']])
+    notes      = cv(row[COL['notes']])
+    ext_device = cv(row[COL['ext_device']]) if COL['ext_device'] in df_con.columns else ''
+
+    if not src_rack and not src_equip and not src_port:
         continue
-    
-    # Validaciones
+
+    # Validate source
     if src_rack not in ('', 'N/D'):
-        if src_rack not in nodos_index:
-            warnings.append(f"fila {fila}: origen '{src_rack} / {src_equipo}' no está en DB")
-    
-    if dst_rack not in ('', 'N/C', 'N/D') and dst_equipo not in ('', 'N/D'):
-        if dst_rack not in nodos_index:
-            warnings.append(f"fila {fila}: destino '{dst_rack} / {dst_equipo}' no está en DB")
-    
-    # ── Arco externo ───────────────────────────────────────────────────────────
-    
-    arco_externo = {
-        'src': make_endpoint(src_rack, src_equipo, src_slot, src_placa, src_puerto),
-        'dst': make_endpoint(dst_rack, dst_equipo, dst_slot, dst_placa, dst_puerto),
-        'rotulo': rotulo,
-        'notas': notas,
-        'disp_ext': disp_ext,
+        if src_rack not in nodes_index:
+            warnings.append(f"row {line_no}: source '{src_rack} / {src_equip}' not found in DB")
+
+    # Validate destination
+    if dst_rack not in ('', 'N/C', 'N/D') and dst_equip not in ('', 'N/D'):
+        if dst_rack not in nodes_index:
+            warnings.append(f"row {line_no}: destination '{dst_rack} / {dst_equip}' not found in DB")
+
+    # ── External edge ─────────────────────────────────────────────────────────
+
+    edge = {
+        'src':        make_endpoint(src_rack, src_equip, src_slot, src_board, src_port),
+        'dst':        make_endpoint(dst_rack, dst_equip, dst_slot, dst_board, dst_port),
+        'label':      label,
+        'notes':      notes,
+        'ext_device': ext_device,
     }
-    conexiones.append(arco_externo)
-    
-    # ── Arco interno (Thru) ───────────────────────────────────────────────────
-    
-    if tiene_thru:
-        if not thru_entrada:
-            warnings.append(f"fila {fila}: Thru=T pero 'Puerto Thru' está vacío")
+    if is_sc:
+        edge['is_sc'] = True
+    connections.append(edge)
+
+    # ── Internal edge (Thru) ──────────────────────────────────────────────────
+
+    if is_thru:
+        if not link_ports:
+            warnings.append(f"row {line_no}: link_type=T but 'link_ports' is empty")
         else:
-            arco_interno = {
-                'src': make_endpoint(src_rack, src_equipo, src_slot, src_placa, thru_entrada),
-                'dst': make_endpoint(src_rack, src_equipo, src_slot, src_placa, src_puerto),
-                'rotulo': '',
-                'notas': '',
-                'disp_ext': '',
-                'es_thru_interno': True,
-            }
-            conexiones.append(arco_interno)
-    
-    if tiene_merge:
-        if not thru_entrada:
-            warnings.append(f"fila {fila}: Thru=M pero 'Puerto Thru' está vacío")
+            connections.append({
+                'src':        make_endpoint(src_rack, src_equip, src_slot, src_board, link_ports),
+                'dst':        make_endpoint(src_rack, src_equip, src_slot, src_board, src_port),
+                'label':      '',
+                'notes':      '',
+                'ext_device': '',
+                'is_thru':    True,
+            })
+
+    if is_mrg:
+        if not link_ports:
+            warnings.append(f"row {line_no}: link_type=M but 'link_ports' is empty")
         else:
-            entradas = [e.strip() for e in thru_entrada.split(',')]
-            for entrada in entradas:
-                arco_interno = {
-                    'src': make_endpoint(src_rack, src_equipo, src_slot, src_placa, entrada),
-                    'dst': make_endpoint(src_rack, src_equipo, src_slot, src_placa, src_puerto),
-                    'rotulo': '',
-                    'notas': '',
-                    'disp_ext': '',
-                    'es_thru_interno': True,
-                    'es_merge': True,
-                }
-                conexiones.append(arco_interno)
+            for port in [p.strip() for p in link_ports.split(',')]:
+                connections.append({
+                    'src':        make_endpoint(src_rack, src_equip, src_slot, src_board, port),
+                    'dst':        make_endpoint(src_rack, src_equip, src_slot, src_board, src_port),
+                    'label':      '',
+                    'notes':      '',
+                    'ext_device': '',
+                    'is_thru':    True,
+                    'is_mrg':     True,
+                })
 
 # ── Stats ─────────────────────────────────────────────────────────────────────
 
-arcos_thru = sum(1 for c in conexiones if c.get('es_thru_interno', False))
-arcos_merge = sum(1 for c in conexiones if c.get('es_merge', False))
-arcos_externos = len(conexiones) - arcos_thru
-arcos_con_destino = sum(1 for c in conexiones if c['dst']['puerto'] != '' and not c.get('es_thru_interno', False))
-arcos_sin_destino = arcos_externos - arcos_con_destino
+thru_edges    = sum(1 for c in connections if c.get('is_thru', False))
+merge_edges   = sum(1 for c in connections if c.get('is_mrg', False))
+sc_edges      = sum(1 for c in connections if c.get('is_sc', False))
+ext_edges     = len(connections) - thru_edges
+linked_edges  = sum(1 for c in connections if c['dst']['port'] != '' and not c.get('is_thru', False))
+dangling_edges = ext_edges - linked_edges
 
 stats = {
-    'nodos': len(nodos),
-    'arcos_totales': len(conexiones),
-    'arcos_externos': arcos_externos,
-    'arcos_thru_internos': arcos_thru,
-    'arcos_con_destino': arcos_con_destino,
-    'arcos_sin_destino': arcos_sin_destino,
+    'nodes':       len(nodes),
+    'total_edges': len(connections),
+    'ext_edges':   ext_edges,
+    'thru_edges':  thru_edges,
+    'linked':      linked_edges,
+    'dangling':    dangling_edges,
+    'sc_edges':    sc_edges,
 }
 
 # ── Output ────────────────────────────────────────────────────────────────────
 
-proyecto = os.path.splitext(os.path.basename(XLSX_FILE))[0]
+project = os.path.splitext(os.path.basename(XLSX_FILE))[0]
 
 output = {
-    'proyecto': proyecto,
-    'nodos': nodos,
-    'conexiones': conexiones,
-    'stats': stats,
+    'project':     project,
+    'nodes':       nodes,
+    'connections': connections,
+    'stats':       stats,
 }
 
 with open(JSON_FILE, 'w', encoding='utf-8') as f:
     json.dump(output, f, ensure_ascii=False, indent=2)
 
-# ── Resumen ───────────────────────────────────────────────────────────────────
+# ── Summary ───────────────────────────────────────────────────────────────────
 
-print(f"OK: '{XLSX_FILE}' -> '{JSON_FILE}'")
-print(f"  nodos:               {stats['nodos']}")
-print(f"  arcos totales:       {stats['arcos_totales']}")
-print(f"    - externos:        {stats['arcos_externos']}")
-print(f"    - thru internos:   {stats['arcos_thru_internos']}")
+print(f"  nodes:              {stats['nodes']}")
+print(f"  total edges:        {stats['total_edges']}")
+print(f"    - external:       {stats['ext_edges']}")
+print(f"    - thru (internal):{stats['thru_edges']}")
+print(f"    - same connector: {stats['sc_edges']}")
 
 if warnings:
     print(f"\nWARNINGS ({len(warnings)}):")
